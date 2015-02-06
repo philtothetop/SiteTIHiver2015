@@ -146,7 +146,7 @@
                             <h3>En entreprise</h3>
                             <p>
                                 Le superviseur désigné par l'entreprise est responsable de fournir l'aide technique et les ressources nécessaires à 
-                l'accomplissement des tâches inhérentes à la réalisation du projet demandé.<br>
+                l'accomplissement des tâches inhérentes à la réalisation du projet demandé.<br/>
                                 Il est également responsable de l'évaluation du stagiaire. Vers le milieu du stage, il doit compléter la grille d'évaluation 
                 fournie par le collège de Granby et en discuter avec l'étudiant. Cette évaluation n'est pas comptabilisée dans sa note finale. 
                 Il complète la même évaluation à la fin de la période de stage et doit à nouveau en discuter avec l'étudiant. Le résultat de 
@@ -158,7 +158,7 @@
                             <h3>Au cégep</h3>
                             <p>
                                 Un superviseur du cégep est affecté à chaque étudiant en milieu de formation. Ce superviseur est responsable d'établir 
-                le contact avec son vis-à-vis de l'entreprise pour s'assurer du bon fonctionnement de l'étudiant dans son milieu de stage.<br>
+                le contact avec son vis-à-vis de l'entreprise pour s'assurer du bon fonctionnement de l'étudiant dans son milieu de stage.<br/>
                                 De plus, le superviseur du cégep est responsable d'encadrer, de diriger et d'évaluer l'étudiant dans l'accomplissement 
                 de son projet de stage. Pour ce faire, il effectue trois visites : une visite en début de stage, une visite vers le 
                 milieu du stage et une dernière visite vers la fin du stage. D’autres visites peuvent être faites selon le besoin.
