@@ -63,11 +63,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Classes\WebForm1.aspx" />
+    <Content Include="Classes\Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\customStyleSheet.css" />
     <Content Include="Css\scrolling-nav.css" />
+    <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
@@ -123,18 +124,28 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Classes\Vertic.aspx.cs">
+      <DependentUpon>Vertic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Classes\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Classes\Vertic.aspx.designer.cs">
+      <DependentUpon>Vertic.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErreursImportants.aspx.cs">
+      <DependentUpon>ErreursImportants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErreursImportants.aspx.designer.cs">
+      <DependentUpon>ErreursImportants.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorHandling.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
