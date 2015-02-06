@@ -7,18 +7,18 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique {
+namespace Site_de_la_Technique_Informatique.Inscription {
     
     
-    public partial class Log {
+    public partial class Inscription {
         
         /// <summary>
-        /// Contrôle lviewLogs.
+        /// Contrôle lviewFormulaireInscription.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewLogs;
+        protected global::System.Web.UI.WebControls.ListView lviewFormulaireInscription;
     }
 }

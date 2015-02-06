@@ -28,13 +28,18 @@
         <AssociationConnector Association="ModelTI.FK_UtilisateurEnteteForum" />
         <AssociationConnector Association="ModelTI.FK_ProfesseurEvenement" />
         <AssociationConnector Association="ModelTI.FK_ProfesseurFAQ" />
-        <AssociationConnector Association="ModelTI.FK_UtilisateurLog" />
         <AssociationConnector Association="ModelTI.FK_UtilisateurMessageForum" />
         <AssociationConnector Association="ModelTI.FK_ProfesseurNouvelle" />
         <AssociationConnector Association="ModelTI.FK_ProfesseurParutionMedia" />
         <AssociationConnector Association="ModelTI.FK_Etudiant_inherits_Utilisateur" />
         <AssociationConnector Association="ModelTI.FK_Professeur_inherits_Utilisateur" />
         <AssociationConnector Association="ModelTI.ProfesseurCours" />
+        <EntityTypeShape EntityType="ModelTI.EmployeurJeu" PointX="10.375" PointY="5.125" Width="2.375" />
+        <EntityTypeShape EntityType="ModelTI.OffreEmploiJeu" PointX="13.5" PointY="3.5" Width="2.125" />
+        <AssociationConnector Association="ModelTI.EmployeurJeuOffreEmploiJeu" />
+        <AssociationConnector Association="ModelTI.LogJeuEmployeurJeu" />
+        <AssociationConnector Association="ModelTI.LogJeuUtilisateurJeu" />
+        <EntityTypeShape EntityType="ModelTI.DateEvenementVerTICJeu" Width="2.625" PointX="15.875" PointY="9" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

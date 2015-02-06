@@ -21,6 +21,9 @@
     <EntitySet Name="UtilisateurJeu_Etudiant" EntityType="ModelTI.Store.UtilisateurJeu_Etudiant" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UtilisateurJeu_Professeur" EntityType="ModelTI.Store.UtilisateurJeu_Professeur" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VerTICJeu" EntityType="ModelTI.Store.VerTICJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeurJeuSet" EntityType="ModelTI.Store.EmployeurJeuSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OffreEmploiJeuSet" EntityType="ModelTI.Store.OffreEmploiJeuSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DateEvenementVerTICJeuSet" EntityType="ModelTI.Store.DateEvenementVerTICJeuSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProfesseurCours" EntityType="ModelTI.Store.ProfesseurCours" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_AdminLog" Association="ModelTI.Store.FK_AdminLog">
       <End Role="AdminJeu" EntitySet="AdminJeu" />
@@ -54,10 +57,6 @@
       <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
       <End Role="FAQJeu" EntitySet="FAQJeu" />
     </AssociationSet>
-    <AssociationSet Name="FK_UtilisateurLog" Association="ModelTI.Store.FK_UtilisateurLog">
-      <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
-      <End Role="LogJeu" EntitySet="LogJeu" />
-    </AssociationSet>
     <AssociationSet Name="FK_UtilisateurMessageForum" Association="ModelTI.Store.FK_UtilisateurMessageForum">
       <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
       <End Role="MessageForumJeu" EntitySet="MessageForumJeu" />
@@ -86,6 +85,18 @@
       <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
       <End Role="ProfesseurCours" EntitySet="ProfesseurCours" />
     </AssociationSet>
+    <AssociationSet Name="EmployeurJeuOffreEmploiJeu" Association="ModelTI.Store.EmployeurJeuOffreEmploiJeu">
+      <End Role="EmployeurJeu" EntitySet="EmployeurJeuSet" />
+      <End Role="OffreEmploiJeu" EntitySet="OffreEmploiJeuSet" />
+    </AssociationSet>
+    <AssociationSet Name="LogJeuEmployeurJeu" Association="ModelTI.Store.LogJeuEmployeurJeu">
+      <End Role="LogJeu" EntitySet="LogJeu" />
+      <End Role="EmployeurJeu" EntitySet="EmployeurJeuSet" />
+    </AssociationSet>
+    <AssociationSet Name="LogJeuUtilisateurJeu" Association="ModelTI.Store.LogJeuUtilisateurJeu">
+      <End Role="LogJeu" EntitySet="LogJeu" />
+      <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="AdminJeu">
     <Key>
@@ -109,10 +120,10 @@
       <PropertyRef Name="IDCours" />
     </Key>
     <Property Name="IDCours" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nomCours" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="nomCours" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="noCours" Type="nvarchar" Nullable="false" MaxLength="20" />
     <Property Name="noSessionCours" Type="int" Nullable="false" />
-    <Property Name="descriptionCours" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="descriptionCours" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="EnteteForumJeu">
     <Key>
@@ -129,8 +140,8 @@
       <PropertyRef Name="IDEvenement" />
     </Key>
     <Property Name="IDEvenement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="titreEvenement" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="descriptionEvenement" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="titreEvenement" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="descriptionEvenement" Type="nvarchar(max)" Nullable="false" />
     <Property Name="datePublication" Type="datetime" Nullable="false" />
     <Property Name="ProfesseurIDProfesseur" Type="int" Nullable="false" />
     <Property Name="dateDebutEvenement" Type="datetime" Nullable="false" />
@@ -156,6 +167,8 @@
     <Property Name="EtudiantIDEtudiant" Type="int" Nullable="true" />
     <Property Name="AdminIDAdmin" Type="int" Nullable="true" />
     <Property Name="UtilisateurIDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="EmployeurJeu_IDEmployeur" Type="int" Nullable="true" />
+    <Property Name="UtilisateurJeu_IDUtilisateur" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="MessageForumJeu">
     <Key>
@@ -172,9 +185,9 @@
       <PropertyRef Name="IDNouvelle" />
     </Key>
     <Property Name="IDNouvelle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="titreNouvelle" Type="nvarchar" Nullable="false" MaxLength="30" />
-    <Property Name="texteNouvelle" Type="nvarchar" Nullable="false" MaxLength="2000" />
-    <Property Name="pathPhotoNouvelle" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="titreNouvelle" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="texteNouvelle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pathPhotoNouvelle" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="dateNouvelle" Type="datetime" Nullable="false" />
     <Property Name="ProfesseurIDProfesseur" Type="int" Nullable="false" />
   </EntityType>
@@ -183,8 +196,8 @@
       <PropertyRef Name="IDParutionMedia" />
     </Key>
     <Property Name="IDParutionMedia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="pathFichierPDF" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="descriptionParution" Type="nvarchar" Nullable="true" MaxLength="2000" />
+    <Property Name="pathFichierPDF" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="descriptionParution" Type="nvarchar(max)" Nullable="true" />
     <Property Name="dateParution" Type="datetime" Nullable="false" />
     <Property Name="ProfesseurIDProfesseur" Type="int" Nullable="false" />
   </EntityType>
@@ -205,7 +218,7 @@
     <Property Name="prenom" Type="nvarchar" Nullable="false" MaxLength="15" />
     <Property Name="courriel" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="hashMotDepasse" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="pathPhotoProfil" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="pathPhotoProfil" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="photoDescription" Type="nvarchar" Nullable="true" MaxLength="500" />
     <Property Name="temoignage" Type="nvarchar" Nullable="true" MaxLength="1000" />
     <Property Name="dateTemoignage" Type="datetime" Nullable="true" />
@@ -221,6 +234,7 @@
     <Property Name="valideTemoignage" Type="bit" Nullable="false" />
     <Property Name="valideCourriel" Type="bit" Nullable="false" />
     <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="pathCV" Type="nvarchar" Nullable="true" MaxLength="200" />
   </EntityType>
   <EntityType Name="UtilisateurJeu_Professeur">
     <Key>
@@ -228,19 +242,57 @@
     </Key>
     <Property Name="IDProfesseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="presentation" Type="nvarchar" Nullable="true" MaxLength="2000" />
   </EntityType>
   <EntityType Name="VerTICJeu">
     <Key>
       <PropertyRef Name="IDVerTIC" />
     </Key>
     <Property Name="IDVerTIC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dateDebut" Type="datetime" Nullable="false" />
-    <Property Name="dateFin" Type="datetime" Nullable="false" />
-    <Property Name="descriptionEvenement" Type="nvarchar" Nullable="false" MaxLength="500" />
     <Property Name="descriptionLicence" Type="nvarchar" Nullable="false" MaxLength="2000" />
     <Property Name="descriptionLibre" Type="nvarchar" Nullable="false" MaxLength="2000" />
     <Property Name="caracteristiquesPortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
     <Property Name="autrePortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="EmployeurJeuSet">
+    <Key>
+      <PropertyRef Name="IDEmployeur" />
+    </Key>
+    <Property Name="IDEmployeur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomEmployeur" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="hashMotDepasse" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="courriel" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="compteActif" Type="bit" Nullable="false" />
+    <Property Name="valideCourriel" Type="bit" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="dateInscription" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OffreEmploiJeuSet">
+    <Key>
+      <PropertyRef Name="IDOffreEmploi" />
+    </Key>
+    <Property Name="IDOffreEmploi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreOffre" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="descriptionOffre" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="dateOffre" Type="datetime" Nullable="false" />
+    <Property Name="dateExpiration" Type="datetime" Nullable="true" />
+    <Property Name="dateDebutOffre" Type="datetime" Nullable="false" />
+    <Property Name="pathPDFDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="salaire" Type="decimal" Nullable="false" />
+    <Property Name="nbHeureSemaine" Type="smallint" Nullable="false" />
+    <Property Name="lieuTravail" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="noTelephone" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="noTelecopieur" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="courrielOffre" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="personneRessource" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="EmployeurJeuIDEmployeur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DateEvenementVerTICJeuSet">
+    <Key>
+      <PropertyRef Name="IDDateEvenement" />
+    </Key>
+    <Property Name="IDDateEvenement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Evenement" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ProfesseurCours">
     <Key>
@@ -346,18 +398,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UtilisateurLog">
-    <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="1" />
-    <End Role="LogJeu" Type="ModelTI.Store.LogJeu" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UtilisateurJeu">
-        <PropertyRef Name="IDUtilisateur" />
-      </Principal>
-      <Dependent Role="LogJeu">
-        <PropertyRef Name="UtilisateurIDUtilisateur" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_UtilisateurMessageForum">
     <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="1" />
     <End Role="MessageForumJeu" Type="ModelTI.Store.MessageForumJeu" Multiplicity="*" />
@@ -419,6 +459,42 @@
       </Principal>
       <Dependent Role="UtilisateurJeu_Professeur">
         <PropertyRef Name="IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeurJeuOffreEmploiJeu">
+    <End Role="EmployeurJeu" Type="ModelTI.Store.EmployeurJeuSet" Multiplicity="1" />
+    <End Role="OffreEmploiJeu" Type="ModelTI.Store.OffreEmploiJeuSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeurJeu">
+        <PropertyRef Name="IDEmployeur" />
+      </Principal>
+      <Dependent Role="OffreEmploiJeu">
+        <PropertyRef Name="EmployeurJeuIDEmployeur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LogJeuEmployeurJeu">
+    <End Role="LogJeu" Type="ModelTI.Store.LogJeu" Multiplicity="*" />
+    <End Role="EmployeurJeu" Type="ModelTI.Store.EmployeurJeuSet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeurJeu">
+        <PropertyRef Name="IDEmployeur" />
+      </Principal>
+      <Dependent Role="LogJeu">
+        <PropertyRef Name="EmployeurJeu_IDEmployeur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LogJeuUtilisateurJeu">
+    <End Role="LogJeu" Type="ModelTI.Store.LogJeu" Multiplicity="*" />
+    <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="LogJeu">
+        <PropertyRef Name="UtilisateurJeu_IDUtilisateur" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -498,10 +574,6 @@
             <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
             <End Role="FAQJeu" EntitySet="FAQJeu" />
           </AssociationSet>
-          <AssociationSet Name="FK_UtilisateurLog" Association="ModelTI.FK_UtilisateurLog">
-            <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
-            <End Role="LogJeu" EntitySet="LogJeu" />
-          </AssociationSet>
           <AssociationSet Name="FK_UtilisateurMessageForum" Association="ModelTI.FK_UtilisateurMessageForum">
             <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
             <End Role="MessageForumJeu" EntitySet="MessageForumJeu" />
@@ -526,6 +598,21 @@
             <End Role="CoursJeu" EntitySet="CoursJeu" />
             <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
           </AssociationSet>
+          <EntitySet Name="EmployeurJeuSet" EntityType="ModelTI.EmployeurJeu" />
+          <EntitySet Name="OffreEmploiJeuSet" EntityType="ModelTI.OffreEmploiJeu" />
+          <AssociationSet Name="EmployeurJeuOffreEmploiJeu" Association="ModelTI.EmployeurJeuOffreEmploiJeu">
+            <End EntitySet="EmployeurJeuSet" Role="EmployeurJeu" />
+            <End EntitySet="OffreEmploiJeuSet" Role="OffreEmploiJeu" />
+          </AssociationSet>
+          <AssociationSet Name="LogJeuEmployeurJeu" Association="ModelTI.LogJeuEmployeurJeu">
+            <End EntitySet="LogJeu" Role="LogJeu" />
+            <End EntitySet="EmployeurJeuSet" Role="EmployeurJeu" />
+          </AssociationSet>
+          <AssociationSet Name="LogJeuUtilisateurJeu" Association="ModelTI.LogJeuUtilisateurJeu">
+            <End Role="LogJeu" EntitySet="LogJeu" />
+            <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+          </AssociationSet>
+          <EntitySet Name="DateEvenementVerTICJeuSet" EntityType="ModelTI.DateEvenementVerTICJeu" />
         </EntityContainer>
         <EntityType Name="AdminJeu">
           <Key>
@@ -552,10 +639,10 @@
             <PropertyRef Name="IDCours" />
           </Key>
           <Property Name="IDCours" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nomCours" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="nomCours" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="noCours" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="noSessionCours" Type="Int32" Nullable="false" />
-          <Property Name="descriptionCours" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionCours" Type="String" Nullable="false" MaxLength="10000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.ProfesseurCours" FromRole="CoursJeu" ToRole="UtilisateurJeu_Professeur" />
         </EntityType>
         <EntityType Name="EnteteForumJeu">
@@ -577,8 +664,8 @@
             <PropertyRef Name="IDEvenement" />
           </Key>
           <Property Name="IDEvenement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titreEvenement" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="descriptionEvenement" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="titreEvenement" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionEvenement" Type="String" Nullable="false" MaxLength="10000" FixedLength="false" Unicode="true" />
           <Property Name="datePublication" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ProfesseurIDProfesseur" Type="Int32" Nullable="false" />
           <Property Name="dateDebutEvenement" Type="DateTime" Nullable="false" Precision="3" />
@@ -607,7 +694,8 @@
           <Property Name="AdminIDAdmin" Type="Int32" />
           <Property Name="UtilisateurIDUtilisateur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AdminJeu" Relationship="ModelTI.FK_AdminLog" FromRole="LogJeu" ToRole="AdminJeu" />
-          <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.FK_UtilisateurLog" FromRole="LogJeu" ToRole="UtilisateurJeu" />
+          <NavigationProperty Name="EmployeurJeu" Relationship="ModelTI.LogJeuEmployeurJeu" FromRole="LogJeu" ToRole="EmployeurJeu" />
+          <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.LogJeuUtilisateurJeu" FromRole="LogJeu" ToRole="UtilisateurJeu" />
         </EntityType>
         <EntityType Name="MessageForumJeu">
           <Key>
@@ -626,9 +714,9 @@
             <PropertyRef Name="IDNouvelle" />
           </Key>
           <Property Name="IDNouvelle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titreNouvelle" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="texteNouvelle" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
-          <Property Name="pathPhotoNouvelle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="titreNouvelle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="texteNouvelle" Type="String" Nullable="false" MaxLength="10000" FixedLength="false" Unicode="true" />
+          <Property Name="pathPhotoNouvelle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="dateNouvelle" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ProfesseurIDProfesseur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.FK_ProfesseurNouvelle" FromRole="NouvelleJeu" ToRole="UtilisateurJeu_Professeur" />
@@ -638,8 +726,8 @@
             <PropertyRef Name="IDParutionMedia" />
           </Key>
           <Property Name="IDParutionMedia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="pathFichierPDF" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="descriptionParution" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="pathFichierPDF" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionParution" Type="String" MaxLength="10000" FixedLength="false" Unicode="true" />
           <Property Name="dateParution" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ProfesseurIDProfesseur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.FK_ProfesseurParutionMedia" FromRole="ParutionMediaJeu" ToRole="UtilisateurJeu_Professeur" />
@@ -662,17 +750,17 @@
           <Property Name="prenom" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="courriel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="hashMotDepasse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="pathPhotoProfil" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pathPhotoProfil" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="photoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="temoignage" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="dateTemoignage" Type="DateTime" Precision="3" />
           <Property Name="compteActif" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ConsultationForumJeu" Relationship="ModelTI.FK_UtilisateurConsultationForum" FromRole="UtilisateurJeu" ToRole="ConsultationForumJeu" />
           <NavigationProperty Name="EnteteForumJeu" Relationship="ModelTI.FK_UtilisateurEnteteForum" FromRole="UtilisateurJeu" ToRole="EnteteForumJeu" />
-          <NavigationProperty Name="LogJeu" Relationship="ModelTI.FK_UtilisateurLog" FromRole="UtilisateurJeu" ToRole="LogJeu" />
           <NavigationProperty Name="MessageForumJeu" Relationship="ModelTI.FK_UtilisateurMessageForum" FromRole="UtilisateurJeu" ToRole="MessageForumJeu" />
           <NavigationProperty Name="UtilisateurJeu_Etudiant" Relationship="ModelTI.FK_Etudiant_inherits_Utilisateur" FromRole="UtilisateurJeu" ToRole="UtilisateurJeu_Etudiant" />
           <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.FK_Professeur_inherits_Utilisateur" FromRole="UtilisateurJeu" ToRole="UtilisateurJeu_Professeur" />
+          <NavigationProperty Name="LogJeu" Relationship="ModelTI.LogJeuUtilisateurJeu" FromRole="UtilisateurJeu" ToRole="LogJeu" />
         </EntityType>
         <EntityType Name="UtilisateurJeu_Etudiant">
           <Key>
@@ -685,6 +773,7 @@
           <Property Name="valideCourriel" Type="Boolean" Nullable="false" />
           <Property Name="IDUtilisateur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.FK_Etudiant_inherits_Utilisateur" FromRole="UtilisateurJeu_Etudiant" ToRole="UtilisateurJeu" />
+          <Property Name="pathCV" Type="String" Nullable="true" MaxLength="200" />
         </EntityType>
         <EntityType Name="UtilisateurJeu_Professeur">
           <Key>
@@ -698,15 +787,13 @@
           <NavigationProperty Name="ParutionMediaJeu" Relationship="ModelTI.FK_ProfesseurParutionMedia" FromRole="UtilisateurJeu_Professeur" ToRole="ParutionMediaJeu" />
           <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.FK_Professeur_inherits_Utilisateur" FromRole="UtilisateurJeu_Professeur" ToRole="UtilisateurJeu" />
           <NavigationProperty Name="CoursJeu" Relationship="ModelTI.ProfesseurCours" FromRole="UtilisateurJeu_Professeur" ToRole="CoursJeu" />
+          <Property Name="presentation" Type="String" Nullable="true" MaxLength="2000" />
         </EntityType>
         <EntityType Name="VerTICJeu">
           <Key>
             <PropertyRef Name="IDVerTIC" />
           </Key>
           <Property Name="IDVerTIC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="dateDebut" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="dateFin" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="descriptionEvenement" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="descriptionLicence" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="descriptionLibre" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="caracteristiquesPortable" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
@@ -808,18 +895,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UtilisateurLog">
-          <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="1" />
-          <End Type="ModelTI.LogJeu" Role="LogJeu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UtilisateurJeu">
-              <PropertyRef Name="IDUtilisateur" />
-            </Principal>
-            <Dependent Role="LogJeu">
-              <PropertyRef Name="UtilisateurIDUtilisateur" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_UtilisateurMessageForum">
           <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="1" />
           <End Type="ModelTI.MessageForumJeu" Role="MessageForumJeu" Multiplicity="*" />
@@ -888,6 +963,69 @@
           <End Type="ModelTI.CoursJeu" Role="CoursJeu" Multiplicity="*" />
           <End Type="ModelTI.UtilisateurJeu_Professeur" Role="UtilisateurJeu_Professeur" Multiplicity="*" />
         </Association>
+        <EntityType Name="EmployeurJeu">
+          <Key>
+            <PropertyRef Name="IDEmployeur" />
+          </Key>
+          <Property Name="IDEmployeur" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="nomEmployeur" Nullable="false" MaxLength="100" Type="String" />
+          <Property Name="hashMotDepasse" Nullable="false" MaxLength="100" Type="String" />
+          <Property Name="courriel" Nullable="false" MaxLength="50" Type="String" />
+          <Property Name="compteActif" Nullable="false" Type="Boolean" />
+          <Property Name="valideCourriel" Nullable="false" annotation:StoreGeneratedPattern="Computed" Type="Boolean" />
+          <Property Name="dateInscription" Nullable="false" Type="DateTime" />
+          <NavigationProperty Name="OffreEmploiJeu" Relationship="ModelTI.EmployeurJeuOffreEmploiJeu" FromRole="EmployeurJeu" ToRole="OffreEmploiJeu" />
+          <NavigationProperty Name="LogJeu" Relationship="ModelTI.LogJeuEmployeurJeu" FromRole="EmployeurJeu" ToRole="LogJeu" />
+        </EntityType>
+        <EntityType Name="OffreEmploiJeu">
+          <Key>
+            <PropertyRef Name="IDOffreEmploi" />
+          </Key>
+          <Property Name="IDOffreEmploi" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="titreOffre" Nullable="false" MaxLength="200" Type="String" />
+          <Property Name="descriptionOffre" Nullable="false" MaxLength="2000" Type="String" />
+          <Property Name="dateOffre" Nullable="false" Type="DateTime" />
+          <Property Name="dateExpiration" Nullable="true" Type="DateTime" />
+          <Property Name="dateDebutOffre" Nullable="false" Type="DateTime" />
+          <Property Name="pathPDFDescription" cg:SetterAccess="Public" Nullable="true" MaxLength="200" Type="String" />
+          <Property Name="salaire" Nullable="false" Type="Decimal" />
+          <Property Name="nbHeureSemaine" Nullable="false" Type="Int16" />
+          <Property Name="lieuTravail" Nullable="false" MaxLength="100" Type="String" />
+          <Property Name="noTelephone" Nullable="false" MaxLength="10" Type="String" />
+          <Property Name="noTelecopieur" Nullable="true" MaxLength="10" Type="String" />
+          <Property Name="courrielOffre" Nullable="false" MaxLength="50" Type="String" />
+          <Property Name="personneRessource" Nullable="false" MaxLength="100" Type="String" />
+          <NavigationProperty Name="EmployeurJeu" Relationship="ModelTI.EmployeurJeuOffreEmploiJeu" FromRole="OffreEmploiJeu" ToRole="EmployeurJeu" />
+          <Property Name="EmployeurJeuIDEmployeur" Nullable="false" Type="Int32" />
+        </EntityType>
+        <Association Name="EmployeurJeuOffreEmploiJeu">
+          <End Type="ModelTI.EmployeurJeu" Multiplicity="1" Role="EmployeurJeu" />
+          <End Type="ModelTI.OffreEmploiJeu" Multiplicity="*" Role="OffreEmploiJeu" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeurJeu">
+              <PropertyRef Name="IDEmployeur" />
+            </Principal>
+            <Dependent Role="OffreEmploiJeu">
+              <PropertyRef Name="EmployeurJeuIDEmployeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogJeuEmployeurJeu">
+          <End Type="ModelTI.LogJeu" Multiplicity="*" Role="LogJeu" />
+          <End Type="ModelTI.EmployeurJeu" Multiplicity="0..1" Role="EmployeurJeu" />
+        </Association>
+        <Association Name="LogJeuUtilisateurJeu">
+          <End Type="ModelTI.LogJeu" Role="LogJeu" Multiplicity="*" />
+          <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="0..1" />
+        </Association>
+        <EntityType Name="DateEvenementVerTICJeu">
+          <Key>
+            <PropertyRef Name="IDDateEvenement" />
+          </Key>
+          <Property Name="IDDateEvenement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateDescription" Type="String" Nullable="false" />
+          <Property Name="Evenement" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1039,6 +1177,7 @@
           <ScalarProperty Name="dateInscription" ColumnName="dateInscription" />
           <ScalarProperty Name="valideTemoignage" ColumnName="valideTemoignage" />
           <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
+          <ScalarProperty Name="pathCV" ColumnName="pathCV" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1047,6 +1186,7 @@
         <MappingFragment StoreEntitySet="UtilisateurJeu_Professeur">
           <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
           <ScalarProperty Name="IDProfesseur" ColumnName="IDProfesseur" />
+          <ScalarProperty Name="presentation" ColumnName="presentation" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1054,13 +1194,53 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelTI.VerTICJeu)">
         <MappingFragment StoreEntitySet="VerTICJeu">
           <ScalarProperty Name="IDVerTIC" ColumnName="IDVerTIC" />
-          <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
-          <ScalarProperty Name="dateFin" ColumnName="dateFin" />
-          <ScalarProperty Name="descriptionEvenement" ColumnName="descriptionEvenement" />
           <ScalarProperty Name="descriptionLicence" ColumnName="descriptionLicence" />
           <ScalarProperty Name="descriptionLibre" ColumnName="descriptionLibre" />
           <ScalarProperty Name="caracteristiquesPortable" ColumnName="caracteristiquesPortable" />
           <ScalarProperty Name="autrePortable" ColumnName="autrePortable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeurJeuSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.EmployeurJeu)">
+        <MappingFragment StoreEntitySet="EmployeurJeuSet">
+          <ScalarProperty Name="IDEmployeur" ColumnName="IDEmployeur" />
+          <ScalarProperty Name="nomEmployeur" ColumnName="nomEmployeur" />
+          <ScalarProperty Name="hashMotDepasse" ColumnName="hashMotDepasse" />
+          <ScalarProperty Name="courriel" ColumnName="courriel" />
+          <ScalarProperty Name="compteActif" ColumnName="compteActif" />
+          <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
+          <ScalarProperty Name="dateInscription" ColumnName="dateInscription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OffreEmploiJeuSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.OffreEmploiJeu)">
+        <MappingFragment StoreEntitySet="OffreEmploiJeuSet">
+          <ScalarProperty Name="IDOffreEmploi" ColumnName="IDOffreEmploi" />
+          <ScalarProperty Name="titreOffre" ColumnName="titreOffre" />
+          <ScalarProperty Name="descriptionOffre" ColumnName="descriptionOffre" />
+          <ScalarProperty Name="dateOffre" ColumnName="dateOffre" />
+          <ScalarProperty Name="dateExpiration" ColumnName="dateExpiration" />
+          <ScalarProperty Name="dateDebutOffre" ColumnName="dateDebutOffre" />
+          <ScalarProperty Name="pathPDFDescription" ColumnName="pathPDFDescription" />
+          <ScalarProperty Name="salaire" ColumnName="salaire" />
+          <ScalarProperty Name="nbHeureSemaine" ColumnName="nbHeureSemaine" />
+          <ScalarProperty Name="lieuTravail" ColumnName="lieuTravail" />
+          <ScalarProperty Name="noTelephone" ColumnName="noTelephone" />
+          <ScalarProperty Name="noTelecopieur" ColumnName="noTelecopieur" />
+          <ScalarProperty Name="courrielOffre" ColumnName="courrielOffre" />
+          <ScalarProperty Name="personneRessource" ColumnName="personneRessource" />
+          <ScalarProperty Name="EmployeurJeuIDEmployeur" ColumnName="EmployeurJeuIDEmployeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DateEvenementVerTICJeuSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.DateEvenementVerTICJeu)">
+        <MappingFragment StoreEntitySet="DateEvenementVerTICJeuSet">
+          <ScalarProperty Name="IDDateEvenement" ColumnName="IDDateEvenement" />
+          <ScalarProperty Name="dateDescription" ColumnName="dateDescription" />
+          <ScalarProperty Name="Evenement" ColumnName="Evenement" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1071,6 +1251,24 @@
       <EndProperty Name="UtilisateurJeu_Professeur">
         <ScalarProperty Name="IDUtilisateur" ColumnName="UtilisateurJeu_Professeur_IDUtilisateur" />
       </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LogJeuEmployeurJeu" TypeName="ModelTI.LogJeuEmployeurJeu" StoreEntitySet="LogJeu">
+      <EndProperty Name="EmployeurJeu">
+        <ScalarProperty Name="IDEmployeur" ColumnName="EmployeurJeu_IDEmployeur" />
+      </EndProperty>
+      <EndProperty Name="LogJeu">
+        <ScalarProperty Name="IDLog" ColumnName="IDLog" />
+      </EndProperty>
+      <Condition ColumnName="EmployeurJeu_IDEmployeur" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LogJeuUtilisateurJeu" TypeName="ModelTI.LogJeuUtilisateurJeu" StoreEntitySet="LogJeu">
+      <EndProperty Name="UtilisateurJeu">
+        <ScalarProperty Name="IDUtilisateur" ColumnName="UtilisateurJeu_IDUtilisateur" />
+      </EndProperty>
+      <EndProperty Name="LogJeu">
+        <ScalarProperty Name="IDLog" ColumnName="IDLog" />
+      </EndProperty>
+      <Condition ColumnName="UtilisateurJeu_IDUtilisateur" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
