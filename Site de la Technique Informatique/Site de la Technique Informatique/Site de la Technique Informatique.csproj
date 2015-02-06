@@ -58,6 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="Photos\entete.jpg" />
+    <Content Include="Photos\image1.jpg" />
+    <Content Include="Photos\image2.jpg" />
+    <Content Include="Photos\image3.jpg" />
+    <Content Include="Photos\image4.jpg" />
+    <Content Include="Photos\image5.jpg" />
+    <Content Include="Photos\image6.jpg" />
     <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -101,7 +108,6 @@
     <Folder Include="bin\" />
     <Folder Include="Classes\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Photos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
