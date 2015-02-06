@@ -33,28 +33,28 @@ of those sections to manage the look and feel of the site. */
 
 .projet-section {
     height: 100%;
-    padding-top:150px;
+    padding-top:50px;
     text-align: center;
     background: #fff;
 }
 
 .portable-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 50px;
     text-align: center;
     background: #eee;
 }
 
-.services-section {
+.echeancier-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 50px;
     text-align: center;
     background: #fff;
 }
 
 .contact-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 50px;
     text-align: center;
     background: #eee;
 }
