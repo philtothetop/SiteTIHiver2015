@@ -1,22 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Default" %>
 
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 </asp:Content>
 
 
-
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-<script src="jsSimpleDatePickr.js"></script>
+   <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="Css/modern-business.css" rel="stylesheet" />
+    <link href="Css/bootstrap.css" rel="stylesheet" />
+    <link href="Css/Global.css" rel="stylesheet" />
 
+    <script src="Js/bootstrap.js"></script>
+    <script src="Js/jquery.js"></script>
 
-  
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
         <!-- Indicators -->
@@ -31,7 +31,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <div class="fill" style="background-image:url('Photos/image1.jpg');"></div>
+                <div class="fill" style="background-image:url('../Photos/image1.jpg');"></div>
                 <div class="carousel-caption">
                     <h2>Élèves 2010-2013</h2><
                 </div>
@@ -197,6 +197,10 @@
 
         <hr>
 
+        <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+
+         <hr>
+
         <!-- Call to Action Section -->
         <div class="well">
             <div class="row">
@@ -211,7 +215,7 @@
 
         <hr>
        
-        <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
+        
             
     </div>
     <!-- /.container -->
@@ -229,7 +233,5 @@
         interval: 5000 //changes the speed
     })
     </script>
-
- 
 
 </asp:Content>
