@@ -17,7 +17,7 @@
                     <label>
                         Nous sommes désolés, il semblerait que l'une de vos manoeuvre a fait s'écrouler la page où vous étiez.<br />
                         Nous tenons ce problème très à coeur et en cas de problème persistant veuillez contacter le Cégep De Granby
-                        - Département de la technique informatique. <a href="../Default.aspx">Accueil</a>.
+                        - Département de la technique informatique. <a href="../Default.aspx">Revenir à l'accueil</a>.
                     </label>
                     <br />
                     <br />

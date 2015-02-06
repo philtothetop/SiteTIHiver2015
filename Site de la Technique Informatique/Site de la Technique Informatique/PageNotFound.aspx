@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <h1>Vous êtes arrivés sur le fameux NOT FOUND 404.lol</h1>
+        <h1>Vous êtes arrivés sur le fameux NOT FOUND 404</h1>
     </div>
     </form>
 </body>
