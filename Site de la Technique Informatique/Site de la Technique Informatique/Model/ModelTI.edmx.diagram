@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ae6bd0f581d9453fa57e262c48a9a908" Name="Diagram1" ZoomLevel="81" DisplayType="true" >
+        <EntityTypeShape EntityType="ModelTI.AdminJeu" Width="1.875" PointX="10.375" PointY="9" />
+        <EntityTypeShape EntityType="ModelTI.ConsultationForumJeu" Width="2.5" PointX="1.125" PointY="8.875" />
+        <EntityTypeShape EntityType="ModelTI.CoursJeu" Width="1.875" PointX="10.75" PointY="11.625" />
+        <EntityTypeShape EntityType="ModelTI.EnteteForumJeu" Width="2.625" PointX="1.625" PointY="15.75" />
+        <EntityTypeShape EntityType="ModelTI.EvenementJeu" Width="2.5" PointX="13.125" PointY="12.5" />
+        <EntityTypeShape EntityType="ModelTI.FAQJeu" Width="2.25" PointX="9.625" PointY="16.875" />
+        <EntityTypeShape EntityType="ModelTI.LogJeu" Width="2.25" PointX="7.375" PointY="9" />
+        <EntityTypeShape EntityType="ModelTI.MessageForumJeu" Width="2.5" PointX="1.625" PointY="11.625" />
+        <EntityTypeShape EntityType="ModelTI.NouvelleJeu" Width="2.25" PointX="7" PointY="17.375" />
+        <EntityTypeShape EntityType="ModelTI.ParutionMediaJeu" Width="2.25" PointX="12.5" PointY="16.375" />
+        <EntityTypeShape EntityType="ModelTI.SectionForumJeu" Width="2" PointX="4.625" PointY="17.625" />
+        <EntityTypeShape EntityType="ModelTI.UtilisateurJeu" Width="2.125" PointX="4.625" PointY="9" />
+        <EntityTypeShape EntityType="ModelTI.UtilisateurJeu_Etudiant" Width="2.125" PointX="4.75" PointY="13.875" />
+        <EntityTypeShape EntityType="ModelTI.UtilisateurJeu_Professeur" Width="2.125" PointX="7.5" PointY="12.75" />
+        <EntityTypeShape EntityType="ModelTI.VerTICJeu" Width="2.375" PointX="13" PointY="8.75" />
+        <AssociationConnector Association="ModelTI.FK_AdminLog" />
+        <AssociationConnector Association="ModelTI.FK_ConsultationForumEnteteForum" />
+        <AssociationConnector Association="ModelTI.FK_UtilisateurConsultationForum" />
+        <AssociationConnector Association="ModelTI.FK_EnteteForumMessageForum" />
+        <AssociationConnector Association="ModelTI.FK_SectionForumEnteteForum" />
+        <AssociationConnector Association="ModelTI.FK_UtilisateurEnteteForum" />
+        <AssociationConnector Association="ModelTI.FK_ProfesseurEvenement" />
+        <AssociationConnector Association="ModelTI.FK_ProfesseurFAQ" />
+        <AssociationConnector Association="ModelTI.FK_UtilisateurLog" />
+        <AssociationConnector Association="ModelTI.FK_UtilisateurMessageForum" />
+        <AssociationConnector Association="ModelTI.FK_ProfesseurNouvelle" />
+        <AssociationConnector Association="ModelTI.FK_ProfesseurParutionMedia" />
+        <AssociationConnector Association="ModelTI.FK_Etudiant_inherits_Utilisateur" />
+        <AssociationConnector Association="ModelTI.FK_Professeur_inherits_Utilisateur" />
+        <AssociationConnector Association="ModelTI.ProfesseurCours" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
