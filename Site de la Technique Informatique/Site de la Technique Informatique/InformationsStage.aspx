@@ -11,10 +11,10 @@
 
    <div class="container" >
         <div class="row"  >
-            <div class="col-lg-3 scrolltarget" style="margin-top: 5px;">
-                <div style="position: fixed">
-                    <asp:Image runat="server" ID="logoCegep" ImageUrl="~/Photos/logoCegep.png" />
-                    
+            <div class="col-lg-3 scrolltarget" style="margin-top: 5px;" >
+                <div  style="width:285px; position: fixed; overflow:hidden;  padding:3px;">
+                    <asp:Image runat="server" ID="logoCegep" ImageUrl="~/Photos/logo/Logo_InformatiqueCouleur_FondTransparent.png" Width="370" Height="208" style="margin-right:51%; margin-left:-16% ;margin-bottom:-10%;" />
+                   
                         <ul class="nav nav-pills nav-stacked pills" role="tablist">
                             <li role="presentation" class="active"><a class="page-scroll" href="#aideGouvernementale">L'aide gouvernementale</a></li>
                             <li role="presentation"><a class="page-scroll" href="#engagements">Les engagements</a></li>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-lg-7 col-lg-push-1">
-                <h1 style="margin-top:80px;">Informations générales sur les stages</h1>
+                <h1 style="margin-top:32px; font-size:2.8em">Informations générales sur les stages</h1>
                 <hr id="aideGouvernementale" />
                 <div id="contenuInfoGenerales" >
                     
