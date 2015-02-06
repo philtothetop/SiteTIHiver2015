@@ -45,6 +45,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     UtilisateurJeu utilisateurACreerCopie = new UtilisateurJeu();
 
                     //Validation
+                    Boolean customValidation = true;
                     TryUpdateModel(utilisateurACreerCopie);
                     var contextVal = new ValidationContext(utilisateurACreerCopie, serviceProvider: null, items: null);
                     var resultatsValidation = new List<ValidationResult>();
@@ -54,7 +55,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     if (txtConfirmationMotDePasse != null && utilisateurACreerCopie.hashMotDepasse != txtConfirmationMotDePasse.Text)
                     {
                         ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "hashMotDepasse" });
-
+                        customValidation = false;
                         resultatsValidation.Add(vald);
                     }
                     //Valider la date de naissance
@@ -70,6 +71,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     if (!int.TryParse(txtDateNaissanceJour.Text,out jour) || !int.TryParse(txtDateNaissanceMois.Text,out mois) || !int.TryParse(txtDateNaissanceAnnee.Text,out annee))
                     {
                         ValidationResult valdDateNaissance = new ValidationResult("La date de naissance n'est pas valide.", new[] { "dateNaissance" });
+                        customValidation = false;
                         resultatsValidation.Add(valdDateNaissance);
                     }
                     else
