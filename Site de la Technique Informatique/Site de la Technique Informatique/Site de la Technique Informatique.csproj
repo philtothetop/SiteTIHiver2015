@@ -67,7 +67,6 @@
     <Content Include="Js\jquery.easing.min.js" />
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
