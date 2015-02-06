@@ -66,8 +66,10 @@
     <Content Include="Classes\Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
+    <Content Include="Css\customStyleSheet.css" />
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
+    <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
@@ -76,7 +78,7 @@
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
     <Content Include="Model\ModelTI.edmx.sql" />
-    <Content Include="PageNotFound.aspx" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\image2.jpg" />
@@ -89,6 +91,9 @@
     <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
+    <Content Include="Photos\logoCegep.png" />
+    <Content Include="Photos\quiSommesNous.JPG" />
+    <Content Include="QuiSommesNous.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -123,6 +128,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Noms.html" />
+    <Content Include="InformationsStage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +145,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErreursImportants.aspx.cs">
+      <DependentUpon>ErreursImportants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErreursImportants.aspx.designer.cs">
+      <DependentUpon>ErreursImportants.aspx</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -160,6 +173,9 @@
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CoursJeu.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeurJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EnteteForumJeu.cs">
@@ -195,6 +211,9 @@
     <Compile Include="Model\NouvelleJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\OffreEmploiJeu.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ParutionMediaJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
@@ -216,20 +235,27 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="PageNotFound.aspx.cs">
-      <DependentUpon>PageNotFound.aspx</DependentUpon>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuiSommesNous.aspx.cs">
+      <DependentUpon>QuiSommesNous.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PageNotFound.aspx.designer.cs">
-      <DependentUpon>PageNotFound.aspx</DependentUpon>
+    <Compile Include="QuiSommesNous.aspx.designer.cs">
+      <DependentUpon>QuiSommesNous.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="InformationsStage.aspx.cs">
+      <DependentUpon>InformationsStage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InformationsStage.aspx.designer.cs">
+      <DependentUpon>InformationsStage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -251,7 +277,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2051</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
