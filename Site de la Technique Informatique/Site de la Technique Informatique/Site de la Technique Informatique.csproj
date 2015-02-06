@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -169,6 +170,9 @@
     <Compile Include="Model\CoursJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\EmployeurJeu.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\EnteteForumJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
@@ -200,6 +204,9 @@
       <DependentUpon>ModelTI.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\NouvelleJeu.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OffreEmploiJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ParutionMediaJeu.cs">

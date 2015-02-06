@@ -25,6 +25,7 @@ namespace Site_de_la_Technique_Informatique.Model
     
         public int IDProfesseur { get; set; }
         public int IDUtilisateur { get; set; }
+        public string presentation { get; set; }
     
         public virtual ICollection<EvenementJeu> EvenementJeu { get; set; }
         public virtual ICollection<FAQJeu> FAQJeu { get; set; }

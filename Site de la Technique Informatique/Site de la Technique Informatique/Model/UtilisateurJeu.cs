@@ -18,8 +18,8 @@ namespace Site_de_la_Technique_Informatique.Model
         {
             this.ConsultationForumJeu = new HashSet<ConsultationForumJeu>();
             this.EnteteForumJeu = new HashSet<EnteteForumJeu>();
-            this.LogJeu = new HashSet<LogJeu>();
             this.MessageForumJeu = new HashSet<MessageForumJeu>();
+            this.LogJeu = new HashSet<LogJeu>();
         }
     
         public int IDUtilisateur { get; set; }
@@ -35,9 +35,9 @@ namespace Site_de_la_Technique_Informatique.Model
     
         public virtual ICollection<ConsultationForumJeu> ConsultationForumJeu { get; set; }
         public virtual ICollection<EnteteForumJeu> EnteteForumJeu { get; set; }
-        public virtual ICollection<LogJeu> LogJeu { get; set; }
         public virtual ICollection<MessageForumJeu> MessageForumJeu { get; set; }
         public virtual UtilisateurJeu_Etudiant UtilisateurJeu_Etudiant { get; set; }
         public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
+        public virtual ICollection<LogJeu> LogJeu { get; set; }
     }
 }

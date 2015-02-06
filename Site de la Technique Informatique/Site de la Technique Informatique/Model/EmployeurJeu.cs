@@ -12,16 +12,23 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class UtilisateurJeu_Etudiant
+    public partial class EmployeurJeu
     {
-        public int IDEtudiant { get; set; }
-        public System.DateTime dateNaissance { get; set; }
-        public System.DateTime dateInscription { get; set; }
-        public bool valideTemoignage { get; set; }
-        public bool valideCourriel { get; set; }
-        public int IDUtilisateur { get; set; }
-        public string pathCV { get; set; }
+        public EmployeurJeu()
+        {
+            this.OffreEmploiJeu = new HashSet<OffreEmploiJeu>();
+            this.LogJeu = new HashSet<LogJeu>();
+        }
     
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
+        public int IDEmployeur { get; set; }
+        public string nomEmployeur { get; set; }
+        public string hashMotDepasse { get; set; }
+        public string courriel { get; set; }
+        public bool compteActif { get; set; }
+        public bool valideCourriel { get; set; }
+        public System.DateTime dateInscription { get; set; }
+    
+        public virtual ICollection<OffreEmploiJeu> OffreEmploiJeu { get; set; }
+        public virtual ICollection<LogJeu> LogJeu { get; set; }
     }
 }
