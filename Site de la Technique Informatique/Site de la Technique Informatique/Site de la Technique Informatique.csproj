@@ -122,7 +122,6 @@
     <Content Include="Css\Global.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Noms.html" />
     <Content Include="InformationsStage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
