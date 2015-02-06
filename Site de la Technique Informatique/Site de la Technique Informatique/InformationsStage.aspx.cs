@@ -15,7 +15,7 @@ namespace Site_de_la_Technique_Informatique
             HtmlControl body = Master.FindControl("pageBody") as HtmlControl;
             body.Attributes.Add("data-spy", "scroll");
             body.Attributes.Add("data-target", ".scrolltarget");
-            body.Attributes.Add("data-offset", "0");
+            body.Attributes.Add("data-offset", "30");
             body.Attributes.Add("style", "position:relative; overflow:auto;");
         }
     }

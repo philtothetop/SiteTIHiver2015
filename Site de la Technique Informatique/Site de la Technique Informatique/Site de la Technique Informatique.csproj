@@ -66,11 +66,13 @@
     <Content Include="Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
+    <Content Include="Css\Inscription.css" />
     <Content Include="Css\customStyleSheet.css" />
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\jquery.easing.min.js" />
@@ -79,6 +81,7 @@
     <Content Include="Log.aspx" />
     <Content Include="Model\ModelTI.edmx.sql" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="PageNotFound.aspx" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\image2.jpg" />
@@ -86,6 +89,11 @@
     <Content Include="Photos\image4.jpg" />
     <Content Include="Photos\image5.jpg" />
     <Content Include="Photos\image6.jpg" />
+    <Content Include="Photos\logo\Logo_Informatique.jpg" />
+    <Content Include="Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
+    <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
+    <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
+    <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
     <Content Include="Photos\logoCegep.png" />
     <Content Include="Photos\quiSommesNous.JPG" />
     <Content Include="QuiSommesNous.aspx" />
@@ -122,7 +130,6 @@
     <Content Include="Css\Global.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Noms.html" />
     <Content Include="InformationsStage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -156,6 +163,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Inscription.aspx.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription.aspx.designer.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
     </Compile>
     <Compile Include="Log.aspx.cs">
       <DependentUpon>Log.aspx</DependentUpon>
@@ -230,6 +244,8 @@
     <Compile Include="Model\VerTICJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model_Partielles\UtilisateurJeu_Etudiant_Partielles.cs" />
+    <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />

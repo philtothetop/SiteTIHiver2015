@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Techniques de l'informatique</title>
     <!-- Connexion à Bootstrap -->
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
     <link href="css/modern-business.css" rel="stylesheet" />
     <link href="Css/customStyleSheet.css"  rel="stylesheet"/>
     <!-- Custom Fonts -->
-    <!--    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+<!--    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,10 +31,12 @@
     <form id="form1" runat="server">
 
         <!-- Navigation -->
+        
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
+                    
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -120,7 +122,7 @@
       <div class="modal-body">
         <div class="row-fluid">
                         <p class="text-info">
-                            <span id="Label1">Veuillez remplir les champs ci-dessous</span>
+                                <asp:Label ID="lblModalTitle" runat="server" Text="Veuillez remplir les champs ci-dessous" />
                         </p>
                         <div class="row-fluid">
                             <div class="col-lg-6">
@@ -137,14 +139,14 @@
                                     <asp:Label ID="lblPassword" runat="server" Text="Mot de passe :" />
                             </div>
                             <div class="col-lg-6">
-                                    <asp:TextBox ID="txtPassword" runat="server" textmode="password"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" runat="server" TextMode="password"></asp:TextBox>
                             </div>
                         </div>
                     </div>
           <br />
       </div>
       <div class="modal-footer">
-                        <asp:Button id="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" />
+                        <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" />
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
       </div>
     </div>
@@ -155,11 +157,11 @@
 
 
 
-        <br /><br />
+        <br />
+        <br />
         <!--Section provenant des pages-->
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
             </asp:ContentPlaceHolder>
         </div>
 

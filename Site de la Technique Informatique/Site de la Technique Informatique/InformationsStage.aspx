@@ -9,29 +9,30 @@
 
 
 
-   <div class="container"  >
-        <div class="row"   >
-            <div class="col-lg-3 scrolltarget" style="margin-top: 5px;">
-                <div style="position: fixed">
-                    <asp:Image runat="server" ID="logoCegep" ImageUrl="~/Photos/logoCegep.png" />
-                    
+   <div class="container" >
+        <div class="row"  >
+            <div class="col-lg-3 scrolltarget" style="margin-top: 5px;" >
+                <div  style="width:285px; position: fixed; overflow:hidden;  padding:3px;">
+                    <asp:Image runat="server" ID="logoCegep" ImageUrl="~/Photos/logo/Logo_InformatiqueCouleur_FondTransparent.png" Width="370" Height="208" style="margin-right:51%; margin-left:-16% ;margin-bottom:-10%;" />
+                   
                         <ul class="nav nav-pills nav-stacked pills" role="tablist">
-                            <li role="presentation" class="active"><a href="#aideGouvernementale">L'aide gouvernementale</a></li>
-                            <li role="presentation"><a href="#engagements">Les engagements</a></li>
-                            <li role="presentation"><a href="#objectifs">Objectifs</a></li>
-                            <li role="presentation"><a href="#caracteristiques">Caractéristiques du stage</a></li>
-                            <li role="presentation"><a href="#types">Les différents types de stages</a></li>
-                            <li role="presentation"><a href="#supervision">Mécanisme de supervision de l'étudiant</a></li>
-                            <li role="presentation"><a href="#formation">Formation des étudiants</a></li>
+                            <li role="presentation" class="active"><a class="page-scroll" href="#aideGouvernementale">L'aide gouvernementale</a></li>
+                            <li role="presentation"><a class="page-scroll" href="#engagements">Les engagements</a></li>
+                            <li role="presentation"><a class="page-scroll" href="#objectifs">Objectifs</a></li>
+                            <li role="presentation"><a class="page-scroll" href="#caracteristiques">Caractéristiques du stage</a></li>
+                            <li role="presentation"><a class="page-scroll" href="#types">Les différents types de stages</a></li>
+                            <li role="presentation"><a class="page-scroll" href="#supervision">Mécanisme de supervision de l'étudiant</a></li>
+                            <li role="presentation"><a class="page-scroll" href="#formation">Formation des étudiants</a></li>
                         </ul>
                     
                 </div>
             </div>
             <div class="col-lg-7 col-lg-push-1">
-                <h1 style="margin-top:80px;">Informations générales sur les stages</h1>
-                <hr />
+                <h1 style="margin-top:32px; font-size:2.8em">Informations générales sur les stages</h1>
+                <hr id="aideGouvernementale" />
                 <div id="contenuInfoGenerales" >
-                    <div id="aideGouvernementale" >
+                    
+                    <div  >
                         <h2 style="padding-top:20px;">L’aide gouvernementale</h2>
                         <p>
                             Vous trouverez les formulaires sur le site <a href="http://inforoutefpt.org/creditimpot/docs/depliant_2010_fr.pdf" target="_blank">crédit d'impôts pour stage en milieu de travail </a>
@@ -53,8 +54,8 @@
                         </p>
 
                     </div>
-                    <hr />
-                    <div id="engagements" >
+                    <hr id="engagements" />
+                    <div  >
 
                         <h2 class="padding40">Les engagements</h2>
                         <div>
@@ -79,8 +80,8 @@
                         </div>
 
                     </div>
-                    <hr />
-                    <div id="objectifs" >
+                    <hr id="objectifs"/>
+                    <div  >
 
                         <h2 class="padding40">Objectifs</h2>
                         <p>
@@ -108,8 +109,8 @@
                         </div>
 
                     </div>
-                    <hr />
-                    <div id="caracteristiques" >
+                    <hr id="caracteristiques" />
+                    <div >
 
                         <h2 class="padding40">Caractéristiques du stage</h2>
                         <ul>
@@ -119,8 +120,8 @@
                         </ul>
 
                     </div>
-                    <hr />
-                    <div id="types" >
+                    <hr id="types" />
+                    <div  >
 
                         <h2 class="padding40">Les différents types de stages</h2>
                         <h3>Analyse, conception et modification de système</h3>
@@ -137,8 +138,8 @@
                         <p>Dépannage réseau et logiciel, formation.</p>
 
                     </div>
-                    <hr />
-                    <div id="supervision" >
+                    <hr id="supervision"/>
+                    <div  >
 
                         <h2 class="padding40">Mécanisme de supervision de l’étudiant</h2>
                         <div>
@@ -166,8 +167,8 @@
                         </div>
 
                     </div>
-                    <hr />
-                    <div id="formation" >
+                    <hr id="formation"/>
+                    <div  >
 
                         <h2 class="padding40">Formation des étudiants</h2>
                         <table class="table">
