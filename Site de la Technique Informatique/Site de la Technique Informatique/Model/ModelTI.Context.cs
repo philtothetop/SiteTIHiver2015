@@ -42,5 +42,6 @@ namespace Site_de_la_Technique_Informatique.Model
         public DbSet<VerTICJeu> VerTICJeu { get; set; }
         public DbSet<EmployeurJeu> EmployeurJeuSet { get; set; }
         public DbSet<OffreEmploiJeu> OffreEmploiJeuSet { get; set; }
+        public DbSet<DateEvenementVerTICJeu> DateEvenementVerTICJeuSet { get; set; }
     }
 }
