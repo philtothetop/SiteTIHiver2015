@@ -60,6 +60,7 @@
     <Content Include="Classes\WebForm1.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
+    <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Js\bootstrap.js" />
@@ -67,7 +68,6 @@
     <Content Include="Js\jquery.easing.min.js" />
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\image2.jpg" />
