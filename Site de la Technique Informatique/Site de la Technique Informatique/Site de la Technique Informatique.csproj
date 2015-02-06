@@ -68,7 +68,6 @@
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
-    <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
@@ -77,7 +76,6 @@
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
     <Content Include="Model\ModelTI.edmx.sql" />
-   
     <Content Include="PageNotFound.aspx" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
@@ -129,13 +127,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ErreursImportants.aspx.cs">
-      <DependentUpon>ErreursImportants.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ErreursImportants.aspx.designer.cs">
-      <DependentUpon>ErreursImportants.aspx</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
