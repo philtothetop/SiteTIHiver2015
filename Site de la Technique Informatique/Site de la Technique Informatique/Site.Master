@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Techniques de l'informatique</title>
     <!-- Connexion à Bootstrap -->
-	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Custom CSS -->
-    <link href="Css/modern-business.css" rel="stylesheet" />
+    <link href="../Css/modern-business.css" rel="stylesheet" />
 
     <!-- Custom Fonts -->
-<!--    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <!--    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -31,10 +31,12 @@
     <form id="form1" runat="server">
 
         <!-- Navigation -->
+        
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
+                    
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -95,11 +97,11 @@
                                 </li>
                             </ul>
                         </li>
-                        
-                            <li class="dropdown">
-                                        <a href="#myModal" role="button" data-toggle="modal" data-target="#myModal">Connexion</a>
-                            </li>
-                        
+
+                        <li class="dropdown">
+                            <a href="#myModal" role="button" data-toggle="modal" data-target="#myModal">Connexion</a>
+                        </li>
+
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -110,56 +112,56 @@
         <!--Menu Connexion-->
 
         <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Connexion</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row-fluid">
-                        <p class="text-info">
-                            <span id="Label1">Veuillez remplir les champs ci-dessous</span>
-                        </p>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Connexion</h4>
+                    </div>
+                    <div class="modal-body">
                         <div class="row-fluid">
-                            <div class="col-lg-6">
+                            <p class="text-info">
+                                <asp:Label ID="lblModalTitle" runat="server" Text="Veuillez remplir les champs ci-dessous" />
+                            </p>
+                            <div class="row-fluid">
+                                <div class="col-lg-6">
                                     <asp:Label ID="lblIdentifiant" runat="server" Text="Identifiant (Votre courriel) :" />
-                            </div>
-                            <div class="col-lg-6">
+                                </div>
+                                <div class="col-lg-6">
                                     <asp:TextBox ID="txtIdentifiant" runat="server"></asp:TextBox>
-                            </div>
+                                </div>
                             </div>
                             <br />
                             <br />
-                        <div class="row-fluid">
-                            <div class="col-lg-6">
+                            <div class="row-fluid">
+                                <div class="col-lg-6">
                                     <asp:Label ID="lblPassword" runat="server" Text="Mot de passe :" />
-                            </div>
-                            <div class="col-lg-6">
-                                    <asp:TextBox ID="txtPassword" runat="server" textmode="password"></asp:TextBox>
+                                </div>
+                                <div class="col-lg-6">
+                                    <asp:TextBox ID="txtPassword" runat="server" TextMode="password"></asp:TextBox>
+                                </div>
                             </div>
                         </div>
+                        <br />
                     </div>
-          <br />
-      </div>
-      <div class="modal-footer">
-                        <asp:Button id="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" />
-          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-      </div>
-    </div>
-  </div>
-</div>
+                    <div class="modal-footer">
+                        <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!--Fin Menu Connexion-->
+        <!--Fin Menu Connexion-->
 
 
 
-        <br /><br />
+        <br />
+        <br />
         <!--Section provenant des pages-->
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
             </asp:ContentPlaceHolder>
         </div>
 
@@ -175,22 +177,22 @@
             </div>
         </footer>
 
-         <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <!--   <script src="Js/bootstrap.min.js"></script> -->
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <!--   <script src="Js/bootstrap.min.js"></script> -->
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="../Js/jquery.easing.min.js"></script>
         <script src="../Js/scrolling-nav.js"></script>
 
 
-    <!-- Script to Activate the Carousel -->
-    <script>
+        <!-- Script to Activate the Carousel -->
+        <script>
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
-    </script>
+        </script>
 
 
     </form>

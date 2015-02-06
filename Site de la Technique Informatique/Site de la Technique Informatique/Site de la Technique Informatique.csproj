@@ -84,6 +84,11 @@
     <Content Include="Photos\image4.jpg" />
     <Content Include="Photos\image5.jpg" />
     <Content Include="Photos\image6.jpg" />
+    <Content Include="Photos\logo\Logo_Informatique.jpg" />
+    <Content Include="Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
+    <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
+    <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
+    <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
