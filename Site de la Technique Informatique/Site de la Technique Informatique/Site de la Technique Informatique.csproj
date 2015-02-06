@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Classes\Vertic.aspx" />
-    <Content Include="Classes\WebForm1.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\modern-business.css" />
