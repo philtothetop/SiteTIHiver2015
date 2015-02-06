@@ -1,0 +1,1278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelTI.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelTIStoreContainer">
+    <EntitySet Name="AdminJeu" EntityType="ModelTI.Store.AdminJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConsultationForumJeu" EntityType="ModelTI.Store.ConsultationForumJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CoursJeu" EntityType="ModelTI.Store.CoursJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EnteteForumJeu" EntityType="ModelTI.Store.EnteteForumJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EvenementJeu" EntityType="ModelTI.Store.EvenementJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FAQJeu" EntityType="ModelTI.Store.FAQJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogJeu" EntityType="ModelTI.Store.LogJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MessageForumJeu" EntityType="ModelTI.Store.MessageForumJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NouvelleJeu" EntityType="ModelTI.Store.NouvelleJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParutionMediaJeu" EntityType="ModelTI.Store.ParutionMediaJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SectionForumJeu" EntityType="ModelTI.Store.SectionForumJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurJeu" EntityType="ModelTI.Store.UtilisateurJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurJeu_Etudiant" EntityType="ModelTI.Store.UtilisateurJeu_Etudiant" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurJeu_Professeur" EntityType="ModelTI.Store.UtilisateurJeu_Professeur" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VerTICJeu" EntityType="ModelTI.Store.VerTICJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EmployeurJeuSet" EntityType="ModelTI.Store.EmployeurJeuSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OffreEmploiJeuSet" EntityType="ModelTI.Store.OffreEmploiJeuSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfesseurCours" EntityType="ModelTI.Store.ProfesseurCours" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AdminLog" Association="ModelTI.Store.FK_AdminLog">
+      <End Role="AdminJeu" EntitySet="AdminJeu" />
+      <End Role="LogJeu" EntitySet="LogJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsultationForumEnteteForum" Association="ModelTI.Store.FK_ConsultationForumEnteteForum">
+      <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
+      <End Role="ConsultationForumJeu" EntitySet="ConsultationForumJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UtilisateurConsultationForum" Association="ModelTI.Store.FK_UtilisateurConsultationForum">
+      <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+      <End Role="ConsultationForumJeu" EntitySet="ConsultationForumJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnteteForumMessageForum" Association="ModelTI.Store.FK_EnteteForumMessageForum">
+      <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
+      <End Role="MessageForumJeu" EntitySet="MessageForumJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SectionForumEnteteForum" Association="ModelTI.Store.FK_SectionForumEnteteForum">
+      <End Role="SectionForumJeu" EntitySet="SectionForumJeu" />
+      <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UtilisateurEnteteForum" Association="ModelTI.Store.FK_UtilisateurEnteteForum">
+      <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+      <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurEvenement" Association="ModelTI.Store.FK_ProfesseurEvenement">
+      <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+      <End Role="EvenementJeu" EntitySet="EvenementJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurFAQ" Association="ModelTI.Store.FK_ProfesseurFAQ">
+      <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+      <End Role="FAQJeu" EntitySet="FAQJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UtilisateurMessageForum" Association="ModelTI.Store.FK_UtilisateurMessageForum">
+      <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+      <End Role="MessageForumJeu" EntitySet="MessageForumJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurNouvelle" Association="ModelTI.Store.FK_ProfesseurNouvelle">
+      <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+      <End Role="NouvelleJeu" EntitySet="NouvelleJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurParutionMedia" Association="ModelTI.Store.FK_ProfesseurParutionMedia">
+      <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+      <End Role="ParutionMediaJeu" EntitySet="ParutionMediaJeu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Etudiant_inherits_Utilisateur" Association="ModelTI.Store.FK_Etudiant_inherits_Utilisateur">
+      <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+      <End Role="UtilisateurJeu_Etudiant" EntitySet="UtilisateurJeu_Etudiant" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Professeur_inherits_Utilisateur" Association="ModelTI.Store.FK_Professeur_inherits_Utilisateur">
+      <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+      <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurCours_CoursJeu" Association="ModelTI.Store.FK_ProfesseurCours_CoursJeu">
+      <End Role="CoursJeu" EntitySet="CoursJeu" />
+      <End Role="ProfesseurCours" EntitySet="ProfesseurCours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurCours_UtilisateurJeu_Professeur" Association="ModelTI.Store.FK_ProfesseurCours_UtilisateurJeu_Professeur">
+      <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+      <End Role="ProfesseurCours" EntitySet="ProfesseurCours" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeurJeuOffreEmploiJeu" Association="ModelTI.Store.EmployeurJeuOffreEmploiJeu">
+      <End Role="EmployeurJeu" EntitySet="EmployeurJeuSet" />
+      <End Role="OffreEmploiJeu" EntitySet="OffreEmploiJeuSet" />
+    </AssociationSet>
+    <AssociationSet Name="LogJeuEmployeurJeu" Association="ModelTI.Store.LogJeuEmployeurJeu">
+      <End Role="LogJeu" EntitySet="LogJeu" />
+      <End Role="EmployeurJeu" EntitySet="EmployeurJeuSet" />
+    </AssociationSet>
+    <AssociationSet Name="LogJeuUtilisateurJeu" Association="ModelTI.Store.LogJeuUtilisateurJeu">
+      <End Role="LogJeu" EntitySet="LogJeu" />
+      <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AdminJeu">
+    <Key>
+      <PropertyRef Name="IDAdmin" />
+    </Key>
+    <Property Name="IDAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usagerAdmin" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="hashMotDePasse" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ConsultationForumJeu">
+    <Key>
+      <PropertyRef Name="IDConsultationForum" />
+    </Key>
+    <Property Name="IDConsultationForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateConsulte" Type="datetime" Nullable="false" />
+    <Property Name="UtilisateurIDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="EnteteForum_IDEnteteForum" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoursJeu">
+    <Key>
+      <PropertyRef Name="IDCours" />
+    </Key>
+    <Property Name="IDCours" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomCours" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="noCours" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="noSessionCours" Type="int" Nullable="false" />
+    <Property Name="descriptionCours" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EnteteForumJeu">
+    <Key>
+      <PropertyRef Name="IDEnteteForum" />
+    </Key>
+    <Property Name="IDEnteteForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreEnteteForum" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="dateEnteteForum" Type="datetime" Nullable="false" />
+    <Property Name="SectionForumIDSectionForum" Type="int" Nullable="false" />
+    <Property Name="UtilisateurIDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EvenementJeu">
+    <Key>
+      <PropertyRef Name="IDEvenement" />
+    </Key>
+    <Property Name="IDEvenement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreEvenement" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="descriptionEvenement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="datePublication" Type="datetime" Nullable="false" />
+    <Property Name="ProfesseurIDProfesseur" Type="int" Nullable="false" />
+    <Property Name="dateDebutEvenement" Type="datetime" Nullable="false" />
+    <Property Name="dateFinEvenement" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="FAQJeu">
+    <Key>
+      <PropertyRef Name="IDFAQ" />
+    </Key>
+    <Property Name="IDFAQ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="texteQuestion" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="texteReponse" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="ProfesseurIDProfesseur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LogJeu">
+    <Key>
+      <PropertyRef Name="IDLog" />
+    </Key>
+    <Property Name="IDLog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateLog" Type="datetime" Nullable="false" />
+    <Property Name="actionLog" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ProfesseurIDProfesseur" Type="int" Nullable="true" />
+    <Property Name="EtudiantIDEtudiant" Type="int" Nullable="true" />
+    <Property Name="AdminIDAdmin" Type="int" Nullable="true" />
+    <Property Name="UtilisateurIDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="EmployeurJeu_IDEmployeur" Type="int" Nullable="true" />
+    <Property Name="UtilisateurJeu_IDUtilisateur" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MessageForumJeu">
+    <Key>
+      <PropertyRef Name="IDMessageForum" />
+    </Key>
+    <Property Name="IDMessageForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="texteMessage" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="dateMessage" Type="datetime" Nullable="false" />
+    <Property Name="EnteteForumIDEnteteForum" Type="int" Nullable="false" />
+    <Property Name="UtilisateurIDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NouvelleJeu">
+    <Key>
+      <PropertyRef Name="IDNouvelle" />
+    </Key>
+    <Property Name="IDNouvelle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreNouvelle" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="texteNouvelle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pathPhotoNouvelle" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="dateNouvelle" Type="datetime" Nullable="false" />
+    <Property Name="ProfesseurIDProfesseur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParutionMediaJeu">
+    <Key>
+      <PropertyRef Name="IDParutionMedia" />
+    </Key>
+    <Property Name="IDParutionMedia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pathFichierPDF" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="descriptionParution" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="dateParution" Type="datetime" Nullable="false" />
+    <Property Name="ProfesseurIDProfesseur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SectionForumJeu">
+    <Key>
+      <PropertyRef Name="IDSectionForum" />
+    </Key>
+    <Property Name="IDSectionForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreSection" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="descriptionSection" Type="nvarchar" Nullable="false" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="UtilisateurJeu">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="prenom" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="courriel" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="hashMotDepasse" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="pathPhotoProfil" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="photoDescription" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="temoignage" Type="nvarchar" Nullable="true" MaxLength="1000" />
+    <Property Name="dateTemoignage" Type="datetime" Nullable="true" />
+    <Property Name="compteActif" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilisateurJeu_Etudiant">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDEtudiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateNaissance" Type="datetime" Nullable="false" />
+    <Property Name="dateInscription" Type="datetime" Nullable="false" />
+    <Property Name="valideTemoignage" Type="bit" Nullable="false" />
+    <Property Name="valideCourriel" Type="bit" Nullable="false" />
+    <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="pathCV" Type="nvarchar" Nullable="true" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="UtilisateurJeu_Professeur">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDProfesseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="presentation" Type="nvarchar" Nullable="true" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="VerTICJeu">
+    <Key>
+      <PropertyRef Name="IDVerTIC" />
+    </Key>
+    <Property Name="IDVerTIC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateDebut" Type="datetime" Nullable="false" />
+    <Property Name="dateFin" Type="datetime" Nullable="false" />
+    <Property Name="descriptionEvenement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="descriptionLicence" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="descriptionLibre" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="caracteristiquesPortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="autrePortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="EmployeurJeuSet">
+    <Key>
+      <PropertyRef Name="IDEmployeur" />
+    </Key>
+    <Property Name="IDEmployeur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomEmployeur" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="hashMotDepasse" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="courriel" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="compteActif" Type="bit" Nullable="false" />
+    <Property Name="valideCourriel" Type="bit" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="dateInscription" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OffreEmploiJeuSet">
+    <Key>
+      <PropertyRef Name="IDOffreEmploi" />
+    </Key>
+    <Property Name="IDOffreEmploi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreOffre" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="descriptionOffre" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="dateOffre" Type="datetime" Nullable="false" />
+    <Property Name="dateExpiration" Type="datetime" Nullable="true" />
+    <Property Name="dateDebutOffre" Type="datetime" Nullable="false" />
+    <Property Name="pathPDFDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="salaire" Type="decimal" Nullable="false" />
+    <Property Name="nbHeureSemaine" Type="smallint" Nullable="false" />
+    <Property Name="lieuTravail" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="noTelephone" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="noTelecopieur" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="courrielOffre" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="personneRessource" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="EmployeurJeuIDEmployeur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfesseurCours">
+    <Key>
+      <PropertyRef Name="CoursJeu_IDCours" />
+      <PropertyRef Name="UtilisateurJeu_Professeur_IDUtilisateur" />
+    </Key>
+    <Property Name="CoursJeu_IDCours" Type="int" Nullable="false" />
+    <Property Name="UtilisateurJeu_Professeur_IDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AdminLog">
+    <End Role="AdminJeu" Type="ModelTI.Store.AdminJeu" Multiplicity="0..1" />
+    <End Role="LogJeu" Type="ModelTI.Store.LogJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminJeu">
+        <PropertyRef Name="IDAdmin" />
+      </Principal>
+      <Dependent Role="LogJeu">
+        <PropertyRef Name="AdminIDAdmin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConsultationForumEnteteForum">
+    <End Role="EnteteForumJeu" Type="ModelTI.Store.EnteteForumJeu" Multiplicity="1" />
+    <End Role="ConsultationForumJeu" Type="ModelTI.Store.ConsultationForumJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnteteForumJeu">
+        <PropertyRef Name="IDEnteteForum" />
+      </Principal>
+      <Dependent Role="ConsultationForumJeu">
+        <PropertyRef Name="EnteteForum_IDEnteteForum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UtilisateurConsultationForum">
+    <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="1" />
+    <End Role="ConsultationForumJeu" Type="ModelTI.Store.ConsultationForumJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="ConsultationForumJeu">
+        <PropertyRef Name="UtilisateurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnteteForumMessageForum">
+    <End Role="EnteteForumJeu" Type="ModelTI.Store.EnteteForumJeu" Multiplicity="1" />
+    <End Role="MessageForumJeu" Type="ModelTI.Store.MessageForumJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnteteForumJeu">
+        <PropertyRef Name="IDEnteteForum" />
+      </Principal>
+      <Dependent Role="MessageForumJeu">
+        <PropertyRef Name="EnteteForumIDEnteteForum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SectionForumEnteteForum">
+    <End Role="SectionForumJeu" Type="ModelTI.Store.SectionForumJeu" Multiplicity="1" />
+    <End Role="EnteteForumJeu" Type="ModelTI.Store.EnteteForumJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SectionForumJeu">
+        <PropertyRef Name="IDSectionForum" />
+      </Principal>
+      <Dependent Role="EnteteForumJeu">
+        <PropertyRef Name="SectionForumIDSectionForum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UtilisateurEnteteForum">
+    <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="1" />
+    <End Role="EnteteForumJeu" Type="ModelTI.Store.EnteteForumJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="EnteteForumJeu">
+        <PropertyRef Name="UtilisateurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurEvenement">
+    <End Role="UtilisateurJeu_Professeur" Type="ModelTI.Store.UtilisateurJeu_Professeur" Multiplicity="1" />
+    <End Role="EvenementJeu" Type="ModelTI.Store.EvenementJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu_Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="EvenementJeu">
+        <PropertyRef Name="ProfesseurIDProfesseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurFAQ">
+    <End Role="UtilisateurJeu_Professeur" Type="ModelTI.Store.UtilisateurJeu_Professeur" Multiplicity="1" />
+    <End Role="FAQJeu" Type="ModelTI.Store.FAQJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu_Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="FAQJeu">
+        <PropertyRef Name="ProfesseurIDProfesseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UtilisateurMessageForum">
+    <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="1" />
+    <End Role="MessageForumJeu" Type="ModelTI.Store.MessageForumJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="MessageForumJeu">
+        <PropertyRef Name="UtilisateurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurNouvelle">
+    <End Role="UtilisateurJeu_Professeur" Type="ModelTI.Store.UtilisateurJeu_Professeur" Multiplicity="1" />
+    <End Role="NouvelleJeu" Type="ModelTI.Store.NouvelleJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu_Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="NouvelleJeu">
+        <PropertyRef Name="ProfesseurIDProfesseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurParutionMedia">
+    <End Role="UtilisateurJeu_Professeur" Type="ModelTI.Store.UtilisateurJeu_Professeur" Multiplicity="1" />
+    <End Role="ParutionMediaJeu" Type="ModelTI.Store.ParutionMediaJeu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu_Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="ParutionMediaJeu">
+        <PropertyRef Name="ProfesseurIDProfesseur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Etudiant_inherits_Utilisateur">
+    <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UtilisateurJeu_Etudiant" Type="ModelTI.Store.UtilisateurJeu_Etudiant" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="UtilisateurJeu_Etudiant">
+        <PropertyRef Name="IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Professeur_inherits_Utilisateur">
+    <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UtilisateurJeu_Professeur" Type="ModelTI.Store.UtilisateurJeu_Professeur" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="UtilisateurJeu_Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeurJeuOffreEmploiJeu">
+    <End Role="EmployeurJeu" Type="ModelTI.Store.EmployeurJeuSet" Multiplicity="1" />
+    <End Role="OffreEmploiJeu" Type="ModelTI.Store.OffreEmploiJeuSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeurJeu">
+        <PropertyRef Name="IDEmployeur" />
+      </Principal>
+      <Dependent Role="OffreEmploiJeu">
+        <PropertyRef Name="EmployeurJeuIDEmployeur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LogJeuEmployeurJeu">
+    <End Role="LogJeu" Type="ModelTI.Store.LogJeu" Multiplicity="*" />
+    <End Role="EmployeurJeu" Type="ModelTI.Store.EmployeurJeuSet" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeurJeu">
+        <PropertyRef Name="IDEmployeur" />
+      </Principal>
+      <Dependent Role="LogJeu">
+        <PropertyRef Name="EmployeurJeu_IDEmployeur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LogJeuUtilisateurJeu">
+    <End Role="LogJeu" Type="ModelTI.Store.LogJeu" Multiplicity="*" />
+    <End Role="UtilisateurJeu" Type="ModelTI.Store.UtilisateurJeu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="LogJeu">
+        <PropertyRef Name="UtilisateurJeu_IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurCours_CoursJeu">
+    <End Role="CoursJeu" Type="ModelTI.Store.CoursJeu" Multiplicity="1" />
+    <End Role="ProfesseurCours" Type="ModelTI.Store.ProfesseurCours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoursJeu">
+        <PropertyRef Name="IDCours" />
+      </Principal>
+      <Dependent Role="ProfesseurCours">
+        <PropertyRef Name="CoursJeu_IDCours" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurCours_UtilisateurJeu_Professeur">
+    <End Role="ProfesseurCours" Type="ModelTI.Store.ProfesseurCours" Multiplicity="*" />
+    <End Role="UtilisateurJeu_Professeur" Type="ModelTI.Store.UtilisateurJeu_Professeur" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="UtilisateurJeu_Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="ProfesseurCours">
+        <PropertyRef Name="UtilisateurJeu_Professeur_IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelTI" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelTIContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdminJeu" EntityType="ModelTI.AdminJeu" />
+          <EntitySet Name="ConsultationForumJeu" EntityType="ModelTI.ConsultationForumJeu" />
+          <EntitySet Name="CoursJeu" EntityType="ModelTI.CoursJeu" />
+          <EntitySet Name="EnteteForumJeu" EntityType="ModelTI.EnteteForumJeu" />
+          <EntitySet Name="EvenementJeu" EntityType="ModelTI.EvenementJeu" />
+          <EntitySet Name="FAQJeu" EntityType="ModelTI.FAQJeu" />
+          <EntitySet Name="LogJeu" EntityType="ModelTI.LogJeu" />
+          <EntitySet Name="MessageForumJeu" EntityType="ModelTI.MessageForumJeu" />
+          <EntitySet Name="NouvelleJeu" EntityType="ModelTI.NouvelleJeu" />
+          <EntitySet Name="ParutionMediaJeu" EntityType="ModelTI.ParutionMediaJeu" />
+          <EntitySet Name="SectionForumJeu" EntityType="ModelTI.SectionForumJeu" />
+          <EntitySet Name="UtilisateurJeu" EntityType="ModelTI.UtilisateurJeu" />
+          <EntitySet Name="UtilisateurJeu_Etudiant" EntityType="ModelTI.UtilisateurJeu_Etudiant" />
+          <EntitySet Name="UtilisateurJeu_Professeur" EntityType="ModelTI.UtilisateurJeu_Professeur" />
+          <EntitySet Name="VerTICJeu" EntityType="ModelTI.VerTICJeu" />
+          <AssociationSet Name="FK_AdminLog" Association="ModelTI.FK_AdminLog">
+            <End Role="AdminJeu" EntitySet="AdminJeu" />
+            <End Role="LogJeu" EntitySet="LogJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ConsultationForumEnteteForum" Association="ModelTI.FK_ConsultationForumEnteteForum">
+            <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
+            <End Role="ConsultationForumJeu" EntitySet="ConsultationForumJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UtilisateurConsultationForum" Association="ModelTI.FK_UtilisateurConsultationForum">
+            <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+            <End Role="ConsultationForumJeu" EntitySet="ConsultationForumJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EnteteForumMessageForum" Association="ModelTI.FK_EnteteForumMessageForum">
+            <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
+            <End Role="MessageForumJeu" EntitySet="MessageForumJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SectionForumEnteteForum" Association="ModelTI.FK_SectionForumEnteteForum">
+            <End Role="SectionForumJeu" EntitySet="SectionForumJeu" />
+            <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UtilisateurEnteteForum" Association="ModelTI.FK_UtilisateurEnteteForum">
+            <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+            <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurEvenement" Association="ModelTI.FK_ProfesseurEvenement">
+            <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+            <End Role="EvenementJeu" EntitySet="EvenementJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurFAQ" Association="ModelTI.FK_ProfesseurFAQ">
+            <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+            <End Role="FAQJeu" EntitySet="FAQJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UtilisateurMessageForum" Association="ModelTI.FK_UtilisateurMessageForum">
+            <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+            <End Role="MessageForumJeu" EntitySet="MessageForumJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurNouvelle" Association="ModelTI.FK_ProfesseurNouvelle">
+            <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+            <End Role="NouvelleJeu" EntitySet="NouvelleJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfesseurParutionMedia" Association="ModelTI.FK_ProfesseurParutionMedia">
+            <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+            <End Role="ParutionMediaJeu" EntitySet="ParutionMediaJeu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Etudiant_inherits_Utilisateur" Association="ModelTI.FK_Etudiant_inherits_Utilisateur">
+            <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+            <End Role="UtilisateurJeu_Etudiant" EntitySet="UtilisateurJeu_Etudiant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Professeur_inherits_Utilisateur" Association="ModelTI.FK_Professeur_inherits_Utilisateur">
+            <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+            <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurCours" Association="ModelTI.ProfesseurCours">
+            <End Role="CoursJeu" EntitySet="CoursJeu" />
+            <End Role="UtilisateurJeu_Professeur" EntitySet="UtilisateurJeu_Professeur" />
+          </AssociationSet>
+          <EntitySet Name="EmployeurJeuSet" EntityType="ModelTI.EmployeurJeu" />
+          <EntitySet Name="OffreEmploiJeuSet" EntityType="ModelTI.OffreEmploiJeu" />
+          <AssociationSet Name="EmployeurJeuOffreEmploiJeu" Association="ModelTI.EmployeurJeuOffreEmploiJeu">
+            <End EntitySet="EmployeurJeuSet" Role="EmployeurJeu" />
+            <End EntitySet="OffreEmploiJeuSet" Role="OffreEmploiJeu" />
+          </AssociationSet>
+          <AssociationSet Name="LogJeuEmployeurJeu" Association="ModelTI.LogJeuEmployeurJeu">
+            <End EntitySet="LogJeu" Role="LogJeu" />
+            <End EntitySet="EmployeurJeuSet" Role="EmployeurJeu" />
+          </AssociationSet>
+          <AssociationSet Name="LogJeuUtilisateurJeu" Association="ModelTI.LogJeuUtilisateurJeu">
+            <End Role="LogJeu" EntitySet="LogJeu" />
+            <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdminJeu">
+          <Key>
+            <PropertyRef Name="IDAdmin" />
+          </Key>
+          <Property Name="IDAdmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usagerAdmin" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="hashMotDePasse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LogJeu" Relationship="ModelTI.FK_AdminLog" FromRole="AdminJeu" ToRole="LogJeu" />
+        </EntityType>
+        <EntityType Name="ConsultationForumJeu">
+          <Key>
+            <PropertyRef Name="IDConsultationForum" />
+          </Key>
+          <Property Name="IDConsultationForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateConsulte" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UtilisateurIDUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="EnteteForum_IDEnteteForum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EnteteForumJeu" Relationship="ModelTI.FK_ConsultationForumEnteteForum" FromRole="ConsultationForumJeu" ToRole="EnteteForumJeu" />
+          <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.FK_UtilisateurConsultationForum" FromRole="ConsultationForumJeu" ToRole="UtilisateurJeu" />
+        </EntityType>
+        <EntityType Name="CoursJeu">
+          <Key>
+            <PropertyRef Name="IDCours" />
+          </Key>
+          <Property Name="IDCours" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomCours" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="noCours" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="noSessionCours" Type="Int32" Nullable="false" />
+          <Property Name="descriptionCours" Type="String" Nullable="false" MaxLength="10000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.ProfesseurCours" FromRole="CoursJeu" ToRole="UtilisateurJeu_Professeur" />
+        </EntityType>
+        <EntityType Name="EnteteForumJeu">
+          <Key>
+            <PropertyRef Name="IDEnteteForum" />
+          </Key>
+          <Property Name="IDEnteteForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreEnteteForum" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="dateEnteteForum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SectionForumIDSectionForum" Type="Int32" Nullable="false" />
+          <Property Name="UtilisateurIDUtilisateur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConsultationForumJeu" Relationship="ModelTI.FK_ConsultationForumEnteteForum" FromRole="EnteteForumJeu" ToRole="ConsultationForumJeu" />
+          <NavigationProperty Name="MessageForumJeu" Relationship="ModelTI.FK_EnteteForumMessageForum" FromRole="EnteteForumJeu" ToRole="MessageForumJeu" />
+          <NavigationProperty Name="SectionForumJeu" Relationship="ModelTI.FK_SectionForumEnteteForum" FromRole="EnteteForumJeu" ToRole="SectionForumJeu" />
+          <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.FK_UtilisateurEnteteForum" FromRole="EnteteForumJeu" ToRole="UtilisateurJeu" />
+        </EntityType>
+        <EntityType Name="EvenementJeu">
+          <Key>
+            <PropertyRef Name="IDEvenement" />
+          </Key>
+          <Property Name="IDEvenement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreEvenement" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionEvenement" Type="String" Nullable="false" MaxLength="10000" FixedLength="false" Unicode="true" />
+          <Property Name="datePublication" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProfesseurIDProfesseur" Type="Int32" Nullable="false" />
+          <Property Name="dateDebutEvenement" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateFinEvenement" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.FK_ProfesseurEvenement" FromRole="EvenementJeu" ToRole="UtilisateurJeu_Professeur" />
+        </EntityType>
+        <EntityType Name="FAQJeu">
+          <Key>
+            <PropertyRef Name="IDFAQ" />
+          </Key>
+          <Property Name="IDFAQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="texteQuestion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="texteReponse" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProfesseurIDProfesseur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.FK_ProfesseurFAQ" FromRole="FAQJeu" ToRole="UtilisateurJeu_Professeur" />
+        </EntityType>
+        <EntityType Name="LogJeu">
+          <Key>
+            <PropertyRef Name="IDLog" />
+          </Key>
+          <Property Name="IDLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateLog" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="actionLog" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProfesseurIDProfesseur" Type="Int32" />
+          <Property Name="EtudiantIDEtudiant" Type="Int32" />
+          <Property Name="AdminIDAdmin" Type="Int32" />
+          <Property Name="UtilisateurIDUtilisateur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AdminJeu" Relationship="ModelTI.FK_AdminLog" FromRole="LogJeu" ToRole="AdminJeu" />
+          <NavigationProperty Name="EmployeurJeu" Relationship="ModelTI.LogJeuEmployeurJeu" FromRole="LogJeu" ToRole="EmployeurJeu" />
+          <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.LogJeuUtilisateurJeu" FromRole="LogJeu" ToRole="UtilisateurJeu" />
+        </EntityType>
+        <EntityType Name="MessageForumJeu">
+          <Key>
+            <PropertyRef Name="IDMessageForum" />
+          </Key>
+          <Property Name="IDMessageForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="texteMessage" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="dateMessage" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EnteteForumIDEnteteForum" Type="Int32" Nullable="false" />
+          <Property Name="UtilisateurIDUtilisateur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EnteteForumJeu" Relationship="ModelTI.FK_EnteteForumMessageForum" FromRole="MessageForumJeu" ToRole="EnteteForumJeu" />
+          <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.FK_UtilisateurMessageForum" FromRole="MessageForumJeu" ToRole="UtilisateurJeu" />
+        </EntityType>
+        <EntityType Name="NouvelleJeu">
+          <Key>
+            <PropertyRef Name="IDNouvelle" />
+          </Key>
+          <Property Name="IDNouvelle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreNouvelle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="texteNouvelle" Type="String" Nullable="false" MaxLength="10000" FixedLength="false" Unicode="true" />
+          <Property Name="pathPhotoNouvelle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="dateNouvelle" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProfesseurIDProfesseur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.FK_ProfesseurNouvelle" FromRole="NouvelleJeu" ToRole="UtilisateurJeu_Professeur" />
+        </EntityType>
+        <EntityType Name="ParutionMediaJeu">
+          <Key>
+            <PropertyRef Name="IDParutionMedia" />
+          </Key>
+          <Property Name="IDParutionMedia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pathFichierPDF" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionParution" Type="String" MaxLength="10000" FixedLength="false" Unicode="true" />
+          <Property Name="dateParution" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProfesseurIDProfesseur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.FK_ProfesseurParutionMedia" FromRole="ParutionMediaJeu" ToRole="UtilisateurJeu_Professeur" />
+        </EntityType>
+        <EntityType Name="SectionForumJeu">
+          <Key>
+            <PropertyRef Name="IDSectionForum" />
+          </Key>
+          <Property Name="IDSectionForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreSection" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionSection" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EnteteForumJeu" Relationship="ModelTI.FK_SectionForumEnteteForum" FromRole="SectionForumJeu" ToRole="EnteteForumJeu" />
+        </EntityType>
+        <EntityType Name="UtilisateurJeu">
+          <Key>
+            <PropertyRef Name="IDUtilisateur" />
+          </Key>
+          <Property Name="IDUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="courriel" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="hashMotDepasse" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pathPhotoProfil" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="photoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="temoignage" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="dateTemoignage" Type="DateTime" Precision="3" />
+          <Property Name="compteActif" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ConsultationForumJeu" Relationship="ModelTI.FK_UtilisateurConsultationForum" FromRole="UtilisateurJeu" ToRole="ConsultationForumJeu" />
+          <NavigationProperty Name="EnteteForumJeu" Relationship="ModelTI.FK_UtilisateurEnteteForum" FromRole="UtilisateurJeu" ToRole="EnteteForumJeu" />
+          <NavigationProperty Name="MessageForumJeu" Relationship="ModelTI.FK_UtilisateurMessageForum" FromRole="UtilisateurJeu" ToRole="MessageForumJeu" />
+          <NavigationProperty Name="UtilisateurJeu_Etudiant" Relationship="ModelTI.FK_Etudiant_inherits_Utilisateur" FromRole="UtilisateurJeu" ToRole="UtilisateurJeu_Etudiant" />
+          <NavigationProperty Name="UtilisateurJeu_Professeur" Relationship="ModelTI.FK_Professeur_inherits_Utilisateur" FromRole="UtilisateurJeu" ToRole="UtilisateurJeu_Professeur" />
+          <NavigationProperty Name="LogJeu" Relationship="ModelTI.LogJeuUtilisateurJeu" FromRole="UtilisateurJeu" ToRole="LogJeu" />
+        </EntityType>
+        <EntityType Name="UtilisateurJeu_Etudiant">
+          <Key>
+            <PropertyRef Name="IDUtilisateur" />
+          </Key>
+          <Property Name="IDEtudiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateNaissance" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateInscription" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="valideTemoignage" Type="Boolean" Nullable="false" />
+          <Property Name="valideCourriel" Type="Boolean" Nullable="false" />
+          <Property Name="IDUtilisateur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.FK_Etudiant_inherits_Utilisateur" FromRole="UtilisateurJeu_Etudiant" ToRole="UtilisateurJeu" />
+          <Property Name="pathCV" Type="String" Nullable="true" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="UtilisateurJeu_Professeur">
+          <Key>
+            <PropertyRef Name="IDUtilisateur" />
+          </Key>
+          <Property Name="IDProfesseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUtilisateur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EvenementJeu" Relationship="ModelTI.FK_ProfesseurEvenement" FromRole="UtilisateurJeu_Professeur" ToRole="EvenementJeu" />
+          <NavigationProperty Name="FAQJeu" Relationship="ModelTI.FK_ProfesseurFAQ" FromRole="UtilisateurJeu_Professeur" ToRole="FAQJeu" />
+          <NavigationProperty Name="NouvelleJeu" Relationship="ModelTI.FK_ProfesseurNouvelle" FromRole="UtilisateurJeu_Professeur" ToRole="NouvelleJeu" />
+          <NavigationProperty Name="ParutionMediaJeu" Relationship="ModelTI.FK_ProfesseurParutionMedia" FromRole="UtilisateurJeu_Professeur" ToRole="ParutionMediaJeu" />
+          <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.FK_Professeur_inherits_Utilisateur" FromRole="UtilisateurJeu_Professeur" ToRole="UtilisateurJeu" />
+          <NavigationProperty Name="CoursJeu" Relationship="ModelTI.ProfesseurCours" FromRole="UtilisateurJeu_Professeur" ToRole="CoursJeu" />
+          <Property Name="presentation" Type="String" Nullable="true" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="VerTICJeu">
+          <Key>
+            <PropertyRef Name="IDVerTIC" />
+          </Key>
+          <Property Name="IDVerTIC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateDebut" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateFin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="descriptionEvenement" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionLicence" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="descriptionLibre" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="caracteristiquesPortable" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="autrePortable" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_AdminLog">
+          <End Type="ModelTI.AdminJeu" Role="AdminJeu" Multiplicity="0..1" />
+          <End Type="ModelTI.LogJeu" Role="LogJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdminJeu">
+              <PropertyRef Name="IDAdmin" />
+            </Principal>
+            <Dependent Role="LogJeu">
+              <PropertyRef Name="AdminIDAdmin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ConsultationForumEnteteForum">
+          <End Type="ModelTI.EnteteForumJeu" Role="EnteteForumJeu" Multiplicity="1" />
+          <End Type="ModelTI.ConsultationForumJeu" Role="ConsultationForumJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnteteForumJeu">
+              <PropertyRef Name="IDEnteteForum" />
+            </Principal>
+            <Dependent Role="ConsultationForumJeu">
+              <PropertyRef Name="EnteteForum_IDEnteteForum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UtilisateurConsultationForum">
+          <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="1" />
+          <End Type="ModelTI.ConsultationForumJeu" Role="ConsultationForumJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="ConsultationForumJeu">
+              <PropertyRef Name="UtilisateurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EnteteForumMessageForum">
+          <End Type="ModelTI.EnteteForumJeu" Role="EnteteForumJeu" Multiplicity="1" />
+          <End Type="ModelTI.MessageForumJeu" Role="MessageForumJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnteteForumJeu">
+              <PropertyRef Name="IDEnteteForum" />
+            </Principal>
+            <Dependent Role="MessageForumJeu">
+              <PropertyRef Name="EnteteForumIDEnteteForum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SectionForumEnteteForum">
+          <End Type="ModelTI.SectionForumJeu" Role="SectionForumJeu" Multiplicity="1" />
+          <End Type="ModelTI.EnteteForumJeu" Role="EnteteForumJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SectionForumJeu">
+              <PropertyRef Name="IDSectionForum" />
+            </Principal>
+            <Dependent Role="EnteteForumJeu">
+              <PropertyRef Name="SectionForumIDSectionForum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UtilisateurEnteteForum">
+          <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="1" />
+          <End Type="ModelTI.EnteteForumJeu" Role="EnteteForumJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="EnteteForumJeu">
+              <PropertyRef Name="UtilisateurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurEvenement">
+          <End Type="ModelTI.UtilisateurJeu_Professeur" Role="UtilisateurJeu_Professeur" Multiplicity="1" />
+          <End Type="ModelTI.EvenementJeu" Role="EvenementJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu_Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="EvenementJeu">
+              <PropertyRef Name="ProfesseurIDProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurFAQ">
+          <End Type="ModelTI.UtilisateurJeu_Professeur" Role="UtilisateurJeu_Professeur" Multiplicity="1" />
+          <End Type="ModelTI.FAQJeu" Role="FAQJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu_Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="FAQJeu">
+              <PropertyRef Name="ProfesseurIDProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UtilisateurMessageForum">
+          <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="1" />
+          <End Type="ModelTI.MessageForumJeu" Role="MessageForumJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="MessageForumJeu">
+              <PropertyRef Name="UtilisateurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurNouvelle">
+          <End Type="ModelTI.UtilisateurJeu_Professeur" Role="UtilisateurJeu_Professeur" Multiplicity="1" />
+          <End Type="ModelTI.NouvelleJeu" Role="NouvelleJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu_Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="NouvelleJeu">
+              <PropertyRef Name="ProfesseurIDProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfesseurParutionMedia">
+          <End Type="ModelTI.UtilisateurJeu_Professeur" Role="UtilisateurJeu_Professeur" Multiplicity="1" />
+          <End Type="ModelTI.ParutionMediaJeu" Role="ParutionMediaJeu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu_Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="ParutionMediaJeu">
+              <PropertyRef Name="ProfesseurIDProfesseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Etudiant_inherits_Utilisateur">
+          <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelTI.UtilisateurJeu_Etudiant" Role="UtilisateurJeu_Etudiant" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="UtilisateurJeu_Etudiant">
+              <PropertyRef Name="IDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Professeur_inherits_Utilisateur">
+          <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelTI.UtilisateurJeu_Professeur" Role="UtilisateurJeu_Professeur" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UtilisateurJeu">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="UtilisateurJeu_Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesseurCours">
+          <End Type="ModelTI.CoursJeu" Role="CoursJeu" Multiplicity="*" />
+          <End Type="ModelTI.UtilisateurJeu_Professeur" Role="UtilisateurJeu_Professeur" Multiplicity="*" />
+        </Association>
+        <EntityType Name="EmployeurJeu">
+          <Key>
+            <PropertyRef Name="IDEmployeur" />
+          </Key>
+          <Property Name="IDEmployeur" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="nomEmployeur" Nullable="false" MaxLength="100" Type="String" />
+          <Property Name="hashMotDepasse" Nullable="false" MaxLength="100" Type="String" />
+          <Property Name="courriel" Nullable="false" MaxLength="50" Type="String" />
+          <Property Name="compteActif" Nullable="false" Type="Boolean" />
+          <Property Name="valideCourriel" Nullable="false" annotation:StoreGeneratedPattern="Computed" Type="Boolean" />
+          <Property Name="dateInscription" Nullable="false" Type="DateTime" />
+          <NavigationProperty Name="OffreEmploiJeu" Relationship="ModelTI.EmployeurJeuOffreEmploiJeu" FromRole="EmployeurJeu" ToRole="OffreEmploiJeu" />
+          <NavigationProperty Name="LogJeu" Relationship="ModelTI.LogJeuEmployeurJeu" FromRole="EmployeurJeu" ToRole="LogJeu" />
+        </EntityType>
+        <EntityType Name="OffreEmploiJeu">
+          <Key>
+            <PropertyRef Name="IDOffreEmploi" />
+          </Key>
+          <Property Name="IDOffreEmploi" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="titreOffre" Nullable="false" MaxLength="200" Type="String" />
+          <Property Name="descriptionOffre" Nullable="false" MaxLength="2000" Type="String" />
+          <Property Name="dateOffre" Nullable="false" Type="DateTime" />
+          <Property Name="dateExpiration" Nullable="true" Type="DateTime" />
+          <Property Name="dateDebutOffre" Nullable="false" Type="DateTime" />
+          <Property Name="pathPDFDescription" cg:SetterAccess="Public" Nullable="true" MaxLength="200" Type="String" />
+          <Property Name="salaire" Nullable="false" Type="Decimal" />
+          <Property Name="nbHeureSemaine" Nullable="false" Type="Int16" />
+          <Property Name="lieuTravail" Nullable="false" MaxLength="100" Type="String" />
+          <Property Name="noTelephone" Nullable="false" MaxLength="10" Type="String" />
+          <Property Name="noTelecopieur" Nullable="true" MaxLength="10" Type="String" />
+          <Property Name="courrielOffre" Nullable="false" MaxLength="50" Type="String" />
+          <Property Name="personneRessource" Nullable="false" MaxLength="100" Type="String" />
+          <NavigationProperty Name="EmployeurJeu" Relationship="ModelTI.EmployeurJeuOffreEmploiJeu" FromRole="OffreEmploiJeu" ToRole="EmployeurJeu" />
+          <Property Name="EmployeurJeuIDEmployeur" Nullable="false" Type="Int32" />
+        </EntityType>
+        <Association Name="EmployeurJeuOffreEmploiJeu">
+          <End Type="ModelTI.EmployeurJeu" Multiplicity="1" Role="EmployeurJeu" />
+          <End Type="ModelTI.OffreEmploiJeu" Multiplicity="*" Role="OffreEmploiJeu" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeurJeu">
+              <PropertyRef Name="IDEmployeur" />
+            </Principal>
+            <Dependent Role="OffreEmploiJeu">
+              <PropertyRef Name="EmployeurJeuIDEmployeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LogJeuEmployeurJeu">
+          <End Type="ModelTI.LogJeu" Multiplicity="*" Role="LogJeu" />
+          <End Type="ModelTI.EmployeurJeu" Multiplicity="0..1" Role="EmployeurJeu" />
+        </Association>
+        <Association Name="LogJeuUtilisateurJeu">
+          <End Type="ModelTI.LogJeu" Role="LogJeu" Multiplicity="*" />
+          <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="0..1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelTIStoreContainer" CdmEntityContainer="ModelTIContainer">
+    <EntitySetMapping Name="AdminJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.AdminJeu)">
+        <MappingFragment StoreEntitySet="AdminJeu">
+          <ScalarProperty Name="IDAdmin" ColumnName="IDAdmin" />
+          <ScalarProperty Name="usagerAdmin" ColumnName="usagerAdmin" />
+          <ScalarProperty Name="hashMotDePasse" ColumnName="hashMotDePasse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsultationForumJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.ConsultationForumJeu)">
+        <MappingFragment StoreEntitySet="ConsultationForumJeu">
+          <ScalarProperty Name="IDConsultationForum" ColumnName="IDConsultationForum" />
+          <ScalarProperty Name="dateConsulte" ColumnName="dateConsulte" />
+          <ScalarProperty Name="UtilisateurIDUtilisateur" ColumnName="UtilisateurIDUtilisateur" />
+          <ScalarProperty Name="EnteteForum_IDEnteteForum" ColumnName="EnteteForum_IDEnteteForum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.CoursJeu)">
+        <MappingFragment StoreEntitySet="CoursJeu">
+          <ScalarProperty Name="IDCours" ColumnName="IDCours" />
+          <ScalarProperty Name="nomCours" ColumnName="nomCours" />
+          <ScalarProperty Name="noCours" ColumnName="noCours" />
+          <ScalarProperty Name="noSessionCours" ColumnName="noSessionCours" />
+          <ScalarProperty Name="descriptionCours" ColumnName="descriptionCours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnteteForumJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.EnteteForumJeu)">
+        <MappingFragment StoreEntitySet="EnteteForumJeu">
+          <ScalarProperty Name="IDEnteteForum" ColumnName="IDEnteteForum" />
+          <ScalarProperty Name="titreEnteteForum" ColumnName="titreEnteteForum" />
+          <ScalarProperty Name="dateEnteteForum" ColumnName="dateEnteteForum" />
+          <ScalarProperty Name="SectionForumIDSectionForum" ColumnName="SectionForumIDSectionForum" />
+          <ScalarProperty Name="UtilisateurIDUtilisateur" ColumnName="UtilisateurIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvenementJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.EvenementJeu)">
+        <MappingFragment StoreEntitySet="EvenementJeu">
+          <ScalarProperty Name="IDEvenement" ColumnName="IDEvenement" />
+          <ScalarProperty Name="titreEvenement" ColumnName="titreEvenement" />
+          <ScalarProperty Name="descriptionEvenement" ColumnName="descriptionEvenement" />
+          <ScalarProperty Name="datePublication" ColumnName="datePublication" />
+          <ScalarProperty Name="ProfesseurIDProfesseur" ColumnName="ProfesseurIDProfesseur" />
+          <ScalarProperty Name="dateDebutEvenement" ColumnName="dateDebutEvenement" />
+          <ScalarProperty Name="dateFinEvenement" ColumnName="dateFinEvenement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAQJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.FAQJeu)">
+        <MappingFragment StoreEntitySet="FAQJeu">
+          <ScalarProperty Name="IDFAQ" ColumnName="IDFAQ" />
+          <ScalarProperty Name="texteQuestion" ColumnName="texteQuestion" />
+          <ScalarProperty Name="texteReponse" ColumnName="texteReponse" />
+          <ScalarProperty Name="ProfesseurIDProfesseur" ColumnName="ProfesseurIDProfesseur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.LogJeu)">
+        <MappingFragment StoreEntitySet="LogJeu">
+          <ScalarProperty Name="IDLog" ColumnName="IDLog" />
+          <ScalarProperty Name="dateLog" ColumnName="dateLog" />
+          <ScalarProperty Name="actionLog" ColumnName="actionLog" />
+          <ScalarProperty Name="ProfesseurIDProfesseur" ColumnName="ProfesseurIDProfesseur" />
+          <ScalarProperty Name="EtudiantIDEtudiant" ColumnName="EtudiantIDEtudiant" />
+          <ScalarProperty Name="AdminIDAdmin" ColumnName="AdminIDAdmin" />
+          <ScalarProperty Name="UtilisateurIDUtilisateur" ColumnName="UtilisateurIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageForumJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.MessageForumJeu)">
+        <MappingFragment StoreEntitySet="MessageForumJeu">
+          <ScalarProperty Name="IDMessageForum" ColumnName="IDMessageForum" />
+          <ScalarProperty Name="texteMessage" ColumnName="texteMessage" />
+          <ScalarProperty Name="dateMessage" ColumnName="dateMessage" />
+          <ScalarProperty Name="EnteteForumIDEnteteForum" ColumnName="EnteteForumIDEnteteForum" />
+          <ScalarProperty Name="UtilisateurIDUtilisateur" ColumnName="UtilisateurIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NouvelleJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.NouvelleJeu)">
+        <MappingFragment StoreEntitySet="NouvelleJeu">
+          <ScalarProperty Name="IDNouvelle" ColumnName="IDNouvelle" />
+          <ScalarProperty Name="titreNouvelle" ColumnName="titreNouvelle" />
+          <ScalarProperty Name="texteNouvelle" ColumnName="texteNouvelle" />
+          <ScalarProperty Name="pathPhotoNouvelle" ColumnName="pathPhotoNouvelle" />
+          <ScalarProperty Name="dateNouvelle" ColumnName="dateNouvelle" />
+          <ScalarProperty Name="ProfesseurIDProfesseur" ColumnName="ProfesseurIDProfesseur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParutionMediaJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.ParutionMediaJeu)">
+        <MappingFragment StoreEntitySet="ParutionMediaJeu">
+          <ScalarProperty Name="IDParutionMedia" ColumnName="IDParutionMedia" />
+          <ScalarProperty Name="pathFichierPDF" ColumnName="pathFichierPDF" />
+          <ScalarProperty Name="descriptionParution" ColumnName="descriptionParution" />
+          <ScalarProperty Name="dateParution" ColumnName="dateParution" />
+          <ScalarProperty Name="ProfesseurIDProfesseur" ColumnName="ProfesseurIDProfesseur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectionForumJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.SectionForumJeu)">
+        <MappingFragment StoreEntitySet="SectionForumJeu">
+          <ScalarProperty Name="IDSectionForum" ColumnName="IDSectionForum" />
+          <ScalarProperty Name="titreSection" ColumnName="titreSection" />
+          <ScalarProperty Name="descriptionSection" ColumnName="descriptionSection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UtilisateurJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.UtilisateurJeu)">
+        <MappingFragment StoreEntitySet="UtilisateurJeu">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="courriel" ColumnName="courriel" />
+          <ScalarProperty Name="hashMotDepasse" ColumnName="hashMotDepasse" />
+          <ScalarProperty Name="pathPhotoProfil" ColumnName="pathPhotoProfil" />
+          <ScalarProperty Name="photoDescription" ColumnName="photoDescription" />
+          <ScalarProperty Name="temoignage" ColumnName="temoignage" />
+          <ScalarProperty Name="dateTemoignage" ColumnName="dateTemoignage" />
+          <ScalarProperty Name="compteActif" ColumnName="compteActif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UtilisateurJeu_Etudiant">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.UtilisateurJeu_Etudiant)">
+        <MappingFragment StoreEntitySet="UtilisateurJeu_Etudiant">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="IDEtudiant" ColumnName="IDEtudiant" />
+          <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          <ScalarProperty Name="dateInscription" ColumnName="dateInscription" />
+          <ScalarProperty Name="valideTemoignage" ColumnName="valideTemoignage" />
+          <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
+          <ScalarProperty Name="pathCV" ColumnName="pathCV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UtilisateurJeu_Professeur">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.UtilisateurJeu_Professeur)">
+        <MappingFragment StoreEntitySet="UtilisateurJeu_Professeur">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="IDProfesseur" ColumnName="IDProfesseur" />
+          <ScalarProperty Name="presentation" ColumnName="presentation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerTICJeu">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.VerTICJeu)">
+        <MappingFragment StoreEntitySet="VerTICJeu">
+          <ScalarProperty Name="IDVerTIC" ColumnName="IDVerTIC" />
+          <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
+          <ScalarProperty Name="dateFin" ColumnName="dateFin" />
+          <ScalarProperty Name="descriptionEvenement" ColumnName="descriptionEvenement" />
+          <ScalarProperty Name="descriptionLicence" ColumnName="descriptionLicence" />
+          <ScalarProperty Name="descriptionLibre" ColumnName="descriptionLibre" />
+          <ScalarProperty Name="caracteristiquesPortable" ColumnName="caracteristiquesPortable" />
+          <ScalarProperty Name="autrePortable" ColumnName="autrePortable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeurJeuSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.EmployeurJeu)">
+        <MappingFragment StoreEntitySet="EmployeurJeuSet">
+          <ScalarProperty Name="IDEmployeur" ColumnName="IDEmployeur" />
+          <ScalarProperty Name="nomEmployeur" ColumnName="nomEmployeur" />
+          <ScalarProperty Name="hashMotDepasse" ColumnName="hashMotDepasse" />
+          <ScalarProperty Name="courriel" ColumnName="courriel" />
+          <ScalarProperty Name="compteActif" ColumnName="compteActif" />
+          <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
+          <ScalarProperty Name="dateInscription" ColumnName="dateInscription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OffreEmploiJeuSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.OffreEmploiJeu)">
+        <MappingFragment StoreEntitySet="OffreEmploiJeuSet">
+          <ScalarProperty Name="IDOffreEmploi" ColumnName="IDOffreEmploi" />
+          <ScalarProperty Name="titreOffre" ColumnName="titreOffre" />
+          <ScalarProperty Name="descriptionOffre" ColumnName="descriptionOffre" />
+          <ScalarProperty Name="dateOffre" ColumnName="dateOffre" />
+          <ScalarProperty Name="dateExpiration" ColumnName="dateExpiration" />
+          <ScalarProperty Name="dateDebutOffre" ColumnName="dateDebutOffre" />
+          <ScalarProperty Name="pathPDFDescription" ColumnName="pathPDFDescription" />
+          <ScalarProperty Name="salaire" ColumnName="salaire" />
+          <ScalarProperty Name="nbHeureSemaine" ColumnName="nbHeureSemaine" />
+          <ScalarProperty Name="lieuTravail" ColumnName="lieuTravail" />
+          <ScalarProperty Name="noTelephone" ColumnName="noTelephone" />
+          <ScalarProperty Name="noTelecopieur" ColumnName="noTelecopieur" />
+          <ScalarProperty Name="courrielOffre" ColumnName="courrielOffre" />
+          <ScalarProperty Name="personneRessource" ColumnName="personneRessource" />
+          <ScalarProperty Name="EmployeurJeuIDEmployeur" ColumnName="EmployeurJeuIDEmployeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProfesseurCours" TypeName="ModelTI.ProfesseurCours" StoreEntitySet="ProfesseurCours">
+      <EndProperty Name="CoursJeu">
+        <ScalarProperty Name="IDCours" ColumnName="CoursJeu_IDCours" />
+      </EndProperty>
+      <EndProperty Name="UtilisateurJeu_Professeur">
+        <ScalarProperty Name="IDUtilisateur" ColumnName="UtilisateurJeu_Professeur_IDUtilisateur" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LogJeuEmployeurJeu" TypeName="ModelTI.LogJeuEmployeurJeu" StoreEntitySet="LogJeu">
+      <EndProperty Name="EmployeurJeu">
+        <ScalarProperty Name="IDEmployeur" ColumnName="EmployeurJeu_IDEmployeur" />
+      </EndProperty>
+      <EndProperty Name="LogJeu">
+        <ScalarProperty Name="IDLog" ColumnName="IDLog" />
+      </EndProperty>
+      <Condition ColumnName="EmployeurJeu_IDEmployeur" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LogJeuUtilisateurJeu" TypeName="ModelTI.LogJeuUtilisateurJeu" StoreEntitySet="LogJeu">
+      <EndProperty Name="UtilisateurJeu">
+        <ScalarProperty Name="IDUtilisateur" ColumnName="UtilisateurJeu_IDUtilisateur" />
+      </EndProperty>
+      <EndProperty Name="LogJeu">
+        <ScalarProperty Name="IDLog" ColumnName="IDLog" />
+      </EndProperty>
+      <Condition ColumnName="UtilisateurJeu_IDUtilisateur" IsNull="false" />
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
