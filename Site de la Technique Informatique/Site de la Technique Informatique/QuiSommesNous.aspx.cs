@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Default : ErrorHandling
+    public partial class QuiSommesNous : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
