@@ -67,6 +67,14 @@
     <Content Include="Js\jquery.easing.min.js" />
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="Photos\entete.jpg" />
+    <Content Include="Photos\image1.jpg" />
+    <Content Include="Photos\image2.jpg" />
+    <Content Include="Photos\image3.jpg" />
+    <Content Include="Photos\image4.jpg" />
+    <Content Include="Photos\image5.jpg" />
+    <Content Include="Photos\image6.jpg" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -119,7 +127,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Photos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
