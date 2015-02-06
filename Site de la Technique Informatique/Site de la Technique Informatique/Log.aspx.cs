@@ -12,25 +12,54 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             using (ModelTIContainer leModelTI = new ModelTIContainer())
             {
-                /*
-                 * JUST FOR TEST, IGNORER SA
-                UtilisateurJeu unUtilisateur = new UtilisateurJeu();
-                unUtilisateur.compteActif = true;
-                unUtilisateur.courriel = "foulco1@hotmail.com";
-                unUtilisateur.dateTemoignage = DateTime.Now;
-                unUtilisateur.hashMotDepasse = "";
-                unUtilisateur.nom = "Brouard";
-                unUtilisateur.pathPhotoProfil = "none";
-                unUtilisateur.photoDescription = "test Model avec C Sharp";
-                unUtilisateur.prenom = "Raphael";
-                unUtilisateur.temoignage = "Le témoignage";
 
-                leModelTI.UtilisateurJeu.Add(unUtilisateur);
+                LogJeu unLoggg = new LogJeu();
+                unLoggg.actionLog = "Premier Log EVER";
+                unLoggg.dateLog = DateTime.Now;
+                unLoggg.UtilisateurIDUtilisateur = 1;
+
+                leModelTI.LogJeu.Add(unLoggg);
                 leModelTI.SaveChanges();
-                */
             }
+             * */
+        }
+
+        //Méthode pour récupérer les logs de la BD
+        public IQueryable<LogJeu> GetLesLogs()
+        {
+            //Créer une liste de base
+            List<LogJeu> listeDesLogs = new List<LogJeu>();
+
+            try
+            {
+                using (ModelTIContainer modelTI = new ModelTIContainer())
+                {
+                    //Récupérer les logs dans la BD
+                    listeDesLogs = (from cl in modelTI.LogJeu
+                                    select cl).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Si Erreur, retourner une liste avec un log qui indique erreur
+                LogJeu logErreur = new LogJeu();
+                logErreur.actionLog = "Erreur l'Hors du chargement des logs";
+                logErreur.AdminIDAdmin = 1;
+                logErreur.EtudiantIDEtudiant = 1;
+                logErreur.ProfesseurIDProfesseur = 1;
+                logErreur.UtilisateurIDUtilisateur = 1;
+                logErreur.dateLog = DateTime.Now;
+                logErreur.IDLog = 1;
+
+                listeDesLogs.Add(logErreur);
+
+                //A AJOUTER UN LOG DANS LA ROUTINE DERREUR?
+            }
+
+            return listeDesLogs.AsQueryable().SortBy("dateLog");
         }
     }
 }
