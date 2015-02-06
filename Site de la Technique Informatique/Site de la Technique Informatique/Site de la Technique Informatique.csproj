@@ -67,6 +67,7 @@
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\customStyleSheet.css" />
+    <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
