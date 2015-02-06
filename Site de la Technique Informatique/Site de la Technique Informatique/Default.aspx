@@ -51,7 +51,7 @@
 			 <div class="item">
                 <div class="fill" style="background-image:url('Photos/img1600-380-4.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Élèves 2013-2016</h2>
+                    <h2>Élèves 2013-20167</h2>
                 </div>
             </div>
 			 <div class="item">
