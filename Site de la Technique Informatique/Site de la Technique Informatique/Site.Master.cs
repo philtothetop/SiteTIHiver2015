@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Security.Cryptography;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -38,37 +39,14 @@ namespace Site_de_la_Technique_Informatique
                     if (userConnect != null) //si le membre existe
                     {
                         pwdUserConnect = GetSHA256Hash(txtPassword.Text); //récupère le mdp
-                        pwdVerification = UtilisateurJeu. ; //valide si c'est le bon mdp
+                        pwdVerification = userConnect.courriel ; //valide si c'est le bon mdp
 
                     }
-                   
-                    if (mdpConnectionMembre == mdpMembreVerif || mdpConnectionEmploye == mdpEmployeVerif) //si ok, donne le bon statut
+
+                    if (pwdUserConnect == pwdVerification) //si ok, donne le bon statut
                     {
-                        if (mdpConnectionEmploye == mdpEmployeVerif)
-                        { Session["Statut"] = "Admin"; }
+                        Session["Connexion"] = "Oui"; 
 
-                        if (mdpConnectionMembre == mdpMembreVerif)
-                        { Session["Statut"] = "Membre"; }
-
-                        // Si le cookie contient la date heure de la dernière connexion
-                        if (Request.Cookies["DerniereConnexion"] != null)
-                        {
-                            Session["DerniereConnexion"] = Request.Cookies["DerniereConnexion"].Value;
-                            var cookie = Request.Cookies["DerniereConnexion"];
-                            cookie.Value = DateTime.Now.ToString();
-                            Response.Cookies.Add(cookie);
-
-                        }
-                        // S'il n'y a pas de cookie, on le crée
-                        else
-                        {
-                            //Stocke la date et l'heure de la dernière connexion
-                            Response.Cookies["DerniereConnexion"].Value = DateTime.Now.ToString();
-                            Session["DerniereConnexion"] = Request.Cookies["DerniereConnexion"].Value;
-                            Response.Cookies["DerniereConnexion"].Expires = DateTime.Now.AddDays(50);
-                        }
-
-                        lecontexte.SaveChanges();
                         Response.Redirect("accueilMembre.aspx", false);
                     }
                     else
@@ -82,6 +60,22 @@ namespace Site_de_la_Technique_Informatique
                     lblMessageConnexion.Text = "Une erreur s'est produite à la connexion.¸.. : " + ex.Message;
                 }
             }
+        }
+
+        //pour hasher le mot de passe
+        public string GetSHA256Hash(string s)
+        {
+
+            if (string.IsNullOrEmpty(s))
+            {
+                throw new ArgumentException("Une valeur nulle ne peut être hashée.");
+            }
+
+
+            Byte[] data = System.Text.Encoding.UTF8.GetBytes(s);
+            Byte[] hash = new SHA256CryptoServiceProvider().ComputeHash(data);
+            string hashMdp = Convert.ToBase64String(hash);
+            return hashMdp;
         }
     }
 }
