@@ -7,7 +7,7 @@
     <script src="Js/bootstrap.js"></script>
 
     <div id="divGlobalListeDeFavoris">
-
+        hello
         </div>
 
 </asp:Content>
