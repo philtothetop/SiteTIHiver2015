@@ -68,6 +68,13 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="Photos\entete.jpg" />
+    <Content Include="Photos\image1.jpg" />
+    <Content Include="Photos\image2.jpg" />
+    <Content Include="Photos\image3.jpg" />
+    <Content Include="Photos\image4.jpg" />
+    <Content Include="Photos\image5.jpg" />
+    <Content Include="Photos\image6.jpg" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -104,6 +111,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -120,7 +128,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Photos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
