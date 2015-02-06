@@ -23,6 +23,7 @@ namespace Site_de_la_Technique_Informatique.Model
         public int UtilisateurIDUtilisateur { get; set; }
     
         public virtual AdminJeu AdminJeu { get; set; }
+        public virtual EmployeurJeu EmployeurJeu { get; set; }
         public virtual UtilisateurJeu UtilisateurJeu { get; set; }
     }
 }
