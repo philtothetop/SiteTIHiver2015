@@ -76,7 +76,6 @@
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
     <Content Include="Model\ModelTI.edmx.sql" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\image2.jpg" />
