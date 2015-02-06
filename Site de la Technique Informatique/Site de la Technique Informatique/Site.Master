@@ -8,11 +8,6 @@
     <title>Technique Informatique - Cégep de Granby</title>
     <!-- Connexion Ã  Bootstrap -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
-      <link href="Css/scrolling-nav.css" rel="stylesheet" />
-        <script src="Js/jquery.js"></script>
-     <script src="Js/bootstrap.min.js"></script>
-    <script src="Js/scrolling-nav.js"></script>
-    <script src="Js/jquery.easing.min.js"></script>
     <!-- Custom CSS -->
     <link href="Css/modern-business.css" rel="stylesheet" />
     <!-- Custom Fonts -->

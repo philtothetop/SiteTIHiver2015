@@ -1,12 +1,17 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vertic.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Classes.WebForm1" %>
 
+
+<asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+     <link href="../Css/scrolling-nav.css" rel="stylesheet" />
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Custom CSS -->
+   
         <!-- Content Row -->
-        <div class="row" style="margin-top:150px;">
+        <div class="row" style="margin-top:50px;">
             <!-- Sidebar Column -->
             <div class="col-lg-3">
-                <div class="list-group" style="position:fixed;">
+                <div class="list-group" style="position:fixed; margin-left:100px;">
                     <a href="#projet" class="list-group-item page-scroll">Projet VerTIC</a>
                     <a href="#portable" class="list-group-item page-scroll">Le portable VerTIC</a>
                 </div>
