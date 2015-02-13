@@ -34,28 +34,24 @@ of those sections to manage the look and feel of the site. */
 .projet-section {
     height: 100%;
     padding-top:50px;
-    text-align: center;
     background: #fff;
 }
 
 .portable-section {
     height: 100%;
-    padding-top: 50px;
-    text-align: center;
+    padding-top: 30px;
     background: #eee;
 }
 
 .echeancier-section {
     height: 100%;
-    padding-top: 50px;
-    text-align: center;
+    padding-top: 30px;
     background: #fff;
 }
 
 .contact-section {
     height: 100%;
-    padding-top: 50px;
-    text-align: center;
+    padding-top: 30px;
     background: #eee;
 }
 
