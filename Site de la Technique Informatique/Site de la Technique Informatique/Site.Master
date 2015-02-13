@@ -17,7 +17,13 @@
     <script src="Js/bootstrap.js"></script>
     <script src="Js/jquery.js"></script>
 
-   
+    <script type="text/javascript">
+        function openModal() {
+            $('#myModal').modal('show');
+        }
+</script>
+
+    <asp:ScriptManager runat="server"></asp:ScriptManager>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -132,8 +138,12 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Connexion</h4>
       </div>
+
+        <asp:UpdatePanel ID="upConnexion" runat="server">
+            <ContentTemplate>
       <div class="modal-body">
         <div class="row-fluid">
+
                         <p class="text-info">
                                 <asp:Label ID="lblModalTitle" runat="server" Text="Veuillez remplir les champs ci-dessous" />
                         </p>
@@ -158,6 +168,9 @@
                     </div>
           <br /><asp:Label ID="lblMessageConnexion" runat="server" Text="" />
       </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
       <div class="modal-footer">
                         <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" OnClick="btnConnexion_Click" />
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>

@@ -53,7 +53,9 @@ namespace Site_de_la_Technique_Informatique
                     if (userConnect == null) //si le courriel n'est pas dans la BD
                     {
                         lblMessageConnexion.Text += "Votre courriel n'existe pas dans notre base de données.";
-                        Session["Courriel"] = ""; //enlève la valeur de l'objet session
+                        Session["Courriel"] = null; //enlève la valeur de l'objet session
+                        Response.Redirect("default.aspx#myModal", false);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
                     if (userConnect != null) //si le membre existe
                     {
@@ -72,9 +74,10 @@ namespace Site_de_la_Technique_Informatique
                     else
                     {
                         lblMessageConnexion.Text += "Votre courriel ou votre mot de passe n'est pas valide."; //Avertis que le mot de passe est incorrect
-                        Session["Courriel"] = ""; //enlève la valeur de l'objet session
+                        Session["Courriel"] = null; //enlève la valeur de l'objet session
                         txtIdentifiant.Text = ""; //reset le textbox identifiant
                         txtPassword.Text = "";//reset le textbox password
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
                 }
                 catch (Exception ex) //au cas où ça marcherait pas
