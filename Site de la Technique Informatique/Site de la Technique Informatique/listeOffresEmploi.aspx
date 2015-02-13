@@ -11,10 +11,12 @@
                 <asp:ListView ID="lviewOffresEmploi" runat="server" SelectMethod="getOffresEmploi" OnItemDataBound="lviewOffresEmploi_ItemDataBound" 
                     DataKeyNames="VilleIDVille">
                     <ItemTemplate>
+                        <asp:LinkButton ID="lnkOffre" CommandArgument="<%# Eval("IDOffreEmploi").ToString()%>'" OnClick="lnkOffre_Click" runat="server">
                         <asp:Label ID="lblTitreOffre" Text='<%# Eval("titreOffre").ToString()%>' runat="server"></asp:Label>
                         <asp:Label ID="lblDescriptionOffre" Text='<%# Eval("descriptionOffre").ToString()%>' runat="server"></asp:Label>
                         <asp:Label ID="lblVille" runat="server"></asp:Label>
                         <asp:Label ID="lblNbHeureSemaine" Text='<%# Eval("nbHeureSemaine").ToString()%>' runat="server"></asp:Label>
+                        </asp:LinkButton>
                     </ItemTemplate>
                     <LayoutTemplate>
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
