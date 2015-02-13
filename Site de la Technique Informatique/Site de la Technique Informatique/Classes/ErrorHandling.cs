@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Site_de_la_Technique_Informatique.Model;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -17,5 +18,23 @@ namespace Site_de_la_Technique_Informatique
 
             Server.ClearError();
         }
+
+
+        public void LogErreur(string leMessage)
+        {
+            using (ModelTIContainer leContext = new ModelTIContainer())
+            {
+                LogJeu uneNouvelleErreur = new LogJeu();
+                uneNouvelleErreur.dateLog = DateTime.Now;
+                uneNouvelleErreur.actionLog = leMessage;
+                //uneNouvelleErreur.typeLog = 1;
+
+                leContext.LogJeu.Add(uneNouvelleErreur);
+                leContext.SaveChanges();
+            }
+        }
+
+
+
     }
 }

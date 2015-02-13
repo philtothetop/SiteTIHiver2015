@@ -17,9 +17,10 @@ namespace Site_de_la_Technique_Informatique.Model
         public int IDConsultationForum { get; set; }
         public System.DateTime dateConsulte { get; set; }
         public int UtilisateurIDUtilisateur { get; set; }
-        public int EnteteForum_IDEnteteForum { get; set; }
+        public int UtilisateurJeuIDUtilisateur { get; set; }
+        public int EnteteForumJeuIDEnteteForum { get; set; }
     
-        public virtual EnteteForumJeu EnteteForumJeu { get; set; }
         public virtual UtilisateurJeu UtilisateurJeu { get; set; }
+        public virtual EnteteForumJeu EnteteForumJeu { get; set; }
     }
 }

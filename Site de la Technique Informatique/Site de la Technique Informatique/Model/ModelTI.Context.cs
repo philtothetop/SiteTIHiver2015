@@ -25,11 +25,9 @@ namespace Site_de_la_Technique_Informatique.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<AdminJeu> AdminJeu { get; set; }
         public DbSet<ConsultationForumJeu> ConsultationForumJeu { get; set; }
         public DbSet<CoursJeu> CoursJeu { get; set; }
         public DbSet<DateEvenementVerTICJeuSet> DateEvenementVerTICJeuSet { get; set; }
-        public DbSet<EmployeurJeuSet> EmployeurJeuSet { get; set; }
         public DbSet<EnteteForumJeu> EnteteForumJeu { get; set; }
         public DbSet<EvenementJeu> EvenementJeu { get; set; }
         public DbSet<FAQJeu> FAQJeu { get; set; }
@@ -40,8 +38,6 @@ namespace Site_de_la_Technique_Informatique.Model
         public DbSet<ParutionMediaJeu> ParutionMediaJeu { get; set; }
         public DbSet<SectionForumJeu> SectionForumJeu { get; set; }
         public DbSet<UtilisateurJeu> UtilisateurJeu { get; set; }
-        public DbSet<UtilisateurJeu_Etudiant> UtilisateurJeu_Etudiant { get; set; }
-        public DbSet<UtilisateurJeu_Professeur> UtilisateurJeu_Professeur { get; set; }
         public DbSet<VerTICJeu> VerTICJeu { get; set; }
         public DbSet<Ville> VilleSet { get; set; }
     }

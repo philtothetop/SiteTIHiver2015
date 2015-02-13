@@ -14,17 +14,13 @@ namespace Site_de_la_Technique_Informatique.Model
     
     public partial class CoursJeu
     {
-        public CoursJeu()
-        {
-            this.UtilisateurJeu_Professeur = new HashSet<UtilisateurJeu_Professeur>();
-        }
-    
         public int IDCours { get; set; }
         public string nomCours { get; set; }
         public string noCours { get; set; }
         public int noSessionCours { get; set; }
         public string descriptionCours { get; set; }
+        public Nullable<int> UtilisateurJeu_ProfesseurIDUtilisateur { get; set; }
     
-        public virtual ICollection<UtilisateurJeu_Professeur> UtilisateurJeu_Professeur { get; set; }
+        public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
     }
 }

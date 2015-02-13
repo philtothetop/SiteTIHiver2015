@@ -54,10 +54,10 @@
                                             <asp:Label ID="lblNoLog" runat="server" Text='<%# Item.IDLog %>'></asp:Label>
                                             </div>
                              <div class="col-lg-1">
-                                            <asp:Label ID="lblNoCompte" runat="server"  Text='<%# GetIdOfAccount(Item.IDLog) %>'></asp:Label>
+                                            <asp:Label ID="lblNoCompte" runat="server"  Text=""></asp:Label>
                                             </div>
                             <div class="col-lg-2">
-                                            <asp:Label ID="lblTypeCompte" runat="server" Text='<%# GetTypeOfAccount(Item.IDLog) %>'></asp:Label>
+                                            <asp:Label ID="lblTypeCompte" runat="server" Text=""></asp:Label>
                                             </div>
                             <div class="col-lg-6">
                                             <asp:Label ID="lblActionLog" runat="server" Text='<%# Item.actionLog %>'></asp:Label>
