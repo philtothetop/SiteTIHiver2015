@@ -15,21 +15,23 @@ namespace Site_de_la_Technique_Informatique
 
         }
 
-        public IQueryable<OffreEmploiJeuSet> getOffresEmploi()
+        public IQueryable<OffreEmploi> getOffresEmploi()
         {
 
-            List<OffreEmploiJeuSet> listeOffresEmploi = new List<OffreEmploiJeuSet>();
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            List<OffreEmploi> listeOffresEmploi = new List<OffreEmploi>();
+
+            
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-                listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiJeuSet select offresEmploi).ToList();
+               // listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiSet select offresEmploi).ToList();
             }
             return listeOffresEmploi.AsQueryable();
         }
 
         protected void lviewOffresEmploi_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
                 Label lblheulblNbHeureSemaine = (Label)e.Item.FindControl("lblheulblNbHeureSemaine");

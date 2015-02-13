@@ -83,7 +83,6 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
-    <Content Include="new page vide.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
