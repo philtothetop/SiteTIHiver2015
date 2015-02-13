@@ -44,19 +44,19 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                //Si Erreur, retourner une liste avec un log qui indique erreur
-                LogJeu logErreur = new LogJeu();
-                logErreur.actionLog = "Erreur l'Hors du chargement des logs";
-                logErreur.AdminIDAdmin = 1;
-                logErreur.EtudiantIDEtudiant = 1;
-                logErreur.ProfesseurIDProfesseur = 1;
-                logErreur.UtilisateurIDUtilisateur = 1;
-                logErreur.dateLog = DateTime.Now;
-                logErreur.IDLog = 1;
+                ////Si Erreur, retourner une liste avec un log qui indique erreur
+                ////LogJeu logErreur = new LogJeu();
+                ////logErreur.actionLog = "Erreur l'Hors du chargement des logs";
+                ////logErreur.AdminIDAdmin = 1;
+                ////logErreur.EtudiantIDEtudiant = 1;
+                ////logErreur.ProfesseurIDProfesseur = 1;
+                ////logErreur.UtilisateurIDUtilisateur = 1;
+                ////logErreur.dateLog = DateTime.Now;
+                ////logErreur.IDLog = 1;
 
-                listeDesLogs.Add(logErreur);
+                ////listeDesLogs.Add(logErreur);
 
-                //A AJOUTER UN LOG DANS LA ROUTINE DERREUR?
+                ////A AJOUTER UN LOG DANS LA ROUTINE DERREUR?
             }
 
             return listeDesLogs.AsQueryable().SortBy("dateLog");

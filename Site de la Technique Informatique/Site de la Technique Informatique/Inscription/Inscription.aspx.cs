@@ -45,17 +45,19 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     UtilisateurJeu utilisateurACreerCopie = new UtilisateurJeu();
 
                     //Validation
-                    Boolean customValidation = true;
+                  
                     TryUpdateModel(utilisateurACreerCopie);
                     var contextVal = new ValidationContext(utilisateurACreerCopie, serviceProvider: null, items: null);
                     var resultatsValidation = new List<ValidationResult>();
+                    var isValid = Validator.TryValidateObject(utilisateurACreerCopie, contextVal, resultatsValidation, true);
+
                     //Comparer les mots de passe
                     ListViewItem lviewItem = lviewFormulaireInscription.Items[0];
                     TextBox txtConfirmationMotDePasse = (TextBox)lviewItem.FindControl("txtConfirmationMotDePasse");
                     if (txtConfirmationMotDePasse != null && utilisateurACreerCopie.hashMotDepasse != txtConfirmationMotDePasse.Text)
                     {
                         ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "hashMotDepasse" });
-                        customValidation = false;
+                        isValid = true;
                         resultatsValidation.Add(vald);
                     }
                     //Valider la date de naissance
@@ -71,15 +73,15 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     if (!int.TryParse(txtDateNaissanceJour.Text,out jour) || !int.TryParse(txtDateNaissanceMois.Text,out mois) || !int.TryParse(txtDateNaissanceAnnee.Text,out annee))
                     {
                         ValidationResult valdDateNaissance = new ValidationResult("La date de naissance n'est pas valide.", new[] { "dateNaissance" });
-                        customValidation = false;
+                        isValid = true;
                         resultatsValidation.Add(valdDateNaissance);
                     }
                     else
                     {
-                        dateNaissance =new DateTime(jour,mois,annee);
+                        dateNaissance = new DateTime(annee, mois,jour);
                     }
                     //Classes validations
-                    var isValid = Validator.TryValidateObject(utilisateurACreerCopie, contextVal, resultatsValidation, true);
+                    
                     if (!isValid)
                     {
 
@@ -105,6 +107,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
             }
+        }
+
+        protected void cbCondition_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

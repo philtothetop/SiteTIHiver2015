@@ -5,7 +5,7 @@
 
 </asp:Content>
 <asp:Content ID="InscriptionContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
+
     <div class="container">
         <div class="row row-centered">
             <div class="col-lg-4 col-centered">
@@ -28,13 +28,13 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Prénom:</label>
-                            <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.nom %>' />
+                            <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.nom %>' name="fname" />
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Nom:</label>
-                            <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' />
+                            <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" />
                         </div>
                     </div>
                     <div class="control-group form-group">
@@ -56,7 +56,7 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Courriel:</label>
-                            <asp:TextBox ID="txtCourriel" runat="server" CssClass="form-control" placeholder="courriel@exemple.qc.ca" Text='<%#BindItem.courriel %>' />
+                            <asp:TextBox ID="txtCourriel" runat="server" CssClass="form-control" placeholder="courriel@exemple.qc.ca" Text='<%#BindItem.courriel %>' Font-Names="email" />
                         </div>
                     </div>
                     <div class="control-group form-group">
@@ -72,34 +72,47 @@
                         </div>
 
                     </div>
-                    <div class="control-group form-group">
-                        <div class="controls">
-                            <asp:LinkButton ID="lnkConditions" runat="server" Text="Conditions" data-toggle="modal" data-target="#mesConditions" />
-                        </div>
+                    <asp:UpdatePanel ID="upCondition" runat="server" ChildrenAsTriggers="true" UpdateMode="Conditional">
+                        <ContentTemplate>
 
-                    </div>
-                    <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" />
-                    <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-primary" CommandName="Update" />
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <asp:CheckBox ID="cbCondition" runat="server" OnCheckedChanged="cbCondition_CheckedChanged" />
+                                    <asp:LinkButton ID="lnkConditions" runat="server" Text="Conditions" data-toggle="modal" data-target="#mesConditions" />
+                                </div>
+
+                            </div>
+                            <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" />
+                            <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-primary" CommandName="Update" />
+
+                            <!-- Modal Termes et conditions-->
+                            <div class="modal fade" id="mesConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Termes et conditions</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                            <asp:LinkButton ID="lnkAcccepter" runat="server" CssClass="btn btn-primary" Text="Accepter" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Fin Termes et condition-->
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="cbCondition" EventName="" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+
                 </div>
             </div>
         </ItemTemplate>
     </asp:ListView>
-    <!-- Modal Termes et conditions-->
-    <div class="modal fade" id="mesConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Termes et conditions</h4>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Accepter</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </asp:Content>
