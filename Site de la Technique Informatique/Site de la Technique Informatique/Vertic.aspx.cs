@@ -19,6 +19,9 @@ namespace Site_de_la_Technique_Informatique.Classes
             body.Attributes.Add("data-target", ".scrolltarget");
             body.Attributes.Add("data-offset", "20");
             body.Attributes.Add("style", "position:relative; overflow:auto;");
+
+            string caract = getCaracteristiquePortable();
+            txtCaractPortatif.Text = caract;
         }
 
         public String getCaracteristiquePortable()
@@ -27,7 +30,7 @@ namespace Site_de_la_Technique_Informatique.Classes
             using (ModelTIContainer lecontexte = new ModelTIContainer())
             {
 
-                caracteristiquePortable = (from description in lecontexte.VerTICJeu select description.caracteristiquesPortable).ToString();
+                caracteristiquePortable = (from description in lecontexte.VerTICJeu select description.caracteristiquesPortable).FirstOrDefault();
             }
             return caracteristiquePortable;
         }
