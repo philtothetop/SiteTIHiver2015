@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using Site_de_la_Technique_Informatique.Model;
+
 
 namespace Site_de_la_Technique_Informatique.Classes
 {
@@ -19,15 +21,15 @@ namespace Site_de_la_Technique_Informatique.Classes
             body.Attributes.Add("style", "position:relative; overflow:auto;");
         }
 
-        public IQueryable<VerTICJeu> getDescriptionPortable()
+        public String getCaracteristiquePortable()
         {
-            string descriptionPortable="";
+            string caracteristiquePortable="";
             using (ModelTIContainer lecontexte = new ModelTIContainer())
             {
 
-                descriptionPortable = (from offresEmploi in lecontexte.OffreEmploiJeuSet select offresEmploi).ToString();
+                caracteristiquePortable = (from description in lecontexte.VerTICJeu select description.caracteristiquesPortable).ToString();
             }
-            return descriptionPortable.AsQueryable();
+            return caracteristiquePortable;
         }
 
     }
