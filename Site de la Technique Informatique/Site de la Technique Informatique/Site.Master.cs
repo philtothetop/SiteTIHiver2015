@@ -13,7 +13,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
                 //Verification s'il y a un utilisateur de connecté.
@@ -28,10 +28,10 @@ namespace Site_de_la_Technique_Informatique
                     lblConnexion.Visible = false; //Cache le lien de connexion
                     lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
 
-                    UtilisateurJeu userConnect = new UtilisateurJeu(); //crée un utilisateur
-                    userConnect = (from user in lecontexte.UtilisateurJeu where user.courriel == Session["Courriel"].ToString() select user).FirstOrDefault(); //va chercher l'utilisateur correspondant au courriel
+                    Utilisateur userConnect = new Utilisateur(); //crée un utilisateur
+                    userConnect = (from user in lecontexte.UtilisateurSet where user.courriel == Session["Courriel"].ToString() select user).FirstOrDefault(); //va chercher l'utilisateur correspondant au courriel
 
-                    lblEnLigne.Text = userConnect.prenom + " " + userConnect.nom; //Envoie le prénom nom de l'utilisateur dans le label
+                  //  lblEnLigne.Text = userConnect.prenom + " " + userConnect.nom; //Envoie le prénom nom de l'utilisateur dans le label
                 }
             }
         }
@@ -39,16 +39,16 @@ namespace Site_de_la_Technique_Informatique
         //Connexion
         protected void btnConnexion_Click(object sender, EventArgs e)
         {
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
                 try
                 {
                     Session["Courriel"] = txtIdentifiant.Text.Trim(); //envoie le courriel entré dans l'objet session
                     string pwdUserConnect = null; //Permet de stocker le mot de passe entré et hashé
                     string pwdVerification = ""; //Permet de stocker le mot de passe hashé de la BD
-                    UtilisateurJeu userConnect = new UtilisateurJeu(); //Crée un utilisateur vide
+                    Utilisateur userConnect = new Utilisateur(); //Crée un utilisateur vide
 
-                    userConnect = (from user in lecontexte.UtilisateurJeu where user.courriel == txtIdentifiant.Text select user).FirstOrDefault(); //Va chercher l'utilisateur qui correspond au courriel
+                    userConnect = (from user in lecontexte.UtilisateurSet where user.courriel == txtIdentifiant.Text select user).FirstOrDefault(); //Va chercher l'utilisateur qui correspond au courriel
 
                     if (userConnect == null) //si le courriel n'est pas dans la BD
                     {
@@ -67,9 +67,9 @@ namespace Site_de_la_Technique_Informatique
                     {
                         Session["Connexion"] = "Oui"; 
                         Response.Redirect("default.aspx", false);
-                        LogJeu log = new LogJeu();
+                        Model.Log log = new Model.Log();
                         log.dateLog = DateTime.Now;
-                        log.actionLog = userConnect.prenom + " " + userConnect.nom + "s'est connecté au site.";
+                        //log.actionLog = userConnect.prenom + " " + userConnect.nom + "s'est connecté au site.";
                     }
                     else
                     {
