@@ -63,6 +63,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="listeOffresEmploi.aspx" />
+    <Content Include="Nouvelles.aspx" />
+    <Content Include="OffreEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
@@ -71,6 +74,7 @@
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
+    <Content Include="FAQ.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
@@ -80,7 +84,6 @@
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
     <Content Include="Model\ModelTI.edmx.sql" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="PageNotFound.aspx" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
@@ -134,9 +137,41 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="listeOffresEmploi.aspx.cs">
+      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listeOffresEmploi.aspx.designer.cs">
+      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeurJeuSet.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OffreEmploiJeuSet.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ville.cs">
     <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="Model\DateEvenementVerTICJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\ExceptionUtility.cs" />
+    <Compile Include="Nouvelles.aspx.cs">
+      <DependentUpon>Nouvelles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nouvelles.aspx.designer.cs">
+      <DependentUpon>Nouvelles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OffreEmploi.aspx.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OffreEmploi.aspx.designer.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
@@ -162,6 +197,13 @@
     <Compile Include="Classes\ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,9 +228,6 @@
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CoursJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EmployeurJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EnteteForumJeu.cs">
@@ -224,9 +263,6 @@
     <Compile Include="Model\NouvelleJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\OffreEmploiJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\ParutionMediaJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
@@ -247,9 +283,6 @@
     </Compile>
     <Compile Include="Model_Partielles\UtilisateurJeu_Etudiant_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuiSommesNous.aspx.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>

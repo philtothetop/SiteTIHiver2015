@@ -12,10 +12,16 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class DateEvenementVerTICJeu
+    public partial class Ville
     {
-        public int IDDateEvenement { get; set; }
-        public string dateDescription { get; set; }
-        public string Evenement { get; set; }
+        public Ville()
+        {
+            this.OffreEmploiJeuSet = new HashSet<OffreEmploiJeuSet>();
+        }
+    
+        public int IDVille { get; set; }
+        public string nomVille { get; set; }
+    
+        public virtual ICollection<OffreEmploiJeuSet> OffreEmploiJeuSet { get; set; }
     }
 }
