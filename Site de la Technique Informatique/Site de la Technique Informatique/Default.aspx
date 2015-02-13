@@ -125,13 +125,13 @@
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Denis Dupaul</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image1.jpg" alt="">
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/image1.jpg" alt=""/>
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Axel Rassart</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/entete.jpg" alt="">
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/entete.jpg" alt=""/>
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
