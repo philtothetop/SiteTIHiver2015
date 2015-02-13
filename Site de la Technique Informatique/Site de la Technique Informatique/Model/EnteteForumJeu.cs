@@ -24,12 +24,11 @@ namespace Site_de_la_Technique_Informatique.Model
         public string titreEnteteForum { get; set; }
         public System.DateTime dateEnteteForum { get; set; }
         public int SectionForumIDSectionForum { get; set; }
-        public int UtilisateurJeuIDUtilisateur { get; set; }
-        public int SectionForumJeuIDSectionForum { get; set; }
+        public int UtilisateurIDUtilisateur { get; set; }
     
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
         public virtual ICollection<ConsultationForumJeu> ConsultationForumJeu { get; set; }
         public virtual ICollection<MessageForumJeu> MessageForumJeu { get; set; }
         public virtual SectionForumJeu SectionForumJeu { get; set; }
+        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
     }
 }

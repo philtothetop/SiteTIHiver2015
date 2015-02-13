@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/13/2015 11:58:40
+-- Date Created: 02/13/2015 11:03:56
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\ModelTI.edmx
 -- --------------------------------------------------
 
@@ -22,6 +22,9 @@ IF OBJECT_ID(N'[dbo].[FK_ConsultationForumEnteteForum]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK_UtilisateurConsultationForum]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ConsultationForumJeu] DROP CONSTRAINT [FK_UtilisateurConsultationForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeurJeuOffreEmploiJeu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OffreEmploiJeuSet] DROP CONSTRAINT [FK_EmployeurJeuOffreEmploiJeu];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EnteteForumMessageForum]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MessageForumJeu] DROP CONSTRAINT [FK_EnteteForumMessageForum];
@@ -53,8 +56,20 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Professeur_inherits_Utilisateur]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[UtilisateurJeu_Professeur] DROP CONSTRAINT [FK_Professeur_inherits_Utilisateur];
 GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurCours_CoursJeu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfesseurCours] DROP CONSTRAINT [FK_ProfesseurCours_CoursJeu];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurCours_UtilisateurJeu_Professeur]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfesseurCours] DROP CONSTRAINT [FK_ProfesseurCours_UtilisateurJeu_Professeur];
+GO
 IF OBJECT_ID(N'[dbo].[FK_LogJeuUtilisateurJeu]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_LogJeuUtilisateurJeu];
+GO
+IF OBJECT_ID(N'[dbo].[FK_LogJeuAdminJeu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_LogJeuAdminJeu];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeurJeuSetLogJeu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_EmployeurJeuSetLogJeu];
 GO
 IF OBJECT_ID(N'[dbo].[FK_OffreEmploiJeuSetVille]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[OffreEmploiJeuSet] DROP CONSTRAINT [FK_OffreEmploiJeuSetVille];
@@ -64,6 +79,9 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[AdminJeu]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[AdminJeu];
+GO
 IF OBJECT_ID(N'[dbo].[ConsultationForumJeu]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ConsultationForumJeu];
 GO
@@ -72,6 +90,9 @@ IF OBJECT_ID(N'[dbo].[CoursJeu]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[DateEvenementVerTICJeuSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[DateEvenementVerTICJeuSet];
+GO
+IF OBJECT_ID(N'[dbo].[EmployeurJeuSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EmployeurJeuSet];
 GO
 IF OBJECT_ID(N'[dbo].[EnteteForumJeu]', 'U') IS NOT NULL
     DROP TABLE [dbo].[EnteteForumJeu];
@@ -115,18 +136,28 @@ GO
 IF OBJECT_ID(N'[dbo].[VilleSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[VilleSet];
 GO
+IF OBJECT_ID(N'[dbo].[ProfesseurCours]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProfesseurCours];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
 -- --------------------------------------------------
+
+-- Creating table 'AdminJeu'
+CREATE TABLE [dbo].[AdminJeu] (
+    [IDAdmin] int IDENTITY(1,1) NOT NULL,
+    [usagerAdmin] nvarchar(20)  NOT NULL,
+    [hashMotDePasse] nvarchar(100)  NOT NULL
+);
+GO
 
 -- Creating table 'ConsultationForumJeu'
 CREATE TABLE [dbo].[ConsultationForumJeu] (
     [IDConsultationForum] int IDENTITY(1,1) NOT NULL,
     [dateConsulte] datetime  NOT NULL,
     [UtilisateurIDUtilisateur] int  NOT NULL,
-    [UtilisateurJeuIDUtilisateur] int  NOT NULL,
-    [EnteteForumJeuIDEnteteForum] int  NOT NULL
+    [EnteteForum_IDEnteteForum] int  NOT NULL
 );
 GO
 
@@ -136,8 +167,7 @@ CREATE TABLE [dbo].[CoursJeu] (
     [nomCours] nvarchar(200)  NOT NULL,
     [noCours] nvarchar(20)  NOT NULL,
     [noSessionCours] int  NOT NULL,
-    [descriptionCours] nvarchar(max)  NOT NULL,
-    [UtilisateurJeu_ProfesseurIDUtilisateur] int  NULL
+    [descriptionCours] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -149,14 +179,25 @@ CREATE TABLE [dbo].[DateEvenementVerTICJeuSet] (
 );
 GO
 
+-- Creating table 'EmployeurJeuSet'
+CREATE TABLE [dbo].[EmployeurJeuSet] (
+    [IDEmployeur] int IDENTITY(1,1) NOT NULL,
+    [nomEmployeur] nvarchar(100)  NOT NULL,
+    [hashMotDepasse] nvarchar(100)  NOT NULL,
+    [courriel] nvarchar(50)  NOT NULL,
+    [compteActif] bit  NOT NULL,
+    [valideCourriel] bit  NOT NULL,
+    [dateInscription] datetime  NOT NULL
+);
+GO
+
 -- Creating table 'EnteteForumJeu'
 CREATE TABLE [dbo].[EnteteForumJeu] (
     [IDEnteteForum] int IDENTITY(1,1) NOT NULL,
     [titreEnteteForum] nvarchar(30)  NOT NULL,
     [dateEnteteForum] datetime  NOT NULL,
     [SectionForumIDSectionForum] int  NOT NULL,
-    [UtilisateurJeuIDUtilisateur] int  NOT NULL,
-    [SectionForumJeuIDSectionForum] int  NOT NULL
+    [UtilisateurIDUtilisateur] int  NOT NULL
 );
 GO
 
@@ -168,8 +209,7 @@ CREATE TABLE [dbo].[EvenementJeu] (
     [datePublication] datetime  NOT NULL,
     [ProfesseurIDProfesseur] int  NOT NULL,
     [dateDebutEvenement] datetime  NOT NULL,
-    [dateFinEvenement] datetime  NULL,
-    [UtilisateurJeu_ProfesseurIDUtilisateur] int  NOT NULL
+    [dateFinEvenement] datetime  NULL
 );
 GO
 
@@ -178,7 +218,7 @@ CREATE TABLE [dbo].[FAQJeu] (
     [IDFAQ] int IDENTITY(1,1) NOT NULL,
     [texteQuestion] nvarchar(50)  NOT NULL,
     [texteReponse] nvarchar(500)  NOT NULL,
-    [UtilisateurJeu_ProfesseurIDUtilisateur] int  NOT NULL
+    [ProfesseurIDProfesseur] int  NOT NULL
 );
 GO
 
@@ -188,7 +228,9 @@ CREATE TABLE [dbo].[LogJeu] (
     [dateLog] datetime  NOT NULL,
     [actionLog] nvarchar(100)  NOT NULL,
     [typeLog] smallint  NOT NULL,
-    [UtilisateurJeuIDUtilisateur] int  NULL
+    [UtilisateurJeu_IDUtilisateur] int  NULL,
+    [AdminJeu_IDAdmin] int  NULL,
+    [EmployeurJeuSet_IDEmployeur] int  NULL
 );
 GO
 
@@ -198,8 +240,7 @@ CREATE TABLE [dbo].[MessageForumJeu] (
     [texteMessage] nvarchar(2000)  NOT NULL,
     [dateMessage] datetime  NOT NULL,
     [EnteteForumIDEnteteForum] int  NOT NULL,
-    [UtilisateurJeuIDUtilisateur] int  NOT NULL,
-    [EnteteForumJeuIDEnteteForum] int  NOT NULL
+    [UtilisateurIDUtilisateur] int  NOT NULL
 );
 GO
 
@@ -210,7 +251,7 @@ CREATE TABLE [dbo].[NouvelleJeu] (
     [texteNouvelle] nvarchar(max)  NOT NULL,
     [pathPhotoNouvelle] nvarchar(200)  NULL,
     [dateNouvelle] datetime  NOT NULL,
-    [UtilisateurJeu_ProfesseurIDUtilisateur] int  NOT NULL
+    [ProfesseurIDProfesseur] int  NOT NULL
 );
 GO
 
@@ -231,8 +272,8 @@ CREATE TABLE [dbo].[OffreEmploiJeuSet] (
     [courrielOffre] nvarchar(50)  NOT NULL,
     [personneRessource] nvarchar(100)  NOT NULL,
     [EmployeurJeuIDEmployeur] int  NOT NULL,
-    [UtilisateurJeuIDUtilisateur] int  NOT NULL,
-    [VilleIDVille] int  NOT NULL
+    [VilleIDVille] int  NOT NULL,
+    [Ville_IDVille] int  NOT NULL
 );
 GO
 
@@ -242,7 +283,7 @@ CREATE TABLE [dbo].[ParutionMediaJeu] (
     [pathFichierPDF] nvarchar(200)  NOT NULL,
     [descriptionParution] nvarchar(max)  NULL,
     [dateParution] datetime  NOT NULL,
-    [UtilisateurJeu_ProfesseurIDUtilisateur] int  NOT NULL
+    [ProfesseurIDProfesseur] int  NOT NULL
 );
 GO
 
@@ -265,8 +306,27 @@ CREATE TABLE [dbo].[UtilisateurJeu] (
     [photoDescription] nvarchar(500)  NULL,
     [temoignage] nvarchar(1000)  NULL,
     [dateTemoignage] datetime  NULL,
-    [compteActif] bit  NOT NULL,
-    [typeDeCompte] smallint  NOT NULL
+    [compteActif] bit  NOT NULL
+);
+GO
+
+-- Creating table 'UtilisateurJeu_Etudiant'
+CREATE TABLE [dbo].[UtilisateurJeu_Etudiant] (
+    [IDEtudiant] int IDENTITY(1,1) NOT NULL,
+    [dateNaissance] datetime  NOT NULL,
+    [dateInscription] datetime  NOT NULL,
+    [valideTemoignage] bit  NOT NULL,
+    [valideCourriel] bit  NOT NULL,
+    [IDUtilisateur] int  NOT NULL,
+    [pathCV] nvarchar(200)  NULL
+);
+GO
+
+-- Creating table 'UtilisateurJeu_Professeur'
+CREATE TABLE [dbo].[UtilisateurJeu_Professeur] (
+    [IDProfesseur] int IDENTITY(1,1) NOT NULL,
+    [IDUtilisateur] int  NOT NULL,
+    [presentation] nvarchar(2000)  NULL
 );
 GO
 
@@ -287,29 +347,22 @@ CREATE TABLE [dbo].[VilleSet] (
 );
 GO
 
--- Creating table 'UtilisateurJeu_UtilisateurJeu_Professeur'
-CREATE TABLE [dbo].[UtilisateurJeu_UtilisateurJeu_Professeur] (
-    [IDProfesseur] int IDENTITY(1,1) NOT NULL,
-    [presentation] nvarchar(2000)  NULL,
-    [IDUtilisateur] int  NOT NULL
-);
-GO
-
--- Creating table 'UtilisateurJeu_UtilisateurJeu_Etudiant'
-CREATE TABLE [dbo].[UtilisateurJeu_UtilisateurJeu_Etudiant] (
-    [IDEtudiant] int IDENTITY(1,1) NOT NULL,
-    [dateNaissance] datetime  NOT NULL,
-    [dateInscription] datetime  NOT NULL,
-    [valideTemoignage] bit  NOT NULL,
-    [valideCourriel] bit  NOT NULL,
-    [pathCV] nvarchar(200)  NULL,
-    [IDUtilisateur] int  NOT NULL
+-- Creating table 'ProfesseurCours'
+CREATE TABLE [dbo].[ProfesseurCours] (
+    [CoursJeu_IDCours] int  NOT NULL,
+    [UtilisateurJeu_Professeur_IDUtilisateur] int  NOT NULL
 );
 GO
 
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
+
+-- Creating primary key on [IDAdmin] in table 'AdminJeu'
+ALTER TABLE [dbo].[AdminJeu]
+ADD CONSTRAINT [PK_AdminJeu]
+    PRIMARY KEY CLUSTERED ([IDAdmin] ASC);
+GO
 
 -- Creating primary key on [IDConsultationForum] in table 'ConsultationForumJeu'
 ALTER TABLE [dbo].[ConsultationForumJeu]
@@ -327,6 +380,12 @@ GO
 ALTER TABLE [dbo].[DateEvenementVerTICJeuSet]
 ADD CONSTRAINT [PK_DateEvenementVerTICJeuSet]
     PRIMARY KEY CLUSTERED ([IDDateEvenement] ASC);
+GO
+
+-- Creating primary key on [IDEmployeur] in table 'EmployeurJeuSet'
+ALTER TABLE [dbo].[EmployeurJeuSet]
+ADD CONSTRAINT [PK_EmployeurJeuSet]
+    PRIMARY KEY CLUSTERED ([IDEmployeur] ASC);
 GO
 
 -- Creating primary key on [IDEnteteForum] in table 'EnteteForumJeu'
@@ -389,6 +448,18 @@ ADD CONSTRAINT [PK_UtilisateurJeu]
     PRIMARY KEY CLUSTERED ([IDUtilisateur] ASC);
 GO
 
+-- Creating primary key on [IDUtilisateur] in table 'UtilisateurJeu_Etudiant'
+ALTER TABLE [dbo].[UtilisateurJeu_Etudiant]
+ADD CONSTRAINT [PK_UtilisateurJeu_Etudiant]
+    PRIMARY KEY CLUSTERED ([IDUtilisateur] ASC);
+GO
+
+-- Creating primary key on [IDUtilisateur] in table 'UtilisateurJeu_Professeur'
+ALTER TABLE [dbo].[UtilisateurJeu_Professeur]
+ADD CONSTRAINT [PK_UtilisateurJeu_Professeur]
+    PRIMARY KEY CLUSTERED ([IDUtilisateur] ASC);
+GO
+
 -- Creating primary key on [IDVerTIC] in table 'VerTICJeu'
 ALTER TABLE [dbo].[VerTICJeu]
 ADD CONSTRAINT [PK_VerTICJeu]
@@ -401,248 +472,281 @@ ADD CONSTRAINT [PK_VilleSet]
     PRIMARY KEY CLUSTERED ([IDVille] ASC);
 GO
 
--- Creating primary key on [IDUtilisateur] in table 'UtilisateurJeu_UtilisateurJeu_Professeur'
-ALTER TABLE [dbo].[UtilisateurJeu_UtilisateurJeu_Professeur]
-ADD CONSTRAINT [PK_UtilisateurJeu_UtilisateurJeu_Professeur]
-    PRIMARY KEY CLUSTERED ([IDUtilisateur] ASC);
-GO
-
--- Creating primary key on [IDUtilisateur] in table 'UtilisateurJeu_UtilisateurJeu_Etudiant'
-ALTER TABLE [dbo].[UtilisateurJeu_UtilisateurJeu_Etudiant]
-ADD CONSTRAINT [PK_UtilisateurJeu_UtilisateurJeu_Etudiant]
-    PRIMARY KEY CLUSTERED ([IDUtilisateur] ASC);
+-- Creating primary key on [CoursJeu_IDCours], [UtilisateurJeu_Professeur_IDUtilisateur] in table 'ProfesseurCours'
+ALTER TABLE [dbo].[ProfesseurCours]
+ADD CONSTRAINT [PK_ProfesseurCours]
+    PRIMARY KEY CLUSTERED ([CoursJeu_IDCours], [UtilisateurJeu_Professeur_IDUtilisateur] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
 
--- Creating foreign key on [UtilisateurJeuIDUtilisateur] in table 'LogJeu'
-ALTER TABLE [dbo].[LogJeu]
-ADD CONSTRAINT [FK_UtilisateurJeuLogJeu]
-    FOREIGN KEY ([UtilisateurJeuIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeuLogJeu'
-CREATE INDEX [IX_FK_UtilisateurJeuLogJeu]
-ON [dbo].[LogJeu]
-    ([UtilisateurJeuIDUtilisateur]);
-GO
-
--- Creating foreign key on [UtilisateurJeuIDUtilisateur] in table 'OffreEmploiJeuSet'
-ALTER TABLE [dbo].[OffreEmploiJeuSet]
-ADD CONSTRAINT [FK_UtilisateurJeuOffreEmploiJeuSet]
-    FOREIGN KEY ([UtilisateurJeuIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeuOffreEmploiJeuSet'
-CREATE INDEX [IX_FK_UtilisateurJeuOffreEmploiJeuSet]
-ON [dbo].[OffreEmploiJeuSet]
-    ([UtilisateurJeuIDUtilisateur]);
-GO
-
--- Creating foreign key on [UtilisateurJeuIDUtilisateur] in table 'MessageForumJeu'
-ALTER TABLE [dbo].[MessageForumJeu]
-ADD CONSTRAINT [FK_UtilisateurJeuMessageForumJeu]
-    FOREIGN KEY ([UtilisateurJeuIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeuMessageForumJeu'
-CREATE INDEX [IX_FK_UtilisateurJeuMessageForumJeu]
-ON [dbo].[MessageForumJeu]
-    ([UtilisateurJeuIDUtilisateur]);
-GO
-
--- Creating foreign key on [UtilisateurJeuIDUtilisateur] in table 'ConsultationForumJeu'
+-- Creating foreign key on [EnteteForum_IDEnteteForum] in table 'ConsultationForumJeu'
 ALTER TABLE [dbo].[ConsultationForumJeu]
-ADD CONSTRAINT [FK_UtilisateurJeuConsultationForumJeu]
-    FOREIGN KEY ([UtilisateurJeuIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeuConsultationForumJeu'
-CREATE INDEX [IX_FK_UtilisateurJeuConsultationForumJeu]
-ON [dbo].[ConsultationForumJeu]
-    ([UtilisateurJeuIDUtilisateur]);
-GO
-
--- Creating foreign key on [UtilisateurJeuIDUtilisateur] in table 'EnteteForumJeu'
-ALTER TABLE [dbo].[EnteteForumJeu]
-ADD CONSTRAINT [FK_UtilisateurJeuEnteteForumJeu]
-    FOREIGN KEY ([UtilisateurJeuIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeuEnteteForumJeu'
-CREATE INDEX [IX_FK_UtilisateurJeuEnteteForumJeu]
-ON [dbo].[EnteteForumJeu]
-    ([UtilisateurJeuIDUtilisateur]);
-GO
-
--- Creating foreign key on [VilleIDVille] in table 'OffreEmploiJeuSet'
-ALTER TABLE [dbo].[OffreEmploiJeuSet]
-ADD CONSTRAINT [FK_VilleOffreEmploiJeuSet]
-    FOREIGN KEY ([VilleIDVille])
-    REFERENCES [dbo].[VilleSet]
-        ([IDVille])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_VilleOffreEmploiJeuSet'
-CREATE INDEX [IX_FK_VilleOffreEmploiJeuSet]
-ON [dbo].[OffreEmploiJeuSet]
-    ([VilleIDVille]);
-GO
-
--- Creating foreign key on [UtilisateurJeu_ProfesseurIDUtilisateur] in table 'CoursJeu'
-ALTER TABLE [dbo].[CoursJeu]
-ADD CONSTRAINT [FK_UtilisateurJeu_ProfesseurCoursJeu]
-    FOREIGN KEY ([UtilisateurJeu_ProfesseurIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu_UtilisateurJeu_Professeur]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeu_ProfesseurCoursJeu'
-CREATE INDEX [IX_FK_UtilisateurJeu_ProfesseurCoursJeu]
-ON [dbo].[CoursJeu]
-    ([UtilisateurJeu_ProfesseurIDUtilisateur]);
-GO
-
--- Creating foreign key on [UtilisateurJeu_ProfesseurIDUtilisateur] in table 'EvenementJeu'
-ALTER TABLE [dbo].[EvenementJeu]
-ADD CONSTRAINT [FK_UtilisateurJeu_ProfesseurEvenementJeu]
-    FOREIGN KEY ([UtilisateurJeu_ProfesseurIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu_UtilisateurJeu_Professeur]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeu_ProfesseurEvenementJeu'
-CREATE INDEX [IX_FK_UtilisateurJeu_ProfesseurEvenementJeu]
-ON [dbo].[EvenementJeu]
-    ([UtilisateurJeu_ProfesseurIDUtilisateur]);
-GO
-
--- Creating foreign key on [UtilisateurJeu_ProfesseurIDUtilisateur] in table 'ParutionMediaJeu'
-ALTER TABLE [dbo].[ParutionMediaJeu]
-ADD CONSTRAINT [FK_UtilisateurJeu_ProfesseurParutionMediaJeu]
-    FOREIGN KEY ([UtilisateurJeu_ProfesseurIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu_UtilisateurJeu_Professeur]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeu_ProfesseurParutionMediaJeu'
-CREATE INDEX [IX_FK_UtilisateurJeu_ProfesseurParutionMediaJeu]
-ON [dbo].[ParutionMediaJeu]
-    ([UtilisateurJeu_ProfesseurIDUtilisateur]);
-GO
-
--- Creating foreign key on [UtilisateurJeu_ProfesseurIDUtilisateur] in table 'FAQJeu'
-ALTER TABLE [dbo].[FAQJeu]
-ADD CONSTRAINT [FK_UtilisateurJeu_ProfesseurFAQJeu]
-    FOREIGN KEY ([UtilisateurJeu_ProfesseurIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu_UtilisateurJeu_Professeur]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeu_ProfesseurFAQJeu'
-CREATE INDEX [IX_FK_UtilisateurJeu_ProfesseurFAQJeu]
-ON [dbo].[FAQJeu]
-    ([UtilisateurJeu_ProfesseurIDUtilisateur]);
-GO
-
--- Creating foreign key on [UtilisateurJeu_ProfesseurIDUtilisateur] in table 'NouvelleJeu'
-ALTER TABLE [dbo].[NouvelleJeu]
-ADD CONSTRAINT [FK_UtilisateurJeu_ProfesseurNouvelleJeu]
-    FOREIGN KEY ([UtilisateurJeu_ProfesseurIDUtilisateur])
-    REFERENCES [dbo].[UtilisateurJeu_UtilisateurJeu_Professeur]
-        ([IDUtilisateur])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurJeu_ProfesseurNouvelleJeu'
-CREATE INDEX [IX_FK_UtilisateurJeu_ProfesseurNouvelleJeu]
-ON [dbo].[NouvelleJeu]
-    ([UtilisateurJeu_ProfesseurIDUtilisateur]);
-GO
-
--- Creating foreign key on [EnteteForumJeuIDEnteteForum] in table 'ConsultationForumJeu'
-ALTER TABLE [dbo].[ConsultationForumJeu]
-ADD CONSTRAINT [FK_ConsultationForumJeuEnteteForumJeu]
-    FOREIGN KEY ([EnteteForumJeuIDEnteteForum])
+ADD CONSTRAINT [FK_ConsultationForumEnteteForum]
+    FOREIGN KEY ([EnteteForum_IDEnteteForum])
     REFERENCES [dbo].[EnteteForumJeu]
         ([IDEnteteForum])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_ConsultationForumJeuEnteteForumJeu'
-CREATE INDEX [IX_FK_ConsultationForumJeuEnteteForumJeu]
+-- Creating non-clustered index for FOREIGN KEY 'FK_ConsultationForumEnteteForum'
+CREATE INDEX [IX_FK_ConsultationForumEnteteForum]
 ON [dbo].[ConsultationForumJeu]
-    ([EnteteForumJeuIDEnteteForum]);
+    ([EnteteForum_IDEnteteForum]);
 GO
 
--- Creating foreign key on [EnteteForumJeuIDEnteteForum] in table 'MessageForumJeu'
+-- Creating foreign key on [UtilisateurIDUtilisateur] in table 'ConsultationForumJeu'
+ALTER TABLE [dbo].[ConsultationForumJeu]
+ADD CONSTRAINT [FK_UtilisateurConsultationForum]
+    FOREIGN KEY ([UtilisateurIDUtilisateur])
+    REFERENCES [dbo].[UtilisateurJeu]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurConsultationForum'
+CREATE INDEX [IX_FK_UtilisateurConsultationForum]
+ON [dbo].[ConsultationForumJeu]
+    ([UtilisateurIDUtilisateur]);
+GO
+
+-- Creating foreign key on [EmployeurJeuIDEmployeur] in table 'OffreEmploiJeuSet'
+ALTER TABLE [dbo].[OffreEmploiJeuSet]
+ADD CONSTRAINT [FK_EmployeurJeuOffreEmploiJeu]
+    FOREIGN KEY ([EmployeurJeuIDEmployeur])
+    REFERENCES [dbo].[EmployeurJeuSet]
+        ([IDEmployeur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeurJeuOffreEmploiJeu'
+CREATE INDEX [IX_FK_EmployeurJeuOffreEmploiJeu]
+ON [dbo].[OffreEmploiJeuSet]
+    ([EmployeurJeuIDEmployeur]);
+GO
+
+-- Creating foreign key on [EnteteForumIDEnteteForum] in table 'MessageForumJeu'
 ALTER TABLE [dbo].[MessageForumJeu]
-ADD CONSTRAINT [FK_EnteteForumJeuMessageForumJeu]
-    FOREIGN KEY ([EnteteForumJeuIDEnteteForum])
+ADD CONSTRAINT [FK_EnteteForumMessageForum]
+    FOREIGN KEY ([EnteteForumIDEnteteForum])
     REFERENCES [dbo].[EnteteForumJeu]
         ([IDEnteteForum])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_EnteteForumJeuMessageForumJeu'
-CREATE INDEX [IX_FK_EnteteForumJeuMessageForumJeu]
+-- Creating non-clustered index for FOREIGN KEY 'FK_EnteteForumMessageForum'
+CREATE INDEX [IX_FK_EnteteForumMessageForum]
 ON [dbo].[MessageForumJeu]
-    ([EnteteForumJeuIDEnteteForum]);
+    ([EnteteForumIDEnteteForum]);
 GO
 
--- Creating foreign key on [SectionForumJeuIDSectionForum] in table 'EnteteForumJeu'
+-- Creating foreign key on [SectionForumIDSectionForum] in table 'EnteteForumJeu'
 ALTER TABLE [dbo].[EnteteForumJeu]
-ADD CONSTRAINT [FK_SectionForumJeuEnteteForumJeu]
-    FOREIGN KEY ([SectionForumJeuIDSectionForum])
+ADD CONSTRAINT [FK_SectionForumEnteteForum]
+    FOREIGN KEY ([SectionForumIDSectionForum])
     REFERENCES [dbo].[SectionForumJeu]
         ([IDSectionForum])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_SectionForumJeuEnteteForumJeu'
-CREATE INDEX [IX_FK_SectionForumJeuEnteteForumJeu]
+-- Creating non-clustered index for FOREIGN KEY 'FK_SectionForumEnteteForum'
+CREATE INDEX [IX_FK_SectionForumEnteteForum]
 ON [dbo].[EnteteForumJeu]
-    ([SectionForumJeuIDSectionForum]);
+    ([SectionForumIDSectionForum]);
 GO
 
--- Creating foreign key on [IDUtilisateur] in table 'UtilisateurJeu_UtilisateurJeu_Professeur'
-ALTER TABLE [dbo].[UtilisateurJeu_UtilisateurJeu_Professeur]
-ADD CONSTRAINT [FK_UtilisateurJeu_Professeur_inherits_UtilisateurJeu]
+-- Creating foreign key on [UtilisateurIDUtilisateur] in table 'EnteteForumJeu'
+ALTER TABLE [dbo].[EnteteForumJeu]
+ADD CONSTRAINT [FK_UtilisateurEnteteForum]
+    FOREIGN KEY ([UtilisateurIDUtilisateur])
+    REFERENCES [dbo].[UtilisateurJeu]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurEnteteForum'
+CREATE INDEX [IX_FK_UtilisateurEnteteForum]
+ON [dbo].[EnteteForumJeu]
+    ([UtilisateurIDUtilisateur]);
+GO
+
+-- Creating foreign key on [ProfesseurIDProfesseur] in table 'EvenementJeu'
+ALTER TABLE [dbo].[EvenementJeu]
+ADD CONSTRAINT [FK_ProfesseurEvenement]
+    FOREIGN KEY ([ProfesseurIDProfesseur])
+    REFERENCES [dbo].[UtilisateurJeu_Professeur]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProfesseurEvenement'
+CREATE INDEX [IX_FK_ProfesseurEvenement]
+ON [dbo].[EvenementJeu]
+    ([ProfesseurIDProfesseur]);
+GO
+
+-- Creating foreign key on [ProfesseurIDProfesseur] in table 'FAQJeu'
+ALTER TABLE [dbo].[FAQJeu]
+ADD CONSTRAINT [FK_ProfesseurFAQ]
+    FOREIGN KEY ([ProfesseurIDProfesseur])
+    REFERENCES [dbo].[UtilisateurJeu_Professeur]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProfesseurFAQ'
+CREATE INDEX [IX_FK_ProfesseurFAQ]
+ON [dbo].[FAQJeu]
+    ([ProfesseurIDProfesseur]);
+GO
+
+-- Creating foreign key on [UtilisateurIDUtilisateur] in table 'MessageForumJeu'
+ALTER TABLE [dbo].[MessageForumJeu]
+ADD CONSTRAINT [FK_UtilisateurMessageForum]
+    FOREIGN KEY ([UtilisateurIDUtilisateur])
+    REFERENCES [dbo].[UtilisateurJeu]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UtilisateurMessageForum'
+CREATE INDEX [IX_FK_UtilisateurMessageForum]
+ON [dbo].[MessageForumJeu]
+    ([UtilisateurIDUtilisateur]);
+GO
+
+-- Creating foreign key on [ProfesseurIDProfesseur] in table 'NouvelleJeu'
+ALTER TABLE [dbo].[NouvelleJeu]
+ADD CONSTRAINT [FK_ProfesseurNouvelle]
+    FOREIGN KEY ([ProfesseurIDProfesseur])
+    REFERENCES [dbo].[UtilisateurJeu_Professeur]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProfesseurNouvelle'
+CREATE INDEX [IX_FK_ProfesseurNouvelle]
+ON [dbo].[NouvelleJeu]
+    ([ProfesseurIDProfesseur]);
+GO
+
+-- Creating foreign key on [ProfesseurIDProfesseur] in table 'ParutionMediaJeu'
+ALTER TABLE [dbo].[ParutionMediaJeu]
+ADD CONSTRAINT [FK_ProfesseurParutionMedia]
+    FOREIGN KEY ([ProfesseurIDProfesseur])
+    REFERENCES [dbo].[UtilisateurJeu_Professeur]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProfesseurParutionMedia'
+CREATE INDEX [IX_FK_ProfesseurParutionMedia]
+ON [dbo].[ParutionMediaJeu]
+    ([ProfesseurIDProfesseur]);
+GO
+
+-- Creating foreign key on [IDUtilisateur] in table 'UtilisateurJeu_Etudiant'
+ALTER TABLE [dbo].[UtilisateurJeu_Etudiant]
+ADD CONSTRAINT [FK_Etudiant_inherits_Utilisateur]
     FOREIGN KEY ([IDUtilisateur])
     REFERENCES [dbo].[UtilisateurJeu]
         ([IDUtilisateur])
     ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
--- Creating foreign key on [IDUtilisateur] in table 'UtilisateurJeu_UtilisateurJeu_Etudiant'
-ALTER TABLE [dbo].[UtilisateurJeu_UtilisateurJeu_Etudiant]
-ADD CONSTRAINT [FK_UtilisateurJeu_Etudiant_inherits_UtilisateurJeu]
+-- Creating foreign key on [IDUtilisateur] in table 'UtilisateurJeu_Professeur'
+ALTER TABLE [dbo].[UtilisateurJeu_Professeur]
+ADD CONSTRAINT [FK_Professeur_inherits_Utilisateur]
     FOREIGN KEY ([IDUtilisateur])
     REFERENCES [dbo].[UtilisateurJeu]
         ([IDUtilisateur])
     ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [CoursJeu_IDCours] in table 'ProfesseurCours'
+ALTER TABLE [dbo].[ProfesseurCours]
+ADD CONSTRAINT [FK_ProfesseurCours_CoursJeu]
+    FOREIGN KEY ([CoursJeu_IDCours])
+    REFERENCES [dbo].[CoursJeu]
+        ([IDCours])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [UtilisateurJeu_Professeur_IDUtilisateur] in table 'ProfesseurCours'
+ALTER TABLE [dbo].[ProfesseurCours]
+ADD CONSTRAINT [FK_ProfesseurCours_UtilisateurJeu_Professeur]
+    FOREIGN KEY ([UtilisateurJeu_Professeur_IDUtilisateur])
+    REFERENCES [dbo].[UtilisateurJeu_Professeur]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ProfesseurCours_UtilisateurJeu_Professeur'
+CREATE INDEX [IX_FK_ProfesseurCours_UtilisateurJeu_Professeur]
+ON [dbo].[ProfesseurCours]
+    ([UtilisateurJeu_Professeur_IDUtilisateur]);
+GO
+
+-- Creating foreign key on [UtilisateurJeu_IDUtilisateur] in table 'LogJeu'
+ALTER TABLE [dbo].[LogJeu]
+ADD CONSTRAINT [FK_LogJeuUtilisateurJeu]
+    FOREIGN KEY ([UtilisateurJeu_IDUtilisateur])
+    REFERENCES [dbo].[UtilisateurJeu]
+        ([IDUtilisateur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_LogJeuUtilisateurJeu'
+CREATE INDEX [IX_FK_LogJeuUtilisateurJeu]
+ON [dbo].[LogJeu]
+    ([UtilisateurJeu_IDUtilisateur]);
+GO
+
+-- Creating foreign key on [AdminJeu_IDAdmin] in table 'LogJeu'
+ALTER TABLE [dbo].[LogJeu]
+ADD CONSTRAINT [FK_LogJeuAdminJeu]
+    FOREIGN KEY ([AdminJeu_IDAdmin])
+    REFERENCES [dbo].[AdminJeu]
+        ([IDAdmin])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_LogJeuAdminJeu'
+CREATE INDEX [IX_FK_LogJeuAdminJeu]
+ON [dbo].[LogJeu]
+    ([AdminJeu_IDAdmin]);
+GO
+
+-- Creating foreign key on [EmployeurJeuSet_IDEmployeur] in table 'LogJeu'
+ALTER TABLE [dbo].[LogJeu]
+ADD CONSTRAINT [FK_EmployeurJeuSetLogJeu]
+    FOREIGN KEY ([EmployeurJeuSet_IDEmployeur])
+    REFERENCES [dbo].[EmployeurJeuSet]
+        ([IDEmployeur])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeurJeuSetLogJeu'
+CREATE INDEX [IX_FK_EmployeurJeuSetLogJeu]
+ON [dbo].[LogJeu]
+    ([EmployeurJeuSet_IDEmployeur]);
+GO
+
+-- Creating foreign key on [Ville_IDVille] in table 'OffreEmploiJeuSet'
+ALTER TABLE [dbo].[OffreEmploiJeuSet]
+ADD CONSTRAINT [FK_OffreEmploiJeuSetVille]
+    FOREIGN KEY ([Ville_IDVille])
+    REFERENCES [dbo].[VilleSet]
+        ([IDVille])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OffreEmploiJeuSetVille'
+CREATE INDEX [IX_FK_OffreEmploiJeuSetVille]
+ON [dbo].[OffreEmploiJeuSet]
+    ([Ville_IDVille]);
 GO
 
 -- --------------------------------------------------

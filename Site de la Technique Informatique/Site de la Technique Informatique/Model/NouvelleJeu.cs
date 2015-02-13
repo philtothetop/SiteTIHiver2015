@@ -19,7 +19,7 @@ namespace Site_de_la_Technique_Informatique.Model
         public string texteNouvelle { get; set; }
         public string pathPhotoNouvelle { get; set; }
         public System.DateTime dateNouvelle { get; set; }
-        public int UtilisateurJeu_ProfesseurIDUtilisateur { get; set; }
+        public int ProfesseurIDProfesseur { get; set; }
     
         public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
     }

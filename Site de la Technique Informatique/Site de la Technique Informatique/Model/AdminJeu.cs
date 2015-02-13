@@ -12,13 +12,17 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class FAQJeu
+    public partial class AdminJeu
     {
-        public int IDFAQ { get; set; }
-        public string texteQuestion { get; set; }
-        public string texteReponse { get; set; }
-        public int ProfesseurIDProfesseur { get; set; }
+        public AdminJeu()
+        {
+            this.LogJeu = new HashSet<LogJeu>();
+        }
     
-        public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
+        public int IDAdmin { get; set; }
+        public string usagerAdmin { get; set; }
+        public string hashMotDePasse { get; set; }
+    
+        public virtual ICollection<LogJeu> LogJeu { get; set; }
     }
 }

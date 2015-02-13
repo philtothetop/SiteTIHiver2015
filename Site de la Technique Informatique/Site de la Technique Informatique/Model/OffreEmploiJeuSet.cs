@@ -29,10 +29,9 @@ namespace Site_de_la_Technique_Informatique.Model
         public string courrielOffre { get; set; }
         public string personneRessource { get; set; }
         public int EmployeurJeuIDEmployeur { get; set; }
-        public int UtilisateurJeuIDUtilisateur { get; set; }
         public int VilleIDVille { get; set; }
     
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
+        public virtual EmployeurJeuSet EmployeurJeuSet { get; set; }
         public virtual Ville Ville { get; set; }
     }
 }
