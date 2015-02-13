@@ -99,8 +99,10 @@
                         </li>
                         
                             <li class="dropdown">
-                                        <a href="#myModal" role="button" data-toggle="modal" data-target="#myModal">Connexion</a>
+                                        <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
+                                        <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" />
                             </li>
+                            
                         
                     </ul>
                 </div>
