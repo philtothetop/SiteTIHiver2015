@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Site_de_la_Technique_Informatique.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,18 @@ namespace Site_de_la_Technique_Informatique
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-
+          
 		}
+       
+        public IQueryable<NouvelleJeu> getNouvelles()
+        {
+            List<NouvelleJeu> listeNouvelle = new List<NouvelleJeu>();
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+
+                listeNouvelle = (from nouvelles in lecontexte.NouvelleJeu select nouvelles).ToList();
+            }
+            return listeNouvelle.AsQueryable();
+        }
 	}
 }
