@@ -14,7 +14,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
+        }/*
         public UtilisateurJeu GetUtilisateurEtudiant()
         {
 
@@ -24,7 +24,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 {
                     List<UtilisateurJeu> listUtilisateur = (from cl in leContext.UtilisateurJeu select cl).ToList();
                     UtilisateurJeu nouveauUtilisateur = new UtilisateurJeu();
-                    nouveauUtilisateur.UtilisateurJeu_Etudiant = new UtilisateurJeu_Etudiant();
+                   // nouveauUtilisateur.UtilisateurJeu_Etudiant = new UtilisateurJeu_Etudiant();
                     listUtilisateur.Add(nouveauUtilisateur);
 
                     return listUtilisateur.Last();
@@ -89,12 +89,12 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         //Convertir le mot de passe en hashcode
                         utilisateurACreerCopie.hashMotDepasse = utilisateurACreerCopie.hashMotDepasse.GetHashCode().ToString();
                         //Date inscription
-                        utilisateurACreerCopie.UtilisateurJeu_Etudiant.dateInscription = DateTime.Now;
+                     //   utilisateurACreerCopie.UtilisateurJeu_Etudiant.dateInscription = DateTime.Now;
                         //Date de naissance
-                        utilisateurACreerCopie.UtilisateurJeu_Etudiant.dateNaissance = dateNaissance;
+                       // utilisateurACreerCopie.UtilisateurJeu_Etudiant.dateNaissance = dateNaissance;
                         
-                        utilisateurACreerCopie.UtilisateurJeu_Etudiant.IDUtilisateur = utilisateurACreerCopie.IDUtilisateur;
-                        utilisateurACreerCopie.UtilisateurJeu_Etudiant.valideCourriel = false;
+                      //  utilisateurACreerCopie.UtilisateurJeu_Etudiant.IDUtilisateur = utilisateurACreerCopie.IDUtilisateur;
+                      //  utilisateurACreerCopie.UtilisateurJeu_Etudiant.valideCourriel = false;
 
                         leContext.UtilisateurJeu.Add(utilisateurACreerCopie);
                         leContext.SaveChanges();
@@ -105,6 +105,6 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
             }
-        }
+        }*/
     }
 }

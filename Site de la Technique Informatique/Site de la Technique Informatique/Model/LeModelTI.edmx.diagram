@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7d01897b60314aab8567c41b1f4e3a56" Name="Diagram1" ZoomLevel="56" DisplayType="true" >
+        <EntityTypeShape EntityType="LeModelTI.DateEvenementVerTIC" Width="2.25" PointX="0.625" PointY="0.5" />
+        <EntityTypeShape EntityType="LeModelTI.VerTIC" Width="2.375" PointX="4.125" PointY="0.5" />
+        <EntityTypeShape EntityType="LeModelTI.Log" Width="1.625" PointX="1.75" PointY="3.625" />
+        <EntityTypeShape EntityType="LeModelTI.Utilisateur" Width="2" PointX="4.5" PointY="3.625" />
+        <EntityTypeShape EntityType="LeModelTI.Admin" Width="1.5" PointX="7.375" PointY="2.5" />
+        <EntityTypeShape EntityType="LeModelTI.Employeur" Width="1.875" PointX="9.5" PointY="3.625" />
+        <EntityTypeShape EntityType="LeModelTI.OffreEmploi" Width="2.25" PointX="12.625" PointY="2.375" />
+        <EntityTypeShape EntityType="LeModelTI.Ville" Width="1.5" PointX="15.75" PointY="3.875" />
+        <EntityTypeShape EntityType="LeModelTI.ConsultationForum" Width="2.25" PointX="2.125" PointY="8.375" />
+        <EntityTypeShape EntityType="LeModelTI.Membre" Width="2.125" PointX="6.375" PointY="6.25" />
+        <EntityTypeShape EntityType="LeModelTI.Cours" Width="2" PointX="10.125" PointY="6.75" />
+        <EntityTypeShape EntityType="LeModelTI.Evenement" Width="2.375" PointX="13.25" PointY="8.875" />
+        <EntityTypeShape EntityType="LeModelTI.ParutionMedia" Width="2.25" PointX="13.125" PointY="12.875" />
+        <EntityTypeShape EntityType="LeModelTI.FAQ" Width="1.875" PointX="9.75" PointY="13.875" />
+        <EntityTypeShape EntityType="LeModelTI.Nouvelle" Width="2.125" PointX="6.5" PointY="13.5" />
+        <EntityTypeShape EntityType="LeModelTI.SectionForum" Width="2.125" PointX="3.625" PointY="13.5" />
+        <EntityTypeShape EntityType="LeModelTI.EnteteForum" Width="2.125" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="LeModelTI.MessageForum" Width="2" PointX="3.75" PointY="11.25" />
+        <EntityTypeShape EntityType="LeModelTI.Professeur" Width="1.5" PointX="10" PointY="10.125" />
+        <EntityTypeShape EntityType="LeModelTI.Etudiant" Width="2.125" PointX="6.625" PointY="10.25" />
+        <InheritanceConnector EntityType="LeModelTI.Admin" />
+        <InheritanceConnector EntityType="LeModelTI.Membre" />
+        <InheritanceConnector EntityType="LeModelTI.Employeur" />
+        <InheritanceConnector EntityType="LeModelTI.Professeur" />
+        <InheritanceConnector EntityType="LeModelTI.Etudiant" />
+        <AssociationConnector Association="LeModelTI.UtilisateurLog" />
+        <AssociationConnector Association="LeModelTI.EmployeurOffreEmploi" />
+        <AssociationConnector Association="LeModelTI.OffreEmploiVille" />
+        <AssociationConnector Association="LeModelTI.ProfesseurCours" />
+        <AssociationConnector Association="LeModelTI.ProfesseurEvenement" />
+        <AssociationConnector Association="LeModelTI.ProfesseurParutionMedia" />
+        <AssociationConnector Association="LeModelTI.ProfesseurFAQ" />
+        <AssociationConnector Association="LeModelTI.ProfesseurNouvelle" ManuallyRouted="true" >
+          <ConnectorPoint PointX="10" PointY="12.201978712771705" />
+          <ConnectorPoint PointX="9.2168899587922564" PointY="12.201978712771705" />
+          <ConnectorPoint PointX="9.2168899587922564" PointY="12.804877285309811" />
+          <ConnectorPoint PointX="7.8226163651171383" PointY="12.804877285309811" />
+          <ConnectorPoint PointX="7.8226163651171383" PointY="13.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="LeModelTI.SectionForumEnteteForum" />
+        <AssociationConnector Association="LeModelTI.EnteteForumMessageForum" />
+        <AssociationConnector Association="LeModelTI.EnteteForumConsultationForum" />
+        <AssociationConnector Association="LeModelTI.MembreEnteteForum" />
+        <AssociationConnector Association="LeModelTI.MembreConsultationForum" />
+        <AssociationConnector Association="LeModelTI.MembreMessageForum" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -12,15 +12,14 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ConsultationForumJeu
+    public partial class Log
     {
-        public int IDConsultationForum { get; set; }
-        public System.DateTime dateConsulte { get; set; }
-        public int UtilisateurIDUtilisateur { get; set; }
-        public int UtilisateurJeuIDUtilisateur { get; set; }
-        public int EnteteForumJeuIDEnteteForum { get; set; }
+        public int IDLog { get; set; }
+        public System.DateTime dateLog { get; set; }
+        public string actionLog { get; set; }
+        public short typeLog { get; set; }
+        public Nullable<int> UtilisateurIDUtilisateur { get; set; }
     
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
-        public virtual EnteteForumJeu EnteteForumJeu { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

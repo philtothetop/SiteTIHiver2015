@@ -12,16 +12,18 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class MessageForumJeu
+    public partial class ConsultationForum
     {
-        public int IDMessageForum { get; set; }
-        public string texteMessage { get; set; }
-        public System.DateTime dateMessage { get; set; }
-        public int EnteteForumIDEnteteForum { get; set; }
-        public int UtilisateurJeuIDUtilisateur { get; set; }
-        public int EnteteForumJeuIDEnteteForum { get; set; }
+        public ConsultationForum()
+        {
+            this.Membre = new HashSet<Membre>();
+        }
     
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
-        public virtual EnteteForumJeu EnteteForumJeu { get; set; }
+        public int IDConsultationForum { get; set; }
+        public string dateConsulte { get; set; }
+        public int EnteteForumIDEnteteForum { get; set; }
+    
+        public virtual EnteteForum EnteteForum { get; set; }
+        public virtual ICollection<Membre> Membre { get; set; }
     }
 }

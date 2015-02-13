@@ -19,7 +19,7 @@ namespace Site_de_la_Technique_Informatique
             Server.ClearError();
         }
 
-
+        /*
         public void LogErreur(string leMessage)
         {
             using (ModelTIContainer leContext = new ModelTIContainer())
@@ -33,7 +33,7 @@ namespace Site_de_la_Technique_Informatique
                 leContext.SaveChanges();
             }
         }
-
+        */
 
 
     }

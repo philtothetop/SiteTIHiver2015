@@ -12,15 +12,19 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class CoursJeu
+    public partial class Cours
     {
+        public Cours()
+        {
+            this.Professeur = new HashSet<Professeur>();
+        }
+    
         public int IDCours { get; set; }
         public string nomCours { get; set; }
         public string noCours { get; set; }
-        public int noSessionCours { get; set; }
+        public short noSessionCours { get; set; }
         public string descriptionCours { get; set; }
-        public Nullable<int> UtilisateurJeu_ProfesseurIDUtilisateur { get; set; }
     
-        public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
+        public virtual ICollection<Professeur> Professeur { get; set; }
     }
 }

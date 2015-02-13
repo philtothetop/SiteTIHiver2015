@@ -1,0 +1,1294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LeModelTI.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="LeModelTIStoreContainer">
+    <EntitySet Name="DateEvenementVerTICSet" EntityType="LeModelTI.Store.DateEvenementVerTICSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VerTICSet" EntityType="LeModelTI.Store.VerTICSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogSet" EntityType="LeModelTI.Store.LogSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurSet" EntityType="LeModelTI.Store.UtilisateurSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OffreEmploiSet" EntityType="LeModelTI.Store.OffreEmploiSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VilleSet" EntityType="LeModelTI.Store.VilleSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConsultationForumSet" EntityType="LeModelTI.Store.ConsultationForumSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CoursSet" EntityType="LeModelTI.Store.CoursSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EvenementSet" EntityType="LeModelTI.Store.EvenementSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ParutionMediaSet" EntityType="LeModelTI.Store.ParutionMediaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FAQSet" EntityType="LeModelTI.Store.FAQSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NouvelleSet" EntityType="LeModelTI.Store.NouvelleSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SectionForumSet" EntityType="LeModelTI.Store.SectionForumSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EnteteForumSet" EntityType="LeModelTI.Store.EnteteForumSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MessageForumSet" EntityType="LeModelTI.Store.MessageForumSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurSet_Employeur" EntityType="LeModelTI.Store.UtilisateurSet_Employeur" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurSet_Membre" EntityType="LeModelTI.Store.UtilisateurSet_Membre" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurSet_Professeur" EntityType="LeModelTI.Store.UtilisateurSet_Professeur" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurSet_Admin" EntityType="LeModelTI.Store.UtilisateurSet_Admin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UtilisateurSet_Etudiant" EntityType="LeModelTI.Store.UtilisateurSet_Etudiant" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfesseurCours" EntityType="LeModelTI.Store.ProfesseurCours" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MembreConsultationForum" EntityType="LeModelTI.Store.MembreConsultationForum" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UtilisateurLog" Association="LeModelTI.Store.UtilisateurLog">
+      <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+      <End Role="Log" EntitySet="LogSet" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeurOffreEmploi" Association="LeModelTI.Store.EmployeurOffreEmploi">
+      <End Role="Employeur" EntitySet="UtilisateurSet_Employeur" />
+      <End Role="OffreEmploi" EntitySet="OffreEmploiSet" />
+    </AssociationSet>
+    <AssociationSet Name="OffreEmploiVille" Association="LeModelTI.Store.OffreEmploiVille">
+      <End Role="OffreEmploi" EntitySet="OffreEmploiSet" />
+      <End Role="Ville" EntitySet="VilleSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurCours_Professeur" Association="LeModelTI.Store.FK_ProfesseurCours_Professeur">
+      <End Role="Professeur" EntitySet="UtilisateurSet_Professeur" />
+      <End Role="ProfesseurCours" EntitySet="ProfesseurCours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurCours_Cours" Association="LeModelTI.Store.FK_ProfesseurCours_Cours">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="ProfesseurCours" EntitySet="ProfesseurCours" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurEvenement" Association="LeModelTI.Store.ProfesseurEvenement">
+      <End Role="Professeur" EntitySet="UtilisateurSet_Professeur" />
+      <End Role="Evenement" EntitySet="EvenementSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurParutionMedia" Association="LeModelTI.Store.ProfesseurParutionMedia">
+      <End Role="Professeur" EntitySet="UtilisateurSet_Professeur" />
+      <End Role="ParutionMedia" EntitySet="ParutionMediaSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurFAQ" Association="LeModelTI.Store.ProfesseurFAQ">
+      <End Role="Professeur" EntitySet="UtilisateurSet_Professeur" />
+      <End Role="FAQ" EntitySet="FAQSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurNouvelle" Association="LeModelTI.Store.ProfesseurNouvelle">
+      <End Role="Professeur" EntitySet="UtilisateurSet_Professeur" />
+      <End Role="Nouvelle" EntitySet="NouvelleSet" />
+    </AssociationSet>
+    <AssociationSet Name="SectionForumEnteteForum" Association="LeModelTI.Store.SectionForumEnteteForum">
+      <End Role="SectionForum" EntitySet="SectionForumSet" />
+      <End Role="EnteteForum" EntitySet="EnteteForumSet" />
+    </AssociationSet>
+    <AssociationSet Name="EnteteForumMessageForum" Association="LeModelTI.Store.EnteteForumMessageForum">
+      <End Role="EnteteForum" EntitySet="EnteteForumSet" />
+      <End Role="MessageForum" EntitySet="MessageForumSet" />
+    </AssociationSet>
+    <AssociationSet Name="EnteteForumConsultationForum" Association="LeModelTI.Store.EnteteForumConsultationForum">
+      <End Role="EnteteForum" EntitySet="EnteteForumSet" />
+      <End Role="ConsultationForum" EntitySet="ConsultationForumSet" />
+    </AssociationSet>
+    <AssociationSet Name="MembreEnteteForum" Association="LeModelTI.Store.MembreEnteteForum">
+      <End Role="Membre" EntitySet="UtilisateurSet_Membre" />
+      <End Role="EnteteForum" EntitySet="EnteteForumSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MembreConsultationForum_Membre" Association="LeModelTI.Store.FK_MembreConsultationForum_Membre">
+      <End Role="Membre" EntitySet="UtilisateurSet_Membre" />
+      <End Role="MembreConsultationForum" EntitySet="MembreConsultationForum" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MembreConsultationForum_ConsultationForum" Association="LeModelTI.Store.FK_MembreConsultationForum_ConsultationForum">
+      <End Role="ConsultationForum" EntitySet="ConsultationForumSet" />
+      <End Role="MembreConsultationForum" EntitySet="MembreConsultationForum" />
+    </AssociationSet>
+    <AssociationSet Name="MembreMessageForum" Association="LeModelTI.Store.MembreMessageForum">
+      <End Role="Membre" EntitySet="UtilisateurSet_Membre" />
+      <End Role="MessageForum" EntitySet="MessageForumSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employeur_inherits_Utilisateur" Association="LeModelTI.Store.FK_Employeur_inherits_Utilisateur">
+      <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+      <End Role="Employeur" EntitySet="UtilisateurSet_Employeur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Membre_inherits_Utilisateur" Association="LeModelTI.Store.FK_Membre_inherits_Utilisateur">
+      <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+      <End Role="Membre" EntitySet="UtilisateurSet_Membre" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Professeur_inherits_Membre" Association="LeModelTI.Store.FK_Professeur_inherits_Membre">
+      <End Role="Membre" EntitySet="UtilisateurSet_Membre" />
+      <End Role="Professeur" EntitySet="UtilisateurSet_Professeur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Admin_inherits_Utilisateur" Association="LeModelTI.Store.FK_Admin_inherits_Utilisateur">
+      <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+      <End Role="Admin" EntitySet="UtilisateurSet_Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Etudiant_inherits_Membre" Association="LeModelTI.Store.FK_Etudiant_inherits_Membre">
+      <End Role="Membre" EntitySet="UtilisateurSet_Membre" />
+      <End Role="Etudiant" EntitySet="UtilisateurSet_Etudiant" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DateEvenementVerTICSet">
+    <Key>
+      <PropertyRef Name="IDDateEvenementVerTIC" />
+    </Key>
+    <Property Name="IDDateEvenementVerTIC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="evenement" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VerTICSet">
+    <Key>
+      <PropertyRef Name="IDVerTIC" />
+    </Key>
+    <Property Name="IDVerTIC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descriptionLicence" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="descriptionLibre" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="caractéristiquesPortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="autrePortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="LogSet">
+    <Key>
+      <PropertyRef Name="IDLog" />
+    </Key>
+    <Property Name="IDLog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateLog" Type="datetime" Nullable="false" />
+    <Property Name="actionLog" Type="nvarchar" Nullable="false" MaxLength="1000" />
+    <Property Name="typeLog" Type="smallint" Nullable="false" />
+    <Property Name="UtilisateurIDUtilisateur" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UtilisateurSet">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courriel" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="hashMotDePasse" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="dateInscription" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OffreEmploiSet">
+    <Key>
+      <PropertyRef Name="IDOffreEmploi" />
+    </Key>
+    <Property Name="IDOffreEmploi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreOffre" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="descriptionOffre" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="dateOffre" Type="datetime" Nullable="false" />
+    <Property Name="dateExpiration" Type="datetime" Nullable="true" />
+    <Property Name="dateDebutOffre" Type="datetime" Nullable="false" />
+    <Property Name="pathPDSDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="salaire" Type="decimal" Nullable="false" />
+    <Property Name="nbHeureSemaine" Type="smallint" Nullable="false" />
+    <Property Name="adresseTravail" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="noTelephone" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="noTelecopieur" Type="nvarchar" Nullable="true" MaxLength="10" />
+    <Property Name="courrielOffre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="personneRessource" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmployeurIDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="VilleIDVille" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VilleSet">
+    <Key>
+      <PropertyRef Name="IDVille" />
+    </Key>
+    <Property Name="IDVille" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomVille" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ConsultationForumSet">
+    <Key>
+      <PropertyRef Name="IDConsultationForum" />
+    </Key>
+    <Property Name="IDConsultationForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateConsulte" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EnteteForumIDEnteteForum" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoursSet">
+    <Key>
+      <PropertyRef Name="IDCours" />
+    </Key>
+    <Property Name="IDCours" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomCours" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="noCours" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="noSessionCours" Type="smallint" Nullable="false" />
+    <Property Name="descriptionCours" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EvenementSet">
+    <Key>
+      <PropertyRef Name="IDEvenement" />
+    </Key>
+    <Property Name="IDEvenement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreEvenement" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="descriptionEvenement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="datePublication" Type="datetime" Nullable="false" />
+    <Property Name="dateDebutEvenement" Type="datetime" Nullable="false" />
+    <Property Name="dateFinEvenement" Type="datetime" Nullable="true" />
+    <Property Name="ProfesseurIDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ParutionMediaSet">
+    <Key>
+      <PropertyRef Name="IDParutionMedia" />
+    </Key>
+    <Property Name="IDParutionMedia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pathFichierPDF" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="descriptionParution" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dateParution" Type="datetime" Nullable="false" />
+    <Property Name="ProfesseurIDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FAQSet">
+    <Key>
+      <PropertyRef Name="IDFAQ" />
+    </Key>
+    <Property Name="IDFAQ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="texteQuestion" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="texteReponse" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="ProfesseurIDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NouvelleSet">
+    <Key>
+      <PropertyRef Name="IDNouvelle" />
+    </Key>
+    <Property Name="IDNouvelle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreNouvelle" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="texteNouvelle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="pathPhotoNouvelle" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="dateNouvelle" Type="datetime" Nullable="false" />
+    <Property Name="ProfesseurIDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SectionForumSet">
+    <Key>
+      <PropertyRef Name="IDSectionForum" />
+    </Key>
+    <Property Name="IDSectionForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreSection" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="descriptionSection" Type="nvarchar" Nullable="false" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="EnteteForumSet">
+    <Key>
+      <PropertyRef Name="IDEnteteForum" />
+    </Key>
+    <Property Name="IDEnteteForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreEnteteForum" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="dateEnteteForum" Type="datetime" Nullable="false" />
+    <Property Name="SectionForumIDSectionForum" Type="int" Nullable="false" />
+    <Property Name="MembreIDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MessageForumSet">
+    <Key>
+      <PropertyRef Name="IDMessageForum" />
+    </Key>
+    <Property Name="IDMessageForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="texteMessage" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="dateMessage" Type="datetime" Nullable="false" />
+    <Property Name="EnteteForumIDEnteteForum" Type="int" Nullable="false" />
+    <Property Name="MembreIDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilisateurSet_Employeur">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDEmployeur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomEmployeur" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="compteActif" Type="bit" Nullable="false" />
+    <Property Name="valideCourriel" Type="bit" Nullable="false" />
+    <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilisateurSet_Membre">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDMembre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="prenom" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="pathPhotoProfil" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="photoDescription" Type="nvarchar" Nullable="true" MaxLength="500" />
+    <Property Name="temoignage" Type="nvarchar" Nullable="true" MaxLength="1000" />
+    <Property Name="dateTemoignage" Type="datetime" Nullable="true" />
+    <Property Name="compteActif" Type="bit" Nullable="false" />
+    <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilisateurSet_Professeur">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDProfesseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="presentation" Type="nvarchar" Nullable="true" MaxLength="2000" />
+    <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilisateurSet_Admin">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UtilisateurSet_Etudiant">
+    <Key>
+      <PropertyRef Name="IDUtilisateur" />
+    </Key>
+    <Property Name="IDEtudiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateNaissance" Type="datetime" Nullable="false" />
+    <Property Name="valideTemoignage" Type="bit" Nullable="false" />
+    <Property Name="valideCourriel" Type="bit" Nullable="false" />
+    <Property Name="pathCV" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="IDUtilisateur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfesseurCours">
+    <Key>
+      <PropertyRef Name="Professeur_IDUtilisateur" />
+      <PropertyRef Name="Cours_IDCours" />
+    </Key>
+    <Property Name="Professeur_IDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="Cours_IDCours" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MembreConsultationForum">
+    <Key>
+      <PropertyRef Name="Membre_IDUtilisateur" />
+      <PropertyRef Name="ConsultationForum_IDConsultationForum" />
+    </Key>
+    <Property Name="Membre_IDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="ConsultationForum_IDConsultationForum" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="UtilisateurLog">
+    <End Role="Utilisateur" Type="LeModelTI.Store.UtilisateurSet" Multiplicity="0..1" />
+    <End Role="Log" Type="LeModelTI.Store.LogSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="Log">
+        <PropertyRef Name="UtilisateurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeurOffreEmploi">
+    <End Role="Employeur" Type="LeModelTI.Store.UtilisateurSet_Employeur" Multiplicity="1" />
+    <End Role="OffreEmploi" Type="LeModelTI.Store.OffreEmploiSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="OffreEmploi">
+        <PropertyRef Name="EmployeurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OffreEmploiVille">
+    <End Role="OffreEmploi" Type="LeModelTI.Store.OffreEmploiSet" Multiplicity="*" />
+    <End Role="Ville" Type="LeModelTI.Store.VilleSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Ville">
+        <PropertyRef Name="IDVille" />
+      </Principal>
+      <Dependent Role="OffreEmploi">
+        <PropertyRef Name="VilleIDVille" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurEvenement">
+    <End Role="Professeur" Type="LeModelTI.Store.UtilisateurSet_Professeur" Multiplicity="1" />
+    <End Role="Evenement" Type="LeModelTI.Store.EvenementSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="Evenement">
+        <PropertyRef Name="ProfesseurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurParutionMedia">
+    <End Role="Professeur" Type="LeModelTI.Store.UtilisateurSet_Professeur" Multiplicity="1" />
+    <End Role="ParutionMedia" Type="LeModelTI.Store.ParutionMediaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="ParutionMedia">
+        <PropertyRef Name="ProfesseurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurFAQ">
+    <End Role="Professeur" Type="LeModelTI.Store.UtilisateurSet_Professeur" Multiplicity="1" />
+    <End Role="FAQ" Type="LeModelTI.Store.FAQSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="FAQ">
+        <PropertyRef Name="ProfesseurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurNouvelle">
+    <End Role="Professeur" Type="LeModelTI.Store.UtilisateurSet_Professeur" Multiplicity="1" />
+    <End Role="Nouvelle" Type="LeModelTI.Store.NouvelleSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="Nouvelle">
+        <PropertyRef Name="ProfesseurIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SectionForumEnteteForum">
+    <End Role="SectionForum" Type="LeModelTI.Store.SectionForumSet" Multiplicity="1" />
+    <End Role="EnteteForum" Type="LeModelTI.Store.EnteteForumSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SectionForum">
+        <PropertyRef Name="IDSectionForum" />
+      </Principal>
+      <Dependent Role="EnteteForum">
+        <PropertyRef Name="SectionForumIDSectionForum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnteteForumMessageForum">
+    <End Role="EnteteForum" Type="LeModelTI.Store.EnteteForumSet" Multiplicity="1" />
+    <End Role="MessageForum" Type="LeModelTI.Store.MessageForumSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnteteForum">
+        <PropertyRef Name="IDEnteteForum" />
+      </Principal>
+      <Dependent Role="MessageForum">
+        <PropertyRef Name="EnteteForumIDEnteteForum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EnteteForumConsultationForum">
+    <End Role="EnteteForum" Type="LeModelTI.Store.EnteteForumSet" Multiplicity="1" />
+    <End Role="ConsultationForum" Type="LeModelTI.Store.ConsultationForumSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EnteteForum">
+        <PropertyRef Name="IDEnteteForum" />
+      </Principal>
+      <Dependent Role="ConsultationForum">
+        <PropertyRef Name="EnteteForumIDEnteteForum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembreEnteteForum">
+    <End Role="Membre" Type="LeModelTI.Store.UtilisateurSet_Membre" Multiplicity="1" />
+    <End Role="EnteteForum" Type="LeModelTI.Store.EnteteForumSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membre">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="EnteteForum">
+        <PropertyRef Name="MembreIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MembreMessageForum">
+    <End Role="Membre" Type="LeModelTI.Store.UtilisateurSet_Membre" Multiplicity="1" />
+    <End Role="MessageForum" Type="LeModelTI.Store.MessageForumSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membre">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="MessageForum">
+        <PropertyRef Name="MembreIDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurCours_Professeur">
+    <End Role="Professeur" Type="LeModelTI.Store.UtilisateurSet_Professeur" Multiplicity="1" />
+    <End Role="ProfesseurCours" Type="LeModelTI.Store.ProfesseurCours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="ProfesseurCours">
+        <PropertyRef Name="Professeur_IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurCours_Cours">
+    <End Role="ProfesseurCours" Type="LeModelTI.Store.ProfesseurCours" Multiplicity="*" />
+    <End Role="Cours" Type="LeModelTI.Store.CoursSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="IDCours" />
+      </Principal>
+      <Dependent Role="ProfesseurCours">
+        <PropertyRef Name="Cours_IDCours" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MembreConsultationForum_Membre">
+    <End Role="Membre" Type="LeModelTI.Store.UtilisateurSet_Membre" Multiplicity="1" />
+    <End Role="MembreConsultationForum" Type="LeModelTI.Store.MembreConsultationForum" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membre">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="MembreConsultationForum">
+        <PropertyRef Name="Membre_IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MembreConsultationForum_ConsultationForum">
+    <End Role="MembreConsultationForum" Type="LeModelTI.Store.MembreConsultationForum" Multiplicity="*" />
+    <End Role="ConsultationForum" Type="LeModelTI.Store.ConsultationForumSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ConsultationForum">
+        <PropertyRef Name="IDConsultationForum" />
+      </Principal>
+      <Dependent Role="MembreConsultationForum">
+        <PropertyRef Name="ConsultationForum_IDConsultationForum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employeur_inherits_Utilisateur">
+    <End Role="Utilisateur" Type="LeModelTI.Store.UtilisateurSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employeur" Type="LeModelTI.Store.UtilisateurSet_Employeur" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="Employeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Membre_inherits_Utilisateur">
+    <End Role="Utilisateur" Type="LeModelTI.Store.UtilisateurSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Membre" Type="LeModelTI.Store.UtilisateurSet_Membre" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="Membre">
+        <PropertyRef Name="IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Professeur_inherits_Membre">
+    <End Role="Membre" Type="LeModelTI.Store.UtilisateurSet_Membre" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Professeur" Type="LeModelTI.Store.UtilisateurSet_Professeur" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Membre">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="Professeur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Admin_inherits_Utilisateur">
+    <End Role="Utilisateur" Type="LeModelTI.Store.UtilisateurSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Admin" Type="LeModelTI.Store.UtilisateurSet_Admin" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Etudiant_inherits_Membre">
+    <End Role="Membre" Type="LeModelTI.Store.UtilisateurSet_Membre" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Etudiant" Type="LeModelTI.Store.UtilisateurSet_Etudiant" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Membre">
+        <PropertyRef Name="IDUtilisateur" />
+      </Principal>
+      <Dependent Role="Etudiant">
+        <PropertyRef Name="IDUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="LeModelTI" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="LeModelTIContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DateEvenementVerTICSet" EntityType="LeModelTI.DateEvenementVerTIC" />
+          <EntitySet Name="VerTICSet" EntityType="LeModelTI.VerTIC" />
+          <EntitySet Name="LogSet" EntityType="LeModelTI.Log" />
+          <EntitySet Name="UtilisateurSet" EntityType="LeModelTI.Utilisateur" />
+          <EntitySet Name="OffreEmploiSet" EntityType="LeModelTI.OffreEmploi" />
+          <EntitySet Name="VilleSet" EntityType="LeModelTI.Ville" />
+          <EntitySet Name="ConsultationForumSet" EntityType="LeModelTI.ConsultationForum" />
+          <EntitySet Name="CoursSet" EntityType="LeModelTI.Cours" />
+          <EntitySet Name="EvenementSet" EntityType="LeModelTI.Evenement" />
+          <EntitySet Name="ParutionMediaSet" EntityType="LeModelTI.ParutionMedia" />
+          <EntitySet Name="FAQSet" EntityType="LeModelTI.FAQ" />
+          <EntitySet Name="NouvelleSet" EntityType="LeModelTI.Nouvelle" />
+          <EntitySet Name="SectionForumSet" EntityType="LeModelTI.SectionForum" />
+          <EntitySet Name="EnteteForumSet" EntityType="LeModelTI.EnteteForum" />
+          <EntitySet Name="MessageForumSet" EntityType="LeModelTI.MessageForum" />
+          <AssociationSet Name="UtilisateurLog" Association="LeModelTI.UtilisateurLog">
+            <End Role="Utilisateur" EntitySet="UtilisateurSet" />
+            <End Role="Log" EntitySet="LogSet" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeurOffreEmploi" Association="LeModelTI.EmployeurOffreEmploi">
+            <End Role="Employeur" EntitySet="UtilisateurSet" />
+            <End Role="OffreEmploi" EntitySet="OffreEmploiSet" />
+          </AssociationSet>
+          <AssociationSet Name="OffreEmploiVille" Association="LeModelTI.OffreEmploiVille">
+            <End Role="OffreEmploi" EntitySet="OffreEmploiSet" />
+            <End Role="Ville" EntitySet="VilleSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurCours" Association="LeModelTI.ProfesseurCours">
+            <End Role="Professeur" EntitySet="UtilisateurSet" />
+            <End Role="Cours" EntitySet="CoursSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurEvenement" Association="LeModelTI.ProfesseurEvenement">
+            <End Role="Professeur" EntitySet="UtilisateurSet" />
+            <End Role="Evenement" EntitySet="EvenementSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurParutionMedia" Association="LeModelTI.ProfesseurParutionMedia">
+            <End Role="Professeur" EntitySet="UtilisateurSet" />
+            <End Role="ParutionMedia" EntitySet="ParutionMediaSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurFAQ" Association="LeModelTI.ProfesseurFAQ">
+            <End Role="Professeur" EntitySet="UtilisateurSet" />
+            <End Role="FAQ" EntitySet="FAQSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurNouvelle" Association="LeModelTI.ProfesseurNouvelle">
+            <End Role="Professeur" EntitySet="UtilisateurSet" />
+            <End Role="Nouvelle" EntitySet="NouvelleSet" />
+          </AssociationSet>
+          <AssociationSet Name="SectionForumEnteteForum" Association="LeModelTI.SectionForumEnteteForum">
+            <End Role="SectionForum" EntitySet="SectionForumSet" />
+            <End Role="EnteteForum" EntitySet="EnteteForumSet" />
+          </AssociationSet>
+          <AssociationSet Name="EnteteForumMessageForum" Association="LeModelTI.EnteteForumMessageForum">
+            <End Role="EnteteForum" EntitySet="EnteteForumSet" />
+            <End Role="MessageForum" EntitySet="MessageForumSet" />
+          </AssociationSet>
+          <AssociationSet Name="EnteteForumConsultationForum" Association="LeModelTI.EnteteForumConsultationForum">
+            <End Role="EnteteForum" EntitySet="EnteteForumSet" />
+            <End Role="ConsultationForum" EntitySet="ConsultationForumSet" />
+          </AssociationSet>
+          <AssociationSet Name="MembreEnteteForum" Association="LeModelTI.MembreEnteteForum">
+            <End Role="Membre" EntitySet="UtilisateurSet" />
+            <End Role="EnteteForum" EntitySet="EnteteForumSet" />
+          </AssociationSet>
+          <AssociationSet Name="MembreConsultationForum" Association="LeModelTI.MembreConsultationForum">
+            <End Role="Membre" EntitySet="UtilisateurSet" />
+            <End Role="ConsultationForum" EntitySet="ConsultationForumSet" />
+          </AssociationSet>
+          <AssociationSet Name="MembreMessageForum" Association="LeModelTI.MembreMessageForum">
+            <End Role="Membre" EntitySet="UtilisateurSet" />
+            <End Role="MessageForum" EntitySet="MessageForumSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="DateEvenementVerTIC">
+          <Key>
+            <PropertyRef Name="IDDateEvenementVerTIC" />
+          </Key>
+          <Property Name="IDDateEvenementVerTIC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateDescription" Type="String" Nullable="false" />
+          <Property Name="evenement" Type="String" Nullable="false" MaxLength="Max" />
+        </EntityType>
+        <EntityType Name="VerTIC">
+          <Key>
+            <PropertyRef Name="IDVerTIC" />
+          </Key>
+          <Property Name="IDVerTIC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descriptionLicence" Type="String" Nullable="false" MaxLength="2000" />
+          <Property Name="descriptionLibre" Type="String" Nullable="false" MaxLength="2000" />
+          <Property Name="caractéristiquesPortable" Type="String" Nullable="false" MaxLength="2000" />
+          <Property Name="autrePortable" Type="String" Nullable="false" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="IDLog" />
+          </Key>
+          <Property Name="IDLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateLog" Type="DateTime" Nullable="false" />
+          <Property Name="actionLog" Type="String" Nullable="false" MaxLength="1000" />
+          <Property Name="typeLog" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="Utilisateur" Relationship="LeModelTI.UtilisateurLog" FromRole="Log" ToRole="Utilisateur" />
+          <Property Name="UtilisateurIDUtilisateur" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="IDUtilisateur" />
+          </Key>
+          <Property Name="IDUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="courriel" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="hashMotDePasse" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="dateInscription" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Log" Relationship="LeModelTI.UtilisateurLog" FromRole="Utilisateur" ToRole="Log" />
+        </EntityType>
+        <EntityType Name="Admin" BaseType="LeModelTI.Utilisateur">
+          <Property Name="IDAdmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Employeur" BaseType="LeModelTI.Utilisateur">
+          <Property Name="IDEmployeur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomEmployeur" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="compteActif" Type="Boolean" Nullable="false" />
+          <Property Name="valideCourriel" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="OffreEmploi" Relationship="LeModelTI.EmployeurOffreEmploi" FromRole="Employeur" ToRole="OffreEmploi" />
+        </EntityType>
+        <EntityType Name="OffreEmploi">
+          <Key>
+            <PropertyRef Name="IDOffreEmploi" />
+          </Key>
+          <Property Name="IDOffreEmploi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreOffre" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="descriptionOffre" Type="String" Nullable="false" MaxLength="2000" />
+          <Property Name="dateOffre" Type="DateTime" Nullable="false" />
+          <Property Name="dateExpiration" Type="DateTime" Nullable="true" />
+          <Property Name="dateDebutOffre" Type="DateTime" Nullable="false" />
+          <Property Name="pathPDSDescription" Type="String" Nullable="true" MaxLength="200" />
+          <Property Name="salaire" Type="Decimal" Nullable="false" />
+          <Property Name="nbHeureSemaine" Type="Int16" Nullable="false" />
+          <Property Name="adresseTravail" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="noTelephone" Type="String" Nullable="false" MaxLength="10" />
+          <Property Name="noTelecopieur" Type="String" Nullable="true" MaxLength="10" />
+          <Property Name="courrielOffre" Type="String" Nullable="false" />
+          <Property Name="personneRessource" Type="String" Nullable="false" />
+          <NavigationProperty Name="Employeur" Relationship="LeModelTI.EmployeurOffreEmploi" FromRole="OffreEmploi" ToRole="Employeur" />
+          <Property Name="EmployeurIDUtilisateur" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ville" Relationship="LeModelTI.OffreEmploiVille" FromRole="OffreEmploi" ToRole="Ville" />
+          <Property Name="VilleIDVille" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ville">
+          <Key>
+            <PropertyRef Name="IDVille" />
+          </Key>
+          <Property Name="IDVille" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomVille" Type="String" Nullable="false" MaxLength="100" />
+          <NavigationProperty Name="OffreEmploi" Relationship="LeModelTI.OffreEmploiVille" FromRole="Ville" ToRole="OffreEmploi" />
+        </EntityType>
+        <EntityType Name="ConsultationForum">
+          <Key>
+            <PropertyRef Name="IDConsultationForum" />
+          </Key>
+          <Property Name="IDConsultationForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateConsulte" Type="String" Nullable="false" />
+          <NavigationProperty Name="EnteteForum" Relationship="LeModelTI.EnteteForumConsultationForum" FromRole="ConsultationForum" ToRole="EnteteForum" />
+          <Property Name="EnteteForumIDEnteteForum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Membre" Relationship="LeModelTI.MembreConsultationForum" FromRole="ConsultationForum" ToRole="Membre" />
+        </EntityType>
+        <EntityType Name="Membre" BaseType="LeModelTI.Utilisateur">
+          <Property Name="IDMembre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="pathPhotoProfil" Type="String" Nullable="true" MaxLength="200" />
+          <Property Name="photoDescription" Type="String" Nullable="true" MaxLength="500" />
+          <Property Name="temoignage" Type="String" Nullable="true" MaxLength="1000" />
+          <Property Name="dateTemoignage" Type="DateTime" Nullable="true" />
+          <Property Name="compteActif" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EnteteForum" Relationship="LeModelTI.MembreEnteteForum" FromRole="Membre" ToRole="EnteteForum" />
+          <NavigationProperty Name="ConsultationForum" Relationship="LeModelTI.MembreConsultationForum" FromRole="Membre" ToRole="ConsultationForum" />
+          <NavigationProperty Name="MessageForum" Relationship="LeModelTI.MembreMessageForum" FromRole="Membre" ToRole="MessageForum" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="IDCours" />
+          </Key>
+          <Property Name="IDCours" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomCours" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="noCours" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="noSessionCours" Type="Int16" Nullable="false" />
+          <Property Name="descriptionCours" Type="String" Nullable="false" MaxLength="Max" />
+          <NavigationProperty Name="Professeur" Relationship="LeModelTI.ProfesseurCours" FromRole="Cours" ToRole="Professeur" />
+        </EntityType>
+        <EntityType Name="Evenement">
+          <Key>
+            <PropertyRef Name="IDEvenement" />
+          </Key>
+          <Property Name="IDEvenement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreEvenement" Type="String" Nullable="false" MaxLength="250" />
+          <Property Name="descriptionEvenement" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="datePublication" Type="DateTime" Nullable="false" />
+          <Property Name="dateDebutEvenement" Type="DateTime" Nullable="false" />
+          <Property Name="dateFinEvenement" Type="DateTime" Nullable="true" />
+          <NavigationProperty Name="Professeur" Relationship="LeModelTI.ProfesseurEvenement" FromRole="Evenement" ToRole="Professeur" />
+          <Property Name="ProfesseurIDUtilisateur" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ParutionMedia">
+          <Key>
+            <PropertyRef Name="IDParutionMedia" />
+          </Key>
+          <Property Name="IDParutionMedia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pathFichierPDF" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="descriptionParution" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="dateParution" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Professeur" Relationship="LeModelTI.ProfesseurParutionMedia" FromRole="ParutionMedia" ToRole="Professeur" />
+          <Property Name="ProfesseurIDUtilisateur" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FAQ">
+          <Key>
+            <PropertyRef Name="IDFAQ" />
+          </Key>
+          <Property Name="IDFAQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="texteQuestion" Type="String" Nullable="false" MaxLength="50" />
+          <Property Name="texteReponse" Type="String" Nullable="false" MaxLength="500" />
+          <NavigationProperty Name="Professeur" Relationship="LeModelTI.ProfesseurFAQ" FromRole="FAQ" ToRole="Professeur" />
+          <Property Name="ProfesseurIDUtilisateur" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Nouvelle">
+          <Key>
+            <PropertyRef Name="IDNouvelle" />
+          </Key>
+          <Property Name="IDNouvelle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreNouvelle" Type="String" Nullable="false" MaxLength="250" />
+          <Property Name="texteNouvelle" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="pathPhotoNouvelle" Type="String" Nullable="true" MaxLength="200" />
+          <Property Name="dateNouvelle" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Professeur" Relationship="LeModelTI.ProfesseurNouvelle" FromRole="Nouvelle" ToRole="Professeur" />
+          <Property Name="ProfesseurIDUtilisateur" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SectionForum">
+          <Key>
+            <PropertyRef Name="IDSectionForum" />
+          </Key>
+          <Property Name="IDSectionForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreSection" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="descriptionSection" Type="String" Nullable="false" MaxLength="500" />
+          <NavigationProperty Name="EnteteForum" Relationship="LeModelTI.SectionForumEnteteForum" FromRole="SectionForum" ToRole="EnteteForum" />
+        </EntityType>
+        <EntityType Name="EnteteForum">
+          <Key>
+            <PropertyRef Name="IDEnteteForum" />
+          </Key>
+          <Property Name="IDEnteteForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreEnteteForum" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="dateEnteteForum" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="SectionForum" Relationship="LeModelTI.SectionForumEnteteForum" FromRole="EnteteForum" ToRole="SectionForum" />
+          <Property Name="SectionForumIDSectionForum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MessageForum" Relationship="LeModelTI.EnteteForumMessageForum" FromRole="EnteteForum" ToRole="MessageForum" />
+          <NavigationProperty Name="ConsultationForum" Relationship="LeModelTI.EnteteForumConsultationForum" FromRole="EnteteForum" ToRole="ConsultationForum" />
+          <NavigationProperty Name="Membre" Relationship="LeModelTI.MembreEnteteForum" FromRole="EnteteForum" ToRole="Membre" />
+          <Property Name="MembreIDUtilisateur" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MessageForum">
+          <Key>
+            <PropertyRef Name="IDMessageForum" />
+          </Key>
+          <Property Name="IDMessageForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="texteMessage" Type="String" Nullable="false" MaxLength="2000" />
+          <Property Name="dateMessage" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="EnteteForum" Relationship="LeModelTI.EnteteForumMessageForum" FromRole="MessageForum" ToRole="EnteteForum" />
+          <Property Name="EnteteForumIDEnteteForum" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Membre" Relationship="LeModelTI.MembreMessageForum" FromRole="MessageForum" ToRole="Membre" />
+          <Property Name="MembreIDUtilisateur" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Professeur" BaseType="LeModelTI.Membre">
+          <Property Name="IDProfesseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="presentation" Type="String" Nullable="true" MaxLength="2000" />
+          <NavigationProperty Name="Cours" Relationship="LeModelTI.ProfesseurCours" FromRole="Professeur" ToRole="Cours" />
+          <NavigationProperty Name="Evenement" Relationship="LeModelTI.ProfesseurEvenement" FromRole="Professeur" ToRole="Evenement" />
+          <NavigationProperty Name="ParutionMedia" Relationship="LeModelTI.ProfesseurParutionMedia" FromRole="Professeur" ToRole="ParutionMedia" />
+          <NavigationProperty Name="FAQ" Relationship="LeModelTI.ProfesseurFAQ" FromRole="Professeur" ToRole="FAQ" />
+          <NavigationProperty Name="Nouvelle" Relationship="LeModelTI.ProfesseurNouvelle" FromRole="Professeur" ToRole="Nouvelle" />
+        </EntityType>
+        <EntityType Name="Etudiant" BaseType="LeModelTI.Membre">
+          <Property Name="IDEtudiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateNaissance" Type="DateTime" Nullable="false" />
+          <Property Name="valideTemoignage" Type="Boolean" Nullable="false" />
+          <Property Name="valideCourriel" Type="Boolean" Nullable="false" />
+          <Property Name="pathCV" Type="String" Nullable="false" MaxLength="200" />
+        </EntityType>
+        <Association Name="UtilisateurLog">
+          <End Type="LeModelTI.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
+          <End Type="LeModelTI.Log" Role="Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="Log">
+              <PropertyRef Name="UtilisateurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeurOffreEmploi">
+          <End Type="LeModelTI.Employeur" Role="Employeur" Multiplicity="1" />
+          <End Type="LeModelTI.OffreEmploi" Role="OffreEmploi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="OffreEmploi">
+              <PropertyRef Name="EmployeurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="OffreEmploiVille">
+          <End Type="LeModelTI.OffreEmploi" Role="OffreEmploi" Multiplicity="*" />
+          <End Type="LeModelTI.Ville" Role="Ville" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Ville">
+              <PropertyRef Name="IDVille" />
+            </Principal>
+            <Dependent Role="OffreEmploi">
+              <PropertyRef Name="VilleIDVille" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesseurCours">
+          <End Type="LeModelTI.Professeur" Role="Professeur" Multiplicity="*" />
+          <End Type="LeModelTI.Cours" Role="Cours" Multiplicity="*" />
+        </Association>
+        <Association Name="ProfesseurEvenement">
+          <End Type="LeModelTI.Professeur" Role="Professeur" Multiplicity="1" />
+          <End Type="LeModelTI.Evenement" Role="Evenement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="Evenement">
+              <PropertyRef Name="ProfesseurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesseurParutionMedia">
+          <End Type="LeModelTI.Professeur" Role="Professeur" Multiplicity="1" />
+          <End Type="LeModelTI.ParutionMedia" Role="ParutionMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="ParutionMedia">
+              <PropertyRef Name="ProfesseurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesseurFAQ">
+          <End Type="LeModelTI.Professeur" Role="Professeur" Multiplicity="1" />
+          <End Type="LeModelTI.FAQ" Role="FAQ" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="FAQ">
+              <PropertyRef Name="ProfesseurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProfesseurNouvelle">
+          <End Type="LeModelTI.Professeur" Role="Professeur" Multiplicity="1" />
+          <End Type="LeModelTI.Nouvelle" Role="Nouvelle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Professeur">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="Nouvelle">
+              <PropertyRef Name="ProfesseurIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SectionForumEnteteForum">
+          <End Type="LeModelTI.SectionForum" Role="SectionForum" Multiplicity="1" />
+          <End Type="LeModelTI.EnteteForum" Role="EnteteForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SectionForum">
+              <PropertyRef Name="IDSectionForum" />
+            </Principal>
+            <Dependent Role="EnteteForum">
+              <PropertyRef Name="SectionForumIDSectionForum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EnteteForumMessageForum">
+          <End Type="LeModelTI.EnteteForum" Role="EnteteForum" Multiplicity="1" />
+          <End Type="LeModelTI.MessageForum" Role="MessageForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnteteForum">
+              <PropertyRef Name="IDEnteteForum" />
+            </Principal>
+            <Dependent Role="MessageForum">
+              <PropertyRef Name="EnteteForumIDEnteteForum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EnteteForumConsultationForum">
+          <End Type="LeModelTI.EnteteForum" Role="EnteteForum" Multiplicity="1" />
+          <End Type="LeModelTI.ConsultationForum" Role="ConsultationForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EnteteForum">
+              <PropertyRef Name="IDEnteteForum" />
+            </Principal>
+            <Dependent Role="ConsultationForum">
+              <PropertyRef Name="EnteteForumIDEnteteForum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MembreEnteteForum">
+          <End Type="LeModelTI.Membre" Role="Membre" Multiplicity="1" />
+          <End Type="LeModelTI.EnteteForum" Role="EnteteForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="EnteteForum">
+              <PropertyRef Name="MembreIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MembreConsultationForum">
+          <End Type="LeModelTI.Membre" Role="Membre" Multiplicity="*" />
+          <End Type="LeModelTI.ConsultationForum" Role="ConsultationForum" Multiplicity="*" />
+        </Association>
+        <Association Name="MembreMessageForum">
+          <End Type="LeModelTI.Membre" Role="Membre" Multiplicity="1" />
+          <End Type="LeModelTI.MessageForum" Role="MessageForum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membre">
+              <PropertyRef Name="IDUtilisateur" />
+            </Principal>
+            <Dependent Role="MessageForum">
+              <PropertyRef Name="MembreIDUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LeModelTIStoreContainer" CdmEntityContainer="LeModelTIContainer">
+    <EntitySetMapping Name="DateEvenementVerTICSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.DateEvenementVerTIC)">
+        <MappingFragment StoreEntitySet="DateEvenementVerTICSet">
+          <ScalarProperty Name="IDDateEvenementVerTIC" ColumnName="IDDateEvenementVerTIC" />
+          <ScalarProperty Name="dateDescription" ColumnName="dateDescription" />
+          <ScalarProperty Name="evenement" ColumnName="evenement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerTICSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.VerTIC)">
+        <MappingFragment StoreEntitySet="VerTICSet">
+          <ScalarProperty Name="IDVerTIC" ColumnName="IDVerTIC" />
+          <ScalarProperty Name="descriptionLicence" ColumnName="descriptionLicence" />
+          <ScalarProperty Name="descriptionLibre" ColumnName="descriptionLibre" />
+          <ScalarProperty Name="caractéristiquesPortable" ColumnName="caractéristiquesPortable" />
+          <ScalarProperty Name="autrePortable" ColumnName="autrePortable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LogSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Log)">
+        <MappingFragment StoreEntitySet="LogSet">
+          <ScalarProperty Name="IDLog" ColumnName="IDLog" />
+          <ScalarProperty Name="dateLog" ColumnName="dateLog" />
+          <ScalarProperty Name="actionLog" ColumnName="actionLog" />
+          <ScalarProperty Name="typeLog" ColumnName="typeLog" />
+          <ScalarProperty Name="UtilisateurIDUtilisateur" ColumnName="UtilisateurIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UtilisateurSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Utilisateur)">
+        <MappingFragment StoreEntitySet="UtilisateurSet">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="courriel" ColumnName="courriel" />
+          <ScalarProperty Name="hashMotDePasse" ColumnName="hashMotDePasse" />
+          <ScalarProperty Name="dateInscription" ColumnName="dateInscription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Employeur)">
+        <MappingFragment StoreEntitySet="UtilisateurSet_Employeur">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="IDEmployeur" ColumnName="IDEmployeur" />
+          <ScalarProperty Name="nomEmployeur" ColumnName="nomEmployeur" />
+          <ScalarProperty Name="compteActif" ColumnName="compteActif" />
+          <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Membre)">
+        <MappingFragment StoreEntitySet="UtilisateurSet_Membre">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="IDMembre" ColumnName="IDMembre" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="pathPhotoProfil" ColumnName="pathPhotoProfil" />
+          <ScalarProperty Name="photoDescription" ColumnName="photoDescription" />
+          <ScalarProperty Name="temoignage" ColumnName="temoignage" />
+          <ScalarProperty Name="dateTemoignage" ColumnName="dateTemoignage" />
+          <ScalarProperty Name="compteActif" ColumnName="compteActif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Professeur)">
+        <MappingFragment StoreEntitySet="UtilisateurSet_Professeur">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="IDProfesseur" ColumnName="IDProfesseur" />
+          <ScalarProperty Name="presentation" ColumnName="presentation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Admin)">
+        <MappingFragment StoreEntitySet="UtilisateurSet_Admin">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="IDAdmin" ColumnName="IDAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Etudiant)">
+        <MappingFragment StoreEntitySet="UtilisateurSet_Etudiant">
+          <ScalarProperty Name="IDUtilisateur" ColumnName="IDUtilisateur" />
+          <ScalarProperty Name="IDEtudiant" ColumnName="IDEtudiant" />
+          <ScalarProperty Name="dateNaissance" ColumnName="dateNaissance" />
+          <ScalarProperty Name="valideTemoignage" ColumnName="valideTemoignage" />
+          <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
+          <ScalarProperty Name="pathCV" ColumnName="pathCV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OffreEmploiSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.OffreEmploi)">
+        <MappingFragment StoreEntitySet="OffreEmploiSet">
+          <ScalarProperty Name="IDOffreEmploi" ColumnName="IDOffreEmploi" />
+          <ScalarProperty Name="titreOffre" ColumnName="titreOffre" />
+          <ScalarProperty Name="descriptionOffre" ColumnName="descriptionOffre" />
+          <ScalarProperty Name="dateOffre" ColumnName="dateOffre" />
+          <ScalarProperty Name="dateExpiration" ColumnName="dateExpiration" />
+          <ScalarProperty Name="dateDebutOffre" ColumnName="dateDebutOffre" />
+          <ScalarProperty Name="pathPDSDescription" ColumnName="pathPDSDescription" />
+          <ScalarProperty Name="salaire" ColumnName="salaire" />
+          <ScalarProperty Name="nbHeureSemaine" ColumnName="nbHeureSemaine" />
+          <ScalarProperty Name="adresseTravail" ColumnName="adresseTravail" />
+          <ScalarProperty Name="noTelephone" ColumnName="noTelephone" />
+          <ScalarProperty Name="noTelecopieur" ColumnName="noTelecopieur" />
+          <ScalarProperty Name="courrielOffre" ColumnName="courrielOffre" />
+          <ScalarProperty Name="personneRessource" ColumnName="personneRessource" />
+          <ScalarProperty Name="EmployeurIDUtilisateur" ColumnName="EmployeurIDUtilisateur" />
+          <ScalarProperty Name="VilleIDVille" ColumnName="VilleIDVille" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VilleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Ville)">
+        <MappingFragment StoreEntitySet="VilleSet">
+          <ScalarProperty Name="IDVille" ColumnName="IDVille" />
+          <ScalarProperty Name="nomVille" ColumnName="nomVille" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsultationForumSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.ConsultationForum)">
+        <MappingFragment StoreEntitySet="ConsultationForumSet">
+          <ScalarProperty Name="IDConsultationForum" ColumnName="IDConsultationForum" />
+          <ScalarProperty Name="dateConsulte" ColumnName="dateConsulte" />
+          <ScalarProperty Name="EnteteForumIDEnteteForum" ColumnName="EnteteForumIDEnteteForum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Cours)">
+        <MappingFragment StoreEntitySet="CoursSet">
+          <ScalarProperty Name="IDCours" ColumnName="IDCours" />
+          <ScalarProperty Name="nomCours" ColumnName="nomCours" />
+          <ScalarProperty Name="noCours" ColumnName="noCours" />
+          <ScalarProperty Name="noSessionCours" ColumnName="noSessionCours" />
+          <ScalarProperty Name="descriptionCours" ColumnName="descriptionCours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EvenementSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Evenement)">
+        <MappingFragment StoreEntitySet="EvenementSet">
+          <ScalarProperty Name="IDEvenement" ColumnName="IDEvenement" />
+          <ScalarProperty Name="titreEvenement" ColumnName="titreEvenement" />
+          <ScalarProperty Name="descriptionEvenement" ColumnName="descriptionEvenement" />
+          <ScalarProperty Name="datePublication" ColumnName="datePublication" />
+          <ScalarProperty Name="dateDebutEvenement" ColumnName="dateDebutEvenement" />
+          <ScalarProperty Name="dateFinEvenement" ColumnName="dateFinEvenement" />
+          <ScalarProperty Name="ProfesseurIDUtilisateur" ColumnName="ProfesseurIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParutionMediaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.ParutionMedia)">
+        <MappingFragment StoreEntitySet="ParutionMediaSet">
+          <ScalarProperty Name="IDParutionMedia" ColumnName="IDParutionMedia" />
+          <ScalarProperty Name="pathFichierPDF" ColumnName="pathFichierPDF" />
+          <ScalarProperty Name="descriptionParution" ColumnName="descriptionParution" />
+          <ScalarProperty Name="dateParution" ColumnName="dateParution" />
+          <ScalarProperty Name="ProfesseurIDUtilisateur" ColumnName="ProfesseurIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAQSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.FAQ)">
+        <MappingFragment StoreEntitySet="FAQSet">
+          <ScalarProperty Name="IDFAQ" ColumnName="IDFAQ" />
+          <ScalarProperty Name="texteQuestion" ColumnName="texteQuestion" />
+          <ScalarProperty Name="texteReponse" ColumnName="texteReponse" />
+          <ScalarProperty Name="ProfesseurIDUtilisateur" ColumnName="ProfesseurIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NouvelleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Nouvelle)">
+        <MappingFragment StoreEntitySet="NouvelleSet">
+          <ScalarProperty Name="IDNouvelle" ColumnName="IDNouvelle" />
+          <ScalarProperty Name="titreNouvelle" ColumnName="titreNouvelle" />
+          <ScalarProperty Name="texteNouvelle" ColumnName="texteNouvelle" />
+          <ScalarProperty Name="pathPhotoNouvelle" ColumnName="pathPhotoNouvelle" />
+          <ScalarProperty Name="dateNouvelle" ColumnName="dateNouvelle" />
+          <ScalarProperty Name="ProfesseurIDUtilisateur" ColumnName="ProfesseurIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectionForumSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.SectionForum)">
+        <MappingFragment StoreEntitySet="SectionForumSet">
+          <ScalarProperty Name="IDSectionForum" ColumnName="IDSectionForum" />
+          <ScalarProperty Name="titreSection" ColumnName="titreSection" />
+          <ScalarProperty Name="descriptionSection" ColumnName="descriptionSection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnteteForumSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.EnteteForum)">
+        <MappingFragment StoreEntitySet="EnteteForumSet">
+          <ScalarProperty Name="IDEnteteForum" ColumnName="IDEnteteForum" />
+          <ScalarProperty Name="titreEnteteForum" ColumnName="titreEnteteForum" />
+          <ScalarProperty Name="dateEnteteForum" ColumnName="dateEnteteForum" />
+          <ScalarProperty Name="SectionForumIDSectionForum" ColumnName="SectionForumIDSectionForum" />
+          <ScalarProperty Name="MembreIDUtilisateur" ColumnName="MembreIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageForumSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.MessageForum)">
+        <MappingFragment StoreEntitySet="MessageForumSet">
+          <ScalarProperty Name="IDMessageForum" ColumnName="IDMessageForum" />
+          <ScalarProperty Name="texteMessage" ColumnName="texteMessage" />
+          <ScalarProperty Name="dateMessage" ColumnName="dateMessage" />
+          <ScalarProperty Name="EnteteForumIDEnteteForum" ColumnName="EnteteForumIDEnteteForum" />
+          <ScalarProperty Name="MembreIDUtilisateur" ColumnName="MembreIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ProfesseurCours" TypeName="LeModelTI.ProfesseurCours" StoreEntitySet="ProfesseurCours">
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="IDUtilisateur" ColumnName="Professeur_IDUtilisateur" />
+      </EndProperty>
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="IDCours" ColumnName="Cours_IDCours" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MembreConsultationForum" TypeName="LeModelTI.MembreConsultationForum" StoreEntitySet="MembreConsultationForum">
+      <EndProperty Name="Membre">
+        <ScalarProperty Name="IDUtilisateur" ColumnName="Membre_IDUtilisateur" />
+      </EndProperty>
+      <EndProperty Name="ConsultationForum">
+        <ScalarProperty Name="IDConsultationForum" ColumnName="ConsultationForum_IDConsultationForum" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

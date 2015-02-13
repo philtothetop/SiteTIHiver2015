@@ -12,16 +12,12 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Ville
+    public partial class Etudiant : Membre
     {
-        public Ville()
-        {
-            this.OffreEmploi = new HashSet<OffreEmploi>();
-        }
-    
-        public int IDVille { get; set; }
-        public string nomVille { get; set; }
-    
-        public virtual ICollection<OffreEmploi> OffreEmploi { get; set; }
+        public int IDEtudiant { get; set; }
+        public System.DateTime dateNaissance { get; set; }
+        public bool valideTemoignage { get; set; }
+        public bool valideCourriel { get; set; }
+        public string pathCV { get; set; }
     }
 }

@@ -12,16 +12,14 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Ville
+    public partial class ParutionMedia
     {
-        public Ville()
-        {
-            this.OffreEmploi = new HashSet<OffreEmploi>();
-        }
+        public int IDParutionMedia { get; set; }
+        public string pathFichierPDF { get; set; }
+        public string descriptionParution { get; set; }
+        public System.DateTime dateParution { get; set; }
+        public int ProfesseurIDUtilisateur { get; set; }
     
-        public int IDVille { get; set; }
-        public string nomVille { get; set; }
-    
-        public virtual ICollection<OffreEmploi> OffreEmploi { get; set; }
+        public virtual Professeur Professeur { get; set; }
     }
 }

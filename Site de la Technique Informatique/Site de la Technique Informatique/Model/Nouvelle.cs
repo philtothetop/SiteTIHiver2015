@@ -12,13 +12,15 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class UtilisateurJeu_Etudiant : UtilisateurJeu
+    public partial class Nouvelle
     {
-        public int IDEtudiant { get; set; }
-        public System.DateTime dateNaissance { get; set; }
-        public System.DateTime dateInscription { get; set; }
-        public bool valideTemoignage { get; set; }
-        public bool valideCourriel { get; set; }
-        public string pathCV { get; set; }
+        public int IDNouvelle { get; set; }
+        public string titreNouvelle { get; set; }
+        public string texteNouvelle { get; set; }
+        public string pathPhotoNouvelle { get; set; }
+        public System.DateTime dateNouvelle { get; set; }
+        public int ProfesseurIDUtilisateur { get; set; }
+    
+        public virtual Professeur Professeur { get; set; }
     }
 }

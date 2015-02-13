@@ -7,10 +7,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
 namespace Site_de_la_Technique_Informatique.Model
-{
+{/*
     public partial class UtilisateurJeu_Etudiant
     {
-    }
+    }*/
+    /*
     [MetadataType(typeof(UtilisateurJeu_EtudiantValidation))]
     public partial class UtilisateurJeu_Etudiant : IValidatableObject
     {
@@ -20,7 +21,7 @@ namespace Site_de_la_Technique_Informatique.Model
             var listeRetour = new List<ValidationResult>();
             return listeRetour;
         }
-    }
+    }*/
 }
 public partial class UtilisateurJeu_EtudiantValidation
 {

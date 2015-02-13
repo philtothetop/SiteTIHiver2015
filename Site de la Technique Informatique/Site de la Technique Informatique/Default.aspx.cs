@@ -13,7 +13,7 @@ namespace Site_de_la_Technique_Informatique
 
         DateTime today = DateTime.Now;
         DateTime demain = DateTime.Now.AddDays(1);
-
+        /*
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -32,8 +32,8 @@ namespace Site_de_la_Technique_Informatique
                 throw new InvalidOperationException("Erreur dans le chargement des événements du calendrier ", ex);
             }
 
-        }
-
+        }*/
+        /*
         protected void CalendrierEvents_SelectionChanged(object sender, EventArgs e)
         {
             try
@@ -52,8 +52,8 @@ namespace Site_de_la_Technique_Informatique
                 throw new InvalidOperationException("Erreur dans selectionChanged du calendrier ", ex);
             }
         }
-
-
+        */
+        /*
         public IQueryable<Site_de_la_Technique_Informatique.Model.EvenementJeu> lviewEvents_GetData()
         {
             try
@@ -85,7 +85,7 @@ namespace Site_de_la_Technique_Informatique
                 throw new InvalidOperationException("Erreur dans le listeView Evenements PageAccueilConnecté", ex);
             }
         }
-
+        */
         protected void btnPlusEvents_Click(object sender, EventArgs e)
         {
 

@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
 namespace Site_de_la_Technique_Informatique.Model
-{
+{/*
     public partial class UtilisateurJeu
     {
     }
@@ -21,7 +21,7 @@ namespace Site_de_la_Technique_Informatique.Model
             return listeRetour;
         }
     }
-
+    */
 }
 public partial class UtilisateurJeuValidation
 {

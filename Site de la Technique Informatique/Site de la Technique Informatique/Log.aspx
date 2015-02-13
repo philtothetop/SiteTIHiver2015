@@ -22,19 +22,16 @@
         <div class="row">
             <div class="col-lg-12" style="background-color: #f5f5f5; text-align:center; border-radius:40px;">
         <asp:ListView ID="lviewLogs" runat="server"
-                        ItemType="Site_de_la_Technique_Informatique.Model.LogJeu"
+                        ItemType="Site_de_la_Technique_Informatique.Model.Log"
                         SelectMethod="GetLesLogs">
 
                         <LayoutTemplate>
-                            <div style="width:100%;">
-                                        <div class="col-lg-1">
+                            <div style="width:100%; margin-bottom:4px;">
+                                        <div class="col-lg-2">
                                             <asp:Label ID="lblTitreNoLog" runat="server" Text="No Log" style="font:bold; font-size:large; border-bottom: solid black 2px;"></asp:Label>
                                             </div>
-                            <div class="col-lg-1">
-                                            <asp:Label ID="lblTitreNoCompte" runat="server" Text="No Compte" style="font:bold; font-size:large; border-bottom: solid black 2px;"></asp:Label>
-                                            </div>
                             <div class="col-lg-2">
-                                            <asp:Label ID="lblTitreTypeCompte" runat="server" Text="Type Compte" style="font:bold; font-size:large; border-bottom: solid black 2px;"></asp:Label>
+                                            <asp:Label ID="lblTitreNoCompte" runat="server" Text="No Compte" style="font:bold; font-size:large; border-bottom: solid black 2px;"></asp:Label>
                                             </div>
                             <div class="col-lg-6">
                                             <asp:Label ID="lblTitreActionLog" runat="server" Text="Action" style="font:bold; font-size:large; border-bottom: solid black 2px;"></asp:Label>
@@ -50,14 +47,15 @@
                         </LayoutTemplate>
 
                         <ItemTemplate>
-                            <div class="col-lg-1">
+                            <div class="col-lg-2">
                                             <asp:Label ID="lblNoLog" runat="server" Text='<%# Item.IDLog %>'></asp:Label>
                                             </div>
-                             <div class="col-lg-1">
-                                            <asp:Label ID="lblNoCompte" runat="server"  Text=""></asp:Label>
-                                            </div>
-                            <div class="col-lg-2">
-                                            <asp:Label ID="lblTypeCompte" runat="server" Text=""></asp:Label>
+                             <div class="col-lg-2">
+
+                                            <asp:LinkButton ID="lnkNoCompte" runat="server">
+                                                <asp:Label ID="lblNoCompte" runat="server"  Text='<%# Item.UtilisateurIDUtilisateur %>'></asp:Label>
+                                            </asp:LinkButton>
+                                            
                                             </div>
                             <div class="col-lg-6">
                                             <asp:Label ID="lblActionLog" runat="server" Text='<%# Item.actionLog %>'></asp:Label>

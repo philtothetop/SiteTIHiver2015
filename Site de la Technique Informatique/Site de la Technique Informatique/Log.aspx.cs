@@ -1,4 +1,13 @@
-﻿using System;
+﻿//Type de log valeur
+//0 = Normal
+//1 = Erreur
+//2 = Warning
+//3 = Inscription
+//4 = Banni
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,32 +36,32 @@ namespace Site_de_la_Technique_Informatique
             }
              */
         }
-        /*
+        
         //Méthode pour récupérer les logs de la BD
-        public IQueryable<LogJeu> GetLesLogs()
+        public IQueryable<Model.Log> GetLesLogs()
         {
-            UtilisateurJeu tru = new UtilisateurJeu();
-            //tru.UtilisateurJeu_Etudiant.
-           
             //Créer une liste de base
-            List<LogJeu> listeDesLogs = new List<LogJeu>();
+            List<Model.Log> listeDesLogs = new List<Model.Log>();
 
             try
             {
-                using (ModelTIContainer modelTI = new ModelTIContainer())
+                using (LeModelTIContainer modelTI = new LeModelTIContainer())
                 {
                     //Récupérer les logs dans la BD
-                    listeDesLogs = (from cl in modelTI.LogJeu
+                    listeDesLogs = (from cl in modelTI.LogSet
                                     select cl).ToList();
-
+                    
 
                     //POUR TEST UNIQUEMENT
                     for (int i = 0; i < 24; i++)
                     {
-                        LogJeu logErreur = new LogJeu();
+                        
+                        Model.Log logErreur = new Model.Log();
                         logErreur.actionLog = "LOG DE TEST WOOT" + i;
                         logErreur.dateLog = DateTime.Now + new TimeSpan(i, 0, 0, 0);
                         logErreur.IDLog = i;
+                        logErreur.typeLog = 0;
+                        logErreur.UtilisateurIDUtilisateur = i;
                         listeDesLogs.Add(logErreur);
                     }
                 }
@@ -60,12 +69,12 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 //Si Erreur, retourner une liste avec un log qui indique erreur
-                //ERREURS PARTOUT OH GOD HELP ME
-                //DÉSOLÉ :(
-                LogJeu logErreur = new LogJeu();
+                Model.Log logErreur = new Model.Log();
                 logErreur.actionLog = "Erreur l'Hors du chargement des logs";
                 logErreur.dateLog = DateTime.Now;
                 logErreur.IDLog = 1;
+                logErreur.typeLog = 1;
+                logErreur.UtilisateurIDUtilisateur = 0;
 
                 listeDesLogs.Add(logErreur);
 
@@ -74,100 +83,5 @@ namespace Site_de_la_Technique_Informatique
 
             return listeDesLogs.AsQueryable().SortBy("dateLog");
         }
-
-        
-        //Pour savoir le ID de celui qui a créé le log
-        public int GetIdOfAccount(int IdDuLog)
-        {
-            try
-            {
-                using (ModelTIContainer modelTI = new ModelTIContainer())
-                {
-                    LogJeu theLog = (from cl in modelTI.LogJeu
-                                     where cl.IDLog == IdDuLog
-                                     select cl).FirstOrDefault();
-
-                    //Vérifier que le log a été trouvé
-                    if (theLog != null)
-                    {
-                        //Checker si c'est un étudiant ou un prof
-                        if (theLog.UtilisateurJeu != null)
-                        {
-                            return theLog.UtilisateurJeu.IDUtilisateur;
-                        }
-                        //Checker si c'est un employeur alors
-                        else if (theLog.EmployeurJeuSet != null)
-                        {
-                            return theLog.EmployeurJeuSet.IDEmployeur;
-                        }
-                        //Checker si c'est un admin alors
-                        else if (theLog.AdminJeu != null)
-                        {
-                            return theLog.AdminJeu.IDAdmin;
-                        }
-                        //Au sinon le log a mal été produit???
-                        else
-                        {
-                            return 0;
-                        }
-                    }
-                }
-            }
-            //Si ya probleme, retourner 0
-            catch
-            {
-                return 0; 
-            }
-
-            //Devrais pas se rendre ici mais, au cas ou
-            return 0; 
-        }
-        
-        //Pour savoir le type de l'account de celui qui a créé le log
-        public string GetTypeOfAccount(int IdDuLog)
-        {
-            try
-            {
-                using (ModelTIContainer modelTI = new ModelTIContainer())
-                {
-                    LogJeu theLog = (from cl in modelTI.LogJeu
-                                     where cl.IDLog == IdDuLog
-                                     select cl).FirstOrDefault();
-
-                    //Vérifier que le log a été trouvé
-                    if (theLog != null)
-                    {
-                        //Checker si c'est un étudiant ou un prof
-                        if (theLog.UtilisateurJeu != null)
-                        {
-                            return "Utilisateur";    
-                        }
-                        //Checker si c'est un employeur alors
-                        else if (theLog.EmployeurJeuSet != null)
-                        {
-                            return "Employeur";
-                        }
-                        //Checker si c'est un admin alors
-                        else if (theLog.AdminJeu != null)
-                        {
-                            return "Administrateur";
-                        }
-                        //Au sinon le log a mal été produit???
-                        else
-                        {
-                            return "Introuvable";
-                        }
-                    }
-                }
-            }
-            //Si ya probleme, retourner 0
-            catch
-            {
-                return "Introuvable";
-            }
-
-            //Devrais pas se rendre ici mais, au cas ou
-            return "Introuvable";
-        }*/
     }
 }

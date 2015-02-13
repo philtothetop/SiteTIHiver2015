@@ -12,14 +12,8 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class LogJeu
+    public partial class Admin : Utilisateur
     {
-        public int IDLog { get; set; }
-        public System.DateTime dateLog { get; set; }
-        public string actionLog { get; set; }
-        public short typeLog { get; set; }
-        public Nullable<int> UtilisateurJeuIDUtilisateur { get; set; }
-    
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
+        public int IDAdmin { get; set; }
     }
 }
