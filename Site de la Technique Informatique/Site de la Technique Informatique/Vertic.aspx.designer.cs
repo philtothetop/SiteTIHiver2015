@@ -22,6 +22,15 @@ namespace Site_de_la_Technique_Informatique.Classes {
         protected global::System.Web.UI.WebControls.TextBox txtCaractPortatif;
         
         /// <summary>
+        /// Contrôle txtAutres.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAutres;
+        
+        /// <summary>
         /// Contrôle lvEcheancier.
         /// </summary>
         /// <remarks>
@@ -29,5 +38,23 @@ namespace Site_de_la_Technique_Informatique.Classes {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvEcheancier;
+        
+        /// <summary>
+        /// Contrôle txtLogicielLicenses.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLogicielLicenses;
+        
+        /// <summary>
+        /// Contrôle txtLogicielLibres.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtLogicielLibres;
     }
 }
