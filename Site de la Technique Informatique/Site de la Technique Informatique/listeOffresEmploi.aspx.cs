@@ -32,14 +32,21 @@ namespace Site_de_la_Technique_Informatique
             using (ModelTIContainer lecontexte = new ModelTIContainer())
             {
                
+                Label lblheulblNbHeureSemaine = (Label)e.Item.FindControl("lblheulblNbHeureSemaine");
                 Label lblVille = (Label)e.Item.FindControl("lblVille");
 
+                int nbHeulblNbHeureSemaine = int.Parse(lviewOffresEmploi.DataKeys[e.Item.DisplayIndex].Values[1].ToString());
+                lblheulblNbHeureSemaine.Text = nbHeulblNbHeureSemaine + " heures par semaine";
+
                 int idVille = int.Parse(lviewOffresEmploi.DataKeys[e.Item.DisplayIndex].Values[0].ToString());
-
                 Ville ville = (from villes in lecontexte.VilleSet where villes.IDVille == idVille select villes).FirstOrDefault();
-
                 lblVille.Text = ville.nomVille;
             }
+        }
+
+        protected void lnkOffre_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
