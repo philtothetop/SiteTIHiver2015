@@ -143,6 +143,9 @@
     <Compile Include="Model\OffreEmploiJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Ville.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
