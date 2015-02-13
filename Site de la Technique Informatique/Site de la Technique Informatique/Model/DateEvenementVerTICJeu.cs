@@ -12,12 +12,10 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class VerTICJeu
+    public partial class DateEvenementVerTICJeu
     {
-        public int IDVerTIC { get; set; }
-        public string descriptionLicence { get; set; }
-        public string descriptionLibre { get; set; }
-        public string caracteristiquesPortable { get; set; }
-        public string autrePortable { get; set; }
+        public int IDDateEvenement { get; set; }
+        public string dateDescription { get; set; }
+        public string Evenement { get; set; }
     }
 }

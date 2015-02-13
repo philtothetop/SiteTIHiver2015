@@ -23,6 +23,7 @@
     <EntitySet Name="VerTICJeu" EntityType="ModelTI.Store.VerTICJeu" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EmployeurJeuSet" EntityType="ModelTI.Store.EmployeurJeuSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="OffreEmploiJeuSet" EntityType="ModelTI.Store.OffreEmploiJeuSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DateEvenementVerTICJeuSet" EntityType="ModelTI.Store.DateEvenementVerTICJeuSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProfesseurCours" EntityType="ModelTI.Store.ProfesseurCours" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_AdminLog" Association="ModelTI.Store.FK_AdminLog">
       <End Role="AdminJeu" EntitySet="AdminJeu" />
@@ -248,9 +249,6 @@
       <PropertyRef Name="IDVerTIC" />
     </Key>
     <Property Name="IDVerTIC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dateDebut" Type="datetime" Nullable="false" />
-    <Property Name="dateFin" Type="datetime" Nullable="false" />
-    <Property Name="descriptionEvenement" Type="nvarchar(max)" Nullable="false" />
     <Property Name="descriptionLicence" Type="nvarchar" Nullable="false" MaxLength="2000" />
     <Property Name="descriptionLibre" Type="nvarchar" Nullable="false" MaxLength="2000" />
     <Property Name="caracteristiquesPortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
@@ -287,6 +285,14 @@
     <Property Name="courrielOffre" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="personneRessource" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="EmployeurJeuIDEmployeur" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DateEvenementVerTICJeuSet">
+    <Key>
+      <PropertyRef Name="IDDateEvenement" />
+    </Key>
+    <Property Name="IDDateEvenement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dateDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Evenement" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ProfesseurCours">
     <Key>
@@ -606,6 +612,7 @@
             <End Role="LogJeu" EntitySet="LogJeu" />
             <End Role="UtilisateurJeu" EntitySet="UtilisateurJeu" />
           </AssociationSet>
+          <EntitySet Name="DateEvenementVerTICJeuSet" EntityType="ModelTI.DateEvenementVerTICJeu" />
         </EntityContainer>
         <EntityType Name="AdminJeu">
           <Key>
@@ -787,9 +794,6 @@
             <PropertyRef Name="IDVerTIC" />
           </Key>
           <Property Name="IDVerTIC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="dateDebut" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="dateFin" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="descriptionEvenement" Type="String" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="true" />
           <Property Name="descriptionLicence" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="descriptionLibre" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
           <Property Name="caracteristiquesPortable" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
@@ -1014,6 +1018,14 @@
           <End Type="ModelTI.LogJeu" Role="LogJeu" Multiplicity="*" />
           <End Type="ModelTI.UtilisateurJeu" Role="UtilisateurJeu" Multiplicity="0..1" />
         </Association>
+        <EntityType Name="DateEvenementVerTICJeu">
+          <Key>
+            <PropertyRef Name="IDDateEvenement" />
+          </Key>
+          <Property Name="IDDateEvenement" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateDescription" Type="String" Nullable="false" />
+          <Property Name="Evenement" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1182,9 +1194,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelTI.VerTICJeu)">
         <MappingFragment StoreEntitySet="VerTICJeu">
           <ScalarProperty Name="IDVerTIC" ColumnName="IDVerTIC" />
-          <ScalarProperty Name="dateDebut" ColumnName="dateDebut" />
-          <ScalarProperty Name="dateFin" ColumnName="dateFin" />
-          <ScalarProperty Name="descriptionEvenement" ColumnName="descriptionEvenement" />
           <ScalarProperty Name="descriptionLicence" ColumnName="descriptionLicence" />
           <ScalarProperty Name="descriptionLibre" ColumnName="descriptionLibre" />
           <ScalarProperty Name="caracteristiquesPortable" ColumnName="caracteristiquesPortable" />
@@ -1223,6 +1232,15 @@
           <ScalarProperty Name="courrielOffre" ColumnName="courrielOffre" />
           <ScalarProperty Name="personneRessource" ColumnName="personneRessource" />
           <ScalarProperty Name="EmployeurJeuIDEmployeur" ColumnName="EmployeurJeuIDEmployeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DateEvenementVerTICJeuSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.DateEvenementVerTICJeu)">
+        <MappingFragment StoreEntitySet="DateEvenementVerTICJeuSet">
+          <ScalarProperty Name="IDDateEvenement" ColumnName="IDDateEvenement" />
+          <ScalarProperty Name="dateDescription" ColumnName="dateDescription" />
+          <ScalarProperty Name="Evenement" ColumnName="Evenement" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

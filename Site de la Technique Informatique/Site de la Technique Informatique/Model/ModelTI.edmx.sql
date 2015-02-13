@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/06/2015 13:03:43
--- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\ModelTI.edmx
+-- Date Created: 02/06/2015 13:58:35
+-- Generated from EDMX file: C:\Users\Jacob\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\ModelTI.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -126,6 +126,9 @@ IF OBJECT_ID(N'[dbo].[EmployeurJeuSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[OffreEmploiJeuSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[OffreEmploiJeuSet];
+GO
+IF OBJECT_ID(N'[dbo].[DateEvenementVerTICJeuSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DateEvenementVerTICJeuSet];
 GO
 IF OBJECT_ID(N'[dbo].[ProfesseurCours]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ProfesseurCours];
@@ -284,9 +287,6 @@ GO
 -- Creating table 'VerTICJeu'
 CREATE TABLE [dbo].[VerTICJeu] (
     [IDVerTIC] int IDENTITY(1,1) NOT NULL,
-    [dateDebut] datetime  NOT NULL,
-    [dateFin] datetime  NOT NULL,
-    [descriptionEvenement] nvarchar(max)  NOT NULL,
     [descriptionLicence] nvarchar(2000)  NOT NULL,
     [descriptionLibre] nvarchar(2000)  NOT NULL,
     [caracteristiquesPortable] nvarchar(2000)  NOT NULL,
@@ -323,6 +323,14 @@ CREATE TABLE [dbo].[OffreEmploiJeuSet] (
     [courrielOffre] nvarchar(50)  NOT NULL,
     [personneRessource] nvarchar(100)  NOT NULL,
     [EmployeurJeuIDEmployeur] int  NOT NULL
+);
+GO
+
+-- Creating table 'DateEvenementVerTICJeuSet'
+CREATE TABLE [dbo].[DateEvenementVerTICJeuSet] (
+    [IDDateEvenement] int IDENTITY(1,1) NOT NULL,
+    [dateDescription] nvarchar(max)  NOT NULL,
+    [Evenement] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -437,6 +445,12 @@ GO
 ALTER TABLE [dbo].[OffreEmploiJeuSet]
 ADD CONSTRAINT [PK_OffreEmploiJeuSet]
     PRIMARY KEY CLUSTERED ([IDOffreEmploi] ASC);
+GO
+
+-- Creating primary key on [IDDateEvenement] in table 'DateEvenementVerTICJeuSet'
+ALTER TABLE [dbo].[DateEvenementVerTICJeuSet]
+ADD CONSTRAINT [PK_DateEvenementVerTICJeuSet]
+    PRIMARY KEY CLUSTERED ([IDDateEvenement] ASC);
 GO
 
 -- Creating primary key on [CoursJeu_IDCours], [UtilisateurJeu_Professeur_IDUtilisateur] in table 'ProfesseurCours'

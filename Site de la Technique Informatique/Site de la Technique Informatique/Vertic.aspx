@@ -49,6 +49,7 @@
             <section id="portable" class="portable-section">
                 <div class="row">
                     <div class="col-lg-12">
+
                         <h3>Caractéristiques du portable VerTIC</h3>
 
                         <p>La sélection du portatif pour notre programme d'études s'effectue avec des critères concrets. Ce qui est le plus important pour nous demeure la performance du portatif et celui-ci saura bien tenir la route pendant le séjour de l'étudiant au département. Ces choix s'effectuent en fonction des applications qui sont utilisées dans le programme d'informatique.</p>
@@ -63,7 +64,16 @@
 
                             <b>Caractéristiques</b>
 
-                            ... FAIRE ICI LES DONNÉES VERS LA BD ... 
+                          <asp:TextBox ID="txtCaractPortatif" runat="server" Text="  Processeur : Intel Core I7... 2,85GHz ou comparable
+  Mémoire vive : 8Go (idéalement extensible 16Go)
+  Disque dur : 500Go (min.)
+  Carte graphique : permettant le multimédia
+  Batterie : 6 ou 9 cellules
+
+  Avec Windows 8 français, idéalement Win 8.1 PRO français"                
+                             TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
+
+                          </asp:TextBox>
 
                         </div>
 
