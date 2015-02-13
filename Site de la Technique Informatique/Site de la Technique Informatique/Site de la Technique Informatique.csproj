@@ -134,7 +134,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DateEvenementVerTICJeu.cs">
+    <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EmployeurJeuSet.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OffreEmploiJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Vertic.aspx.cs">
@@ -187,9 +193,6 @@
     <Compile Include="Model\CoursJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\EmployeurJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\EnteteForumJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
@@ -221,9 +224,6 @@
       <DependentUpon>ModelTI.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\NouvelleJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OffreEmploiJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ParutionMediaJeu.cs">

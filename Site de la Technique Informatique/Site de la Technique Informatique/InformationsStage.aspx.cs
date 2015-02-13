@@ -10,13 +10,16 @@ namespace Site_de_la_Technique_Informatique
 {
     public partial class Stages : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            #region Set attributes <body>
             HtmlControl body = Master.FindControl("pageBody") as HtmlControl;
             body.Attributes.Add("data-spy", "scroll");
             body.Attributes.Add("data-target", ".scrolltarget");
             body.Attributes.Add("data-offset", "30");
             body.Attributes.Add("style", "position:relative; overflow:auto;");
+            #endregion
         }
     }
 }
