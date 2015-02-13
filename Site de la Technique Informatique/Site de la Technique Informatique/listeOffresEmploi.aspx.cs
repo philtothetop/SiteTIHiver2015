@@ -17,7 +17,7 @@ namespace Site_de_la_Technique_Informatique
 
         public IQueryable<OffreEmploiJeuSet> getOffresEmploi()
         {
-           
+
             List<OffreEmploiJeuSet> listeOffresEmploi = new List<OffreEmploiJeuSet>();
             using (ModelTIContainer lecontexte = new ModelTIContainer())
             {
@@ -31,7 +31,7 @@ namespace Site_de_la_Technique_Informatique
         {
             using (ModelTIContainer lecontexte = new ModelTIContainer())
             {
-               
+
                 Label lblheulblNbHeureSemaine = (Label)e.Item.FindControl("lblheulblNbHeureSemaine");
                 Label lblVille = (Label)e.Item.FindControl("lblVille");
 
