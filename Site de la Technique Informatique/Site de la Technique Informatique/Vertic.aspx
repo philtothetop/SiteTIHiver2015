@@ -63,6 +63,7 @@
                         <div class="row">
 
                             <b>Caractéristiques</b>
+                            <br />
 
                           <asp:TextBox ID="txtCaractPortatif" runat="server" Text="  Processeur : Intel Core I7... 2,85GHz ou comparable
   Mémoire vive : 8Go (idéalement extensible 16Go)

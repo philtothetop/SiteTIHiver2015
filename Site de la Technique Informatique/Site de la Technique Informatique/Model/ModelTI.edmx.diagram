@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ae6bd0f581d9453fa57e262c48a9a908" Name="Diagram1" ZoomLevel="65" DisplayType="true" >
+      <Diagram DiagramId="ae6bd0f581d9453fa57e262c48a9a908" Name="Diagram1" ZoomLevel="74" DisplayType="true" >
         <EntityTypeShape EntityType="ModelTI.AdminJeu" Width="2" PointX="8.625" PointY="17.375" />
         <EntityTypeShape EntityType="ModelTI.ConsultationForumJeu" Width="2.5" PointX="1.125" PointY="22.25" />
         <EntityTypeShape EntityType="ModelTI.CoursJeu" Width="2" PointX="12.625" PointY="22.75" />
