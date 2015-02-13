@@ -17,6 +17,7 @@ namespace Site_de_la_Technique_Informatique
 
         public IQueryable<OffreEmploiJeuSet> getOffresEmploi()
         {
+           
             List<OffreEmploiJeuSet> listeOffresEmploi = new List<OffreEmploiJeuSet>();
             using (ModelTIContainer lecontexte = new ModelTIContainer())
             {
@@ -28,7 +29,17 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lviewOffresEmploi_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+               
+                Label lblVille = (Label)e.Item.FindControl("lblVille");
 
+                int idVille = int.Parse(lviewOffresEmploi.DataKeys[e.Item.DisplayIndex].Values[0].ToString());
+
+                Ville ville = (from villes in lecontexte.VilleSet where villes.IDVille == idVille select villes).FirstOrDefault();
+
+                lblVille.Text = ville.nomVille;
+            }
         }
 
     }
