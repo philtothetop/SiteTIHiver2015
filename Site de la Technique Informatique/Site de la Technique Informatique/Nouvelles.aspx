@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Nouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Nouvelles" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
          
+   
+
     <!-- Header Carousel -->
     <div class="container">
 
@@ -34,8 +38,17 @@
                 </div>
             </div>
             <!-- Content Column -->
-            <div class="col-md-9">
-               
+            <div class="col-md-9" style="margin-top">
+                <asp:ListView ID="lviewNouvelles" runat="server"
+                    ItemType="Site_de_la_Technique_Informatique.Model.NouvelleJeu"
+                    SelectMethod="getNouvelles">
+                    <ItemTemplate>
+                        <h3><%# Item.titreNouvelle %></h3>
+                        <p> <%# Item.dateNouvelle.ToLongDateString() %></p>
+                        <div style="margin-top:5px;" />
+                        <p><%# Item.texteNouvelle %></p>
+                    </ItemTemplate>
+                </asp:ListView>
         </div>
         <!-- /.row -->
 

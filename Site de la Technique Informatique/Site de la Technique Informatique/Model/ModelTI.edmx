@@ -188,6 +188,7 @@
     <Property Name="IDLog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="dateLog" Type="datetime" Nullable="false" />
     <Property Name="actionLog" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="typeLog" Type="smallint" Nullable="false" />
     <Property Name="UtilisateurJeu_IDUtilisateur" Type="int" Nullable="true" />
     <Property Name="AdminJeu_IDAdmin" Type="int" Nullable="true" />
     <Property Name="EmployeurJeuSet_IDEmployeur" Type="int" Nullable="true" />
@@ -226,13 +227,13 @@
     <Property Name="pathPDFDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="salaire" Type="decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="nbHeureSemaine" Type="smallint" Nullable="false" />
-    <Property Name="villeTravail" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="adresseTravail" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="noTelephone" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="noTelecopieur" Type="nvarchar" Nullable="true" MaxLength="10" />
     <Property Name="courrielOffre" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="personneRessource" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="EmployeurJeuIDEmployeur" Type="int" Nullable="false" />
+    <Property Name="VilleIDVille" Type="int" Nullable="false" />
     <Property Name="Ville_IDVille" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ParutionMediaJeu">
@@ -742,6 +743,7 @@
           <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.LogJeuUtilisateurJeu" FromRole="LogJeu" ToRole="UtilisateurJeu" />
           <NavigationProperty Name="AdminJeu" Relationship="ModelTI.LogJeuAdminJeu" FromRole="LogJeu" ToRole="AdminJeu" />
           <NavigationProperty Name="EmployeurJeuSet" Relationship="ModelTI.EmployeurJeuSetLogJeu" FromRole="LogJeu" ToRole="EmployeurJeuSet" />
+          <Property Name="typeLog" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="MessageForumJeu">
           <Key>
@@ -780,7 +782,6 @@
           <Property Name="pathPDFDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="salaire" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="nbHeureSemaine" Type="Int16" Nullable="false" />
-          <Property Name="villeTravail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="adresseTravail" Type="String" Nullable="false" MaxLength="200" />
           <Property Name="noTelephone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="noTelecopieur" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -789,6 +790,7 @@
           <Property Name="EmployeurJeuIDEmployeur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EmployeurJeuSet" Relationship="ModelTI.FK_EmployeurJeuOffreEmploiJeu" FromRole="OffreEmploiJeuSet" ToRole="EmployeurJeuSet" />
           <NavigationProperty Name="Ville" Relationship="ModelTI.OffreEmploiJeuSetVille" FromRole="OffreEmploiJeuSet" ToRole="Ville" />
+          <Property Name="VilleIDVille" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ParutionMediaJeu">
           <Key>
@@ -1154,6 +1156,7 @@
           <ScalarProperty Name="IDLog" ColumnName="IDLog" />
           <ScalarProperty Name="dateLog" ColumnName="dateLog" />
           <ScalarProperty Name="actionLog" ColumnName="actionLog" />
+          <ScalarProperty Name="typeLog" ColumnName="typeLog" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1192,13 +1195,13 @@
           <ScalarProperty Name="pathPDFDescription" ColumnName="pathPDFDescription" />
           <ScalarProperty Name="salaire" ColumnName="salaire" />
           <ScalarProperty Name="nbHeureSemaine" ColumnName="nbHeureSemaine" />
-          <ScalarProperty Name="villeTravail" ColumnName="villeTravail" />
           <ScalarProperty Name="adresseTravail" ColumnName="adresseTravail" />
           <ScalarProperty Name="noTelephone" ColumnName="noTelephone" />
           <ScalarProperty Name="noTelecopieur" ColumnName="noTelecopieur" />
           <ScalarProperty Name="courrielOffre" ColumnName="courrielOffre" />
           <ScalarProperty Name="personneRessource" ColumnName="personneRessource" />
           <ScalarProperty Name="EmployeurJeuIDEmployeur" ColumnName="EmployeurJeuIDEmployeur" />
+          <ScalarProperty Name="VilleIDVille" ColumnName="VilleIDVille" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
