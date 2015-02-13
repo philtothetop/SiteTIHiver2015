@@ -10,7 +10,7 @@ using Site_de_la_Technique_Informatique.Model;
 
 namespace Site_de_la_Technique_Informatique.Classes
 {
-    public partial class WebForm1 : ErrorHandling
+    public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +22,12 @@ namespace Site_de_la_Technique_Informatique.Classes
 
             string caract = getCaracteristiquePortable();
             txtCaractPortatif.Text = caract;
+            string autres = getAutresPortable();
+            txtAutres.Text=autres;
+            string licences = getLicences();
+            txtLogicielLicenses.Text = licences;
+            string libres = getLibres();
+            txtLogicielLibres.Text = libres;
         }
 
         public String getCaracteristiquePortable()
@@ -34,6 +40,42 @@ namespace Site_de_la_Technique_Informatique.Classes
             }
             return caracteristiquePortable;
         }
+        public String getAutresPortable()
+        {
+            string autresPortable = "";
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+
+                autresPortable = (from autres in lecontexte.VerTICJeu select autres.autrePortable).FirstOrDefault();
+            }
+            return autresPortable;
+        }
+        public String getLicences()
+        {
+            string licences = "";
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+
+                licences = (from licence in lecontexte.VerTICJeu select licence.descriptionLicence).FirstOrDefault();
+            }
+            return licences;
+        }
+        public String getLibres()
+        {
+            string libres = "";
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+
+                libres = (from libre in lecontexte.VerTICJeu select libre.descriptionLibre).FirstOrDefault();
+            }
+            
+
+            string caract = getCaracteristiquePortable();
+            txtCaractPortatif.Text = caract;
+            return libres;
+        }
+
+      
 
  
 public IQueryable<DateEvenementVerTICJeuSet> lvEcheancier_GetData()
