@@ -16,6 +16,7 @@
                     <asp:Label id="lblNbHeuresSemaine" Text='<%# Eval("nbHeuresSemaine").ToString()%>' runat="server"></asp:Label>
                 </asp:listView>
                 <hr />
+                
             </div>
         </div>
     </div>
