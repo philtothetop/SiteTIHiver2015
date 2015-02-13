@@ -3,12 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
-
-    <link href="Css/scrolling-nav.css" rel="stylesheet" />
-    <script type="text/javascript"></script>
-
-
-
+  
    <div class="container" >
         <div class="row"  >
             <div class="col-lg-3 scrolltarget" style="margin-top: 0px;" >
@@ -222,13 +217,5 @@
             </div>
         </div>
     </div>
-
   
-
-
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-   
 </asp:Content>

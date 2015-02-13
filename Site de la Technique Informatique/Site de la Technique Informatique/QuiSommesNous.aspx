@@ -2,12 +2,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/modern-business.css" rel="stylesheet"/>
-    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="Css/scrolling-nav.css" rel="stylesheet" />
-
-    <script src="Js/jquery.js"></script>
 
     <!-- Header Carousel -->
     <div class="container">
