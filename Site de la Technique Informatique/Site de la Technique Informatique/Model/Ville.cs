@@ -12,15 +12,16 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class LogJeu
+    public partial class Ville
     {
-        public int IDLog { get; set; }
-        public System.DateTime dateLog { get; set; }
-        public string actionLog { get; set; }
-        public short typeLog { get; set; }
+        public Ville()
+        {
+            this.OffreEmploiJeuSet = new HashSet<OffreEmploiJeuSet>();
+        }
     
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
-        public virtual AdminJeu AdminJeu { get; set; }
-        public virtual EmployeurJeuSet EmployeurJeuSet { get; set; }
+        public int IDVille { get; set; }
+        public string nomVille { get; set; }
+    
+        public virtual ICollection<OffreEmploiJeuSet> OffreEmploiJeuSet { get; set; }
     }
 }

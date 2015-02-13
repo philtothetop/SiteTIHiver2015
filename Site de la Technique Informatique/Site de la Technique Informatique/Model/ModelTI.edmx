@@ -24,6 +24,7 @@
     <EntitySet Name="UtilisateurJeu_Etudiant" EntityType="ModelTI.Store.UtilisateurJeu_Etudiant" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UtilisateurJeu_Professeur" EntityType="ModelTI.Store.UtilisateurJeu_Professeur" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="VerTICJeu" EntityType="ModelTI.Store.VerTICJeu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VilleSet" EntityType="ModelTI.Store.VilleSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ProfesseurCours" EntityType="ModelTI.Store.ProfesseurCours" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_ConsultationForumEnteteForum" Association="ModelTI.Store.FK_ConsultationForumEnteteForum">
       <End Role="EnteteForumJeu" EntitySet="EnteteForumJeu" />
@@ -96,6 +97,10 @@
     <AssociationSet Name="EmployeurJeuSetLogJeu" Association="ModelTI.Store.EmployeurJeuSetLogJeu">
       <End Role="LogJeu" EntitySet="LogJeu" />
       <End Role="EmployeurJeuSet" EntitySet="EmployeurJeuSet" />
+    </AssociationSet>
+    <AssociationSet Name="OffreEmploiJeuSetVille" Association="ModelTI.Store.OffreEmploiJeuSetVille">
+      <End Role="OffreEmploiJeuSet" EntitySet="OffreEmploiJeuSet" />
+      <End Role="Ville" EntitySet="VilleSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="AdminJeu">
@@ -183,6 +188,7 @@
     <Property Name="IDLog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="dateLog" Type="datetime" Nullable="false" />
     <Property Name="actionLog" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="typeLog" Type="smallint" Nullable="false" />
     <Property Name="UtilisateurJeu_IDUtilisateur" Type="int" Nullable="true" />
     <Property Name="AdminJeu_IDAdmin" Type="int" Nullable="true" />
     <Property Name="EmployeurJeuSet_IDEmployeur" Type="int" Nullable="true" />
@@ -221,12 +227,14 @@
     <Property Name="pathPDFDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="salaire" Type="decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="nbHeureSemaine" Type="smallint" Nullable="false" />
-    <Property Name="lieuTravail" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="adresseTravail" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="noTelephone" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="noTelecopieur" Type="nvarchar" Nullable="true" MaxLength="10" />
     <Property Name="courrielOffre" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="personneRessource" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="EmployeurJeuIDEmployeur" Type="int" Nullable="false" />
+    <Property Name="VilleIDVille" Type="int" Nullable="false" />
+    <Property Name="Ville_IDVille" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ParutionMediaJeu">
     <Key>
@@ -290,6 +298,13 @@
     <Property Name="descriptionLibre" Type="nvarchar" Nullable="false" MaxLength="2000" />
     <Property Name="caracteristiquesPortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
     <Property Name="autrePortable" Type="nvarchar" Nullable="false" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="VilleSet">
+    <Key>
+      <PropertyRef Name="IDVille" />
+    </Key>
+    <Property Name="IDVille" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomVille" Type="nvarchar" Nullable="false" MaxLength="100" />
   </EntityType>
   <EntityType Name="ProfesseurCours">
     <Key>
@@ -495,6 +510,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="OffreEmploiJeuSetVille">
+    <End Role="OffreEmploiJeuSet" Type="ModelTI.Store.OffreEmploiJeuSet" Multiplicity="*" />
+    <End Role="Ville" Type="ModelTI.Store.VilleSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Ville">
+        <PropertyRef Name="IDVille" />
+      </Principal>
+      <Dependent Role="OffreEmploiJeuSet">
+        <PropertyRef Name="Ville_IDVille" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ProfesseurCours_CoursJeu">
     <End Role="CoursJeu" Type="ModelTI.Store.CoursJeu" Multiplicity="1" />
     <End Role="ProfesseurCours" Type="ModelTI.Store.ProfesseurCours" Multiplicity="*" />
@@ -610,6 +637,11 @@
             <End Role="LogJeu" EntitySet="LogJeu" />
             <End Role="EmployeurJeuSet" EntitySet="EmployeurJeuSet" />
           </AssociationSet>
+          <EntitySet Name="VilleSet" EntityType="ModelTI.Ville" />
+          <AssociationSet Name="OffreEmploiJeuSetVille" Association="ModelTI.OffreEmploiJeuSetVille">
+            <End Role="OffreEmploiJeuSet" EntitySet="OffreEmploiJeuSet" />
+            <End Role="Ville" EntitySet="VilleSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AdminJeu">
           <Key>
@@ -711,6 +743,7 @@
           <NavigationProperty Name="UtilisateurJeu" Relationship="ModelTI.LogJeuUtilisateurJeu" FromRole="LogJeu" ToRole="UtilisateurJeu" />
           <NavigationProperty Name="AdminJeu" Relationship="ModelTI.LogJeuAdminJeu" FromRole="LogJeu" ToRole="AdminJeu" />
           <NavigationProperty Name="EmployeurJeuSet" Relationship="ModelTI.EmployeurJeuSetLogJeu" FromRole="LogJeu" ToRole="EmployeurJeuSet" />
+          <Property Name="typeLog" Type="Int16" Nullable="false" />
         </EntityType>
         <EntityType Name="MessageForumJeu">
           <Key>
@@ -749,13 +782,15 @@
           <Property Name="pathPDFDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="salaire" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="nbHeureSemaine" Type="Int16" Nullable="false" />
-          <Property Name="lieuTravail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="adresseTravail" Type="String" Nullable="false" MaxLength="200" />
           <Property Name="noTelephone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="noTelecopieur" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="courrielOffre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="personneRessource" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="EmployeurJeuIDEmployeur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EmployeurJeuSet" Relationship="ModelTI.FK_EmployeurJeuOffreEmploiJeu" FromRole="OffreEmploiJeuSet" ToRole="EmployeurJeuSet" />
+          <NavigationProperty Name="Ville" Relationship="ModelTI.OffreEmploiJeuSetVille" FromRole="OffreEmploiJeuSet" ToRole="Ville" />
+          <Property Name="VilleIDVille" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ParutionMediaJeu">
           <Key>
@@ -1011,6 +1046,18 @@
           <End Type="ModelTI.LogJeu" Role="LogJeu" Multiplicity="*" />
           <End Type="ModelTI.EmployeurJeuSet" Role="EmployeurJeuSet" Multiplicity="0..1" />
         </Association>
+        <EntityType Name="Ville">
+          <Key>
+            <PropertyRef Name="IDVille" />
+          </Key>
+          <Property Name="IDVille" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomVille" Type="String" Nullable="false" MaxLength="100" />
+          <NavigationProperty Name="OffreEmploiJeuSet" Relationship="ModelTI.OffreEmploiJeuSetVille" FromRole="Ville" ToRole="OffreEmploiJeuSet" />
+        </EntityType>
+        <Association Name="OffreEmploiJeuSetVille">
+          <End Type="ModelTI.OffreEmploiJeuSet" Role="OffreEmploiJeuSet" Multiplicity="*" />
+          <End Type="ModelTI.Ville" Role="Ville" Multiplicity="1" />
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1109,6 +1156,7 @@
           <ScalarProperty Name="IDLog" ColumnName="IDLog" />
           <ScalarProperty Name="dateLog" ColumnName="dateLog" />
           <ScalarProperty Name="actionLog" ColumnName="actionLog" />
+          <ScalarProperty Name="typeLog" ColumnName="typeLog" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1147,12 +1195,13 @@
           <ScalarProperty Name="pathPDFDescription" ColumnName="pathPDFDescription" />
           <ScalarProperty Name="salaire" ColumnName="salaire" />
           <ScalarProperty Name="nbHeureSemaine" ColumnName="nbHeureSemaine" />
-          <ScalarProperty Name="lieuTravail" ColumnName="lieuTravail" />
+          <ScalarProperty Name="adresseTravail" ColumnName="adresseTravail" />
           <ScalarProperty Name="noTelephone" ColumnName="noTelephone" />
           <ScalarProperty Name="noTelecopieur" ColumnName="noTelecopieur" />
           <ScalarProperty Name="courrielOffre" ColumnName="courrielOffre" />
           <ScalarProperty Name="personneRessource" ColumnName="personneRessource" />
           <ScalarProperty Name="EmployeurJeuIDEmployeur" ColumnName="EmployeurJeuIDEmployeur" />
+          <ScalarProperty Name="VilleIDVille" ColumnName="VilleIDVille" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1225,6 +1274,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="VilleSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelTI.Ville)">
+        <MappingFragment StoreEntitySet="VilleSet">
+          <ScalarProperty Name="IDVille" ColumnName="IDVille" />
+          <ScalarProperty Name="nomVille" ColumnName="nomVille" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="ProfesseurCours" TypeName="ModelTI.ProfesseurCours" StoreEntitySet="ProfesseurCours">
       <EndProperty Name="CoursJeu">
         <ScalarProperty Name="IDCours" ColumnName="CoursJeu_IDCours" />
@@ -1259,6 +1316,14 @@
         <ScalarProperty Name="IDLog" ColumnName="IDLog" />
       </EndProperty>
       <Condition ColumnName="EmployeurJeuSet_IDEmployeur" IsNull="false" />
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="OffreEmploiJeuSetVille" TypeName="ModelTI.OffreEmploiJeuSetVille" StoreEntitySet="OffreEmploiJeuSet">
+      <EndProperty Name="Ville">
+        <ScalarProperty Name="IDVille" ColumnName="Ville_IDVille" />
+      </EndProperty>
+      <EndProperty Name="OffreEmploiJeuSet">
+        <ScalarProperty Name="IDOffreEmploi" ColumnName="IDOffreEmploi" />
+      </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>

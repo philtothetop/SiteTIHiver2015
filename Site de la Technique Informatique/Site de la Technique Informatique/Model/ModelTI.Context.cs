@@ -43,5 +43,6 @@ namespace Site_de_la_Technique_Informatique.Model
         public DbSet<UtilisateurJeu_Etudiant> UtilisateurJeu_Etudiant { get; set; }
         public DbSet<UtilisateurJeu_Professeur> UtilisateurJeu_Professeur { get; set; }
         public DbSet<VerTICJeu> VerTICJeu { get; set; }
+        public DbSet<Ville> VilleSet { get; set; }
     }
 }
