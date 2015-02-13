@@ -223,7 +223,7 @@
         </div>
     </div>
 
-    <footer></footer>
+  
 
 
     <script src="js/jquery.js"></script>
