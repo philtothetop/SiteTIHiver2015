@@ -93,7 +93,7 @@
             </section>
 
             <!-- Services Section -->
-            <section id="echeancier" class="echeancier-section">
+       <%--     <section id="echeancier" class="echeancier-section">
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -155,7 +155,13 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section>--%>
+            <section id="echeancier" class="echeancier-section">
+                <div class="row">
+                    <asp:ListView ID="lvEcheancier" runat="server"></asp:ListView>
+
+                </div>
+                </section>
 
             <!-- Contact Section -->
             <section id="contact" class="contact-section">
