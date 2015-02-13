@@ -63,6 +63,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FAQ.aspx" />
+    <Content Include="listeOffresEmploi.aspx" />
+    <Content Include="Nouvelles.aspx" />
+    <Content Include="OffreEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
@@ -134,9 +138,43 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listeOffresEmploi.aspx.cs">
+      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listeOffresEmploi.aspx.designer.cs">
+      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Logic\ExceptionUtility.cs" />
-    <Compile Include="Model\DateEvenementVerTICJeu.cs">
+    <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OffreEmploiJeuSet.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ville.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nouvelles.aspx.cs">
+      <DependentUpon>Nouvelles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nouvelles.aspx.designer.cs">
+      <DependentUpon>Nouvelles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OffreEmploi.aspx.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OffreEmploi.aspx.designer.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
@@ -179,16 +217,10 @@
     <Compile Include="Log.aspx.designer.cs">
       <DependentUpon>Log.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Model\AdminJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\ConsultationForumJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CoursJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EmployeurJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\EnteteForumJeu.cs">
@@ -222,9 +254,6 @@
       <DependentUpon>ModelTI.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\NouvelleJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OffreEmploiJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ParutionMediaJeu.cs">
