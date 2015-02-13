@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/06/2015 15:53:17
+-- Date Created: 02/13/2015 09:01:34
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\ModelTI.edmx
 -- --------------------------------------------------
 
@@ -259,12 +259,14 @@ CREATE TABLE [dbo].[OffreEmploiJeuSet] (
     [pathPDFDescription] nvarchar(200)  NULL,
     [salaire] decimal(18,0)  NOT NULL,
     [nbHeureSemaine] smallint  NOT NULL,
-    [lieuTravail] nvarchar(100)  NOT NULL,
+    [villeTravail] nvarchar(100)  NOT NULL,
+    [adresseTravail] nvarchar(200)  NOT NULL,
     [noTelephone] nvarchar(10)  NOT NULL,
     [noTelecopieur] nvarchar(10)  NULL,
     [courrielOffre] nvarchar(50)  NOT NULL,
     [personneRessource] nvarchar(100)  NOT NULL,
-    [EmployeurJeuIDEmployeur] int  NOT NULL
+    [EmployeurJeuIDEmployeur] int  NOT NULL,
+    [Ville_IDVille] int  NOT NULL
 );
 GO
 
@@ -328,6 +330,13 @@ CREATE TABLE [dbo].[VerTICJeu] (
     [descriptionLibre] nvarchar(2000)  NOT NULL,
     [caracteristiquesPortable] nvarchar(2000)  NOT NULL,
     [autrePortable] nvarchar(2000)  NOT NULL
+);
+GO
+
+-- Creating table 'VilleSet'
+CREATE TABLE [dbo].[VilleSet] (
+    [IDVille] int IDENTITY(1,1) NOT NULL,
+    [nomVille] nvarchar(100)  NOT NULL
 );
 GO
 
@@ -448,6 +457,12 @@ GO
 ALTER TABLE [dbo].[VerTICJeu]
 ADD CONSTRAINT [PK_VerTICJeu]
     PRIMARY KEY CLUSTERED ([IDVerTIC] ASC);
+GO
+
+-- Creating primary key on [IDVille] in table 'VilleSet'
+ALTER TABLE [dbo].[VilleSet]
+ADD CONSTRAINT [PK_VilleSet]
+    PRIMARY KEY CLUSTERED ([IDVille] ASC);
 GO
 
 -- Creating primary key on [CoursJeu_IDCours], [UtilisateurJeu_Professeur_IDUtilisateur] in table 'ProfesseurCours'
@@ -710,6 +725,21 @@ GO
 CREATE INDEX [IX_FK_EmployeurJeuSetLogJeu]
 ON [dbo].[LogJeu]
     ([EmployeurJeuSet_IDEmployeur]);
+GO
+
+-- Creating foreign key on [Ville_IDVille] in table 'OffreEmploiJeuSet'
+ALTER TABLE [dbo].[OffreEmploiJeuSet]
+ADD CONSTRAINT [FK_OffreEmploiJeuSetVille]
+    FOREIGN KEY ([Ville_IDVille])
+    REFERENCES [dbo].[VilleSet]
+        ([IDVille])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OffreEmploiJeuSetVille'
+CREATE INDEX [IX_FK_OffreEmploiJeuSetVille]
+ON [dbo].[OffreEmploiJeuSet]
+    ([Ville_IDVille]);
 GO
 
 -- --------------------------------------------------
