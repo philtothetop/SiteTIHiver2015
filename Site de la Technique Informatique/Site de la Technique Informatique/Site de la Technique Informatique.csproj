@@ -63,6 +63,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FAQ.aspx" />
+    <Content Include="ListeOffresEmploi.aspx" />
+    <Content Include="Nouvelles.aspx" />
+    <Content Include="OffreEmploi.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
     <Content Include="Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
@@ -134,18 +138,28 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="Model\Admin.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ConsultationForum.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListeOffresEmploi.aspx.cs">
+      <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     <Compile Include="Model\Cours.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DateEvenementVerTIC.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
+    <Compile Include="ListeOffresEmploi.aspx.designer.cs">
+      <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Employeur.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
@@ -210,6 +224,7 @@
     <Compile Include="Model\Ville.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,6 +255,7 @@
     </Compile>
     <Compile Include="Classes\ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -3,12 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
-
-
-    <script type="text/javascript"></script>
-
-
-
+  
    <div class="container" >
         <div class="row"  >
             <div class="col-lg-3 scrolltarget" style="margin-top: 0px;" >
@@ -29,11 +24,11 @@
             </div>
             <div class="col-lg-7 col-lg-push-1">
                 <h1 style="margin-top:32px; font-size:2.8em">Informations générales sur les stages</h1>
-                <hr id="aideGouvernementale" />
+                
                 <div id="contenuInfoGenerales" >
-                    
+                    <section id="aideGouvernementale" class="aideGouvernementale-section padding40">
                     <div  >
-                        <h2 style="padding-top:20px;">L’aide gouvernementale</h2>
+                        <h2 >L’aide gouvernementale</h2>
                         <p>
                             Vous trouverez les formulaires sur le site <a href="http://inforoutefpt.org/creditimpot/docs/depliant_2010_fr.pdf" target="_blank">crédit d'impôts pour stage en milieu de travail </a>
                             et les informations pertinentes sur le site d'<a href="http://www.investquebec.com/fr/index.aspx" target="_blank">Investissement Québec</a>.
@@ -54,10 +49,12 @@
                         </p>
 
                     </div>
-                    <hr id="engagements" />
-                    <div  >
+                        </section>
+                    
+                    <section id="engagements" class="deux padding40">
+                    
 
-                        <h2 class="padding40">Les engagements</h2>
+                        <h2 >Les engagements</h2>
                         <div>
                             <h3>Objectifs de l'entreprise</h3>
                             <ul>
@@ -79,11 +76,13 @@
                             </ul>
                         </div>
 
-                    </div>
-                    <hr id="objectifs"/>
+                    
+                        </section>
+                    
+                    <section id="objectifs" class="objectifs-section padding40">
                     <div  >
 
-                        <h2 class="padding40">Objectifs</h2>
+                        <h2 >Objectifs</h2>
                         <p>
                             Le programme Techniques de l’informatique du Cégep de Granby Haute-Yamaska offre l'opportunité aux entreprises de la région et de l'extérieur de participer à la formation 
             d'un technicien en informatique en l'insérant dans un milieu réel de travail. Non seulement vous pourrez participer à la formation, mais vous serez également en mesure 
@@ -109,10 +108,12 @@
                         </div>
 
                     </div>
-                    <hr id="caracteristiques" />
+                        </section>
+                    
+                    <section id="caracteristiques" class="caracteristiques-section deux padding40">
                     <div >
 
-                        <h2 class="padding40">Caractéristiques du stage</h2>
+                        <h2 >Caractéristiques du stage</h2>
                         <ul>
                             <li>Les étudiants impliqués dans ce stage en sont à leur dernière session d'étude.</li>
                             <li>L'évaluation du cheminement de l'étudiant dans l'entreprise est un des critères d'obtention du diplôme d'études collégiales (DEC).</li>
@@ -120,10 +121,12 @@
                         </ul>
 
                     </div>
-                    <hr id="types" />
+                        </section>
+                    
+                    <section id="types" class="type-section padding40">
                     <div  >
 
-                        <h2 class="padding40">Les différents types de stages</h2>
+                        <h2 >Les différents types de stages</h2>
                         <h3>Analyse, conception et modification de système</h3>
                         <p>
                             Analyse informatique, programmation, documentations de système et d’utilisateur, création de site internet.
@@ -138,10 +141,12 @@
                         <p>Dépannage réseau et logiciel, formation.</p>
 
                     </div>
-                    <hr id="supervision"/>
+                        </section>
+                    
+                    <section id="supervision" class="supervision-section deux padding40">
                     <div  >
 
-                        <h2 class="padding40">Mécanisme de supervision de l’étudiant</h2>
+                        <h2 >Mécanisme de supervision de l’étudiant</h2>
                         <div>
                             <h3>En entreprise</h3>
                             <p>
@@ -167,10 +172,12 @@
                         </div>
 
                     </div>
-                    <hr id="formation"/>
+                        </section>
+                    
+                    <section id="formation" class="formation-section padding40">
                     <div  >
 
-                        <h2 class="padding40">Formation des étudiants</h2>
+                        <h2 >Formation des étudiants</h2>
                         <table class="table">
                             <tbody>
                                 <tr>
@@ -205,18 +212,10 @@
                         </table>
 
                     </div>
-
+                    </section>
                 </div>
             </div>
         </div>
     </div>
-
-    <footer></footer>
-
-
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-   
+  
 </asp:Content>
