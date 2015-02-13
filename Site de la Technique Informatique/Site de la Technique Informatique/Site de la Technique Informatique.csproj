@@ -151,9 +151,8 @@
     </Compile>
     <Compile Include="Model\OffreEmploiJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
-
     </Compile>
-	<Compile Include="Model\Ville.cs">
+    <Compile Include="Model\Ville.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Logic\ExceptionUtility.cs" />
