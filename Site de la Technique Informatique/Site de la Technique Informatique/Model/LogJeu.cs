@@ -17,9 +17,9 @@ namespace Site_de_la_Technique_Informatique.Model
         public int IDLog { get; set; }
         public System.DateTime dateLog { get; set; }
         public string actionLog { get; set; }
+        public short typeLog { get; set; }
+        public Nullable<int> UtilisateurJeuIDUtilisateur { get; set; }
     
         public virtual UtilisateurJeu UtilisateurJeu { get; set; }
-        public virtual AdminJeu AdminJeu { get; set; }
-        public virtual EmployeurJeuSet EmployeurJeuSet { get; set; }
     }
 }

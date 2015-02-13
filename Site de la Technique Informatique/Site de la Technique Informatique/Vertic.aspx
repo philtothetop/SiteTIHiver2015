@@ -60,18 +60,26 @@
 
                         <p><b>Pour les étudiants</b> qui ne désirent pas faire partie des achats regroupés, vous devrez avoir un portable performant ayant des caractéristiques similaires. De plus, nous suggérons l’achat d’une garantie de 3 ans, durée minimale de notre programme et l'achat du sac de transport. Il est également important d’acquérir quelques accessoires :</p>
 
+                        <div class="row">
 
-                        <b>Caractéristiques</b>
-                        <br />
+                            <b>Caractéristiques</b>
 
-                        <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
+                          <asp:TextBox ID="txtCaractPortatif" runat="server" Text="  Processeur : Intel Core I7... 2,85GHz ou comparable
+  Mémoire vive : 8Go (idéalement extensible 16Go)
+  Disque dur : 500Go (min.)
+  Carte graphique : permettant le multimédia
+  Batterie : 6 ou 9 cellules
+
+  Avec Windows 8 français, idéalement Win 8.1 PRO français"                
+                             TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
 
                           </asp:TextBox>
 
+                        </div>
 
                         <br />
                         <br />
-                        <b>AUTRES:</b>
+                            <b>AUTRES:</b>
                         <br />
 
 
@@ -81,10 +89,11 @@
 
                     </div>
                 </div>
+                </div>
             </section>
 
             <!-- Services Section -->
-            <%--     <section id="echeancier" class="echeancier-section">
+            <section id="echeancier" class="echeancier-section">
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -146,13 +155,7 @@
                         </div>
                     </div>
                 </div>
-            </section>--%>
-            <section id="echeancier" class="echeancier-section">
-                <div class="row">
-                    <asp:ListView ID="lvEcheancier" runat="server"></asp:ListView>
-
-                </div>
-            </section>
+                </section>
 
             <!-- Logiciel Section -->
             <section id="logiciel" class="logiciel-section">
