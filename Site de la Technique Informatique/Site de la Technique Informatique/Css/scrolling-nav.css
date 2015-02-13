@@ -49,14 +49,17 @@ of those sections to manage the look and feel of the site. */
     background: #fff;
 }
 
-.contact-section {
+.logiciel-section {
     height: 100%;
     padding-top: 30px;
     background: #eee;
 }
 
 .deux {
-
     background: #eee;
     padding-bottom:10px;
+}
+
+#topDate {
+    border-left:1px solid #fee;
 }

@@ -16,7 +16,7 @@
 
                     <li role="presentation" class="active"><a href="#projet" class="list-group-item page-scroll">Projet VerTIC</a></li>
                     <li role="presentation"><a href="#portable" class="list-group-item page-scroll">Le portable VerTIC</a></li>
-                    <li role="presentation"><a href="#echeancier" class="list-group-item page-scroll">Le portable VerTIC</a></li>
+                    <li role="presentation"><a href="#logiciel" class="list-group-item page-scroll">Les logiciels</a></li>
 
                 </ul>
             </div>
@@ -71,14 +71,15 @@
 
 
                             <b>AUTRES:</b>
+                        <br />
 
 
-                            <p>***Un disque dur externe d'au moins 350 Go sur port USB pour la prise de copie de sécurité et la synchronisation des dossiers.</p>
+                        <asp:TextBox ID="txtAutres" runat="server" Text="" TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
 
-                            <p>Une souris USB ou sans fil pour faciliter l’utilisation du portatif.</p>
+                          </asp:TextBox>
 
+                        </div>
                     </div>
-                </div>
             </section>
 
             <!-- Services Section -->
@@ -86,7 +87,7 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                         <div class="col-lg-12">
+                        <div class="col-lg-12">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -143,44 +144,67 @@
                 </div>
             </section>--%>
             <section id="echeancier" class="echeancier-section">
-                 <div class="row">
-<h3>Les dates à retenir</h3>
+                <div class="row">
+                    <h3>Les dates à retenir</h3>
 
-                            <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
+                    <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
 
-                        </div>
-                 
-                <asp:ListView ID="lvEcheancier" runat="server">
+                </div>
+
+                <asp:ListView ID="lvEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTICJeuSet" SelectMethod="lvEcheancier_GetData">
                     <LayoutTemplate>
-                       
-                       <%-- <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>--%>
+                        <div class="row" style="background-color:#eee">
+                            <div class="col-lg-8">
+                                <p>Événement</p>
+                            </div>
+                            <div id="topDate" class="col-lg-4">
+                                <p>Date</p>
+                            </div>
+                            
+                    </div>
+                        
+                         <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                     </LayoutTemplate>
                     <ItemTemplate>
                         <div class="row">
                             <div class="col-lg-8">
-                                <p>Événement</p>
-                            </div>
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.Evenement %>' />
+                              </div>
                             <div class="col-lg-4">
-                                <p>Date</p>
+                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
+                                </div>
                             </div>
-                        </div>
-                    </ItemTemplate>
+                        </ItemTemplate>
+                    </asp:ListView>
 
-                </asp:ListView>
-
-
+                    
             </section>
 
-            <!-- Contact Section -->
-            <section id="contact" class="contact-section">
+            <!-- Logiciel Section -->
+            <section id="logiciel" class="logiciel-section">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Contact Section</h1>
+                        <h3>Configuration logicielle</h3>
+                        <p>Nous vous suggérons de partitionner votre disque dur en deux parties au départ. Vous retrouverez une partition d'applications et une partition personnelle pour vos données. De plus, lors du cours «Gérer un poste de travail», vous allez créer une image de votre poste de travail sur votre disque externe, vous permettant de reconstruire votre environnement logiciel si un problème majeur survenait. Nous avons créé un DVD d'installation muni de logiciels libres (gratuits) et de certains logiciels avec licence, qui vous seront fournis gratuitement (via une entente entre le Cégep de Granby et Microsoft). Évidemment, votre portatif vous appartient et vous serez libre de le modifier comme vous l'entendez. De notre côté, nous nous engageons à vous fournir les DVD des images et des applications pour remettre votre portatif à son état initial en cas de pépins. Voici la liste des logiciels qui seront installés sur votre portatif lors du VerTICamp : </p>
+                    <div class="col-lg-6">
+                        <h4>LOGICIELS AVEC LICENCES</h4>
+                        <asp:TextBox ID="txtLogicielLicenses" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:350px;min-width:350px;" Enabled="False">
+
+                          </asp:TextBox>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>LOGICIELS LIBRES (gratuits)</h4>
+                        <asp:TextBox ID="txtLogicielLibres" style="max-height:150px;min-height:150px;max-width:350px;min-width:350px;" runat="server" Text="" TextMode="MultiLine" Enabled="False">
+
+                          </asp:TextBox>
+                    </div>
+                        <p>Les logiciels avec licences, sauf exception, vous appartiennent. Il se peut, en cours d'utilisation, que nous ayons besoin de nouveaux logiciels.  Le département d'informatique tentera toujours d'utiliser des outils logiciels qui pourront être offerts gratuitement à ses étudiants. Cependant, rien n'est garanti. Vous comprendrez que si un nouvel outil devient le standard demain et qu'il nous est impossible de négocier une entente, des frais d'utilisation pourraient être ajoutés.</p>
+
                     </div>
                 </div>
             </section>
         </div>
-    </div>
+   
 
     <!-- jQuery -->
 

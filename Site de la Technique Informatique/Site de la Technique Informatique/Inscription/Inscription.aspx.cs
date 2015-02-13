@@ -7,9 +7,10 @@ using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : System.Web.UI.Page
+    public partial class Inscription : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {

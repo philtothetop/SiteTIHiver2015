@@ -10,6 +10,7 @@
   
      <link href="Css/bootstrap.min.css" rel="stylesheet"/>  
     <link href="Css/modern-business.css" rel="stylesheet"/>  
+    <link href="Css/customStyleSheet.css" rel="stylesheet"/>
     <link href="Css/scrolling-nav.css" rel="stylesheet" /> 
     
 
@@ -23,7 +24,7 @@
         }
 </script>
 
-    <asp:ScriptManager runat="server"></asp:ScriptManager>
+    
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -138,7 +139,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Connexion</h4>
       </div>
-
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="upConnexion" runat="server">
             <ContentTemplate>
       <div class="modal-body">

@@ -22,6 +22,12 @@ namespace Site_de_la_Technique_Informatique.Classes
 
             string caract = getCaracteristiquePortable();
             txtCaractPortatif.Text = caract;
+            string autres = getAutresPortable();
+            txtAutres.Text=autres;
+            string licences = getLicences();
+            txtLogicielLicenses.Text = licences;
+            string libres = getLibres();
+            txtLogicielLibres.Text = libres;
         }
 
         public String getCaracteristiquePortable()
@@ -34,6 +40,62 @@ namespace Site_de_la_Technique_Informatique.Classes
             }
             return caracteristiquePortable;
         }
+        public String getAutresPortable()
+        {
+            string autresPortable = "";
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+
+                autresPortable = (from autres in lecontexte.VerTICJeu select autres.autrePortable).FirstOrDefault();
+            }
+            return autresPortable;
+        }
+        public String getLicences()
+        {
+            string licences = "";
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+
+                licences = (from licence in lecontexte.VerTICJeu select licence.descriptionLicence).FirstOrDefault();
+            }
+            return licences;
+        }
+        public String getLibres()
+        {
+            string libres = "";
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+
+                libres = (from libre in lecontexte.VerTICJeu select libre.descriptionLibre).FirstOrDefault();
+            }
+            
+
+            string caract = getCaracteristiquePortable();
+            txtCaractPortatif.Text = caract;
+            return libres;
+        }
+
+      
+
+ 
+public IQueryable<DateEvenementVerTICJeuSet> lvEcheancier_GetData()
+{
+    var listeEvenements = new List<DateEvenementVerTICJeuSet>();
+    using (ModelTIContainer lecontexte = new ModelTIContainer())
+    {
+        listeEvenements = (from cl in lecontexte.DateEvenementVerTICJeuSet select cl).ToList();
+    }
+
+    if (listeEvenements.Count() == 0)
+    {
+        DateEvenementVerTICJeuSet eventTest = new DateEvenementVerTICJeuSet();
+        eventTest.dateDescription = "14 février 2014";
+        eventTest.Evenement = "Date de Test";
+        eventTest.IDDateEvenement = 1;
+        listeEvenements.Add(eventTest);
+    }
+    return listeEvenements.AsQueryable();
+}
 
     }
 }

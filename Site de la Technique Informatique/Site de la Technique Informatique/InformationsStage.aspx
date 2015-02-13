@@ -52,7 +52,7 @@
                         </section>
                     
                     <section id="engagements" class="deux padding40">
-                    <div  >
+                    
 
                         <h2 >Les engagements</h2>
                         <div>
@@ -76,7 +76,7 @@
                             </ul>
                         </div>
 
-                    </div>
+                    
                         </section>
                     
                     <section id="objectifs" class="objectifs-section padding40">

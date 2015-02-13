@@ -63,7 +63,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="listeOffresEmploi.aspx" />
+    <Content Include="FAQ.aspx" />
+    <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="OffreEmploi.aspx" />
     <Content Include="Vertic.aspx" />
@@ -74,7 +75,6 @@
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
-    <Content Include="FAQ.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
@@ -137,12 +137,19 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="listeOffresEmploi.aspx.cs">
-      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="listeOffresEmploi.aspx.designer.cs">
-      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListeOffresEmploi.aspx.cs">
+      <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListeOffresEmploi.aspx.designer.cs">
+      <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
@@ -194,13 +201,6 @@
     </Compile>
     <Compile Include="Classes\ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FAQ.aspx.cs">
-      <DependentUpon>FAQ.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FAQ.aspx.designer.cs">
-      <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
