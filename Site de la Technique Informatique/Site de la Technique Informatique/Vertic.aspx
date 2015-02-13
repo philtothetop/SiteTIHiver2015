@@ -93,14 +93,11 @@
             </section>
 
             <!-- Services Section -->
-       <%--     <section id="echeancier" class="echeancier-section">
+            <%--     <section id="echeancier" class="echeancier-section">
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <h3>Les dates à retenir</h3>
-
-                        <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
-                        <div class="col-lg-12">
+                         <div class="col-lg-12">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -157,11 +154,33 @@
                 </div>
             </section>--%>
             <section id="echeancier" class="echeancier-section">
-                <div class="row">
-                    <asp:ListView ID="lvEcheancier" runat="server"></asp:ListView>
+                 <div class="row">
+<h3>Les dates à retenir</h3>
 
-                </div>
-                </section>
+                            <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
+
+                        </div>
+                 
+                <asp:ListView ID="lvEcheancier" runat="server">
+                    <LayoutTemplate>
+                       
+                       <%-- <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>--%>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <p>Événement</p>
+                            </div>
+                            <div class="col-lg-4">
+                                <p>Date</p>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+
+                </asp:ListView>
+
+
+            </section>
 
             <!-- Contact Section -->
             <section id="contact" class="contact-section">
