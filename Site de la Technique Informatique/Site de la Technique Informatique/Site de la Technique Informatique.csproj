@@ -137,24 +137,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="listeOffresEmploi.aspx.cs">
-      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="listeOffresEmploi.aspx.designer.cs">
-      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EmployeurJeuSet.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OffreEmploiJeuSet.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Ville.cs">
-    <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="Model\DateEvenementVerTICJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
