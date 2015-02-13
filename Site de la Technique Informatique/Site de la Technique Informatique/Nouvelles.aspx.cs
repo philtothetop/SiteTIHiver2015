@@ -15,13 +15,14 @@ namespace Site_de_la_Technique_Informatique
           
 		}
        
-        public IQueryable<NouvelleJeu> getNouvelles()
+        public IQueryable<Nouvelle> getNouvelles()
         {
-            List<NouvelleJeu> listeNouvelle = new List<NouvelleJeu>();
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            List<Nouvelle> listeNouvelle = new List<Nouvelle>();
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
+                Nouvelle ok = new Nouvelle();
 
-                listeNouvelle = (from nouvelles in lecontexte.NouvelleJeu select nouvelles).ToList();
+                listeNouvelle = (from nouvelles in lecontexte.NouvelleSet select nouvelles).ToList();
             }
             return listeNouvelle.AsQueryable();
         }

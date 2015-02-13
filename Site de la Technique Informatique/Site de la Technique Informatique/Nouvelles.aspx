@@ -91,28 +91,38 @@
                 </div>
             </div>
             <!-- Content Column -->
-            <div class="col-md-9" style="margin-top">
+            <div class="col-md-9" style="margin-top:2px;">
+
                 <asp:ListView ID="lviewNouvelles" runat="server"
-                    ItemType="Site_de_la_Technique_Informatique.Model.NouvelleJeu"
+                    ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
                     SelectMethod="getNouvelles">
+
+                    <LayoutTemplate>
+                                <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
+                        </LayoutTemplate>
+
                     <ItemTemplate>
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><%# Item.titreNouvelle %></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">                                   
+                                         <asp:Label ID="lblTitreNouvelle" runat="server" Text='<%# Item.titreNouvelle %>'></asp:Label>
+
+                                    </a>
                                 </h4>
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <p><%# Item.dateNouvelle.ToLongDateString() %></p>
+                                    <asp:Label ID="lblDateNouvelle" runat="server" Text='<%# Item.dateNouvelle.ToLongDateString() %>'></asp:Label>
                                     <div style="margin-top: 5px;" />
-                                    <p><%# Item.texteNouvelle %></p>
+                                    <asp:Label ID="lblTexteNouvelle" runat="server" Text='<%# Item.texteNouvelle %>'></asp:Label>
                                 </div>
                             </div>
                         </div>
 
                     </ItemTemplate>
+
                 </asp:ListView>
             </div>
             <!-- /.row -->

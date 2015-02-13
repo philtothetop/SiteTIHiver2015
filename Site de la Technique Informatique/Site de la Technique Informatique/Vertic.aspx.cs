@@ -33,40 +33,40 @@ namespace Site_de_la_Technique_Informatique.Classes
         public String getCaracteristiquePortable()
         {
             string caracteristiquePortable="";
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-                caracteristiquePortable = (from description in lecontexte.VerTICJeu select description.caracteristiquesPortable).FirstOrDefault();
+                caracteristiquePortable = (from description in lecontexte.VerTICSet select description.caractéristiquesPortable).FirstOrDefault();
             }
             return caracteristiquePortable;
         }
         public String getAutresPortable()
         {
             string autresPortable = "";
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-                autresPortable = (from autres in lecontexte.VerTICJeu select autres.autrePortable).FirstOrDefault();
+                autresPortable = (from autres in lecontexte.VerTICSet select autres.autrePortable).FirstOrDefault();
             }
             return autresPortable;
         }
         public String getLicences()
         {
             string licences = "";
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-                licences = (from licence in lecontexte.VerTICJeu select licence.descriptionLicence).FirstOrDefault();
+                licences = (from licence in lecontexte.VerTICSet select licence.descriptionLicence).FirstOrDefault();
             }
             return licences;
         }
         public String getLibres()
         {
             string libres = "";
-            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-                libres = (from libre in lecontexte.VerTICJeu select libre.descriptionLibre).FirstOrDefault();
+                libres = (from libre in lecontexte.VerTICSet select libre.descriptionLibre).FirstOrDefault();
             }
             
 
@@ -78,20 +78,20 @@ namespace Site_de_la_Technique_Informatique.Classes
       
 
  
-public IQueryable<DateEvenementVerTICJeuSet> lvEcheancier_GetData()
+public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
 {
-    var listeEvenements = new List<DateEvenementVerTICJeuSet>();
-    using (ModelTIContainer lecontexte = new ModelTIContainer())
+    var listeEvenements = new List<DateEvenementVerTIC>();
+    using (LeModelTIContainer lecontexte = new LeModelTIContainer())
     {
-        listeEvenements = (from cl in lecontexte.DateEvenementVerTICJeuSet select cl).ToList();
+        listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
     }
 
     if (listeEvenements.Count() == 0)
     {
-        DateEvenementVerTICJeuSet eventTest = new DateEvenementVerTICJeuSet();
+        DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
         eventTest.dateDescription = "14 février 2014";
-        eventTest.Evenement = "Date de Test";
-        eventTest.IDDateEvenement = 1;
+        eventTest.evenement = "Date de Test";
+        eventTest.IDDateEvenementVerTIC = 1;
         listeEvenements.Add(eventTest);
     }
     return listeEvenements.AsQueryable();
