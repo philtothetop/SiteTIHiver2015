@@ -140,6 +140,9 @@
       <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="listeOffresEmploi.aspx.designer.cs">
+      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
@@ -156,6 +159,9 @@
     <Compile Include="OffreEmploi.aspx.cs">
       <DependentUpon>OffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OffreEmploi.aspx.designer.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
