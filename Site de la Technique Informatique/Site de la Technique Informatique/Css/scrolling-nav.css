@@ -60,3 +60,7 @@ of those sections to manage the look and feel of the site. */
     background: #eee;
     padding-bottom:10px;
 }
+
+#topDate {
+    border-left:1px solid #fee;
+}

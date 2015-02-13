@@ -61,21 +61,21 @@
                         <p><b>Pour les étudiants</b> qui ne désirent pas faire partie des achats regroupés, vous devrez avoir un portable performant ayant des caractéristiques similaires. De plus, nous suggérons l’achat d’une garantie de 3 ans, durée minimale de notre programme et l'achat du sac de transport. Il est également important d’acquérir quelques accessoires :</p>
 
 
-                            <b>Caractéristiques</b>
-                            <br />
+                        <b>Caractéristiques</b>
+                        <br />
 
-                            <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
+                        <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
 
                           </asp:TextBox>
 
 
 
-                            <b>AUTRES:</b>
+                        <b>AUTRES:</b>
 
 
-                            <p>***Un disque dur externe d'au moins 350 Go sur port USB pour la prise de copie de sécurité et la synchronisation des dossiers.</p>
+                        <p>***Un disque dur externe d'au moins 350 Go sur port USB pour la prise de copie de sécurité et la synchronisation des dossiers.</p>
 
-                            <p>Une souris USB ou sans fil pour faciliter l’utilisation du portatif.</p>
+                        <p>Une souris USB ou sans fil pour faciliter l’utilisation du portatif.</p>
 
                     </div>
                 </div>
@@ -143,26 +143,38 @@
                 </div>
             </section>--%>
             <section id="echeancier" class="echeancier-section">
-                 <div class="row">
-<h3>Les dates à retenir</h3>
+                <div class="row">
+                    <h3>Les dates à retenir</h3>
 
-                            <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
+                    <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
 
-                        </div>
-                 
-                <asp:ListView ID="lvEcheancier" runat="server">
+                </div>
+
+                <asp:ListView ID="lvEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTICJeuSet" SelectMethod="lvEcheancier_GetData">
                     <LayoutTemplate>
-                       
-                       <%-- <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>--%>
+                        <div class="row" style="background-color:#eee">
+                            <div class="col-lg-8">
+                                <p>Événement</p>
+                            </div>
+                            <div id="topDate" class="col-lg-4">
+                                <p>Date</p>
+                            </div>
+                            
+                        </div>
+                        
+                         <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                     </LayoutTemplate>
                     <ItemTemplate>
                         <div class="row">
                             <div class="col-lg-8">
-                                <p>Événement</p>
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.Evenement %>' />
+                                
+
                             </div>
                             <div class="col-lg-4">
-                                <p>Date</p>
+                                <asp:Label ID="lblDateEvent" runat="server" Text='<%# BindItem.dateDescription %>' />
                             </div>
+                            <hr />
                         </div>
                     </ItemTemplate>
 

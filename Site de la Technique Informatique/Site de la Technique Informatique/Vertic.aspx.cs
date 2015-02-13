@@ -35,5 +35,25 @@ namespace Site_de_la_Technique_Informatique.Classes
             return caracteristiquePortable;
         }
 
+ 
+public IQueryable<DateEvenementVerTICJeuSet> lvEcheancier_GetData()
+{
+    var listeEvenements = new List<DateEvenementVerTICJeuSet>();
+    using (ModelTIContainer lecontexte = new ModelTIContainer())
+    {
+        listeEvenements = (from cl in lecontexte.DateEvenementVerTICJeuSet select cl).ToList();
+    }
+
+    if (listeEvenements.Count() == 0)
+    {
+        DateEvenementVerTICJeuSet eventTest = new DateEvenementVerTICJeuSet();
+        eventTest.dateDescription = "14 février 2014";
+        eventTest.Evenement = "Date de Test";
+        eventTest.IDDateEvenement = 1;
+        listeEvenements.Add(eventTest);
+    }
+    return listeEvenements.AsQueryable();
+}
+
     }
 }
