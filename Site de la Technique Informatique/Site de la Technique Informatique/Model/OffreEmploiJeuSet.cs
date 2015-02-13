@@ -12,7 +12,7 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class OffreEmploiJeu
+    public partial class OffreEmploiJeuSet
     {
         public int IDOffreEmploi { get; set; }
         public string titreOffre { get; set; }
@@ -30,6 +30,6 @@ namespace Site_de_la_Technique_Informatique.Model
         public string personneRessource { get; set; }
         public int EmployeurJeuIDEmployeur { get; set; }
     
-        public virtual EmployeurJeu EmployeurJeu { get; set; }
+        public virtual EmployeurJeuSet EmployeurJeuSet { get; set; }
     }
 }

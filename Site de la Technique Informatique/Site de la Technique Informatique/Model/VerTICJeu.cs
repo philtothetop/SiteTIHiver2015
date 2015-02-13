@@ -15,9 +15,6 @@ namespace Site_de_la_Technique_Informatique.Model
     public partial class VerTICJeu
     {
         public int IDVerTIC { get; set; }
-        public System.DateTime dateDebut { get; set; }
-        public System.DateTime dateFin { get; set; }
-        public string descriptionEvenement { get; set; }
         public string descriptionLicence { get; set; }
         public string descriptionLibre { get; set; }
         public string caracteristiquesPortable { get; set; }

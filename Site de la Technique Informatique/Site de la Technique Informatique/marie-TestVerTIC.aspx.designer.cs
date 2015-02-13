@@ -7,9 +7,9 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique.Classes {
+namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class WebForm1 {
+    public partial class marie_TestVerTIC {
     }
 }
