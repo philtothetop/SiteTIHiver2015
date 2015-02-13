@@ -25,12 +25,15 @@ namespace Site_de_la_Technique_Informatique
                 leModelTI.LogJeu.Add(unLoggg);
                 leModelTI.SaveChanges();
             }
-             * */
+             */
         }
-
+        /*
         //Méthode pour récupérer les logs de la BD
         public IQueryable<LogJeu> GetLesLogs()
         {
+            UtilisateurJeu tru = new UtilisateurJeu();
+            //tru.UtilisateurJeu_Etudiant.
+           
             //Créer une liste de base
             List<LogJeu> listeDesLogs = new List<LogJeu>();
 
@@ -165,6 +168,6 @@ namespace Site_de_la_Technique_Informatique
 
             //Devrais pas se rendre ici mais, au cas ou
             return "Introuvable";
-        }
+        }*/
     }
 }

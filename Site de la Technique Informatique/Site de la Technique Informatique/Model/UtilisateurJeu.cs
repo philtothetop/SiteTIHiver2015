@@ -16,10 +16,11 @@ namespace Site_de_la_Technique_Informatique.Model
     {
         public UtilisateurJeu()
         {
+            this.LogJeu = new HashSet<LogJeu>();
+            this.OffreEmploiJeuSet = new HashSet<OffreEmploiJeuSet>();
+            this.MessageForumJeu = new HashSet<MessageForumJeu>();
             this.ConsultationForumJeu = new HashSet<ConsultationForumJeu>();
             this.EnteteForumJeu = new HashSet<EnteteForumJeu>();
-            this.MessageForumJeu = new HashSet<MessageForumJeu>();
-            this.LogJeu = new HashSet<LogJeu>();
         }
     
         public int IDUtilisateur { get; set; }
@@ -32,12 +33,12 @@ namespace Site_de_la_Technique_Informatique.Model
         public string temoignage { get; set; }
         public Nullable<System.DateTime> dateTemoignage { get; set; }
         public bool compteActif { get; set; }
+        public short typeDeCompte { get; set; }
     
+        public virtual ICollection<LogJeu> LogJeu { get; set; }
+        public virtual ICollection<OffreEmploiJeuSet> OffreEmploiJeuSet { get; set; }
+        public virtual ICollection<MessageForumJeu> MessageForumJeu { get; set; }
         public virtual ICollection<ConsultationForumJeu> ConsultationForumJeu { get; set; }
         public virtual ICollection<EnteteForumJeu> EnteteForumJeu { get; set; }
-        public virtual ICollection<MessageForumJeu> MessageForumJeu { get; set; }
-        public virtual UtilisateurJeu_Etudiant UtilisateurJeu_Etudiant { get; set; }
-        public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
-        public virtual ICollection<LogJeu> LogJeu { get; set; }
     }
 }

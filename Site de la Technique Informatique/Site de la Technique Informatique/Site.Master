@@ -7,17 +7,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Techniques de l'informatique</title>
-  
-     <link href="Css/bootstrap.min.css" rel="stylesheet"/>  
-    <link href="Css/modern-business.css" rel="stylesheet"/>  
-    <link href="Css/scrolling-nav.css" rel="stylesheet" /> 
-    
+    <!-- Connexion à Bootstrap -->
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
 
-    <script type="text/javascript"></script>
-    <script src="Js/bootstrap.js"></script>
-    <script src="Js/jquery.js"></script>
+    <!-- Custom CSS -->
+    <link href="css/modern-business.css" rel="stylesheet" />
+    <link href="Css/customStyleSheet.css"  rel="stylesheet"/>
+    <!-- Custom Fonts -->
+<!--    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 
-   
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -38,74 +43,58 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="default.aspx">Techniques de Informatique</a>
+                    <a class="navbar-brand" href="index.html">Techniques de Informatique</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                       
                         <li>
-                            <a href="services.html">Concepteurs</a>
+                            <a href="about.html">Qui sommes-nous?</a>
+                        </li>
+                        <li>
+                            <a href="services.html">Services</a>
                         </li>
                         <li>
                             <a href="contact.html">Contact</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Souvenirs<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="portfolio-1-col.html">Photos étudiants</a>
+                                    <a href="portfolio-1-col.html">Portfolio: 1 colonne</a>
                                 </li>
                                 <li>
-                                    <a href="portfolio-2-col.html">Photos professeurs</a>
+                                    <a href="portfolio-2-col.html">Portfolio: 2 colonnes</a>
                                 </li>
                                 <li>
-                                    <a href="portfolio-3-col.html">Photos projets</a>
-                                </li>                               
+                                    <a href="portfolio-3-col.html">Portfolio: 3 colonnes</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-4-col.html">Portfolio: 4 colonnes</a>
+                                </li>
+                                <li>
+                                    <a href="portfolio-item.html">Portfolio: 1 projet</a>
+                                </li>
                             </ul>
                         </li>
-                        
-                         <li>
-                            <a href="Vertic.aspx">Vertic</a>
-                        </li>
-
-                         <li>
-                            <a href="InformationsStage.aspx">Stages</a>
-                        </li>
-
-                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Autre<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="QuiSommesNous.aspx">Qui sommes-nous?</a>
-                                </li>
-                                <li>
-                                    <a href="Nouvelles.aspx">Nouvelles</a>
-                                </li>  
-                                 <li>
-                                    <a href="listeOffreEmploi.aspx">Offre d'emploi</a>
-                                </li>  
-                                 <li>
-                                    <a href="#">Parutions médias</a>
-                                </li> 
-                                <li>
-                                    <a href="FAQ.aspx">FAQ</a>
-                                </li>     
-                                <li>
-                                    <a href="#">Témoignages</a>
-                                </li>                                                       
-                            </ul>
-                        </li>
-
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Autres Pages <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="full-width.html">S'inscrire en tant qu'étudiant</a>
+                                    <a href="full-width.html">Page pleine largeur</a>
                                 </li>
                                 <li>
-                                    <a href="sidebar.html">S'inscrire en tant que professeur</a>
-                                </li>                              
+                                    <a href="sidebar.html">Page avec menu Ã  gauche</a>
+                                </li>
+                                <li>
+                                    <a href="faq.html">Foire Aux Questions</a>
+                                </li>
+                                <li>
+                                    <a href="404.html">404</a>
+                                </li>
+                                <li>
+                                    <a href="pricing.html">Table des Prix </a>
+                                </li>
                             </ul>
                         </li>
                         
@@ -154,10 +143,10 @@
                             </div>
                         </div>
                     </div>
-          <br /><asp:Label ID="lblMessageConnexion" runat="server" Text="" />
+          <br />
       </div>
       <div class="modal-footer">
-                        <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" OnClick="btnConnexion_Click" />
+                        <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" />
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
       </div>
     </div>

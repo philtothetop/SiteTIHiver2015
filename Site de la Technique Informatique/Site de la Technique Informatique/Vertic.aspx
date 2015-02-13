@@ -60,24 +60,34 @@
 
                         <p><b>Pour les étudiants</b> qui ne désirent pas faire partie des achats regroupés, vous devrez avoir un portable performant ayant des caractéristiques similaires. De plus, nous suggérons l’achat d’une garantie de 3 ans, durée minimale de notre programme et l'achat du sac de transport. Il est également important d’acquérir quelques accessoires :</p>
 
+                        <div class="row">
 
-                        <b>Caractéristiques</b>
-                        <br />
+                            <b>Caractéristiques</b>
 
-                        <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
+                          <asp:TextBox ID="txtCaractPortatif" runat="server" Text="  Processeur : Intel Core I7... 2,85GHz ou comparable
+  Mémoire vive : 8Go (idéalement extensible 16Go)
+  Disque dur : 500Go (min.)
+  Carte graphique : permettant le multimédia
+  Batterie : 6 ou 9 cellules
+
+  Avec Windows 8 français, idéalement Win 8.1 PRO français"                
+                             TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
 
                           </asp:TextBox>
 
+                        </div>
+
+                        <div class="row">
+
+                            <b>AUTRES:</b>
 
 
-                        <b>AUTRES:</b>
+                            <p>***Un disque dur externe d'au moins 350 Go sur port USB pour la prise de copie de sécurité et la synchronisation des dossiers.</p>
 
-
-                        <p>***Un disque dur externe d'au moins 350 Go sur port USB pour la prise de copie de sécurité et la synchronisation des dossiers.</p>
-
-                        <p>Une souris USB ou sans fil pour faciliter l’utilisation du portatif.</p>
+                            <p>Une souris USB ou sans fil pour faciliter l’utilisation du portatif.</p>
 
                     </div>
+                </div>
                 </div>
             </section>
 
@@ -86,6 +96,9 @@
                 <div class="row">
                     <div class="col-lg-12">
 
+                        <h3>Les dates à retenir</h3>
+
+                        <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
                          <div class="col-lg-12">
                             <table class="table table-hover">
                                 <thead>
