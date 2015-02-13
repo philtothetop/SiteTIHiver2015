@@ -60,6 +60,7 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 //Si Erreur, retourner une liste avec un log qui indique erreur
+                //ERREURS PARTOUT OH GOD HELP ME
                 LogJeu logErreur = new LogJeu();
                 logErreur.actionLog = "Erreur l'Hors du chargement des logs";
                 logErreur.dateLog = DateTime.Now;
