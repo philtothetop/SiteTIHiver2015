@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/13/2015 09:01:34
+-- Date Created: 02/13/2015 11:03:56
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\ModelTI.edmx
 -- --------------------------------------------------
 
@@ -71,6 +71,9 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeurJeuSetLogJeu]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_EmployeurJeuSetLogJeu];
 GO
+IF OBJECT_ID(N'[dbo].[FK_OffreEmploiJeuSetVille]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OffreEmploiJeuSet] DROP CONSTRAINT [FK_OffreEmploiJeuSetVille];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -129,6 +132,9 @@ IF OBJECT_ID(N'[dbo].[UtilisateurJeu_Professeur]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[VerTICJeu]', 'U') IS NOT NULL
     DROP TABLE [dbo].[VerTICJeu];
+GO
+IF OBJECT_ID(N'[dbo].[VilleSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VilleSet];
 GO
 IF OBJECT_ID(N'[dbo].[ProfesseurCours]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ProfesseurCours];
@@ -221,6 +227,7 @@ CREATE TABLE [dbo].[LogJeu] (
     [IDLog] int IDENTITY(1,1) NOT NULL,
     [dateLog] datetime  NOT NULL,
     [actionLog] nvarchar(100)  NOT NULL,
+    [typeLog] smallint  NOT NULL,
     [UtilisateurJeu_IDUtilisateur] int  NULL,
     [AdminJeu_IDAdmin] int  NULL,
     [EmployeurJeuSet_IDEmployeur] int  NULL
@@ -259,13 +266,13 @@ CREATE TABLE [dbo].[OffreEmploiJeuSet] (
     [pathPDFDescription] nvarchar(200)  NULL,
     [salaire] decimal(18,0)  NOT NULL,
     [nbHeureSemaine] smallint  NOT NULL,
-    [villeTravail] nvarchar(100)  NOT NULL,
     [adresseTravail] nvarchar(200)  NOT NULL,
     [noTelephone] nvarchar(10)  NOT NULL,
     [noTelecopieur] nvarchar(10)  NULL,
     [courrielOffre] nvarchar(50)  NOT NULL,
     [personneRessource] nvarchar(100)  NOT NULL,
     [EmployeurJeuIDEmployeur] int  NOT NULL,
+    [VilleIDVille] int  NOT NULL,
     [Ville_IDVille] int  NOT NULL
 );
 GO
