@@ -1,20 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Default" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="Css/modern-business.css" rel="stylesheet" />
-    <link href="Css/bootstrap.css" rel="stylesheet" />
-    <link href="Css/Global.css" rel="stylesheet" />
-
-    <script src="Js/bootstrap.js"></script>
-    <script src="Js/jquery.js"></script>
 
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
@@ -124,43 +112,43 @@
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Denis Dupaul</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image1.jpg" alt="" />
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/image1.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Axel Rassart</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/entete.jpg" alt="" />
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/entete.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Régis Lessard</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image3.jpg" alt="" />
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/image3.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Maryse Desaulniers</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image4.jpg" alt="" />
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/image4.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Laurent Beauregard</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image5.jpg" alt="" />
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/image5.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Jie Yang</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image6.jpg" alt="" />
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/image6.jpg" alt="">
                 </a>
             </div>
             <div class="col-md-3 col-sm-6">
                 <h4 style="text-align: center;">Simon quelque chose</h4>
                 <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image6.jpg" alt="" />
+                    <img class="img-responsive img-portfolio img-hover" src="Photos/image6.jpg" alt="">
                 </a>
             </div>
         </div>
@@ -189,7 +177,7 @@
                 <p>Cette technique ne concerne en rien la programmation de jeux vidéo, prendre note qu'il faut s'appliquer et travailler fort pour réussir les cours.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/image1.jpg" alt="" />
+                <img class="img-responsive" src="Photos/image1.jpg" alt="">
             </div>
         </div>
         <!-- /.row -->
@@ -200,7 +188,7 @@
             <div class="col-lg-4">           
                 <asp:Calendar ID="CalendrierEvents" runat="server" BackColor="#ECEEF0" BorderColor="Black" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px"
                     ToolTip="Événements du mois" OnSelectionChanged="CalendrierEvents_SelectionChanged" Caption="Calendrier" >
-                    <DayHeaderStyle Font-Bold="True" Font-Size="10pt" HorizontalAlign="Right" />
+                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                     <OtherMonthDayStyle ForeColor="#999999" />
                     <SelectedDayStyle BackColor="#C7E6FC" ForeColor="White" BorderColor="#CCCCCC" BorderWidth="1px" />
@@ -211,32 +199,6 @@
 
             <div class="col-lg-8">
                 <h2>Événements</h2>
-                <br />
-                <asp:ListView runat="server" ID="lviewEvents" 
-                    ItemType="Site_de_la_Technique_Informatique.Model.EvenementJeu"
-                    SelectMethod="lviewEvents_GetData">
-
-                    <EmptyDataTemplate>
-                        <p>Aucun événement particulier ce mois-ci.</p>
-                    </EmptyDataTemplate>
-
-                    <ItemTemplate>
-                        <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + "" + (Item.dateFinEvenement.HasValue == true ? (" au " + Eval("dateFinEvenement.Day")) : "" ) %>' />
-                        <asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
-                                   Text='<%# "- " + Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
-                                   (Eval("titreEvenement").ToString().Length > 50 ? "..." :  "") %>' /><br />
-                        <asp:Label runat="server" ID="lblHeureEvent" Text='<%# ((Item.dateDebutEvenement.TimeOfDay.ToString() != "00:00:00" ) ? (" à " + Eval("dateDebutEvenement.TimeOfDay")) : "" ) 
-                        + "" + ((Item.dateFinEvenement.HasValue == true) && (Item.dateFinEvenement.Value.TimeOfDay.ToString() != "00:00:00" ) ? (" à " + Eval("dateFinEvenement.TimeOfDay")) : "" ) %>' />
-                        <asp:LinkButton runat="server" ID="btnPlusEvents" Text="En savoir plus..."
-                                        OnClick="btnPlusEvents_Click" CommandArgument='<%# Eval("IDEvenement") %>' /><br /><br />
-                    </ItemTemplate>
-
-                    <LayoutTemplate>
-                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
-                    </LayoutTemplate>
-
-                </asp:ListView>
-
             </div>
         </div>
 
@@ -258,12 +220,7 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <!--   <script src="js/bootstrap.min.js"></script> -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
     <!-- Script to Activate the Carousel -->
     <script>

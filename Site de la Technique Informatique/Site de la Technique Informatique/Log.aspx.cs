@@ -54,8 +54,8 @@ namespace Site_de_la_Technique_Informatique
                         logErreur.dateLog = DateTime.Now + new TimeSpan(i, 0, 0, 0);
                         logErreur.IDLog = i;
                         listeDesLogs.Add(logErreur);
-                    }
                 }
+            }
             }
             catch (Exception ex)
             {
@@ -110,8 +110,8 @@ namespace Site_de_la_Technique_Informatique
                         {
                             return 0;
                         }
-                    }
-                }
+    }
+}
             }
             //Si ya probleme, retourner 0
             catch

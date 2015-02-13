@@ -7,9 +7,10 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 
+
 namespace Site_de_la_Technique_Informatique.Classes
 {
-    public partial class WebForm1 : ErrorHandling
+    public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,6 +19,9 @@ namespace Site_de_la_Technique_Informatique.Classes
             body.Attributes.Add("data-target", ".scrolltarget");
             body.Attributes.Add("data-offset", "20");
             body.Attributes.Add("style", "position:relative; overflow:auto;");
+
+            string caract = getCaracteristiquePortable();
+            txtCaractPortatif.Text = caract;
         }
 
         public String getCaracteristiquePortable()

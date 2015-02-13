@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : ErrorHandling
+    public partial class Inscription : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

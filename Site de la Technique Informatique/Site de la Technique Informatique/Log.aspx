@@ -29,7 +29,7 @@
                             <div style="width:100%;">
                                         <div class="col-lg-1">
                                             <asp:Label ID="lblTitreNoLog" runat="server" Text="No Log" style="font:bold; font-size:large; border-bottom: solid black 2px;"></asp:Label>
-                                            </div>
+                            </div>
                             <div class="col-lg-1">
                                             <asp:Label ID="lblTitreNoCompte" runat="server" Text="No Compte" style="font:bold; font-size:large; border-bottom: solid black 2px;"></asp:Label>
                                             </div>
@@ -65,15 +65,15 @@
 
                                 <div class="col-lg-2">
                                             <asp:Label ID="lblDate" runat="server" Text='<%# String.Format("{0:dd/MM/yyyy}",Item.dateLog) %>'></asp:Label>
-                                            </div>
+                            </div>
                             <div style="clear:both"></div>
                         </ItemTemplate>
 
             <EmptyDataTemplate>
                 <div style="width:100%; text-align:center;">
                                             <asp:Label ID="lblPasDeLog" runat="server" Text="Il n'y a pas de log" style="font:bold; font-size:large"></asp:Label>
-                                            </div>
-                </EmptyDataTemplate>
+                            </div>
+            </EmptyDataTemplate>
             
         </asp:ListView>
             </div>
