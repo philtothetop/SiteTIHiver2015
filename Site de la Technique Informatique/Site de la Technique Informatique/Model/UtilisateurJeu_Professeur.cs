@@ -12,26 +12,24 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class UtilisateurJeu_Professeur
+    public partial class UtilisateurJeu_Professeur : UtilisateurJeu
     {
         public UtilisateurJeu_Professeur()
         {
+            this.CoursJeu = new HashSet<CoursJeu>();
             this.EvenementJeu = new HashSet<EvenementJeu>();
+            this.ParutionMediaJeu = new HashSet<ParutionMediaJeu>();
             this.FAQJeu = new HashSet<FAQJeu>();
             this.NouvelleJeu = new HashSet<NouvelleJeu>();
-            this.ParutionMediaJeu = new HashSet<ParutionMediaJeu>();
-            this.CoursJeu = new HashSet<CoursJeu>();
         }
     
         public int IDProfesseur { get; set; }
-        public int IDUtilisateur { get; set; }
         public string presentation { get; set; }
     
+        public virtual ICollection<CoursJeu> CoursJeu { get; set; }
         public virtual ICollection<EvenementJeu> EvenementJeu { get; set; }
+        public virtual ICollection<ParutionMediaJeu> ParutionMediaJeu { get; set; }
         public virtual ICollection<FAQJeu> FAQJeu { get; set; }
         public virtual ICollection<NouvelleJeu> NouvelleJeu { get; set; }
-        public virtual ICollection<ParutionMediaJeu> ParutionMediaJeu { get; set; }
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
-        public virtual ICollection<CoursJeu> CoursJeu { get; set; }
     }
 }
