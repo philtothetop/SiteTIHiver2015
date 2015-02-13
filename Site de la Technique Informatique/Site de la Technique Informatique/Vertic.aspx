@@ -169,9 +169,15 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.Evenement %>' />
-                                
+                              </div>
+                            <div class="col-lg-4">
+                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:ListView>
 
-                    </div>
+                    
             </section>
 
             <!-- Logiciel Section -->
@@ -198,7 +204,7 @@
                 </div>
             </section>
         </div>
-    </div>
+   
 
     <!-- jQuery -->
 
