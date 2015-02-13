@@ -12,6 +12,8 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             /*
             using (ModelTIContainer leModelTI = new ModelTIContainer())
             {
@@ -40,18 +42,27 @@ namespace Site_de_la_Technique_Informatique
                     //Récupérer les logs dans la BD
                     listeDesLogs = (from cl in modelTI.LogJeu
                                     select cl).ToList();
+
+
+                    //POUR TEST
+                    LogJeu logErreur = new LogJeu();
+                    logErreur.actionLog = "LOG DE TEST WOOT";
+                    logErreur.dateLog = DateTime.Now;
+                    logErreur.IDLog = 1;
+
+                    for (int i = 0; 1 < 24; i++)
+                    {
+                        //logErreur.dateLog = logErreur.dateLog + new DateTime(0, 0, 1);
+                        listeDesLogs.Add(logErreur);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 //Si Erreur, retourner une liste avec un log qui indique erreur
-                //ERREURS PARTOUT OH GOD HELP ME
+                //ERREURS PARTOUT OH GOD HELP ME plz
                 LogJeu logErreur = new LogJeu();
                 logErreur.actionLog = "Erreur l'Hors du chargement des logs";
-                logErreur.AdminIDAdmin = 1;
-                logErreur.EtudiantIDEtudiant = 1;
-                logErreur.ProfesseurIDProfesseur = 1;
-                logErreur.UtilisateurIDUtilisateur = 1;
                 logErreur.dateLog = DateTime.Now;
                 logErreur.IDLog = 1;
 

@@ -15,9 +15,9 @@ namespace Site_de_la_Technique_Informatique
 
         }
 
-        public IQueryable<OffreEmploiJeu> getOffresEmploi()
+        public IQueryable<OffreEmploiJeuSet> getOffresEmploi()
         {
-            List<OffreEmploiJeu> listeOffresEmploi = new List<OffreEmploiJeu>();
+            List<OffreEmploiJeuSet> listeOffresEmploi = new List<OffreEmploiJeuSet>();
             using (ModelTIContainer lecontexte = new ModelTIContainer())
             {
 
@@ -29,7 +29,6 @@ namespace Site_de_la_Technique_Informatique
         protected void lviewOffresEmploi_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
 
-            //fds
         }
 
     }

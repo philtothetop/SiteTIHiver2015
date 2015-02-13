@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="listeOffresEmploi.aspx" />
+    <Content Include="OffreEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
@@ -82,7 +83,6 @@
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
     <Content Include="Model\ModelTI.edmx.sql" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="PageNotFound.aspx" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
@@ -151,8 +151,19 @@
     </Compile>
     <Compile Include="Model\OffreEmploiJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
+
+    </Compile>
+	<Compile Include="Model\Ville.cs">
+      <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="Logic\ExceptionUtility.cs" />
+    <Compile Include="OffreEmploi.aspx.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OffreEmploi.aspx.designer.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

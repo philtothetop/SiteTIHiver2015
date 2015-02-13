@@ -65,14 +65,14 @@
                             <b>Caractéristiques</b>
                             <br />
 
-                          <asp:TextBox ID="txtCaractPortatif" runat="server" Text="  Processeur : Intel Core I7... 2,85GHz ou comparable
+                            <asp:TextBox ID="txtCaractPortatif" runat="server" Text="  Processeur : Intel Core I7... 2,85GHz ou comparable
   Mémoire vive : 8Go (idéalement extensible 16Go)
   Disque dur : 500Go (min.)
   Carte graphique : permettant le multimédia
   Batterie : 6 ou 9 cellules
 
-  Avec Windows 8 français, idéalement Win 8.1 PRO français"                
-                             TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
+  Avec Windows 8 français, idéalement Win 8.1 PRO français"
+                                TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
 
                           </asp:TextBox>
 
@@ -154,7 +154,7 @@
                             </table>
                         </div>
                     </div>
-                    </div>
+                </div>
             </section>
 
             <!-- Contact Section -->
