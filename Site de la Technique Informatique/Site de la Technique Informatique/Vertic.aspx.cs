@@ -18,5 +18,17 @@ namespace Site_de_la_Technique_Informatique.Classes
             body.Attributes.Add("data-offset", "20");
             body.Attributes.Add("style", "position:relative; overflow:auto;");
         }
+
+        public IQueryable<VerTICJeu> getDescriptionPortable()
+        {
+            string descriptionPortable="";
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
+
+                descriptionPortable = (from offresEmploi in lecontexte.OffreEmploiJeuSet select offresEmploi).ToString();
+            }
+            return descriptionPortable.AsQueryable();
+        }
+
     }
 }
