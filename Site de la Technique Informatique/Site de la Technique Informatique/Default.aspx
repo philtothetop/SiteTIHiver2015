@@ -1,21 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Default" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="Css/modern-business.css" rel="stylesheet" />
-    <link href="Css/bootstrap.css" rel="stylesheet" />
-    <link href="Css/Global.css" rel="stylesheet" />
-
+        
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>  
+    <link href="css/modern-business.css" rel="stylesheet"/>  
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="Css/scrolling-nav.css" rel="stylesheet" />
 
     <script src="Js/bootstrap.js"></script>
     <script src="Js/jquery.js"></script>
+
 
     <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
@@ -233,12 +230,7 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <!--   <script src="js/bootstrap.min.js"></script> -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  
 
     <!-- Script to Activate the Carousel -->
     <script>

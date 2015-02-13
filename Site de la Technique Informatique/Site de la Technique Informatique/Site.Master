@@ -48,9 +48,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="QuiSommesNous.aspx">Qui sommes-nous?</a>
-                        </li>
+                       
                         <li>
                             <a href="services.html">Concepteurs</a>
                         </li>
@@ -58,19 +56,49 @@
                             <a href="contact.html">Contact</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Souvenirs<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="portfolio-1-col.html">Photos étudiants</a>
                                 </li>
                                 <li>
-                                    <a href="portfolio-2-col.html">Photos professeur</a>
+                                    <a href="portfolio-2-col.html">Photos professeurs</a>
                                 </li>
                                 <li>
-                                    <a href="portfolio-3-col.html">Photos projet</a>
+                                    <a href="portfolio-3-col.html">Photos projets</a>
                                 </li>                               
                             </ul>
                         </li>
+                        
+                         <li>
+                            <a href="Vertic.aspx">Vertic</a>
+                        </li>
+
+                         <li>
+                            <a href="QuiSommesNous.aspx">Stages</a>
+                        </li>
+
+                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Autre<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="QuiSommesNous.aspx">Qui sommes-nous?</a>
+                                </li>
+                                <li>
+                                    <a href="Nouvelles.aspx">Nouvelles</a>
+                                </li>  
+                                 <li>
+                                    <a href="listeOffreEmploi.aspx">Offre d'emploi</a>
+                                </li>  
+                                <li>
+                                    <a href="FAQ.aspx">FAQ</a>
+                                </li>     
+                                <li>
+                                    <a href="#">Témoignages</a>
+                                </li>                                                       
+                            </ul>
+                        </li>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
                             <ul class="dropdown-menu">
