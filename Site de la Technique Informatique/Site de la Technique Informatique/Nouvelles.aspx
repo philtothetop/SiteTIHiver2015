@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Nouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Nouvelles" %>
-<<<<<<< HEAD
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -94,11 +93,7 @@
         </div>
         <!-- /.container -->
     </nav>
-=======
->>>>>>> 8e2d378ebd447a6a5af9671a24df7328935cc5e7
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-         
     <!-- Header Carousel -->
     <div class="container">
 
@@ -139,7 +134,7 @@
                 </div>
             </div>
             <!-- Content Column -->
-            <div class="col-md-9" style="margin-top:-15px;">
+            <div class="col-md-9" style="margin-top">
                 <asp:ListView ID="lviewNouvelles" runat="server"
                     ItemType="Site_de_la_Technique_Informatique.Model.NouvelleJeu"
                     SelectMethod="getNouvelles">
