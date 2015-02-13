@@ -140,9 +140,6 @@
       <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="listeOffresEmploi.aspx.designer.cs">
-      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
@@ -159,9 +156,6 @@
     <Compile Include="OffreEmploi.aspx.cs">
       <DependentUpon>OffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OffreEmploi.aspx.designer.cs">
-      <DependentUpon>OffreEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
@@ -273,9 +267,6 @@
     </Compile>
     <Compile Include="Model_Partielles\UtilisateurJeu_Etudiant_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuiSommesNous.aspx.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>
