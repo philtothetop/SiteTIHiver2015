@@ -58,3 +58,9 @@ of those sections to manage the look and feel of the site. */
     text-align: center;
     background: #eee;
 }
+
+.deux {
+
+    background: #eee;
+    padding-bottom:10px;
+}
