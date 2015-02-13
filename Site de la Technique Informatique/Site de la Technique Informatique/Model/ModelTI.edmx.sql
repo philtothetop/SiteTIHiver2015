@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/06/2015 15:06:35
+-- Date Created: 02/13/2015 09:01:34
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\ModelTI.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,11 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_AdminLog]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_AdminLog];
-GO
 IF OBJECT_ID(N'[dbo].[FK_ConsultationForumEnteteForum]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ConsultationForumJeu] DROP CONSTRAINT [FK_ConsultationForumEnteteForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UtilisateurConsultationForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ConsultationForumJeu] DROP CONSTRAINT [FK_UtilisateurConsultationForum];
 GO
 IF OBJECT_ID(N'[dbo].[FK_EmployeurJeuOffreEmploiJeu]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[OffreEmploiJeuSet] DROP CONSTRAINT [FK_EmployeurJeuOffreEmploiJeu];
@@ -29,14 +29,29 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_EnteteForumMessageForum]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[MessageForumJeu] DROP CONSTRAINT [FK_EnteteForumMessageForum];
 GO
+IF OBJECT_ID(N'[dbo].[FK_SectionForumEnteteForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EnteteForumJeu] DROP CONSTRAINT [FK_SectionForumEnteteForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UtilisateurEnteteForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EnteteForumJeu] DROP CONSTRAINT [FK_UtilisateurEnteteForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurEvenement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EvenementJeu] DROP CONSTRAINT [FK_ProfesseurEvenement];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurFAQ]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FAQJeu] DROP CONSTRAINT [FK_ProfesseurFAQ];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UtilisateurMessageForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MessageForumJeu] DROP CONSTRAINT [FK_UtilisateurMessageForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurNouvelle]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[NouvelleJeu] DROP CONSTRAINT [FK_ProfesseurNouvelle];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurParutionMedia]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ParutionMediaJeu] DROP CONSTRAINT [FK_ProfesseurParutionMedia];
+GO
 IF OBJECT_ID(N'[dbo].[FK_Etudiant_inherits_Utilisateur]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[UtilisateurJeu_Etudiant] DROP CONSTRAINT [FK_Etudiant_inherits_Utilisateur];
-GO
-IF OBJECT_ID(N'[dbo].[FK_LogJeuEmployeurJeu]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_LogJeuEmployeurJeu];
-GO
-IF OBJECT_ID(N'[dbo].[FK_LogJeuUtilisateurJeu]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_LogJeuUtilisateurJeu];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Professeur_inherits_Utilisateur]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[UtilisateurJeu_Professeur] DROP CONSTRAINT [FK_Professeur_inherits_Utilisateur];
@@ -47,29 +62,14 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_ProfesseurCours_UtilisateurJeu_Professeur]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProfesseurCours] DROP CONSTRAINT [FK_ProfesseurCours_UtilisateurJeu_Professeur];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ProfesseurEvenement]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EvenementJeu] DROP CONSTRAINT [FK_ProfesseurEvenement];
+IF OBJECT_ID(N'[dbo].[FK_LogJeuUtilisateurJeu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_LogJeuUtilisateurJeu];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ProfesseurFAQ]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[FAQJeu] DROP CONSTRAINT [FK_ProfesseurFAQ];
+IF OBJECT_ID(N'[dbo].[FK_LogJeuAdminJeu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_LogJeuAdminJeu];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ProfesseurNouvelle]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[NouvelleJeu] DROP CONSTRAINT [FK_ProfesseurNouvelle];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ProfesseurParutionMedia]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ParutionMediaJeu] DROP CONSTRAINT [FK_ProfesseurParutionMedia];
-GO
-IF OBJECT_ID(N'[dbo].[FK_SectionForumEnteteForum]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EnteteForumJeu] DROP CONSTRAINT [FK_SectionForumEnteteForum];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UtilisateurConsultationForum]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ConsultationForumJeu] DROP CONSTRAINT [FK_UtilisateurConsultationForum];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UtilisateurEnteteForum]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[EnteteForumJeu] DROP CONSTRAINT [FK_UtilisateurEnteteForum];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UtilisateurMessageForum]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[MessageForumJeu] DROP CONSTRAINT [FK_UtilisateurMessageForum];
+IF OBJECT_ID(N'[dbo].[FK_EmployeurJeuSetLogJeu]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LogJeu] DROP CONSTRAINT [FK_EmployeurJeuSetLogJeu];
 GO
 
 -- --------------------------------------------------
@@ -115,9 +115,6 @@ GO
 IF OBJECT_ID(N'[dbo].[ParutionMediaJeu]', 'U') IS NOT NULL
     DROP TABLE [dbo].[ParutionMediaJeu];
 GO
-IF OBJECT_ID(N'[dbo].[ProfesseurCours]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ProfesseurCours];
-GO
 IF OBJECT_ID(N'[dbo].[SectionForumJeu]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SectionForumJeu];
 GO
@@ -132,6 +129,9 @@ IF OBJECT_ID(N'[dbo].[UtilisateurJeu_Professeur]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[VerTICJeu]', 'U') IS NOT NULL
     DROP TABLE [dbo].[VerTICJeu];
+GO
+IF OBJECT_ID(N'[dbo].[ProfesseurCours]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProfesseurCours];
 GO
 
 -- --------------------------------------------------
@@ -259,12 +259,14 @@ CREATE TABLE [dbo].[OffreEmploiJeuSet] (
     [pathPDFDescription] nvarchar(200)  NULL,
     [salaire] decimal(18,0)  NOT NULL,
     [nbHeureSemaine] smallint  NOT NULL,
-    [lieuTravail] nvarchar(100)  NOT NULL,
+    [villeTravail] nvarchar(100)  NOT NULL,
+    [adresseTravail] nvarchar(200)  NOT NULL,
     [noTelephone] nvarchar(10)  NOT NULL,
     [noTelecopieur] nvarchar(10)  NULL,
     [courrielOffre] nvarchar(50)  NOT NULL,
     [personneRessource] nvarchar(100)  NOT NULL,
-    [EmployeurJeuIDEmployeur] int  NOT NULL
+    [EmployeurJeuIDEmployeur] int  NOT NULL,
+    [Ville_IDVille] int  NOT NULL
 );
 GO
 
@@ -328,6 +330,13 @@ CREATE TABLE [dbo].[VerTICJeu] (
     [descriptionLibre] nvarchar(2000)  NOT NULL,
     [caracteristiquesPortable] nvarchar(2000)  NOT NULL,
     [autrePortable] nvarchar(2000)  NOT NULL
+);
+GO
+
+-- Creating table 'VilleSet'
+CREATE TABLE [dbo].[VilleSet] (
+    [IDVille] int IDENTITY(1,1) NOT NULL,
+    [nomVille] nvarchar(100)  NOT NULL
 );
 GO
 
@@ -448,6 +457,12 @@ GO
 ALTER TABLE [dbo].[VerTICJeu]
 ADD CONSTRAINT [PK_VerTICJeu]
     PRIMARY KEY CLUSTERED ([IDVerTIC] ASC);
+GO
+
+-- Creating primary key on [IDVille] in table 'VilleSet'
+ALTER TABLE [dbo].[VilleSet]
+ADD CONSTRAINT [PK_VilleSet]
+    PRIMARY KEY CLUSTERED ([IDVille] ASC);
 GO
 
 -- Creating primary key on [CoursJeu_IDCours], [UtilisateurJeu_Professeur_IDUtilisateur] in table 'ProfesseurCours'
@@ -710,6 +725,21 @@ GO
 CREATE INDEX [IX_FK_EmployeurJeuSetLogJeu]
 ON [dbo].[LogJeu]
     ([EmployeurJeuSet_IDEmployeur]);
+GO
+
+-- Creating foreign key on [Ville_IDVille] in table 'OffreEmploiJeuSet'
+ALTER TABLE [dbo].[OffreEmploiJeuSet]
+ADD CONSTRAINT [FK_OffreEmploiJeuSetVille]
+    FOREIGN KEY ([Ville_IDVille])
+    REFERENCES [dbo].[VilleSet]
+        ([IDVille])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OffreEmploiJeuSetVille'
+CREATE INDEX [IX_FK_OffreEmploiJeuSetVille]
+ON [dbo].[OffreEmploiJeuSet]
+    ([Ville_IDVille]);
 GO
 
 -- --------------------------------------------------
