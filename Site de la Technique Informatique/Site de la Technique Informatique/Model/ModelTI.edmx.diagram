@@ -39,6 +39,7 @@
         <AssociationConnector Association="ModelTI.EmployeurJeuOffreEmploiJeu" />
         <AssociationConnector Association="ModelTI.LogJeuEmployeurJeu" />
         <AssociationConnector Association="ModelTI.LogJeuUtilisateurJeu" />
+        <EntityTypeShape EntityType="ModelTI.DateEvenementVerTICJeu" Width="2.625" PointX="15.875" PointY="9" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

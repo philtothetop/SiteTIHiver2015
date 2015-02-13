@@ -15,16 +15,16 @@ namespace Site_de_la_Technique_Informatique
 
         }
 
-        //public IQueryable<OffreEmploi> getOffresEmploi()
-        //{
-        //    List<OffreEmploi> listeOffresEmploi = new List<OffreEmploi>();
-        //    using (ModelTIContainer lecontexte = new ModelTIContainer())
-        //    {
+        public IQueryable<OffreEmploiJeu> getOffresEmploi()
+        {
+            List<OffreEmploiJeu> listeOffresEmploi = new List<OffreEmploiJeu>();
+            using (ModelTIContainer lecontexte = new ModelTIContainer())
+            {
 
-        //      listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiJeuSet select offresEmploi).ToList();
-        //}
-        //    return listeOffresEmploi;
-        //}
+                listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiJeuSet select offresEmploi).ToList();
+            }
+            return listeOffresEmploi.AsQueryable();
+        }
 
         protected void lviewOffresEmploi_ItemDataBound(object sender, ListViewItemEventArgs e)
         {

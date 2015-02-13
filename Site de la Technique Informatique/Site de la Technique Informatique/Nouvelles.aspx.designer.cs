@@ -7,18 +7,18 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique.Classes {
+namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class WebForm1 {
+    public partial class Nouvelles {
         
         /// <summary>
-        /// Contrôle txtCaractPortatif.
+        /// Contrôle form1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCaractPortatif;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }
