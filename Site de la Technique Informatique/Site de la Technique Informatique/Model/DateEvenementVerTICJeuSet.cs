@@ -12,14 +12,10 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class LogJeu
+    public partial class DateEvenementVerTICJeuSet
     {
-        public int IDLog { get; set; }
-        public System.DateTime dateLog { get; set; }
-        public string actionLog { get; set; }
-    
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
-        public virtual AdminJeu AdminJeu { get; set; }
-        public virtual EmployeurJeuSet EmployeurJeuSet { get; set; }
+        public int IDDateEvenement { get; set; }
+        public string dateDescription { get; set; }
+        public string Evenement { get; set; }
     }
 }

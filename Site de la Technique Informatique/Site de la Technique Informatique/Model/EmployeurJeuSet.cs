@@ -12,11 +12,11 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class EmployeurJeu
+    public partial class EmployeurJeuSet
     {
-        public EmployeurJeu()
+        public EmployeurJeuSet()
         {
-            this.OffreEmploiJeu = new HashSet<OffreEmploiJeu>();
+            this.OffreEmploiJeuSet = new HashSet<OffreEmploiJeuSet>();
             this.LogJeu = new HashSet<LogJeu>();
         }
     
@@ -28,7 +28,7 @@ namespace Site_de_la_Technique_Informatique.Model
         public bool valideCourriel { get; set; }
         public System.DateTime dateInscription { get; set; }
     
-        public virtual ICollection<OffreEmploiJeu> OffreEmploiJeu { get; set; }
+        public virtual ICollection<OffreEmploiJeuSet> OffreEmploiJeuSet { get; set; }
         public virtual ICollection<LogJeu> LogJeu { get; set; }
     }
 }
