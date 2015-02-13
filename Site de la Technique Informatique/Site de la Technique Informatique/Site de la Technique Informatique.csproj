@@ -63,9 +63,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="listeOffresEmploi.aspx" />
+    <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="Nouvelles.aspx" />
-    <Content Include="OffreEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
@@ -74,7 +73,6 @@
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
-    <Content Include="FAQ.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
@@ -137,12 +135,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="listeOffresEmploi.aspx.cs">
-      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+    <Compile Include="ListeOffresEmploi.aspx.cs">
+      <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="listeOffresEmploi.aspx.designer.cs">
-      <DependentUpon>listeOffresEmploi.aspx</DependentUpon>
+    <Compile Include="ListeOffresEmploi.aspx.designer.cs">
+      <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="Model\ConsultationForumJeu.cs">
@@ -203,13 +201,6 @@
     <Compile Include="Nouvelles.aspx.designer.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OffreEmploi.aspx.cs">
-      <DependentUpon>OffreEmploi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OffreEmploi.aspx.designer.cs">
-      <DependentUpon>OffreEmploi.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,13 +224,6 @@
     </Compile>
     <Compile Include="Classes\ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FAQ.aspx.cs">
-      <DependentUpon>FAQ.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FAQ.aspx.designer.cs">
-      <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
