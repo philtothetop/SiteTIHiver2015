@@ -63,6 +63,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Inscription\cropper.aspx" />
+    <Content Include="Inscription\cropper.css" />
+    <Content Include="Inscription\cropper.js" />
+    <Content Include="Inscription\css\bootstrap.min.css" />
+    <Content Include="Inscription\css\cropper.css" />
+    <Content Include="Inscription\css\docs.css" />
+    <Content Include="Inscription\img\picture-1.jpg" />
+    <Content Include="Inscription\img\picture-2.jpg" />
+    <Content Include="Inscription\js\bootstrap.min.js" />
+    <Content Include="Inscription\js\cropper.js" />
+    <Content Include="Inscription\js\docs.js" />
+    <Content Include="Inscription\js\jquery.min.js" />
     <Content Include="Vertic.aspx" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
@@ -71,6 +83,7 @@
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
+    <Content Include="FAQ.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
@@ -78,7 +91,6 @@
     <Content Include="Js\jquery.easing.min.js" />
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
-    <Content Include="Log.aspx" />
     <Content Include="Model\ModelTI.edmx.sql" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="PageNotFound.aspx" />
@@ -134,6 +146,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Inscription\cropper.aspx.cs">
+      <DependentUpon>cropper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\cropper.aspx.designer.cs">
+      <DependentUpon>cropper.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
@@ -143,6 +162,7 @@
     <Compile Include="Model\OffreEmploiJeuSet.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -167,6 +187,13 @@
     <Compile Include="Classes\ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,13 +203,6 @@
     </Compile>
     <Compile Include="Inscription\Inscription.aspx.designer.cs">
       <DependentUpon>Inscription.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Log.aspx.cs">
-      <DependentUpon>Log.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Log.aspx.designer.cs">
-      <DependentUpon>Log.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\AdminJeu.cs">
       <DependentUpon>ModelTI.tt</DependentUpon>

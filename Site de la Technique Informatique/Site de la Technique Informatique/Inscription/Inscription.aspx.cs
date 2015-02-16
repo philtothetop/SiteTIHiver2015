@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
@@ -45,7 +46,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     UtilisateurJeu utilisateurACreerCopie = new UtilisateurJeu();
 
                     //Validation
-                  
+
                     TryUpdateModel(utilisateurACreerCopie);
                     var contextVal = new ValidationContext(utilisateurACreerCopie, serviceProvider: null, items: null);
                     var resultatsValidation = new List<ValidationResult>();
@@ -65,12 +66,12 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     TextBox txtDateNaissanceMois = (TextBox)lviewItem.FindControl("txtDateNaissanceMois");
                     TextBox txtDateNaissanceAnnee = (TextBox)lviewItem.FindControl("txtDateNaissanceAnnee");
 
-                    DateTime dateNaissance=new DateTime();
+                    DateTime dateNaissance = new DateTime();
                     int jour;
                     int mois;
                     int annee;
 
-                    if (!int.TryParse(txtDateNaissanceJour.Text,out jour) || !int.TryParse(txtDateNaissanceMois.Text,out mois) || !int.TryParse(txtDateNaissanceAnnee.Text,out annee))
+                    if (!int.TryParse(txtDateNaissanceJour.Text, out jour) || !int.TryParse(txtDateNaissanceMois.Text, out mois) || !int.TryParse(txtDateNaissanceAnnee.Text, out annee))
                     {
                         ValidationResult valdDateNaissance = new ValidationResult("La date de naissance n'est pas valide.", new[] { "dateNaissance" });
                         isValid = true;
@@ -78,10 +79,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     }
                     else
                     {
-                        dateNaissance = new DateTime(annee, mois,jour);
+                        dateNaissance = new DateTime(annee, mois, jour);
                     }
                     //Classes validations
-                    
+
                     if (!isValid)
                     {
 
@@ -89,12 +90,12 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     else
                     {
                         //Convertir le mot de passe en hashcode
-                        utilisateurACreerCopie.hashMotDepasse = utilisateurACreerCopie.hashMotDepasse.GetHashCode().ToString();
+                        utilisateurACreerCopie.hashMotDepasse = GetSHA256Hash(utilisateurACreerCopie.hashMotDepasse);
                         //Date inscription
                         utilisateurACreerCopie.UtilisateurJeu_Etudiant.dateInscription = DateTime.Now;
                         //Date de naissance
                         utilisateurACreerCopie.UtilisateurJeu_Etudiant.dateNaissance = dateNaissance;
-                        
+
                         utilisateurACreerCopie.UtilisateurJeu_Etudiant.IDUtilisateur = utilisateurACreerCopie.IDUtilisateur;
                         utilisateurACreerCopie.UtilisateurJeu_Etudiant.valideCourriel = false;
 
@@ -111,6 +112,60 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
         protected void cbCondition_CheckedChanged(object sender, EventArgs e)
         {
+            try
+            {
+                activer_bouton_Accepter();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        protected void lnkAcccepter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListViewItem lviewItem = lviewFormulaireInscription.Items[0];
+                CheckBox cbCondition = (CheckBox)lviewItem.FindControl("cbCondition");
+                cbCondition.Checked = true;
+                activer_bouton_Accepter();
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        protected void activer_bouton_Accepter()
+        {
+            ListViewItem lviewItem = lviewFormulaireInscription.Items[0];
+            CheckBox cbCondition = (CheckBox)lviewItem.FindControl("cbCondition");
+            LinkButton lnkEnvoyer = (LinkButton)lviewItem.FindControl("lnkEnvoyer");
+            if (cbCondition.Checked == true)
+            {
+                lnkEnvoyer.Enabled = true;
+                lnkEnvoyer.CssClass = "btn btn-primary";
+            }
+            else
+            {
+                lnkEnvoyer.Enabled = false;
+                lnkEnvoyer.CssClass = "btn btn-default";
+            }
+        }
+        //pour hasher le mot de passe
+        public string GetSHA256Hash(string s)
+        {
+
+            if (string.IsNullOrEmpty(s))
+            {
+                throw new ArgumentException("Une valeur nulle ne peut être hashée.");
+            }
+
+
+            Byte[] data = System.Text.Encoding.UTF8.GetBytes(s);
+            Byte[] hash = new SHA256CryptoServiceProvider().ComputeHash(data);
+            string hashMdp = Convert.ToBase64String(hash);
+            return hashMdp;
 
         }
     }

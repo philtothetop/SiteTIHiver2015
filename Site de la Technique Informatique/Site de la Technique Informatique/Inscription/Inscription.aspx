@@ -2,19 +2,20 @@
 
 <asp:Content ID="InscriptionHead" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../Css/Inscription.css" />
-
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="cropper.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
 </asp:Content>
 <asp:Content ID="InscriptionContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <div class="container">
         <div class="row row-centered">
-            <div class="col-lg-4 col-centered">
+            <div class="col-lg-5 col-centered">
                 <h1>Inscription</h1>
             </div>
         </div>
 
-
-    </div>
 
 
     <asp:ListView ID="lviewFormulaireInscription" runat="server"
@@ -24,7 +25,10 @@
 
         <ItemTemplate>
             <div class="row row-centered">
-                <div class="col-lg-4 col-centered">
+                <div class="col-lg-5 col-centered">
+                    <div class="control-group form-group champs-requis">
+                    Tous les champs sont requis.
+                        </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Prénom:</label>
@@ -42,10 +46,10 @@
                             <label>Date de naissance:</label>
                             <div class="row">
                                 <div class="col-xs-2">
-                                    <asp:TextBox ID="txtDateNaissanceJour" runat="server" CssClass="form-control" placeholder="JJ" />
+                                    <asp:TextBox ID="txtDateNaissanceJour" runat="server" CssClass="form-control inputJourMois" placeholder="JJ" />
                                 </div>
                                 <div class="col-xs-2">
-                                    <asp:TextBox ID="txtDateNaissanceMois" runat="server" CssClass="form-control" placeholder="mm" />
+                                    <asp:TextBox ID="txtDateNaissanceMois" runat="server" CssClass="form-control inputJourMois" placeholder="mm" />
                                 </div>
                                 <div class="col-xs-3">
                                     <asp:TextBox ID="txtDateNaissanceAnnee" runat="server" CssClass="form-control" placeholder="AAAA" />
@@ -77,13 +81,13 @@
 
                             <div class="control-group form-group">
                                 <div class="controls">
-                                    <asp:CheckBox ID="cbCondition" runat="server" OnCheckedChanged="cbCondition_CheckedChanged" />
+                                    <asp:CheckBox ID="cbCondition" runat="server" OnCheckedChanged="cbCondition_CheckedChanged" AutoPostBack="true" />
                                     <asp:LinkButton ID="lnkConditions" runat="server" Text="Conditions" data-toggle="modal" data-target="#mesConditions" />
                                 </div>
 
                             </div>
                             <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" />
-                            <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-primary" CommandName="Update" />
+                            <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" />
 
                             <!-- Modal Termes et conditions-->
                             <div class="modal fade" id="mesConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -98,7 +102,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                            <asp:LinkButton ID="lnkAcccepter" runat="server" CssClass="btn btn-primary" Text="Accepter" />
+                                            <asp:LinkButton ID="lnkAcccepter" runat="server" CssClass="btn btn-primary" Text="Accepter" OnClick="lnkAcccepter_Click" />
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +110,7 @@
                             <!--Fin Termes et condition-->
                         </ContentTemplate>
                         <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="cbCondition" EventName="" />
+                            <asp:AsyncPostBackTrigger ControlID="cbCondition" />
                         </Triggers>
                     </asp:UpdatePanel>
 
@@ -114,5 +118,5 @@
             </div>
         </ItemTemplate>
     </asp:ListView>
-
+    </div>
 </asp:Content>

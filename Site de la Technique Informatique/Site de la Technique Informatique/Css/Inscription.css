@@ -1,6 +1,10 @@
 ﻿/* centered columns styles */
+
 .row-centered {
     text-align:center;
+}
+.blue{
+    background-color:blue;
 }
 .col-centered {
     display:inline-block;
@@ -9,4 +13,9 @@
     text-align:left;
     /* inline-block space fix */
     margin-right:-4px;
+}
+.champs-requis{
+    border:1px solid #9c8080;
+    padding:5px;
+    border-radius:3px;
 }
