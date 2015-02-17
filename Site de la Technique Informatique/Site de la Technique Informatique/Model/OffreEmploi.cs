@@ -12,7 +12,7 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class OffreEmploiJeuSet
+    public partial class OffreEmploi
     {
         public int IDOffreEmploi { get; set; }
         public string titreOffre { get; set; }
@@ -20,16 +20,18 @@ namespace Site_de_la_Technique_Informatique.Model
         public System.DateTime dateOffre { get; set; }
         public Nullable<System.DateTime> dateExpiration { get; set; }
         public System.DateTime dateDebutOffre { get; set; }
-        public string pathPDFDescription { get; set; }
+        public string pathPDSDescription { get; set; }
         public decimal salaire { get; set; }
         public short nbHeureSemaine { get; set; }
-        public string lieuTravail { get; set; }
+        public string adresseTravail { get; set; }
         public string noTelephone { get; set; }
         public string noTelecopieur { get; set; }
         public string courrielOffre { get; set; }
         public string personneRessource { get; set; }
-        public int EmployeurJeuIDEmployeur { get; set; }
+        public int EmployeurIDUtilisateur { get; set; }
+        public int VilleIDVille { get; set; }
     
-        public virtual EmployeurJeuSet EmployeurJeuSet { get; set; }
+        public virtual Employeur Employeur { get; set; }
+        public virtual Ville Ville { get; set; }
     }
 }

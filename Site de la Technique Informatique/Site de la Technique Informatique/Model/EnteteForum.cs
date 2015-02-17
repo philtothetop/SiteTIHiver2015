@@ -12,23 +12,23 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class EnteteForumJeu
+    public partial class EnteteForum
     {
-        public EnteteForumJeu()
+        public EnteteForum()
         {
-            this.ConsultationForumJeu = new HashSet<ConsultationForumJeu>();
-            this.MessageForumJeu = new HashSet<MessageForumJeu>();
+            this.MessageForum = new HashSet<MessageForum>();
+            this.ConsultationForum = new HashSet<ConsultationForum>();
         }
     
         public int IDEnteteForum { get; set; }
         public string titreEnteteForum { get; set; }
         public System.DateTime dateEnteteForum { get; set; }
         public int SectionForumIDSectionForum { get; set; }
-        public int UtilisateurIDUtilisateur { get; set; }
+        public int MembreIDUtilisateur { get; set; }
     
-        public virtual ICollection<ConsultationForumJeu> ConsultationForumJeu { get; set; }
-        public virtual ICollection<MessageForumJeu> MessageForumJeu { get; set; }
-        public virtual SectionForumJeu SectionForumJeu { get; set; }
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
+        public virtual SectionForum SectionForum { get; set; }
+        public virtual ICollection<MessageForum> MessageForum { get; set; }
+        public virtual ICollection<ConsultationForum> ConsultationForum { get; set; }
+        public virtual Membre Membre { get; set; }
     }
 }

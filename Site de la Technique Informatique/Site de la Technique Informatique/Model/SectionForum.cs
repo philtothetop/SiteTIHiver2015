@@ -12,13 +12,17 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class FAQJeu
+    public partial class SectionForum
     {
-        public int IDFAQ { get; set; }
-        public string texteQuestion { get; set; }
-        public string texteReponse { get; set; }
-        public int ProfesseurIDProfesseur { get; set; }
+        public SectionForum()
+        {
+            this.EnteteForum = new HashSet<EnteteForum>();
+        }
     
-        public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
+        public int IDSectionForum { get; set; }
+        public string titreSection { get; set; }
+        public string descriptionSection { get; set; }
+    
+        public virtual ICollection<EnteteForum> EnteteForum { get; set; }
     }
 }

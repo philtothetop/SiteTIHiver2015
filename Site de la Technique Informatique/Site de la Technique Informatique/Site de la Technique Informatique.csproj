@@ -63,6 +63,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="FAQ.aspx" />
     <Content Include="Inscription\cropper.aspx" />
     <Content Include="Inscription\cropper.css" />
     <Content Include="Inscription\cropper.js" />
@@ -72,10 +74,11 @@
     <Content Include="Inscription\img\picture-1.jpg" />
     <Content Include="Inscription\img\picture-2.jpg" />
     <Content Include="Inscription\js\bootstrap.min.js" />
-    <Content Include="Inscription\js\cropper.js" />
     <Content Include="Inscription\js\docs.js" />
     <Content Include="Inscription\js\jquery.min.js" />
-    <Content Include="Vertic.aspx" />
+    <Content Include="ListeOffresEmploi.aspx" />
+    <Content Include="marie-TestVerTIC.aspx" />
+    <Content Include="Model\LeModelTI.edmx.sql" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
     <Content Include="Css\Inscription.css" />
@@ -83,7 +86,6 @@
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
-    <Content Include="FAQ.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
@@ -91,8 +93,10 @@
     <Content Include="Js\jquery.easing.min.js" />
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
-    <Content Include="Model\ModelTI.edmx.sql" />
+    <Content Include="Log.aspx" />
+    <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
@@ -113,24 +117,24 @@
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff" />
-    <EntityDeploy Include="Model\ModelTI.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelTI.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Model\ModelTI.edmx.diagram">
-      <DependentUpon>ModelTI.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\ModelTI.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelTI.Context.cs</LastGenOutput>
-      <DependentUpon>ModelTI.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\ModelTI.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelTI.cs</LastGenOutput>
-      <DependentUpon>ModelTI.edmx</DependentUpon>
-    </Content>
     <Content Include="packages.config" />
+    <EntityDeploy Include="Model\LeModelTI.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LeModelTI.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\LeModelTI.edmx.diagram">
+      <DependentUpon>LeModelTI.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\LeModelTI.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LeModelTI.Context.cs</LastGenOutput>
+      <DependentUpon>LeModelTI.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\LeModelTI.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LeModelTI.cs</LastGenOutput>
+      <DependentUpon>LeModelTI.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -140,12 +144,26 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Global.css" />
-    <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
+    <Content Include="Vertic.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inscription\cropper.aspx.cs">
       <DependentUpon>cropper.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -153,29 +171,95 @@
     <Compile Include="Inscription\cropper.aspx.designer.cs">
       <DependentUpon>cropper.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Model\DateEvenementVerTICJeuSet.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
+    <Compile Include="ListeOffresEmploi.aspx.cs">
+      <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\EmployeurJeuSet.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\OffreEmploiJeuSet.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
+    <Compile Include="ListeOffresEmploi.aspx.designer.cs">
+      <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\ExceptionUtility.cs" />
-    <Compile Include="Vertic.aspx.cs">
-      <DependentUpon>Vertic.aspx</DependentUpon>
+    <Compile Include="marie-TestVerTIC.aspx.cs">
+      <DependentUpon>marie-TestVerTIC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vertic.aspx.designer.cs">
-      <DependentUpon>Vertic.aspx</DependentUpon>
+    <Compile Include="marie-TestVerTIC.aspx.designer.cs">
+      <DependentUpon>marie-TestVerTIC.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
+    <Compile Include="Model\Admin.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Model\ConsultationForum.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cours.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DateEvenementVerTIC.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employeur.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EnteteForum.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Etudiant.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Evenement.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FAQ.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LeModelTI.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeModelTI.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LeModelTI.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LeModelTI.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LeModelTI.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Log.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Membre.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MessageForum.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Nouvelle.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\OffreEmploi.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ParutionMedia.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Professeur.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SectionForum.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Utilisateur.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\VerTIC.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ville.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
     <Compile Include="ErreursImportants.aspx.cs">
       <DependentUpon>ErreursImportants.aspx</DependentUpon>
@@ -187,13 +271,6 @@
     <Compile Include="Classes\ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FAQ.aspx.cs">
-      <DependentUpon>FAQ.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FAQ.aspx.designer.cs">
-      <DependentUpon>FAQ.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,71 +281,39 @@
     <Compile Include="Inscription\Inscription.aspx.designer.cs">
       <DependentUpon>Inscription.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Model\AdminJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
+    <Compile Include="Log.aspx.cs">
+      <DependentUpon>Log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\ConsultationForumJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
+    <Compile Include="Log.aspx.designer.cs">
+      <DependentUpon>Log.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Model\CoursJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EnteteForumJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\EvenementJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\FAQJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\LogJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\MessageForumJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ModelTI.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelTI.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ModelTI.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ModelTI.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelTI.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model\NouvelleJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\ParutionMediaJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\SectionForumJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\UtilisateurJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\UtilisateurJeu_Etudiant.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\UtilisateurJeu_Professeur.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\VerTICJeu.cs">
-      <DependentUpon>ModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model_Partielles\UtilisateurJeu_Etudiant_Partielles.cs" />
+    <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
+    <Compile Include="Nouvelles.aspx.cs">
+      <DependentUpon>Nouvelles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nouvelles.aspx.designer.cs">
+      <DependentUpon>Nouvelles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="OffreEmploi.aspx.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OffreEmploi.aspx.designer.cs">
+      <DependentUpon>OffreEmploi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PageNotFound.aspx.cs">
+      <DependentUpon>PageNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageNotFound.aspx.designer.cs">
+      <DependentUpon>PageNotFound.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuiSommesNous.aspx.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>
@@ -290,6 +335,13 @@
     </Compile>
     <Compile Include="InformationsStage.aspx.designer.cs">
       <DependentUpon>InformationsStage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vertic.aspx.cs">
+      <DependentUpon>Vertic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vertic.aspx.designer.cs">
+      <DependentUpon>Vertic.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

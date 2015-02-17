@@ -12,32 +12,26 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class UtilisateurJeu
+    public partial class Membre : Utilisateur
     {
-        public UtilisateurJeu()
+        public Membre()
         {
-            this.ConsultationForumJeu = new HashSet<ConsultationForumJeu>();
-            this.EnteteForumJeu = new HashSet<EnteteForumJeu>();
-            this.MessageForumJeu = new HashSet<MessageForumJeu>();
-            this.LogJeu = new HashSet<LogJeu>();
+            this.EnteteForum = new HashSet<EnteteForum>();
+            this.ConsultationForum = new HashSet<ConsultationForum>();
+            this.MessageForum = new HashSet<MessageForum>();
         }
     
-        public int IDUtilisateur { get; set; }
+        public int IDMembre { get; set; }
         public string nom { get; set; }
         public string prenom { get; set; }
-        public string courriel { get; set; }
-        public string hashMotDepasse { get; set; }
         public string pathPhotoProfil { get; set; }
         public string photoDescription { get; set; }
         public string temoignage { get; set; }
         public Nullable<System.DateTime> dateTemoignage { get; set; }
         public bool compteActif { get; set; }
     
-        public virtual ICollection<ConsultationForumJeu> ConsultationForumJeu { get; set; }
-        public virtual ICollection<EnteteForumJeu> EnteteForumJeu { get; set; }
-        public virtual ICollection<MessageForumJeu> MessageForumJeu { get; set; }
-        public virtual UtilisateurJeu_Etudiant UtilisateurJeu_Etudiant { get; set; }
-        public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
-        public virtual ICollection<LogJeu> LogJeu { get; set; }
+        public virtual ICollection<EnteteForum> EnteteForum { get; set; }
+        public virtual ICollection<ConsultationForum> ConsultationForum { get; set; }
+        public virtual ICollection<MessageForum> MessageForum { get; set; }
     }
 }

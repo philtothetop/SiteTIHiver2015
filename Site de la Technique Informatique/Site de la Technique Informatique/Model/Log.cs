@@ -12,14 +12,14 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ParutionMediaJeu
+    public partial class Log
     {
-        public int IDParutionMedia { get; set; }
-        public string pathFichierPDF { get; set; }
-        public string descriptionParution { get; set; }
-        public System.DateTime dateParution { get; set; }
-        public int ProfesseurIDProfesseur { get; set; }
+        public int IDLog { get; set; }
+        public System.DateTime dateLog { get; set; }
+        public string actionLog { get; set; }
+        public short typeLog { get; set; }
+        public Nullable<int> UtilisateurIDUtilisateur { get; set; }
     
-        public virtual UtilisateurJeu_Professeur UtilisateurJeu_Professeur { get; set; }
+        public virtual Utilisateur Utilisateur { get; set; }
     }
 }

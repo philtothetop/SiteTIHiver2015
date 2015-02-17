@@ -1,4 +1,7 @@
-﻿using System;
+﻿//code C# page d'inscription
+//Écrit par Cédric Archambault
+//
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,22 +13,25 @@ using System.Security.Cryptography;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : System.Web.UI.Page
+    public partial class Inscription : Site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        public UtilisateurJeu GetUtilisateurEtudiant()
+        //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
+        //Écrit par Cédric Archambault 17 février 2015
+        //Intrants: aucun
+        //Extrants:Utilisateur
+        public Utilisateur GetUtilisateurEtudiant()
         {
 
             try
             {
-                using (ModelTIContainer leContext = new ModelTIContainer())
+                using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    List<UtilisateurJeu> listUtilisateur = (from cl in leContext.UtilisateurJeu select cl).ToList();
-                    UtilisateurJeu nouveauUtilisateur = new UtilisateurJeu();
-                    nouveauUtilisateur.UtilisateurJeu_Etudiant = new UtilisateurJeu_Etudiant();
+                    List<Utilisateur> listUtilisateur = (from cl in leContext.UtilisateurSet select cl).ToList();
+                    Utilisateur nouveauUtilisateur = new Utilisateur();
                     listUtilisateur.Add(nouveauUtilisateur);
 
                     return listUtilisateur.Last();
@@ -37,25 +43,29 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             return null;
         }
-        public void CreerUtilisateurEtudiant(UtilisateurJeu utilisateurACreer)
+        //Cette class permet de valider l'utilisateur qui est a l'écran et sauvegarder dans la BD
+        //Écrit par Cédric Archambault 17 février 2015
+        //Intrants:Etudiant
+        //Extrants:Aucun
+        public void CreerUtilisateurEtudiant(Etudiant etudiantACreer)
         {
             try
             {
-                using (ModelTIContainer leContext = new ModelTIContainer())
+                using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    UtilisateurJeu utilisateurACreerCopie = new UtilisateurJeu();
+                    Etudiant etudiantACreerCopie = new Etudiant();
 
                     //Validation
 
-                    TryUpdateModel(utilisateurACreerCopie);
-                    var contextVal = new ValidationContext(utilisateurACreerCopie, serviceProvider: null, items: null);
+                    TryUpdateModel(etudiantACreerCopie);
+                    var contextVal = new ValidationContext(etudiantACreerCopie, serviceProvider: null, items: null);
                     var resultatsValidation = new List<ValidationResult>();
-                    var isValid = Validator.TryValidateObject(utilisateurACreerCopie, contextVal, resultatsValidation, true);
+                    var isValid = Validator.TryValidateObject(etudiantACreerCopie, contextVal, resultatsValidation, true);
 
                     //Comparer les mots de passe
                     ListViewItem lviewItem = lviewFormulaireInscription.Items[0];
                     TextBox txtConfirmationMotDePasse = (TextBox)lviewItem.FindControl("txtConfirmationMotDePasse");
-                    if (txtConfirmationMotDePasse != null && utilisateurACreerCopie.hashMotDepasse != txtConfirmationMotDePasse.Text)
+                    if (txtConfirmationMotDePasse != null && etudiantACreerCopie.hashMotDePasse != txtConfirmationMotDePasse.Text)
                     {
                         ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "hashMotDepasse" });
                         isValid = true;
@@ -66,20 +76,17 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     TextBox txtDateNaissanceMois = (TextBox)lviewItem.FindControl("txtDateNaissanceMois");
                     TextBox txtDateNaissanceAnnee = (TextBox)lviewItem.FindControl("txtDateNaissanceAnnee");
 
-                    DateTime dateNaissance = new DateTime();
                     int jour;
                     int mois;
                     int annee;
 
                     if (!int.TryParse(txtDateNaissanceJour.Text, out jour) || !int.TryParse(txtDateNaissanceMois.Text, out mois) || !int.TryParse(txtDateNaissanceAnnee.Text, out annee))
                     {
-                        ValidationResult valdDateNaissance = new ValidationResult("La date de naissance n'est pas valide.", new[] { "dateNaissance" });
-                        isValid = true;
-                        resultatsValidation.Add(valdDateNaissance);
+                        etudiantACreerCopie.dateNaissance = new DateTime();
                     }
                     else
                     {
-                        dateNaissance = new DateTime(annee, mois, jour);
+                        etudiantACreerCopie.dateNaissance = new DateTime(annee, mois, jour);
                     }
                     //Classes validations
 
@@ -90,16 +97,13 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     else
                     {
                         //Convertir le mot de passe en hashcode
-                        utilisateurACreerCopie.hashMotDepasse = GetSHA256Hash(utilisateurACreerCopie.hashMotDepasse);
+                        etudiantACreerCopie.hashMotDePasse = GetSHA256Hash(etudiantACreerCopie.hashMotDePasse);
                         //Date inscription
-                        utilisateurACreerCopie.UtilisateurJeu_Etudiant.dateInscription = DateTime.Now;
-                        //Date de naissance
-                        utilisateurACreerCopie.UtilisateurJeu_Etudiant.dateNaissance = dateNaissance;
+                        etudiantACreerCopie.dateInscription = DateTime.Now;
+                        etudiantACreerCopie.valideCourriel = false;
+                        etudiantACreerCopie.compteActif = false;
 
-                        utilisateurACreerCopie.UtilisateurJeu_Etudiant.IDUtilisateur = utilisateurACreerCopie.IDUtilisateur;
-                        utilisateurACreerCopie.UtilisateurJeu_Etudiant.valideCourriel = false;
-
-                        leContext.UtilisateurJeu.Add(utilisateurACreerCopie);
+                        leContext.UtilisateurSet.Add(etudiantACreerCopie);
                         leContext.SaveChanges();
 
                     }
@@ -109,7 +113,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
             {
             }
         }
-
+        //Cette class permet des/active le bouton accepter par le checkbox
+        //Écrit par Cédric Archambault 17 février 2015
+        //Intrants:sende,e
+        //Extrants:Aucun
         protected void cbCondition_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -121,7 +128,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             }
         }
-
+        //Cette class permet des/active le bouton accepter par le link  Accepter
+        //Écrit par Cédric Archambault 17 février 2015
+        //Intrants:sende,e
+        //Extrants:Aucun
         protected void lnkAcccepter_Click(object sender, EventArgs e)
         {
             try
@@ -136,6 +146,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             }
         }
+        //Cette class permet des/active le bouton accepter
+        //Écrit par Cédric Archambault 17 février 2015
+        //Intrants:aucun
+        //Extrants:Aucun
         protected void activer_bouton_Accepter()
         {
             ListViewItem lviewItem = lviewFormulaireInscription.Items[0];
@@ -152,21 +166,6 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 lnkEnvoyer.CssClass = "btn btn-default";
             }
         }
-        //pour hasher le mot de passe
-        public string GetSHA256Hash(string s)
-        {
 
-            if (string.IsNullOrEmpty(s))
-            {
-                throw new ArgumentException("Une valeur nulle ne peut être hashée.");
-            }
-
-
-            Byte[] data = System.Text.Encoding.UTF8.GetBytes(s);
-            Byte[] hash = new SHA256CryptoServiceProvider().ComputeHash(data);
-            string hashMdp = Convert.ToBase64String(hash);
-            return hashMdp;
-
-        }
     }
 }

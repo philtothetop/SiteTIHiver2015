@@ -12,19 +12,16 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class CoursJeu
+    public partial class Evenement
     {
-        public CoursJeu()
-        {
-            this.UtilisateurJeu_Professeur = new HashSet<UtilisateurJeu_Professeur>();
-        }
+        public int IDEvenement { get; set; }
+        public string titreEvenement { get; set; }
+        public string descriptionEvenement { get; set; }
+        public System.DateTime datePublication { get; set; }
+        public System.DateTime dateDebutEvenement { get; set; }
+        public Nullable<System.DateTime> dateFinEvenement { get; set; }
+        public int ProfesseurIDUtilisateur { get; set; }
     
-        public int IDCours { get; set; }
-        public string nomCours { get; set; }
-        public string noCours { get; set; }
-        public int noSessionCours { get; set; }
-        public string descriptionCours { get; set; }
-    
-        public virtual ICollection<UtilisateurJeu_Professeur> UtilisateurJeu_Professeur { get; set; }
+        public virtual Professeur Professeur { get; set; }
     }
 }

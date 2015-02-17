@@ -12,15 +12,15 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class MessageForumJeu
+    public partial class Nouvelle
     {
-        public int IDMessageForum { get; set; }
-        public string texteMessage { get; set; }
-        public System.DateTime dateMessage { get; set; }
-        public int EnteteForumIDEnteteForum { get; set; }
-        public int UtilisateurIDUtilisateur { get; set; }
+        public int IDNouvelle { get; set; }
+        public string titreNouvelle { get; set; }
+        public string texteNouvelle { get; set; }
+        public string pathPhotoNouvelle { get; set; }
+        public System.DateTime dateNouvelle { get; set; }
+        public int ProfesseurIDUtilisateur { get; set; }
     
-        public virtual EnteteForumJeu EnteteForumJeu { get; set; }
-        public virtual UtilisateurJeu UtilisateurJeu { get; set; }
+        public virtual Professeur Professeur { get; set; }
     }
 }

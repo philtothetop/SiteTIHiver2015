@@ -4,42 +4,48 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ae6bd0f581d9453fa57e262c48a9a908" Name="Diagram1" ZoomLevel="97" DisplayType="true" >
-        <EntityTypeShape EntityType="ModelTI.AdminJeu" Width="2" PointX="8.625" PointY="17.375" />
-        <EntityTypeShape EntityType="ModelTI.ConsultationForumJeu" Width="2.5" PointX="1.125" PointY="22.25" />
-        <EntityTypeShape EntityType="ModelTI.CoursJeu" Width="2" PointX="12.625" PointY="22.75" />
-        <EntityTypeShape EntityType="ModelTI.DateEvenementVerTICJeuSet" Width="2.25" PointX="0.875" PointY="17.5" />
-        <EntityTypeShape EntityType="ModelTI.EmployeurJeuSet" Width="2" PointX="12.125" PointY="18.875" />
-        <EntityTypeShape EntityType="ModelTI.EnteteForumJeu" Width="2.625" PointX="0.75" PointY="27.625" />
-        <EntityTypeShape EntityType="ModelTI.EvenementJeu" Width="2.375" PointX="13.125" PointY="25.25" />
-        <EntityTypeShape EntityType="ModelTI.FAQJeu" Width="2.25" PointX="10.125" PointY="29.375" />
-        <EntityTypeShape EntityType="ModelTI.LogJeu" Width="2.625" PointX="8.625" PointY="20.875" />
-        <EntityTypeShape EntityType="ModelTI.MessageForumJeu" Width="2.5" PointX="1.875" PointY="24.75" />
-        <EntityTypeShape EntityType="ModelTI.NouvelleJeu" Width="2.25" PointX="7.375" PointY="28.75" />
-        <EntityTypeShape EntityType="ModelTI.OffreEmploiJeuSet" Width="2.375" PointX="15.125" PointY="18.875" />
-        <EntityTypeShape EntityType="ModelTI.ParutionMediaJeu" Width="2.25" PointX="13.125" PointY="28.25" />
-        <EntityTypeShape EntityType="ModelTI.SectionForumJeu" Width="2" PointX="4.5" PointY="28.625" />
-        <EntityTypeShape EntityType="ModelTI.UtilisateurJeu" Width="2.125" PointX="5.5" PointY="20.875" />
-        <EntityTypeShape EntityType="ModelTI.UtilisateurJeu_Etudiant" Width="2.25" PointX="5.375" PointY="25.625" />
-        <EntityTypeShape EntityType="ModelTI.UtilisateurJeu_Professeur" Width="2" PointX="9.75" PointY="25.25" />
-        <EntityTypeShape EntityType="ModelTI.VerTICJeu" Width="2.375" PointX="3.75" PointY="17.375" />
-        <AssociationConnector Association="ModelTI.FK_ConsultationForumEnteteForum" />
-        <AssociationConnector Association="ModelTI.FK_UtilisateurConsultationForum" />
-        <AssociationConnector Association="ModelTI.FK_EmployeurJeuOffreEmploiJeu" />
-        <AssociationConnector Association="ModelTI.FK_EnteteForumMessageForum" />
-        <AssociationConnector Association="ModelTI.FK_SectionForumEnteteForum" />
-        <AssociationConnector Association="ModelTI.FK_UtilisateurEnteteForum" />
-        <AssociationConnector Association="ModelTI.FK_ProfesseurEvenement" />
-        <AssociationConnector Association="ModelTI.FK_ProfesseurFAQ" />
-        <AssociationConnector Association="ModelTI.FK_UtilisateurMessageForum" />
-        <AssociationConnector Association="ModelTI.FK_ProfesseurNouvelle" />
-        <AssociationConnector Association="ModelTI.FK_ProfesseurParutionMedia" />
-        <AssociationConnector Association="ModelTI.FK_Etudiant_inherits_Utilisateur" />
-        <AssociationConnector Association="ModelTI.FK_Professeur_inherits_Utilisateur" />
+      <Diagram DiagramId="ae6bd0f581d9453fa57e262c48a9a908" Name="Diagram1" ZoomLevel="57" DisplayType="true" >
+        <EntityTypeShape EntityType="ModelTI.ConsultationForum" Width="2.5" PointX="1.125" PointY="22.25" />
+        <EntityTypeShape EntityType="ModelTI.Cours" Width="2" PointX="9.5" PointY="22.625" />
+        <EntityTypeShape EntityType="ModelTI.DateEvenementVerTIC" Width="2.25" PointX="0.875" PointY="15.5" />
+        <EntityTypeShape EntityType="ModelTI.EnteteForum" Width="2.625" PointX="0.75" PointY="28.125" />
+        <EntityTypeShape EntityType="ModelTI.Evenement" Width="2.375" PointX="13" PointY="24.375" />
+        <EntityTypeShape EntityType="ModelTI.FAQ" Width="2.25" PointX="10.125" PointY="29.375" />
+        <EntityTypeShape EntityType="ModelTI.Log" Width="2.625" PointX="0.5" PointY="18.875" />
+        <EntityTypeShape EntityType="ModelTI.MessageForum" Width="2.5" PointX="1.875" PointY="24.75" />
+        <EntityTypeShape EntityType="ModelTI.Nouvelle" Width="2.25" PointX="7.375" PointY="28.75" />
+        <EntityTypeShape EntityType="ModelTI.OffreEmploi" Width="2.375" PointX="12.5" PointY="17.875" />
+        <EntityTypeShape EntityType="ModelTI.ParutionMedia" Width="2.25" PointX="13.125" PointY="28.25" />
+        <EntityTypeShape EntityType="ModelTI.SectionForum" Width="2" PointX="4.5" PointY="28.625" />
+        <EntityTypeShape EntityType="ModelTI.Membre" Width="2.125" PointX="5.75" PointY="21.375" />
+        <EntityTypeShape EntityType="ModelTI.Etudiant" Width="2.25" PointX="5.5" PointY="25.875" />
+        <EntityTypeShape EntityType="ModelTI.Professeur" Width="2" PointX="9.25" PointY="25.375" />
+        <EntityTypeShape EntityType="ModelTI.VerTIC" Width="2.375" PointX="3.75" PointY="15.375" />
+        <EntityTypeShape EntityType="ModelTI.Ville" Width="1.5" PointX="16.5" PointY="19.625" />
+        <InheritanceConnector EntityType="ModelTI.Etudiant" />
+        <InheritanceConnector EntityType="ModelTI.Professeur" />
+        <EntityTypeShape EntityType="ModelTI.Utilisateur" Width="2" PointX="4.75" PointY="18.75" />
+        <EntityTypeShape EntityType="ModelTI.Admin" Width="1.5" PointX="7.25" PointY="17.875" />
+        <EntityTypeShape EntityType="ModelTI.Employeur" Width="2" PointX="9.375" PointY="19" />
+        <InheritanceConnector EntityType="ModelTI.Membre" />
+        <InheritanceConnector EntityType="ModelTI.Etudiant" />
+        <InheritanceConnector EntityType="ModelTI.Professeur" />
+        <InheritanceConnector EntityType="ModelTI.Admin" />
+        <InheritanceConnector EntityType="ModelTI.Employeur" />
+        <AssociationConnector Association="ModelTI.MembreMessageForum" />
+        <AssociationConnector Association="ModelTI.MembreEnteteForum" />
+        <AssociationConnector Association="ModelTI.MembreConsultationForum" />
+        <AssociationConnector Association="ModelTI.UtilisateurLog" />
+        <AssociationConnector Association="ModelTI.EmployeurOffreEmploi" />
         <AssociationConnector Association="ModelTI.ProfesseurCours" />
-        <AssociationConnector Association="ModelTI.LogJeuUtilisateurJeu" />
-        <AssociationConnector Association="ModelTI.LogJeuAdminJeu" />
-        <AssociationConnector Association="ModelTI.EmployeurJeuSetLogJeu" />
+        <AssociationConnector Association="ModelTI.ProfesseurEvenement" />
+        <AssociationConnector Association="ModelTI.ProfesseurParutionMedia" />
+        <AssociationConnector Association="ModelTI.ProfesseurFAQ" />
+        <AssociationConnector Association="ModelTI.ProfesseurNouvelle" />
+        <AssociationConnector Association="ModelTI.ConsultationForumEnteteForum" />
+        <AssociationConnector Association="ModelTI.EnteteForumMessageForum" />
+        <AssociationConnector Association="ModelTI.SectionForumEnteteForum" />
+        <AssociationConnector Association="ModelTI.OffreEmploiVille" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
