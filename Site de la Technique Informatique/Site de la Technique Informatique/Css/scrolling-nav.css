@@ -54,16 +54,6 @@ of those sections to manage the look and feel of the site. */
     padding-top: 30px;
     background: #eee;
 }
-.garantie-section {
-    height: 100%;
-    padding-top: 30px;
-    background: #fff;
-}
-.financement-section {
-    height: 100%;
-    padding-top: 30px;
-    background: #eee;
-}
 
 .echeancier-section{
     height:100%;
@@ -82,9 +72,4 @@ of those sections to manage the look and feel of the site. */
 
 #topDate {
     border-left:1px solid #fee;
-}
-#tableFinancement td{
-    border-width:1px;
- border-style:solid; 
- padding:3px;
 }

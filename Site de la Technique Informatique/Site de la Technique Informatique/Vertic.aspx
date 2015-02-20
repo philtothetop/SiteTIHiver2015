@@ -17,9 +17,6 @@
                     <li role="presentation" class="active"><a href="#projet" class="list-group-item page-scroll">Projet VerTIC</a></li>
                     <li role="presentation"><a href="#portable" class="list-group-item page-scroll">Le portable VerTIC</a></li>
                     <li role="presentation"><a href="#logiciel" class="list-group-item page-scroll">Les logiciels</a></li>
-                    <li role="presentation"><a href="#garantie" class="list-group-item page-scroll">Garantie et assurance</a></li>
-                    <li role="presentation"><a href="#financement" class="list-group-item page-scroll">Financement</a></li>
-
 
                 </ul>
             </div>
@@ -39,7 +36,7 @@
 
                         <blockquote>Éliminer autant que possible l'utilisation du papier pour la réalisation des différentes activités pédagogiques.</blockquote>
 
-                        <p>"VerTIC", c’est à la fois la technologie et l'environnement. En fait, il s'agit d'une référence à l'utilisation des TIC (Technologie de l'information et des communications) intégrée à l'enseignement de l'ensemble des membres du département d'informatique. Cette pratique pédagogique amènera à éliminer presque à 100% l'utilisation du papier dans les cours, d'où le souci environnemental et l'appellation <span class="greenText">"VerTIC"</span>.</p>
+                        <p><span class="greenText">"VerTIC"</span>, c’est à la fois la technologie et l'environnement. En fait, il s'agit d'une référence à l'utilisation des TIC (Technologie de l'information et des communications) intégrée à l'enseignement de l'ensemble des membres du département d'informatique. Cette pratique pédagogique amènera à éliminer presque à 100% l'utilisation du papier dans les cours, d'où le souci environnemental et l'appellation <span class="greenText">"VerTIC"</span>.</p>
 
                         <p>Pour arriver à nos fins, tous les enseignants s'engagent à mettre à la disposition des étudiants, via Internet, l'ensemble de la documentation nécessaire à la réalisation des cours c'est-à-dire plans de formation, notes de cours, exercices, travaux et possiblement les examens. Chaque enseignant possède son propre site Web et les étudiants auront accès aux pages Web contenant les documents de chacun de leurs cours. Pour atteindre nos objectifs, il sera essentiel que les étudiants soient munis d'un ordinateur portatif avec l'accès réseau sans fils. Les modèles proposés garantissent que toutes les activités pédagogiques reliées aux cours du programme seront réalisables.  Cette solution permettra aux étudiants d'avoir accès à leur environnement de travail autant au Cégep qu'à la maison. De notre département et de presque partout sur le cégep, vous pourrez vous brancher au réseau Internet par le biais d'un réseau sans fil et réseaux avec fils.</p>
 
@@ -64,28 +61,28 @@
                         <p><b>Pour les étudiants</b> qui ne désirent pas faire partie des achats regroupés, vous devrez avoir un portable performant ayant des caractéristiques similaires. De plus, nous suggérons l’achat d’une garantie de 3 ans, durée minimale de notre programme et l'achat du sac de transport. Il est également important d’acquérir quelques accessoires :</p>
 
 
-                            <b>Caractéristiques</b>
-                            <br />
+                        <b>Caractéristiques</b>
+                        <br />
 
-                        <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" Style="max-height: 150px; min-height: 150px; max-width: 599px; min-width: 500px;" Enabled="False">
+                            <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:599px;min-width:500px;" Enabled="False">
 
                           </asp:TextBox>
 
 
                         <br />
                         <br />
-                            <b>AUTRES:</b>
+                        <b>AUTRES:</b>
                         <br />
 
 
-                        <asp:TextBox ID="txtAutres" runat="server" Text="" TextMode="MultiLine" Style="max-height: 150px; min-height: 150px; max-width: 599px; min-width: 500px;" Enabled="False">
+                        <asp:TextBox ID="txtAutres" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:599px;min-width:500px;" Enabled="False">
 
                           </asp:TextBox>
 
-                        </div>
                     </div>
+                </div>
             </section>
-          
+
             <section id="echeancier" class="echeancier-section">
                 <div class="row">
                     <h3>Les dates à retenir</h3>
@@ -149,18 +146,18 @@
                     <div class="col-lg-12">
                         <h3>Configuration logicielle</h3>
                         <p>Nous vous suggérons de partitionner votre disque dur en deux parties au départ. Vous retrouverez une partition d'applications et une partition personnelle pour vos données. De plus, lors du cours «Gérer un poste de travail», vous allez créer une image de votre poste de travail sur votre disque externe, vous permettant de reconstruire votre environnement logiciel si un problème majeur survenait. Nous avons créé un DVD d'installation muni de logiciels libres (gratuits) et de certains logiciels avec licence, qui vous seront fournis gratuitement (via une entente entre le Cégep de Granby et Microsoft). Évidemment, votre portatif vous appartient et vous serez libre de le modifier comme vous l'entendez. De notre côté, nous nous engageons à vous fournir les DVD des images et des applications pour remettre votre portatif à son état initial en cas de pépins. Voici la liste des logiciels qui seront installés sur votre portatif lors du VerTICamp : </p>
-                    <div class="col-lg-6">
-                        <h4>LOGICIELS AVEC LICENCES</h4>
-                            <asp:TextBox ID="txtLogicielLicenses" runat="server" Text="" TextMode="MultiLine" Style="max-height: 150px; min-height: 150px; max-width: 350px; min-width: 350px;" Enabled="False">
+                        <div class="col-lg-6">
+                            <h4>LOGICIELS AVEC LICENCES</h4>
+                        <asp:TextBox ID="txtLogicielLicenses" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:350px;min-width:350px;" Enabled="False">
 
                           </asp:TextBox>
-                    </div>
-                    <div class="col-lg-6">
-                        <h4>LOGICIELS LIBRES (gratuits)</h4>
-                            <asp:TextBox ID="txtLogicielLibres" Style="max-height: 150px; min-height: 150px; max-width: 350px; min-width: 350px;" runat="server" Text="" TextMode="MultiLine" Enabled="False">
+                        </div>
+                        <div class="col-lg-6">
+                            <h4>LOGICIELS LIBRES (gratuits)</h4>
+                        <asp:TextBox ID="txtLogicielLibres" style="max-height:150px;min-height:150px;max-width:350px;min-width:350px;" runat="server" Text="" TextMode="MultiLine" Enabled="False">
 
                           </asp:TextBox>
-                    </div>
+                        </div>
                         <p>Les logiciels avec licences, sauf exception, vous appartiennent. Il se peut, en cours d'utilisation, que nous ayons besoin de nouveaux logiciels.  Le département d'informatique tentera toujours d'utiliser des outils logiciels qui pourront être offerts gratuitement à ses étudiants. Cependant, rien n'est garanti. Vous comprendrez que si un nouvel outil devient le standard demain et qu'il nous est impossible de négocier une entente, des frais d'utilisation pourraient être ajoutés.</p>
 
                     </div>
@@ -267,12 +264,10 @@
                             <br />
                             </div>
                     </div>
-        </div>
-   
-            </section>
+                </div>
+
 
         </div>
-    </div>
     <!-- jQuery -->
 
     <!-- Bootstrap Core JavaScript -->
