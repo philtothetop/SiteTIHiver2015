@@ -7,10 +7,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Security.Cryptography;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class validation_courriel : Site
+    public partial class validation_courriel : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,19 +29,43 @@ namespace Site_de_la_Technique_Informatique.Inscription
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    String hashCodeId = Request.QueryString["id"].ToString();
-
-                    Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where GetSHA256Hash(cl.courriel + cl.dateInscription) == hashCodeId select cl).FirstOrDefault();
-
-                    //si l'etudiant existe et que sont courriel n'a pas été valider.
-                    if (etudiant != null && etudiant.valideCourriel == false)
+                    
+                    
+                    if (Request.QueryString["id"] != null && Request.QueryString["code"] != null)
                     {
-                        etudiant.valideCourriel = true;
-                        leContext.SaveChanges();
+
+
+                        String courriel = Request.QueryString["id"].ToString();
+                        String hash = Request.QueryString["code"].ToString();
+
+                        List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.courriel.Equals(courriel) && cl.valideCourriel==false select cl).ToList();
+
+                        if (etudiantList != null && etudiantList.Count()>0)
+                        {
+
+
+                            foreach (var etudiant in etudiantList)
+                            {
+                                String etudiantHash=GetSHA256Hash(etudiant.dateInscription.ToString());
+                                if (etudiantHash.Equals(hash))
+                                {
+
+                                        etudiant.valideCourriel = true;
+                                        leContext.SaveChanges();
+                                        break;
+                                    
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Response.Redirect("Inscription.aspx",false);
+                        }
+
                     }
-                    else if (etudiant == null)
+                    else
                     {
-                        Response.Redirect("Inscription.aspx");
+                        Response.Redirect("Inscription.aspx", false);
                     }
                 }
             }
@@ -48,6 +73,21 @@ namespace Site_de_la_Technique_Informatique.Inscription
             {
 
             }
+        }
+        //pour hasher le mot de passe
+        public string GetSHA256Hash(string s)
+        {
+
+            if (string.IsNullOrEmpty(s))
+            {
+                throw new ArgumentException("Une valeur nulle ne peut être hashée.");
+            }
+
+
+            Byte[] data = System.Text.Encoding.UTF8.GetBytes(s);
+            Byte[] hash = new SHA256CryptoServiceProvider().ComputeHash(data);
+            string hashMdp = Convert.ToBase64String(hash);
+            return hashMdp;
         }
     }
 }
