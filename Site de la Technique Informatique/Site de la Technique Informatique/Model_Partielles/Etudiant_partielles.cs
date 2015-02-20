@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace Site_de_la_Technique_Informatique.Model
 {
-    public partial class Etudiant
+    public partial class Etudiant : Membre
     {
     }
     [MetadataType(typeof(EtudiantValidation))]
@@ -22,11 +22,12 @@ namespace Site_de_la_Technique_Informatique.Model
         }
     }
 }
-public partial class EtudiantValidation
+public partial class EtudiantValidation 
 {
     [DisplayName("Date de naissance"), Required(ErrorMessage = "La date de naissance du membre est requis.")]
     [dateNassianceValidation(ErrorMessage = "La date de naissance n'est pas valide.")]
     public System.DateTime dateNaissance { get; set; }
+    public bool valideCourriel { get; set; }
 
 }
 // Cette classe permet de comparer la date de naissance avec une date vide
