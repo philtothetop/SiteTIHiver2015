@@ -108,7 +108,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="full-width.html">S'inscrire en tant qu'étudiant</a>
+                                    <a href="Inscription\Inscription.aspx">S'inscrire en tant qu'étudiant</a>
                                 </li>
                                 <li>
                                     <a href="sidebar.html">S'inscrire en tant que professeur</a>
@@ -190,10 +190,9 @@
         <br />
         <br />
         <!--Section provenant des pages-->
-        <div>
+        <div style="word-wrap:break-word;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
-                <div style="word-wrap:break-word;"></div>
-
+               
             </asp:ContentPlaceHolder>
         </div>
 
