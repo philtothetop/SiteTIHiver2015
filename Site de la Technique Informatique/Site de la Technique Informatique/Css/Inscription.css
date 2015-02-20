@@ -19,3 +19,12 @@
     padding:5px;
     border-radius:3px;
 }
+.iFrame{
+    width:800px;
+    height:900px;
+    border:0px;
+    
+}
+.modal-cropper{
+    width:830px;
+}

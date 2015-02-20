@@ -65,17 +65,8 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Inscription\cropper.aspx" />
-    <Content Include="Inscription\cropper.css" />
-    <Content Include="Inscription\cropper.js" />
-    <Content Include="Inscription\css\bootstrap.min.css" />
-    <Content Include="Inscription\css\cropper.css" />
-    <Content Include="Inscription\css\docs.css" />
-    <Content Include="Inscription\img\picture-1.jpg" />
-    <Content Include="Inscription\img\picture-2.jpg" />
-    <Content Include="Inscription\js\bootstrap.min.js" />
-    <Content Include="Inscription\js\docs.js" />
-    <Content Include="Inscription\js\jquery.min.js" />
+    <Content Include="Inscription\Inscription.aspx" />
+    <Content Include="Inscription\Inscription-valide.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -87,7 +78,6 @@
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\jquery.easing.min.js" />
@@ -164,12 +154,19 @@
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inscription\cropper.aspx.cs">
-      <DependentUpon>cropper.aspx</DependentUpon>
+    <Compile Include="Inscription\Inscription.aspx.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inscription\cropper.aspx.designer.cs">
-      <DependentUpon>cropper.aspx</DependentUpon>
+    <Compile Include="Inscription\Inscription.aspx.designer.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Inscription-valide.aspx.cs">
+      <DependentUpon>Inscription-valide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
+      <DependentUpon>Inscription-valide.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -274,13 +271,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Inscription\Inscription.aspx.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.designer.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Log.aspx.cs">
       <DependentUpon>Log.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -289,6 +279,7 @@
       <DependentUpon>Log.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
+    <Compile Include="Model_Partielles\Membre_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
