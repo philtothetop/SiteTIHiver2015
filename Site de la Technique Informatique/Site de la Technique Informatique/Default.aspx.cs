@@ -16,8 +16,6 @@ namespace Site_de_la_Technique_Informatique
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     List<Evenement> listEvents = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == today.Month && cl.dateDebutEvenement.Year == today.Year) select cl).ToList();
@@ -26,12 +24,6 @@ namespace Site_de_la_Technique_Informatique
                         CalendrierEvents.SelectedDates.Add(UnEvent.dateDebutEvenement);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidOperationException("Erreur dans le chargement des événements du calendrier ", ex);
-            }
-
         }
         protected void CalendrierEvents_SelectionChanged(object sender, EventArgs e)
         {

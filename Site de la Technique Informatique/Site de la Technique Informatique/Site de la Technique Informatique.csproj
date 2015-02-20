@@ -64,11 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Concepteur.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Inscription\cropper.aspx" />
-    <Content Include="Inscription\cropper.css" />
-    <Content Include="Inscription\cropper.js" />
     <Content Include="Inscription\css\bootstrap.min.css" />
     <Content Include="Inscription\css\cropper.css" />
     <Content Include="Inscription\css\docs.css" />
@@ -165,6 +163,13 @@
     <Compile Include="Concepteur.aspx.designer.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,13 +183,6 @@
     </Compile>
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\cropper.aspx.cs">
-      <DependentUpon>cropper.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\cropper.aspx.designer.cs">
-      <DependentUpon>cropper.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
