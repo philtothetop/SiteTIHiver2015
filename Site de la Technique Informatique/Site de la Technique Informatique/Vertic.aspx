@@ -65,7 +65,7 @@
 
                         <p><b>Pour les étudiants</b> qui ne désirent pas faire partie des achats regroupés, vous devrez avoir un portable performant ayant des caractéristiques similaires. De plus, nous suggérons l’achat d’une garantie de 3 ans, durée minimale de notre programme et l'achat du sac de transport. Il est également important d’acquérir quelques accessoires :</p>
 
-                        
+
                         <b>Caractéristiques</b>
                         <br />
                         <div class="row">
@@ -75,7 +75,7 @@
                           </asp:TextBox>
                             </div>
                             <div class="col-lg-4">
-                              
+
                                 <asp:Button ID="btnModifierPortable" runat="server" Text="Modifier" OnClick="btnModifierPortable_Click" />
                                 <asp:Button ID="btnConfirmerPortable" runat="server" Text="Confirmer" Visible="false" />
                                 <asp:Button ID="btnAnnulerPortable" runat="server" Text="Annuler" Visible="false" />
@@ -99,57 +99,64 @@
 
 
             <section id="echeancier" class="echeancier-section">
-                    <div class="row">
-                        <h3>Les dates à retenir</h3>
+                <div class="row">
+                    <h3>Les dates à retenir</h3>
 
-                        <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
+                    <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
 
-                    </div>
-                    <div class="row">
-                        <asp:Button ID="btnAjouterEvenement" runat="server" Text="Ajouter." />
+                </div>
+                <div class="row">
+                    <asp:Button ID="btnAjouterEvenement" runat="server" Text="Ajouter." />
 
-                    </div>
-                    <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC" SelectMethod="lvEcheancier_GetData">
-                        <LayoutTemplate>
-                            <div class="row" style="background-color: #eee; border-bottom: 1px solid black; border-radius: 3px;">
-                                <div class="col-lg-8" style="border-right: 1px solid black;">
-                                    <h4>Événement</h4>
-                                </div>
-                                <div id="topDate" class="col-lg-4">
-                                    <h4>Date</h4>
-                                </div>
-
+                </div>
+                <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC" SelectMethod="lvEcheancier_GetData">
+                    <LayoutTemplate>
+                        <div class="row" style="background-color:#eee;border-bottom:1px solid black; border-radius:3px;">
+                            <div class="col-lg-8" style=" border-right:1px solid black;">
+                                <h4>Événement</h4>
                             </div>
+                            <div id="topDate" class="col-lg-4" style=" ">
+                                <h4>Date</h4>
+                            </div>
+                            
+                    </div>
                             <div>
-                                <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
+                         <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                             </div>
-                        </LayoutTemplate>
-                        <AlternatingItemTemplate>
-                            <div class="row" style="background-color: #eee; height: 40px; border-radius: 3px;">
-                                <div class="divUpdateEvent" style="float: left">
-                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" /><br />
-                                    <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" />
+                    </LayoutTemplate>
+                     <ItemTemplate>
+                        <div class="row" style="min-height:50px; height:auto; position:relative ">
+                            <div class="divUpdateEvent" style="float:left; "  >
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="true" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="true" />
                                 </div>
-                                <div class="col-lg-8" style="border-right: 1px solid black; margin: auto; padding-top: 10px; padding-bottom: 10px">
-
-                                    <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' />
+                            <div class="col-lg-4" style=" min-height:50px; height:100%; padding-top:10px; padding-bottom:10px;float:right; position:inherit ">
+                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
                                 </div>
-                                <div class="col-lg-4" style="padding-top: 10px; padding-bottom: 10px">
-                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
-                                </div>
-
-                            </div>
-                        </AlternatingItemTemplate>
-                        <ItemTemplate>
-                            <div class="row" style="height: 40px;">
-                                <div class="col-lg-8" style="border-right: 1px solid black; padding-top: 10px; padding-bottom: 10px">
-                                    <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' />
-                                </div>
-                                <div class="col-lg-4" style="padding-top: 10px; padding-bottom: 10px">
-                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
-                                </div>
+                            <div style="float:right; border-right:1px solid black; margin:auto;  padding-top:10px; min-height:50px; width:63%;  ">
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' style="width:450px; word-wrap:break-word ; height:auto"   />
+                              </div>
+                                
                             </div>
                         </ItemTemplate>
+                    <AlternatingItemTemplate>
+                         <div class="row"  style="background-color:#eee; height:50px; border-radius:3px; " >
+                         <div class="divUpdateEvent" style="float:left; "  >
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="true" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="true" />
+                              </div>
+                             <div class="col-lg-4" style="padding-top:10px; min-height:50px; height:auto; padding-bottom:10px; float:right;" >
+                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
+                                </div>
+                            <div  style="border-right:1px solid black; margin:auto; padding-top:10px; float:right; width:63%; min-height:50px; ">
+                                
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' />
+                              </div>
+                             
+                             
+                            </div>
+                    </AlternatingItemTemplate>
+                   
                     </asp:ListView>
             </section>
 
@@ -189,7 +196,7 @@
                 </div>
             </section>
 
-            <section id="financement" class="financement-section">
+           <section id="financement" class="financement-section">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Financement</h3>
@@ -213,43 +220,43 @@
                         <div class="col-lg-offset-1 col-lg-10 col-lg-offset-1">
                             <table id="tableFinancement" style="border: solid 1px;">
                                 <tr style="text-align: center">
-                                    <td></td>
+                                <td></td>
                                     <td style="width: 30%">Programme Achat informatique du MEQ
-                                    </td>
+                                </td>
                                     <td style="width: 30%">Marge de crédit Avantage étudiant Desjardins
-                                    </td>
+                                </td>
                                     <td style="width: 30%">Financement Accord D Desjardins
-                                    </td>
-                                </tr>
-                                <tr>
+                                </td>
+                            </tr>
+                            <tr>
                                     <td style="text-align: center;">Éligibilité</td>
                                     <td style="width: 30%">Être éligible aux prêts et bourses selon les critères du MEQ pour l'année d'attribution concernée.
 
                                     Vous n'avez jamais bénéficié d'une aide accordée par l'Aide financière aux études pour l'achat d'un micro-ordinateur ou de matériel informatique.</td>
                                     <td style="width: 30%">Selon le dossier financier de l'étudiant ou à l'aide d'un cosignataire, être citoyen canadien et être inscrit au programme d'informatique</td>
                                     <td style="width: 30%">Selon le dossier financier de l'étudiant ou à l'aide d'un cosignataire, être citoyen canadien et être inscrit au programme d'informatique</td>
-                                </tr>
-                                <tr>
+                            </tr>
+                            <tr>
                                     <td style="text-align: center">Plafond de prêt</td>
                                     <td style="width: 30%">3 000 $</td>
                                     <td style="width: 30%">6 000 $</td>
                                     <td style="width: 30%">5 000 $</td>
-                                </tr>
-                                <tr>
+                            </tr>
+                            <tr>
                                     <td style="text-align: center">Temps de traitement</td>
                                     <td style="width: 30%">Entre 4 et 6 semaines</td>
                                     <td style="width: 30%">1-2 jours</td>
                                     <td style="width: 30%">1-2 jours</td>
-                                </tr>
-                                <tr>
+                            </tr>
+                            <tr>
                                     <td style="text-align: center">Modalités</td>
                                     <td style="width: 30%">Taux variable : 1% de plus que le taux préférentiel
                                     Taux révisé annuellement</td>
                                     <td style="width: 30%">Taux variable = taux de base personnel + 0,5%
                                     Taux révisé aux trois mois</td>
                                     <td style="width: 30%">Taux fixe de 8,9% sur un terme de 36 mois</td>
-                                </tr>
-                                <tr>
+                            </tr>
+                            <tr>
                                     <td style="text-align: center">Remboursement</td>
                                     <td style="width: 30%">Vous n'avez pas à payer d'intérêts sur le montant du prêt supplémentaire pendant toute la durée de vos études à temps plein.
 
@@ -258,8 +265,8 @@
 
                                 Capital 6 mois après avoir quitté les études ou sur une base mensuelle pendant les études</td>
                                     <td style="width: 30%">Intérêts et capital remboursés sur une base mensuelle</td>
-                                </tr>
-                                <tr>
+                            </tr>
+                            <tr>
                                     <td style="text-align: center">Demande</td>
                                     <td style="width: 30%">Impression du formulaire 2017 sur le site AFE du MEQ
 
@@ -272,16 +279,16 @@
 
                                     Se présenter à une caisse populaire locale</td>
                                     <td style="width: 30%">Se présenter à une caisse populaire locale</td>
-                                </tr>
-                            </table>
+                            </tr>
+                        </table>
                             <br />
                             <ul>
                                 <li>
                                     <b>Aide financière aux études du MEQ</b>
                                     <br />
-                                    <a href="http://www.afe.gouv.qc.ca/">www.afe.gouv.qc.ca</a>
+			                            <a href="http://www.afe.gouv.qc.ca/">www.afe.gouv.qc.ca</a>
                                     <br />
-                                    <a href="http://www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique.asp">www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique</a>
+                                   <a href="http://www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique.asp">www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique</a>
                                 </li>
                                 <li>
                                     <b>Portail Génération 18-24 du Mouvement Desjardins (Avantage D)</b>
@@ -291,18 +298,18 @@
                                 </li>
                             </ul>
                             <br />
-                        </div>
+                            </div>
                     </div>
                 </div>
 
             </section>
             <section id="inscription" class="inscription-section">
-                <h3>Inscription à VerTIC</h3>
+                    <h3>Inscription à VerTIC</h3>
 
                 <p>... EXPLIQUER LA PROCÉDURE D'INSCRIPTION AU SITE ... </p>
-                <br />
-                <br />
-
+                    <br />
+                    <br />
+                    
 
             </section>
 
@@ -323,26 +330,26 @@
                     <p><b>Local : A-307 de 9H à 12H</b></p>
 
                     <ul>
-                        <li>Accueil</li>
-                        <li>Présentation des professeurs et des techniciens</li>
-                        <li>Installation et configuration du portable</li>
-                        <li>Pause : léger goûter accessible tout au long du camp</li>
-                    </ul>
+	                    <li>Accueil</li>
+	                    <li>Présentation des professeurs et des techniciens</li>
+	                    <li>Installation et configuration du portable</li>
+	                    <li>Pause : léger goûter accessible tout au long du camp</li>
+                    </ul> 
 
                     <p>Notez que les informations offertes lors du VerTICamp sont difficilement remplaçables par de la documentation papier. Il y va de votre meilleur intérêt d'y assister. Des renseignements supplémentaires sur cette journée, incluant l'horaire et le programme complet des activités, seront publiés sur le site Web vers le début du mois d'août. Nous vous demandons de faire l'impossible pour vous présenter au «VerTICamp». L'information qui y est véhiculée vous évitera de nombreux tracas. Nous vous demandons de nous prévenir si vous prévoyez être absent pour des raisons jugées exceptionnelles. Vous pouvez nous rejoindre par téléphone ou par courriel : </p>
 
                     <p>
                         Courriel: MDesAulniers
                 <br />
-                        Téléphone: (450) 372-6614 poste 1164<p>
+                    Téléphone: (450) 372-6614 poste 1164<p>
                 </div>
             </section>
 
         </div>
         </div>
-        <!-- jQuery -->
+    <!-- jQuery -->
 
-        <!-- Bootstrap Core JavaScript -->
+    <!-- Bootstrap Core JavaScript -->
 </asp:Content>
 
 

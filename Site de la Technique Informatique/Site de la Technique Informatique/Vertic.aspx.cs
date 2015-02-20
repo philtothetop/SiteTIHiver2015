@@ -13,7 +13,7 @@ namespace Site_de_la_Technique_Informatique
     public partial class Vertic : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {        
             HtmlControl body = Master.FindControl("pageBody") as HtmlControl;
             body.Attributes.Add("data-spy", "scroll");
             body.Attributes.Add("data-target", ".scrolltarget");
@@ -68,38 +68,38 @@ namespace Site_de_la_Technique_Informatique
 
                 libres = (from libre in lecontexte.VerTICSet select libre.descriptionLibre).FirstOrDefault();
             }
-
+            
 
             string caract = getCaracteristiquePortable();
             txtCaractPortatif.Text = caract;
             return libres;
         }
 
+      
 
-
-
-        public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
-        {
-            var listeEvenements = new List<DateEvenementVerTIC>();
+ 
+public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
+{
+    var listeEvenements = new List<DateEvenementVerTIC>();
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
-            {
-                listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
-            }
+    {
+        listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
+    }
 
-            if (listeEvenements.Count() == 0)
-            {
+    if (listeEvenements.Count() == 0)
+    {
+        
+        DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
+        eventTest.dateDescription = DateTime.Today;
+        eventTest.evenement = "Date de Test";
+        eventTest.IDDateEvenementVerTIC = 1;
+        listeEvenements.Add(eventTest);
 
-                DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
-                eventTest.dateDescription = DateTime.Today;
-                eventTest.evenement = "Date de Test";
-                eventTest.IDDateEvenementVerTIC = 1;
-                listeEvenements.Add(eventTest);
-
-                listeEvenements.Add(new DateEvenementVerTIC { dateDescription = DateTime.Today.AddDays(1), evenement = "dadadad" });
-
-            }
-            return listeEvenements.AsQueryable();
-        }
+        listeEvenements.Add(new DateEvenementVerTIC { dateDescription = DateTime.Today.AddDays(1), evenement = "dadadad" });
+        listeEvenements.Add(new DateEvenementVerTIC { dateDescription = DateTime.Today.AddDays(3), evenement = "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" });
+    }
+    return listeEvenements.AsQueryable();
+}
 
         protected void btnModifierPortable_Click(object sender, EventArgs e)
         {
