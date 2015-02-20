@@ -15,16 +15,14 @@ namespace Site_de_la_Technique_Informatique
 
         }
 
-        public IQueryable<OffreEmploi> getOffresEmploi()
+        public IQueryable<Model.OffreEmploi> getOffresEmploi()
         {
 
-            List<OffreEmploi> listeOffresEmploi = new List<OffreEmploi>();
-
-            
+            List<Model.OffreEmploi> listeOffresEmploi = new List<Model.OffreEmploi>();
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-               // listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiSet select offresEmploi).ToList();
+                listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiSet select offresEmploi).ToList();
             }
             return listeOffresEmploi.AsQueryable();
         }
