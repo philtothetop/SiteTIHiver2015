@@ -67,10 +67,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Concepteur.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Inscription\Inscription.aspx" />
-    <Content Include="Inscription\Inscription-valide.aspx" />
+    <Content Include="Inscription\css\bootstrap.min.css" />
+    <Content Include="Inscription\css\cropper.css" />
+    <Content Include="Inscription\css\docs.css" />
+    <Content Include="Inscription\img\picture-1.jpg" />
+    <Content Include="Inscription\img\picture-2.jpg" />
+    <Content Include="Inscription\js\bootstrap.min.js" />
+    <Content Include="Inscription\js\docs.js" />
+    <Content Include="Inscription\js\jquery.min.js" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -82,6 +90,7 @@
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\jquery.easing.min.js" />
@@ -92,20 +101,27 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
+    <Content Include="Photos\Baron.JPG" />
+    <Content Include="Photos\Bibeau.JPG" />
+    <Content Include="Photos\Cedric.JPG" />
     <Content Include="Photos\entete.jpg" />
+    <Content Include="Photos\Francis.JPG" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\image2.jpg" />
     <Content Include="Photos\image3.jpg" />
     <Content Include="Photos\image4.jpg" />
     <Content Include="Photos\image5.jpg" />
     <Content Include="Photos\image6.jpg" />
+    <Content Include="Photos\Jacob.JPG" />
     <Content Include="Photos\logo\Logo_Informatique.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
     <Content Include="Photos\logoCegep.png" />
+    <Content Include="Photos\Marie.JPG" />
     <Content Include="Photos\quiSommesNous.JPG" />
+    <Content Include="Photos\Xavier.JPG" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
@@ -144,6 +160,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concepteur.aspx.cs">
+      <DependentUpon>Concepteur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Concepteur.aspx.designer.cs">
+      <DependentUpon>Concepteur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -157,20 +187,6 @@
     </Compile>
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.designer.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription-valide.aspx.cs">
-      <DependentUpon>Inscription-valide.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
-      <DependentUpon>Inscription-valide.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -275,6 +291,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Inscription\Inscription.aspx.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription.aspx.designer.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Log.aspx.cs">
       <DependentUpon>Log.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -283,7 +306,6 @@
       <DependentUpon>Log.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
-    <Compile Include="Model_Partielles\Membre_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>

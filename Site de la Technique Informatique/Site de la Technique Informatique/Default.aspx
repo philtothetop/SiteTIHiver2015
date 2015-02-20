@@ -185,7 +185,7 @@
         <hr />
 
         <div class="col-lg-12">
-            <div class="col-lg-4">           
+            <div class="col-lg-4">
                 <asp:Calendar ID="CalendrierEvents" runat="server" BackColor="#ECEEF0" BorderColor="Black" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px"
                     ToolTip="Événements du mois" OnSelectionChanged="CalendrierEvents_SelectionChanged" Caption="Calendrier" >
                     <DayHeaderStyle Font-Bold="True" Font-Size="10pt" HorizontalAlign="Right" />
@@ -201,7 +201,7 @@
                 <h2>Événements</h2>
                 <br />
                 <asp:ListView runat="server" ID="lviewEvents" 
-                    ItemType="Site_de_la_Technique_Informatique.Model.EvenementJeu"
+                    ItemType="Site_de_la_Technique_Informatique.Model.Evenement"
                     SelectMethod="lviewEvents_GetData">
 
                     <EmptyDataTemplate>

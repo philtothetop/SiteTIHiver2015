@@ -12,19 +12,20 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Courriel"] == null)
+            {
+                Response.Redirect("~/Default.aspx", false);
+            } 
         }
 
-        public IQueryable<OffreEmploi> getOffresEmploi()
+        public IQueryable<Model.OffreEmploi> getOffresEmploi()
         {
 
-            List<OffreEmploi> listeOffresEmploi = new List<OffreEmploi>();
-
-            
+            List<Model.OffreEmploi> listeOffresEmploi = new List<Model.OffreEmploi>();
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-               // listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiSet select offresEmploi).ToList();
+                listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiSet select offresEmploi).ToList();
             }
             return listeOffresEmploi.AsQueryable();
         }
@@ -48,7 +49,9 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lnkOffre_Click(object sender, EventArgs e)
         {
-
+            LinkButton lnkOffre = (LinkButton)sender;
+            Session["IDOffreEmploi"] = lnkOffre.CommandArgument;
+            Response.Redirect("~/OffreEmploi.aspx", false);
         }
 
     }

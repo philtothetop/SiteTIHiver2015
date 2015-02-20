@@ -64,86 +64,26 @@
                             <b>Caractéristiques</b>
                             <br />
 
-                            <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
+                            <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:599px;min-width:500px;" Enabled="False">
 
                           </asp:TextBox>
 
 
-
+                        <br />
+                        <br />
                             <b>AUTRES:</b>
                         <br />
 
 
-                        <asp:TextBox ID="txtAutres" runat="server" Text="" TextMode="MultiLine" Height="150px" Width="500px" Enabled="False">
+                        <asp:TextBox ID="txtAutres" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:599px;min-width:500px;" Enabled="False">
 
                           </asp:TextBox>
 
                         </div>
                     </div>
             </section>
-
-            <!-- Services Section -->
-            <%--     <section id="echeancier" class="echeancier-section">
-                <div class="row">
-                    <div class="col-lg-12">
-
-                        <div class="col-lg-12">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Évènement</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mercredi 4 février 2015 de 18h à 20h</td>
-                                        <td>Portes ouvertes du Cégep de Granby</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Avril 2015</td>
-                                        <td>Envoi postal du dépliant d'information VerTIC aux étudiants admis pour la session d’automne 2015</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p><b>Avril 2015</b> de 18h30 à 20h (date à déterminer)</p>
-                                            <p>Local A-307</p>
-                                            <p>Rencontre d'informations avec les parents, les étudiants admis et le représentant de la compagnie Dell (pour les achats regroupés de portables)</p>
-                                        </td>
-                                        <td>
-                                            <p>Information sur le programme, les cours, le marché de l'emploi.</p>
-
-                                            <p>Rencontre avec le représentant Dell. Proposition d'achats regroupés de portables pour les étudiants</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p><b>Août 2015 19h</b> (un courriel sera envoyé à chaque étudiant)</p>
-                                            <p>Livraison du portable... entente faite avec la compagnie Dell et son représentant Anthony Blais</p>
-                                        </td>
-                                        <td>
-                                            <p>Pour les achats regroupés, livraison du portable par le représentant Dell</p>
-
-                                            <p>Pour les autres étudiants, date limite à laquelle vous devez posséder votre portable VerTIC afin de s'assurer de l'avoir en main pour le VerTICamp et pour la première journée de cours</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p><b>21 Août 2015 de 9h à 12h au A307</b></p>
-                                            <p>(vendredi précédant le début des cours)</p>
-                                            <p>Le matériel nécessaire: votre portable, câble réseau, carte étudiante</p>
-                                            <p><b>ACTIVITÉ OBLIGATOIRE POUR TOUS</b></p>
-                                        </td>
-                                        <td>VerTICamp
-                                            Accueil, configuration, installation et activité de formation.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </section>--%>
-            <section id="echeancier" class="echeancier-section">
+          
+          <%--  <section id="echeancier" class="echeancier-section">
                 <div class="row">
                     <h3>Les dates à retenir</h3>
 
@@ -178,7 +118,7 @@
                     </asp:ListView>
 
                     
-            </section>
+            </section>--%>
 
             <!-- Logiciel Section -->
             <section id="logiciel" class="logiciel-section">
@@ -206,6 +146,7 @@
         </div>
    
 
+        </div>
     <!-- jQuery -->
 
     <!-- Bootstrap Core JavaScript -->
