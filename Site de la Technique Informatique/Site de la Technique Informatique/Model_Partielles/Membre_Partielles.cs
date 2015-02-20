@@ -38,7 +38,7 @@ public partial class MembreValidation
     public string courriel { get; set; }
     [DisplayName("Mot de passe"),Required(ErrorMessage = "Un mot de passe est requis.")]
     [StringLengthRange(Minimum = 4, ErrorMessage = "Le mot de passe doit avoir au minimu 4 caractères.")]
-    public string hashMotDepasse { get; set; }
+    public string hashMotDePasse { get; set; }
 }
 public class StringLengthRangeAttribute : ValidationAttribute
 {

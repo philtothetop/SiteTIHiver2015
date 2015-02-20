@@ -3,13 +3,44 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <link rel="stylesheet" href="../Css/Inscription.css" />
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="cropper.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="cropper.css" rel="stylesheet"/>
+    <link href="css/docs.css" rel="stylesheet"/>
+   
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--Afficher les erreurs des input-->
+            <script lang="JavaScript" type="text/javascript">
+                $(document).ready(function () {
+                    $(".has-error").removeClass("has-error");
 
+                    var idValue = '<%=this.lviewFormulaireInscription.ClientID%>';
+                var IDS = JSON.parse('<%= this.idsEnErreurTab%>');
+                var MSGS = '<%= this.msgsEnErreur%>';
+
+                for (index = 0; index < IDS.length; ++index) {
+                    var id = IDS[index];
+                    var msg = MSGS[index];
+                    if (id != "DateNaissance") {
+                        var element = idValue + "_txt" + id + "_0";
+
+                        $("#" + element).addClass("has-error");
+
+                    } else {
+                        $("#" + idValue + "_DateNaissanceJour").addClass("has-error");
+                        $("#" + idValue + "_DateNaissanceMois").addClass("has-error");
+                        $("#" + idValue + "_DateNaissanceAnnee").addClass("has-error");
+                    }
+                    //var pan = PANN[index];
+                    //$("#" + id).addClass("erreur");
+                    //$("#" + id).prop("title", msg);
+                    //$("#" + pan).addClass("erreur");
+                }
+
+            });
+        </script>
     <div class="container">
         <div class="row row-centered">
             <div class="col-lg-5 col-centered">
@@ -30,12 +61,14 @@
                             <div class="controls">
                                 <label>Prénom:</label>
                                 <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" />
+                                <asp:Label ID="lblPrenom" runat="server" Text="" />
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Nom:</label>
                                 <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" />
+                                <asp:Label ID="lblNom" runat="server" Text="" />
                             </div>
                         </div>
                         <div class="control-group form-group">
@@ -51,6 +84,7 @@
                                     <div class="col-xs-3">
                                         <asp:TextBox ID="txtDateNaissanceAnnee" runat="server" CssClass="form-control" placeholder="AAAA" />
                                     </div>
+                                    <asp:Label ID="lblDateNaissance" runat="server" Text="" />
                                 </div>
                             </div>
                         </div>
@@ -58,18 +92,21 @@
                             <div class="controls">
                                 <label>Courriel:</label>
                                 <asp:TextBox ID="txtCourriel" runat="server" CssClass="form-control" placeholder="courriel@exemple.qc.ca" Text='<%#BindItem.courriel %>' Font-Names="email" />
+                                <asp:Label ID="lblCourriel" runat="server" Text="" />
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Mot de passe:</label>
                                 <asp:TextBox ID="txtMotDePasse" runat="server" TextMode="password" CssClass="form-control" Text='<%#BindItem.hashMotDePasse %>' />
+                                <asp:Label ID="lblMotDePasse" runat="server" Text="" />
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Confirmation du mot de passe:</label>
                                 <asp:TextBox ID="txtConfirmationMotDePasse" runat="server" TextMode="password" CssClass="form-control" />
+                                
                             </div>
 
                         </div>
@@ -79,7 +116,7 @@
                                 <div class="control-group form-group">
                                     <div class="controls">
                                         <asp:CheckBox ID="cbCondition" runat="server" OnCheckedChanged="cbCondition_CheckedChanged" AutoPostBack="true" />
-                                        <asp:LinkButton ID="lnkConditions" runat="server" Text="Conditions" data-toggle="modal" data-target="#mesConditions" />
+                                        <asp:LinkButton ID="lnkConditions" runat="server" Text="Termes et conditions" data-toggle="modal" data-target="#mesConditions" />
                                     </div>
 
                                 </div>

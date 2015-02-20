@@ -12,12 +12,25 @@ using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Net.Mail;
 using System.Web.UI.HtmlControls;
+using Newtonsoft.Json;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
     public partial class Inscription : System.Web.UI.Page
     {
+        //Recolte des erreurs des champs du formulaire.
+#region Js
+        String _idsEnErreurTab;
+        public String idsEnErreurTab
+        {
+            get { return _idsEnErreurTab; }
 
+            set { _idsEnErreurTab = value; }
+        }
+        public List<String> idsEnErreur = new List<string>();
+        public List<String> msgsEnErreur = new List<string>();
+        public List<String> panneauxEnErreur = new List<string>();
+#endregion
         protected void Page_Load()
         {
 
@@ -116,18 +129,18 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         foreach (var ValdationResult in resultatsValidation)
                         {
+
                             String input = ValdationResult.MemberNames.FirstOrDefault();
                             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
-                            if(input!="DateNaissance")
-                            { 
-                            TextBox txtError = (TextBox)lviewItem.FindControl("txt"+input);
-                            txtError.CssClass += " has-error";
-                            }
-                            else
-                            {
 
-                            }
+                            idsEnErreur.Add(input);
+                            msgsEnErreur.Add(ValdationResult.ErrorMessage);
+                            
+
+
                         }
+
+                        idsEnErreurTab = JsonConvert.SerializeObject(idsEnErreur);
                     }
                     else
                     {
@@ -138,12 +151,31 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                         etudiantACreerCopie.valideCourriel = false;
                         etudiantACreerCopie.compteActif = false;
+                        etudiantACreerCopie.pathCV = "";
 
                         leContext.UtilisateurSet.Add(etudiantACreerCopie);
                         leContext.SaveChanges();
 
                     }
                 }
+            }
+                //Catch les erreurs de différence de la bd et du model.
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting
+                        // the current instance as InnerException
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
             }
             catch (Exception ex)
             {
