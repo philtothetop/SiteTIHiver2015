@@ -63,6 +63,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Concepteur.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription\cropper.aspx" />
@@ -98,20 +99,27 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
+    <Content Include="Photos\Baron.JPG" />
+    <Content Include="Photos\Bibeau.JPG" />
+    <Content Include="Photos\Cedric.JPG" />
     <Content Include="Photos\entete.jpg" />
+    <Content Include="Photos\Francis.JPG" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\image2.jpg" />
     <Content Include="Photos\image3.jpg" />
     <Content Include="Photos\image4.jpg" />
     <Content Include="Photos\image5.jpg" />
     <Content Include="Photos\image6.jpg" />
+    <Content Include="Photos\Jacob.JPG" />
     <Content Include="Photos\logo\Logo_Informatique.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
     <Content Include="Photos\logoCegep.png" />
+    <Content Include="Photos\Marie.JPG" />
     <Content Include="Photos\quiSommesNous.JPG" />
+    <Content Include="Photos\Xavier.JPG" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
@@ -150,6 +158,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concepteur.aspx.cs">
+      <DependentUpon>Concepteur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Concepteur.aspx.designer.cs">
+      <DependentUpon>Concepteur.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

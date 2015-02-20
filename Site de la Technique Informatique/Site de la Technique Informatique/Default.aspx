@@ -200,7 +200,7 @@
             <div class="col-lg-8">
                 <h2>Événements</h2>
                 <br />
-                <asp:ListView runat="server" ID="lviewEvents" 
+               <%-- <asp:ListView runat="server" ID="lviewEvents" 
                     ItemType="Site_de_la_Technique_Informatique.Model.EvenementJeu"
                     SelectMethod="lviewEvents_GetData">
 
@@ -223,7 +223,7 @@
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
                     </LayoutTemplate>
 
-                </asp:ListView>
+                </asp:ListView>--%>
 
             </div>
         </div>
