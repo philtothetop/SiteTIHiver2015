@@ -16,6 +16,7 @@
 
                     <li role="presentation" class="active"><a href="#projet" class="list-group-item page-scroll">Projet VerTIC</a></li>
                     <li role="presentation"><a href="#portable" class="list-group-item page-scroll">Le portable VerTIC</a></li>
+                    <li role="presentation"><a href="#echeancier" class="list-group-item page-scroll">Échéancier</a></li>
                     <li role="presentation"><a href="#logiciel" class="list-group-item page-scroll">Les logiciels</a></li>
                     <li role="presentation"><a href="#garantie" class="list-group-item page-scroll">Garantie et assurance</a></li>
                     <li role="presentation"><a href="#financement" class="list-group-item page-scroll">Financement</a></li>
@@ -89,6 +90,7 @@
 
             <section id="echeancier" class="echeancier-section">
                 <div class="row">
+                <div class="row">
                     <h3>Les dates à retenir</h3>
 
                     <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
@@ -140,7 +142,7 @@
                             </div>
                         </ItemTemplate>
                     </asp:ListView>
-
+                </div>
                     
             </section>
 
@@ -180,7 +182,7 @@
                 </div>
             </section>
 
-            <section id="financement" class="financement-section">
+           <section id="financement" class="financement-section">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Financement</h3>
@@ -283,17 +285,17 @@
                             </ul>
                             <br />
                             </div>
-                            </div>
                     </div>
+                </div>
 
             </section>
-            <section id="inscription" class="inscription-section">
-                <div class="row" >
+            <section  id="inscription" class="inscription-section">
                     <h3>Inscription à VerTIC</h3>
 
-                      ... EXPLIQUER LA PROCÉDURE D'INSCRIPTION AU SITE ... 
+                     <p> ... EXPLIQUER LA PROCÉDURE D'INSCRIPTION AU SITE ... </p>
                     <br />
-                </div>
+                    <br />
+                    
 
             </section>
 
