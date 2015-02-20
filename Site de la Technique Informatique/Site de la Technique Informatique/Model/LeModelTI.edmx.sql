@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/13/2015 15:32:39
--- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
+-- Date Created: 02/20/2015 11:05:38
+-- Generated from EDMX file: C:\Users\Xavier\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,11 +17,140 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_UtilisateurLog]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LogSet] DROP CONSTRAINT [FK_UtilisateurLog];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EmployeurOffreEmploi]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OffreEmploiSet] DROP CONSTRAINT [FK_EmployeurOffreEmploi];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OffreEmploiVille]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OffreEmploiSet] DROP CONSTRAINT [FK_OffreEmploiVille];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurCours_Professeur]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfesseurCours] DROP CONSTRAINT [FK_ProfesseurCours_Professeur];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurCours_Cours]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ProfesseurCours] DROP CONSTRAINT [FK_ProfesseurCours_Cours];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurEvenement]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EvenementSet] DROP CONSTRAINT [FK_ProfesseurEvenement];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurParutionMedia]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ParutionMediaSet] DROP CONSTRAINT [FK_ProfesseurParutionMedia];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurFAQ]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[FAQSet] DROP CONSTRAINT [FK_ProfesseurFAQ];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ProfesseurNouvelle]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[NouvelleSet] DROP CONSTRAINT [FK_ProfesseurNouvelle];
+GO
+IF OBJECT_ID(N'[dbo].[FK_SectionForumEnteteForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EnteteForumSet] DROP CONSTRAINT [FK_SectionForumEnteteForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EnteteForumMessageForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MessageForumSet] DROP CONSTRAINT [FK_EnteteForumMessageForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_EnteteForumConsultationForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ConsultationForumSet] DROP CONSTRAINT [FK_EnteteForumConsultationForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MembreEnteteForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[EnteteForumSet] DROP CONSTRAINT [FK_MembreEnteteForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MembreConsultationForum_Membre]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MembreConsultationForum] DROP CONSTRAINT [FK_MembreConsultationForum_Membre];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MembreConsultationForum_ConsultationForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MembreConsultationForum] DROP CONSTRAINT [FK_MembreConsultationForum_ConsultationForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MembreMessageForum]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MessageForumSet] DROP CONSTRAINT [FK_MembreMessageForum];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Employeur_inherits_Utilisateur]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UtilisateurSet_Employeur] DROP CONSTRAINT [FK_Employeur_inherits_Utilisateur];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Membre_inherits_Utilisateur]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UtilisateurSet_Membre] DROP CONSTRAINT [FK_Membre_inherits_Utilisateur];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Professeur_inherits_Membre]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UtilisateurSet_Professeur] DROP CONSTRAINT [FK_Professeur_inherits_Membre];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Admin_inherits_Utilisateur]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UtilisateurSet_Admin] DROP CONSTRAINT [FK_Admin_inherits_Utilisateur];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Etudiant_inherits_Membre]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UtilisateurSet_Etudiant] DROP CONSTRAINT [FK_Etudiant_inherits_Membre];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[DateEvenementVerTICSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DateEvenementVerTICSet];
+GO
+IF OBJECT_ID(N'[dbo].[VerTICSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VerTICSet];
+GO
+IF OBJECT_ID(N'[dbo].[LogSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LogSet];
+GO
+IF OBJECT_ID(N'[dbo].[UtilisateurSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UtilisateurSet];
+GO
+IF OBJECT_ID(N'[dbo].[OffreEmploiSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[OffreEmploiSet];
+GO
+IF OBJECT_ID(N'[dbo].[VilleSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[VilleSet];
+GO
+IF OBJECT_ID(N'[dbo].[ConsultationForumSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ConsultationForumSet];
+GO
+IF OBJECT_ID(N'[dbo].[CoursSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CoursSet];
+GO
+IF OBJECT_ID(N'[dbo].[EvenementSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EvenementSet];
+GO
+IF OBJECT_ID(N'[dbo].[ParutionMediaSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ParutionMediaSet];
+GO
+IF OBJECT_ID(N'[dbo].[FAQSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[FAQSet];
+GO
+IF OBJECT_ID(N'[dbo].[NouvelleSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[NouvelleSet];
+GO
+IF OBJECT_ID(N'[dbo].[SectionForumSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[SectionForumSet];
+GO
+IF OBJECT_ID(N'[dbo].[EnteteForumSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[EnteteForumSet];
+GO
+IF OBJECT_ID(N'[dbo].[MessageForumSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MessageForumSet];
+GO
+IF OBJECT_ID(N'[dbo].[UtilisateurSet_Employeur]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UtilisateurSet_Employeur];
+GO
+IF OBJECT_ID(N'[dbo].[UtilisateurSet_Membre]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UtilisateurSet_Membre];
+GO
+IF OBJECT_ID(N'[dbo].[UtilisateurSet_Professeur]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UtilisateurSet_Professeur];
+GO
+IF OBJECT_ID(N'[dbo].[UtilisateurSet_Admin]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UtilisateurSet_Admin];
+GO
+IF OBJECT_ID(N'[dbo].[UtilisateurSet_Etudiant]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UtilisateurSet_Etudiant];
+GO
+IF OBJECT_ID(N'[dbo].[ProfesseurCours]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ProfesseurCours];
+GO
+IF OBJECT_ID(N'[dbo].[MembreConsultationForum]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MembreConsultationForum];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -30,7 +159,7 @@ GO
 -- Creating table 'DateEvenementVerTICSet'
 CREATE TABLE [dbo].[DateEvenementVerTICSet] (
     [IDDateEvenementVerTIC] int IDENTITY(1,1) NOT NULL,
-    [dateDescription] nvarchar(max)  NOT NULL,
+    [dateDescription] datetime  NOT NULL,
     [evenement] nvarchar(max)  NOT NULL
 );
 GO
@@ -72,7 +201,7 @@ CREATE TABLE [dbo].[OffreEmploiSet] (
     [dateOffre] datetime  NOT NULL,
     [dateExpiration] datetime  NULL,
     [dateDebutOffre] datetime  NOT NULL,
-    [pathPDSDescription] nvarchar(200)  NULL,
+    [pathPDFDescription] nvarchar(200)  NULL,
     [salaire] decimal(18,0)  NOT NULL,
     [nbHeureSemaine] smallint  NOT NULL,
     [adresseTravail] nvarchar(200)  NOT NULL,

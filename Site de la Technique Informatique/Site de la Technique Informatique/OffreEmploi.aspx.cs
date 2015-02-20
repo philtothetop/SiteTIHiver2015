@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Site_de_la_Technique_Informatique.Model;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -11,7 +12,44 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (Session["Courriel"] == null)
+            //{
+            //    Response.Redirect("~/Default.aspx", false);
+            //}
+            //else if (Session["IDOffreEmploi"] == null)
+            //{
+            //    Response.Redirect("~/ListeOffresEmploi.aspx", false);
+            //}
+        }
 
+        public Model.OffreEmploi getOffreEmploi()
+        {
+            Model.OffreEmploi offreEmploi;
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+
+                offreEmploi = (from offresEmploi in lecontexte.OffreEmploiSet 
+                               where offresEmploi.IDOffreEmploi == Int32.Parse(Session["IDOffreEmploi"].ToString()) 
+                               select offresEmploi).FirstOrDefault();
+            }
+
+            return offreEmploi;
+        }
+
+        protected void lviewOffreEmploi_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                Label lblheulblNbHeureSemaine = (Label)e.Item.FindControl("lblheulblNbHeureSemaine");
+                Label lblVille = (Label)e.Item.FindControl("lblVille");
+
+                int nbHeulblNbHeureSemaine = int.Parse(lviewOffreEmploi.DataKeys[e.Item.DisplayIndex].Values[1].ToString());
+                lblheulblNbHeureSemaine.Text = nbHeulblNbHeureSemaine + " heures par semaine";
+
+                int idVille = int.Parse(lviewOffreEmploi.DataKeys[e.Item.DisplayIndex].Values[0].ToString());
+                Ville ville = (from villes in lecontexte.VilleSet where villes.IDVille == idVille select villes).FirstOrDefault();
+                lblVille.Text = ville.nomVille;
+            }
         }
     }
 }
