@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <h1 style="margin-top: 80px;">Offre d'emploi</h1>
                 <div class="row">
-                    <asp:ListView ID="lviewOffresEmploi" runat="server" SelectMethod="getOffreEmploi" OnItemDataBound="lviewOffresEmploi_ItemDataBound"
+                    <asp:ListView ID="lviewOffreEmploi" runat="server" SelectMethod="getOffreEmploi" OnItemDataBound="lviewOffreEmploi_ItemDataBound"
                         DataKeyNames="VilleIDVille,nbHeureSemaine">
                         <ItemTemplate>
                             <h3>

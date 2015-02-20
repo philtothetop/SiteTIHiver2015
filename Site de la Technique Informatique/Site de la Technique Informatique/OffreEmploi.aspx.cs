@@ -12,7 +12,14 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Courriel"] == null)
+            {
+                Response.Redirect("~/Default.aspx", false);
+            }
+            else if (Session["IDOffreEmploi"] == null)
+            {
+                Response.Redirect("~/ListeOffresEmploi.aspx", false);
+            }
         }
 
         public Model.OffreEmploi getOffreEmploi()
@@ -29,18 +36,17 @@ namespace Site_de_la_Technique_Informatique
             return offreEmploi;
         }
 
-        protected void lviewOffresEmploi_ItemDataBound(object sender, ListViewItemEventArgs e)
+        protected void lviewOffreEmploi_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-
                 Label lblheulblNbHeureSemaine = (Label)e.Item.FindControl("lblheulblNbHeureSemaine");
                 Label lblVille = (Label)e.Item.FindControl("lblVille");
 
-                int nbHeulblNbHeureSemaine = int.Parse(lviewOffresEmploi.DataKeys[e.Item.DisplayIndex].Values[1].ToString());
+                int nbHeulblNbHeureSemaine = int.Parse(lviewOffreEmploi.DataKeys[e.Item.DisplayIndex].Values[1].ToString());
                 lblheulblNbHeureSemaine.Text = nbHeulblNbHeureSemaine + " heures par semaine";
 
-                int idVille = int.Parse(lviewOffresEmploi.DataKeys[e.Item.DisplayIndex].Values[0].ToString());
+                int idVille = int.Parse(lviewOffreEmploi.DataKeys[e.Item.DisplayIndex].Values[0].ToString());
                 Ville ville = (from villes in lecontexte.VilleSet where villes.IDVille == idVille select villes).FirstOrDefault();
                 lblVille.Text = ville.nomVille;
             }
