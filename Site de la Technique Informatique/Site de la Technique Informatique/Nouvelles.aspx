@@ -48,19 +48,30 @@
                             <div id="collapse<%# Item.IDNouvelle %>" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p><%# Item.dateNouvelle.ToLongDateString() %></p>
-                                    
+
                                     <p><%# Item.texteNouvelle %></p>
+
+                                    <asp:LinkButton ID="lnkEdit" runat="server" Text="Éditer" CommandArgument="<%# Item.IDNouvelle %>" OnCommand="lnkEdit_Command" Style="float: right; margin-right: 25px;"></asp:LinkButton>
                                 </div>
                             </div>
                         </div>
                     </ItemTemplate>
                 </asp:ListView>
-               
+
+                <asp:ListView ID="lviewNouvellesEdit" runat="server" Visible="false"
+                    ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
+                    SelectMethod="getNouvelleToEdit">
+                    <ItemTemplate>
+                        <div>
+                            <asp:TextBox runat="server" Text="<%# Item.dateNouvelle.ToLongDateString() %>"></asp:TextBox>
+                            <asp:TextBox runat="server" Text="<%# Item.texteNouvelle %>" TextMode="MultiLine"></asp:TextBox>
+                        </div>
+                    </ItemTemplate>
+                </asp:ListView>
             </div>
             <!-- /.row -->
             <hr />
         </div>
-        
     </div>
     <!-- /.container -->
 
