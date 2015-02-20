@@ -42,6 +42,10 @@
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -68,14 +72,7 @@
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Inscription\css\bootstrap.min.css" />
-    <Content Include="Inscription\css\cropper.css" />
-    <Content Include="Inscription\css\docs.css" />
-    <Content Include="Inscription\img\picture-1.jpg" />
-    <Content Include="Inscription\img\picture-2.jpg" />
-    <Content Include="Inscription\js\bootstrap.min.js" />
-    <Content Include="Inscription\js\docs.js" />
-    <Content Include="Inscription\js\jquery.min.js" />
+    <Content Include="Inscription\Inscription-valide.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -153,7 +150,6 @@
     <Content Include="Css\Global.css" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
-    <Content Include="Vertic.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +180,13 @@
     </Compile>
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Inscription-valide.aspx.cs">
+      <DependentUpon>Inscription-valide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
+      <DependentUpon>Inscription-valide.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -349,13 +352,6 @@
     </Compile>
     <Compile Include="InformationsStage.aspx.designer.cs">
       <DependentUpon>InformationsStage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vertic.aspx.cs">
-      <DependentUpon>Vertic.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vertic.aspx.designer.cs">
-      <DependentUpon>Vertic.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
