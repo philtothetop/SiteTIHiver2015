@@ -13,8 +13,7 @@ namespace Site_de_la_Technique_Informatique.Classes
     public partial class WebForm1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {        
-
+        {
             HtmlControl body = Master.FindControl("pageBody") as HtmlControl;
             body.Attributes.Add("data-spy", "scroll");
             body.Attributes.Add("data-target", ".scrolltarget");

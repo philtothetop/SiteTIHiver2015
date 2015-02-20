@@ -42,10 +42,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%#Item.IDNouvelle %>"><%# Item.titreNouvelle %></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><%# Item.titreNouvelle %></a>
                                 </h4>
                             </div>
-                            <div id="collapse<%#Item.IDNouvelle %>" class="panel-collapse collapse">
+                            <div id="collapseTwo" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p><%# Item.dateNouvelle.ToLongDateString() %></p>
                                     
