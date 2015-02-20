@@ -55,6 +55,26 @@ of those sections to manage the look and feel of the site. */
     background: #eee;
 }
 
+.echeancier-section{
+    height:100%;
+    padding-top:30px;
+    padding-bottom:10px;
+}
+.logiciel-section{
+     height:100%;
+    padding-top:30px;
+}
+.inscription-section {
+    height: 100%;
+    padding-top: 30px;
+    background: #fff;
+}
+.accueil-section {
+    height: 100%;
+    padding-top: 30px;
+    background: #eee;
+}
+
 .deux {
     background: #eee;
     padding-bottom:10px;
