@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 style="margin-top: 80px;">Liste des offres d'emploi</h1>
+                <h1>Liste des offres d'emploi</h1>
             </div>
         </div>
         <div class="row">
@@ -17,7 +17,7 @@
                     <asp:LinkButton ID="lnkOffre" CommandArgument='<%# Eval("IDOffreEmploi").ToString()%>' OnClick="lnkOffre_Click" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 80%">
                         <div class="row">
                             <div class="col-lg-4">
-                                <asp:Label ID="lblTitreOffre" Text='<%# Eval("titreOffre").ToString()%>' Font-Size="20" runat="server" Style="color: black; text-decoration: none; padding-left:20px"></asp:Label>
+                                <asp:Label ID="lblTitreOffre" Text='<%# Eval("titreOffre").ToString()%>' Font-Size="20" runat="server" Style="color: black; text-decoration: none; padding-left: 20px"></asp:Label>
                             </div>
                             <div class="col-lg-4">
                                 <asp:Label ID="lblVille" runat="server" Font-Size="14" Style="color: black; text-decoration: none"></asp:Label>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <asp:Label ID="lblDescriptionOffre" Text='<%# Eval("descriptionOffre").ToString()%>' runat="server" Font-Size="14" Style="color: black; text-decoration: none;padding-left:20px"></asp:Label>
+                                <asp:Label ID="lblDescriptionOffre" Text='<%# Eval("descriptionOffre").ToString()%>' runat="server" Font-Size="14" Style="color: black; text-decoration: none; padding-left: 20px"></asp:Label>
                             </div>
                         </div>
                     </asp:LinkButton>
