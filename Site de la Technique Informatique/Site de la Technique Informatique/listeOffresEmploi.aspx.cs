@@ -46,7 +46,9 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lnkOffre_Click(object sender, EventArgs e)
         {
-
+            LinkButton lnkOffre = (LinkButton)sender;
+            Session["IDOffreEmploi"] = lnkOffre.CommandArgument;
+            Response.Redirect("~/OffreEmploi.aspx", false);
         }
 
     }
