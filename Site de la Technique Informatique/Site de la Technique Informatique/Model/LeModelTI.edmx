@@ -118,7 +118,7 @@
       <PropertyRef Name="IDDateEvenementVerTIC" />
     </Key>
     <Property Name="IDDateEvenementVerTIC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dateDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dateDescription" Type="datetime" Nullable="false" />
     <Property Name="evenement" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="VerTICSet">
@@ -160,7 +160,7 @@
     <Property Name="dateOffre" Type="datetime" Nullable="false" />
     <Property Name="dateExpiration" Type="datetime" Nullable="true" />
     <Property Name="dateDebutOffre" Type="datetime" Nullable="false" />
-    <Property Name="pathPDSDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="pathPDFDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="salaire" Type="decimal" Nullable="false" />
     <Property Name="nbHeureSemaine" Type="smallint" Nullable="false" />
     <Property Name="adresseTravail" Type="nvarchar" Nullable="false" MaxLength="200" />
@@ -1134,7 +1134,7 @@
           <ScalarProperty Name="dateOffre" ColumnName="dateOffre" />
           <ScalarProperty Name="dateExpiration" ColumnName="dateExpiration" />
           <ScalarProperty Name="dateDebutOffre" ColumnName="dateDebutOffre" />
-          <ScalarProperty Name="pathPDFDescription" ColumnName="pathPDSDescription" />
+          <ScalarProperty Name="pathPDFDescription" ColumnName="pathPDFDescription" />
           <ScalarProperty Name="salaire" ColumnName="salaire" />
           <ScalarProperty Name="nbHeureSemaine" ColumnName="nbHeureSemaine" />
           <ScalarProperty Name="adresseTravail" ColumnName="adresseTravail" />

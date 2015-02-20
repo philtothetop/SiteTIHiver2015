@@ -14,7 +14,7 @@ namespace Site_de_la_Technique_Informatique
 		{
           
 		}
-       
+
         public IQueryable<Nouvelle> getNouvelles()
         {
             List<Nouvelle> listeNouvelle = new List<Nouvelle>();
@@ -24,6 +24,7 @@ namespace Site_de_la_Technique_Informatique
 
                 listeNouvelle = (from nouvelles in lecontexte.NouvelleSet select nouvelles).ToList();
             }
+
             return listeNouvelle.AsQueryable();
         }
 	}
