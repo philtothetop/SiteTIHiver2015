@@ -124,7 +124,7 @@
                             <div class="col-lg-4" style=" min-height:50px; height:100%; padding-top:10px; padding-bottom:10px;float:right; position:inherit ">
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
                                 </div>
-                            <div  style="float:right; border-right:1px solid black; margin:auto;  padding-top:10px; min-height:50px; width:63%;  ">
+                            <div style="float:right; border-right:1px solid black; margin:auto;  padding-top:10px; min-height:50px; width:63%;  ">
                                 <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' style="width:450px; word-wrap:break-word ; height:auto"   />
                               </div>
                             
@@ -133,15 +133,15 @@
                     <AlternatingItemTemplate>
                          <div class="row"  style="background-color:#eee; height:50px; border-radius:3px; " >
                          <div class="divUpdateEvent" style="float:left; "  >
-                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="false" /><br />
-                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="false" />
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="true" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="true" />
                                 </div>
                              <div class="col-lg-4" style="padding-top:10px; min-height:50px; height:auto; padding-bottom:10px; float:right;" >
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
                                 </div>
-                            <div  style="border-right:1px solid black; margin:auto; padding-top:10px; float:right;width:63%; min-height:50px; ">
+                            <div  style="border-right:1px solid black; margin:auto; padding-top:10px; float:right; width:63%; min-height:50px; ">
                                 
-                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  Width="20"/>
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' />
                               </div>
                             
                              
