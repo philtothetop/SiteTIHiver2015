@@ -195,10 +195,10 @@
         <!--Fin de la section provenant des pages-->
 
         <!-- Footer -->
-        <footer style="background-color:#222222; color:#9d9d9d;">
+        <footer style="text-align:center; background-color:#222222; color:#9d9d9d;">
             <br />
             <div class="row">
-                <div style="text-align:center;">
+                <div>
                     <p>Copyright &copy; Les merveilleux étudiants de 3ème année 2015</p>
                 </div>
             </div>
