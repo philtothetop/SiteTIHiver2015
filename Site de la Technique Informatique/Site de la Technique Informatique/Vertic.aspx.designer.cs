@@ -7,10 +7,10 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique.Classes {
+namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class WebForm1 {
+    public partial class Vertic {
         
         /// <summary>
         /// Contrôle txtCaractPortatif.
@@ -29,6 +29,24 @@ namespace Site_de_la_Technique_Informatique.Classes {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAutres;
+        
+        /// <summary>
+        /// Contrôle btnAjouterEvenement.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAjouterEvenement;
+        
+        /// <summary>
+        /// Contrôle lviewEcheancier.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lviewEcheancier;
         
         /// <summary>
         /// Contrôle txtLogicielLicenses.
