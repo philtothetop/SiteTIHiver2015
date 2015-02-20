@@ -12,10 +12,10 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Courriel"] == null)
-            {
-                Response.Redirect("~/Default.aspx", false);
-            } 
+            //if (Session["Courriel"] == null)
+            //{
+            //    Response.Redirect("~/Default.aspx", false);
+            //} 
         }
 
         public IQueryable<Model.OffreEmploi> getOffresEmploi()
@@ -35,11 +35,11 @@ namespace Site_de_la_Technique_Informatique
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-                Label lblheulblNbHeureSemaine = (Label)e.Item.FindControl("lblheulblNbHeureSemaine");
+                Label lblNbHeureSemaine = (Label)e.Item.FindControl("lblNbHeureSemaine");
                 Label lblVille = (Label)e.Item.FindControl("lblVille");
 
                 int nbHeulblNbHeureSemaine = int.Parse(lviewOffresEmploi.DataKeys[e.Item.DisplayIndex].Values[1].ToString());
-                lblheulblNbHeureSemaine.Text = nbHeulblNbHeureSemaine + " heures par semaine";
+                lblNbHeureSemaine.Text = nbHeulblNbHeureSemaine + " heures par semaine";
 
                 int idVille = int.Parse(lviewOffresEmploi.DataKeys[e.Item.DisplayIndex].Values[0].ToString());
                 Ville ville = (from villes in lecontexte.VilleSet where villes.IDVille == idVille select villes).FirstOrDefault();
