@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : Site
+    public partial class Inscription : System.Web.UI.Page
     {
         //Recolte des erreurs des champs du formulaire.
 #region Js
@@ -35,7 +35,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         {
             if(Session["Utilisateur"]!=null)
             {
-                Response.Redirect("../Default.aspx");
+                Response.Redirect("../Default.aspx",false);
             }
         }
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
@@ -158,8 +158,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                         leContext.UtilisateurSet.Add(etudiantACreerCopie);
                         leContext.SaveChanges();
-                        envoie_courriel_confirmation(etudiantACreerCopie);
-                        Response.Redirect("");
+                        envoie_courriel_confirmation(etudiantACreerCopie); 
+                        String hashCourriel=GetSHA256Hash(etudiantACreerCopie.dateInscription.ToString());
+
+                        Response.Redirect("Inscription_message.aspx", false);
                     }
                 }
             }
@@ -212,6 +214,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 CheckBox cbCondition = (CheckBox)lviewItem.FindControl("cbCondition");
                 cbCondition.Checked = true;
                 activer_bouton_Accepter();
+
             }
             catch (Exception ex)
             {
@@ -259,16 +262,17 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                 //Hash code du courriel et de la date de création du compte, au cas ou le courriel est déja dans la bd.
                 //Exemple: Deux futures étudiants de la même famille s'inscritent avec le même courriel.
-                courriel.Body = "Bla bla bla" + etudiant.prenom + " " + etudiant.nom + "Valider votre courriel :" + GetSHA256Hash(etudiant.courriel + etudiant.dateInscription);
-
+                courriel.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Valider votre courriel :"+"cegepgranby.qc.ca?id="+etudiant.courriel+"&code=" + GetSHA256Hash( etudiant.dateInscription.ToString());
+                String testHash="?id="+etudiant.courriel+"&code=" + GetSHA256Hash( etudiant.dateInscription.ToString());
                 smtpClient.Port = 587;
                 smtpClient.Host = "smtp.gmail.com";
                 smtpClient.EnableSsl = true;
                 smtpClient.Send(courriel);
+
             }
             catch (Exception ex)
             {
-
+         
             }
         }
         //pour hasher le mot de passe
