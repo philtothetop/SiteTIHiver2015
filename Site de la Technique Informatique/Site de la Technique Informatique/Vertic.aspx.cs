@@ -8,9 +8,9 @@ using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 
 
-namespace Site_de_la_Technique_Informatique.Classes
+namespace Site_de_la_Technique_Informatique
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class Vertic : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -81,18 +81,22 @@ namespace Site_de_la_Technique_Informatique.Classes
 public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
 {
     var listeEvenements = new List<DateEvenementVerTIC>();
-    using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+    using ( LeModelTIContainer lecontexte = new LeModelTIContainer() )
     {
         listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
     }
 
     if (listeEvenements.Count() == 0)
     {
+        
         DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
-        eventTest.dateDescription = "14 février 2014";
+        eventTest.dateDescription = DateTime.Today;
         eventTest.evenement = "Date de Test";
         eventTest.IDDateEvenementVerTIC = 1;
         listeEvenements.Add(eventTest);
+
+        listeEvenements.Add(new DateEvenementVerTIC { dateDescription = DateTime.Today.AddDays(1), evenement = "dadadad" });
+
     }
     return listeEvenements.AsQueryable();
 }
