@@ -10,6 +10,6 @@
 namespace Site_de_la_Technique_Informatique.Inscription {
     
     
-    public partial class cropper {
+    public partial class validation_courriel {
     }
 }

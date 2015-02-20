@@ -10,12 +10,15 @@ using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
+using System.Net.Mail;
+using System.Web.UI.HtmlControls;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : Site
+    public partial class Inscription : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+
+        protected void Page_Load()
         {
 
         }
@@ -23,18 +26,18 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Écrit par Cédric Archambault 17 février 2015
         //Intrants: aucun
         //Extrants:Utilisateur
-        public Utilisateur GetUtilisateurEtudiant()
+        public Etudiant GetUtilisateurEtudiant()
         {
 
             try
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    List<Utilisateur> listUtilisateur = (from cl in leContext.UtilisateurSet select cl).ToList();
-                    Utilisateur nouveauUtilisateur = new Utilisateur();
-                    listUtilisateur.Add(nouveauUtilisateur);
+                    List<Etudiant> listEtudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() select cl).ToList();
+                    Etudiant nouveauEtudiant = new Etudiant();
+                    listEtudiant.Add(nouveauEtudiant);
 
-                    return listUtilisateur.Last();
+                    return listEtudiant.Last();
                 }
             }
             catch (Exception ex)
@@ -54,7 +57,17 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     Etudiant etudiantACreerCopie = new Etudiant();
+                    ListViewItem lviewItem = lviewFormulaireInscription.Items[0];
+                    //Valider la date de naissance
+                    TextBox txtDateNaissanceJour = (TextBox)lviewItem.FindControl("txtDateNaissanceJour");
+                    TextBox txtDateNaissanceMois = (TextBox)lviewItem.FindControl("txtDateNaissanceMois");
+                    TextBox txtDateNaissanceAnnee = (TextBox)lviewItem.FindControl("txtDateNaissanceAnnee");
 
+                    String strDateNaissance = txtDateNaissanceAnnee.Text + "/" + txtDateNaissanceMois.Text + "/" + txtDateNaissanceJour.Text;
+
+                    DateTime dateNaissance;
+                    DateTime.TryParse(strDateNaissance, out dateNaissance);
+                    etudiantACreerCopie.dateNaissance = (DateTime)dateNaissance;
                     //Validation
 
                     TryUpdateModel(etudiantACreerCopie);
@@ -62,44 +75,67 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     var resultatsValidation = new List<ValidationResult>();
                     var isValid = Validator.TryValidateObject(etudiantACreerCopie, contextVal, resultatsValidation, true);
 
+                    //Pénom validation
+                    if (etudiantACreerCopie.prenom == "" || etudiantACreerCopie.prenom == null)
+                    {
+                        ValidationResult vald = new ValidationResult("Le prénom est requis.", new[] { "nom" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
+                    if (etudiantACreerCopie.prenom != null && etudiantACreerCopie.prenom.Length > 64)
+                    {
+                        ValidationResult vald = new ValidationResult("Le prénom doit avoir moins de 64 caractères.", new[] { "nom" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
+                    //Nom validation
+                    if (etudiantACreerCopie.nom == "" || etudiantACreerCopie.nom == null)
+                    {
+                        ValidationResult vald = new ValidationResult("Un nom est requis.", new[] { "nom" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
+                    if (etudiantACreerCopie.nom != null && etudiantACreerCopie.nom.Length > 64)
+                    {
+                        ValidationResult vald = new ValidationResult("Le nom doit avoir moins de 64 caractères.", new[] { "nom" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
                     //Comparer les mots de passe
-                    ListViewItem lviewItem = lviewFormulaireInscription.Items[0];
                     TextBox txtConfirmationMotDePasse = (TextBox)lviewItem.FindControl("txtConfirmationMotDePasse");
                     if (txtConfirmationMotDePasse != null && etudiantACreerCopie.hashMotDePasse != txtConfirmationMotDePasse.Text)
                     {
                         ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "hashMotDepasse" });
-                        isValid = true;
+                        isValid = false;
                         resultatsValidation.Add(vald);
                     }
-                    //Valider la date de naissance
-                    TextBox txtDateNaissanceJour = (TextBox)lviewItem.FindControl("txtDateNaissanceJour");
-                    TextBox txtDateNaissanceMois = (TextBox)lviewItem.FindControl("txtDateNaissanceMois");
-                    TextBox txtDateNaissanceAnnee = (TextBox)lviewItem.FindControl("txtDateNaissanceAnnee");
 
-                    int jour;
-                    int mois;
-                    int annee;
-
-                    if (!int.TryParse(txtDateNaissanceJour.Text, out jour) || !int.TryParse(txtDateNaissanceMois.Text, out mois) || !int.TryParse(txtDateNaissanceAnnee.Text, out annee))
-                    {
-                        etudiantACreerCopie.dateNaissance = new DateTime();
-                    }
-                    else
-                    {
-                        etudiantACreerCopie.dateNaissance = new DateTime(annee, mois, jour);
-                    }
                     //Classes validations
 
                     if (!isValid)
                     {
+                        foreach (var ValdationResult in resultatsValidation)
+                        {
+                            String input = ValdationResult.MemberNames.FirstOrDefault();
+                            input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
+                            if(input!="DateNaissance")
+                            { 
+                            TextBox txtError = (TextBox)lviewItem.FindControl("txt"+input);
+                            txtError.CssClass += " has-error";
+                            }
+                            else
+                            {
 
+                            }
+                        }
                     }
                     else
                     {
                         //Convertir le mot de passe en hashcode
                         etudiantACreerCopie.hashMotDePasse = GetSHA256Hash(etudiantACreerCopie.hashMotDePasse);
                         //Date inscription
-                        etudiantACreerCopie.dateInscription = DateTime.Now;
+                        etudiantACreerCopie.dateInscription = (DateTime)DateTime.Now;
+
                         etudiantACreerCopie.valideCourriel = false;
                         etudiantACreerCopie.compteActif = false;
 
@@ -166,6 +202,49 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 lnkEnvoyer.CssClass = "btn btn-default";
             }
         }
+        //Cette class permet d'envoyer un courriel de confirmation de l'inscription.
+        //Écrit par Cédric Archambault 18 février 2015
+        //Intrants:Etudiant
+        //Extrants:Aucun
+        public void envoie_courriel_confirmation(Etudiant etudiant)
+        {
+            try
+            {
+                SmtpClient smtpClient = new SmtpClient("", 25);
+                smtpClient.Credentials = new System.Net.NetworkCredential("test@cegepgranby.qc.ca", "Mot de passe");
+                smtpClient.UseDefaultCredentials = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.EnableSsl = true;
+                MailMessage courriel = new MailMessage();
 
+                courriel.From = new MailAddress("nePasRepondre@cegepgranby.qc.ca", "Technique Informatique Cegep de Granby");
+                courriel.To.Add(new MailAddress(etudiant.courriel));
+                courriel.Subject = "Validation du courriel";
+
+                //Hash code du courriel et de la date de création du compte, au cas ou le courriel est déja dans la bd.
+                //Exemple: Deux futures étudiants de la même famille s'inscritent avec le même courriel.
+                courriel.Body = "Bla bla bla" + etudiant.prenom + " " + etudiant.nom + "Valider votre courriel :" + GetSHA256Hash(etudiant.courriel + etudiant.dateInscription);
+                smtpClient.Send(courriel);
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        //pour hasher le mot de passe
+        public string GetSHA256Hash(string s)
+        {
+
+            if (string.IsNullOrEmpty(s))
+            {
+                throw new ArgumentException("Une valeur nulle ne peut être hashée.");
+            }
+
+
+            Byte[] data = System.Text.Encoding.UTF8.GetBytes(s);
+            Byte[] hash = new SHA256CryptoServiceProvider().ComputeHash(data);
+            string hashMdp = Convert.ToBase64String(hash);
+            return hashMdp;
+        }
     }
 }
