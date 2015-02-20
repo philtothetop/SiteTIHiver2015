@@ -247,8 +247,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Extrants:Aucun
         public void envoie_courriel_confirmation(Etudiant etudiant)
         {
+
+
             try
             {
+
                 SmtpClient smtpClient = new SmtpClient("", 25);
                 smtpClient.Credentials = new System.Net.NetworkCredential("ticgranbyegep@gmail.com", "jhnkwe43232-21322");
                 smtpClient.UseDefaultCredentials = true;
@@ -262,8 +265,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                 //Hash code du courriel et de la date de création du compte, au cas ou le courriel est déja dans la bd.
                 //Exemple: Deux futures étudiants de la même famille s'inscritent avec le même courriel.
-                courriel.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Valider votre courriel :"+"cegepgranby.qc.ca?id="+etudiant.courriel+"&code=" + GetSHA256Hash( etudiant.dateInscription.ToString());
-                String testHash="?id="+etudiant.courriel+"&code=" + GetSHA256Hash( etudiant.dateInscription.ToString());
+                courriel.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Valider votre courriel :" + "cegepgranby.qc.ca?id=" + etudiant.courriel + "&code=" + GetSHA256Hash(etudiant.dateInscription.ToString());
+                String testHash = "?id=" + etudiant.courriel + "&code=" + GetSHA256Hash(etudiant.dateInscription.ToString());
                 smtpClient.Port = 587;
                 smtpClient.Host = "smtp.gmail.com";
                 smtpClient.EnableSsl = true;
@@ -272,7 +275,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-         
+
             }
         }
         //pour hasher le mot de passe
