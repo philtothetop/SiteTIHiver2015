@@ -31,6 +31,24 @@ namespace Site_de_la_Technique_Informatique.Classes {
         protected global::System.Web.UI.WebControls.TextBox txtAutres;
         
         /// <summary>
+        /// Contrôle btnAjouterEvenement.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAjouterEvenement;
+        
+        /// <summary>
+        /// Contrôle lviewEcheancier.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lviewEcheancier;
+        
+        /// <summary>
         /// Contrôle txtLogicielLicenses.
         /// </summary>
         /// <remarks>
