@@ -161,7 +161,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         envoie_courriel_confirmation(etudiantACreerCopie); 
                         String hashCourriel=GetSHA256Hash(etudiantACreerCopie.dateInscription.ToString());
 
-                        Response.Redirect("Inscription_message.aspx", false);
+                        Response.Redirect("Inscription-message.aspx", false);
                     }
                 }
             }
