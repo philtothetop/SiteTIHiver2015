@@ -60,9 +60,6 @@ Extrants: --%>
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
                     </div>
                 </GroupTemplate>
-                <GroupSeparatorTemplate>
-                    <hr />
-                </GroupSeparatorTemplate>
                 <ItemTemplate>
                     <div class="col-lg-4 text-center">
                         <div class="thumbnail">
@@ -98,23 +95,6 @@ Extrants: --%>
             </asp:ListView>
 
 
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="Photos/entete.jpg" alt="" />
-                    <div class="caption">
-                        <h3>Axel Rassart<br />
-                            <small>Professeur</small>
-                        </h3>
-                        <p>Binding avec présentation</p>
-                        <ul class="list-inline">
-                            <li><i class="glyphicon glyphicon-envelope"></i>
-                            </li>
-                            <li>Binding avec email</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
 
         </div>
         <!-- /.row -->
@@ -124,9 +104,32 @@ Extrants: --%>
             <div class="col-lg-12">
                 <h2 class="page-header">Nos Étudiants</h2>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <img class="img-responsive customer-img" src="Photos/image1.jpg" alt="" />
-            </div>
+
+
+            <asp:ListView ID="lvEtudiants" runat="server"
+                    ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
+                    SelectMethod="lvEtudiants_GetData"
+                    GroupItemCount="6">
+                    <LayoutTemplate>
+                        <asp:PlaceHolder ID="groupPlaceHolder" runat="server"></asp:PlaceHolder>
+                    </LayoutTemplate>
+                    <GroupTemplate>
+                        <div class="row">
+                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
+                        </div>
+                    </GroupTemplate>
+                <GroupSeparatorTemplate>
+                    <div class="row">&nbsp;</div>
+                </GroupSeparatorTemplate>
+                    <ItemTemplate>
+                        <div class="col-md-2 col-sm-4 col-xs-6">
+                            <img class="img-responsive customer-img" src="Photos/image1.jpg" alt="" />
+                        </div>
+                    </ItemTemplate>
+                </asp:ListView>
+
+
+         
 
         </div>
         <!-- /.row -->

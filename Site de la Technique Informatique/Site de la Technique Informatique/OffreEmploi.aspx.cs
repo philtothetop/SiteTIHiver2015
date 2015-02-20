@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Net;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -12,43 +13,60 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["Courriel"] == null)
-            //{
-            //    Response.Redirect("~/Default.aspx", false);
-            //}
-            //else if (Session["IDOffreEmploi"] == null)
-            //{
-            //    Response.Redirect("~/ListeOffresEmploi.aspx", false);
-            //}
-        }
-
-        public Model.OffreEmploi getOffreEmploi()
-        {
             Model.OffreEmploi offreEmploi;
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
-                offreEmploi = (from offresEmploi in lecontexte.OffreEmploiSet 
-                               where offresEmploi.IDOffreEmploi == Int32.Parse(Session["IDOffreEmploi"].ToString()) 
-                               select offresEmploi).FirstOrDefault();
-            }
+                int idOffre = Int32.Parse(Session["IDOffreEmploi"].ToString());
 
-            return offreEmploi;
+                offreEmploi = (from offresEmploi in lecontexte.OffreEmploiSet
+                               where offresEmploi.IDOffreEmploi == idOffre
+                               select offresEmploi).FirstOrDefault();
+
+                lblTitreOffre.Text = offreEmploi.titreOffre;
+                lblAdresseVille.Text = offreEmploi.adresseTravail + ", " + offreEmploi.Ville.nomVille;
+                lblNbHeureSemaine.Text = offreEmploi.nbHeureSemaine + " heures par semaine";
+                lblDescriptionOffre.Text = offreEmploi.descriptionOffre;
+
+                if (offreEmploi.dateExpiration == null)
+                {
+                    lblDateExpiration.Text = "Expiration de l'offre : Non définie";
+                }
+                else
+                {
+                    lblDateExpiration.Text = "Expiration de l'offre : " + offreEmploi.dateExpiration.ToString();
+                }
+
+                lblDateDebutOffre.Text = "Début de l'offre : " + offreEmploi.dateDebutOffre.ToString("dd/MM/yyyy");
+                lblSalaire.Text = offreEmploi.salaire + " $/heure";
+                lblNoTelephone.Text = "No de téléphone : " + offreEmploi.noTelephone;
+                lblNoTelecopieur.Text = "No de télécopieur : " + offreEmploi.noTelecopieur;
+                lblCourrielOffre.Text = "Courriel : " + offreEmploi.courrielOffre;
+                lblPersonneRessource.Text = "Personne resource : " + offreEmploi.personneRessource;
+
+                if (offreEmploi.pathPDFDescription == ""){
+                    lnkPDF.Visible = false;
+                }
+                else
+                {
+                    lnkPDF.Visible = true;
+                    ViewState["pathPDF"] = offreEmploi.pathPDFDescription;
+                }
+
+               
+            }
         }
 
-        protected void lviewOffreEmploi_ItemDataBound(object sender, ListViewItemEventArgs e)
+        protected void lnkPDF_Click(object sender, EventArgs e)
         {
-            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            string FilePath = Server.MapPath(ViewState["pathPDF"].ToString());
+            WebClient User = new WebClient();
+            Byte[] FileBuffer = User.DownloadData(FilePath);
+            if (FileBuffer != null)
             {
-                Label lblheulblNbHeureSemaine = (Label)e.Item.FindControl("lblheulblNbHeureSemaine");
-                Label lblVille = (Label)e.Item.FindControl("lblVille");
-
-                int nbHeulblNbHeureSemaine = int.Parse(lviewOffreEmploi.DataKeys[e.Item.DisplayIndex].Values[1].ToString());
-                lblheulblNbHeureSemaine.Text = nbHeulblNbHeureSemaine + " heures par semaine";
-
-                int idVille = int.Parse(lviewOffreEmploi.DataKeys[e.Item.DisplayIndex].Values[0].ToString());
-                Ville ville = (from villes in lecontexte.VilleSet where villes.IDVille == idVille select villes).FirstOrDefault();
-                lblVille.Text = ville.nomVille;
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                Response.BinaryWrite(FileBuffer);
             }
         }
     }
