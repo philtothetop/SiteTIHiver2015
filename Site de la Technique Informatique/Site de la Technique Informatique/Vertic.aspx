@@ -16,7 +16,12 @@
 
                     <li role="presentation" class="active"><a href="#projet" class="list-group-item page-scroll">Projet VerTIC</a></li>
                     <li role="presentation"><a href="#portable" class="list-group-item page-scroll">Le portable VerTIC</a></li>
+                    <li role="presentation"><a href="#echeancier" class="list-group-item page-scroll">Échéancier</a></li>
                     <li role="presentation"><a href="#logiciel" class="list-group-item page-scroll">Les logiciels</a></li>
+                    <li role="presentation"><a href="#garantie" class="list-group-item page-scroll">Garantie et assurance</a></li>
+                    <li role="presentation"><a href="#financement" class="list-group-item page-scroll">Financement</a></li>
+                    <li role="presentation"><a href="#inscription" class="list-group-item page-scroll">Pour s'inscrire</a></li>
+                    <li role="presentation"><a href="#accueil" class="list-group-item page-scroll">Accueil et VerTICamp</a></li>
 
                 </ul>
             </div>
@@ -85,6 +90,7 @@
 
             <section id="echeancier" class="echeancier-section">
                 <div class="row">
+                <div class="row">
                     <h3>Les dates à retenir</h3>
 
                     <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
@@ -97,10 +103,10 @@
                 <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC" SelectMethod="lvEcheancier_GetData">
                     <LayoutTemplate>
                         <div class="row" style="background-color:#eee;border-bottom:1px solid black; border-radius:3px;">
-                            <div class="col-lg-8" style="border-right:1px solid black; ">
+                            <div class="col-lg-8" style=" border-right:1px solid black;">
                                 <h4>Événement</h4>
                             </div>
-                            <div id="topDate" class="col-lg-4">
+                            <div id="topDate" class="col-lg-4" style=" ">
                                 <h4>Date</h4>
                             </div>
                             
@@ -109,34 +115,41 @@
                          <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                             </div>
                     </LayoutTemplate>
-                    <AlternatingItemTemplate>
-                         <div class="row"  style="background-color:#eee; height:40px;border-radius:3px; " >
-                         <div class="divUpdateEvent" style="float:left">
-                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" /><br />
-                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" />
+                     <ItemTemplate>
+                        <div class="row" style="min-height:50px; height:auto; position:relative ">
+                            <div class="divUpdateEvent" style="float:left; "  >
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="true" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="true" />
                                 </div>
-                            <div class="col-lg-8" style="border-right:1px solid black; margin:auto; padding-top:10px; padding-bottom:10px">
-                                
-                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  />
+                            <div class="col-lg-4" style=" min-height:50px; height:100%; padding-top:10px; padding-bottom:10px;float:right; position:inherit ">
+                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
+                                </div>
+                            <div style="float:right; border-right:1px solid black; margin:auto;  padding-top:10px; min-height:50px; width:63%;  ">
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' style="width:450px; word-wrap:break-word ; height:auto"   />
                               </div>
-                            <div class="col-lg-4" style="padding-top:10px; padding-bottom:10px " >
+                            
+                            </div>
+                        </ItemTemplate>
+                    <AlternatingItemTemplate>
+                         <div class="row"  style="background-color:#eee; height:50px; border-radius:3px; " >
+                         <div class="divUpdateEvent" style="float:left; "  >
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="true" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="true" />
+                                </div>
+                             <div class="col-lg-4" style="padding-top:10px; min-height:50px; height:auto; padding-bottom:10px; float:right;" >
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
                                 </div>
+                            <div  style="border-right:1px solid black; margin:auto; padding-top:10px; float:right; width:63%; min-height:50px; ">
+                                
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' />
+                              </div>
+                            
                              
                             </div>
                     </AlternatingItemTemplate>
-                    <ItemTemplate>
-                        <div class="row" style="height:40px; ">
-                            <div class="col-lg-8" style="border-right:1px solid black;  padding-top:10px; padding-bottom:10px ">
-                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  />
-                              </div>
-                            <div class="col-lg-4" style=" padding-top:10px; padding-bottom:10px ">
-                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
-                                </div>
-                            </div>
-                        </ItemTemplate>
+                   
                     </asp:ListView>
-
+                </div>
                     
             </section>
 
@@ -176,7 +189,7 @@
                 </div>
             </section>
 
-            <section id="financement" class="financement-section">
+           <section id="financement" class="financement-section">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Financement</h3>
@@ -262,10 +275,66 @@
                             </tr>
                         </table>
                             <br />
+                            <ul>
+                                <li>
+                                    <b>Aide financière aux études du MEQ</b>
+                                    <br />
+			                            <a href="http://www.afe.gouv.qc.ca/">www.afe.gouv.qc.ca</a>
+                                    <br />
+                                   <a href="http://www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique.asp">www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique</a>
+                                </li>
+                                <li>
+                                    <b>Portail Génération 18-24 du Mouvement Desjardins (Avantage D)</b>
+                                    <br />
+                                    <a href="http://www.desjardins.com/fr/particuliers/clienteles/generation_1824">www.desjardins.com/fr/particuliers/clienteles/generation_1824</a>
+
+                                </li>
+                            </ul>
+                            <br />
                             </div>
                     </div>
                 </div>
 
+            </section>
+            <section  id="inscription" class="inscription-section">
+                    <h3>Inscription à VerTIC</h3>
+
+                     <p> ... EXPLIQUER LA PROCÉDURE D'INSCRIPTION AU SITE ... </p>
+                    <br />
+                    <br />
+                    
+
+            </section>
+
+            <section id="accueil" class="accueil-section">
+                <div id="row">
+                    <h3>Accueil et VerTICamp</h3>
+
+                    <p>La journée d'accueil et le VerTICamp sont jumelés pour ne faire qu'une seule activité. Lors de l'accueil, tous les membres du département seront présents et une brève explication de votre programme d'études vous sera également faite.</p>
+
+                    <p>En un deuxième temps, la portion VerTICamp se mettra en marche. Ce camp vous permettra de comprendre votre portatif, l'environnement réseau ainsi que les principales applications pour débuter votre programme. À cette occasion, vous procéderez à l'installation et à la configuration de la partie logicielle de votre portatif à l'aide des procéduriers, un DVD vous sera fourni.</p>
+
+                    <p>Finalement, un léger goûter sera servi, vous pourrez donc prendre quelques pauses entre les installations et faire connaissance avec vos collègues.</p>
+
+                    <h4>Le VerTICamp (Activité obligatoire)</h4>
+
+                    <p><b>21 AOÛT 2015, soit le vendredi précédant le début des cours</b></p>
+
+                    <p><b>Local : A-307 de 9H à 12H</b></p>
+
+                    <ul>
+	                    <li>Accueil</li>
+	                    <li>Présentation des professeurs et des techniciens</li>
+	                    <li>Installation et configuration du portable</li>
+	                    <li>Pause : léger goûter accessible tout au long du camp</li>
+                    </ul> 
+
+                    <p>Notez que les informations offertes lors du VerTICamp sont difficilement remplaçables par de la documentation papier. Il y va de votre meilleur intérêt d'y assister. Des renseignements supplémentaires sur cette journée, incluant l'horaire et le programme complet des activités, seront publiés sur le site Web vers le début du mois d'août. Nous vous demandons de faire l'impossible pour vous présenter au «VerTICamp». L'information qui y est véhiculée vous évitera de nombreux tracas. Nous vous demandons de nous prévenir si vous prévoyez être absent pour des raisons jugées exceptionnelles. Vous pouvez nous rejoindre par téléphone ou par courriel : </p>
+
+                    <p>Courriel: MDesAulniers <br />
+                    Téléphone: (450) 372-6614 poste 1164<p>
+                </div>
+            </section>
 
         </div>
     <!-- jQuery -->

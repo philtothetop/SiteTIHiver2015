@@ -55,7 +55,7 @@
                             <a href="services.html">Concepteurs</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.aspx">Contact</a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Souvenirs<b class="caret"></b></a>
@@ -108,7 +108,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="full-width.html">S'inscrire en tant qu'étudiant</a>
+                                    <a href="Inscription\Inscription.aspx">S'inscrire en tant qu'étudiant</a>
                                 </li>
                                 <li>
                                     <a href="sidebar.html">S'inscrire en tant que professeur</a>
@@ -169,13 +169,16 @@
                     </div>
           <br /><asp:Label ID="lblMessageConnexion" runat="server" Text="" />
       </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+
 
       <div class="modal-footer">
                         <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" OnClick="btnConnexion_Click" />
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
       </div>
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
     </div>
   </div>
 </div>
@@ -187,8 +190,9 @@
         <br />
         <br />
         <!--Section provenant des pages-->
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div style="word-wrap:break-word; min-height:600px">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+               
             </asp:ContentPlaceHolder>
         </div>
 

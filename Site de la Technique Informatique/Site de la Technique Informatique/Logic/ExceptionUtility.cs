@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.IO;
+using Site_de_la_Technique_Informatique.Model;
 
 namespace Site_de_la_Technique_Informatique.Logic
 {
@@ -11,6 +12,20 @@ namespace Site_de_la_Technique_Informatique.Logic
         // All methods are static, so this can be private
         private ExceptionUtility()
         { }
+
+        public static void LogErreur(string leMessage)
+        {
+            using (LeModelTIContainer leContext = new LeModelTIContainer())
+            {
+                Model.Log uneNouvelleErreur = new Model.Log();
+                uneNouvelleErreur.dateLog = DateTime.Now;
+                uneNouvelleErreur.actionLog = leMessage;
+                uneNouvelleErreur.typeLog = 1;
+
+                leContext.LogSet.Add(uneNouvelleErreur);
+                leContext.SaveChanges();
+            }
+        }
 
         // Log an Exception
         public static void LogException(Exception exc, string source)
