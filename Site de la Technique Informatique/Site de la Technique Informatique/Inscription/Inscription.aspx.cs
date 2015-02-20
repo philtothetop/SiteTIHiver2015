@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : System.Web.UI.Page
+    public partial class Inscription : Site
     {
         //Recolte des erreurs des champs du formulaire.
 #region Js

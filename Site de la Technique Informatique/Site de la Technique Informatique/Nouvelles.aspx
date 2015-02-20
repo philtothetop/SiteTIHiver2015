@@ -34,7 +34,7 @@
                 </div>
             </div>
             <!-- Content Column -->
-            <div class="col-md-9" style="margin-top:10px;">
+            <div class="col-md-9">
                 <asp:ListView ID="lviewNouvelles" runat="server"
                     ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
                     SelectMethod="getNouvelles">
@@ -42,23 +42,25 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><%# Item.titreNouvelle %></a>
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%# Item.IDNouvelle %>"><%# Item.titreNouvelle %></a>
                                 </h4>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse">
+                            <div id="collapse<%# Item.IDNouvelle %>" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p><%# Item.dateNouvelle.ToLongDateString() %></p>
-                                    <div style="margin-top: 5px;" />
+                                    
                                     <p><%# Item.texteNouvelle %></p>
                                 </div>
                             </div>
                         </div>
                     </ItemTemplate>
                 </asp:ListView>
+               
             </div>
             <!-- /.row -->
             <hr />
         </div>
+        
     </div>
     <!-- /.container -->
 
