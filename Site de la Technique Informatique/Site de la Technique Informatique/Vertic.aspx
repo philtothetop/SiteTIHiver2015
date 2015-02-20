@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vertic.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Classes.WebForm1" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vertic.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Vertic" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
@@ -16,10 +16,12 @@
 
                     <li role="presentation" class="active"><a href="#projet" class="list-group-item page-scroll">Projet VerTIC</a></li>
                     <li role="presentation"><a href="#portable" class="list-group-item page-scroll">Le portable VerTIC</a></li>
+                    <li role="presentation"><a href="#echeancier" class="list-group-item page-scroll">Échéancier</a></li>
                     <li role="presentation"><a href="#logiciel" class="list-group-item page-scroll">Les logiciels</a></li>
                     <li role="presentation"><a href="#garantie" class="list-group-item page-scroll">Garantie et assurance</a></li>
                     <li role="presentation"><a href="#financement" class="list-group-item page-scroll">Financement</a></li>
-
+                    <li role="presentation"><a href="#inscription" class="list-group-item page-scroll">Pour s'inscrire</a></li>
+                    <li role="presentation"><a href="#accueil" class="list-group-item page-scroll">Accueil et VerTICamp</a></li>
 
                 </ul>
             </div>
@@ -39,7 +41,7 @@
 
                         <blockquote>Éliminer autant que possible l'utilisation du papier pour la réalisation des différentes activités pédagogiques.</blockquote>
 
-                        <p>"VerTIC", c’est à la fois la technologie et l'environnement. En fait, il s'agit d'une référence à l'utilisation des TIC (Technologie de l'information et des communications) intégrée à l'enseignement de l'ensemble des membres du département d'informatique. Cette pratique pédagogique amènera à éliminer presque à 100% l'utilisation du papier dans les cours, d'où le souci environnemental et l'appellation <span class="greenText">"VerTIC"</span>.</p>
+                        <p><span class="greenText">"VerTIC"</span>, c’est à la fois la technologie et l'environnement. En fait, il s'agit d'une référence à l'utilisation des TIC (Technologie de l'information et des communications) intégrée à l'enseignement de l'ensemble des membres du département d'informatique. Cette pratique pédagogique amènera à éliminer presque à 100% l'utilisation du papier dans les cours, d'où le souci environnemental et l'appellation <span class="greenText">"VerTIC"</span>.</p>
 
                         <p>Pour arriver à nos fins, tous les enseignants s'engagent à mettre à la disposition des étudiants, via Internet, l'ensemble de la documentation nécessaire à la réalisation des cours c'est-à-dire plans de formation, notes de cours, exercices, travaux et possiblement les examens. Chaque enseignant possède son propre site Web et les étudiants auront accès aux pages Web contenant les documents de chacun de leurs cours. Pour atteindre nos objectifs, il sera essentiel que les étudiants soient munis d'un ordinateur portatif avec l'accès réseau sans fils. Les modèles proposés garantissent que toutes les activités pédagogiques reliées aux cours du programme seront réalisables.  Cette solution permettra aux étudiants d'avoir accès à leur environnement de travail autant au Cégep qu'à la maison. De notre département et de presque partout sur le cégep, vous pourrez vous brancher au réseau Internet par le biais d'un réseau sans fil et réseaux avec fils.</p>
 
@@ -67,7 +69,7 @@
                         <b>Caractéristiques</b>
                         <br />
 
-                        <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" Style="max-height: 150px; min-height: 150px; max-width: 599px; min-width: 500px;" Enabled="False">
+                            <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:599px;min-width:500px;" Enabled="False">
 
                           </asp:TextBox>
 
@@ -78,7 +80,7 @@
                         <br />
 
 
-                        <asp:TextBox ID="txtAutres" runat="server" Text="" TextMode="MultiLine" Style="max-height: 150px; min-height: 150px; max-width: 599px; min-width: 500px;" Enabled="False">
+                        <asp:TextBox ID="txtAutres" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:599px;min-width:500px;" Enabled="False">
 
                           </asp:TextBox>
 
@@ -86,42 +88,63 @@
                 </div>
             </section>
 
-            <%--  <section id="echeancier" class="echeancier-section">
+            <section id="echeancier" class="echeancier-section">
+                <div class="row">
                 <div class="row">
                     <h3>Les dates à retenir</h3>
 
                     <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
 
                 </div>
+                <div class="row">
+                    <asp:Button ID="btnAjouterEvenement" runat="server" Text="Ajouter." />
 
-                <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTICJeuSet" SelectMethod="lvEcheancier_GetData">
+                </div>
+                <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC" SelectMethod="lvEcheancier_GetData">
                     <LayoutTemplate>
-                        <div class="row" style="background-color:#eee">
-                            <div class="col-lg-8">
-                                <p>Événement</p>
+                        <div class="row" style="background-color:#eee;border-bottom:1px solid black; border-radius:3px;">
+                            <div class="col-lg-8" style="border-right:1px solid black; ">
+                                <h4>Événement</h4>
                             </div>
                             <div id="topDate" class="col-lg-4">
-                                <p>Date</p>
+                                <h4>Date</h4>
                             </div>
                             
                     </div>
-                        
+                        <div >
                          <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
+                            </div>
                     </LayoutTemplate>
-                    <ItemTemplate>
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.Evenement %>' />
+                    <AlternatingItemTemplate>
+                         <div class="row"  style="background-color:#eee; height:40px;border-radius:3px; " >
+                         <div class="divUpdateEvent" style="float:left">
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" />
+                                </div>
+                            <div class="col-lg-8" style="border-right:1px solid black; margin:auto; padding-top:10px; padding-bottom:10px">
+                                
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  />
                               </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-4" style="padding-top:10px; padding-bottom:10px " >
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
+                                </div>
+                             
+                            </div>
+                    </AlternatingItemTemplate>
+                    <ItemTemplate>
+                        <div class="row" style="height:40px; ">
+                            <div class="col-lg-8" style="border-right:1px solid black;  padding-top:10px; padding-bottom:10px ">
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  />
+                              </div>
+                            <div class="col-lg-4" style=" padding-top:10px; padding-bottom:10px ">
+                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
                                 </div>
                             </div>
                         </ItemTemplate>
                     </asp:ListView>
-
+                </div>
                     
-            </section>--%>
+            </section>
 
             <!-- Logiciel Section -->
             <section id="logiciel" class="logiciel-section">
@@ -131,13 +154,13 @@
                         <p>Nous vous suggérons de partitionner votre disque dur en deux parties au départ. Vous retrouverez une partition d'applications et une partition personnelle pour vos données. De plus, lors du cours «Gérer un poste de travail», vous allez créer une image de votre poste de travail sur votre disque externe, vous permettant de reconstruire votre environnement logiciel si un problème majeur survenait. Nous avons créé un DVD d'installation muni de logiciels libres (gratuits) et de certains logiciels avec licence, qui vous seront fournis gratuitement (via une entente entre le Cégep de Granby et Microsoft). Évidemment, votre portatif vous appartient et vous serez libre de le modifier comme vous l'entendez. De notre côté, nous nous engageons à vous fournir les DVD des images et des applications pour remettre votre portatif à son état initial en cas de pépins. Voici la liste des logiciels qui seront installés sur votre portatif lors du VerTICamp : </p>
                         <div class="col-lg-6">
                             <h4>LOGICIELS AVEC LICENCES</h4>
-                            <asp:TextBox ID="txtLogicielLicenses" runat="server" Text="" TextMode="MultiLine" Style="max-height: 150px; min-height: 150px; max-width: 350px; min-width: 350px;" Enabled="False">
+                        <asp:TextBox ID="txtLogicielLicenses" runat="server" Text="" TextMode="MultiLine" style="max-height:150px;min-height:150px;max-width:350px;min-width:350px;" Enabled="False">
 
                           </asp:TextBox>
                         </div>
                         <div class="col-lg-6">
                             <h4>LOGICIELS LIBRES (gratuits)</h4>
-                            <asp:TextBox ID="txtLogicielLibres" Style="max-height: 150px; min-height: 150px; max-width: 350px; min-width: 350px;" runat="server" Text="" TextMode="MultiLine" Enabled="False">
+                        <asp:TextBox ID="txtLogicielLibres" style="max-height:150px;min-height:150px;max-width:350px;min-width:350px;" runat="server" Text="" TextMode="MultiLine" Enabled="False">
 
                           </asp:TextBox>
                         </div>
@@ -159,7 +182,7 @@
                 </div>
             </section>
 
-            <section id="financement" class="financement-section">
+           <section id="financement" class="financement-section">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Financement</h3>
@@ -245,14 +268,68 @@
                             </tr>
                         </table>
                             <br />
+                            <ul>
+                                <li>
+                                    <b>Aide financière aux études du MEQ</b>
+                                    <br />
+			                            <a href="http://www.afe.gouv.qc.ca/">www.afe.gouv.qc.ca</a>
+                                    <br />
+                                   <a href="http://www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique.asp">www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique</a>
+                                </li>
+                                <li>
+                                    <b>Portail Génération 18-24 du Mouvement Desjardins (Avantage D)</b>
+                                    <br />
+                                    <a href="http://www.desjardins.com/fr/particuliers/clienteles/generation_1824">www.desjardins.com/fr/particuliers/clienteles/generation_1824</a>
+
+                                </li>
+                            </ul>
+                            <br />
                             </div>
                     </div>
                 </div>
 
             </section>
+            <section  id="inscription" class="inscription-section">
+                    <h3>Inscription à VerTIC</h3>
+
+                     <p> ... EXPLIQUER LA PROCÉDURE D'INSCRIPTION AU SITE ... </p>
+                    <br />
+                    <br />
+                    
+
+            </section>
+
+            <section id="accueil" class="accueil-section">
+                <div id="row">
+                    <h3>Accueil et VerTICamp</h3>
+
+                    <p>La journée d'accueil et le VerTICamp sont jumelés pour ne faire qu'une seule activité. Lors de l'accueil, tous les membres du département seront présents et une brève explication de votre programme d'études vous sera également faite.</p>
+
+                    <p>En un deuxième temps, la portion VerTICamp se mettra en marche. Ce camp vous permettra de comprendre votre portatif, l'environnement réseau ainsi que les principales applications pour débuter votre programme. À cette occasion, vous procéderez à l'installation et à la configuration de la partie logicielle de votre portatif à l'aide des procéduriers, un DVD vous sera fourni.</p>
+
+                    <p>Finalement, un léger goûter sera servi, vous pourrez donc prendre quelques pauses entre les installations et faire connaissance avec vos collègues.</p>
+
+                    <h4>Le VerTICamp (Activité obligatoire)</h4>
+
+                    <p><b>21 AOÛT 2015, soit le vendredi précédant le début des cours</b></p>
+
+                    <p><b>Local : A-307 de 9H à 12H</b></p>
+
+                    <ul>
+	                    <li>Accueil</li>
+	                    <li>Présentation des professeurs et des techniciens</li>
+	                    <li>Installation et configuration du portable</li>
+	                    <li>Pause : léger goûter accessible tout au long du camp</li>
+                    </ul> 
+
+                    <p>Notez que les informations offertes lors du VerTICamp sont difficilement remplaçables par de la documentation papier. Il y va de votre meilleur intérêt d'y assister. Des renseignements supplémentaires sur cette journée, incluant l'horaire et le programme complet des activités, seront publiés sur le site Web vers le début du mois d'août. Nous vous demandons de faire l'impossible pour vous présenter au «VerTICamp». L'information qui y est véhiculée vous évitera de nombreux tracas. Nous vous demandons de nous prévenir si vous prévoyez être absent pour des raisons jugées exceptionnelles. Vous pouvez nous rejoindre par téléphone ou par courriel : </p>
+
+                    <p>Courriel: MDesAulniers <br />
+                    Téléphone: (450) 372-6614 poste 1164<p>
+                </div>
+            </section>
 
         </div>
-    </div>
     <!-- jQuery -->
 
     <!-- Bootstrap Core JavaScript -->

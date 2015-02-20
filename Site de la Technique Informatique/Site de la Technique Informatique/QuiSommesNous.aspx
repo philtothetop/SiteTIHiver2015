@@ -1,7 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QuiSommesNous.aspx.cs" Inherits="Site_de_la_Technique_Informatique.QuiSommesNous" %>
+﻿<%--Cette classe présente les professeurs du Département d'informatique ainsi que les élèves inscrits au programme 
+Écrit par Yannick Huard - Marie-Philippe Gill, Février 2015
+Intrants: MasterPage
+Extrants: --%>
+
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="QuiSommesNous.aspx.cs" Inherits="Site_de_la_Technique_Informatique.QuiSommesNous" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
+
 
     <!-- Header Carousel -->
     <div class="container">
@@ -24,7 +30,7 @@
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/quiSommesNous.jpg" alt=""/>
+                <img class="img-responsive" src="Photos/quiSommesNous.jpg" alt="" />
             </div>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>
@@ -36,28 +42,80 @@
         <!-- /.row -->
 
         <!-- Prof -->
+
+
         <div class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">Nos professeurs</h2>
             </div>
+            <asp:ListView ID="lvProfesseurs" runat="server"
+                ItemType="Site_de_la_Technique_Informatique.Model.Professeur"
+                SelectMethod="lvProfesseurs_GetData"
+                GroupItemCount="3">
+                <LayoutTemplate>
+                    <asp:PlaceHolder ID="groupPlaceHolder" runat="server"></asp:PlaceHolder>
+                </LayoutTemplate>
+                <GroupTemplate>
+                    <div class="row">
+                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
+                    </div>
+                </GroupTemplate>
+                <GroupSeparatorTemplate>
+                    <hr />
+                </GroupSeparatorTemplate>
+                <ItemTemplate>
+                    <div class="col-lg-4 text-center">
+                        <div class="thumbnail">
+                            <div class="row">
+                                <%-- Photo du professeur --%>
+                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# BindItem.pathPhotoProfil %>' />
+                            </div>
+                            <div class="row">
+                                <%-- Nom du professeur --%>
+                                <h3>
+                                    <asp:Label ID="lblNomProf" runat="server" Text='<%# Eval("prenom") %>'></asp:Label><br />
+                                    <small>Professeur</small>
+                                </h3>
+                            </div>
+                            <div class="row">
+                                <%-- Présentation --%>
+                                <p>
+                                    <asp:Label ID="lblPresentation" runat="server" Text='<%# BindItem.presentation %>'></asp:Label>
+                                </p>
+                            </div>
+                            <div class="row">
+                                <%-- Email --%>
+                                <ul class="list-inline">
+                                    <li><i class="glyphicon glyphicon-envelope"></i>
+                                    </li>
+                                    <li>
+                                        <asp:Label ID="lblEmail" runat="server" Text='<%# BindItem.courriel %>'></asp:Label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:ListView>
+
+
             <div class="col-md-4 text-center">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="Photos/entete.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/entete.jpg" alt="" />
                     <div class="caption">
-                        <h3>Axel Rassart<br>
+                        <h3>Axel Rassart<br />
                             <small>Professeur</small>
                         </h3>
                         <p>Binding avec présentation</p>
                         <ul class="list-inline">
                             <li><i class="glyphicon glyphicon-envelope"></i>
-                            </li>          
-                            <li>Binding avec email</li>                                          
+                            </li>
+                            <li>Binding avec email</li>
                         </ul>
                     </div>
                 </div>
             </div>
-                      
-           
+
+
         </div>
         <!-- /.row -->
 
@@ -67,15 +125,16 @@
                 <h2 class="page-header">Nos Étudiants</h2>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6">
-                <img class="img-responsive customer-img" src="Photos/image1.jpg" alt=""/>
+                <img class="img-responsive customer-img" src="Photos/image1.jpg" alt="" />
             </div>
-            
+
         </div>
         <!-- /.row -->
 
-        <hr/>
+        <hr />
 
     </div>
-    
+
+
 
 </asp:Content>

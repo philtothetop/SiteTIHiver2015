@@ -46,6 +46,7 @@ of those sections to manage the look and feel of the site. */
 .echeancier-section {
     height: 100%;
     padding-top: 30px;
+    padding-bottom: 10px;
     background: #fff;
 }
 
@@ -54,12 +55,25 @@ of those sections to manage the look and feel of the site. */
     padding-top: 30px;
     background: #eee;
 }
-.garantie-section {
+
+.garantie-section{
     height: 100%;
     padding-top: 30px;
     background: #fff;
 }
-.financement-section {
+
+.financement-section{
+    height: 100%;
+    padding-top: 30px;
+    background: #eee;
+}
+
+.inscription-section {
+    height: 100%;
+    padding-top: 30px;
+    background: #fff;
+}
+.accueil-section {
     height: 100%;
     padding-top: 30px;
     background: #eee;
@@ -73,8 +87,9 @@ of those sections to manage the look and feel of the site. */
 #topDate {
     border-left:1px solid #fee;
 }
+
 #tableFinancement td{
-    border-width:1px;
- border-style:solid; 
- padding:3px;
-}
+
+    border: solid 1px;
+    padding:4px;
+    } 

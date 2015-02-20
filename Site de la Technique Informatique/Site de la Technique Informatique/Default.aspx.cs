@@ -13,17 +13,17 @@ namespace Site_de_la_Technique_Informatique
 
         DateTime today = DateTime.Now;
         DateTime demain = DateTime.Now.AddDays(1);
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-                using (LeModelTIContainer leContext = new LeModelTIContainer())
+            using (LeModelTIContainer leContext = new LeModelTIContainer())
+            {
+                List<Evenement> listEvents = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == today.Month && cl.dateDebutEvenement.Year == today.Year) select cl).ToList();
+                foreach (Evenement UnEvent in listEvents)
                 {
-                    List<Evenement> listEvents = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == today.Month && cl.dateDebutEvenement.Year == today.Year) select cl).ToList();
-                    foreach (Evenement UnEvent in listEvents)
-                    {
-                        CalendrierEvents.SelectedDates.Add(UnEvent.dateDebutEvenement);
-                    }
+                    CalendrierEvents.SelectedDates.Add(UnEvent.dateDebutEvenement);
                 }
+            }
         }
         protected void CalendrierEvents_SelectionChanged(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace Site_de_la_Technique_Informatique
                 throw new InvalidOperationException("Erreur dans selectionChanged du calendrier ", ex);
             }
         }
-        
+
 
         public IQueryable<Site_de_la_Technique_Informatique.Model.Evenement> lviewEvents_GetData()
         {
@@ -53,22 +53,15 @@ namespace Site_de_la_Technique_Informatique
 
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                        try
-                        {
-                            if (leContext.EvenementSet.ToList() != null)
-                            {
-                                listeEvenement = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == today.Month && cl.dateDebutEvenement.Year == today.Year) select cl).ToList();
-                            }
-                            else
-                            {
-                                return null;
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            throw new InvalidOperationException(ex.InnerException.Message, ex.InnerException);
-                        }
+                    if (leContext.EvenementSet.ToList() != null)
+                    {
+                        listeEvenement = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == today.Month && cl.dateDebutEvenement.Year == today.Year) select cl).ToList();
                     }
+                    else
+                    {
+                        return null;
+                    }
+                }
                 return listeEvenement.AsQueryable();
             }
             catch (Exception ex)
@@ -76,10 +69,23 @@ namespace Site_de_la_Technique_Informatique
                 throw new InvalidOperationException("Erreur dans le listeView Evenements PageAccueilConnecté", ex);
             }
         }
-       
+
         protected void btnPlusEvents_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void CalendrierEvents_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
+        {
+            using (LeModelTIContainer leContext = new LeModelTIContainer())
+            {
+                List<Evenement> listEvents = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == e.NewDate.Month && cl.dateDebutEvenement.Year == today.Year) select cl).ToList();
+                foreach (Evenement UnEvent in listEvents)
+                {
+                    CalendrierEvents.SelectedDates.Clear();
+                    CalendrierEvents.SelectedDates.Add(UnEvent.dateDebutEvenement);
+                }
+            }
         }
 
     }

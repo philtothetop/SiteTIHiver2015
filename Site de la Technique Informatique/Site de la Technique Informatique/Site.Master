@@ -169,13 +169,16 @@
                     </div>
           <br /><asp:Label ID="lblMessageConnexion" runat="server" Text="" />
       </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+
 
       <div class="modal-footer">
                         <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" OnClick="btnConnexion_Click" />
           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
       </div>
+
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
     </div>
   </div>
 </div>
@@ -188,7 +191,9 @@
         <br />
         <!--Section provenant des pages-->
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+                <div style="word-wrap:break-word;"></div>
+
             </asp:ContentPlaceHolder>
         </div>
 
