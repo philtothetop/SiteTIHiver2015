@@ -12,7 +12,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!--Afficher les erreurs des input-->
-            <script lang="JavaScript" type="text/javascript">
+            <%--<script lang="JavaScript" type="text/javascript">
                 $(document).ready(function () {
                     $(".has-error").removeClass("has-error");
 
@@ -36,7 +36,7 @@
                 }
 
             });
-        </script>
+        </script>--%>
     <div class="container">
         <div class="row row-centered">
             <div class="col-lg-5 col-centered">
