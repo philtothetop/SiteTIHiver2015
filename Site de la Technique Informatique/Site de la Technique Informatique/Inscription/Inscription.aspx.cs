@@ -33,7 +33,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
 #endregion
         protected void Page_Load()
         {
-
+            if(Session["Utilisateur"]!=null)
+            {
+                Response.Redirect("../Default.aspx");
+            }
         }
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
         //Écrit par Cédric Archambault 17 février 2015

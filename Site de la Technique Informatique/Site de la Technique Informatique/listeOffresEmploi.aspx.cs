@@ -53,6 +53,5 @@ namespace Site_de_la_Technique_Informatique
             Session["IDOffreEmploi"] = lnkOffre.CommandArgument;
             Response.Redirect("~/OffreEmploi.aspx", false);
         }
-
     }
 }
