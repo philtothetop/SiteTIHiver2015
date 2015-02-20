@@ -97,10 +97,10 @@
                 <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC" SelectMethod="lvEcheancier_GetData">
                     <LayoutTemplate>
                         <div class="row" style="background-color:#eee;border-bottom:1px solid black; border-radius:3px;">
-                            <div class="col-lg-8" style="border-right:1px solid black; ">
+                            <div class="col-lg-8" style=" border-right:1px solid black;">
                                 <h4>Événement</h4>
                             </div>
-                            <div id="topDate" class="col-lg-4">
+                            <div id="topDate" class="col-lg-4" style=" ">
                                 <h4>Date</h4>
                             </div>
                             
@@ -109,32 +109,39 @@
                          <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
                             </div>
                     </LayoutTemplate>
-                    <AlternatingItemTemplate>
-                         <div class="row"  style="background-color:#eee; height:40px;border-radius:3px; " >
-                         <div class="divUpdateEvent" style="float:left">
-                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" /><br />
-                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" />
+                     <ItemTemplate>
+                        <div class="row" style="min-height:50px; height:auto; position:relative ">
+                            <div class="divUpdateEvent" style="float:left; "  >
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="true" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="true" />
                                 </div>
-                            <div class="col-lg-8" style="border-right:1px solid black; margin:auto; padding-top:10px; padding-bottom:10px">
-                                
-                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  />
+                            <div class="col-lg-4" style=" min-height:50px; height:100%; padding-top:10px; padding-bottom:10px;float:right; position:inherit ">
+                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
+                                </div>
+                            <div  style="float:right; border-right:1px solid black; margin:auto;  padding-top:10px; min-height:50px; width:63%;  ">
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' style="width:450px; word-wrap:break-word ; height:auto"   />
                               </div>
-                            <div class="col-lg-4" style="padding-top:10px; padding-bottom:10px " >
+                            
+                            </div>
+                        </ItemTemplate>
+                    <AlternatingItemTemplate>
+                         <div class="row"  style="background-color:#eee; height:50px; border-radius:3px; " >
+                         <div class="divUpdateEvent" style="float:left; "  >
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="false" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="false" />
+                                </div>
+                             <div class="col-lg-4" style="padding-top:10px; min-height:50px; height:auto; padding-bottom:10px; float:right;" >
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
                                 </div>
+                            <div  style="border-right:1px solid black; margin:auto; padding-top:10px; float:right;width:63%; min-height:50px; ">
+                                
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  Width="20"/>
+                              </div>
+                            
                              
                             </div>
                     </AlternatingItemTemplate>
-                    <ItemTemplate>
-                        <div class="row" style="height:40px; ">
-                            <div class="col-lg-8" style="border-right:1px solid black;  padding-top:10px; padding-bottom:10px ">
-                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  />
-                              </div>
-                            <div class="col-lg-4" style=" padding-top:10px; padding-bottom:10px ">
-                                   <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
-                                </div>
-                            </div>
-                        </ItemTemplate>
+                   
                     </asp:ListView>
 
                     
