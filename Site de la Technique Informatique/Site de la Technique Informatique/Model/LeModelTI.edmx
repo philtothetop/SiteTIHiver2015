@@ -676,8 +676,8 @@
             <PropertyRef Name="IDDateEvenementVerTIC" />
           </Key>
           <Property Name="IDDateEvenementVerTIC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="dateDescription" Type="DateTime" Nullable="false" />
           <Property Name="evenement" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="dateDescription" Type="DateTime" Nullable="false" />
         </EntityType>
         <EntityType Name="VerTIC">
           <Key>
@@ -1044,7 +1044,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.DateEvenementVerTIC)">
         <MappingFragment StoreEntitySet="DateEvenementVerTICSet">
           <ScalarProperty Name="IDDateEvenementVerTIC" ColumnName="IDDateEvenementVerTIC" />
-          <ScalarProperty Name="dateDescription" ColumnName="dateDescription" />
           <ScalarProperty Name="evenement" ColumnName="evenement" />
         </MappingFragment>
       </EntityTypeMapping>
