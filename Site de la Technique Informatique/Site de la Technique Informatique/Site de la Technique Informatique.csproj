@@ -114,6 +114,7 @@
     <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
     <Content Include="Photos\logoCegep.png" />
     <Content Include="Photos\Marie.JPG" />
+    <Content Include="Photos\photobase.bmp" />
     <Content Include="Photos\quiSommesNous.JPG" />
     <Content Include="Photos\Xavier.JPG" />
     <Content Include="QuiSommesNous.aspx" />
