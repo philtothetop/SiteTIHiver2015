@@ -1,7 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Contact" %>
+﻿<%--Cette classe permet à ceux qui le veulent de contacter le département d'informatique 
+Écrit par Marie-Philippe Gill, Février 2015
+Intrants: MasterPage
+Extrants: --%>
+
+
+<%@ Page Title="Contactez-nous" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Contact" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br />
     <div class="container">
     <!-- GOOGLE MAPS VERS LE CÉGEP DE GRANBY -->
         <div class="row">
@@ -19,7 +26,7 @@
                 <p><i class="fa fa-phone"></i> 
                     <abbr title="TÃ©lÃ©phone">P</abbr>: (450) 372-6614</p>
                 <p><i class="fa fa-envelope-o"></i> 
-                    <abbr title="Email">E</abbr>: <a href="mailto:nom@exemple.com">nom@exemple.com</a>
+                    <abbr title="Email">E</abbr>: <a href="denis@dupaul.ca">denis@dupaul.ca</a>
                 </p>
                 <p><i class="fa fa-clock-o"></i> 
                     <abbr title="Horaire">H</abbr>: Lundi - Vendredi: 9:00 à  17:00</p>
@@ -45,9 +52,11 @@
      <!-- FORMULAIRE DE CONTACT -->
        
         <div class="row">
+
             <div class="col-md-8">
                 <h3>Écrivez-nous</h3>
-
+                <asp:Label ID="lblMessageHaut" runat="server" Text=""></asp:Label>
+                <br />
                     <div class="control-group form-group">
                         <div class="controls">
                             <asp:Label ID="lblNom" runat="server" Text="Nom:"></asp:Label>
@@ -68,7 +77,7 @@
                             <asp:TextBox ID="txtMessage" runat="server" class="form-control" TextMode="MultiLine" Height="200px"></asp:TextBox>
                          </div>
                     </div>
-                <asp:Button ID="btnEnvoyer" runat="server" Text="Envoyer" />
+                <asp:Button ID="btnEnvoyer" runat="server" Text="Envoyer" OnClick="btnEnvoyer_Click" />
                 </div>
             </div>
 

@@ -20,7 +20,7 @@ namespace Site_de_la_Technique_Informatique.Model
         public System.DateTime dateOffre { get; set; }
         public Nullable<System.DateTime> dateExpiration { get; set; }
         public System.DateTime dateDebutOffre { get; set; }
-        public string pathPDSDescription { get; set; }
+        public string pathPDFDescription { get; set; }
         public decimal salaire { get; set; }
         public short nbHeureSemaine { get; set; }
         public string adresseTravail { get; set; }

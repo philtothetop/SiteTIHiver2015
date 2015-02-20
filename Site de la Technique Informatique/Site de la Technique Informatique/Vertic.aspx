@@ -110,13 +110,19 @@
                             </div>
                     </LayoutTemplate>
                     <AlternatingItemTemplate>
-                         <div class="row" style="background-color:#eee; height:40px;border-radius:3px; ">
+                         <div class="row"  style="background-color:#eee; height:40px;border-radius:3px; " >
+                         <div class="divUpdateEvent" style="float:left">
+                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" /><br />
+                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" />
+                                </div>
                             <div class="col-lg-8" style="border-right:1px solid black; margin:auto; padding-top:10px; padding-bottom:10px">
+                                
                                 <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>'  />
                               </div>
                             <div class="col-lg-4" style="padding-top:10px; padding-bottom:10px " >
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
                                 </div>
+                             
                             </div>
                     </AlternatingItemTemplate>
                     <ItemTemplate>

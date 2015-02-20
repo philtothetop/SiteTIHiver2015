@@ -90,12 +90,12 @@ public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
     {
         
         DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
-        eventTest.dateDescription = "14 février 2014";
+        eventTest.dateDescription = DateTime.Today;
         eventTest.evenement = "Date de Test";
         eventTest.IDDateEvenementVerTIC = 1;
         listeEvenements.Add(eventTest);
 
-        listeEvenements.Add(new DateEvenementVerTIC { dateDescription = "date", evenement = "dadadad" });
+        listeEvenements.Add(new DateEvenementVerTIC { dateDescription = DateTime.Today.AddDays(1), evenement = "dadadad" });
 
     }
     return listeEvenements.AsQueryable();
