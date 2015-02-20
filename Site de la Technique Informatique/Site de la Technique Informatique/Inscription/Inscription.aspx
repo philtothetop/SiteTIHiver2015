@@ -33,10 +33,6 @@
                         $("#" + idValue + "_DateNaissanceMois").addClass("has-error");
                         $("#" + idValue + "_DateNaissanceAnnee").addClass("has-error");
                     }
-                    //var pan = PANN[index];
-                    //$("#" + id).addClass("erreur");
-                    //$("#" + id).prop("title", msg);
-                    //$("#" + pan).addClass("erreur");
                 }
 
             });

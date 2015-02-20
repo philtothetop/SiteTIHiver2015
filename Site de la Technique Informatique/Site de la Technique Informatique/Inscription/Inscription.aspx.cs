@@ -155,7 +155,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                         leContext.UtilisateurSet.Add(etudiantACreerCopie);
                         leContext.SaveChanges();
-
+                        envoie_courriel_confirmation(etudiantACreerCopie);
+                        Response.Redirect("");
                     }
                 }
             }
@@ -243,19 +244,23 @@ namespace Site_de_la_Technique_Informatique.Inscription
             try
             {
                 SmtpClient smtpClient = new SmtpClient("", 25);
-                smtpClient.Credentials = new System.Net.NetworkCredential("test@cegepgranby.qc.ca", "Mot de passe");
+                smtpClient.Credentials = new System.Net.NetworkCredential("ticgranbyegep@gmail.com", "jhnkwe43232-21322");
                 smtpClient.UseDefaultCredentials = true;
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtpClient.EnableSsl = true;
                 MailMessage courriel = new MailMessage();
 
-                courriel.From = new MailAddress("nePasRepondre@cegepgranby.qc.ca", "Technique Informatique Cegep de Granby");
+                courriel.From = new MailAddress("ticgranbyegep@gmail.com", "Technique Informatique Cegep de Granby");
                 courriel.To.Add(new MailAddress(etudiant.courriel));
                 courriel.Subject = "Validation du courriel";
 
                 //Hash code du courriel et de la date de création du compte, au cas ou le courriel est déja dans la bd.
                 //Exemple: Deux futures étudiants de la même famille s'inscritent avec le même courriel.
                 courriel.Body = "Bla bla bla" + etudiant.prenom + " " + etudiant.nom + "Valider votre courriel :" + GetSHA256Hash(etudiant.courriel + etudiant.dateInscription);
+
+                smtpClient.Port = 587;
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.EnableSsl = true;
                 smtpClient.Send(courriel);
             }
             catch (Exception ex)

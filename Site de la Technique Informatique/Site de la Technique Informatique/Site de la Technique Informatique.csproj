@@ -71,14 +71,6 @@
     <Content Include="Contact.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Inscription\css\bootstrap.min.css" />
-    <Content Include="Inscription\css\cropper.css" />
-    <Content Include="Inscription\css\docs.css" />
-    <Content Include="Inscription\img\picture-1.jpg" />
-    <Content Include="Inscription\img\picture-2.jpg" />
-    <Content Include="Inscription\js\bootstrap.min.js" />
-    <Content Include="Inscription\js\docs.js" />
-    <Content Include="Inscription\js\jquery.min.js" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
