@@ -188,7 +188,9 @@
         <br />
         <!--Section provenant des pages-->
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+                <div style="word-wrap:break-word;"></div>
+
             </asp:ContentPlaceHolder>
         </div>
 
