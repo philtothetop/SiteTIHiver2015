@@ -6,46 +6,39 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <h1 style="margin-top: 80px;">Offre d'emploi</h1>
-                <div class="row">
-                    <asp:ListView ID="lviewOffreEmploi" runat="server" SelectMethod="getOffreEmploi" OnItemDataBound="lviewOffreEmploi_ItemDataBound"
-                        DataKeyNames="VilleIDVille,nbHeureSemaine">
-                        <ItemTemplate>
-                            <h3>
-                                <asp:Label ID="lblTitreOffre" Text='<%# Eval("titreOffre").ToString()%>' runat="server"></asp:Label></h3>
-                            <asp:Label ID="lblVille" runat="server"></asp:Label>
-                            <asp:Label ID="lblNbHeureSemaine" runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblDescriptionOffre" Text='<%# Eval("descriptionOffre").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblDateOffre" Text='<%# Eval("dateOffre").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblDateExpiration" Text='<%# Eval("dateExpiration").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblDateDebutOffre" Text='<%# Eval("dateDebutOffre").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblPathPDSDescription" Text='<%# Eval("pathPDSDescription").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblSalaire" Text='<%# Eval("salaire").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblAdresseTravail" Text='<%# Eval("adresseTravail").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblNoTelephone" Text='<%# Eval("noTelephone").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblNoTelecopieur" Text='<%# Eval("noTelecopieur").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblCourrielOffre" Text='<%# Eval("courrielOffre").ToString()%>' runat="server"></asp:Label>
-                            <br />
-                            <asp:Label ID="lblPersonneRessource" Text='<%# Eval("personneRessource").ToString()%>' runat="server"></asp:Label>
-                        </ItemTemplate>
-                        <LayoutTemplate>
-                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
-                        </LayoutTemplate>
-                    </asp:ListView>
-                    <hr />
-                </div>
+            <div class="col-lg-3">
+                <h1>Offre d'emploi</h1>
             </div>
+            <div class="col-lg-3">
+                <asp:Button class="btn-default" ID="btnRetour" runat="server" Text="Retour" PostBackUrl="~/ListeOffresEmploi.aspx" Style="margin-top: 30px;" />
+            </div>
+        </div>
+        <div class="row" style="margin-left: 5px">
+            <asp:Label ID="lblTitreOffre" runat="server" Font-Size="20"></asp:Label>
+            <br />
+            <asp:Label ID="lblDescriptionOffre" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblAdresseVille" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:Label ID="lblNbHeureSemaine" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:Label ID="lblDateExpiration" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:Label ID="lblDateDebutOffre" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:Label ID="lblSalaire" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:Label ID="lblNoTelecopieur" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:Label ID="lblCourrielOffre" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14"></asp:Label>
+            <br />
+            <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click"></asp:LinkButton>
+            <br />
         </div>
     </div>
 </asp:Content>

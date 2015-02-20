@@ -23,7 +23,7 @@ namespace Site_de_la_Technique_Informatique
             string caract = getCaracteristiquePortable();
             txtCaractPortatif.Text = caract;
             string autres = getAutresPortable();
-            txtAutres.Text=autres;
+            txtAutres.Text = autres;
             string licences = getLicences();
             txtLogicielLicenses.Text = licences;
             string libres = getLibres();
@@ -32,7 +32,7 @@ namespace Site_de_la_Technique_Informatique
 
         public String getCaracteristiquePortable()
         {
-            string caracteristiquePortable="";
+            string caracteristiquePortable = "";
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
@@ -81,7 +81,7 @@ namespace Site_de_la_Technique_Informatique
 public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
 {
     var listeEvenements = new List<DateEvenementVerTIC>();
-    using ( LeModelTIContainer lecontexte = new LeModelTIContainer() )
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
     {
         listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
     }
@@ -100,6 +100,16 @@ public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
     }
     return listeEvenements.AsQueryable();
 }
+
+        protected void btnModifierPortable_Click(object sender, EventArgs e)
+        {
+            txtCaractPortatif.Enabled = true;
+            txtAutres.Enabled = true;
+            btnModifierPortable.Visible = false;
+            btnConfirmerPortable.Visible = true;
+            btnAnnulerPortable.Visible = true;
+
+        }
 
     }
 }

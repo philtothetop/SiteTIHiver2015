@@ -184,8 +184,8 @@
 
         <hr />
 
-        <div class="col-lg-12">
-            <div class="col-lg-4">
+        <div class="col-lg-12 media">
+            <div class="col-lg-4 media-left media-middle">
                 <asp:Calendar ID="CalendrierEvents" runat="server" BackColor="#ECEEF0" BorderColor="Black" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px"
                     ToolTip="Événements du mois" OnSelectionChanged="CalendrierEvents_SelectionChanged" Caption="Calendrier" OnVisibleMonthChanged="CalendrierEvents_VisibleMonthChanged" >
                     <DayHeaderStyle Font-Bold="True" Font-Size="10pt" HorizontalAlign="Right" />
@@ -197,33 +197,51 @@
                 </asp:Calendar>
             </div>
 
-            <div class="col-lg-8">
-                <h2>Événements du mois</h2>
-                <br />
+            <div class="col-lg-8 media-body">
+                <h2 class="media-heading">Événements du mois</h2>
                 <asp:ListView runat="server" ID="lviewEvents" 
                     ItemType="Site_de_la_Technique_Informatique.Model.Evenement"
-                    SelectMethod="lviewEvents_GetData">
+                    SelectMethod="lviewEvents_GetData"
+                    GroupItemCount="2">
 
                     <EmptyDataTemplate>
                         <p>Aucun événement particulier ce mois-ci.</p>
                     </EmptyDataTemplate>
 
                     <ItemTemplate>
-                        <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + " " + Convert.ToDateTime(Eval("dateDebutEvenement")).ToString("MMM") + "" + (Item.dateFinEvenement.HasValue == true ? (" au " + Eval("dateFinEvenement.Day") + " " + Convert.ToDateTime(Eval("dateFinEvenement")).ToString("MMM")) : "" ) %>' />
-                        <asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
-                                   Text='<%# "- " + Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
+                        <div class="well">
+                        <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + " " + Convert.ToDateTime(Eval("dateDebutEvenement")).ToString("MMM") + "" + (Item.dateFinEvenement.HasValue == true ? ( ((Eval("dateDebutEvenement.Date") == Eval("dateFinEvenement.Date")) ? (" au " + Eval("dateFinEvenement.Day") + " " + Convert.ToDateTime(Eval("dateFinEvenement")).ToString("MMM")) : "")) : "" ) %>' />
+                        <br /><asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
+                                   Text='<%# Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
                                    (Eval("titreEvenement").ToString().Length > 50 ? "..." :  "") %>' />
                         <asp:Label runat="server" ID="lblHeureEvent" Text='<%# ((Item.dateDebutEvenement.TimeOfDay.ToString() != "00:00:00" ) ? ( "\n" + Eval("dateDebutEvenement.TimeOfDay.Hours") + "h" + (Eval("dateDebutEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateDebutEvenement.TimeOfDay.Minutes") ) ) : "\r" ) 
                         + "" + ((Item.dateFinEvenement.HasValue == true) && (Item.dateFinEvenement.Value.TimeOfDay.ToString() != "00:00:00" ) ? (" à " + Eval("dateFinEvenement.TimeOfDay.Hours") + "h" + (Eval("dateFinEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateFinEvenement.TimeOfDay.Minutes") ) ) : "" ) %>' />
                         <br /><asp:LinkButton runat="server" ID="btnPlusEvents" Text="En savoir plus..."
                                         OnClick="btnPlusEvents_Click" CommandArgument='<%# Eval("IDEvenement") %>' /><br /><br />
+                        </div>
                     </ItemTemplate>
 
                     <LayoutTemplate>
-                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                        <asp:PlaceHolder ID="groupPlaceHolder" runat="server" />
                     </LayoutTemplate>
 
+                    <GroupTemplate>
+                            <div class="row " style="margin-left: -15px; padding-bottom: 7px;">
+                                <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                            </div>
+                        </GroupTemplate>
+
                 </asp:ListView>
+                <div style="text-align:center; width:100%;">
+            <asp:DataPager ID="dataPagerEvents" runat="server" PagedControlID="lviewEvents"
+                            PageSize="2">
+                            <Fields>
+                                <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
+                                <asp:NumericPagerField />
+                                <asp:NextPreviousPagerField ShowLastPageButton="False" ShowPreviousPageButton="False" NextPageText=">>" />
+                            </Fields>
+                        </asp:DataPager>
+                </div>
 
             </div>
         </div>
