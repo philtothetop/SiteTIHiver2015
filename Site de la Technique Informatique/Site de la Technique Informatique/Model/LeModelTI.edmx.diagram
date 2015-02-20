@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7d01897b60314aab8567c41b1f4e3a56" Name="Diagram1" ZoomLevel="88" DisplayType="true" >
+      <Diagram DiagramId="7d01897b60314aab8567c41b1f4e3a56" Name="Diagram1" ZoomLevel="67" DisplayType="true" >
         <EntityTypeShape EntityType="LeModelTI.DateEvenementVerTIC" Width="2.25" PointX="0.625" PointY="0.5" />
         <EntityTypeShape EntityType="LeModelTI.VerTIC" Width="2.375" PointX="4.125" PointY="0.5" />
         <EntityTypeShape EntityType="LeModelTI.Log" Width="1.625" PointX="1.75" PointY="3.625" />
@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="LeModelTI.ParutionMedia" Width="2.25" PointX="13.125" PointY="12.875" />
         <EntityTypeShape EntityType="LeModelTI.FAQ" Width="1.875" PointX="9.75" PointY="13.875" />
         <EntityTypeShape EntityType="LeModelTI.Nouvelle" Width="2.125" PointX="6.5" PointY="13.5" />
-        <EntityTypeShape EntityType="LeModelTI.SectionForum" Width="2.125" PointX="3.75" PointY="14.25" />
+        <EntityTypeShape EntityType="LeModelTI.SectionForum" Width="2.125" PointX="3.625" PointY="13.5" />
         <EntityTypeShape EntityType="LeModelTI.EnteteForum" Width="2.125" PointX="0.75" PointY="11.375" />
         <EntityTypeShape EntityType="LeModelTI.MessageForum" Width="2" PointX="3.75" PointY="11.25" />
         <EntityTypeShape EntityType="LeModelTI.Professeur" Width="1.5" PointX="10" PointY="10.125" />
