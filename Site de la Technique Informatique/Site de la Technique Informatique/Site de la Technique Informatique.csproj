@@ -66,7 +66,6 @@
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription\Inscription.aspx" />
-    <Content Include="Inscription\Inscription-valide.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -160,13 +159,6 @@
     </Compile>
     <Compile Include="Inscription\Inscription.aspx.designer.cs">
       <DependentUpon>Inscription.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription-valide.aspx.cs">
-      <DependentUpon>Inscription-valide.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
-      <DependentUpon>Inscription-valide.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>

@@ -201,7 +201,7 @@
                 <h2>Événements</h2>
                 <br />
                 <asp:ListView runat="server" ID="lviewEvents" 
-                    ItemType="Site_de_la_Technique_Informatique.Model.EvenementJeu"
+                    ItemType="Site_de_la_Technique_Informatique.Model.Evenement"
                     SelectMethod="lviewEvents_GetData">
 
                     <EmptyDataTemplate>
