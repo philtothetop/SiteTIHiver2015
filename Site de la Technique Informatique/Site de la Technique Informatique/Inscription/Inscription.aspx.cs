@@ -35,7 +35,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         {
             if(Session["Utilisateur"]!=null)
             {
-                Response.Redirect("../Default.aspx");
+                Response.Redirect("../Default.aspx",false);
             }
         }
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
