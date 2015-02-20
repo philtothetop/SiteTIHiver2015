@@ -12,15 +12,31 @@ using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 using System.Net.Mail;
 using System.Web.UI.HtmlControls;
+using Newtonsoft.Json;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : System.Web.UI.Page
+    public partial class Inscription : Site
     {
+        //Recolte des erreurs des champs du formulaire.
+#region Js
+        String _idsEnErreurTab;
+        public String idsEnErreurTab
+        {
+            get { return _idsEnErreurTab; }
 
+            set { _idsEnErreurTab = value; }
+        }
+        public List<String> idsEnErreur = new List<string>();
+        public List<String> msgsEnErreur = new List<string>();
+        public List<String> panneauxEnErreur = new List<string>();
+#endregion
         protected void Page_Load()
         {
-
+            if(Session["Utilisateur"]!=null)
+            {
+                Response.Redirect("../Default.aspx");
+            }
         }
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
         //Écrit par Cédric Archambault 17 février 2015
@@ -116,18 +132,18 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         foreach (var ValdationResult in resultatsValidation)
                         {
+
                             String input = ValdationResult.MemberNames.FirstOrDefault();
                             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
-                            if(input!="DateNaissance")
-                            { 
-                            TextBox txtError = (TextBox)lviewItem.FindControl("txt"+input);
-                            txtError.CssClass += " has-error";
-                            }
-                            else
-                            {
 
-                            }
+                            idsEnErreur.Add(input);
+                            msgsEnErreur.Add(ValdationResult.ErrorMessage);
+                            
+
+
                         }
+
+                        idsEnErreurTab = JsonConvert.SerializeObject(idsEnErreur);
                     }
                     else
                     {
@@ -138,12 +154,32 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                         etudiantACreerCopie.valideCourriel = false;
                         etudiantACreerCopie.compteActif = false;
+                        etudiantACreerCopie.pathCV = "";
 
                         leContext.UtilisateurSet.Add(etudiantACreerCopie);
                         leContext.SaveChanges();
-
+                        envoie_courriel_confirmation(etudiantACreerCopie);
+                        Response.Redirect("");
                     }
                 }
+            }
+                //Catch les erreurs de différence de la bd et du model.
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting
+                        // the current instance as InnerException
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
             }
             catch (Exception ex)
             {
@@ -211,19 +247,23 @@ namespace Site_de_la_Technique_Informatique.Inscription
             try
             {
                 SmtpClient smtpClient = new SmtpClient("", 25);
-                smtpClient.Credentials = new System.Net.NetworkCredential("test@cegepgranby.qc.ca", "Mot de passe");
+                smtpClient.Credentials = new System.Net.NetworkCredential("ticgranbyegep@gmail.com", "jhnkwe43232-21322");
                 smtpClient.UseDefaultCredentials = true;
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtpClient.EnableSsl = true;
                 MailMessage courriel = new MailMessage();
 
-                courriel.From = new MailAddress("nePasRepondre@cegepgranby.qc.ca", "Technique Informatique Cegep de Granby");
+                courriel.From = new MailAddress("ticgranbyegep@gmail.com", "Technique Informatique Cegep de Granby");
                 courriel.To.Add(new MailAddress(etudiant.courriel));
                 courriel.Subject = "Validation du courriel";
 
                 //Hash code du courriel et de la date de création du compte, au cas ou le courriel est déja dans la bd.
                 //Exemple: Deux futures étudiants de la même famille s'inscritent avec le même courriel.
                 courriel.Body = "Bla bla bla" + etudiant.prenom + " " + etudiant.nom + "Valider votre courriel :" + GetSHA256Hash(etudiant.courriel + etudiant.dateInscription);
+
+                smtpClient.Port = 587;
+                smtpClient.Host = "smtp.gmail.com";
+                smtpClient.EnableSsl = true;
                 smtpClient.Send(courriel);
             }
             catch (Exception ex)
