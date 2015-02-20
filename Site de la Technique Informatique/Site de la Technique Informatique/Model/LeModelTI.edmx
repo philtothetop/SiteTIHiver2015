@@ -118,7 +118,7 @@
       <PropertyRef Name="IDDateEvenementVerTIC" />
     </Key>
     <Property Name="IDDateEvenementVerTIC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dateDescription" Type="datetime" Nullable="false" />
+    <Property Name="dateDescription" Type="nvarchar(max)" Nullable="false" />
     <Property Name="evenement" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="VerTICSet">
@@ -160,7 +160,7 @@
     <Property Name="dateOffre" Type="datetime" Nullable="false" />
     <Property Name="dateExpiration" Type="datetime" Nullable="true" />
     <Property Name="dateDebutOffre" Type="datetime" Nullable="false" />
-    <Property Name="pathPDFDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="pathPDSDescription" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="salaire" Type="decimal" Nullable="false" />
     <Property Name="nbHeureSemaine" Type="smallint" Nullable="false" />
     <Property Name="adresseTravail" Type="nvarchar" Nullable="false" MaxLength="200" />
@@ -676,8 +676,8 @@
             <PropertyRef Name="IDDateEvenementVerTIC" />
           </Key>
           <Property Name="IDDateEvenementVerTIC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="evenement" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="dateDescription" Type="DateTime" Nullable="false" />
+          <Property Name="evenement" Type="String" Nullable="false" MaxLength="Max" />
         </EntityType>
         <EntityType Name="VerTIC">
           <Key>
@@ -1044,6 +1044,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.DateEvenementVerTIC)">
         <MappingFragment StoreEntitySet="DateEvenementVerTICSet">
           <ScalarProperty Name="IDDateEvenementVerTIC" ColumnName="IDDateEvenementVerTIC" />
+          <ScalarProperty Name="dateDescription" ColumnName="dateDescription" />
           <ScalarProperty Name="evenement" ColumnName="evenement" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -1134,7 +1135,7 @@
           <ScalarProperty Name="dateOffre" ColumnName="dateOffre" />
           <ScalarProperty Name="dateExpiration" ColumnName="dateExpiration" />
           <ScalarProperty Name="dateDebutOffre" ColumnName="dateDebutOffre" />
-          <ScalarProperty Name="pathPDFDescription" ColumnName="pathPDFDescription" />
+          <ScalarProperty Name="pathPDFDescription" ColumnName="pathPDSDescription" />
           <ScalarProperty Name="salaire" ColumnName="salaire" />
           <ScalarProperty Name="nbHeureSemaine" ColumnName="nbHeureSemaine" />
           <ScalarProperty Name="adresseTravail" ColumnName="adresseTravail" />

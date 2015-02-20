@@ -15,7 +15,7 @@ namespace Site_de_la_Technique_Informatique.Model
     public partial class DateEvenementVerTIC
     {
         public int IDDateEvenementVerTIC { get; set; }
-        public string evenement { get; set; }
         public System.DateTime dateDescription { get; set; }
+        public string evenement { get; set; }
     }
 }
