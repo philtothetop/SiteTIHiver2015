@@ -19,6 +19,8 @@
                     <li role="presentation"><a href="#logiciel" class="list-group-item page-scroll">Les logiciels</a></li>
                     <li role="presentation"><a href="#garantie" class="list-group-item page-scroll">Garantie et assurance</a></li>
                     <li role="presentation"><a href="#financement" class="list-group-item page-scroll">Financement</a></li>
+                    <li role="presentation"><a href="#inscription" class="list-group-item page-scroll">Pour s'inscrire</a></li>
+                    <li role="presentation"><a href="#accueil" class="list-group-item page-scroll">Accueil et VerTICamp</a></li>
 
 
                 </ul>
@@ -245,12 +247,67 @@
                             </tr>
                         </table>
                             <br />
+                            <ul>
+                                <li>
+                                    <b>Aide financière aux études du MEQ</b>
+                                    <br />
+			                            <a href="http://www.afe.gouv.qc.ca/">www.afe.gouv.qc.ca</a>
+                                    <br />
+                                   <a href="http://www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique.asp">www.afe.gouv.qc.ca/renseigner/autresProgrammes/pretAchatMaterielInformatique</a>
+                                </li>
+                                <li>
+                                    <b>Portail Génération 18-24 du Mouvement Desjardins (Avantage D)</b>
+                                    <br />
+                                    <a href="http://www.desjardins.com/fr/particuliers/clienteles/generation_1824">www.desjardins.com/fr/particuliers/clienteles/generation_1824</a>
+
+                                </li>
+                            </ul>
+                            <br />
                             </div>
                     </div>
                 </div>
 
             </section>
+            <section id="inscription" class="inscription-section">
+                <div class="row" >
+                    <h3>Inscription à VerTIC</h3>
 
+                      ... EXPLIQUER LA PROCÉDURE D'INSCRIPTION AU SITE ... 
+                    <br />
+                </div>
+
+            </section>
+
+            <section id="accueil" class="accueil-section">
+                <div id="row">
+                    <h3>Accueil et VerTICamp</h3>
+
+                    <p>La journée d'accueil et le VerTICamp sont jumelés pour ne faire qu'une seule activité. Lors de l'accueil, tous les membres du département seront présents et une brève explication de votre programme d'études vous sera également faite.</p>
+
+                    <p>En un deuxième temps, la portion VerTICamp se mettra en marche. Ce camp vous permettra de comprendre votre portatif, l'environnement réseau ainsi que les principales applications pour débuter votre programme. À cette occasion, vous procéderez à l'installation et à la configuration de la partie logicielle de votre portatif à l'aide des procéduriers, un DVD vous sera fourni.</p>
+
+                    <p>Finalement, un léger goûter sera servi, vous pourrez donc prendre quelques pauses entre les installations et faire connaissance avec vos collègues.</p>
+
+                    <h4>Le VerTICamp (Activité obligatoire)</h4>
+
+                    <p><b>21 AOÛT 2015, soit le vendredi précédant le début des cours</b></p>
+
+                    <p><b>Local : A-307 de 9H à 12H</b></p>
+
+                    <ul>
+	                    <li>Accueil</li>
+	                    <li>Présentation des professeurs et des techniciens</li>
+	                    <li>Installation et configuration du portable</li>
+	                    <li>Pause : léger goûter accessible tout au long du camp</li>
+                    </ul> 
+
+                    <p>Notez que les informations offertes lors du VerTICamp sont difficilement remplaçables par de la documentation papier. Il y va de votre meilleur intérêt d'y assister. Des renseignements supplémentaires sur cette journée, incluant l'horaire et le programme complet des activités, seront publiés sur le site Web vers le début du mois d'août. Nous vous demandons de faire l'impossible pour vous présenter au «VerTICamp». L'information qui y est véhiculée vous évitera de nombreux tracas. Nous vous demandons de nous prévenir si vous prévoyez être absent pour des raisons jugées exceptionnelles. Vous pouvez nous rejoindre par téléphone ou par courriel : </p>
+
+                    <p>Courriel: MDesAulniers <br />
+                    Téléphone: (450) 372-6614 poste 1164<p>
+                </div>
+            </section>
+            
         </div>
     </div>
     <!-- jQuery -->

@@ -79,24 +79,24 @@ namespace Site_de_la_Technique_Informatique.Classes
       
 
  
-public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
-{
-    var listeEvenements = new List<DateEvenementVerTIC>();
-    using (LeModelTIContainer lecontexte = new LeModelTIContainer())
-    {
-        listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
-    }
+//public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
+//{
+//    var listeEvenements = new List<DateEvenementVerTIC>();
+//    using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+//    {
+//        listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
+//    }
 
-    if (listeEvenements.Count() == 0)
-    {
-        DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
-        eventTest.dateDescription = "14 février 2014";
-        eventTest.evenement = "Date de Test";
-        eventTest.IDDateEvenementVerTIC = 1;
-        listeEvenements.Add(eventTest);
-    }
-    return listeEvenements.AsQueryable();
-}
+//    if (listeEvenements.Count() == 0)
+//    {
+//        DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
+//        eventTest.dateDescription = "14 février 2014";
+//        eventTest.evenement = "Date de Test";
+//        eventTest.IDDateEvenementVerTIC = 1;
+//        listeEvenements.Add(eventTest);
+//    }
+//    return listeEvenements.AsQueryable();
+//}
 
     }
 }
