@@ -72,6 +72,18 @@
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
+    <Content Include="Inscription\Cropper\Cropper.aspx" />
+    <Content Include="Inscription\Cropper\css\bootstrap.min.css" />
+    <Content Include="Inscription\Cropper\css\cropper.css" />
+    <Content Include="Inscription\Cropper\css\docs.css" />
+    <Content Include="Inscription\Cropper\img\picture-1.jpg" />
+    <Content Include="Inscription\Cropper\img\picture-2.jpg" />
+    <Content Include="Inscription\Cropper\js\bootstrap.min.js" />
+    <Content Include="Inscription\Cropper\js\cropper.js" />
+    <Content Include="Inscription\Cropper\js\docs.js" />
+    <Content Include="Inscription\Cropper\js\jquery.min.js" />
+    <Content Include="Inscription\imgTest.aspx" />
+    <Content Include="Inscription\Inscription-formulaire.aspx" />
     <Content Include="Inscription\Inscription-message.aspx" />
     <Content Include="Inscription\Inscription-valide.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
@@ -153,7 +165,9 @@
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
     <Content Include="Vertic.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concepteur.aspx.cs">
@@ -183,6 +197,27 @@
     </Compile>
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Cropper\Cropper.aspx.cs">
+      <DependentUpon>Cropper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Cropper\Cropper.aspx.designer.cs">
+      <DependentUpon>Cropper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\imgTest.aspx.cs">
+      <DependentUpon>imgTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\imgTest.aspx.designer.cs">
+      <DependentUpon>imgTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Inscription-formulaire.aspx.cs">
+      <DependentUpon>Inscription-formulaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription-formulaire.aspx.designer.cs">
+      <DependentUpon>Inscription-formulaire.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inscription\Inscription-message.aspx.cs">
       <DependentUpon>Inscription-message.aspx</DependentUpon>
@@ -375,6 +410,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Photos\Profils\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
