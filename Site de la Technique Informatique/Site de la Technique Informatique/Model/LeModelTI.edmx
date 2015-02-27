@@ -166,10 +166,11 @@
     <Property Name="adresseTravail" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="noTelephone" Type="nvarchar" Nullable="false" MaxLength="10" />
     <Property Name="noTelecopieur" Type="nvarchar" Nullable="true" MaxLength="10" />
-    <Property Name="courrielOffre" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="personneRessource" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="courrielOffre" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="personneRessource" Type="nvarchar" Nullable="false" MaxLength="80" />
     <Property Name="EmployeurIDUtilisateur" Type="int" Nullable="false" />
     <Property Name="etatOffre" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="noPoste" Type="nvarchar" Nullable="true" MaxLength="6" />
     <Property Name="validerOffre" Type="bit" Nullable="false" />
     <Property Name="VilleIDVille" Type="int" Nullable="false" />
   </EntityType>
@@ -316,6 +317,7 @@
     <Property Name="valideTemoignage" Type="bit" Nullable="false" />
     <Property Name="valideCourriel" Type="bit" Nullable="false" />
     <Property Name="pathCV" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="cohorte" Type="smallint" Nullable="false" />
     <Property Name="IDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProfesseurCours">
@@ -738,12 +740,13 @@
           <Property Name="adresseTravail" Type="String" Nullable="false" MaxLength="200" />
           <Property Name="noTelephone" Type="String" Nullable="false" MaxLength="10" />
           <Property Name="noTelecopieur" Type="String" Nullable="true" MaxLength="10" />
-          <Property Name="courrielOffre" Type="String" Nullable="false" />
-          <Property Name="personneRessource" Type="String" Nullable="false" />
+          <Property Name="courrielOffre" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="personneRessource" Type="String" Nullable="false" MaxLength="80" />
           <NavigationProperty Name="Employeur" Relationship="LeModelTI.EmployeurOffreEmploi" FromRole="OffreEmploi" ToRole="Employeur" />
           <Property Name="EmployeurIDUtilisateur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ville" Relationship="LeModelTI.OffreEmploiVille" FromRole="OffreEmploi" ToRole="Ville" />
           <Property Name="etatOffre" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="noPoste" Type="String" Nullable="true" MaxLength="6" />
           <Property Name="validerOffre" Type="Boolean" Nullable="false" />
           <Property Name="VilleIDVille" Type="Int32" Nullable="false" />
         </EntityType>
@@ -885,6 +888,7 @@
           <Property Name="valideTemoignage" Type="Boolean" Nullable="false" />
           <Property Name="valideCourriel" Type="Boolean" Nullable="false" />
           <Property Name="pathCV" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="cohorte" Type="Int16" Nullable="false" />
         </EntityType>
         <Association Name="UtilisateurLog">
           <End Type="LeModelTI.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
@@ -1127,6 +1131,7 @@
           <ScalarProperty Name="valideTemoignage" ColumnName="valideTemoignage" />
           <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
           <ScalarProperty Name="pathCV" ColumnName="pathCV" />
+          <ScalarProperty Name="cohorte" ColumnName="cohorte" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1149,6 +1154,7 @@
           <ScalarProperty Name="personneRessource" ColumnName="personneRessource" />
           <ScalarProperty Name="EmployeurIDUtilisateur" ColumnName="EmployeurIDUtilisateur" />
           <ScalarProperty Name="etatOffre" ColumnName="etatOffre" />
+          <ScalarProperty Name="noPoste" ColumnName="noPoste" />
           <ScalarProperty Name="validerOffre" ColumnName="validerOffre" />
           <ScalarProperty Name="VilleIDVille" ColumnName="VilleIDVille" />
         </MappingFragment>

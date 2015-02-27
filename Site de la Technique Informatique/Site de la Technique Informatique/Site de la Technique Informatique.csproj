@@ -67,6 +67,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\Log.css" />
@@ -134,6 +135,7 @@
     <Content Include="Photos\quiSommesNous.JPG" />
     <Content Include="Photos\Xavier.JPG" />
     <Content Include="QuiSommesNous.aspx" />
+    <Content Include="Recherche.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -168,12 +170,20 @@
     <Content Include="Css\Global.css" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
+    <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjoutOffreEmploi.aspx.cs">
+      <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
+      <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -402,6 +412,13 @@
     <Compile Include="QuiSommesNous.aspx.designer.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Recherche.aspx.cs">
+      <DependentUpon>Recherche.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recherche.aspx.designer.cs">
+      <DependentUpon>Recherche.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -415,6 +432,13 @@
     </Compile>
     <Compile Include="InformationsStage.aspx.designer.cs">
       <DependentUpon>InformationsStage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ValiderLesOffresEmploi.aspx.cs">
+      <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ValiderLesOffresEmploi.aspx.designer.cs">
+      <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>

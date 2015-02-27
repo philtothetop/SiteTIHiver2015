@@ -13,15 +13,6 @@ namespace Site_de_la_Technique_Informatique {
     public partial class OffreEmploi {
         
         /// <summary>
-        /// Contrôle btnRetour.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRetour;
-        
-        /// <summary>
         /// Contrôle lblTitreOffre.
         /// </summary>
         /// <remarks>
@@ -31,13 +22,13 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Label lblTitreOffre;
         
         /// <summary>
-        /// Contrôle lblDescriptionOffre.
+        /// Contrôle lblTitreOffre2.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescriptionOffre;
+        protected global::System.Web.UI.WebControls.Label lblTitreOffre2;
         
         /// <summary>
         /// Contrôle lblAdresseVille.
@@ -128,5 +119,14 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkPDF;
+        
+        /// <summary>
+        /// Contrôle lblDescriptionOffre.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescriptionOffre;
     }
 }

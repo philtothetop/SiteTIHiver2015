@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/27/2015 08:42:12
+-- Date Created: 02/27/2015 11:30:42
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
@@ -207,10 +207,11 @@ CREATE TABLE [dbo].[OffreEmploiSet] (
     [adresseTravail] nvarchar(200)  NOT NULL,
     [noTelephone] nvarchar(10)  NOT NULL,
     [noTelecopieur] nvarchar(10)  NULL,
-    [courrielOffre] nvarchar(max)  NOT NULL,
-    [personneRessource] nvarchar(max)  NOT NULL,
+    [courrielOffre] nvarchar(200)  NOT NULL,
+    [personneRessource] nvarchar(80)  NOT NULL,
     [EmployeurIDUtilisateur] int  NOT NULL,
     [etatOffre] nvarchar(100)  NOT NULL,
+    [noPoste] nvarchar(6)  NULL,
     [validerOffre] bit  NOT NULL,
     [VilleIDVille] int  NOT NULL
 );
@@ -357,6 +358,7 @@ CREATE TABLE [dbo].[UtilisateurSet_Etudiant] (
     [valideTemoignage] bit  NOT NULL,
     [valideCourriel] bit  NOT NULL,
     [pathCV] nvarchar(200)  NOT NULL,
+    [cohorte] smallint  NOT NULL,
     [IDUtilisateur] int  NOT NULL
 );
 GO

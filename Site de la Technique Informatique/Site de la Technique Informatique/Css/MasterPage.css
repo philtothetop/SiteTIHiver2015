@@ -14,9 +14,11 @@ html, body {
 	height: 155px; /* .push must be the same height as .footer */
 }
 
-/*
+.couleurGris{
+    background-color:#eaeaea;
+}
 
-Sticky Footer by Ryan Fait
-http://ryanfait.com/
+.couleurGris:hover{
+   background-color:#dedede;
+}
 
-*/
