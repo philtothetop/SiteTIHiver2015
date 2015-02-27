@@ -14,7 +14,6 @@ namespace Site_de_la_Technique_Informatique
         DateTime today = DateTime.Now;
         DateTime demain = DateTime.Now.AddDays(1);
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             using (LeModelTIContainer leContext = new LeModelTIContainer())
@@ -48,37 +47,26 @@ namespace Site_de_la_Technique_Informatique
 
         public IQueryable<Site_de_la_Technique_Informatique.Model.Evenement> lviewEvents_GetData()
         {
-
-            if (CalendrierEvents.SelectedDates[0] != null)
+            try
             {
-                var monthSelected = CalendrierEvents.SelectedDates[0].Month;
-                var yearSelected = CalendrierEvents.SelectedDates[0].Year;
+                List<Evenement> listeEvenement = new List<Evenement>();
 
-                try
+                using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    List<Evenement> listeEvenement = new List<Evenement>();
-
-                    using (LeModelTIContainer leContext = new LeModelTIContainer())
+                    if (leContext.EvenementSet.ToList() != null)
                     {
-                        if (leContext.EvenementSet.ToList() != null)
-                        {
-                            listeEvenement = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == monthSelected && cl.dateDebutEvenement.Year == yearSelected) select cl).ToList();
-                        }
-                        else
-                        {
-                            return null;
-                        }
+                        listeEvenement = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == today.Month && cl.dateDebutEvenement.Year == today.Year) select cl).ToList();
                     }
-                    return listeEvenement.AsQueryable().SortBy("dateDebutEvenement");
+                    else
+                    {
+                        return null;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    throw new InvalidOperationException("Erreur dans le listeView Evenements PageAccueilConnecté", ex);
-                }
+                return listeEvenement.AsQueryable();
             }
-            else
+            catch (Exception ex)
             {
-                return null;
+                throw new InvalidOperationException("Erreur dans le listeView Evenements PageAccueilConnecté", ex);
             }
         }
 
@@ -92,13 +80,11 @@ namespace Site_de_la_Technique_Informatique
             using (LeModelTIContainer leContext = new LeModelTIContainer())
             {
                 List<Evenement> listEvents = (from cl in leContext.EvenementSet where (cl.dateDebutEvenement.Month == e.NewDate.Month && cl.dateDebutEvenement.Year == today.Year) select cl).ToList();
-                CalendrierEvents.SelectedDates.Clear();
-
                 foreach (Evenement UnEvent in listEvents)
                 {
+                    CalendrierEvents.SelectedDates.Clear();
                     CalendrierEvents.SelectedDates.Add(UnEvent.dateDebutEvenement);
                 }
-                lviewEvents.DataBind();
             }
         }
 
