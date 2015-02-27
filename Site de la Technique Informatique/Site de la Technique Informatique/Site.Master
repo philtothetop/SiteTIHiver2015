@@ -52,7 +52,7 @@
                     <ul class="nav navbar-nav navbar-right">
                        
                         <li>
-                            <a href="services.html">Concepteurs</a>
+                            <a href="Concepteur.aspx">Concepteurs</a>
                         </li>
                         <li>
                             <a href="contact.aspx">Contact</a>
@@ -108,7 +108,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="Inscription\Inscription.aspx">S'inscrire en tant qu'étudiant</a>
+                                    <a href="\Inscription\Inscription.aspx">S'inscrire en tant qu'étudiant</a>
                                 </li>
                                 <li>
                                     <a href="sidebar.html">S'inscrire en tant que professeur</a>
@@ -190,7 +190,7 @@
         <br />
         <br />
         <!--Section provenant des pages-->
-        <div style="word-wrap:break-word; min-height:600px">
+        <div style="word-wrap:break-word; min-height:700px">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
                
             </asp:ContentPlaceHolder>
@@ -209,7 +209,8 @@
         </footer>
 
          <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <!--   <script src="Js/bootstrap.min.js"></script> -->

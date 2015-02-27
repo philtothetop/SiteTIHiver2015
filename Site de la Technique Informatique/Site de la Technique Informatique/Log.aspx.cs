@@ -6,7 +6,6 @@
 //4 = Banni
 
 
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,22 +20,9 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            /*
-            using (ModelTIContainer leModelTI = new ModelTIContainer())
-            {
-
-                LogJeu unLoggg = new LogJeu();
-                unLoggg.actionLog = "Premier Log EVER";
-                unLoggg.dateLog = DateTime.Now;
-                unLoggg.UtilisateurIDUtilisateur = 1;
-
-                leModelTI.LogJeu.Add(unLoggg);
-                leModelTI.SaveChanges();
-            }
-             */
+            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
-        
+
         //Méthode pour récupérer les logs de la BD
         public IQueryable<Model.Log> GetLesLogs()
         {
@@ -47,22 +33,36 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer modelTI = new LeModelTIContainer())
                 {
-                    //Récupérer les logs dans la BD
-                    listeDesLogs = (from cl in modelTI.LogSet
-                                    select cl).ToList();
-                    
+                    int typeLogAChercher = 9000;
 
-                    //POUR TEST UNIQUEMENT
-                    for (int i = 0; i < 24; i++)
+                    //Rechercher le hiddenfield pour savoir si veux chercher que un type de log
+                    if (hfieldTrierType.Value != null && !hfieldTrierType.Value.Equals(""))
                     {
-                        
-                        Model.Log logErreur = new Model.Log();
-                        logErreur.actionLog = "LOG DE TEST WOOT" + i;
-                        logErreur.dateLog = DateTime.Now + new TimeSpan(i, 0, 0, 0);
-                        logErreur.IDLog = i;
-                        logErreur.typeLog = 0;
-                        logErreur.UtilisateurIDUtilisateur = i;
-                        listeDesLogs.Add(logErreur);
+                        //Try catch de mesure de précaution mais devrais JAMAIS arriver, mais quand même afficher les logs si cela arrive
+                        try
+                        {
+                            typeLogAChercher = Convert.ToInt16(hfieldTrierType.Value);
+                        }
+                        catch
+                        {
+                            typeLogAChercher = 9000;
+                        }
+                    }
+
+                    //9000 c'est valeur de base, donc va tout rechercher
+                    if (typeLogAChercher == 9000)
+                    {
+                        //Récupérer les logs dans la BD
+                        listeDesLogs = (from cl in modelTI.LogSet
+                                        select cl).ToList();
+                    }
+                    //Pour rechercher que un type de log
+                    else
+                    {
+                        //Récupérer les logs dans la BD
+                        listeDesLogs = (from cl in modelTI.LogSet
+                                        where cl.typeLog == typeLogAChercher
+                                        select cl).ToList();
                     }
                 }
             }
@@ -81,7 +81,45 @@ namespace Site_de_la_Technique_Informatique
                 //A AJOUTER UN LOG DANS LA ROUTINE DERREUR?
             }
 
-            return listeDesLogs.AsQueryable().SortBy("dateLog");
+            return listeDesLogs.AsQueryable().SortBy("dateLog").Reverse();
+        }
+
+        //Pour changer la valeur du hfield utiliser pour rechercher que un type de log
+        protected void ChercherUnTypeDeLog(object sender, EventArgs e)
+        {
+            String argument = Convert.ToString(((Button)sender).CommandArgument);
+            hfieldTrierType.Value = argument;
+            lviewLogs.DataBind();
+        }
+
+        //Fonction pour mettre le bon CSS pour chaque type de log
+        public string GetCSSForTypeLog(int typeLog)
+        {
+            if (typeLog == 0)
+            {
+                return "ErreurTypeZero";
+            }
+            else if (typeLog == 1)
+            {
+                return "ErreurTypeUn";
+            }
+            else if (typeLog == 2)
+            {
+                return "ErreurTypeDeux";
+            }
+            else if (typeLog == 3)
+            {
+                return "ErreurTypeTrois";
+            }
+            else if (typeLog == 4)
+            {
+                return "ErreurTypeQuatre";
+            }
+            //Si numéro pas encore répertorier, mettre le normal
+            else
+            {
+                return "ErreurTypeZero";
+            }
         }
     }
 }

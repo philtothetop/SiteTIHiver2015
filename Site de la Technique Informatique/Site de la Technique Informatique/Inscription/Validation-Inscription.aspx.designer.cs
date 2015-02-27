@@ -10,6 +10,6 @@
 namespace Site_de_la_Technique_Informatique.Inscription {
     
     
-    public partial class Inscription {
+    public partial class Validation_Inscription {
     }
 }

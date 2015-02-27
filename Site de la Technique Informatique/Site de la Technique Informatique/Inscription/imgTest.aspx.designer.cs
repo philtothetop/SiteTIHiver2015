@@ -7,27 +7,36 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique {
+namespace Site_de_la_Technique_Informatique.Inscription {
     
     
-    public partial class QuiSommesNous {
+    public partial class imgTest {
         
         /// <summary>
-        /// Contrôle lvProfesseurs.
+        /// Contrôle form1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvProfesseurs;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle lvEtudiants.
+        /// Contrôle txtBox.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvEtudiants;
+        protected global::System.Web.UI.WebControls.TextBox txtBox;
+        
+        /// <summary>
+        /// Contrôle lnk.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnk;
     }
 }

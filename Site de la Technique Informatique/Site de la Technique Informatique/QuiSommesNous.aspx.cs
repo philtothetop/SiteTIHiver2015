@@ -41,5 +41,28 @@ namespace Site_de_la_Technique_Informatique
 
         #endregion
 
+        #region Remplissage du ListView lvÉtudiants 
+
+        public IQueryable<Etudiant> lvEtudiants_GetData()
+        {
+            List<Etudiant> listeEtudiants = null;
+            try
+            {
+                using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+                {
+                    listeEtudiants = (from etudiants in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>() select etudiants).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("Une erreur s'est produite dans lors du lvProfesseurs_GetData", ex);
+            }
+            return listeEtudiants.AsQueryable();
+        }
+    
+
+        #endregion
+
+
     }
 }

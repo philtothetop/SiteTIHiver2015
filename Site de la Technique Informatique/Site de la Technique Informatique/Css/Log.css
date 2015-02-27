@@ -1,0 +1,88 @@
+﻿.ErreurTypeZero {
+    background: rgba(220,220,220,1);
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.ErreurTypeUn {
+    background: rgba(255,0,0,0.3);
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.ErreurTypeDeux {
+    background: rgba(255,255,0,0.3);
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.ErreurTypeTrois {
+    background: rgba(0,0,255,0.3);
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.ErreurTypeQuatre {
+    background: rgba(255,140,0,0.3);
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.btnNormal {
+
+}
+
+.btnNormal:hover {
+
+}
+
+
+.btnErreur {
+    background: rgba(255,0,0,0.7);
+    color:white;
+}
+
+.btnErreur:hover {
+    background: rgba(255,0,0,0.5);
+    color:white;
+}
+
+.btnWarning {
+    background: rgba(255,255,0,0.7);
+    color:black;
+}
+
+.btnWarning:hover {
+    background: rgba(255,255,0,0.5);
+    color:black;
+}
+
+.btnInscription {
+    background: rgba(0,0,255,0.7);
+    color:white;
+}
+
+.btnInscription:hover {
+    background: rgba(0,0,255,0.5);
+    color:white;
+}
+
+.btnBanissement {
+    background: rgba(255,140,0,0.7);
+    color:white;
+}
+
+.btnBanissement:hover {
+    background: rgba(255,140,0,0.5);
+    color:white;
+}
+
+
+.lnkDate {
+    color: rgba(0,0,255,0.5);
+}
+
+.lnkDate:hover {
+    color: rgba(0,0,255,0.7);
+    text-decoration:none;
+}
