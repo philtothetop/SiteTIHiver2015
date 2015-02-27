@@ -21,6 +21,7 @@
     <EntitySet Name="SectionForumSet" EntityType="LeModelTI.Store.SectionForumSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="EnteteForumSet" EntityType="LeModelTI.Store.EnteteForumSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MessageForumSet" EntityType="LeModelTI.Store.MessageForumSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PhotosSet" EntityType="LeModelTI.Store.PhotosSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UtilisateurSet_Employeur" EntityType="LeModelTI.Store.UtilisateurSet_Employeur" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UtilisateurSet_Membre" EntityType="LeModelTI.Store.UtilisateurSet_Membre" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UtilisateurSet_Professeur" EntityType="LeModelTI.Store.UtilisateurSet_Professeur" store:Type="Tables" Schema="dbo" />
@@ -269,6 +270,14 @@
     <Property Name="EnteteForumIDEnteteForum" Type="int" Nullable="false" />
     <Property Name="MembreIDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="PhotosSet">
+    <Key>
+      <PropertyRef Name="IDPhotos" />
+    </Key>
+    <Property Name="IDPhotos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pathPhoto" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="typePhoto" Type="nvarchar" Nullable="false" MaxLength="20" />
+  </EntityType>
   <EntityType Name="UtilisateurSet_Employeur">
     <Key>
       <PropertyRef Name="IDUtilisateur" />
@@ -317,7 +326,7 @@
     <Property Name="valideTemoignage" Type="bit" Nullable="false" />
     <Property Name="valideCourriel" Type="bit" Nullable="false" />
     <Property Name="pathCV" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="cohort" Type="smallint" Nullable="false" />
+    <Property Name="cohorte" Type="smallint" Nullable="false" />
     <Property Name="IDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProfesseurCours">
@@ -674,6 +683,7 @@
             <End Role="Membre" EntitySet="UtilisateurSet" />
             <End Role="MessageForum" EntitySet="MessageForumSet" />
           </AssociationSet>
+          <EntitySet Name="PhotosSet" EntityType="LeModelTI.Photos" />
         </EntityContainer>
         <EntityType Name="DateEvenementVerTIC">
           <Key>
@@ -888,7 +898,7 @@
           <Property Name="valideTemoignage" Type="Boolean" Nullable="false" />
           <Property Name="valideCourriel" Type="Boolean" Nullable="false" />
           <Property Name="pathCV" Type="String" Nullable="false" MaxLength="200" />
-          <Property Name="cohort" Type="Int16" Nullable="false" />
+          <Property Name="cohorte" Type="Int16" Nullable="false" />
         </EntityType>
         <Association Name="UtilisateurLog">
           <End Type="LeModelTI.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
@@ -1042,6 +1052,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="IDPhotos" />
+          </Key>
+          <Property Name="IDPhotos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pathPhoto" Type="String" Nullable="false" MaxLength="200" />
+          <Property Name="typePhoto" Type="String" Nullable="false" MaxLength="20" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1131,7 +1149,7 @@
           <ScalarProperty Name="valideTemoignage" ColumnName="valideTemoignage" />
           <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
           <ScalarProperty Name="pathCV" ColumnName="pathCV" />
-          <ScalarProperty Name="cohort" ColumnName="cohort" />
+          <ScalarProperty Name="cohorte" ColumnName="cohorte" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1262,6 +1280,15 @@
           <ScalarProperty Name="dateMessage" ColumnName="dateMessage" />
           <ScalarProperty Name="EnteteForumIDEnteteForum" ColumnName="EnteteForumIDEnteteForum" />
           <ScalarProperty Name="MembreIDUtilisateur" ColumnName="MembreIDUtilisateur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.Photos)">
+        <MappingFragment StoreEntitySet="PhotosSet">
+          <ScalarProperty Name="IDPhotos" ColumnName="IDPhotos" />
+          <ScalarProperty Name="pathPhoto" ColumnName="pathPhoto" />
+          <ScalarProperty Name="typePhoto" ColumnName="typePhoto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

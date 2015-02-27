@@ -108,6 +108,7 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
+    <Content Include="modifProfilEtudiants.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -337,6 +338,9 @@
     <Compile Include="Model\ParutionMedia.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Photos.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Professeur.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
@@ -382,6 +386,13 @@
     <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
     <Compile Include="Model_Partielles\Professeur_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
+    <Compile Include="modifProfilEtudiants.aspx.cs">
+      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modifProfilEtudiants.aspx.designer.cs">
+      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

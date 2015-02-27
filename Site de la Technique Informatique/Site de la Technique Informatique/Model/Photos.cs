@@ -12,13 +12,10 @@ namespace Site_de_la_Technique_Informatique.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Etudiant : Membre
+    public partial class Photos
     {
-        public int IDEtudiant { get; set; }
-        public System.DateTime dateNaissance { get; set; }
-        public bool valideTemoignage { get; set; }
-        public bool valideCourriel { get; set; }
-        public string pathCV { get; set; }
-        public short cohorte { get; set; }
+        public int IDPhotos { get; set; }
+        public string pathPhoto { get; set; }
+        public string typePhoto { get; set; }
     }
 }
