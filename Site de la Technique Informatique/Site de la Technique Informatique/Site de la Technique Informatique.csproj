@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
@@ -86,6 +87,7 @@
     <Content Include="Inscription\Inscription-formulaire.aspx" />
     <Content Include="Inscription\Inscription-message.aspx" />
     <Content Include="Inscription\Inscription-valide.aspx" />
+    <Content Include="Inscription\Validation-Inscription.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -153,6 +155,7 @@
       <LastGenOutput>LeModelTI.cs</LastGenOutput>
       <DependentUpon>LeModelTI.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -232,6 +235,13 @@
     </Compile>
     <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
       <DependentUpon>Inscription-valide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Validation-Inscription.aspx.cs">
+      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Validation-Inscription.aspx.designer.cs">
+      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>

@@ -166,6 +166,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         if (imgData.Substring(0, 21).Equals("data:image/png;base64"))
                         { 
                         System.Drawing.Image imageProfil = LoadImage(imgData);
+                        imageProfil =(System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
+
+                        String imageNom =(etudiantACreerCopie.prenom+etudiantACreerCopie.dateInscription.ToString()).GetHashCode()+"_125.jpg";
+                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
+                        imageProfil.Save(imageProfilChemin);
                         }
                         //Convertir le mot de passe en hashcode
                         etudiantACreerCopie.hashMotDePasse = GetSHA256Hash(etudiantACreerCopie.hashMotDePasse);
@@ -341,6 +346,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             //data:image/gif;base64,
             //this image is a single pixel (black)
             //byte[] bytes = Convert.FromBase64String("R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==");
+            data = data.Remove(0, 22);
             byte[] bytes = Convert.FromBase64String(data);
             System.Drawing.Image image;
             using (MemoryStream ms = new MemoryStream(bytes))
