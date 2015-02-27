@@ -38,34 +38,20 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         String courriel = Request.QueryString["id"].ToString();
                         String hash = Request.QueryString["code"].ToString();
 
-                        List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.courriel.Equals(courriel) && cl.valideCourriel==false select cl).ToList();
+                        Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.courriel.Equals(courriel) && cl.valideCourriel == false select cl).LastOrDefault();
 
-                        if (etudiantList != null && etudiantList.Count()>0)
+                        if (etudiant != null && GetSHA256Hash(etudiant.dateInscription.ToString()).Equals(hash))
                         {
 
-
-                            foreach (var etudiant in etudiantList)
-                            {
-                                String etudiantHash=GetSHA256Hash(etudiant.dateInscription.ToString());
-                                if (etudiantHash.Equals(hash))
-                                {
-
-                                        etudiant.valideCourriel = true;
-                                        leContext.SaveChanges();
-                                        break;
-                                    
-                                }
-                            }
+                                etudiant.valideCourriel = true;
+                                leContext.SaveChanges();
                         }
-                        else
-                        {
-                            Response.Redirect("Inscription.aspx",false);
-                        }
+
 
                     }
                     else
                     {
-                        Response.Redirect("Inscription.aspx", false);
+                        Response.Redirect("~", false);
                     }
                 }
             }
