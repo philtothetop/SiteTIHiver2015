@@ -67,14 +67,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
+    <Content Include="Inscription\Cropper\Cropper.aspx" />
+    <Content Include="Inscription\Cropper\css\bootstrap.min.css" />
+    <Content Include="Inscription\Cropper\css\cropper.css" />
+    <Content Include="Inscription\Cropper\css\docs.css" />
+    <Content Include="Inscription\Cropper\img\picture-1.jpg" />
+    <Content Include="Inscription\Cropper\img\picture-2.jpg" />
+    <Content Include="Inscription\Cropper\js\bootstrap.min.js" />
+    <Content Include="Inscription\Cropper\js\cropper.js" />
+    <Content Include="Inscription\Cropper\js\docs.js" />
+    <Content Include="Inscription\Cropper\js\jquery.min.js" />
+    <Content Include="Inscription\imgTest.aspx" />
+    <Content Include="Inscription\Inscription-formulaire.aspx" />
     <Content Include="Inscription\Inscription-message.aspx" />
     <Content Include="Inscription\Inscription-valide.aspx" />
+    <Content Include="Inscription\Validation-Inscription.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -156,9 +170,18 @@
     <Content Include="InformationsStage.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjoutOffreEmploi.aspx.cs">
+      <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
+      <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +210,27 @@
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inscription\Cropper\Cropper.aspx.cs">
+      <DependentUpon>Cropper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Cropper\Cropper.aspx.designer.cs">
+      <DependentUpon>Cropper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\imgTest.aspx.cs">
+      <DependentUpon>imgTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\imgTest.aspx.designer.cs">
+      <DependentUpon>imgTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Inscription-formulaire.aspx.cs">
+      <DependentUpon>Inscription-formulaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription-formulaire.aspx.designer.cs">
+      <DependentUpon>Inscription-formulaire.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inscription\Inscription-message.aspx.cs">
       <DependentUpon>Inscription-message.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +244,13 @@
     </Compile>
     <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
       <DependentUpon>Inscription-valide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Validation-Inscription.aspx.cs">
+      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Validation-Inscription.aspx.designer.cs">
+      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -385,6 +436,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Photos\Profils\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

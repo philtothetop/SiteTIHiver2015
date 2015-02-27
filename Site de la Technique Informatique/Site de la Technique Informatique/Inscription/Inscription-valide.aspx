@@ -9,8 +9,7 @@
         <div class="row row-centered">
             <div class="col-lg-6 col-centered">
                 <h1>Inscription : validation du courriel</h1>
-                Votre courriel a été valide. Atendez que l'administrateur accepte votre inscription.<br />
-                Il vous contactera par courriel.
+                Votre courriel a été valide. Atendez que l'administrateur accepte votre inscription. Il vous contactera par courriel.
             </div>
         </div>
         </div>
