@@ -180,6 +180,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         etudiantACreerCopie.valideCourriel = false;
                         etudiantACreerCopie.compteActif = false;
                         etudiantACreerCopie.pathCV = "";
+                        
                         if (Request.Cookies["urlPhotoProfil"] != null)
                         {
                             etudiantACreerCopie.pathPhotoProfil = Request.Cookies["urlPhotoProfil"].Value;
