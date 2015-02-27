@@ -145,5 +145,48 @@ namespace Site_de_la_Technique_Informatique.Inscription
         {
             checkTous();
         }
+
+        protected void lnkAccepter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using(LeModelTIContainer leContext= new LeModelTIContainer())
+                {
+                    LinkButton lnkAccepter = (LinkButton)sender;
+                    int idEtudiant =int.Parse(lnkAccepter.CommandArgument);
+                    Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == idEtudiant select cl).FirstOrDefault();
+                    etudiant.compteActif = true;
+                    leContext.SaveChanges();
+
+
+                }
+            }catch(Exception ex)
+            {
+
+            }
+        }
+
+        protected void lnkRefuser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (LeModelTIContainer leContext = new LeModelTIContainer())
+                {
+                    LinkButton lnkAccepter = (LinkButton)sender;
+                    int idEtudiant = int.Parse(lnkAccepter.CommandArgument);
+                    Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == idEtudiant select cl).FirstOrDefault();
+                    leContext.UtilisateurSet.Remove(etudiant);
+                    leContext.SaveChanges();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+
     }
 }
