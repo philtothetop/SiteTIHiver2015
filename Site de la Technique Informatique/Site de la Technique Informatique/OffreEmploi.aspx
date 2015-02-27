@@ -4,41 +4,63 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <<!-- Header Carousel -->
     <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
         <div class="row">
-            <div class="col-lg-3">
-                <h1>Offre d'emploi</h1>
-            </div>
-            <div class="col-lg-3">
-                <asp:Button class="btn-default" ID="btnRetour" runat="server" Text="Retour" PostBackUrl="~/ListeOffresEmploi.aspx" Style="margin-top: 30px;" />
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <asp:Label ID="lblTitreOffre" runat="server" Font-Size="20"></asp:Label>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="listeOffresEmploi.aspx">Retour à la liste</a>
+                    </li>
+                    <li class="active">
+                        <asp:Label ID="lblTitreOffre2" runat="server" Font-Size="10"></asp:Label>
+                    </li>
+                </ol>
             </div>
         </div>
-        <div class="row" style="margin-left: 5px">
-            <asp:Label ID="lblTitreOffre" runat="server" Font-Size="20"></asp:Label>
-            <br />
-            <asp:Label ID="lblDescriptionOffre" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="lblAdresseVille" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:Label ID="lblNbHeureSemaine" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:Label ID="lblDateExpiration" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:Label ID="lblDateDebutOffre" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:Label ID="lblSalaire" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:Label ID="lblNoTelecopieur" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:Label ID="lblCourrielOffre" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14"></asp:Label>
-            <br />
-            <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click"></asp:LinkButton>
-            <br />
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="col-lg-6">
+                    <div class="row" style="margin-left: 5px; float: left;">
+
+                        <asp:Label ID="lblAdresseVille" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblNbHeureSemaine" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblDateExpiration" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblDateDebutOffre" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblSalaire" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblNoTelecopieur" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblCourrielOffre" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14"></asp:Label>
+                        <br />
+                        <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click"></asp:LinkButton>
+                        <br />
+
+                    </div>
+
+                </div>
+                <div class="col-lg-6" style="font-weight:bold;">
+                    <asp:Label ID="lblDescriptionOffre" runat="server" Font-Size="14"></asp:Label>
+                </div>
+
+            </div>
         </div>
     </div>
+
 </asp:Content>
