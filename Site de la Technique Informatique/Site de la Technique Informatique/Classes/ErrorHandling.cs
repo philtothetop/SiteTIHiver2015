@@ -28,9 +28,9 @@ namespace Site_de_la_Technique_Informatique
             bool doitRedirigerLaPersonne = true;
 
             //Vérifier si la session n'est pas vide
-            if (Session["courriel"] != null && !Session["courriel"].Equals(""))
+            if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
             {
-                String courrielDuConnecte = Convert.ToString(Session["courriel"]);
+                String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
 
                 //Trouver la personne connecté dans la bd
                 using (LeModelTIContainer leModelTI = new LeModelTIContainer())

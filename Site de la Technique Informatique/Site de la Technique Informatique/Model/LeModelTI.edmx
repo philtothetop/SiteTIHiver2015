@@ -169,6 +169,8 @@
     <Property Name="courrielOffre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="personneRessource" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EmployeurIDUtilisateur" Type="int" Nullable="false" />
+    <Property Name="etatOffre" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="validerOffre" Type="bit" Nullable="false" />
     <Property Name="VilleIDVille" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="VilleSet">
@@ -741,6 +743,8 @@
           <NavigationProperty Name="Employeur" Relationship="LeModelTI.EmployeurOffreEmploi" FromRole="OffreEmploi" ToRole="Employeur" />
           <Property Name="EmployeurIDUtilisateur" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ville" Relationship="LeModelTI.OffreEmploiVille" FromRole="OffreEmploi" ToRole="Ville" />
+          <Property Name="etatOffre" Type="String" Nullable="false" MaxLength="100" />
+          <Property Name="validerOffre" Type="Boolean" Nullable="false" />
           <Property Name="VilleIDVille" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Ville">
@@ -1144,6 +1148,8 @@
           <ScalarProperty Name="courrielOffre" ColumnName="courrielOffre" />
           <ScalarProperty Name="personneRessource" ColumnName="personneRessource" />
           <ScalarProperty Name="EmployeurIDUtilisateur" ColumnName="EmployeurIDUtilisateur" />
+          <ScalarProperty Name="etatOffre" ColumnName="etatOffre" />
+          <ScalarProperty Name="validerOffre" ColumnName="validerOffre" />
           <ScalarProperty Name="VilleIDVille" ColumnName="VilleIDVille" />
         </MappingFragment>
       </EntityTypeMapping>
