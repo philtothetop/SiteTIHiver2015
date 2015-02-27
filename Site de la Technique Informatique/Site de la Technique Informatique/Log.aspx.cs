@@ -1,4 +1,10 @@
-﻿//Type de log valeur
+﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir consulté les logs du site web.
+// Écrit par Raphael Broard, Février 2015
+// Intrants: Vide
+// Extrants: Vide
+
+
+//Valeur pour le type des logs
 //0 = Normal
 //1 = Erreur
 //2 = Warning
@@ -20,7 +26,8 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            //Session["Courriel"] = "admin";
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
         //Méthode pour récupérer les logs de la BD

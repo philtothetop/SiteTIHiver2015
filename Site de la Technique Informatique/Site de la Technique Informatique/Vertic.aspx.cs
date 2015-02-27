@@ -101,15 +101,5 @@ public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
     return listeEvenements.AsQueryable();
 }
 
-        protected void btnModifierPortable_Click(object sender, EventArgs e)
-        {
-            txtCaractPortatif.Enabled = true;
-            txtAutres.Enabled = true;
-            btnModifierPortable.Visible = false;
-            btnConfirmerPortable.Visible = true;
-            btnAnnulerPortable.Visible = true;
-
-        }
-
     }
 }

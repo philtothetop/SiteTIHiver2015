@@ -7,9 +7,9 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique.Inscription {
+namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class Inscription {
+    public partial class Recherche {
     }
 }

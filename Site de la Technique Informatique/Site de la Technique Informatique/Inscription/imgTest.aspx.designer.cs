@@ -7,54 +7,36 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique {
+namespace Site_de_la_Technique_Informatique.Inscription {
     
     
-    public partial class Vertic {
+    public partial class imgTest {
         
         /// <summary>
-        /// Contrôle txtCaractPortatif.
+        /// Contrôle form1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCaractPortatif;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle txtAutres.
+        /// Contrôle txtBox.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAutres;
+        protected global::System.Web.UI.WebControls.TextBox txtBox;
         
         /// <summary>
-        /// Contrôle lviewEcheancier.
+        /// Contrôle lnk.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEcheancier;
-        
-        /// <summary>
-        /// Contrôle txtLogicielLicenses.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogicielLicenses;
-        
-        /// <summary>
-        /// Contrôle txtLogicielLibres.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtLogicielLibres;
+        protected global::System.Web.UI.WebControls.LinkButton lnk;
     }
 }

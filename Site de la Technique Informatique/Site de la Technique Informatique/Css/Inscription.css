@@ -1,30 +1,99 @@
 ﻿/* centered columns styles */
+body {
+    margin: 0;
+}
 
 .row-centered {
-    text-align:center;
+    text-align: center;
 }
-.blue{
-    background-color:blue;
-}
+
+
 .col-centered {
-    display:inline-block;
-    float:none;
+    display: inline-block;
+    float: none;
     /* reset the text-align */
-    text-align:left;
+    text-align: left;
     /* inline-block space fix */
-    margin-right:-4px;
+    margin-right: -4px;
 }
-.champs-requis{
-    border:1px solid #9c8080;
-    padding:5px;
-    border-radius:3px;
+
+.champs-requis {
+    border: 1px solid #9c8080;
+    padding: 5px;
+    border-radius: 3px;
 }
-.iFrame{
-    width:800px;
-    height:900px;
-    border:0px;
+
+.red {
+    width: 570px;
+}
+
+.modal-cropper {
+    width: 830px;
+}
+
+.panelImage {
+    margin: 0 auto;
+    width: 540px;
+    height: 510px;
+    overflow: auto;
+}
+
+.cropper-body {
+    width: 440px;
+    height: 520px;
+    margin: 0 auto;
+}
+.content-iframe{
+    z-index: 1000;
+}
+.iframe-body {
+    height: 850px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.btn-margin {
+    margin: 10px 0;
+}
+
+.imgUpload-css {
+}
+
+.model-height {
+    height: 500px;
+}
+
+.crop-h {
+    height: 500px;
+}
+
+.img-photo {
+    height: 125px;
+    width: 125px;
+}
+
+.modif-photo {
+    height: 140px;
+}
+
+.preview-photo {
     
+    background-size: 125px 125px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 135px;
+    width: 135px;
+    float: left;
 }
-.modal-cropper{
-    width:830px;
+
+.div-btnChangerPhoto {
+    margin-left: 150px;
+    height: 130px;
+    width: 200px;
+}
+
+.btnChangerPhoto {
+    position: relative;
+    top: 95px;
 }
