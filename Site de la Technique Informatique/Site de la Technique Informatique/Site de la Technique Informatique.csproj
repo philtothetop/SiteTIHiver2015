@@ -134,6 +134,7 @@
     <Content Include="Photos\quiSommesNous.JPG" />
     <Content Include="Photos\Xavier.JPG" />
     <Content Include="QuiSommesNous.aspx" />
+    <Content Include="Recherche.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -402,6 +403,13 @@
     </Compile>
     <Compile Include="QuiSommesNous.aspx.designer.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Recherche.aspx.cs">
+      <DependentUpon>Recherche.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Recherche.aspx.designer.cs">
+      <DependentUpon>Recherche.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
