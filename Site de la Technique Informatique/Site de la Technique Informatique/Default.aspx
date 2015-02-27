@@ -191,7 +191,7 @@
                     <DayHeaderStyle Font-Bold="True" Font-Size="10pt" HorizontalAlign="Right" />
                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                     <OtherMonthDayStyle ForeColor="#999999" />
-                    <SelectedDayStyle BackColor="#C7E6FC" ForeColor="White" BorderColor="#CCCCCC" BorderWidth="1px" />
+                    <SelectedDayStyle BackColor="#CCCCCC" ForeColor="White" BorderColor="#000000" BorderWidth="1px" />
                     <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="1px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
                     <TodayDayStyle BorderColor="#CCCCCC" BorderWidth="1px" ForeColor="Red"  />
                 </asp:Calendar>
@@ -202,14 +202,14 @@
                 <asp:ListView runat="server" ID="lviewEvents" 
                     ItemType="Site_de_la_Technique_Informatique.Model.Evenement"
                     SelectMethod="lviewEvents_GetData"
-                    GroupItemCount="2">
+                    GroupItemCount="3">
 
                     <EmptyDataTemplate>
                         <p>Aucun événement particulier ce mois-ci.</p>
                     </EmptyDataTemplate>
 
                     <ItemTemplate>
-                        <div class="well">
+                        <div class="well col-lg-4" style="height:130px;">
                         <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + " " + Convert.ToDateTime(Eval("dateDebutEvenement")).ToString("MMM") + "" + (Item.dateFinEvenement.HasValue == true ? ( ((Eval("dateDebutEvenement.Date") == Eval("dateFinEvenement.Date")) ? (" au " + Eval("dateFinEvenement.Day") + " " + Convert.ToDateTime(Eval("dateFinEvenement")).ToString("MMM")) : "")) : "" ) %>' />
                         <br /><asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
                                    Text='<%# Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
@@ -226,7 +226,7 @@
                     </LayoutTemplate>
 
                     <GroupTemplate>
-                            <div class="row " style="margin-left: -15px; padding-bottom: 7px;">
+                            <div class="row">
                                 <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
                             </div>
                         </GroupTemplate>
@@ -234,7 +234,7 @@
                 </asp:ListView>
                 <div style="text-align:center; width:100%;">
             <asp:DataPager ID="dataPagerEvents" runat="server" PagedControlID="lviewEvents"
-                            PageSize="2">
+                            PageSize="3">
                             <Fields>
                                 <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
                                 <asp:NumericPagerField />
