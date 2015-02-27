@@ -18,7 +18,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["Courriel"] = "admin";
+            Session["Courriel"] = "admin";
             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
@@ -94,8 +94,9 @@ namespace Site_de_la_Technique_Informatique
                 {
                     //Récupérer les offres d'emploi dans la BD qui ne sont pas validé
                     listeDesOffresEmploi = (from cl in modelTI.OffreEmploiSet
-                                            where cl.validerOffre == false
-                                            select cl).ToList();                }
+                                            //where cl.validerOffre == false
+                                            select cl).ToList();                
+                }
             }
             catch (Exception ex)
             {
