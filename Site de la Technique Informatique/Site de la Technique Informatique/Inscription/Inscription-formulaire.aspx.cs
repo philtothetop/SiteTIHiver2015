@@ -15,6 +15,7 @@ using System.Web.UI.HtmlControls;
 using Newtonsoft.Json;
 using System.Drawing;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
@@ -132,6 +133,21 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
+                    //Courriel
+                    if (etudiantACreerCopie.courriel == null)
+                    {
+                        ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "courriel" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
+                    Regex regex = new Regex(@"^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}");
+                    Match match = regex.Match(etudiantACreerCopie.courriel+"");
+                    if (etudiantACreerCopie.courriel != null || !match.Success || etudiantACreerCopie.courriel.Length>64)
+                    {
+                        ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "courriel" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
                     //Comparer les mots de passe
                     TextBox txtConfirmationMotDePasse = (TextBox)lviewItem.FindControl("txtConfirmationMotDePasse");
                     if (txtConfirmationMotDePasse != null && etudiantACreerCopie.hashMotDePasse != txtConfirmationMotDePasse.Text)
@@ -171,6 +187,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         String imageNom =(etudiantACreerCopie.prenom+etudiantACreerCopie.dateInscription.ToString()).GetHashCode()+"_125.jpg";
                         String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
                         imageProfil.Save(imageProfilChemin);
+                        etudiantACreerCopie.pathPhotoProfil = imageNom;
+                        }
+                        else// sion photo par défault
+                        {
+                            etudiantACreerCopie.pathPhotoProfil = "photobase.bmp";
                         }
                         //Convertir le mot de passe en hashcode
                         etudiantACreerCopie.hashMotDePasse = GetSHA256Hash(etudiantACreerCopie.hashMotDePasse);
@@ -180,16 +201,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         etudiantACreerCopie.valideCourriel = false;
                         etudiantACreerCopie.compteActif = false;
                         etudiantACreerCopie.pathCV = "";
-                        if (Request.Cookies["urlPhotoProfil"] != null)
-                        {
-                            etudiantACreerCopie.pathPhotoProfil = Request.Cookies["urlPhotoProfil"].Value;
-                            Response.Cookies["urlPhotoProfil"].Expires = DateTime.Now.AddDays(-1d);
-                        }
+                        etudiantACreerCopie.cohorte = 0;
 
                         leContext.UtilisateurSet.Add(etudiantACreerCopie);
                         leContext.SaveChanges();
                         envoie_courriel_confirmation(etudiantACreerCopie);
-                        String hashCourriel = GetSHA256Hash(etudiantACreerCopie.dateInscription.ToString());
 
                         Response.Redirect("Inscription-message.aspx", false);
                     }
@@ -297,7 +313,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             // Corps du message : contient ce que la personne a écrit dans le module seulement
 
-            mail.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Valider votre courriel :" + "cegepgranby.qc.ca?id=" + etudiant.courriel + "&code=" + GetSHA256Hash(etudiant.dateInscription.ToString()); ;
+            mail.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Valider votre courriel :" + "(adresse)/Inscription/Inscription-valide.aspx?id=" + etudiant.courriel + "&code=" + GetSHA256Hash(etudiant.dateInscription.ToString()); ;
 
 
 

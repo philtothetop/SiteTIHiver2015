@@ -75,10 +75,7 @@
                           </asp:TextBox>
                             </div>
                             <div class="col-lg-4">
-
-                                <asp:Button ID="btnModifierPortable" runat="server" Text="Modifier" OnClick="btnModifierPortable_Click" />
-                                <asp:Button ID="btnConfirmerPortable" runat="server" Text="Confirmer" Visible="false" />
-                                <asp:Button ID="btnAnnulerPortable" runat="server" Text="Annuler" Visible="false" />
+                 
                             </div>
 
                         </div>
@@ -99,20 +96,16 @@
 
 
             <section id="echeancier" class="echeancier-section">
-                <div class="row">
-                    <div class="col-lg-12">
+                <div class="row" style="width:937px;margin-left:15px;">
+                    <div class="row" style="width:937px;">
                     <h3>Les dates à retenir</h3>
 
                     <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
 
-                </div>
-                <div class="row">
-                    <asp:Button ID="btnAjouterEvenement" runat="server" Text="Ajouter." />
-
-                </div>
+                </div>           
                 <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC" SelectMethod="lvEcheancier_GetData">
                     <LayoutTemplate>
-                        <div class="row" style="background-color:#eee;border-bottom:1px solid black; border-radius:3px;">
+                        <div class="row" style="background-color:#eee;border-bottom:1px solid black; border-radius:3px;width:937px;">
                             <div class="col-lg-8" style=" border-right:1px solid black;">
                                 <h4>Événement</h4>
                             </div>
@@ -126,11 +119,8 @@
                             </div>
                     </LayoutTemplate>
                      <ItemTemplate>
-                        <div class="row" style="min-height:50px; height:auto; position:relative ">
-                            <div class="divUpdateEvent" style="float:left; "  >
-                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="true" /><br />
-                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="true" />
-                                </div>
+                        <div class="row" style="min-height:50px; height:auto; position:relative;width:937px; ">
+                          
                             <div class="col-lg-4" style=" min-height:50px; height:100%; padding-top:10px; padding-bottom:10px;float:right; position:inherit ">
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
                                 </div>
@@ -141,10 +131,8 @@
                             </div>
                         </ItemTemplate>
                     <AlternatingItemTemplate>
-                         <div class="row"  style="background-color:#eee; height:50px; border-radius:3px; " >
-                         <div class="divUpdateEvent" style="float:left; "  >
-                                    <asp:Button ID="btnUpdate" runat="server" Width="20" Height="20" visible="true" /><br />
-                                 <asp:Button ID="btnRemove" runat="server" Width="20" Height="20" visible="true" />
+                         <div class="row"  style="background-color:#eee; height:50px; border-radius:3px;width:937px; " >
+                         <div class="divUpdateEvent" style="float:left;"  >
                               </div>
                              <div class="col-lg-4" style="padding-top:10px; min-height:50px; height:auto; padding-bottom:10px; float:right;" >
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
@@ -159,7 +147,7 @@
                     </AlternatingItemTemplate>
                    
                     </asp:ListView>
-                </div>
+                    </div>
             </section>
 
             <!-- Logiciel Section -->
