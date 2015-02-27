@@ -133,13 +133,13 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
+                    //Courriel
                     if (etudiantACreerCopie.courriel == null)
                     {
                         ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "courriel" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
-                    //Courriel
                     Regex regex = new Regex(@"^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}");
                     Match match = regex.Match(etudiantACreerCopie.courriel+"");
                     if (etudiantACreerCopie.courriel != null || !match.Success || etudiantACreerCopie.courriel.Length>64)
