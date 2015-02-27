@@ -29,6 +29,8 @@ namespace Site_de_la_Technique_Informatique.Model
         public string courrielOffre { get; set; }
         public string personneRessource { get; set; }
         public int EmployeurIDUtilisateur { get; set; }
+        public string etatOffre { get; set; }
+        public bool validerOffre { get; set; }
         public int VilleIDVille { get; set; }
     
         public virtual Employeur Employeur { get; set; }
