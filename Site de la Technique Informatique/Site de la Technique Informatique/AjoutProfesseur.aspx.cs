@@ -56,18 +56,18 @@ namespace Site_de_la_Technique_Informatique
 
                     if (!ModelState.IsValid)
                     {
-                        Label lblMessage = lviewInscriptionMembre.Items[0].FindControl("lblMessage") as Label;
-                        lblMessage.Text = "";
+                        
+                        
                         foreach (var modelErrors in ModelState)
                         {
                             string propertyName = modelErrors.Key;
                             if (modelErrors.Value.Errors.Count > 0)
                             {
-
+                                lblMessages.Text = "";
 
                                 for (int i = 0; i < modelErrors.Value.Errors.Count; i++)
                                 {
-                                    lblMessage.Text += "<b>" + propertyName + ": </b>" + "<br/>" + modelErrors.Value.Errors[i].ErrorMessage.ToString() + "<br/>";
+                                    lblMessages.Text += "<b>" + propertyName + ": </b>" + "<br/>" + modelErrors.Value.Errors[i].ErrorMessage.ToString() + "<br/>";
                                 }
 
                             }

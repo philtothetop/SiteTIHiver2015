@@ -66,11 +66,11 @@
                 <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" />
                     </div>
             </div>
-            <asp:Label ID="lblMessages" runat="server" Text ="" />
+            
         </div>
                 </ItemTemplate>
 
         </asp:ListView>
-
+        <asp:Label ID="lblMessages" runat="server" Text ="" />
     </div>
 </asp:Content>
