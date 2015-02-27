@@ -154,6 +154,7 @@
     <Content Include="Css\Global.css" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
+    <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -364,6 +365,13 @@
     </Compile>
     <Compile Include="InformationsStage.aspx.designer.cs">
       <DependentUpon>InformationsStage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ValiderLesOffresEmploi.aspx.cs">
+      <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ValiderLesOffresEmploi.aspx.designer.cs">
+      <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
