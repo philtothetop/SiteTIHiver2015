@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjoutOffreEmploi.aspx" />
+    <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\Log.css" />
@@ -177,6 +178,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjoutProfesseur.aspx.cs">
+      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutProfesseur.aspx.designer.cs">
+      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\hash.cs" />
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -329,6 +338,9 @@
     <Compile Include="Model\ParutionMedia.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Photos.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Professeur.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
@@ -372,6 +384,7 @@
       <DependentUpon>Log.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
+    <Compile Include="Model_Partielles\Professeur_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
     <Compile Include="modifProfilEtudiants.aspx.cs">
       <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>

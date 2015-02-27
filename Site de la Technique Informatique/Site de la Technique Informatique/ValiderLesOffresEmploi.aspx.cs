@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir accepter/refuser les offres d'emplois
+// Écrit par Raphael Brouard, Février 2015
+// Intrants: Vide
+// Extrants: L'offre choisi a été VALIDÉ ou SUPPRIMÉ dans la BD.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,7 +37,6 @@ namespace Site_de_la_Technique_Informatique
                 Response.BinaryWrite(FileBuffer);
             }
         }
-
 
          //Méthode pour accepter l'offre d'emploi
         protected void accepterOffreEmploi_Click(object sender, EventArgs e)
@@ -90,13 +94,9 @@ namespace Site_de_la_Technique_Informatique
                 {
                     //Récupérer les offres d'emploi dans la BD qui ne sont pas validé
                     listeDesOffresEmploi = (from cl in modelTI.OffreEmploiSet
-                                            where cl.validerOffre == false
-                                            select cl).ToList();
+                                            //where cl.validerOffre == false
+                                            select cl).ToList();                
                 }
-
-                //QUE POUR TEST
-                OffreEmploi unOffre = new OffreEmploi();
-                //unOffre.
             }
             catch (Exception ex)
             {

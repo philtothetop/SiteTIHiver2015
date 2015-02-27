@@ -1,5 +1,5 @@
 ﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir consulté les logs du site web.
-// Écrit par Raphael Broard, Février 2015
+// Écrit par Raphael Brouard, Février 2015
 // Intrants: Vide
 // Extrants: Vide
 

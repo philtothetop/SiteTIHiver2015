@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using System.Drawing;
 using System.IO;
 
+
 namespace Site_de_la_Technique_Informatique.Inscription
 {
     public partial class Inscription : System.Web.UI.Page
