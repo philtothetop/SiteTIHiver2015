@@ -63,9 +63,10 @@
             <div class="col-md-12">
                 <div class="col-md-4">
                 <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" />
-                <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" />
+                <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" />
                     </div>
             </div>
+            <asp:Label ID="lblMessages" runat="server" Text ="" />
         </div>
                 </ItemTemplate>
 
