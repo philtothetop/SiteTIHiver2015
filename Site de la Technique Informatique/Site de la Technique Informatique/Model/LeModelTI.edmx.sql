@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/20/2015 11:05:38
--- Generated from EDMX file: C:\Users\Xavier\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
+-- Date Created: 02/27/2015 08:42:12
+-- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -210,6 +210,8 @@ CREATE TABLE [dbo].[OffreEmploiSet] (
     [courrielOffre] nvarchar(max)  NOT NULL,
     [personneRessource] nvarchar(max)  NOT NULL,
     [EmployeurIDUtilisateur] int  NOT NULL,
+    [etatOffre] nvarchar(100)  NOT NULL,
+    [validerOffre] bit  NOT NULL,
     [VilleIDVille] int  NOT NULL
 );
 GO

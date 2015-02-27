@@ -100,6 +100,7 @@
 
             <section id="echeancier" class="echeancier-section">
                 <div class="row">
+                    <div class="col-lg-12">
                     <h3>Les dates à retenir</h3>
 
                     <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
@@ -158,6 +159,7 @@
                     </AlternatingItemTemplate>
                    
                     </asp:ListView>
+                </div>
             </section>
 
             <!-- Logiciel Section -->
