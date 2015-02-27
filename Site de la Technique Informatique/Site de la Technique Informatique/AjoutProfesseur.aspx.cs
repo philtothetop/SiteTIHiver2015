@@ -73,7 +73,10 @@ namespace Site_de_la_Technique_Informatique
                             }
                         }
 
-
+                    }
+                    else
+                    {
+                        lecontexte.SaveChanges();
                     }
 
                 }
