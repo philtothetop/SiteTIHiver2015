@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-12">
                 <h1>Valider les offres d'emploi</h1>
             </div>
         </div>
@@ -59,6 +59,8 @@
                                 </div>
 
                             </div>
+
+                            <div style="clear:both; height:10px"></div>
                         </ItemTemplate>
 
             <EmptyDataTemplate>
