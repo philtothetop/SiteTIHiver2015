@@ -22,17 +22,7 @@
         <!-- /.row -->
         <!-- Content Row -->
         <div class="row">
-            <!-- Sidebar Column -->
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="default.aspx" class="list-group-item">Accueil</a>
-                    <a href="QuiSommesNous.aspx" class="list-group-item">Nouvelles</a>
-                    <a href="listeOffresEmploi.aspx" class="list-group-item">Offre d'emploi</a>
-                    <a href="#" class="list-group-item">Parutions médias</a>
-                    <a href="FAQ.aspx" class="list-group-item">FAQ</a>
-                    <a href="#" class="list-group-item">Témoignages</a>
-                </div>
-            </div>
+          
             <!-- Content Column -->
             <div class="col-md-9">
                 <asp:ListView ID="lviewNouvelles" runat="server"
@@ -67,7 +57,7 @@
                 </asp:ListView>
             </div>
             <!-- /.row -->
-            <hr />
+           
         </div>
     </div>
     <!-- /.container -->
