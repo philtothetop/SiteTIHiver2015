@@ -100,7 +100,7 @@
                                  <a href="Inscription/Inscription.aspx">Inscription</a>
                             </li>
                                                                                     
-                        <li class="dropdown">
+                        <li>
                             <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
                             <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" />
                         </li>
