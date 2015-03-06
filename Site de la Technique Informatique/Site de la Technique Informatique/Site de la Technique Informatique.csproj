@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin_OffreEmploi.aspx" />
+    <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="AjoutProfesseur.aspx" />
@@ -206,6 +207,7 @@
     <Content Include="Css\Global.css" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
+    <Content Include="Temoignage.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
@@ -226,6 +228,13 @@
     </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.designer.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Temoignage.aspx.cs">
+      <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Temoignage.aspx.designer.cs">
+      <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Vertic.aspx.cs">
       <DependentUpon>Admin_Vertic.aspx</DependentUpon>
@@ -503,6 +512,13 @@
     </Compile>
     <Compile Include="InformationsStage.aspx.designer.cs">
       <DependentUpon>InformationsStage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Temoignage.aspx.cs">
+      <DependentUpon>Temoignage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Temoignage.aspx.designer.cs">
+      <DependentUpon>Temoignage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>

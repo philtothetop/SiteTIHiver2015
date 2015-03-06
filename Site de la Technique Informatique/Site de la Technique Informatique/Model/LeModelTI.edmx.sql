@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/06/2015 10:55:06
+-- Date Created: 03/06/2015 13:41:07
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
@@ -270,8 +270,8 @@ GO
 -- Creating table 'FAQSet'
 CREATE TABLE [dbo].[FAQSet] (
     [IDFAQ] int IDENTITY(1,1) NOT NULL,
-    [texteQuestion] nvarchar(50)  NOT NULL,
-    [texteReponse] nvarchar(500)  NOT NULL,
+    [texteQuestion] nvarchar(150)  NOT NULL,
+    [texteReponse] nvarchar(800)  NOT NULL,
     [ProfesseurIDUtilisateur] int  NOT NULL
 );
 GO

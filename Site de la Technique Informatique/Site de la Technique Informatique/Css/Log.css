@@ -86,3 +86,8 @@
     color: rgba(0,0,255,0.7);
     text-decoration:none;
 }
+
+.lienNonEnable {
+    color:black;
+    text-decoration:none;
+}

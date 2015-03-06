@@ -26,7 +26,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
         //Méthode pour récupérer les logs de la BD
@@ -84,7 +84,7 @@ namespace Site_de_la_Technique_Informatique
 
                 listeDesLogs.Add(logErreur);
 
-                //A AJOUTER UN LOG DANS LA ROUTINE DERREUR?
+                LogErreur("Log.aspx.cs dans la méthode GetLesLogs", ex);
             }
 
             return listeDesLogs.AsQueryable().SortBy("dateLog").Reverse();
@@ -96,6 +96,59 @@ namespace Site_de_la_Technique_Informatique
             String argument = Convert.ToString(((Button)sender).CommandArgument);
             hfieldTrierType.Value = argument;
             lviewLogs.DataBind();
+        }
+
+        //Pour mettre le no compte a 0 si il est vide
+        public int LeIdDuCompte(Model.Log leLog)
+        {
+            if (leLog.UtilisateurIDUtilisateur != null)
+            {
+                return Convert.ToInt16(leLog.UtilisateurIDUtilisateur);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        //Mettre le lien au compte enable ou pas si c'est fait par le server ou pas
+        public bool SavoirSiLienEnable(Model.Log leLog)
+        {
+            if (leLog.UtilisateurIDUtilisateur != null)
+            {
+                if (leLog.UtilisateurIDUtilisateur != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //Pour donner le bon CSS au lien, sans de hover + noir, si pas actif 
+        public string SavoirCSSPourLien(Model.Log leLog)
+        {
+            if (leLog.UtilisateurIDUtilisateur != null)
+            {
+                if (leLog.UtilisateurIDUtilisateur != 0)
+                {
+                    return "";
+                }
+                else
+                {
+                    return "lienNonEnable";
+                }
+            }
+            else
+            {
+                return "lienNonEnable";
+            }
         }
 
         //Fonction pour mettre le bon CSS pour chaque type de log
