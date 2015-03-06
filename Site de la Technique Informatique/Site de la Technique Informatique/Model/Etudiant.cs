@@ -19,6 +19,6 @@ namespace Site_de_la_Technique_Informatique.Model
         public bool valideTemoignage { get; set; }
         public bool valideCourriel { get; set; }
         public string pathCV { get; set; }
-        public short cohorte { get; set; }
+        public short cohort { get; set; }
     }
 }

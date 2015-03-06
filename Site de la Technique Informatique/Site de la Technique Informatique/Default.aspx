@@ -209,7 +209,7 @@
                     </EmptyDataTemplate>
 
                     <ItemTemplate>
-                        <div class="well col-lg-4" style="height:130px;"">
+                        <div class="well col-lg-4" style="height:130px;">
                         <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + " " + Convert.ToDateTime(Eval("dateDebutEvenement")).ToString("MMM") + "" + (Item.dateFinEvenement.HasValue == true ? ( ((Eval("dateDebutEvenement.Date") == Eval("dateFinEvenement.Date")) ? (" au " + Eval("dateFinEvenement.Day") + " " + Convert.ToDateTime(Eval("dateFinEvenement")).ToString("MMM")) : "")) : "" ) %>' />
                         <br /><asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
                                    Text='<%# Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +

@@ -86,13 +86,3 @@
     color: rgba(0,0,255,0.7);
     text-decoration:none;
 }
-
-.lnkPasClickable {
-    color:black;
-    text-decoration:none;
-}
-
-.lnkPasClickable:hover {
-    color:black;
-    text-decoration:none;
-}

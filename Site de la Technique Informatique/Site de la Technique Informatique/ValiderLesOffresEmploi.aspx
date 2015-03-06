@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-3">
                 <h1>Valider les offres d'emploi</h1>
             </div>
         </div>
@@ -15,40 +15,19 @@
 
                         <LayoutTemplate>
                             <div>
-                                
-                <ol class="breadcrumb">
-                    <li><a href="nullFORnow.aspx">Retour au panneau d'administration</a>
-                    </li>
-                    <li class="active">
-                        <asp:Label ID="lblTitreOffre2" runat="server" Font-Size="10"></asp:Label>
-                    </li>
-                </ol>
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
                             </div>
                         </LayoutTemplate>
 
                         <ItemTemplate>
-                            <!-- Header Carousel -->
-    <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
+                            <div class="row" style="margin-left: 5px">
             <asp:Label ID="lblTitreOffre" runat="server" Font-Size="20" Text='<%# Item.titreOffre %>'></asp:Label>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Content Row -->
-        <div class="row">
-            <div class="col-lg-12">
-
-                <div class="col-lg-6">
-                    <div class="row" style="margin-left: 5px; float: left;">
-
-                        <asp:Label ID="lblAdresseVille" runat="server" Font-Size="14" Text='<%# Item.adresseTravail %>'></asp:Label>
+            <br />
+            <asp:Label ID="lblDescriptionOffre" runat="server" Font-Size="14" Text='<%# Item.descriptionOffre %>'></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblAdresseVille" runat="server" Font-Size="14" Text='<%# Item.adresseTravail %>'></asp:Label>
             <br />
             <asp:Label ID="lblNbHeureSemaine" runat="server" Font-Size="14" Text='<%# Item.nbHeureSemaine %>'></asp:Label>
             <br />
@@ -65,21 +44,21 @@
             <asp:Label ID="lblCourrielOffre" runat="server" Font-Size="14" Text='<%# Item.courrielOffre %>'></asp:Label>
             <br />
             <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14" Text='<%# Item.personneRessource %>'></asp:Label>
-                        <br />
-            <asp:LinkButton ID="LinkButton1" Text="Version PDF" runat="server" CommandArgument='<%# Item.pathPDFDescription %>' OnClick="lnkPDF_Click"></asp:LinkButton>
-                        <br />
-
-                    </div>
-
-                </div>
-                <div class="col-lg-6" style="font-weight:bold;">
-            <asp:Label ID="lblDescriptionOffre" runat="server" Font-Size="14" Text='<%# Item.descriptionOffre %>'></asp:Label>
-                </div>
-
-            </div>
+            <br />
+            <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" CommandArgument='<%# Item.pathPDFDescription %>' OnClick="lnkPDF_Click"></asp:LinkButton>
+            <br />
         </div>
-        </div>
-                            <div style="clear:both; height:10px"></div>
+
+                            <div>
+                                <div style="float:left;">
+                                    <asp:Button ID="btnValiderOffre" runat="server" Text="Valider" CssClass="btn btn-success" Width="100px" OnClick="accepterOffreEmploi_Click" CommandArgument='<%# Item.IDOffreEmploi %>'  />
+
+                                </div>
+                                <div style="float:right;">
+                                    <asp:Button ID="btnRefuserOffre" runat="server" Text="Refuser" CssClass="btn btn-danger" Width="100px" OnClick="refuserOffreEmploi_Click" CommandArgument='<%# Item.IDOffreEmploi %>' />
+                                </div>
+
+                            </div>
                         </ItemTemplate>
 
             <EmptyDataTemplate>
@@ -101,5 +80,5 @@
                         </asp:DataPager>
                 </div>
 
-        </div>
+    </div>
 </asp:Content>
