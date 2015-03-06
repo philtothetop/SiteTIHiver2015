@@ -66,7 +66,7 @@
         <div class="row" runat="server" id="divComplete" visible ="false">
             <div class="col-md-12">
                 <h2>Le professeur a été ajouté.</h2>
-                <asp:LinkButton ID="lnkRetourAccueil" runat="server" CssClass="btn btn-default" Text="Accueil" />
+                <asp:LinkButton ID="lnkRetourAccueil" runat="server" CssClass="btn btn-default" Text="Accueil" OnClick="lnkRetourAccueil_Click" />
             </div>
         </div>
                 
