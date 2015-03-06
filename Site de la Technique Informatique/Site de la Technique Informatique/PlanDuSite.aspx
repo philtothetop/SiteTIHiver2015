@@ -41,7 +41,7 @@
 
                              <asp:TreeNode Text="Informations" SelectAction="None" >
 
-                                <asp:TreeNode Text="Verdic" NavigateUrl="~/Vertic.aspx"  />
+                                <asp:TreeNode Text="Vertic" NavigateUrl="~/Vertic.aspx"  />
                                 <asp:TreeNode Text="Stages" NavigateUrl="~/InformationsStage.aspx" />
                                
 
