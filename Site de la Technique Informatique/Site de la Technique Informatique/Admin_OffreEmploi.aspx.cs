@@ -14,11 +14,11 @@ using System.Net;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_OffreEmploi : System.Web.UI.Page
+    public partial class Admin_OffreEmploi : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
