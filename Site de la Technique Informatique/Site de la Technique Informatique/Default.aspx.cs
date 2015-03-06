@@ -1,6 +1,7 @@
 ﻿using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,6 +15,19 @@ namespace Site_de_la_Technique_Informatique
         DateTime today = DateTime.Now;
         DateTime demain = DateTime.Now.AddDays(1);
 
+        protected void Page_PreRenderComplete(object sender, EventArgs e)
+        {
+            int i = 0;
+
+            foreach (ListViewItem lvi in lviewAlbumPhoto.Items)
+            {
+                System.Web.UI.WebControls.Image imgDansCarousel = (System.Web.UI.WebControls.Image)lviewAlbumPhoto.Items[i].FindControl("imgDansCarousel");
+
+                imgDansCarousel.Height = GetHeightCarousselImageMax(imgDansCarousel.ImageUrl, 400);
+                imgDansCarousel.Width = GetWidthCarousselImageMax(imgDansCarousel.ImageUrl, 400);
+                i++;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,8 +40,11 @@ namespace Site_de_la_Technique_Informatique
                 }
             }
         }
+
+        //Changer les dates lors du changement de mois
         protected void CalendrierEvents_SelectionChanged(object sender, EventArgs e)
         {
+
             try
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
@@ -41,22 +58,24 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException("Erreur dans selectionChanged du calendrier ", ex);
+                LogErreur("Default-CalendrierEvents_SelectionChanged", ex);
             }
         }
 
-
+        //Changer les datas selon le mois
         public IQueryable<Site_de_la_Technique_Informatique.Model.Evenement> lviewEvents_GetData()
         {
-
-            if (CalendrierEvents.SelectedDates[0] != null)
+            if (CalendrierEvents.SelectedDates.Count != 0)
             {
                 var monthSelected = CalendrierEvents.SelectedDates[0].Month;
                 var yearSelected = CalendrierEvents.SelectedDates[0].Year;
+                List<Evenement> listeEvenement = new List<Evenement>();
 
                 try
                 {
-                    List<Evenement> listeEvenement = new List<Evenement>();
+
+                    //string yolo = "gerg";
+                    //int moma = Convert.ToInt32(yolo);
 
                     using (LeModelTIContainer leContext = new LeModelTIContainer())
                     {
@@ -69,12 +88,12 @@ namespace Site_de_la_Technique_Informatique
                             return null;
                         }
                     }
-                    return listeEvenement.AsQueryable().SortBy("dateDebutEvenement");
                 }
                 catch (Exception ex)
                 {
-                    throw new InvalidOperationException("Erreur dans le listeView Evenements PageAccueilConnecté", ex);
+                   LogErreur("Default-lviewEvents_GetData", ex);
                 }
+                return listeEvenement.AsQueryable().SortBy("dateDebutEvenement");
             }
             else
             {
@@ -82,11 +101,13 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
+        //Renvoie à l'événement demander sur la page d'événement
         protected void btnPlusEvents_Click(object sender, EventArgs e)
         {
 
         }
 
+        //Change le mois en cours, les dates sélectionner et appel lviewEvents_getData
         protected void CalendrierEvents_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
         {
             using (LeModelTIContainer leContext = new LeModelTIContainer())
@@ -99,6 +120,101 @@ namespace Site_de_la_Technique_Informatique
                     CalendrierEvents.SelectedDates.Add(UnEvent.dateDebutEvenement);
                 }
                 lviewEvents.DataBind();
+            }
+        }
+
+        //Hauteur max de l'image dans le carousel
+        public int GetHeightCarousselImageMax(string nomPhoto, int tailleMax)
+        {
+            int hauteurMax = tailleMax;
+
+            try
+            {
+                string siImageExiste = nomPhoto;
+                siImageExiste = HttpContext.Current.Server.MapPath(siImageExiste);
+
+                Bitmap lImage = new Bitmap(siImageExiste);
+
+                int height = lImage.Size.Height;
+                int width = lImage.Size.Width;
+
+                if (height >= width)
+                {
+                    hauteurMax = tailleMax;
+                }
+                else
+                {
+                    double difference = tailleMax / Convert.ToDouble(width);
+                    hauteurMax = Convert.ToInt32(difference * height);
+                }
+
+            }
+            catch
+            {
+                return tailleMax;
+            }
+
+            return hauteurMax;
+        }
+
+        //Largeur max de l'image dans le carousel
+        public int GetWidthCarousselImageMax(string nomPhoto, int tailleMax)
+        {
+            int largeurMax = tailleMax;
+
+            try
+            {
+                string siImageExiste = nomPhoto;
+                siImageExiste = HttpContext.Current.Server.MapPath(siImageExiste);
+
+                Bitmap lImage = new Bitmap(siImageExiste);
+
+                int height = lImage.Size.Height;
+                int width = lImage.Size.Width;
+
+                if (width >= height)
+                {
+                    largeurMax = tailleMax;
+                }
+                else
+                {
+                    double difference = tailleMax / Convert.ToDouble(height);
+                    largeurMax = Convert.ToInt32(difference * width);
+                }
+
+            }
+            catch
+            {
+                return tailleMax;
+            }
+
+            return largeurMax;
+        }
+
+        //Aller chercher les photos du Carousel
+        public IQueryable<Site_de_la_Technique_Informatique.Model.Photos> lviewAlbumPhoto_GetData()
+        {
+
+            List<Photos> listePhoto = new List<Photos>();
+
+            using (LeModelTIContainer leContext = new LeModelTIContainer())
+            {
+                try
+                {
+                    if (leContext.PhotosSet.ToList() != null)
+                    {
+                        listePhoto = (from cl in leContext.PhotosSet select cl).ToList();
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogErreur("Default-lviewAlbumPhoto_GetData", ex);
+                }
+                return listePhoto.AsQueryable();
             }
         }
 

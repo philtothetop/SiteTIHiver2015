@@ -7,45 +7,36 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique {
+namespace Site_de_la_Technique_Informatique.Inscription {
     
     
-    public partial class Default {
+    public partial class Inscription_Employeur {
         
         /// <summary>
-        /// Contrôle lviewAlbumPhoto.
+        /// Contrôle ImgExSrc.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewAlbumPhoto;
+        protected global::System.Web.UI.WebControls.HiddenField ImgExSrc;
         
         /// <summary>
-        /// Contrôle CalendrierEvents.
+        /// Contrôle smProxy.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CalendrierEvents;
+        protected global::System.Web.UI.ScriptManagerProxy smProxy;
         
         /// <summary>
-        /// Contrôle lviewEvents.
+        /// Contrôle lviewFormulaireInscriptionEmployeur.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEvents;
-        
-        /// <summary>
-        /// Contrôle dataPagerEvents.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager dataPagerEvents;
+        protected global::System.Web.UI.WebControls.ListView lviewFormulaireInscriptionEmployeur;
     }
 }
