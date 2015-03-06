@@ -96,7 +96,7 @@
                 </a>
             </div>
 
-            <!-- Informations right side -->
+            <!-- Information right side -->
             <div class="col-lg-5">
                 <h2>Une place dynamique!</h2>
                 <h3><a href="QuiSommesNous.aspx">Qui Sommes Nous?</a></h3>

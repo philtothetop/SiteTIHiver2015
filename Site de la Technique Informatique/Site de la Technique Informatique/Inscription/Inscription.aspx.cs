@@ -310,7 +310,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             // Corps du message : contient ce que la personne a écrit dans le module seulement
             hash hash = new hash();
             String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
-            String hyperLien = Request.Url + "/Inscription/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
+            String hyperLien = HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
             mail.Body = "Chère " + etudiant.prenom + "" + etudiant.nom + ",<br/><br/>Valider votre courriel :<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
 

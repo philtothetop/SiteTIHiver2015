@@ -5,12 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link rel="stylesheet" href="../Css/Inscription.css" />
     <div class="container">
-        <asp:ListView runat="server" ID="lvInscriptionProf"
-            ItemType="Site_de_la_Technique_Informatique.Model.Professeur"
-             SelectMethod="getProfesseur"
-             UpdateMethod="creerProfesseur"
-            >
-            <ItemTemplate>
+        
 
             
         <div class="row">
@@ -63,14 +58,12 @@
             <div class="col-md-12">
                 <div class="col-md-4">
                 <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" />
-                <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" />
+                <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" OnClick="lnkEnvoyer_Click" />
                     </div>
             </div>
             
         </div>
-                </ItemTemplate>
-
-        </asp:ListView>
+                
         <asp:Label ID="lblMessages" runat="server" Text ="" />
     </div>
 </asp:Content>

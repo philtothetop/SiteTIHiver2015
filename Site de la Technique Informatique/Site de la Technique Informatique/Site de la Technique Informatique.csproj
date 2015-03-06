@@ -139,6 +139,7 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
+    <Content Include="modifProfilEtudiant.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -425,6 +426,13 @@
     </Compile>
     <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
+    <Compile Include="modifProfilEtudiant.aspx.cs">
+      <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modifProfilEtudiant.aspx.designer.cs">
+      <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

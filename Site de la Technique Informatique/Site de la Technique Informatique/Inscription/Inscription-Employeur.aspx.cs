@@ -245,7 +245,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             // Corps du message : contient ce que la personne a écrit dans le module seulement
             hash hash = new hash();
             String hashCourriel = hash.GetSHA256Hash(employeur.dateInscription.ToString());
-            String hyperLien = Request.Url + "/Inscription/Inscription-valide.aspx?type=emp&id=" + employeur.courriel + "&code=" + hashCourriel;
+            String hyperLien = HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=emp&id=" + employeur.courriel + "&code=" + hashCourriel;
             mail.Body = "Chère " + employeur.nomEmployeur + ",<br/><br/>Valider votre courriel :<a href=\"" + hyperLien + "\">cliquez ici.</a>";
             mail.BodyEncoding = System.Text.Encoding.UTF8;
             mail.IsBodyHtml = true;
