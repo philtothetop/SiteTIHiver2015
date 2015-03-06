@@ -13,6 +13,15 @@ namespace Site_de_la_Technique_Informatique {
     public partial class AjoutOffreEmploi {
         
         /// <summary>
+        /// Contrôle lblErreur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErreur;
+        
+        /// <summary>
         /// Contrôle txtTitreOffre.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,31 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Label lblDescriptionOffre;
         
         /// <summary>
-        /// Contrôle txtDateExpiration.
+        /// Contrôle txtJourExpiration.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateExpiration;
+        protected global::System.Web.UI.WebControls.TextBox txtJourExpiration;
+        
+        /// <summary>
+        /// Contrôle txtMoisExpiration.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMoisExpiration;
+        
+        /// <summary>
+        /// Contrôle ddlAnneeExpiration.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAnneeExpiration;
         
         /// <summary>
         /// Contrôle lblDateExpiration.
@@ -67,22 +94,40 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Label lblDateExpiration;
         
         /// <summary>
-        /// Contrôle txtDateDebut.
+        /// Contrôle txtJourDebut.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDateDebut;
+        protected global::System.Web.UI.WebControls.TextBox txtJourDebut;
         
         /// <summary>
-        /// Contrôle lblDateDebut.
+        /// Contrôle txtMoisDebut.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateDebut;
+        protected global::System.Web.UI.WebControls.TextBox txtMoisDebut;
+        
+        /// <summary>
+        /// Contrôle ddlAnneeDebut.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAnneeDebut;
+        
+        /// <summary>
+        /// Contrôle lblDebut.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDebut;
         
         /// <summary>
         /// Contrôle txtSalaire.
@@ -157,6 +202,15 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Label lblVille;
         
         /// <summary>
+        /// Contrôle AutoCompleteExtender.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender;
+        
+        /// <summary>
         /// Contrôle txtTelephone.
         /// </summary>
         /// <remarks>
@@ -166,13 +220,22 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.TextBox txtTelephone;
         
         /// <summary>
-        /// Contrôle lblTelephone.
+        /// Contrôle lblTelephonePoste.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelephone;
+        protected global::System.Web.UI.WebControls.Label lblTelephonePoste;
+        
+        /// <summary>
+        /// Contrôle txtposte.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtposte;
         
         /// <summary>
         /// Contrôle txtTelecopieur.
@@ -229,6 +292,15 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Label lblRessource;
         
         /// <summary>
+        /// Contrôle fuPDF.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile fuPDF;
+        
+        /// <summary>
         /// Contrôle lblPDF.
         /// </summary>
         /// <remarks>
@@ -236,5 +308,23 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPDF;
+        
+        /// <summary>
+        /// Contrôle lnkAnnuler.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkAnnuler;
+        
+        /// <summary>
+        /// Contrôle lnkAjouter.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkAjouter;
     }
 }

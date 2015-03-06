@@ -18,8 +18,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["Courriel"] = "admin";
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
         //Méthode pour downloader le PDF de l'offre d'emploi
@@ -94,7 +93,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     //Récupérer les offres d'emploi dans la BD qui ne sont pas validé
                     listeDesOffresEmploi = (from cl in modelTI.OffreEmploiSet
-                                            where cl.validerOffre == false
+                                            //where cl.validerOffre == false
                                             select cl).ToList();
                 }
             }
