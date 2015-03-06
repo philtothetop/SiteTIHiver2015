@@ -58,7 +58,7 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                ErrorHandling.LogErreur("Default-CalendrierEvents_SelectionChanged", ex);
+                LogErreur("Default-CalendrierEvents_SelectionChanged", ex);
             }
         }
 
@@ -73,6 +73,10 @@ namespace Site_de_la_Technique_Informatique
 
                 try
                 {
+
+                    //string yolo = "gerg";
+                    //int moma = Convert.ToInt32(yolo);
+
                     using (LeModelTIContainer leContext = new LeModelTIContainer())
                     {
                         if (leContext.EvenementSet.ToList() != null)
@@ -87,7 +91,7 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    ErrorHandling.LogErreur("Default-lviewEvents_GetData", ex);
+                   LogErreur("Default-lviewEvents_GetData", ex);
                 }
                 return listeEvenement.AsQueryable().SortBy("dateDebutEvenement");
             }
@@ -208,12 +212,10 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    ErrorHandling.LogErreur("Default-lviewAlbumPhoto_GetData", ex);
+                    LogErreur("Default-lviewAlbumPhoto_GetData", ex);
                 }
                 return listePhoto.AsQueryable();
-
             }
-
         }
 
     }
