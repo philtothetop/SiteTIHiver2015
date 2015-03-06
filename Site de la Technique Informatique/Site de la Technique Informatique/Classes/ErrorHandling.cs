@@ -14,17 +14,35 @@ namespace Site_de_la_Technique_Informatique
         {
             Exception ex = Server.GetLastError();
 
-            //Server.Transfer("~/ErreursImportants.aspx?handler=" + ex.TargetSite.Name, true);
+            Server.Transfer("~/ErreursImportants.aspx?handler=" + ex.TargetSite.Name, true);
 
-            LogErreur(ex.Message + "/" + ex.InnerException);
+            LogErreurCritique(ex);
 
-            //Server.ClearError();
+            Server.ClearError();
         }
 
-        public static void LogErreur(string leMessage)
+        public static void LogErreur(String source, Exception ex)
         {
             using (LeModelTIContainer leContext = new LeModelTIContainer())
             {
+                string leMessage = source + "/" + ex.Message + "/" + ex.InnerException;
+
+                Model.Log uneNouvelleErreur = new Model.Log();
+                uneNouvelleErreur.dateLog = DateTime.Now;
+                uneNouvelleErreur.actionLog = leMessage;
+                uneNouvelleErreur.typeLog = 2;
+
+                leContext.LogSet.Add(uneNouvelleErreur);
+                leContext.SaveChanges();
+            }
+        }
+
+        public static void LogErreurCritique(Exception ex)
+        {
+            using (LeModelTIContainer leContext = new LeModelTIContainer())
+            {
+                string leMessage = ex.TargetSite.Name + "/" + ex.Message + "/" + ex.InnerException;
+
                 Model.Log uneNouvelleErreur = new Model.Log();
                 uneNouvelleErreur.dateLog = DateTime.Now;
                 uneNouvelleErreur.actionLog = leMessage;
