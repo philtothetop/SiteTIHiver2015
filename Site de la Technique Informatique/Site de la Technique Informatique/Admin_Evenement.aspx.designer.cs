@@ -10,15 +10,15 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class PlanDuSite {
+    public partial class Admin_Evenement {
         
         /// <summary>
-        /// Contrôle TreeView1.
+        /// Contrôle lviewEcheancier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TreeView TreeView1;
+        protected global::System.Web.UI.WebControls.ListView lviewEcheancier;
     }
 }

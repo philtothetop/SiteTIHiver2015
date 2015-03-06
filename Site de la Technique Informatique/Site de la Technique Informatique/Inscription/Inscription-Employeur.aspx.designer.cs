@@ -10,16 +10,7 @@
 namespace Site_de_la_Technique_Informatique.Inscription {
     
     
-    public partial class Inscription_formulaire {
-        
-        /// <summary>
-        /// Contrôle form1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    public partial class Inscription_Employeur {
         
         /// <summary>
         /// Contrôle ImgExSrc.
@@ -31,21 +22,21 @@ namespace Site_de_la_Technique_Informatique.Inscription {
         protected global::System.Web.UI.WebControls.HiddenField ImgExSrc;
         
         /// <summary>
-        /// Contrôle scriptManager.
+        /// Contrôle smProxy.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager scriptManager;
+        protected global::System.Web.UI.ScriptManagerProxy smProxy;
         
         /// <summary>
-        /// Contrôle lviewFormulaireInscription.
+        /// Contrôle lviewFormulaireInscriptionEmployeur.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewFormulaireInscription;
+        protected global::System.Web.UI.WebControls.ListView lviewFormulaireInscriptionEmployeur;
     }
 }

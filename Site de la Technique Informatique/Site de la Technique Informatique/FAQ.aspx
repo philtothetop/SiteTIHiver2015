@@ -1,10 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.FAQ" %>
+﻿<%@ Page Title="Foire aux questions" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.FAQ" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
-  
-  
     <!-- Header Carousel -->
     <div class="container">
 
@@ -35,7 +32,7 @@
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse">
                             <div class="panel-body">
-                                Non, la Technique en informatique de gestion montre divers branches de l'informatique, c'est-à-dire matériel, réseautique et logiciel. La branche logiciel est de la programmation, mais nous apprenons à faire des logiciels et des sites web en langage JAVA et C#. Néamoins, vous pourrez vous spécialiser en jeu vidéo à l'université.
+                                Non, la Techniques de l'informatique de gestion montre divers branches de l'informatique, c'est-à-dire matériel, réseautique et logiciel. La branche logiciel est de la programmation, mais nous apprenons à faire des logiciels et des sites web en langage JAVA et C#. Néanmoins, vous pourrez vous spécialiser en jeu vidéo à l'université.
                             </div>
                         </div>
                     </div>
@@ -48,7 +45,7 @@
                         </div>
                         <div id="collapseTwo" class="panel-collapse collapse">
                             <div class="panel-body">
-                                Absolument pas! Au contraire, le secteur de l'informatique est très en demande chez les employeurs le taux de placement 91% après l'obtention de votre DEC.
+                                Absolument pas! Au contraire, le secteur de l'informatique est très en demande chez les employeurs. Le taux de placement est de 91% après l'obtention de votre DEC.
                             </div>
                         </div>
                     </div>
@@ -69,12 +66,12 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Quels sont les avantages d'aller à l'Université en informatique?</a>
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Quels sont les avantages à aller à l'Université en informatique?</a>
                             </h4>
                         </div>
                         <div id="collapseFour" class="panel-collapse collapse">
                             <div class="panel-body">
-                                L'Université permet de se spécialiser dans une branche précise. En plus, vous aurez un an d'expérience reconnu grâce aux stages offerts.
+                                L'Université permet de se spécialiser dans une branche précise. De plus, vous aurez un an d'expérience reconnu grâce aux stages offerts.
                             </div>
                         </div>
                     </div>

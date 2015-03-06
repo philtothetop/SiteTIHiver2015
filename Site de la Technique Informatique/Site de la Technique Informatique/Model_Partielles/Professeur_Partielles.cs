@@ -12,9 +12,26 @@ using System.ComponentModel;
 
     public partial class Professeur : Membre
     {
-       
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext ValidationContext)
+        {
+            LeModelTIContainer leContext = new LeModelTIContainer();
+            var listeUtilisateurs = from cl in leContext.UtilisateurSet where cl.IDUtilisateur != this.IDUtilisateur select cl;
+            var listeRetour = new List<ValidationResult>();
 
 
+
+            foreach (Membre member in listeUtilisateurs)
+            {
+                if (member.courriel == this.courriel)
+                {
+                    listeRetour.Add(new ValidationResult("Cette adresse courriel a déjà un compte associé"));
+                    break;
+                }
+
+            }
+            return listeRetour;
+        }
       
     }
 

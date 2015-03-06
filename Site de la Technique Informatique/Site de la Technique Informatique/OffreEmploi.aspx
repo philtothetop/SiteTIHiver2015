@@ -41,7 +41,7 @@
                         <br />
                         <asp:Label ID="lblSalaire" runat="server" Font-Size="14"></asp:Label>
                         <br />
-                        <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14"></asp:Label>
+                        <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14"></asp:Label> <asp:Label ID="lblNoPoste" runat="server" Font-Size="14"></asp:Label>
                         <br />
                         <asp:Label ID="lblNoTelecopieur" runat="server" Font-Size="14"></asp:Label>
                         <br />

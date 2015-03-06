@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/27/2015 10:34:23
+-- Date Created: 03/06/2015 10:55:06
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
@@ -129,6 +129,9 @@ IF OBJECT_ID(N'[dbo].[EnteteForumSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[MessageForumSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[MessageForumSet];
+GO
+IF OBJECT_ID(N'[dbo].[PhotosSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PhotosSet];
 GO
 IF OBJECT_ID(N'[dbo].[UtilisateurSet_Employeur]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UtilisateurSet_Employeur];
@@ -312,6 +315,14 @@ CREATE TABLE [dbo].[MessageForumSet] (
 );
 GO
 
+-- Creating table 'PhotosSet'
+CREATE TABLE [dbo].[PhotosSet] (
+    [IDPhotos] int IDENTITY(1,1) NOT NULL,
+    [pathPhoto] nvarchar(200)  NOT NULL,
+    [typePhoto] nvarchar(20)  NOT NULL
+);
+GO
+
 -- Creating table 'UtilisateurSet_Employeur'
 CREATE TABLE [dbo].[UtilisateurSet_Employeur] (
     [IDEmployeur] int IDENTITY(1,1) NOT NULL,
@@ -325,8 +336,8 @@ GO
 -- Creating table 'UtilisateurSet_Membre'
 CREATE TABLE [dbo].[UtilisateurSet_Membre] (
     [IDMembre] int IDENTITY(1,1) NOT NULL,
-    [nom] nvarchar(15)  NOT NULL,
-    [prenom] nvarchar(15)  NOT NULL,
+    [nom] nvarchar(64)  NOT NULL,
+    [prenom] nvarchar(64)  NOT NULL,
     [pathPhotoProfil] nvarchar(200)  NULL,
     [photoDescription] nvarchar(500)  NULL,
     [temoignage] nvarchar(1000)  NULL,
@@ -358,7 +369,7 @@ CREATE TABLE [dbo].[UtilisateurSet_Etudiant] (
     [valideTemoignage] bit  NOT NULL,
     [valideCourriel] bit  NOT NULL,
     [pathCV] nvarchar(200)  NOT NULL,
-    [cohort] smallint  NOT NULL,
+    [cohorte] smallint  NOT NULL,
     [IDUtilisateur] int  NOT NULL
 );
 GO
@@ -469,6 +480,12 @@ GO
 ALTER TABLE [dbo].[MessageForumSet]
 ADD CONSTRAINT [PK_MessageForumSet]
     PRIMARY KEY CLUSTERED ([IDMessageForum] ASC);
+GO
+
+-- Creating primary key on [IDPhotos] in table 'PhotosSet'
+ALTER TABLE [dbo].[PhotosSet]
+ADD CONSTRAINT [PK_PhotosSet]
+    PRIMARY KEY CLUSTERED ([IDPhotos] ASC);
 GO
 
 -- Creating primary key on [IDUtilisateur] in table 'UtilisateurSet_Employeur'

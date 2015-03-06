@@ -14,9 +14,64 @@ namespace Site_de_la_Technique_Informatique
         {
             Exception ex = Server.GetLastError();
 
+            LogErreurCritique(ex);
+
             Server.Transfer("~/ErreursImportants.aspx?handler=" + ex.TargetSite.Name, true);
 
             Server.ClearError();
+        }
+
+
+        public  void LogErreur(String source, Exception ex)
+        {
+            using (LeModelTIContainer leContext = new LeModelTIContainer())
+            {
+                string leMessage = source + "/" + ex.Message + "/" + ex.InnerException;
+
+                Model.Log uneNouvelleErreur = new Model.Log();
+                uneNouvelleErreur.dateLog = DateTime.Now;
+                uneNouvelleErreur.actionLog = leMessage;
+                uneNouvelleErreur.typeLog = 2;
+
+                if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
+                {
+                    String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
+                    Model.Utilisateur lUtilisateurConnecte = (from cl in leContext.UtilisateurSet
+                                                              where cl.courriel.Equals(courrielDuConnecte)
+                                                              select cl).FirstOrDefault();
+                    int noCompte = lUtilisateurConnecte.IDUtilisateur;
+                    uneNouvelleErreur.UtilisateurIDUtilisateur = noCompte;
+                }  
+
+                leContext.LogSet.Add(uneNouvelleErreur);
+                leContext.SaveChanges();
+            }
+        }
+
+        public void LogErreurCritique(Exception ex)
+        {
+            using (LeModelTIContainer leContext = new LeModelTIContainer())
+            {
+                string leMessage = ex.TargetSite.Name + "/" + ex.Message + "/" + ex.InnerException;
+               
+                Model.Log uneNouvelleErreur = new Model.Log();
+                uneNouvelleErreur.dateLog = DateTime.Now;
+                uneNouvelleErreur.actionLog = leMessage;
+                uneNouvelleErreur.typeLog = 1;
+
+                if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
+                {
+                    String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
+                    Model.Utilisateur lUtilisateurConnecte = (from cl in leContext.UtilisateurSet
+                                                              where cl.courriel.Equals(courrielDuConnecte)
+                                                              select cl).FirstOrDefault();
+                    int noCompte = lUtilisateurConnecte.IDUtilisateur;
+                    uneNouvelleErreur.UtilisateurIDUtilisateur = noCompte;
+                }
+
+                leContext.LogSet.Add(uneNouvelleErreur);
+                leContext.SaveChanges();
+            }
         }
 
 
@@ -24,63 +79,70 @@ namespace Site_de_la_Technique_Informatique
         //Devrais être utiliser QUE SUR LES PAGES qui on besoin de quelqu'un de connecté
         public void SavoirSiPossedeAutorizationPourLaPage(bool admin, bool professeur, bool etudiant, bool employeur)
         {
-            //Un boolean poru savori quoi faire a la fin de la méthode.
-            bool doitRedirigerLaPersonne = true;
 
-            //Vérifier si la session n'est pas vide
-            if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
+            try
             {
-                String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
+                //Un boolean poru savori quoi faire a la fin de la méthode.
+                bool doitRedirigerLaPersonne = true;
 
-                //Trouver la personne connecté dans la bd
-                using (LeModelTIContainer leModelTI = new LeModelTIContainer())
+                //Vérifier si la session n'est pas vide
+                if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
                 {
-                    Utilisateur lUtilisateurConnecte = (from cl in leModelTI.UtilisateurSet
-                                                        where cl.courriel.Equals(courrielDuConnecte)
-                                                        select cl).FirstOrDefault();
+                    String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
 
-                    //Si un utilisateur est trouvé
-                    if (lUtilisateurConnecte != null)
+                    //Trouver la personne connecté dans la bd
+                    using (LeModelTIContainer leModelTI = new LeModelTIContainer())
                     {
-                        //Vérifier chaque type a les autorisations ET que lutilisateur connecter est de ce type
-                        if (lUtilisateurConnecte is Admin && admin == true)
+                        Model.Utilisateur lUtilisateurConnecte = (from cl in leModelTI.UtilisateurSet
+                                                                  where cl.courriel.Equals(courrielDuConnecte)
+                                                                  select cl).FirstOrDefault();
+
+                        //Si un utilisateur est trouvé
+                        if (lUtilisateurConnecte != null)
                         {
-                            doitRedirigerLaPersonne = false;
+                            //Vérifier chaque type a les autorisations ET que lutilisateur connecter est de ce type
+                            if (lUtilisateurConnecte is Admin && admin == true)
+                            {
+                                doitRedirigerLaPersonne = false;
+                            }
+                            else if (lUtilisateurConnecte is Professeur && professeur == true)
+                            {
+                                doitRedirigerLaPersonne = false;
+                            }
+                            else if (lUtilisateurConnecte is Etudiant && etudiant == true)
+                            {
+                                doitRedirigerLaPersonne = false;
+                            }
+                            else if (lUtilisateurConnecte is Employeur && employeur == true)
+                            {
+                                doitRedirigerLaPersonne = false;
+                            }
+                            //Pas les autorisations
+                            else
+                            {
+                                doitRedirigerLaPersonne = true;
+                            }
                         }
-                        else if (lUtilisateurConnecte is Professeur && professeur == true)
-                        {
-                            doitRedirigerLaPersonne = false;
-                        }
-                        else if (lUtilisateurConnecte is Etudiant && etudiant == true)
-                        {
-                            doitRedirigerLaPersonne = false;
-                        }
-                        else if (lUtilisateurConnecte is Employeur && employeur == true)
-                        {
-                            doitRedirigerLaPersonne = false;
-                        }
-                        //Pas les autorisations
                         else
                         {
+                            //Aussi écrire un Log peut-etre?
                             doitRedirigerLaPersonne = true;
                         }
                     }
-                    else
-                    {
-                        //Aussi écrire un Log peut-etre?
-                        doitRedirigerLaPersonne = true;
-                    }
+                }
+                //Pas connecté, alors n'a pas les droits
+                else
+                {
+                    doitRedirigerLaPersonne = true;
+                }
+
+                //Rediriger si pas les droits
+                if (doitRedirigerLaPersonne == true)
+                {
+                    Response.Redirect("Default.aspx");
                 }
             }
-            //Pas connecté, alors n'a pas les droits
-            else
-            {
-                doitRedirigerLaPersonne = true;
-            }
-
-
-            //Rediriger si pas les droits
-            if (doitRedirigerLaPersonne == true)
+            catch
             {
                 Response.Redirect("Default.aspx");
             }
