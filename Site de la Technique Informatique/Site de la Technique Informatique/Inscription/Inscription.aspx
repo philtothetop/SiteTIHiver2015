@@ -45,8 +45,9 @@
     </asp:Content>
     <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <asp:HiddenField runat="server" ID="ImgExSrc" />
+        <asp:ScriptManagerProxy ID="smProxy" runat="server" />
         <div class="container">
-            <asp:ScriptManagerProxy ID="smProxy" runat="server" />
+            
             <div class="row row-centered">
                 <div class="col-lg-5 col-centered">
                     <h1>Inscription</h1>
@@ -157,6 +158,7 @@
                                     </div>
 
                                 </div>
+                                <asp:Label ID="lblMessage" runat="server" Text="" />
                                 <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" />
                                 <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 

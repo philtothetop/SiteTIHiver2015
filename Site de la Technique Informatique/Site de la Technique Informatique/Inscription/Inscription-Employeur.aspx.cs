@@ -109,16 +109,54 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                     if (!isValid)
                     {
-                        foreach (var ValdationResult in resultatsValidation)
+                        //Effacer les erreurs
+                        Label lblMessageValidationErreur = (Label)lviewItem.FindControl("lblMessageValidationErreur");
+                        
+                        TextBox txtNom = (TextBox)lviewItem.FindControl("txtNom");
+                        Label lblnom = (Label)lviewItem.FindControl("lblNomErreur");
+                        lblnom.Text = "";
+                        txtNom.CssClass = "form-control";
+                        TextBox txtCourriel = (TextBox)lviewItem.FindControl("txtCourriel");
+                        Label lblCourriel = (Label)lviewItem.FindControl("lblCourrielErreur");
+                        lblCourriel.Text = "";
+                        txtNom.CssClass = "form-control";
+                        TextBox txtMotDePasse = (TextBox)lviewItem.FindControl("txtMotDePasse");
+                        Label lblMotDePasse = (Label)lviewItem.FindControl("lblMotDePasseErreur");
+                        lblMotDePasse.Text = "";
+                        txtNom.CssClass = "form-control";
+                        Label lblConfirmationMotDePasse = (Label)lviewItem.FindControl("lblConfirmationMotDePasseErreur");
+                        lblConfirmationMotDePasse.Text = "";
+                        txtConfirmationMotDePasse.CssClass = "form-control";
+
+                        //Afficher les erreurs
+                        foreach (var ValidationResult in resultatsValidation)
                         {
+                            lblMessageValidationErreur.Text += ValidationResult.ErrorMessage + "<br/>";
 
-                            String input = ValdationResult.MemberNames.FirstOrDefault();
-                            input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
-                            
-
-
+                           
+                            if(ValidationResult.MemberNames.FirstOrDefault().Equals("nom"))
+                            {
+                                lblnom.Text = ValidationResult.ErrorMessage;
+                                txtNom.CssClass = "form-control hash-error";
+                            }
+                            if (ValidationResult.MemberNames.FirstOrDefault().Equals("courriel"))
+                            {
+                                lblCourriel.Text = ValidationResult.ErrorMessage;
+                                txtCourriel.CssClass = "form-control hash-error";
+                            }
+                            if (ValidationResult.MemberNames.FirstOrDefault().Equals("motDePasse"))
+                            {
+                                lblMotDePasse.Text = ValidationResult.ErrorMessage;
+                                txtMotDePasse.CssClass = "form-control hash-error";
+                            }
+                            if (ValidationResult.MemberNames.FirstOrDefault().Equals("ConfirmationMotDePasse"))
+                            {
+                                lblConfirmationMotDePasse.Text = ValidationResult.ErrorMessage;
+                                txtConfirmationMotDePasse.CssClass = "form-control hash-error";
+                            }
 
                         }
+                        lblMessageValidationErreur.Visible = true;
 
                     }
                     else
@@ -244,8 +282,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             // Corps du message : contient ce que la personne a écrit dans le module seulement
             hash hash = new hash();
-            String hashCourriel = hash.GetSHA256Hash(employeur.dateInscription.ToString());
-            String hyperLien = HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=emp&id=" + employeur.courriel + "&code=" + hashCourriel;
+            String hashCourriel = employeur.dateInscription.GetHashCode().ToString();
+            String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=emp&id=" + employeur.courriel + "&code=" + hashCourriel;
             mail.Body = "Chère " + employeur.nomEmployeur + ",<br/><br/>Valider votre courriel :<a href=\"" + hyperLien + "\">cliquez ici.</a>";
             mail.BodyEncoding = System.Text.Encoding.UTF8;
             mail.IsBodyHtml = true;
