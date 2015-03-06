@@ -64,6 +64,7 @@ namespace Site_de_la_Technique_Informatique
                             if (modelErrors.Value.Errors.Count > 0)
                             {
                                 lblMessages.Text = "";
+                                //Hello
 
                                 for (int i = 0; i < modelErrors.Value.Errors.Count; i++)
                                 {
