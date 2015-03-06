@@ -328,6 +328,9 @@
     <Compile Include="Model\ParutionMedia.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Photos.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Professeur.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>

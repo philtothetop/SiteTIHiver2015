@@ -50,6 +50,7 @@
         <AssociationConnector Association="LeModelTI.MembreEnteteForum" />
         <AssociationConnector Association="LeModelTI.MembreConsultationForum" />
         <AssociationConnector Association="LeModelTI.MembreMessageForum" />
+        <EntityTypeShape EntityType="LeModelTI.Photos" Width="1.5" PointX="7.75" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

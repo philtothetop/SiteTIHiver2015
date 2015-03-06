@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir accepter/refuser les offres d'emplois
+// Écrit par Raphael Brouard, Février 2015
+// Intrants: Vide
+// Extrants: L'offre choisi a été VALIDÉ ou SUPPRIMÉ dans la BD.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +18,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Courriel"] = "admin";
+            //Session["Courriel"] = "admin";
             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
@@ -33,9 +38,8 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-
          //Méthode pour accepter l'offre d'emploi
-        protected void accepterOffreEmploi_Click(object sender, EventArgs e)
+        protected void AccepterOffreEmploi_Click(object sender, EventArgs e)
         {
             int argument = Convert.ToInt32(((Button)sender).CommandArgument);
 
@@ -57,7 +61,7 @@ namespace Site_de_la_Technique_Informatique
         }
 
         //Méthode pour refuser l'offre d'emploi
-        protected void refuserOffreEmploi_Click(object sender, EventArgs e)
+        protected void RefuserOffreEmploi_Click(object sender, EventArgs e)
         {
             int argument = Convert.ToInt32(((Button)sender).CommandArgument);
 
@@ -93,10 +97,6 @@ namespace Site_de_la_Technique_Informatique
                                             where cl.validerOffre == false
                                             select cl).ToList();
                 }
-
-                //QUE POUR TEST
-                OffreEmploi unOffre = new OffreEmploi();
-                //unOffre.
             }
             catch (Exception ex)
             {
@@ -104,6 +104,53 @@ namespace Site_de_la_Technique_Informatique
             }
 
             return listeDesOffresEmploi.AsQueryable();
+        }
+
+        //Pas afficher les champs vides
+        public bool PasAfficherSiNull(Model.OffreEmploi trouverOffre, string valeurAChecker)//int idOffre, string valeurAChecker)
+        {
+            if (trouverOffre != null)
+            {
+                if (valeurAChecker.Equals("dateExpiration"))
+                {
+                    if (trouverOffre.dateExpiration != null)
+                    {
+                        return true;
+                    }
+                }
+                else if (valeurAChecker.Equals("noPoste"))
+                {
+                    if (trouverOffre.noPoste != null)
+                    {
+                        if (!trouverOffre.noPoste.Equals(""))
+                        { 
+                            return true;
+                        }
+                    }
+                }
+                else if (valeurAChecker.Equals("noTelecopieur"))
+                {
+                    if (trouverOffre.noTelecopieur != null)
+                    {
+                        if (!trouverOffre.noTelecopieur.Equals(""))
+                        {
+                            return true;
+                        }
+                    }
+                }
+                else if (valeurAChecker.Equals("pathPDFDescription"))
+                {
+                    if (trouverOffre.pathPDFDescription != null)
+                    {
+                        if (!trouverOffre.pathPDFDescription.Equals(""))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
