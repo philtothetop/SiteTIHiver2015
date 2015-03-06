@@ -40,6 +40,5 @@ namespace Site_de_la_Technique_Informatique.Model
         public DbSet<SectionForum> SectionForumSet { get; set; }
         public DbSet<EnteteForum> EnteteForumSet { get; set; }
         public DbSet<MessageForum> MessageForumSet { get; set; }
-        public DbSet<Photos> PhotosSet { get; set; }
     }
 }

@@ -111,7 +111,7 @@
         </div>
         <!-- /.row -->
 
-        <hr>
+        <hr/>
 
     </div>
     <!-- /.container -->

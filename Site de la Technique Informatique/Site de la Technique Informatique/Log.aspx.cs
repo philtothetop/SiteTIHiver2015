@@ -1,5 +1,5 @@
 ﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir consulté les logs du site web.
-// Écrit par Raphael Brouard, Février 2015
+// Écrit par Raphael Broard, Février 2015
 // Intrants: Vide
 // Extrants: Vide
 
@@ -26,7 +26,8 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            //Session["Courriel"] = "admin";
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
         //Méthode pour récupérer les logs de la BD
@@ -126,78 +127,6 @@ namespace Site_de_la_Technique_Informatique
             {
                 return "ErreurTypeZero";
             }
-        }
-
-        //Pour mettre le ID texte a 0 si créé par le system, et non par une personne
-        public string TextPourIDCompte(int idLog)
-        {
-            using (LeModelTIContainer leModel = new LeModelTIContainer())
-            {
-                Model.Log leLog =null;
-                leLog = (from cl in leModel.LogSet
-                         where cl.IDLog == idLog
-                         select cl).FirstOrDefault();
-
-                //Si le log est trouver
-                if (leLog != null)
-                {
-                    //Si il y a un numéro trouvé, mettre lien visible
-                    if (leLog.UtilisateurIDUtilisateur != null)
-                    {
-                        return leLog.UtilisateurIDUtilisateur + "";
-                    }
-                }
-            }
-
-            return 0 + "";
-        }
-
-        //Savoir si mettre le lien au compte visible ou non (Doit pas être visible si créer par server)
-        public bool SavoirSiEnableLeLien(int idLog)
-        {
-            using (LeModelTIContainer leModel = new LeModelTIContainer())
-            {
-                Model.Log leLog = null;
-                leLog = (from cl in leModel.LogSet
-                         where cl.IDLog == idLog
-                         select cl).FirstOrDefault();
-
-                //Si le log est trouver
-                if (leLog != null)
-                {
-                    //Si il y a un numéro trouvé, mettre lien visible
-                    if (leLog.UtilisateurIDUtilisateur != null)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        //Retoruner le bon CSS si lien clickable ou pas
-        public string TrovuerBonCSS(int idLog)
-        {
-            using (LeModelTIContainer leModel = new LeModelTIContainer())
-            {
-                Model.Log leLog = null;
-                leLog = (from cl in leModel.LogSet
-                         where cl.IDLog == idLog
-                         select cl).FirstOrDefault();
-
-                //Si le log est trouver
-                if (leLog != null)
-                {
-                    //Si il y a pas de numéro trovuer, changer css
-                    if (leLog.UtilisateurIDUtilisateur == null)
-                    {
-                        return "lnkPasClickable";
-                    }
-                }
-            }
-
-            return "";
         }
     }
 }

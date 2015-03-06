@@ -64,9 +64,9 @@
                                             </div>
                              <div class="col-lg-2" style="border-right: thin solid black;">
 
-                                                <asp:LinkButton ID="lnkNoCompte" runat="server" Enabled='<%# SavoirSiEnableLeLien(Item.IDLog) %>' CssClass='<%# TrovuerBonCSS(Item.IDLog) %>'>
-                                                    <asp:Label ID="lblNoCompte" runat="server" Text='<%# TextPourIDCompte(Item.IDLog) %>'></asp:Label>
-                                                </asp:LinkButton>
+                                            <asp:LinkButton ID="lnkNoCompte" runat="server">
+                                                <asp:Label ID="lblNoCompte" runat="server"  Text='<%# Item.UtilisateurIDUtilisateur %>'></asp:Label>
+                                            </asp:LinkButton>
                                             
                                             </div>
                             <div class="col-lg-6" style="border-right: thin solid black">
