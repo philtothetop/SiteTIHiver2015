@@ -218,6 +218,7 @@
     <Compile Include="AjoutProfesseur.aspx.designer.cs">
       <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
