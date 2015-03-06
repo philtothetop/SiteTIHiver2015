@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" MaintainScrollPositionOnPostback="true" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Default" %>
 
 
 
@@ -50,8 +50,9 @@
         <!-- /.row -->
 
         <!-- Carousel Section -->
-        <div class="row">
-            <div id="carousel-example-generic" class="carousel slide col-lg-7" data-ride="carousel" data-interval="10000" style="height: 400px;">
+        <div class="row well">
+            <h1 style="margin-top:-15px">Une place dynamique!</h1>
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000" style="height: 400px;">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <asp:ListView ID="lviewAlbumPhoto" runat="server"
@@ -63,7 +64,7 @@
                             <div class="item active">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                                     <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                                    <img src="../Photos/Jacob.jpg" height="400" width="400" />
+                                    <img src="../Photos/Jacob.jpg" height="400" width="500" />
                                 </div>
                                 <div class="carousel-caption"></div>
                             </div>
@@ -96,11 +97,19 @@
                 </a>
             </div>
 
-            <!-- Information right side -->
-            <div class="col-lg-5">
-                <h2>Une place dynamique!</h2>
-                <h3><a href="QuiSommesNous.aspx">Qui Sommes Nous?</a></h3>
-                <h3><a href="marie-TestVerTIC.aspx">marie-TestVerTIC.aspx</a></h3>
+            <!-- Information carousel bottom side -->
+            <div style="padding-left: 20px;">
+                <ul>
+                    <li style="display:inline-block; margin-left:80px;">
+                        <h3><a href="QuiSommesNous.aspx">Qui sommes nous?</a></h3>
+                    </li>
+                    <li style="display:inline-block; margin-left:80px;">
+                        <h3><a href="marie-TestVerTIC.aspx">La page a Marie yolo</a></h3>
+                    </li>
+                    <li style="display:inline-block; margin-left:80px;">
+                        <h3><a href="QuiSommesNous.aspx">Une autre page</a></h3>
+                    </li>
+                </ul>
             </div>
         </div>
         <!-- /.row -->
