@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-     <!-- Header Carousel -->
+    <!-- Header Carousel -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
@@ -25,18 +25,36 @@
             <div class="col-lg-12">
                 <asp:TreeView ID="TreeView1" runat="server">
 
-                     <Nodes>
-      <asp:TreeNode Text="Site de Techniques de l'informatique">
-        <asp:TreeNode Text="Bradley" Value="ID-1234" />
-        <asp:TreeNode Text="Whitney" Value="ID-5678" />
-        <asp:TreeNode Text="Barbara" Value="ID-9101" />
-      </asp:TreeNode>
-    </Nodes>
+                    <Nodes>
+                        <asp:TreeNode Text="Site de Techniques de l'informatique">
+                            <asp:TreeNode Text="Accueil"  />
+                            <asp:TreeNode Text="Qui sommes-nous?"  />
+                            <asp:TreeNode Text="Nouvelles"  />
+
+                            <asp:TreeNode Text="Souvenirs"  >
+
+                                <asp:TreeNode Text="Photos étudiants"  />
+                                <asp:TreeNode Text="Photos professeurs"  />
+                                <asp:TreeNode Text="Photos projets" />
+
+                            </asp:TreeNode>
+
+                             <asp:TreeNode Text="Informations" >
+
+                                <asp:TreeNode Text="Verdic"  />
+                                <asp:TreeNode Text="Stages"  />
+                               
+
+                            </asp:TreeNode>
+
+                            <asp:TreeNode Text="Offres d'emploi"  />
+                            <asp:TreeNode Text="Témoignages"  />
+
+                        </asp:TreeNode>
+                    </Nodes>
 
                 </asp:TreeView>
-               
+
             </div>
         </div>
-
-
 </asp:Content>
