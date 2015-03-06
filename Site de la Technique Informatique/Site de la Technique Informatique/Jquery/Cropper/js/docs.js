@@ -213,9 +213,11 @@ $(function () {
         });
         if (dataURL != "") {
             //$("#dataURL").text(dataURL);
-            $("#lviewFormulaireInscription_showDataURL_0").attr("src", dataURL);
-            //$("#showDataURL").html('<img src="' + dataURL + '">');
-           
+            //$("#lviewFormulaireInscription_showDataURL_0").attr("src", dataURL);
+            window.parent.transfertDataImg(dataURL);
+             //$("#showDataURL").html('<img src="' + dataURL + '">');
+
         }
+        window.parent.closeModal();
     });
 });
