@@ -10,24 +10,24 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class ValiderLesOffresEmploi {
+    public partial class modifProfilEtudiant {
         
         /// <summary>
-        /// Contrôle lviewOffresDEmploi.
+        /// Contrôle lblMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewOffresDEmploi;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// Contrôle dataPagerDesLogs.
+        /// Contrôle lvModifProfilEtudiants.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager dataPagerDesLogs;
+        protected global::System.Web.UI.WebControls.ListView lvModifProfilEtudiants;
     }
 }

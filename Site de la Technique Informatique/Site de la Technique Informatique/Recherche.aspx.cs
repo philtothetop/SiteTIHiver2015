@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Site_de_la_Technique_Informatique.Model;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -12,6 +13,51 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+        }
+
+        public IQueryable<Site_de_la_Technique_Informatique.Model.Membre> lviewRecherche_GetData()
+        {
+            List<Model.Membre> listeMembre = new List<Membre>();
+
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                listeMembre = (from cl in lecontexte.UtilisateurSet.OfType<Model.Membre>()
+                               select cl).ToList();
+
+                if (txtNomMembre.Text != "")
+                {
+                    listeMembre = listeMembre.AsQueryable().Where(cl => cl.nom.Contains(txtNomMembre.Text)).ToList();
+                }
+
+                if (txtPrenomMembre.Text != "")
+                {
+                    listeMembre = listeMembre.AsQueryable().Where(cl => cl.prenom.Contains(txtPrenomMembre.Text)).ToList();
+                }
+
+                if (chbProfesseur.Checked && !chbEtudiant.Checked)
+                {
+                    listeMembre = listeMembre.AsQueryable().Where(cl => cl is Professeur).ToList();
+                }
+
+                else if (!chbProfesseur.Checked && chbEtudiant.Checked)
+                {
+                    listeMembre = listeMembre.AsQueryable().Where(cl => cl is Etudiant).ToList();
+                }
+
+                else
+                {
+                    listeMembre = listeMembre.AsQueryable().Where(cl => cl is Membre).ToList();
+                }
+
+                return listeMembre.AsQueryable();
+            }    
+        }
+
+        protected void btnRecherche_Click(object sender, EventArgs e)
+        {
+            panelResultats.Visible = true;
+            lviewRecherche.DataBind();
         }
     }
 }
