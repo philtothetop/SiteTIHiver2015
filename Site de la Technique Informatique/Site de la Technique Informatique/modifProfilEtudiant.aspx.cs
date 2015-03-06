@@ -22,7 +22,7 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_Load(object sender, EventArgs e)
         {
             // Pour tests seulement pendant que la connexion était non fonctionnelle !! à enlever 
-            Session["Courriel"] = "marie-philippe.gill@hotmail.ca";
+            Session["Courriel"] = "philippe@bibeau.com";
             // fin de la partie pour test à effacer
         }
         #endregion
