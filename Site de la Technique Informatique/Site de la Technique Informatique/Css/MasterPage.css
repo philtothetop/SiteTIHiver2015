@@ -78,7 +78,7 @@ html, body {
 	padding-bottom: 0;
 }
 .newsletter-box input#appendedInputButton {
-	background: #FFFFFF;
+	background: #222222;
 	display: inline-block;
 	float: left;
 	height: 30px;
@@ -102,12 +102,12 @@ html, body {
 	overflow: hidden;
 }
 .bg-gray {
-	background-image: -moz-linear-gradient(center bottom, #000000 0%, #222222 100%);
+	background-color: -moz-linear-gradient(center bottom, #000000 0%, #222222 100%);
 	box-shadow: 0 1px 0 #000000;
 }
 
 .bg-gray:hover {
-	background-image: -moz-linear-gradient(center bottom, #000000 0%, #222222 100%);
+	background-color: -moz-linear-gradient(center bottom, #000000 0%, #222222 100%);
 	box-shadow: 0 1px 0 #000000;
 }
 
