@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscription-Etudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Inscription" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscription.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Inscription" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../Css/Inscription.css" />
@@ -40,23 +40,23 @@
             $('#maPhotoProfile').modal('hide');
         };
     </script>
-             <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:HiddenField runat="server" ID="ImgExSrc" />
-    <div class="container">
-        <asp:ScriptManagerProxy ID="smProxy" runat="server" />
-        <div class="row row-centered">
-            <div class="col-lg-5 col-centered">
-                <h1>Inscription</h1>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </asp:Content>
+    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <asp:HiddenField runat="server" ID="ImgExSrc" />
+        <div class="container">
+            <asp:ScriptManagerProxy ID="smProxy" runat="server" />
+            <div class="row row-centered">
+                <div class="col-lg-5 col-centered">
+                    <h1>Inscription</h1>
+                </div>
             </div>
-        </div>
-        <asp:ListView ID="lviewFormulaireInscription" runat="server"
-            ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
-            SelectMethod="GetUtilisateurEtudiant"
-            UpdateMethod="CreerUtilisateurEtudiant">
-            <ItemTemplate>
+            <asp:ListView ID="lviewFormulaireInscription" runat="server"
+                ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
+                SelectMethod="GetUtilisateurEtudiant"
+                UpdateMethod="CreerUtilisateurEtudiant">
+                <itemtemplate>
                 <div class="row row-centered">
                     <div class="col-lg-5 col-centered">
                         <div class="control-group form-group champs-requis">
@@ -189,8 +189,8 @@
 
                     </div>
                 </div>
-            </ItemTemplate>
-        </asp:ListView>
+            </itemtemplate>
+            </asp:ListView>
 
-    </div>
-</asp:Content>
+        </div>
+    </asp:Content>
