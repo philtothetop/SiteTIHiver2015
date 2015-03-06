@@ -26,6 +26,12 @@
         }
 </script>
 
+    <script type="text/javascript">
+        function closeModal() {
+            $('#myModal').modal('close');
+        }
+</script>
+
     
 
     <asp:ContentPlaceHolder ID="head" runat="server">
