@@ -13,6 +13,15 @@ namespace Site_de_la_Technique_Informatique {
     public partial class AjoutProfesseur {
         
         /// <summary>
+        /// Contrôle divAjoutProf.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAjoutProf;
+        
+        /// <summary>
         /// Contrôle txtPrenom.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,24 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkEnvoyer;
+        
+        /// <summary>
+        /// Contrôle divComplete.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divComplete;
+        
+        /// <summary>
+        /// Contrôle lnkRetourAccueil.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkRetourAccueil;
         
         /// <summary>
         /// Contrôle lblMessages.

@@ -127,7 +127,7 @@ namespace Site_de_la_Technique_Informatique
 
 
             // Corps du message : contient ce que la personne a écrit dans le module seulement
-            hash hash = new hash();
+          
           
             mail.Body = "Bonjour, <br/>" +
                  "Un administrateur vous a ajouté en tant qu'Utilisateur Professeur sur le site de la technique informatique du Cégep de Granby." + " Vous pouvez dès maintenant vous connecter sur le site à l'aide des informations de connexion suivantes:<br/> <br/>" +
@@ -172,7 +172,15 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lnkEnvoyer_Click(object sender, EventArgs e)
         {
+            try { 
             creerProfesseur();
+            divAjoutProf.Visible = false;
+            divComplete.Visible = true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
     }
