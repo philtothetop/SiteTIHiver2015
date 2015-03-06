@@ -8,8 +8,9 @@
                 <h1>Administrateur : Les offres d'emploi</h1>
             </div>
         </div>
-
-        <asp:ListView ID="lviewOffresDEmploi" runat="server"
+        <asp:MultiView ID="mviewOffreEmploi" runat="server">
+            <asp:View ID="viewOffrePasValide">
+                <asp:ListView ID="lviewOffresDEmploi" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.OffreEmploi"
                         SelectMethod="GetLesOffresDEmploi">
 
@@ -135,6 +136,13 @@
                             </Fields>
                         </asp:DataPager>
                 </div>
+            </asp:View>
+
+            <asp:View ID="viewOffreDejaValide">
+
+            </asp:View>
+        </asp:MultiView>
+        
 
         </div>
 </asp:Content>
