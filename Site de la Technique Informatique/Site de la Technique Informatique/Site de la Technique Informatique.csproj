@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AjoutOffreEmploi.aspx" />
+    <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\Log.css" />
@@ -183,6 +184,14 @@
     <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AjoutProfesseur.aspx.cs">
+      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutProfesseur.aspx.designer.cs">
+      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\hash.cs" />
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
