@@ -44,6 +44,7 @@ namespace Site_de_la_Technique_Informatique
         //Changer les dates lors du changement de mois
         protected void CalendrierEvents_SelectionChanged(object sender, EventArgs e)
         {
+
             try
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
@@ -57,23 +58,21 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException("Erreur dans selectionChanged du calendrier ", ex);
+                ErrorHandling.LogErreur("Default-CalendrierEvents_SelectionChanged", ex);
             }
         }
 
         //Changer les datas selon le mois
         public IQueryable<Site_de_la_Technique_Informatique.Model.Evenement> lviewEvents_GetData()
         {
-
             if (CalendrierEvents.SelectedDates[0] != null)
             {
                 var monthSelected = CalendrierEvents.SelectedDates[0].Month;
                 var yearSelected = CalendrierEvents.SelectedDates[0].Year;
+                List<Evenement> listeEvenement = new List<Evenement>();
 
                 try
                 {
-                    List<Evenement> listeEvenement = new List<Evenement>();
-
                     using (LeModelTIContainer leContext = new LeModelTIContainer())
                     {
                         if (leContext.EvenementSet.ToList() != null)
@@ -85,12 +84,12 @@ namespace Site_de_la_Technique_Informatique
                             return null;
                         }
                     }
-                    return listeEvenement.AsQueryable().SortBy("dateDebutEvenement");
                 }
                 catch (Exception ex)
                 {
-                    throw new InvalidOperationException("Erreur dans le listeView Evenements PageAccueilConnecté", ex);
+                    ErrorHandling.LogErreur("Default-lviewEvents_GetData", ex);
                 }
+                return listeEvenement.AsQueryable().SortBy("dateDebutEvenement");
             }
             else
             {
@@ -98,7 +97,7 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        //Renvoie à l'événement sur la page d'événement
+        //Renvoie à l'événement demander sur la page d'événement
         protected void btnPlusEvents_Click(object sender, EventArgs e)
         {
 
@@ -209,7 +208,7 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    ErrorHandling.LogErreur(ex.Message + "/" + ex.InnerException);
+                    ErrorHandling.LogErreur("Default-lviewAlbumPhoto_GetData", ex);
                 }
                 return listePhoto.AsQueryable();
 

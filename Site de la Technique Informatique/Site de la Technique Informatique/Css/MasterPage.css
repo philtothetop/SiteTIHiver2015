@@ -78,7 +78,7 @@ html, body {
 	padding-bottom: 0;
 }
 .newsletter-box input#appendedInputButton {
-	background: #FFFFFF;
+	background: #222222;
 	display: inline-block;
 	float: left;
 	height: 30px;
@@ -102,17 +102,17 @@ html, body {
 	overflow: hidden;
 }
 .bg-gray {
-	background-image: -moz-linear-gradient(center bottom, #000000 0%, #222222 100%);
-	box-shadow: 0 1px 0 #000000;
+	background: #0f0e0f;
+	
 }
 
 .bg-gray:hover {
-	background-image: -moz-linear-gradient(center bottom, #000000 0%, #222222 100%);
-	box-shadow: 0 1px 0 #000000;
+	background: #0f0e0f;
+
 }
 
 .social li {
-	background: none repeat scroll 0 0 #000000;
+	background: none repeat scroll 0 0 #46629e;
 	border: 2px solid #B5B5B5;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -159,9 +159,5 @@ html, body {
 }
 .footer-bottom p.pull-left {
 	padding-top: 6px;
-}
-
-yolo{
-    Karl;
 }
 

@@ -7,11 +7,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Techniques de l'informatique</title>
-
-    <link href="Css/bootstrap.min.css" rel="stylesheet" />
-    <link href="Css/modern-business.css" rel="stylesheet" />
-    <link href="Css/customStyleSheet.css" rel="stylesheet" />
-    <link href="Css/scrolling-nav.css" rel="stylesheet" />
+  
+    <link href="Css/bootstrap.min.css" rel="stylesheet"/>  
+    <link href="Css/modern-business.css" rel="stylesheet"/>  
+    <link href="Css/customStyleSheet.css" rel="stylesheet"/>
+    <link href="Css/scrolling-nav.css" rel="stylesheet" /> 
     <link href="Css/MasterPage.css" rel="stylesheet" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
@@ -24,18 +24,18 @@
         function openModal() {
             $('#myModal').modal('show');
         }
-    </script>
+</script>
 
-
+    
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body runat="server" id="pageBody">
+<body runat="server" id="pageBody" >
     <form id="form1" runat="server">
 
         <!-- Navigation -->
-
+        
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="default.aspx">Techniques de Informatique</a>
+                    <a class="navbar-brand" href="default.aspx">Techniques de l'informatique</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -89,21 +89,11 @@
                         <li>
                             <a href="#">Témoignages</a>
                         </li>
-
-
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="\Inscription\Inscription.aspx">S'inscrire en tant qu'étudiant</a>
-                                </li>
-                                <li>
-                                    <a href="sidebar.html">S'inscrire en tant que professeur</a>
-                                </li>
-                            </ul>
-                        </li>
-
+                     
+                            <li>
+                                 <a href="\Inscription\Inscription.aspx">Inscription</a>
+                            </li>
+                                                                                    
                         <li class="dropdown">
                             <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
                             <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" />
@@ -117,76 +107,81 @@
             <!-- /.container -->
         </nav>
 
+
         <!--Menu Connexion-->
 
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Connexion</h4>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Connexion</h4>
+      </div>
+        <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="upConnexion" runat="server">
+            <ContentTemplate>
+      <div class="modal-body">
+        <div class="row-fluid">
+
+                        <p class="text-info">
+                                <asp:Label ID="lblModalTitle" runat="server" Text="Veuillez remplir les champs ci-dessous" />
+                        </p>
+                        <div class="row-fluid">
+                            <div class="col-lg-6">
+                                    <asp:Label ID="lblIdentifiant" runat="server" Text="Identifiant (Votre courriel) :" />
+                            </div>
+                            <div class="col-lg-6">
+                                    <asp:TextBox ID="txtIdentifiant" runat="server"></asp:TextBox>
+                            </div>
+                            </div>
+                            <br />
+                            <br />
+                        <div class="row-fluid">
+                            <div class="col-lg-6">
+                                    <asp:Label ID="lblPassword" runat="server" Text="Mot de passe :" />
+                            </div>
+                            <div class="col-lg-6">
+                                    <asp:TextBox ID="txtPassword" runat="server" TextMode="password"></asp:TextBox>
+                            </div>
+                        </div>
                     </div>
-                    <asp:ScriptManager runat="server"></asp:ScriptManager>
-                    <asp:UpdatePanel ID="upConnexion" runat="server">
-                        <ContentTemplate>
-                            <div class="modal-body">
-                                <div class="row-fluid">
-
-                                    <p class="text-info">
-                                        <asp:Label ID="lblModalTitle" runat="server" Text="Veuillez remplir les champs ci-dessous" />
-                                    </p>
-                                    <div class="row-fluid">
-                                        <div class="col-lg-6">
-                                            <asp:Label ID="lblIdentifiant" runat="server" Text="Identifiant (Votre courriel) :" />
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <asp:TextBox ID="txtIdentifiant" runat="server"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-                                    <div class="row-fluid">
-                                        <div class="col-lg-6">
-                                            <asp:Label ID="lblPassword" runat="server" Text="Mot de passe :" />
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <asp:TextBox ID="txtPassword" runat="server" TextMode="password"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
-                                <asp:Label ID="lblMessageConnexion" runat="server" Text="" />
-                            </div>
+          <br /><asp:Label ID="lblMessageConnexion" runat="server" Text="" />
+      </div>
 
 
-                            <div class="modal-footer">
-                                <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" OnClick="btnConnexion_Click" />
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                            </div>
+      <div class="modal-footer">
+                        <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" OnClick="btnConnexion_Click" />
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
 
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+            </ContentTemplate>
+        </asp:UpdatePanel>
 
-                </div>
-            </div>
-        </div>
+    </div>
+  </div>
+</div>
 
-        <!--Fin Menu Connexion-->
+<!--Fin Menu Connexion-->
 
 
 
         <br />
         <br />
         <!--Section provenant des pages-->
-        <div style="word-wrap: break-word; min-height: 700px">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div class="wrapper" style="word-wrap:break-word;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+               
+                
             </asp:ContentPlaceHolder>
+
+            <div class="push"></div>
         </div>
 
         <!--Fin de la section provenant des pages-->
 
         <!-- Footer -->
+       
         <footer>
             <div class="footer" id="footer">
                 <div class="container">
@@ -236,7 +231,7 @@
                                 </li>
                             </ul>
                             <ul class="social">
-                                <li><a href="https://www.facebook.com/groups/113004038768875/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/DepartementDinformatiqueCegepDeGranbyHauteYamaska"><i class="fa fa-facebook"></i></a></li>
 
                             </ul>
                         </div>
@@ -255,23 +250,24 @@
             <!--/.footer-bottom-->
         </footer>
 
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+         <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 
-        <!-- Bootstrap Core JavaScript -->
-        <!--   <script src="Js/bootstrap.min.js"></script> -->
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <!--   <script src="Js/bootstrap.min.js"></script> -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="../Js/jquery.easing.min.js"></script>
         <script src="../Js/scrolling-nav.js"></script>
 
 
-        <!-- Script to Activate the Carousel -->
-        <script>
-            $('.carousel').carousel({
-                interval: 5000 //changes the speed
-            })
-        </script>
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
 
 
     </form>

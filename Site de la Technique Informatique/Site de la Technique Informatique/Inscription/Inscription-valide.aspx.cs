@@ -32,24 +32,28 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 {
 
 
-                    if (Request.QueryString["id"] != null && Request.QueryString["code"] != null)
+                    if (Request.QueryString["type"] != null && Request.QueryString["id"] != null && Request.QueryString["code"] != null)
                     {
 
-
+                        String type = Request.QueryString["type"].ToString();
                         String courriel = Request.QueryString["id"].ToString();
                         String hash = Request.QueryString["code"].ToString();
 
+                        if(type.Equals("etu"))
+                        {
                         List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.courriel.Equals(courriel) && cl.valideCourriel == false select cl).ToList();
 
                         foreach (var etudiant in etudiantList)
                         {
-                            if (GetSHA256Hash(etudiant.dateInscription.ToString()).Equals(hash))
+                            if (etudiant.dateInscription.GetHashCode().ToString().Equals(hash))
                             {
                                 etudiant.valideCourriel = true;
                                 leContext.SaveChanges();
                             }
 
                         }
+                        }
+                        
                     }
                     else
                     {
