@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="default.aspx">Techniques de Informatique</a>
+                    <a class="navbar-brand" href="default.aspx">Techniques de l'informatique</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -179,16 +179,19 @@
         <br />
         <br />
         <!--Section provenant des pages-->
-        <div style="word-wrap:break-word; min-height:700px">
+        <div class="wrapper" style="word-wrap:break-word;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
                
+                
             </asp:ContentPlaceHolder>
+
+            <div class="push"></div>
         </div>
 
         <!--Fin de la section provenant des pages-->
 
         <!-- Footer -->
-         <!-- Footer -->
+       
         <footer>
             <div class="footer" id="footer">
                 <div class="container">
