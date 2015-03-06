@@ -65,7 +65,7 @@ namespace Site_de_la_Technique_Informatique
         //Changer les datas selon le mois
         public IQueryable<Site_de_la_Technique_Informatique.Model.Evenement> lviewEvents_GetData()
         {
-            if (CalendrierEvents.SelectedDates[0] != null)
+            if (CalendrierEvents.SelectedDates.Count != 0)
             {
                 var monthSelected = CalendrierEvents.SelectedDates[0].Month;
                 var yearSelected = CalendrierEvents.SelectedDates[0].Year;
