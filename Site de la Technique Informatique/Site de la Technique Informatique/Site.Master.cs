@@ -70,7 +70,7 @@ namespace Site_de_la_Technique_Informatique
                     {
 
                         //Crée des user par profil pour éventuellement trouver le type
-                        Model.Admin userAdmin = (from user in lecontexte.Set<Model.Admin>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
+                        Admin userAdmin = (from user in lecontexte.Set<Admin>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
                         Employeur userEmpl = (from user in lecontexte.Set<Employeur>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
                         Etudiant userEtu = (from user in lecontexte.Set<Etudiant>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
                         Professeur userProf = (from user in lecontexte.Set<Professeur>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
