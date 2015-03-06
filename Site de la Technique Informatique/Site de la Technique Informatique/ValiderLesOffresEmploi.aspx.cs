@@ -1,4 +1,4 @@
-﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir accepter/refuser les offres d'emplois
+﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir accepter/refuser les offres d'emplois en plus de les supprimers
 // Écrit par Raphael Brouard, Février 2015
 // Intrants: Vide
 // Extrants: L'offre choisi a été VALIDÉ ou SUPPRIMÉ dans la BD.
@@ -19,6 +19,15 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_Load(object sender, EventArgs e)
         {
             //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
+            if (Page.IsPostBack == false)
+            {
+                dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
+            }
         }
 
         //Méthode pour downloader le PDF de l'offre d'emploi
@@ -100,19 +109,10 @@ namespace Site_de_la_Technique_Informatique
             lviewOffresDEmploi.DataBind();
         }
 
-        //Méthodes pour mettre le datapager visible seulement si au moin une offre
-        public bool VisibleSiAuMoinUnOffre()
+        protected void lviewOffresDEmploiDataBound(object sender, EventArgs e)
         {
-            if (lviewOffresDEmploi.Items.Count == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
         }
-
 
         //Méthode pour récupérer les offres d'emploi de la BD
         public IQueryable<Model.OffreEmploi> GetLesOffresDEmploi()
@@ -146,7 +146,7 @@ namespace Site_de_la_Technique_Informatique
                         listeDesOffresEmploi = (from cl in modelTI.OffreEmploiSet
                                                 where cl.validerOffre == true
                                                 select cl).ToList();
-                    }
+                    }                    
                 }
             }
             catch (Exception ex)
