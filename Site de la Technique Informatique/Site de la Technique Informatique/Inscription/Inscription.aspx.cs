@@ -158,7 +158,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         foreach (var ValdationResult in resultatsValidation)
                         {
-
+                            Label lblMessage = (Label)lviewItem.FindControl("lblMessage");
+                            lblMessage.Text += ValdationResult.ErrorMessage + "<br/>";
                             String input = ValdationResult.MemberNames.FirstOrDefault();
                             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
                             idsEnErreur.Add(input);
@@ -174,7 +175,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         //Sauvegarder image du profil
                         String imgData = ImgExSrc.Value;
-                        if (imgData.Substring(0, 21).Equals("data:image/png;base64"))
+                        if (imgData != "" && imgData.Length>21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                         {
                             System.Drawing.Image imageProfil = LoadImage(imgData);
                             imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
@@ -310,7 +311,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             // Corps du message : contient ce que la personne a écrit dans le module seulement
             hash hash = new hash();
             String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
-            String hyperLien = HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
+            String hyperLien = "http://"+HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
             mail.Body = "Chère " + etudiant.prenom + "" + etudiant.nom + ",<br/><br/>Valider votre courriel :<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
 
