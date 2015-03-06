@@ -7,10 +7,10 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique.Inscription {
+namespace Site_de_la_Technique_Informatique.Inscription.Cropper {
     
     
-    public partial class imgTest {
+    public partial class Cropper {
         
         /// <summary>
         /// Contrôle form1.
@@ -22,21 +22,12 @@ namespace Site_de_la_Technique_Informatique.Inscription {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Contrôle txtBox.
+        /// Contrôle lblPostBack.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBox;
-        
-        /// <summary>
-        /// Contrôle lnk.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnk;
+        protected global::System.Web.UI.WebControls.Label lblPostBack;
     }
 }
