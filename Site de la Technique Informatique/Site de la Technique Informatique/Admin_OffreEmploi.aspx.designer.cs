@@ -10,7 +10,7 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class ValiderLesOffresEmploi {
+    public partial class Admin_OffreEmploi {
         
         /// <summary>
         /// Contrôle btnVoirOffreEmploiNonValide.

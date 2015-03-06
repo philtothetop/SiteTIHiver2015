@@ -26,6 +26,12 @@
         }
 </script>
 
+    <script type="text/javascript">
+        function closeModal() {
+            $('#myModal').modal('close');
+        }
+</script>
+
     
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -54,7 +60,7 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
-                            <a href="QuiSommesNous.aspx.aspx">Qui sommes-nous?</a>
+                            <a href="QuiSommesNous.aspx">Qui sommes-nous?</a>
                         </li>
                         <li>
                             <a href="Nouvelles.aspx">Nouvelles</a>
@@ -76,7 +82,7 @@
 
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="Vertic.aspx">Verdic</a> </li>
+                                <li><a href="Vertic.aspx">Vertic</a> </li>
                                 <li><a href="InformationsStage.aspx">Stages</a> </li>
                                 
                             </ul>
@@ -91,10 +97,10 @@
                         </li>
                      
                             <li>
-                                 <a href="\Inscription\Inscription.aspx">Inscription</a>
+                                 <a href="Inscription/Inscription.aspx">Inscription</a>
                             </li>
                                                                                     
-                        <li class="dropdown">
+                        <li>
                             <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
                             <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" />
                         </li>
@@ -170,6 +176,7 @@
         <br />
         <!--Section provenant des pages-->
         <div class="wrapper" style="word-wrap:break-word;">
+            <br />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
                
                 

@@ -14,11 +14,11 @@ using System.Net;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class ValiderLesOffresEmploi : ErrorHandling
+    public partial class Admin_OffreEmploi : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-         //Méthode pour accepter l'offre d'emploi
+        //Méthode pour accepter l'offre d'emploi
         protected void AccepterOffreEmploi_Click(object sender, EventArgs e)
         {
             int argument = Convert.ToInt32(((Button)sender).CommandArgument);
@@ -64,7 +64,7 @@ namespace Site_de_la_Technique_Informatique
                     leModel.SaveChanges();
                     lviewOffresDEmploi.DataBind();
                 }
-                
+
             }
         }
 
@@ -97,7 +97,7 @@ namespace Site_de_la_Technique_Informatique
             btnVoirOffreEmploiNonValide.CssClass = "btn btnOffreEmploiSelectionne";
             btnVoirOffreEmploiValide.CssClass = "btn btn-default";
             lviewOffresDEmploi.DataBind();
-            
+
         }
 
         //Boutton pour voit les offres validés
@@ -146,7 +146,7 @@ namespace Site_de_la_Technique_Informatique
                         listeDesOffresEmploi = (from cl in modelTI.OffreEmploiSet
                                                 where cl.validerOffre == true
                                                 select cl).ToList();
-                    }                    
+                    }
                 }
             }
             catch (Exception ex)
@@ -174,7 +174,7 @@ namespace Site_de_la_Technique_Informatique
                     if (trouverOffre.noPoste != null)
                     {
                         if (!trouverOffre.noPoste.Equals(""))
-                        { 
+                        {
                             return true;
                         }
                     }

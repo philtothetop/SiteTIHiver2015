@@ -14,14 +14,15 @@ namespace Site_de_la_Technique_Informatique
         {
             Exception ex = Server.GetLastError();
 
-            Server.Transfer("~/ErreursImportants.aspx?handler=" + ex.TargetSite.Name, true);
-
             LogErreurCritique(ex);
+
+            Server.Transfer("~/ErreursImportants.aspx?handler=" + ex.TargetSite.Name, true);
 
             Server.ClearError();
         }
 
-        public static void LogErreur(String source, Exception ex)
+
+        public  void LogErreur(String source, Exception ex)
         {
             using (LeModelTIContainer leContext = new LeModelTIContainer())
             {
@@ -32,21 +33,41 @@ namespace Site_de_la_Technique_Informatique
                 uneNouvelleErreur.actionLog = leMessage;
                 uneNouvelleErreur.typeLog = 2;
 
+                if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
+                {
+                    String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
+                    Model.Utilisateur lUtilisateurConnecte = (from cl in leContext.UtilisateurSet
+                                                              where cl.courriel.Equals(courrielDuConnecte)
+                                                              select cl).FirstOrDefault();
+                    int noCompte = lUtilisateurConnecte.IDUtilisateur;
+                    uneNouvelleErreur.UtilisateurIDUtilisateur = noCompte;
+                }  
+
                 leContext.LogSet.Add(uneNouvelleErreur);
                 leContext.SaveChanges();
             }
         }
 
-        public static void LogErreurCritique(Exception ex)
+        public void LogErreurCritique(Exception ex)
         {
             using (LeModelTIContainer leContext = new LeModelTIContainer())
             {
                 string leMessage = ex.TargetSite.Name + "/" + ex.Message + "/" + ex.InnerException;
-
+               
                 Model.Log uneNouvelleErreur = new Model.Log();
                 uneNouvelleErreur.dateLog = DateTime.Now;
                 uneNouvelleErreur.actionLog = leMessage;
                 uneNouvelleErreur.typeLog = 1;
+
+                if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
+                {
+                    String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
+                    Model.Utilisateur lUtilisateurConnecte = (from cl in leContext.UtilisateurSet
+                                                              where cl.courriel.Equals(courrielDuConnecte)
+                                                              select cl).FirstOrDefault();
+                    int noCompte = lUtilisateurConnecte.IDUtilisateur;
+                    uneNouvelleErreur.UtilisateurIDUtilisateur = noCompte;
+                }
 
                 leContext.LogSet.Add(uneNouvelleErreur);
                 leContext.SaveChanges();
