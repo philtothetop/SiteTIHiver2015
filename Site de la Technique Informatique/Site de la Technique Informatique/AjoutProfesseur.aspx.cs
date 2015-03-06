@@ -50,7 +50,9 @@ namespace Site_de_la_Technique_Informatique
                   nouveauProf.hashMotDePasse =  hash.GetSHA256Hash(tempPassword);
                   nouveauProf.dateInscription = DateTime.Now;
                   nouveauProf.compteActif = true;
-                    
+               //   List<Professeur> lesProfs = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>() select cl).ToList();
+
+               //   lesProfs.Add(nouveauProf);
 
                     TryUpdateModel(nouveauProf);
 
@@ -77,6 +79,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     else
                     {
+                        lecontexte.UtilisateurSet.Add(nouveauProf);
                         lecontexte.SaveChanges();
                     }
 
