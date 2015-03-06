@@ -41,9 +41,15 @@ namespace Site_de_la_Technique_Informatique
                 lblDateDebutOffre.Text = "Début de l'offre : " + offreEmploi.dateDebutOffre.ToString("dd/MM/yyyy");
                 lblSalaire.Text = offreEmploi.salaire + " $/heure";
                 lblNoTelephone.Text = "No de téléphone : " + offreEmploi.noTelephone;
+
+                if(offreEmploi.noPoste != null)
+                { 
+                    lblNoPoste.Text = "  Ext: (" + offreEmploi.noPoste + ")";
+                }
+
                 lblNoTelecopieur.Text = "No de télécopieur : " + offreEmploi.noTelecopieur;
                 lblCourrielOffre.Text = "Courriel : " + offreEmploi.courrielOffre;
-                lblPersonneRessource.Text = "Personne resource : " + offreEmploi.personneRessource;
+                lblPersonneRessource.Text = "Personne resources : " + offreEmploi.personneRessource;
 
                 if (offreEmploi.pathPDFDescription == ""){
                     lnkPDF.Visible = false;
