@@ -23,15 +23,15 @@
         <!-- Content Row -->
         <div class="row">
             <div class="col-lg-12">
-                <asp:TreeView ID="TreeView1" runat="server">
+                <asp:TreeView ID="TreeView1" runat="server" ExpandDepth="1">
 
                     <Nodes>
                         <asp:TreeNode Text="Site de Techniques de l'informatique">
-                            <asp:TreeNode Text="Accueil"  />
-                            <asp:TreeNode Text="Qui sommes-nous?"  />
-                            <asp:TreeNode Text="Nouvelles"  />
+                            <asp:TreeNode Text="Accueil" NavigateUrl="~/Default.aspx"  />
+                            <asp:TreeNode Text="Qui sommes-nous?" NavigateUrl="~/QuiSommesNous.aspx"  />
+                            <asp:TreeNode Text="Nouvelles" NavigateUrl="~/Nouvelles.aspx"  />
 
-                            <asp:TreeNode Text="Souvenirs"  >
+                            <asp:TreeNode Text="Souvenirs" SelectAction="None" >
 
                                 <asp:TreeNode Text="Photos étudiants"  />
                                 <asp:TreeNode Text="Photos professeurs"  />
@@ -39,16 +39,31 @@
 
                             </asp:TreeNode>
 
-                             <asp:TreeNode Text="Informations" >
+                             <asp:TreeNode Text="Informations" SelectAction="None" >
 
-                                <asp:TreeNode Text="Verdic"  />
-                                <asp:TreeNode Text="Stages"  />
+                                <asp:TreeNode Text="Verdic" NavigateUrl="~/Vertic.aspx"  />
+                                <asp:TreeNode Text="Stages" NavigateUrl="~/InformationsStage.aspx" />
                                
 
                             </asp:TreeNode>
 
-                            <asp:TreeNode Text="Offres d'emploi"  />
+                            <asp:TreeNode Text="Offres d'emploi" NavigateUrl="~/OffreEmploi.aspx" />
                             <asp:TreeNode Text="Témoignages"  />
+                            <asp:TreeNode Text="Inscription" NavigateUrl="~/Inscription/inscription.aspx" />
+                          
+                             <asp:TreeNode Text="Ressources" SelectAction="None" >
+                                 <asp:TreeNode Text="Contactez-nous" NavigateUrl="~/Contact.aspx" />
+                                 <asp:TreeNode Text="Concepteurs" NavigateUrl="~/Concepteur.aspx" />
+                                 <asp:TreeNode Text="Parutions média"  />
+
+                                 </asp:TreeNode>
+
+                              <asp:TreeNode Text="Aide" SelectAction="None" >
+                                 <asp:TreeNode Text="Foire aux questions" NavigateUrl="~/FAQ.aspx" />
+                                 <asp:TreeNode Text="Plan du site" NavigateUrl="~/PlanDuSite.aspx"  />
+                               
+
+                                 </asp:TreeNode>
 
                         </asp:TreeNode>
                     </Nodes>
@@ -56,5 +71,6 @@
                 </asp:TreeView>
 
             </div>
+        </div>
         </div>
 </asp:Content>

@@ -58,14 +58,14 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                ErrorHandling.LogErreur("Default-CalendrierEvents_SelectionChanged", ex);
+                LogErreur("Default-CalendrierEvents_SelectionChanged", ex);
             }
         }
 
         //Changer les datas selon le mois
         public IQueryable<Site_de_la_Technique_Informatique.Model.Evenement> lviewEvents_GetData()
         {
-            if (CalendrierEvents.SelectedDates[0] != null)
+            if (CalendrierEvents.SelectedDates.Count != 0)
             {
                 var monthSelected = CalendrierEvents.SelectedDates[0].Month;
                 var yearSelected = CalendrierEvents.SelectedDates[0].Year;
@@ -73,6 +73,10 @@ namespace Site_de_la_Technique_Informatique
 
                 try
                 {
+
+                    //string yolo = "gerg";
+                    //int moma = Convert.ToInt32(yolo);
+
                     using (LeModelTIContainer leContext = new LeModelTIContainer())
                     {
                         if (leContext.EvenementSet.ToList() != null)
@@ -87,7 +91,7 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    ErrorHandling.LogErreur("Default-lviewEvents_GetData", ex);
+                   LogErreur("Default-lviewEvents_GetData", ex);
                 }
                 return listeEvenement.AsQueryable().SortBy("dateDebutEvenement");
             }
@@ -208,12 +212,10 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    ErrorHandling.LogErreur("Default-lviewAlbumPhoto_GetData", ex);
+                    LogErreur("Default-lviewAlbumPhoto_GetData", ex);
                 }
                 return listePhoto.AsQueryable();
-
             }
-
         }
 
     }
