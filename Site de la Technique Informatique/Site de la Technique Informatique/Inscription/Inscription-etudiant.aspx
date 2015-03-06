@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscription.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Inscription" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscription-Etudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Inscription" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../Css/Inscription.css" />
@@ -42,33 +42,6 @@
     </script>
              <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".has-error").removeClass("has-error");
-
-            var idValue = '<%=this.lviewFormulaireInscription.ClientID%>';
-            var IDS = JSON.parse('<%= this.idsEnErreurTab%>');
-            var MSGS = '<%= this.msgsEnErreur%>';
-
-            for (index = 0; index < IDS.length; ++index) {
-                var id = IDS[index];
-                var msg = MSGS[index];
-                if (id != "DateNaissance") {
-                    var element = idValue + "_txt" + id + "_0";
-
-                    $("#" + element).addClass("has-error");
-
-                } else {
-                    $("#" + idValue + "_DateNaissanceJour").addClass("has-error");
-                    $("#" + idValue + "_DateNaissanceMois").addClass("has-error");
-                    $("#" + idValue + "_DateNaissanceAnnee").addClass("has-error");
-                }
-            }
-
-        });
-    </script>
-
-</asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField runat="server" ID="ImgExSrc" />
