@@ -13,140 +13,135 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
-            {
 
-                //Verification s'il y a un utilisateur de connecté.
+                //using (LeModelTIContainer lecontexte = new LeModelTIContainer()) //un ti modèle parce que c'est ben pratique
+                //{
 
-                if (Session["Utilisateur"] == null) //si le courriel est null, donc personne de connecter
-                {
-                    lblConnexion.Visible = true; //Affiche le lien de connexion
-                    lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
+                    //Verification s'il y a un utilisateur de connecté.
+
+                    if (Request.Cookies["TIUtilisateur"] == null) //si l'utilisateur est null, donc personne de connecter
+                    {
+                        lblConnexion.Visible = true; //Affiche le lien de connexion
+                        lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
+                    }
+                    else //donc utilisateur contient une valeur
+                    {
+                        lblConnexion.Visible = false; //Cache le lien de connexion
+                        lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
+
+                        lblEnLigne.Text = Server.HtmlEncode(Request.Cookies["TINom"].Value); //Envoie le prénom nom de l'utilisateur dans le label
+                    }
                 }
-                else //donc courriel contient une valeur
-                {
-                    lblConnexion.Visible = false; //Cache le lien de connexion
-                    lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
-
-                    Utilisateur userConnect = new Utilisateur(); //crée un utilisateur
-                    userConnect = (from user in lecontexte.UtilisateurSet where user.courriel == Session["Courriel"].ToString() select user).FirstOrDefault(); //va chercher l'utilisateur correspondant au courriel
-
-                    lblEnLigne.Text = Session["Nom"].ToString(); //Envoie le prénom nom de l'utilisateur dans le label
-                }
-            }
-        }
+            //}
 
         //Connexion
         protected void btnConnexion_Click(object sender, EventArgs e)
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                try
+
+                try //au cas où que ya une erreur
                 {
-                    Session.Abandon(); //détruit les sessions existantes
-                    Session["Courriel"] = txtIdentifiant.Text.Trim(); //envoie le courriel entré dans l'objet session
+                    Response.Cookies["TICourriel"].Value = txtIdentifiant.Text.Trim(); //envoie le courriel entré dans le cookie
                     string pwdUserConnect = null; //Permet de stocker le mot de passe entré et hashé
                     string pwdVerification = ""; //Permet de stocker le mot de passe hashé de la BD
                     Utilisateur userConnect = new Utilisateur(); //Crée un utilisateur vide
 
-                   
                     userConnect = (from user in lecontexte.UtilisateurSet where user.courriel == txtIdentifiant.Text select user).FirstOrDefault(); //Va chercher l'utilisateur qui correspond au courriel
 
                     if (userConnect == null) //si le courriel n'est pas dans la BD
                     {
-                        lblMessageConnexion.Text += "Votre courriel n'existe pas dans notre base de données.";
-                        Session["Courriel"] = null; //enlève la valeur de l'objet session
-                        //Response.Redirect("default.aspx#myModal", false);
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                        lblMessageConnexion.Text += "Votre courriel n'existe pas dans notre base de données."; //l'utilisateur n'a pas de courriel dans la BD (ou il a fait une faute de frappe)
+                        Response.Cookies["TICourriel"].Value = null; //enlève le mauvais courriel du cookie
                     }
                     if (userConnect != null) //si le membre existe
                     {
-                        pwdUserConnect = GetSHA256Hash(txtPassword.Text); //récupère le mdp
-                        pwdVerification = userConnect.hashMotDePasse ; //valide si c'est le bon mdp
+                        pwdUserConnect = GetSHA256Hash(txtPassword.Text); //récupère le mdp entré et le hash
+                        pwdVerification = userConnect.hashMotDePasse; //va chercher le mdp hashé présent dans la BD
                     }
 
                     if (pwdUserConnect == pwdVerification) //si ok, donne le bon statut
                     {
 
                         //Crée des user par profil pour éventuellement trouver le type
-                        Model.Admin userAdmin = (from user in lecontexte.Set<Model.Admin>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
-                        Employeur userEmpl = (from user in lecontexte.Set<Employeur>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
-                        Etudiant userEtu = (from user in lecontexte.Set<Etudiant>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
-                        Professeur userProf = (from user in lecontexte.Set<Professeur>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
-                        Membre userMembre = (from user in lecontexte.Set<Membre>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault();
-                        
+                        Model.Admin userAdmin = (from user in lecontexte.Set<Model.Admin>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault(); //admin (le model. est essentiel à cause de la sous masterpage)
+                        Employeur userEmpl = (from user in lecontexte.Set<Employeur>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault(); //employeur
+                        Etudiant userEtu = (from user in lecontexte.Set<Etudiant>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault(); //etudiant
+                        Professeur userProf = (from user in lecontexte.Set<Professeur>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault(); //prof
+                        Membre userMembre = (from user in lecontexte.Set<Membre>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault(); //à cause de l'héritage, ça prend membre pour avoir certains nom + pr.nom
+
                         //Si c'est un admin
-                        
-                        if (userAdmin != null)
+                        if (userAdmin != null) 
                         {
-                            Session["Utilisateur"] = "Admin";
-                            Session["Nom"] = "Admin";
+                            Response.Cookies["TIUtilisateur"].Value = "Admin"; //On indique le type
+                            Response.Cookies["TINom"].Value = "Admin"; //On entre à bras le nom "Admin" car non stocké dans la BD
                         }
 
                         //Si c'est un employeur
-                         if (userEmpl != null)
-                         {
-                             if (userEmpl.valideCourriel == true)
-                             {
-                                 Session["Utilisateur"] = "Employeur";
-                                 Session["Nom"] = userEmpl.nomEmployeur.ToString();
-                             }
-                             else
-                             {
-                                 lblMessageConnexion.Text = "Votre courriel n'a pas été validé. Veuillez réessayer ultérieurement";
-                                 Session["Courriel"] = null; //enlève la valeur de l'objet session
-                                 //Response.Redirect("default.aspx#myModal", false);
-                                 //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                             }
-                         }
+                        if (userEmpl != null)
+                        {
+                            if (userEmpl.valideCourriel == true) //ça prend un courriel validé
+                            {
+                                Response.Cookies["TIUtilisateur"].Value = "Employeur"; //On indique le type
+                                Response.Cookies["TINom"].Value = userEmpl.nomEmployeur.ToString(); //On récupère le nom d'employeur
+                        
+                            }
+                            else //oups, pas de courriel valide
+                            {
+                                lblMessageConnexion.Text = "Votre courriel n'a pas été validé. Veuillez réessayer ultérieurement"; //petit warning à l'utilisateur
+                                Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
+                            }
+                        }
 
                         //Si c'est un étudiant
-                         if (userEtu != null)
-                         {
-                             if (userEtu.valideCourriel == true)
-                             {
-                                 Session["Utilisateur"] = "Etudiant";
-                                 Session["Nom"] = userMembre.prenom + " " + userMembre.nom; 
-                             }
-                             else
-                             {
-                                 lblMessageConnexion.Text = "Votre courriel n'a pas été validé. Veuillez réessayer ultérieurement";
-                                 Session["Courriel"] = null; //enlève la valeur de l'objet session
-                             //    Response.Redirect("default.aspx#myModal", false);
-                             //    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                             }
-                         }
+                        if (userEtu != null)
+                        {
+                            if (userEtu.valideCourriel == true) //ça prend un courriel validé
+                            {
+                                Response.Cookies["TIUtilisateur"].Value = "Etudiant"; //On indique le type d'usager
+                                Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
+                            }
+                            else //oups, courriel non validé
+                            {
+                                lblMessageConnexion.Text = "Votre courriel n'a pas été validé. Veuillez réessayer ultérieurement"; //warning à l'usager
+                                Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
+                            }
+                        }
 
                         //Si c'est un prof
-
                         if (userProf != null)
-                         {
-                                 Session["Utilisateur"] = "Professeur";
-                                 Session["Nom"] = userMembre.prenom + " " + userMembre.nom; 
-                             }
+                        {
+                            Response.Cookies["TIUtilisateur"].Value = "Professeur"; //On indique le type d'usager
+                            Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
+                        }
 
-
-
-                        Response.Redirect("default.aspx", false);
-                        Model.Log log = new Model.Log();
-                        log.dateLog = DateTime.Now;
-                        //log.actionLog = userConnect.prenom + " " + userConnect.nom + "s'est connecté au site.";
-                    }
-                    else
+                        }
+                    else //Si aucun usager correspondant dans la BD
                     {
                         lblMessageConnexion.Text += "Votre courriel ou votre mot de passe n'est pas valide."; //Avertis que le mot de passe est incorrect
-                        Session["Courriel"] = null; //enlève la valeur de l'objet session
+                        Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
                         txtIdentifiant.Text = ""; //reset le textbox identifiant
                         txtPassword.Text = "";//reset le textbox password
-                        //Response.Redirect("default.aspx#myModal", false);
-                        //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                     }
                 }
                 catch (Exception ex) //au cas où ça marcherait pas
                 {
-                    Session.Clear();
                     lblMessageConnexion.Text = "Une erreur s'est produite à la connexion.¸.. : " + ex.Message;
+                }
+
+                if (Request.Cookies["TIUtilisateur"] != null) //si l'utilisateur est en ordre et peut se connecter, on log l'info, et on reload la page
+                {
+
+                    Model.Log log = new Model.Log(); //crée une entrée de log
+                    log.dateLog = DateTime.Now; //on met la date du jour
+                    log.typeLog = 0; //connexion est de type 0
+                    log.actionLog = Server.HtmlEncode(Request.Cookies["TINom"].Value) + " s'est connecté au site."; //on met l'action
+                    lecontexte.LogSet.Add(log); //on ajoute au log
+                    lecontexte.SaveChanges(); //on sauvegarde dans la BD
+
+                    ScriptManager.RegisterStartupScript(this, GetType(), "myModal", "$(function(){closeModal();});", true); //on ferme le modal
+
+                    Response.Redirect(Request.RawUrl, false); //on reload la page. Ça reload la page d'où le modal a été lancé
                 }
             }
         }

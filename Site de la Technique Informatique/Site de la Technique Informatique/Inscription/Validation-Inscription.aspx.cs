@@ -57,8 +57,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-
                     List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == true && cl.compteActif == false orderby cl.IDEtudiant descending select cl).ToList();
+
+                    
                     if(etudiantList.Count==0)
                     { divAucunNouvelleInscription.Visible = true;
                     }
@@ -134,6 +135,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             }
         }
+
         //Cette class Accepter tous les comptes étudiants sélectionner
         //Écrit par Cédric Archambault 27 février 2015
         //Intrants:Vide

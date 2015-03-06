@@ -42,14 +42,6 @@ namespace Site_de_la_Technique_Informatique.Inscription
         #endregion
         protected void Page_Load()
         {
-            HttpCookie cookieUrlPhotoProfil = Request.Cookies["urlPhotoProfil"];
-
-            if (cookieUrlPhotoProfil != null)
-            {
-                urlPhoto = cookieUrlPhotoProfil.Value;
-
-            }
-
             if (Session["Utilisateur"] != null)
             {
                 Response.Redirect("../Default.aspx", false);
@@ -144,8 +136,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         resultatsValidation.Add(vald);
                     }
                     bool isEmail = Regex.IsMatch(etudiantACreerCopie.courriel + "", @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
-                   
-                    if (etudiantACreerCopie.courriel!=null && (isEmail==false || etudiantACreerCopie.courriel.Length > 64))
+
+                    if (etudiantACreerCopie.courriel != null && (isEmail == false || etudiantACreerCopie.courriel.Length > 64))
                     {
                         ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "courriel" });
                         isValid = false;
@@ -166,7 +158,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         foreach (var ValdationResult in resultatsValidation)
                         {
-
+                            Label lblMessage = (Label)lviewItem.FindControl("lblMessage");
+                            lblMessage.Text += ValdationResult.ErrorMessage + "<br/>";
                             String input = ValdationResult.MemberNames.FirstOrDefault();
                             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
                             idsEnErreur.Add(input);
@@ -182,7 +175,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         //Sauvegarder image du profil
                         String imgData = ImgExSrc.Value;
-                        if (imgData.Substring(0, 21).Equals("data:image/png;base64"))
+                        if (imgData != "" && imgData.Length>21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                         {
                             System.Drawing.Image imageProfil = LoadImage(imgData);
                             imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
@@ -197,7 +190,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             etudiantACreerCopie.pathPhotoProfil = "photobase.bmp";
                         }
                         //Convertir le mot de passe en hashcode
-                        hash hash =new hash();
+                        hash hash = new hash();
                         etudiantACreerCopie.hashMotDePasse = hash.GetSHA256Hash(etudiantACreerCopie.hashMotDePasse);
                         //Date inscription
                         etudiantACreerCopie.dateInscription = (DateTime)DateTime.Now;
@@ -317,9 +310,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             // Corps du message : contient ce que la personne a écrit dans le module seulement
             hash hash = new hash();
-            String hashCourriel = hash.GetSHA256Hash(etudiant.dateInscription.ToString());
-            mail.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Valider votre courriel :" + "(adresse)/Inscription/Inscription-valide.aspx?id=" + etudiant.courriel + "&code=" + hashCourriel; 
-
+            String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
+            String hyperLien = "http://"+HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
+            mail.Body = "Chère " + etudiant.prenom + "" + etudiant.nom + ",<br/><br/>Valider votre courriel :<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
 
             mail.BodyEncoding = System.Text.Encoding.UTF8;

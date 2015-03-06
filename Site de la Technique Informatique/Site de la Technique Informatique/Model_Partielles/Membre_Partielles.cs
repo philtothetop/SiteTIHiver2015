@@ -14,17 +14,26 @@ namespace Site_de_la_Technique_Informatique.Model
     [MetadataType(typeof(MembreValidation))]
     public partial class Membre : IValidatableObject
     {
+
+
         public IEnumerable<ValidationResult> Validate(ValidationContext ValidationContext)
         {
             LeModelTIContainer leContext = new LeModelTIContainer();
             var listeRetour = new List<ValidationResult>();
+         
             return listeRetour;
+
         }
+
+
+
+
+
     }
 }
 public partial class MembreValidation
 {
-        [DisplayName("Nom")]
+    [DisplayName("Nom")]
     [Required(ErrorMessage = "Un nom est requis.")]
     [StringLength(64, ErrorMessage = "Le nom doit avoir moins de 64 caractères.")]
     public string nom { get; set; }
@@ -36,7 +45,7 @@ public partial class MembreValidation
     [RegularExpression("^[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\\.[a-zA-Z]{2,4}", ErrorMessage = "Le courriel doit être valide.")]
     [StringLength(64, ErrorMessage = "Le courriel doit avoir moins de 64 caractères.")]
     public string courriel { get; set; }
-    [DisplayName("Mot de passe"),Required(ErrorMessage = "Un mot de passe est requis.")]
+    [DisplayName("Mot de passe"), Required(ErrorMessage = "Un mot de passe est requis.")]
     [StringLengthRange(Minimum = 4, ErrorMessage = "Le mot de passe doit avoir au minimu 4 caractères.")]
     public string hashMotDePasse { get; set; }
 }

@@ -10,42 +10,51 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class Default {
+    public partial class Admin_OffreEmploi {
         
         /// <summary>
-        /// Contrôle lviewAlbumPhoto.
+        /// Contrôle btnVoirOffreEmploiNonValide.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewAlbumPhoto;
+        protected global::System.Web.UI.WebControls.Button btnVoirOffreEmploiNonValide;
         
         /// <summary>
-        /// Contrôle CalendrierEvents.
+        /// Contrôle btnVoirOffreEmploiValide.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CalendrierEvents;
+        protected global::System.Web.UI.WebControls.Button btnVoirOffreEmploiValide;
         
         /// <summary>
-        /// Contrôle lviewEvents.
+        /// Contrôle lviewOffresDEmploi.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEvents;
+        protected global::System.Web.UI.WebControls.ListView lviewOffresDEmploi;
         
         /// <summary>
-        /// Contrôle dataPagerEvents.
+        /// Contrôle dataPagerDesLogs.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager dataPagerEvents;
+        protected global::System.Web.UI.WebControls.DataPager dataPagerDesLogs;
+        
+        /// <summary>
+        /// Contrôle hfieldVoirOffreValideOuNon.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfieldVoirOffreValideOuNon;
     }
 }

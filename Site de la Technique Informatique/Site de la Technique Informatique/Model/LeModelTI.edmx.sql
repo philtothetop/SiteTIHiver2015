@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 02/27/2015 13:28:20
+-- Date Created: 03/06/2015 10:55:06
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
@@ -129,6 +129,9 @@ IF OBJECT_ID(N'[dbo].[EnteteForumSet]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[MessageForumSet]', 'U') IS NOT NULL
     DROP TABLE [dbo].[MessageForumSet];
+GO
+IF OBJECT_ID(N'[dbo].[PhotosSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PhotosSet];
 GO
 IF OBJECT_ID(N'[dbo].[UtilisateurSet_Employeur]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UtilisateurSet_Employeur];
@@ -333,8 +336,8 @@ GO
 -- Creating table 'UtilisateurSet_Membre'
 CREATE TABLE [dbo].[UtilisateurSet_Membre] (
     [IDMembre] int IDENTITY(1,1) NOT NULL,
-    [nom] nvarchar(15)  NOT NULL,
-    [prenom] nvarchar(15)  NOT NULL,
+    [nom] nvarchar(64)  NOT NULL,
+    [prenom] nvarchar(64)  NOT NULL,
     [pathPhotoProfil] nvarchar(200)  NULL,
     [photoDescription] nvarchar(500)  NULL,
     [temoignage] nvarchar(1000)  NULL,
