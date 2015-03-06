@@ -4,61 +4,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <!-- Header Carousel -->
-    <header id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <div class="fill" style="background-image: url('../Photos/image1.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Élèves 2010-2013</h2>
-                    <
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image: url('Photos/entete.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Élèves 2011-2014</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image: url('Photos/img1600-380-3.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Élèves 2012-2015</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image: url('Photos/img1600-380-4.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Élèves 2013-2016</h2>
-                </div>
-            </div>
-            <div class="item">
-                <div class="fill" style="background-image: url('Photos/img1600-380-5.jpg');"></div>
-                <div class="carousel-caption">
-                    <h2>Élèves 2014-2017</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-    </header>
-
     <!-- Page Content -->
     <div class="container">
 
@@ -104,52 +49,58 @@
         </div>
         <!-- /.row -->
 
-        <!-- Portfolio Section -->
+        <!-- Carousel Section -->
         <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Les professeurs</h2>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <h4 style="text-align: center;">Denis Dupaul</h4>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image1.jpg" alt="" />
+            <div id="carousel-example-generic" class="carousel slide col-lg-7" data-ride="carousel" data-interval="10000" style="height: 400px;">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <asp:ListView ID="lviewAlbumPhoto" runat="server"
+                        ItemType="Site_de_la_Technique_Informatique.Model.Photos"
+                        SelectMethod="lviewAlbumPhoto_GetData">
+
+                        <ItemTemplate>
+
+                            <div class="item active">
+                                <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
+                                    <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                                    <img src="../Photos/Jacob.jpg" height="400" width="400" />
+                                </div>
+                                <div class="carousel-caption"></div>
+                            </div>
+
+                            <div class="item">
+                                <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
+                                    <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# ".." + Item.pathPhoto %>' Style="vertical-align: middle;" />
+                                </div>
+
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+
+                        </ItemTemplate>
+
+                        <LayoutTemplate>
+                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                        </LayoutTemplate>
+
+                    </asp:ListView>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
             </div>
-            <div class="col-md-3 col-sm-6">
-                <h4 style="text-align: center;">Axel Rassart</h4>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/entete.jpg" alt="" />
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <h4 style="text-align: center;">Régis Lessard</h4>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image3.jpg" alt="" />
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <h4 style="text-align: center;">Maryse Desaulniers</h4>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image4.jpg" alt="" />
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <h4 style="text-align: center;">Laurent Beauregard</h4>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image5.jpg" alt="" />
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <h4 style="text-align: center;">Jie Yang</h4>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image6.jpg" alt="" />
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <h4 style="text-align: center;">Simon quelque chose</h4>
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-portfolio img-hover" src="Photos/image6.jpg" alt="" />
-                </a>
+
+            <!-- Information right side -->
+            <div class="col-lg-5">
+                <h2>Une place dynamique!</h2>
+                <h3><a href="QuiSommesNous.aspx">Qui Sommes Nous?</a></h3>
+                <h3><a href="marie-TestVerTIC.aspx">marie-TestVerTIC.aspx</a></h3>
             </div>
         </div>
         <!-- /.row -->
@@ -187,19 +138,19 @@
         <div class="col-lg-12 media">
             <div class="col-lg-4 media-left media-middle">
                 <asp:Calendar ID="CalendrierEvents" runat="server" BackColor="#ECEEF0" BorderColor="Black" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px"
-                    ToolTip="Événements du mois" OnSelectionChanged="CalendrierEvents_SelectionChanged" Caption="Calendrier" OnVisibleMonthChanged="CalendrierEvents_VisibleMonthChanged" >
+                    ToolTip="Événements du mois" OnSelectionChanged="CalendrierEvents_SelectionChanged" Caption="Calendrier" OnVisibleMonthChanged="CalendrierEvents_VisibleMonthChanged">
                     <DayHeaderStyle Font-Bold="True" Font-Size="10pt" HorizontalAlign="Right" />
                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                     <OtherMonthDayStyle ForeColor="#999999" />
                     <SelectedDayStyle BackColor="#CCCCCC" ForeColor="White" BorderColor="#000000" BorderWidth="1px" />
                     <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="1px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                    <TodayDayStyle BorderColor="#CCCCCC" BorderWidth="1px" ForeColor="Red"  />
+                    <TodayDayStyle BorderColor="#CCCCCC" BorderWidth="1px" ForeColor="Red" />
                 </asp:Calendar>
             </div>
 
             <div class="col-lg-8 media-body">
                 <h2 class="media-heading">Événements du mois</h2>
-                <asp:ListView runat="server" ID="lviewEvents" 
+                <asp:ListView runat="server" ID="lviewEvents"
                     ItemType="Site_de_la_Technique_Informatique.Model.Evenement"
                     SelectMethod="lviewEvents_GetData"
                     GroupItemCount="3">
@@ -209,15 +160,18 @@
                     </EmptyDataTemplate>
 
                     <ItemTemplate>
-                        <div class="well col-lg-4" style="height:130px;">
-                        <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + " " + Convert.ToDateTime(Eval("dateDebutEvenement")).ToString("MMM") + "" + (Item.dateFinEvenement.HasValue == true ? ( ((Eval("dateDebutEvenement.Date") == Eval("dateFinEvenement.Date")) ? (" au " + Eval("dateFinEvenement.Day") + " " + Convert.ToDateTime(Eval("dateFinEvenement")).ToString("MMM")) : "")) : "" ) %>' />
-                        <br /><asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
-                                   Text='<%# Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
+                        <div class="well col-lg-4" style="height: 130px;">
+                            <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + " " + Convert.ToDateTime(Eval("dateDebutEvenement")).ToString("MMM") + "" + (Item.dateFinEvenement.HasValue == true ? ( ((Eval("dateDebutEvenement.Date") == Eval("dateFinEvenement.Date")) ? (" au " + Eval("dateFinEvenement.Day") + " " + Convert.ToDateTime(Eval("dateFinEvenement")).ToString("MMM")) : "")) : "" ) %>' />
+                            <br />
+                            <asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
+                                Text='<%# Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
                                    (Eval("titreEvenement").ToString().Length > 50 ? "..." :  "") %>' />
-                        <asp:Label runat="server" ID="lblHeureEvent" Text='<%# ((Item.dateDebutEvenement.TimeOfDay.ToString() != "00:00:00" ) ? ( "\n" + Eval("dateDebutEvenement.TimeOfDay.Hours") + "h" + (Eval("dateDebutEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateDebutEvenement.TimeOfDay.Minutes") ) ) : "\r" ) 
+                            <asp:Label runat="server" ID="lblHeureEvent" Text='<%# ((Item.dateDebutEvenement.TimeOfDay.ToString() != "00:00:00" ) ? ( "\n" + Eval("dateDebutEvenement.TimeOfDay.Hours") + "h" + (Eval("dateDebutEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateDebutEvenement.TimeOfDay.Minutes") ) ) : "\r" ) 
                         + "" + ((Item.dateFinEvenement.HasValue == true) && (Item.dateFinEvenement.Value.TimeOfDay.ToString() != "00:00:00" ) ? (" à " + Eval("dateFinEvenement.TimeOfDay.Hours") + "h" + (Eval("dateFinEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateFinEvenement.TimeOfDay.Minutes") ) ) : "" ) %>' />
-                        <br /><asp:LinkButton runat="server" ID="btnPlusEvents" Text="En savoir plus..."
-                                        OnClick="btnPlusEvents_Click" CommandArgument='<%# Eval("IDEvenement") %>' /><br /><br />
+                            <br />
+                            <asp:LinkButton runat="server" ID="btnPlusEvents" Text="En savoir plus..."
+                                OnClick="btnPlusEvents_Click" CommandArgument='<%# Eval("IDEvenement") %>' /><br />
+                            <br />
                         </div>
                     </ItemTemplate>
 
@@ -226,21 +180,21 @@
                     </LayoutTemplate>
 
                     <GroupTemplate>
-                            <div class="row">
-                                <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
-                            </div>
-                        </GroupTemplate>
+                        <div class="row">
+                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                        </div>
+                    </GroupTemplate>
 
                 </asp:ListView>
-                <div style="text-align:center; width:100%;">
-            <asp:DataPager ID="dataPagerEvents" runat="server" PagedControlID="lviewEvents"
-                            PageSize="3">
-                            <Fields>
-                                <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
-                                <asp:NumericPagerField />
-                                <asp:NextPreviousPagerField ShowLastPageButton="False" ShowPreviousPageButton="False" NextPageText=">>" />
-                            </Fields>
-                        </asp:DataPager>
+                <div style="text-align: center; width: 100%;">
+                    <asp:DataPager ID="dataPagerEvents" runat="server" PagedControlID="lviewEvents"
+                        PageSize="3">
+                        <Fields>
+                            <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
+                            <asp:NumericPagerField />
+                            <asp:NextPreviousPagerField ShowLastPageButton="False" ShowPreviousPageButton="False" NextPageText=">>" />
+                        </Fields>
+                    </asp:DataPager>
                 </div>
 
             </div>
@@ -249,7 +203,7 @@
         <hr />
 
         <!-- Call to Action Section -->
-        <div class="well col-lg-12" style="margin-top:30px;">
+        <div class="well col-lg-12" style="margin-top: 30px;">
             <div class="row">
                 <div class="col-md-8">
                     <p>Ici vous trouverai une liste de tous les cours de la technique avec leur description</p>
@@ -260,7 +214,7 @@
             </div>
         </div>
 
-        <hr/>
+        <hr />
     </div>
     <!-- /.container -->
 

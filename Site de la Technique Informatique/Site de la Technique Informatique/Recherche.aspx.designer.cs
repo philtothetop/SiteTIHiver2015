@@ -13,24 +13,6 @@ namespace Site_de_la_Technique_Informatique {
     public partial class Recherche {
         
         /// <summary>
-        /// Contrôle Label1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// Contrôle txtNomMembre.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomMembre;
-        
-        /// <summary>
         /// Contrôle Label4.
         /// </summary>
         /// <remarks>
@@ -47,6 +29,24 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrenomMembre;
+        
+        /// <summary>
+        /// Contrôle Label1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// Contrôle txtNomMembre.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNomMembre;
         
         /// <summary>
         /// Contrôle Label2.
