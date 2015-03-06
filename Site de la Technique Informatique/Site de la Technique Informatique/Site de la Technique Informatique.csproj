@@ -109,21 +109,18 @@
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Inscription\Cropper\Cropper.aspx" />
-    <Content Include="Inscription\Cropper\css\bootstrap.min.css" />
-    <Content Include="Inscription\Cropper\css\cropper.css" />
-    <Content Include="Inscription\Cropper\css\docs.css" />
-    <Content Include="Inscription\Cropper\img\picture-1.jpg" />
-    <Content Include="Inscription\Cropper\img\picture-2.jpg" />
-    <Content Include="Inscription\Cropper\js\bootstrap.min.js" />
-    <Content Include="Inscription\Cropper\js\cropper.js" />
-    <Content Include="Inscription\Cropper\js\docs.js" />
-    <Content Include="Inscription\Cropper\js\jquery.min.js" />
-    <Content Include="Inscription\imgTest.aspx" />
-    <Content Include="Inscription\Inscription-formulaire.aspx" />
     <Content Include="Inscription\Inscription-message.aspx" />
     <Content Include="Inscription\Inscription-valide.aspx" />
+    <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Inscription\Validation-Inscription.aspx" />
+    <Content Include="Jquery\Cropper\Cropper.aspx" />
+    <Content Include="Jquery\Cropper\css\bootstrap.min.css" />
+    <Content Include="Jquery\Cropper\css\cropper.css" />
+    <Content Include="Jquery\Cropper\css\docs.css" />
+    <Content Include="Jquery\Cropper\js\bootstrap.min.js" />
+    <Content Include="Jquery\Cropper\js\cropper.js" />
+    <Content Include="Jquery\Cropper\js\docs.js" />
+    <Content Include="Jquery\Cropper\js\jquery.min.js" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -135,7 +132,6 @@
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\jquery.easing.min.js" />
@@ -272,27 +268,6 @@
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inscription\Cropper\Cropper.aspx.cs">
-      <DependentUpon>Cropper.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Cropper\Cropper.aspx.designer.cs">
-      <DependentUpon>Cropper.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\imgTest.aspx.cs">
-      <DependentUpon>imgTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\imgTest.aspx.designer.cs">
-      <DependentUpon>imgTest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription-formulaire.aspx.cs">
-      <DependentUpon>Inscription-formulaire.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription-formulaire.aspx.designer.cs">
-      <DependentUpon>Inscription-formulaire.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Inscription\Inscription-message.aspx.cs">
       <DependentUpon>Inscription-message.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -307,12 +282,26 @@
     <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
       <DependentUpon>Inscription-valide.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inscription\Inscription.aspx.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription.aspx.designer.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inscription\Validation-Inscription.aspx.cs">
       <DependentUpon>Validation-Inscription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inscription\Validation-Inscription.aspx.designer.cs">
       <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jquery\Cropper\Cropper.aspx.cs">
+      <DependentUpon>Cropper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jquery\Cropper\Cropper.aspx.designer.cs">
+      <DependentUpon>Cropper.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -389,6 +378,9 @@
     <Compile Include="Model\ParutionMedia.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Photos.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Professeur.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
@@ -416,13 +408,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.designer.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
     </Compile>
     <Compile Include="Log.aspx.cs">
       <DependentUpon>Log.aspx</DependentUpon>
@@ -518,6 +503,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
+    <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Photos\Profils\" />
   </ItemGroup>
