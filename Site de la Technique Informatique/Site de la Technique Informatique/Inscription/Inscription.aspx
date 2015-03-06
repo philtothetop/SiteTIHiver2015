@@ -40,50 +40,23 @@
             $('#maPhotoProfile').modal('hide');
         };
     </script>
-             <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".has-error").removeClass("has-error");
-
-            var idValue = '<%=this.lviewFormulaireInscription.ClientID%>';
-            var IDS = JSON.parse('<%= this.idsEnErreurTab%>');
-            var MSGS = '<%= this.msgsEnErreur%>';
-
-            for (index = 0; index < IDS.length; ++index) {
-                var id = IDS[index];
-                var msg = MSGS[index];
-                if (id != "DateNaissance") {
-                    var element = idValue + "_txt" + id + "_0";
-
-                    $("#" + element).addClass("has-error");
-
-                } else {
-                    $("#" + idValue + "_DateNaissanceJour").addClass("has-error");
-                    $("#" + idValue + "_DateNaissanceMois").addClass("has-error");
-                    $("#" + idValue + "_DateNaissanceAnnee").addClass("has-error");
-                }
-            }
-
-        });
-    </script>
-
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:HiddenField runat="server" ID="ImgExSrc" />
-    <div class="container">
-        <asp:ScriptManagerProxy ID="smProxy" runat="server" />
-        <div class="row row-centered">
-            <div class="col-lg-5 col-centered">
-                <h1>Inscription</h1>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </asp:Content>
+    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <asp:HiddenField runat="server" ID="ImgExSrc" />
+        <div class="container">
+            <asp:ScriptManagerProxy ID="smProxy" runat="server" />
+            <div class="row row-centered">
+                <div class="col-lg-5 col-centered">
+                    <h1>Inscription</h1>
+                </div>
             </div>
-        </div>
-        <asp:ListView ID="lviewFormulaireInscription" runat="server"
-            ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
-            SelectMethod="GetUtilisateurEtudiant"
-            UpdateMethod="CreerUtilisateurEtudiant">
-            <ItemTemplate>
+            <asp:ListView ID="lviewFormulaireInscription" runat="server"
+                ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
+                SelectMethod="GetUtilisateurEtudiant"
+                UpdateMethod="CreerUtilisateurEtudiant">
+                <itemtemplate>
                 <div class="row row-centered">
                     <div class="col-lg-5 col-centered">
                         <div class="control-group form-group champs-requis">
@@ -216,8 +189,8 @@
 
                     </div>
                 </div>
-            </ItemTemplate>
-        </asp:ListView>
+            </itemtemplate>
+            </asp:ListView>
 
-    </div>
-</asp:Content>
+        </div>
+    </asp:Content>

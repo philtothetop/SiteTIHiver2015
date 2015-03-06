@@ -109,6 +109,7 @@
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
+    <Content Include="Inscription\Inscription-Employeur.aspx" />
     <Content Include="Inscription\Inscription-message.aspx" />
     <Content Include="Inscription\Inscription-valide.aspx" />
     <Content Include="Inscription\Inscription.aspx" />
@@ -267,6 +268,13 @@
     </Compile>
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Inscription-Employeur.aspx.cs">
+      <DependentUpon>Inscription-Employeur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription-Employeur.aspx.designer.cs">
+      <DependentUpon>Inscription-Employeur.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inscription\Inscription-message.aspx.cs">
       <DependentUpon>Inscription-message.aspx</DependentUpon>

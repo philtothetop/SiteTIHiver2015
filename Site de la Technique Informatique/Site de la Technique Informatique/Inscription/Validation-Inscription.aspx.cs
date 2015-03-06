@@ -134,6 +134,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             }
         }
+
         //Cette class Accepter tous les comptes étudiants sélectionner
         //Écrit par Cédric Archambault 27 février 2015
         //Intrants:Vide
