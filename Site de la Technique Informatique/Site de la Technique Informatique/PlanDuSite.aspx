@@ -14,7 +14,7 @@
                 <ol class="breadcrumb">
                     <li><a href="index.html">Accueil</a>
                     </li>
-                    <li class="active">Page pleine largeur</li>
+                    <li class="active">Page pleine largeur</li> yolo
                 </ol>
             </div>
         </div>
