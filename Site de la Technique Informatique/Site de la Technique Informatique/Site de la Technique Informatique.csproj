@@ -38,17 +38,50 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.5.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AjaxControlToolkit.7.1213\lib\45\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.1.0.3, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.Storage.2.1.0.3\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -76,21 +109,18 @@
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Inscription\Cropper\Cropper.aspx" />
-    <Content Include="Inscription\Cropper\css\bootstrap.min.css" />
-    <Content Include="Inscription\Cropper\css\cropper.css" />
-    <Content Include="Inscription\Cropper\css\docs.css" />
-    <Content Include="Inscription\Cropper\img\picture-1.jpg" />
-    <Content Include="Inscription\Cropper\img\picture-2.jpg" />
-    <Content Include="Inscription\Cropper\js\bootstrap.min.js" />
-    <Content Include="Inscription\Cropper\js\cropper.js" />
-    <Content Include="Inscription\Cropper\js\docs.js" />
-    <Content Include="Inscription\Cropper\js\jquery.min.js" />
-    <Content Include="Inscription\imgTest.aspx" />
-    <Content Include="Inscription\Inscription-formulaire.aspx" />
     <Content Include="Inscription\Inscription-message.aspx" />
     <Content Include="Inscription\Inscription-valide.aspx" />
+    <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Inscription\Validation-Inscription.aspx" />
+    <Content Include="Jquery\Cropper\Cropper.aspx" />
+    <Content Include="Jquery\Cropper\css\bootstrap.min.css" />
+    <Content Include="Jquery\Cropper\css\cropper.css" />
+    <Content Include="Jquery\Cropper\css\docs.css" />
+    <Content Include="Jquery\Cropper\js\bootstrap.min.js" />
+    <Content Include="Jquery\Cropper\js\cropper.js" />
+    <Content Include="Jquery\Cropper\js\docs.js" />
+    <Content Include="Jquery\Cropper\js\jquery.min.js" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -102,7 +132,6 @@
     <Content Include="Css\scrolling-nav.css" />
     <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Inscription\Inscription.aspx" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
     <Content Include="Js\jquery.easing.min.js" />
@@ -135,6 +164,7 @@
     <Content Include="Photos\photobase.bmp" />
     <Content Include="Photos\quiSommesNous.JPG" />
     <Content Include="Photos\Xavier.JPG" />
+    <Content Include="PlanDuSite.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
     <Content Include="Site.Master" />
@@ -207,6 +237,7 @@
     <Compile Include="AjoutProfesseur.aspx.designer.cs">
       <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
@@ -236,27 +267,6 @@
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inscription\Cropper\Cropper.aspx.cs">
-      <DependentUpon>Cropper.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Cropper\Cropper.aspx.designer.cs">
-      <DependentUpon>Cropper.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\imgTest.aspx.cs">
-      <DependentUpon>imgTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\imgTest.aspx.designer.cs">
-      <DependentUpon>imgTest.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription-formulaire.aspx.cs">
-      <DependentUpon>Inscription-formulaire.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription-formulaire.aspx.designer.cs">
-      <DependentUpon>Inscription-formulaire.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Inscription\Inscription-message.aspx.cs">
       <DependentUpon>Inscription-message.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -271,12 +281,26 @@
     <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
       <DependentUpon>Inscription-valide.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inscription\Inscription.aspx.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription.aspx.designer.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inscription\Validation-Inscription.aspx.cs">
       <DependentUpon>Validation-Inscription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inscription\Validation-Inscription.aspx.designer.cs">
       <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jquery\Cropper\Cropper.aspx.cs">
+      <DependentUpon>Cropper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jquery\Cropper\Cropper.aspx.designer.cs">
+      <DependentUpon>Cropper.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -353,6 +377,9 @@
     <Compile Include="Model\ParutionMedia.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Photos.cs">
+      <DependentUpon>LeModelTI.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\Professeur.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
     </Compile>
@@ -380,13 +407,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.designer.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
     </Compile>
     <Compile Include="Log.aspx.cs">
       <DependentUpon>Log.aspx</DependentUpon>
@@ -420,6 +440,13 @@
     </Compile>
     <Compile Include="PageNotFound.aspx.designer.cs">
       <DependentUpon>PageNotFound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PlanDuSite.aspx.cs">
+      <DependentUpon>PlanDuSite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PlanDuSite.aspx.designer.cs">
+      <DependentUpon>PlanDuSite.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuiSommesNous.aspx.cs">
@@ -468,6 +495,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
+    <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Photos\Profils\" />
   </ItemGroup>

@@ -11,12 +11,13 @@ using System.Security.Cryptography;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class validation_courriel : System.Web.UI.Page
+    public partial class validation_courriel : ErrorHandling
     {
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(true, false, false, false);
             valider_Courriel();
+
         }
 
         //Cette classe permet confirme le courriel  à l'administrateur
@@ -29,8 +30,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    
-                    
+
+
                     if (Request.QueryString["id"] != null && Request.QueryString["code"] != null)
                     {
 
@@ -38,16 +39,17 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         String courriel = Request.QueryString["id"].ToString();
                         String hash = Request.QueryString["code"].ToString();
 
-                        Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.courriel.Equals(courriel) && cl.valideCourriel == false select cl).LastOrDefault();
+                        List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.courriel.Equals(courriel) && cl.valideCourriel == false select cl).ToList();
 
-                        if (etudiant != null && GetSHA256Hash(etudiant.dateInscription.ToString()).Equals(hash))
+                        foreach (var etudiant in etudiantList)
                         {
-
+                            if (GetSHA256Hash(etudiant.dateInscription.ToString()).Equals(hash))
+                            {
                                 etudiant.valideCourriel = true;
                                 leContext.SaveChanges();
+                            }
+
                         }
-
-
                     }
                     else
                     {
