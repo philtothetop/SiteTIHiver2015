@@ -293,8 +293,8 @@
       <PropertyRef Name="IDUtilisateur" />
     </Key>
     <Property Name="IDMembre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="prenom" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="prenom" Type="nvarchar" Nullable="false" MaxLength="64" />
     <Property Name="pathPhotoProfil" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="photoDescription" Type="nvarchar" Nullable="true" MaxLength="500" />
     <Property Name="temoignage" Type="nvarchar" Nullable="true" MaxLength="1000" />
@@ -780,8 +780,8 @@
         </EntityType>
         <EntityType Name="Membre" BaseType="LeModelTI.Utilisateur">
           <Property Name="IDMembre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nom" Type="String" Nullable="false" MaxLength="15" />
-          <Property Name="prenom" Type="String" Nullable="false" MaxLength="15" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="64" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="64" />
           <Property Name="pathPhotoProfil" Type="String" Nullable="true" MaxLength="200" />
           <Property Name="photoDescription" Type="String" Nullable="true" MaxLength="500" />
           <Property Name="temoignage" Type="String" Nullable="true" MaxLength="1000" />

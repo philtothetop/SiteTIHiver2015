@@ -105,6 +105,7 @@
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Css\AdministrateurLesOffresEmploi.css" />
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />

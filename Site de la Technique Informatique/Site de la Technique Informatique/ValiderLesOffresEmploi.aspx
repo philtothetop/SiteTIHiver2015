@@ -1,29 +1,35 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ValiderLesOffresEmploi.aspx.cs" Inherits="Site_de_la_Technique_Informatique.ValiderLesOffresEmploi" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <link href="Css/AdministrateurLesOffresEmploi.css" rel="stylesheet" />
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <h1>Administrateur : Les offres d'emploi</h1>
             </div>
         </div>
-        <asp:MultiView ID="mviewOffreEmploi" runat="server">
-            <asp:View ID="viewOffrePasValide">
+
+        <ol class="breadcrumb">
+                    <li><a href="nullFORnow.aspx">Retour au panneau d'administration</a>
+                    </li>
+                </ol>
+
+        <asp:Button ID="btnVoirOffreEmploiNonValide" runat="server" Text="Offres d'emploi non-validés" CssClass="btn btnOffreEmploiSelectionne" OnClick="VoirOffreNonValide_Click" />
+        <asp:Button ID="btnVoirOffreEmploiValide" runat="server" Text="Offres d'emploi validés" CssClass="btn btn-default" OnClick="VoirOffreValide_Click" />
+        
+
                 <asp:ListView ID="lviewOffresDEmploi" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.OffreEmploi"
                         SelectMethod="GetLesOffresDEmploi">
 
                         <LayoutTemplate>
                             <div>
-                                
-                <ol class="breadcrumb">
-                    <li><a href="nullFORnow.aspx">Retour au panneau d'administration</a>
-                    </li>
-                    <li class="active">
-                        <asp:Label ID="lblTitreOffre2" runat="server" Font-Size="10"></asp:Label>
-                    </li>
-                </ol>
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
                             </div>
                         </LayoutTemplate>
@@ -101,7 +107,7 @@
             </div>
         </div>
         </div>
-                            <div style="clear:both;">
+                            <div id="divPourOffrePasValide" runat="server" visible='<%# VisibiliteBoutonValidation(true) %>' style="clear:both;">
 
                             <div style="float:left; padding-left:35px">
                                 <asp:Button ID="btnAccepterOffre" runat="server" Text="Accepter" CssClass="btn btn-success" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="AccepterOffreEmploi_Click" />
@@ -109,25 +115,40 @@
                             </div>
                             <div style="float:right; padding-right:35px">
 
-                            <asp:Button ID="btnRefuserOffre" runat="server" Text="Refuser" CssClass="btn btn-danger" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="RefuserOffreEmploi_Click"/>
+                            <asp:Button ID="btnRefuserOffre" runat="server" Text="Refuser" CssClass="btn btn-danger" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="SupprimerOffreEmploi_Click"/>
 
 
                             </div>
                                 </div>
 
+
+                            <div id="divPourOffreValide" runat="server" visible='<%# VisibiliteBoutonValidation(false) %>' style="clear:both;">
+
+                            <div style="float:right; padding-right:35px">
+
+                            <asp:Button ID="btnDeleterOffre" runat="server" Text="Supprimer l'offre d'emploi" CssClass="btn btn-danger" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="SupprimerOffreEmploi_Click"/>
+
+
+                            </div>
+                                </div>
+
+
                             <div style="clear:both; height:10px;"></div>
                         </ItemTemplate>
 
             <EmptyDataTemplate>
-                <div style="width:100%; text-align:center;">
-                       <asp:Label ID="lblPasOffreDEmploi" runat="server" Text="Il n'y a pas d'offre d'emploi à valider pour le moment" style="font:bold; font-size:large"></asp:Label>
+                <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div style="width:100%; text-align:center; padding-top:20px;">
+                       <asp:Label ID="lblPasDeOffreIci" runat="server" Text="Il n'y a pas d'offre d'emploi à valider pour le moment" style="font:bold; font-size:large"></asp:Label>
                 </div>
+        </div>
                 </EmptyDataTemplate>
             
         </asp:ListView>
 
         <div style="text-align:center; width:100%;">
-            <asp:DataPager ID="dataPagerDesLogs" runat="server" PagedControlID="lviewOffresDEmploi"
+            <asp:DataPager ID="dataPagerDesLogs" runat="server" PagedControlID="lviewOffresDEmploi" Visible='<%# VisibleSiAuMoinUnOffre() %>'
                             PageSize="4">
                             <Fields>
                                 <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
@@ -136,13 +157,8 @@
                             </Fields>
                         </asp:DataPager>
                 </div>
-            </asp:View>
-
-            <asp:View ID="viewOffreDejaValide">
-
-            </asp:View>
-        </asp:MultiView>
-        
 
         </div>
+    <asp:HiddenField ID="hfieldVoirOffreValideOuNon" runat="server" />
+
 </asp:Content>
