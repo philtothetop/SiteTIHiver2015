@@ -7,11 +7,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Techniques de l'informatique</title>
-  
+
     <link href="Css/bootstrap.min.css" rel="stylesheet"/>  
     <link href="Css/modern-business.css" rel="stylesheet"/>  
     <link href="Css/customStyleSheet.css" rel="stylesheet"/>
-    <link href="Css/scrolling-nav.css" rel="stylesheet" /> 
+    <link href="Css/scrolling-nav.css" rel="stylesheet" />
     <link href="Css/MasterPage.css" rel="stylesheet" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
@@ -32,7 +32,7 @@
         }
 </script>
 
-    
+
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -41,24 +41,24 @@
     <form id="form1" runat="server">
 
         <!-- Navigation -->
-        
+
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    
+
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="default.aspx">Techniques de Informatique</a>
+                    <a class="navbar-brand" href="default.aspx">Techniques de l'informatique</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                       
+
                         <li>
                             <a href="QuiSommesNous.aspx.aspx">Qui sommes-nous?</a>
                         </li>
@@ -76,7 +76,7 @@
                                 </li>
                                 <li>
                                     <a href="portfolio-3-col.html">Photos projets</a>
-                                </li>                               
+                                </li>
                             </ul>
                         </li>
 
@@ -96,32 +96,23 @@
                             <a href="#">Témoignages</a>
                         </li>
 
-
+                                <li>
+                                 <a href="\Inscription\Inscription.aspx">Inscription</a>
+                                </li>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="\Inscription\Inscription.aspx">S'inscrire en tant qu'étudiant</a>
-                                </li>
-                                <li>
-                                    <a href="sidebar.html">S'inscrire en tant que professeur</a>
-                                </li>                              
-                            </ul>
+                            <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
+                            <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" />
                         </li>
-                        
-                            <li class="dropdown">
-                                        <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
-                                        <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" />
-                            </li>
-                            
-                        
+
+
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
             </div>
             <!-- /.container -->
         </nav>
+
 
         <!--Menu Connexion-->
 
@@ -161,8 +152,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br />
-                                <asp:Label ID="lblMessageConnexion" runat="server" Text="" />
+          <br /><asp:Label ID="lblMessageConnexion" runat="server" Text="" />
                             </div>
 
 
@@ -185,14 +175,19 @@
         <br />
         <br />
         <!--Section provenant des pages-->
-        <div style="word-wrap: break-word; min-height: 700px">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <div class="wrapper" style="word-wrap:break-word;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
+               
+                
             </asp:ContentPlaceHolder>
+
+            <div class="push"></div>
         </div>
 
         <!--Fin de la section provenant des pages-->
 
         <!-- Footer -->
+       
         <footer>
             <div class="footer" id="footer">
                 <div class="container">
@@ -242,7 +237,7 @@
                                 </li>
                             </ul>
                             <ul class="social">
-                                <li><a href="https://www.facebook.com/groups/113004038768875/?fref=ts"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/DepartementDinformatiqueCegepDeGranbyHauteYamaska"><i class="fa fa-facebook"></i></a></li>
 
                             </ul>
                         </div>
@@ -260,6 +255,7 @@
             </div>
             <!--/.footer-bottom-->
         </footer>
+
 
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

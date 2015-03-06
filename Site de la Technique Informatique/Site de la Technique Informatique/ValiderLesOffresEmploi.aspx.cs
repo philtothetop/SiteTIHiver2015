@@ -60,7 +60,7 @@ namespace Site_de_la_Technique_Informatique
         }
 
         //Méthode pour refuser l'offre d'emploi
-        protected void RefuserOffreEmploi_Click(object sender, EventArgs e)
+        protected void SupprimerOffreEmploi_Click(object sender, EventArgs e)
         {
             int argument = Convert.ToInt32(((Button)sender).CommandArgument);
 
@@ -81,6 +81,39 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
+        //Boutton pour voit les offres non validés
+        protected void VoirOffreNonValide_Click(object sender, EventArgs e)
+        {
+            hfieldVoirOffreValideOuNon.Value = "VoirNonValidé";
+            btnVoirOffreEmploiNonValide.CssClass = "btn btnOffreEmploiSelectionne";
+            btnVoirOffreEmploiValide.CssClass = "btn btn-default";
+            lviewOffresDEmploi.DataBind();
+            
+        }
+
+        //Boutton pour voit les offres validés
+        protected void VoirOffreValide_Click(object sender, EventArgs e)
+        {
+            hfieldVoirOffreValideOuNon.Value = "VoirValidé";
+            btnVoirOffreEmploiNonValide.CssClass = "btn btn-default";
+            btnVoirOffreEmploiValide.CssClass = "btn btnOffreEmploiSelectionne";
+            lviewOffresDEmploi.DataBind();
+        }
+
+        //Méthodes pour mettre le datapager visible seulement si au moin une offre
+        public bool VisibleSiAuMoinUnOffre()
+        {
+            if (lviewOffresDEmploi.Items.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
         //Méthode pour récupérer les offres d'emploi de la BD
         public IQueryable<Model.OffreEmploi> GetLesOffresDEmploi()
         {
@@ -91,10 +124,29 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer modelTI = new LeModelTIContainer())
                 {
-                    //Récupérer les offres d'emploi dans la BD qui ne sont pas validé
-                    listeDesOffresEmploi = (from cl in modelTI.OffreEmploiSet
-                                            //where cl.validerOffre == false
-                                            select cl).ToList();
+
+                    string VoirOffreValideOuNon = "VoirNonValidé";
+
+                    //Si on a changé la valeur du hidden field
+                    if (hfieldVoirOffreValideOuNon.Value != null)
+                    {
+                        VoirOffreValideOuNon = Convert.ToString(hfieldVoirOffreValideOuNon.Value);
+                    }
+
+                    if (VoirOffreValideOuNon.Equals("VoirNonValidé"))
+                    {
+                        //Récupérer les offres d'emploi dans la BD qui ne sont pas validé
+                        listeDesOffresEmploi = (from cl in modelTI.OffreEmploiSet
+                                                where cl.validerOffre == false
+                                                select cl).ToList();
+                    }
+                    else if (VoirOffreValideOuNon.Equals("VoirValidé"))
+                    {
+                        //Récupérer les offres d'emploi dans la BD qui ne sont pas validé
+                        listeDesOffresEmploi = (from cl in modelTI.OffreEmploiSet
+                                                where cl.validerOffre == true
+                                                select cl).ToList();
+                    }
                 }
             }
             catch (Exception ex)
@@ -147,6 +199,28 @@ namespace Site_de_la_Technique_Informatique
                         }
                     }
                 }
+            }
+
+            return false;
+        }
+
+        public bool VisibiliteBoutonValidation(bool voirLesNonValide)
+        {
+            string VoirOffreValideOuNon = "VoirNonValidé";
+
+            //Si on a changé la valeur du hidden field
+            if (hfieldVoirOffreValideOuNon.Value != null)
+            {
+                VoirOffreValideOuNon = Convert.ToString(hfieldVoirOffreValideOuNon.Value);
+            }
+
+            if (VoirOffreValideOuNon.Equals("VoirNonValidé") && voirLesNonValide == true)
+            {
+                return true;
+            }
+            else if (VoirOffreValideOuNon.Equals("VoirValidé") && voirLesNonValide == false)
+            {
+                return true;
             }
 
             return false;
