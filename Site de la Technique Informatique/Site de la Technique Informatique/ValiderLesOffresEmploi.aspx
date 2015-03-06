@@ -26,7 +26,8 @@
 
                 <asp:ListView ID="lviewOffresDEmploi" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.OffreEmploi"
-                        SelectMethod="GetLesOffresDEmploi">
+                        SelectMethod="GetLesOffresDEmploi"
+                         OnItemDataBound="lviewOffresDEmploiDataBound">
 
                         <LayoutTemplate>
                             <div>
@@ -148,7 +149,7 @@
         </asp:ListView>
 
         <div style="text-align:center; width:100%;">
-            <asp:DataPager ID="dataPagerDesLogs" runat="server" PagedControlID="lviewOffresDEmploi" Visible='<%# VisibleSiAuMoinUnOffre() %>'
+            <asp:DataPager ID="dataPagerDesLogs" runat="server" PagedControlID="lviewOffresDEmploi"
                             PageSize="4">
                             <Fields>
                                 <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
