@@ -67,6 +67,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
@@ -157,6 +158,7 @@
       <LastGenOutput>LeModelTI.cs</LastGenOutput>
       <DependentUpon>LeModelTI.edmx</DependentUpon>
     </Content>
+    <Content Include="Admin.master" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -176,6 +178,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.master.cs">
+      <DependentUpon>Admin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.master.designer.cs">
+      <DependentUpon>Admin.master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Vertic.aspx.cs">
+      <DependentUpon>Admin_Vertic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Vertic.aspx.designer.cs">
+      <DependentUpon>Admin_Vertic.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
