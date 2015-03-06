@@ -19,14 +19,14 @@
         <table>
             <tr>
                 <td>
-                    <div style="padding-top: 5px;">
-                        <asp:Label ID="Label1" runat="server" Text="Nom du Membre:"></asp:Label>
-                        <asp:TextBox runat="server" ID="txtNomMembre"></asp:TextBox>
-                    </div>
-                    <div style="padding-top: 5px;">
+                      <div style="padding-top: 5px;">
                         <asp:Label ID="Label4" runat="server" Text="Prénom du Membre:"></asp:Label>
                         <asp:TextBox runat="server" ID="txtPrenomMembre"></asp:TextBox>
                     </div>
+                    <div style="padding-top: 5px;">
+                        <asp:Label ID="Label1" runat="server" Text="Nom du Membre:"></asp:Label>
+                        <asp:TextBox runat="server" ID="txtNomMembre"></asp:TextBox>
+                    </div>                 
                     <div style="padding-top: 5px;">
                         <asp:Label ID="Label2" runat="server" Text="Type de Membre:"></asp:Label>
                         <asp:CheckBox ID="chbProfesseur" Text="Professeur" runat="server" TextAlign="Left" />
