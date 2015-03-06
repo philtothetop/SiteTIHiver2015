@@ -8,7 +8,7 @@
         
 
             
-        <div class="row">
+        <div class="row" id="divAjoutProf" runat="server">
             <div class="col-md-12">
             <div class="col-md-4">
                 
@@ -62,6 +62,12 @@
                     </div>
             </div>
             
+        </div>
+        <div class="row" runat="server" id="divComplete" visible ="false">
+            <div class="col-md-12">
+                <h2>Le professeur a été ajouté.</h2>
+                <asp:LinkButton ID="lnkRetourAccueil" runat="server" CssClass="btn btn-default" Text="Accueil" />
+            </div>
         </div>
                 
         <asp:Label ID="lblMessages" runat="server" Text ="" />

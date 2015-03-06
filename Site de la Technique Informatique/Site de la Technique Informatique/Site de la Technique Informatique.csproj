@@ -105,6 +105,7 @@
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Css\AdministrateurLesOffresEmploi.css" />
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
@@ -425,6 +426,8 @@
       <DependentUpon>Log.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
+    <Compile Include="Model_Partielles\Membre_Partielles.cs" />
+    <Compile Include="Model_Partielles\Professeur_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
     <Compile Include="modifProfilEtudiant.aspx.cs">
       <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
