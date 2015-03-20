@@ -154,7 +154,7 @@
                                 <asp:Label ID="lblRessource" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                             </div>
                         </div>
-                        <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" />
+                        <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" PostBackUrl="~/ListeOffresEmploi.aspx"/>
                         <asp:LinkButton ID="lnkAjouter" Text="Valider" runat="server" CssClass="btn btn-default" OnClick="lnkAjouter_Click" />
                         <br />
                         <br />
@@ -163,8 +163,8 @@
             </asp:View>
             <asp:View runat="server" ID="viewFin">
                 <div style="text-align: center">
-                    <h4>Votre offre d'emploi a été ajouté avec succès</h4>
-                    <asp:LinkButton ID="lnkRetour" Text="Accueil" runat="server" CssClass="btn btn-default" PostBackUrl="~/Default.aspx"/>
+                    <h4>Votre offre d'emploi a été ajouté avec succès, elle doit toutefois être acceptée</h4>
+                    <asp:LinkButton ID="lnkRetour" Text="Accueil" runat="server" CssClass="btn btn-default" PostBackUrl="~/ListeOffresEmploi.aspx"/>
                 </div>
             </asp:View>
         </asp:MultiView>

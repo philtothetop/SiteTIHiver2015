@@ -7,7 +7,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Liste des offres d'emploi</h1>
+                <div class="col-lg-5">
+                    <h1>Liste des offres d'emploi</h1>
+                </div>
+                <div style="margin-top: 25px;">
+                    <asp:LinkButton ID="lnkAjouterOffre" Text="Ajouter une offre" runat="server" CssClass="btn btn-default" PostBackUrl="~/AjoutOffreEmploi.aspx" Visible="false" />
+                </div>
             </div>
         </div>
         <div class="row">
