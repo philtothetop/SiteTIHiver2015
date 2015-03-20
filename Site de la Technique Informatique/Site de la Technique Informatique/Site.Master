@@ -8,9 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Techniques de l'informatique</title>
   
-    
-    <link rel="icon" href="toast.gif" type="image/gif" />
-
     <link href="Css/bootstrap.min.css" rel="stylesheet"/>  
     <link href="Css/modern-business.css" rel="stylesheet"/>  
     <link href="Css/customStyleSheet.css" rel="stylesheet"/>
@@ -84,6 +81,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="Vertic.aspx">Vertic</a> </li>
                                 <li><a href="InformationsStage.aspx">Stages</a> </li>
+                                <li><a href="#">Témoignages</a> </li>
                                 
                             </ul>
                         </li>
@@ -93,7 +91,7 @@
                         </li>
 
                         <li>
-                            <a href="#">Témoignages</a>
+                            <a href="recherche.aspx">Recherche</a>
                         </li>
                      
                         <li runat="server" id="lblInscription">
@@ -105,7 +103,7 @@
 
                         </li>
 
-                        <li class="dropdown">
+                        <li class="dropdown" runat="server" id="liConnexion">
                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" /><b class="caret"></b></a>
                                 
                                 <ul class="dropdown-menu">
