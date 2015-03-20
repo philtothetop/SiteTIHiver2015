@@ -51,15 +51,20 @@ namespace Site_de_la_Technique_Informatique
                 lblCourrielOffre.Text = "Courriel : " + offreEmploi.courrielOffre;
                 lblPersonneRessource.Text = "Personne resources : " + offreEmploi.personneRessource;
 
-                if (offreEmploi.pathPDFDescription == ""){
+                if (offreEmploi.pathPDFDescription == "" || offreEmploi.pathPDFDescription == null)
+                {
                     lnkPDF.Visible = false;
                 }
                 else
                 {
                     lnkPDF.Visible = true;
-                    ViewState["pathPDF"] = offreEmploi.pathPDFDescription;
+                    ViewState["pathPDF"] = "Upload\\" + offreEmploi.pathPDFDescription;
                 }
 
+                if (offreEmploi.noPoste == "" || offreEmploi.noPoste == null)
+                {
+                    lblNoPoste.Visible = false;
+                }
                
             }
         }
