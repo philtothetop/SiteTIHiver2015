@@ -45,7 +45,7 @@
                         <asp:Button runat="server" ID="btnRecherche" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
                     </div>
                     </div>
-                <br />
+        <br />
         </div>
 
         <br />
