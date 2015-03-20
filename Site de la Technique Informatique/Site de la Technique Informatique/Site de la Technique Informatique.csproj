@@ -203,6 +203,7 @@
     <Content Include="Css\Global.css" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
+    <Content Include="toast.gif" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">

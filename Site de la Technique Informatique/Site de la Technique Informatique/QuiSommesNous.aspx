@@ -108,12 +108,12 @@ Extrants: --%>
 
             <asp:ListView ID="lvEtudiants" runat="server"
                 ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
-                SelectMethod="lvEtudiants_GetData"
+                SelectMethod="lviewEtudiants_GetData"
                 GroupItemCount="6">
 
                 <ItemTemplate>
                     <div class="col-md-2 col-sm-4 col-xs-6">
-                        <img class="img-responsive customer-img" src="<%# "~/Photos/Profils/" + getUnEtudiantRandom().pathPhotoProfil %>" alt="" />
+                        <asp:Image runat="server" class="img-responsive customer-img" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' ToolTip='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
                     </div>
                 </ItemTemplate>
 
