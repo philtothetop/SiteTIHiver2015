@@ -118,7 +118,7 @@ namespace Site_de_la_Technique_Informatique
 
                         if (dateExpiration < datemin)
                         {
-                            lblDateExpiration.Text += "Date d'expiration de l'offre invalide";
+                            lblDateExpiration.Text = "Date d'expiration de l'offre invalide";
                             txtJourExpiration.BorderColor = Color.Red;
                             txtMoisExpiration.BorderColor = Color.Red;
                             ddlAnneeExpiration.BorderColor = Color.Red;
@@ -127,7 +127,7 @@ namespace Site_de_la_Technique_Informatique
                         else if (dateExpiration < DateTime.Now.AddDays(1) || dateExpiration > DateTime.Now.AddYears(1))
                         {
 
-                            lblDateExpiration.Text += "La date d'expiration doit être d'ici un an et à partir de demain";
+                            lblDateExpiration.Text = "Date d'exipration de l'offre invalide";
                             txtJourExpiration.BorderColor = Color.Red;
                             txtMoisExpiration.BorderColor = Color.Red;
                             ddlAnneeExpiration.BorderColor = Color.Red;
@@ -136,7 +136,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     catch (Exception)
                     {
-                        lblDateExpiration.Text += "Date d'exipration de l'offre invalide";
+                        lblDateExpiration.Text = "Date d'exipration de l'offre invalide";
                         txtJourExpiration.BorderColor = Color.Red;
                         txtMoisExpiration.BorderColor = Color.Red;
                         ddlAnneeExpiration.BorderColor = Color.Red;
@@ -162,7 +162,7 @@ namespace Site_de_la_Technique_Informatique
 
                         if (dateDebut < datemin)
                         {
-                            lblDebut.Text += "Date de début de l'emploi invalide";
+                            lblDebut.Text = "Date de début de l'emploi invalide";
                             txtJourDebut.BorderColor = Color.Red;
                             txtMoisDebut.BorderColor = Color.Red;
                             ddlAnneeDebut.BorderColor = Color.Red;
@@ -171,7 +171,7 @@ namespace Site_de_la_Technique_Informatique
                         else if (dateDebut < DateTime.Now.AddDays(1) || dateDebut > DateTime.Now.AddYears(1))
                         {
 
-                            lblDebut.Text += "La date de début de l'emploi doit être d'ici un an et à partir de demain";
+                            lblDebut.Text = "Date de début de l'emploi invalide";
                             txtJourDebut.BorderColor = Color.Red;
                             txtMoisDebut.BorderColor = Color.Red;
                             ddlAnneeDebut.BorderColor = Color.Red;
@@ -180,7 +180,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     catch (Exception)
                     {
-                        lblDateExpiration.Text += "Date de début de l'emploi invalide";
+                        lblDateExpiration.Text = "Date de début de l'emploi invalide";
                         txtJourExpiration.BorderColor = Color.Red;
                         txtMoisExpiration.BorderColor = Color.Red;
                         ddlAnneeExpiration.BorderColor = Color.Red;
