@@ -19,6 +19,12 @@
                     <li class="active">
                         <asp:Label ID="lblTitreOffre2" runat="server" Font-Size="10"></asp:Label>
                     </li>
+                    <li class="active">
+                        <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click" Visible="false"></asp:LinkButton>
+                    </li>
+                     <li class="active">
+                        <asp:LinkButton ID="lnkSupprimer" Text="Supprimer l'offre" runat="server" OnClick="lnkSupprimer_Click" Visible="false"></asp:LinkButton>
+                    </li>
                 </ol>
             </div>
         </div>
@@ -41,7 +47,8 @@
                         <br />
                         <asp:Label ID="lblSalaire" runat="server" Font-Size="14"></asp:Label>
                         <br />
-                        <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14"></asp:Label> <asp:Label ID="lblNoPoste" runat="server" Font-Size="14"></asp:Label>
+                        <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14"></asp:Label>
+                        <asp:Label ID="lblNoPoste" runat="server" Font-Size="14"></asp:Label>
                         <br />
                         <asp:Label ID="lblNoTelecopieur" runat="server" Font-Size="14"></asp:Label>
                         <br />
@@ -49,16 +56,12 @@
                         <br />
                         <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14"></asp:Label>
                         <br />
-                        <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click"></asp:LinkButton>
                         <br />
-
                     </div>
-
                 </div>
-                <div class="col-lg-6" style="font-weight:bold;">
+                <div class="col-lg-6" style="font-weight: bold;">
                     <asp:Label ID="lblDescriptionOffre" runat="server" Font-Size="14"></asp:Label>
                 </div>
-
             </div>
         </div>
     </div>

@@ -31,6 +31,24 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Label lblTitreOffre2;
         
         /// <summary>
+        /// Contrôle lnkPDF.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkPDF;
+        
+        /// <summary>
+        /// Contrôle lnkSupprimer.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSupprimer;
+        
+        /// <summary>
         /// Contrôle lblAdresseVille.
         /// </summary>
         /// <remarks>
@@ -119,15 +137,6 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPersonneRessource;
-        
-        /// <summary>
-        /// Contrôle lnkPDF.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPDF;
         
         /// <summary>
         /// Contrôle lblDescriptionOffre.

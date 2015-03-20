@@ -42,8 +42,8 @@ namespace Site_de_la_Technique_Informatique
                 lblSalaire.Text = offreEmploi.salaire + " $/heure";
                 lblNoTelephone.Text = "No de téléphone : " + offreEmploi.noTelephone;
 
-                if(offreEmploi.noPoste != null)
-                { 
+                if (offreEmploi.noPoste != null)
+                {
                     lblNoPoste.Text = "  Ext: (" + offreEmploi.noPoste + ")";
                 }
 
@@ -51,16 +51,29 @@ namespace Site_de_la_Technique_Informatique
                 lblCourrielOffre.Text = "Courriel : " + offreEmploi.courrielOffre;
                 lblPersonneRessource.Text = "Personne resources : " + offreEmploi.personneRessource;
 
-                if (offreEmploi.pathPDFDescription == ""){
+                if (offreEmploi.pathPDFDescription == "" || offreEmploi.pathPDFDescription == null)
+                {
                     lnkPDF.Visible = false;
                 }
                 else
                 {
                     lnkPDF.Visible = true;
-                    ViewState["pathPDF"] = offreEmploi.pathPDFDescription;
+                    ViewState["pathPDF"] = "Upload\\" + offreEmploi.pathPDFDescription;
                 }
 
-               
+                if (offreEmploi.noPoste == "" || offreEmploi.noPoste == null)
+                {
+                    lblNoPoste.Visible = false;
+                }
+
+                if (Request.Cookies["TIID"] != null)
+                {
+                    int idUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+                    if (offreEmploi.EmployeurIDUtilisateur == idUtilisateur)
+                    {
+                        lnkSupprimer.Visible = true;
+                    }
+                }
             }
         }
 
@@ -74,6 +87,37 @@ namespace Site_de_la_Technique_Informatique
                 Response.ContentType = "application/pdf";
                 Response.AddHeader("content-length", FileBuffer.Length.ToString());
                 Response.BinaryWrite(FileBuffer);
+            }
+        }
+
+        protected void lnkSupprimer_Click(object sender, EventArgs e)
+        {
+            Model.OffreEmploi offreEmploi;
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+
+                int idOffre = Int32.Parse(Session["IDOffreEmploi"].ToString());
+
+                offreEmploi = (from offresEmploi in lecontexte.OffreEmploiSet
+                               where offresEmploi.IDOffreEmploi == idOffre
+                               select offresEmploi).FirstOrDefault();
+
+                if (offreEmploi.pathPDFDescription != "" || offreEmploi.pathPDFDescription != null)
+                {
+                    string Path = Server.MapPath("Upload\\" + offreEmploi.pathPDFDescription);
+
+                    if (System.IO.File.Exists(Path))
+                    {
+
+                        System.IO.File.Delete(Path);
+
+                    }
+                }
+
+                lecontexte.OffreEmploiSet.Remove(offreEmploi);
+                lecontexte.SaveChanges();
+                Response.Redirect("~/listeOffresEmploi.aspx", false);
+
             }
         }
     }

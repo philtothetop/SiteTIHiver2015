@@ -31,13 +31,13 @@
 
                         <LayoutTemplate>
                             <div style="width:100%; margin-bottom:4px;">
-                                        <div class="col-lg-2" style="border-right: thin solid black;">
+                                        <div class="col-lg-2">
                                             <asp:Label ID="lblTitreNoLog" runat="server" Text="No Log" style="font:bold; font-size:large;"></asp:Label>
                                             </div>
-                            <div class="col-lg-2" style="border-right: thin solid black;">
+                            <div class="col-lg-2">
                                             <asp:Label ID="lblTitreNoCompte" runat="server" Text="No Compte" style="font:bold; font-size:large;"></asp:Label>
                                             </div>
-                            <div class="col-lg-6" style="border-right: thin solid black;">
+                            <div class="col-lg-6">
                                             <asp:Label ID="lblTitreActionLog" runat="server" Text="Action" style="font:bold; font-size:large;"></asp:Label>
                                             </div>
                             <div class="col-lg-2">
@@ -58,25 +58,25 @@
                         </LayoutTemplate>
 
                         <ItemTemplate>
-                            <div class='<%# GetCSSForTypeLog(Item.typeLog) %>'>
-                            <div class="col-lg-2"  style="border-right: thin solid black;">
+                            <div class='<%# GetCSSForTypeLog(Item.typeLog) %>' style="border-top:thin black solid; border-bottom:thin black solid">
+                            <div class="col-lg-2">
                                             <asp:Label ID="lblNoLog" runat="server" Text='<%# Item.IDLog %>'></asp:Label>
                                             </div>
-                             <div class="col-lg-2" style="border-right: thin solid black;">
+                             <div class="col-lg-2">
 
-                                            <asp:LinkButton ID="lnkNoCompte" runat="server">
-                                                <asp:Label ID="lblNoCompte" runat="server"  Text='<%# Item.UtilisateurIDUtilisateur %>'></asp:Label>
+                                            <asp:LinkButton ID="lnkNoCompte" runat="server" Enabled='<%# SavoirSiLienEnable(Item) %>' CssClass='<%# SavoirCSSPourLien(Item) %>'>
+                                                <asp:Label ID="lblNoCompte" runat="server"  Text='<%# LeIdDuCompte(Item) %>'></asp:Label>
                                             </asp:LinkButton>
                                             
                                             </div>
-                            <div class="col-lg-6" style="border-right: thin solid black">
+                            <div class="col-lg-6" style="border-right: thin solid black; border-left: thin solid black; min-height:40px;">
                                             <asp:Label ID="lblActionLog" runat="server" Text='<%# Item.actionLog %>'></asp:Label>
                                 </div>
 
                                 <div class="col-lg-2">
-                                            <asp:Label ID="lblDate" runat="server" Text='<%# String.Format("{0:dd/MM/yyyy}",Item.dateLog) %>'></asp:Label>
+                                            <asp:Label ID="lblDate" runat="server" Text='<%# String.Format("{0:dd/MM/yyyy}",Item.dateLog) + "<br/>" + String.Format("{0:H:m}",Item.dateLog)  %>'></asp:Label>
                                             </div>
-                            <div style="clear:both"></div>
+                            <div style="clear:both;"></div>
                                 </div>
                         </ItemTemplate>
 

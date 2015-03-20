@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using Site_de_la_Technique_Informatique.Classes;
+using System.Text.RegularExpressions;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -31,14 +32,21 @@ namespace Site_de_la_Technique_Informatique
                     ddlAnneeDebut.Items.Insert(i + 1, listItem);
                 }
             }
+
+            if (fuPDF.HasFile)
+            {
+                Session["fuPDF"] = fuPDF;
+                lblNomPDF.Text = "Fichier sélectioné: " + fuPDF.FileName;
+                lnkRetirerPDF.Visible = true;
+            }
         }
 
         protected void lnkAjouter_Click(object sender, EventArgs e)
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                Boolean enErreur = false;
-                int idVille;
+                int nbErreurs = 0;
+                int idVille = 0;
 
                 lblErreur.Text = "";
                 lblTitreOffre.Text = "";
@@ -72,20 +80,32 @@ namespace Site_de_la_Technique_Informatique
                 txtTelecopieur.BorderColor = Color.LightGray;
                 txtCourriel.BorderColor = Color.LightGray;
                 txtRessource.BorderColor = Color.LightGray;
-                fuPDF.Attributes.Add("border-color", "#FFD3D3D3");
+                fuPDF.BorderColor = Color.LightGray;
 
                 if (txtTitreOffre.Text == "")
                 {
                     lblTitreOffre.Text = "Poste requis";
                     txtTitreOffre.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
+                }
+                else if (txtTitreOffre.Text.Length < 5)
+                {
+                    lblTitreOffre.Text = "Le poste est trop court";
+                    txtTitreOffre.BorderColor = Color.Red;
+                    nbErreurs++;
                 }
 
                 if (txtDescriptionOffre.Text == "")
                 {
                     lblDescriptionOffre.Text = "Description de l'offre requise";
                     txtDescriptionOffre.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
+                }
+                else if (txtDescriptionOffre.Text.Length < 5)
+                {
+                    lblDescriptionOffre.Text = "La description est trop courte";
+                    txtDescriptionOffre.BorderColor = Color.Red;
+                    nbErreurs++;
                 }
 
                 if (txtJourExpiration.Text != "" || txtMoisExpiration.Text != "" || ddlAnneeExpiration.SelectedIndex != 0)
@@ -98,29 +118,29 @@ namespace Site_de_la_Technique_Informatique
 
                         if (dateExpiration < datemin)
                         {
-                            lblDateExpiration.Text += "Date d'expiration de l'offre invalide";
+                            lblDateExpiration.Text = "Date d'expiration de l'offre invalide";
                             txtJourExpiration.BorderColor = Color.Red;
                             txtMoisExpiration.BorderColor = Color.Red;
                             ddlAnneeExpiration.BorderColor = Color.Red;
-                            enErreur = true;
+                            nbErreurs++;
                         }
                         else if (dateExpiration < DateTime.Now.AddDays(1) || dateExpiration > DateTime.Now.AddYears(1))
                         {
 
-                            lblDateExpiration.Text += "La date d'expiration doit être d'ici un an et à partir de demain";
+                            lblDateExpiration.Text = "Date d'exipration de l'offre invalide";
                             txtJourExpiration.BorderColor = Color.Red;
                             txtMoisExpiration.BorderColor = Color.Red;
                             ddlAnneeExpiration.BorderColor = Color.Red;
-                            enErreur = true;
+                            nbErreurs++;
                         }
                     }
                     catch (Exception)
                     {
-                        lblDateExpiration.Text += "Date d'exipration de l'offre invalide";
+                        lblDateExpiration.Text = "Date d'exipration de l'offre invalide";
                         txtJourExpiration.BorderColor = Color.Red;
                         txtMoisExpiration.BorderColor = Color.Red;
                         ddlAnneeExpiration.BorderColor = Color.Red;
-                        enErreur = true;
+                        nbErreurs++;
                     }
                 }
 
@@ -130,7 +150,7 @@ namespace Site_de_la_Technique_Informatique
                     txtJourDebut.BorderColor = Color.Red;
                     txtMoisDebut.BorderColor = Color.Red;
                     ddlAnneeDebut.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
                 else
                 {
@@ -142,29 +162,29 @@ namespace Site_de_la_Technique_Informatique
 
                         if (dateDebut < datemin)
                         {
-                            lblDebut.Text += "Date de début de l'emploi invalide";
+                            lblDebut.Text = "Date de début de l'emploi invalide";
                             txtJourDebut.BorderColor = Color.Red;
                             txtMoisDebut.BorderColor = Color.Red;
                             ddlAnneeDebut.BorderColor = Color.Red;
-                            enErreur = true;
+                            nbErreurs++;
                         }
                         else if (dateDebut < DateTime.Now.AddDays(1) || dateDebut > DateTime.Now.AddYears(1))
                         {
 
-                            lblDebut.Text += "La date de début de l'emploi doit être d'ici un an et à partir de demain";
+                            lblDebut.Text = "Date de début de l'emploi invalide";
                             txtJourDebut.BorderColor = Color.Red;
                             txtMoisDebut.BorderColor = Color.Red;
                             ddlAnneeDebut.BorderColor = Color.Red;
-                            enErreur = true;
+                            nbErreurs++;
                         }
                     }
                     catch (Exception)
                     {
-                        lblDateExpiration.Text += "Date de début de l'emploi invalide";
+                        lblDateExpiration.Text = "Date de début de l'emploi invalide";
                         txtJourExpiration.BorderColor = Color.Red;
                         txtMoisExpiration.BorderColor = Color.Red;
                         ddlAnneeExpiration.BorderColor = Color.Red;
-                        enErreur = true;
+                        nbErreurs++;
                     }
                 }
 
@@ -173,19 +193,19 @@ namespace Site_de_la_Technique_Informatique
                 {
                     lblSalaire.Text = "Salaire requis";
                     txtSalaire.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
                 else if (Double.TryParse(txtSalaire.Text, out d) == false)
                 {
                     lblSalaire.Text = "Salaire invalide (Utilisez la virgule pour les décimals)";
                     txtSalaire.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
                 else if (Double.Parse(txtSalaire.Text) > 99)
                 {
                     lblSalaire.Text = "Salaire trop élevé";
                     txtSalaire.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
 
                 int i;
@@ -193,33 +213,39 @@ namespace Site_de_la_Technique_Informatique
                 {
                     lblHeures.Text = "Nombre d'heures par semaine requis";
                     txtHeures.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
                 else if (Int32.TryParse(txtHeures.Text, out i) == false)
                 {
                     lblHeures.Text = "Nombre d'heures par semaine invalid";
                     txtHeures.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
                 else if (Int32.Parse(txtHeures.Text) > 60)
                 {
                     lblHeures.Text = "Nombre d'heures par semaine trop élevé";
                     txtHeures.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
 
                 if (txtAdresse.Text == "")
                 {
                     lblAdresse.Text = "Adresse requise";
                     txtAdresse.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
+                }
+                else if (txtAdresse.Text.Length < 5)
+                {
+                    lblAdresse.Text = "L'adresse est trop courte";
+                    txtAdresse.BorderColor = Color.Red;
+                    nbErreurs++;
                 }
 
                 if (txtVille.Text == "")
                 {
                     lblVille.Text = "Ville requise";
                     txtVille.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
                 else
                 {
@@ -239,27 +265,195 @@ namespace Site_de_la_Technique_Informatique
                     {
                         lblVille.Text = "Ville invalide";
                         txtVille.BorderColor = Color.Red;
-                        enErreur = true;
+                        nbErreurs++;
                     }
                 }
                 if (txtTelephone.Text == "")
                 {
-                    lblTelephonePoste.Text = "Ville requise";
+                    lblTelephonePoste.Text = "Téléphone requis";
                     txtTelephone.BorderColor = Color.Red;
-                    enErreur = true;
+                    nbErreurs++;
                 }
                 else
                 {
+                    string reg = @"^\+?(\d[\d-. ]+)?(\([\d-. ]+\))?[\d-. ]+\d$";
+
+                    if (!Regex.IsMatch(txtTelephone.Text, reg))
+                    {
+                        lblTelephonePoste.Text = "Téléphone invalide";
+                        txtTelephone.BorderColor = Color.Red;
+                        nbErreurs++;
+                    }
                 }
 
-
-                if (enErreur == false)
+                if (txtposte.Text != "" && Int32.TryParse(txtposte.Text, out i) == false)
                 {
+                    if (lblTelephonePoste.Text == "")
+                    {
+                        lblTelephonePoste.Text = "Poste invalide";
+                    }
+                    else
+                    {
+                        lblTelephonePoste.Text = lblTelephonePoste.Text + " et poste invalide";
+                    }
 
+                    txtposte.BorderColor = Color.Red;
+                    nbErreurs++;
+                }
+
+                if (txtTelecopieur.Text != "")
+                {
+                    string reg = @"^\+?(\d[\d-. ]+)?(\([\d-. ]+\))?[\d-. ]+\d$";
+
+                    if (!Regex.IsMatch(txtTelecopieur.Text, reg))
+                    {
+                        lblTelecopieur.Text = "Télécopieur invalide";
+                        txtTelecopieur.BorderColor = Color.Red;
+                        nbErreurs++;
+                    }
+                }
+
+                if (txtCourriel.Text != "")
+                {
+                    try
+                    {
+                        var addr = new System.Net.Mail.MailAddress(txtCourriel.Text);
+                    }
+                    catch (Exception)
+                    {
+                        lblCourriel.Text += "Courriel invalide";
+                        txtCourriel.BorderColor = Color.Red;
+                        nbErreurs++;
+                    }
                 }
                 else
                 {
-                    lblErreur.Text = "Veuillez corriger les champs en erreur";
+                    lblCourriel.Text += "Courriel requis";
+                    txtCourriel.BorderColor = Color.Red;
+                    nbErreurs++;
+                }
+
+                if (txtRessource.Text == "")
+                {
+                    lblRessource.Text += "Personne ressource requise";
+                    txtRessource.BorderColor = Color.Red;
+                    nbErreurs++;
+                }
+                else if (txtRessource.Text.Length < 5)
+                {
+                    lblRessource.Text = "Le nom de la personne ressource est trop court";
+                    txtRessource.BorderColor = Color.Red;
+                    nbErreurs++;
+                }
+
+                fuPDF = (FileUpload)Session["fuPDF"];
+                string newFile = "";
+                if (fuPDF != null)
+                {
+                    string fileNameApplication = System.IO.Path.GetFileName(fuPDF.FileName);
+                    string ext = System.IO.Path.GetExtension(fileNameApplication);
+                    newFile = Guid.NewGuid().ToString() + ext;
+                    string[] allowedExtenstions = new string[] { ".pdf" };
+
+                    if (Session["fuPDF"] != null)
+                    {
+
+                        if (fuPDF.HasFile)
+                        {
+
+                            if (!allowedExtenstions.Contains(ext))
+                            {
+                                fuPDF.BorderColor = Color.Red;
+                                lblPDF.Text = "Le fichier doit être un PDF";
+                                nbErreurs++;
+                            }
+                            else if (fuPDF.PostedFile.ContentLength > 2000000)
+                            {
+                                lblPDF.Text = "Le PDF doit peser 2 Mo au maximum";
+                                fuPDF.BorderColor = Color.Red;
+                                nbErreurs++;
+                            }
+
+                            Session["fuPDF"] = fuPDF;
+                        }
+                    }
+                }
+
+                if (nbErreurs == 1)
+                {
+                    lblErreur.Text = "Veuillez corriger le champ en erreur";
+                }
+                else if (nbErreurs > 1)
+                {
+                    lblErreur.Text = "Veuillez corriger les " + nbErreurs + " champs en erreur";
+                }
+                else
+                {
+                    string SaveLocation = System.IO.Path.Combine(Server.MapPath("") + "\\Upload\\", newFile);
+                    Model.OffreEmploi offreEmploi = new Model.OffreEmploi();
+                    Model.OffreEmploi derniereoffre = lecontexte.OffreEmploiSet.OrderByDescending(u => u.IDOffreEmploi).FirstOrDefault();
+
+                    if (derniereoffre == null)
+                    {
+                        offreEmploi.IDOffreEmploi = 1;
+                    }
+                    else
+                    {
+                        offreEmploi.IDOffreEmploi = derniereoffre.IDOffreEmploi + 1;
+                    }
+
+                    try
+                    {
+                        offreEmploi.titreOffre = txtTitreOffre.Text;
+                        offreEmploi.descriptionOffre = txtDescriptionOffre.Text;
+                        offreEmploi.dateOffre = DateTime.Now;
+
+                        if (txtJourExpiration.Text != "")
+                        {
+                            offreEmploi.dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + txtMoisExpiration.Text + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
+                        }
+
+                        offreEmploi.dateDebutOffre = DateTime.Parse(txtJourDebut.Text + "/" + txtMoisDebut.Text + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
+                        if (Session["fuPDF"] != null)
+                        {
+                            fuPDF = (FileUpload)Session["fuPDF"];
+                            fuPDF.PostedFile.SaveAs(SaveLocation);
+                            offreEmploi.pathPDFDescription = newFile;
+                        }
+                        offreEmploi.salaire = decimal.Parse(txtSalaire.Text);
+                        offreEmploi.nbHeureSemaine = short.Parse(txtHeures.Text);
+                        offreEmploi.adresseTravail = txtAdresse.Text;
+                        offreEmploi.noTelephone = txtTelephone.Text;
+                        offreEmploi.noTelecopieur = txtTelecopieur.Text;
+                        offreEmploi.courrielOffre = txtCourriel.Text;
+                        offreEmploi.personneRessource = txtRessource.Text;
+                        offreEmploi.etatOffre = "1";
+                        offreEmploi.noPoste = txtposte.Text;
+                        offreEmploi.validerOffre = false;
+                        offreEmploi.VilleIDVille = idVille;
+                        int idUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+                        Employeur employeur = (from employeurs in lecontexte.UtilisateurSet.OfType<Employeur>()
+                                               where employeurs.IDUtilisateur == idUtilisateur
+                                               select employeurs).FirstOrDefault();
+                        offreEmploi.Employeur = employeur;
+                        offreEmploi.EmployeurIDUtilisateur = idUtilisateur;
+
+                        Ville ville = (from villes in lecontexte.VilleSet
+                                       where villes.IDVille == idVille
+                                       select villes).FirstOrDefault();
+                        offreEmploi.Ville = ville;
+
+                        lecontexte.OffreEmploiSet.Add(offreEmploi);
+                        lecontexte.SaveChanges();
+                        mvAjoutOffre.SetActiveView(viewFin);
+
+                    }
+                     catch (Exception ex)
+                    {
+
+                        lblErreur.Text = "Erreur lors de l'ajout de l'offre";
+                    }
+
                 }
             }
         }
@@ -288,6 +482,13 @@ namespace Site_de_la_Technique_Informatique
                 String[] listeRetour = (from resultat in listeRecherche where resultat.StartsWith(prefixText, StringComparison.CurrentCultureIgnoreCase) select resultat).Take(count).ToArray();
                 return listeRetour;
             }
+        }
+
+        protected void lnkRetirerPDF_Click(object sender, EventArgs e)
+        {
+            Session["fuPDF"] = null;
+            lblNomPDF.Text = "";
+            lnkRetirerPDF.Visible = false;
         }
     }
 }

@@ -8,6 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Techniques de l'informatique</title>
   
+    <%--lien du favicon a la racine--%>
+    <link rel="icon" href="toast.gif" type="image/gif" />
+
     <link href="Css/bootstrap.min.css" rel="stylesheet"/>  
     <link href="Css/modern-business.css" rel="stylesheet"/>  
     <link href="Css/customStyleSheet.css" rel="stylesheet"/>
@@ -37,7 +40,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body runat="server" id="pageBody" >
+<body runat="server" id="pageBody">
     <form id="form1" runat="server">
 
         <!-- Navigation -->
@@ -45,13 +48,10 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-
+                <div class="navbar-header">                 
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="default.aspx">Techniques de l'informatique</a>
                 </div>
@@ -82,8 +82,9 @@
 
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="Vertic.aspx">Verdic</a> </li>
+                                <li><a href="Vertic.aspx">Vertic</a> </li>
                                 <li><a href="InformationsStage.aspx">Stages</a> </li>
+                                <li><a href="#">Témoignages</a> </li>
                                 
                             </ul>
                         </li>
@@ -93,18 +94,29 @@
                         </li>
 
                         <li>
-                            <a href="#">Témoignages</a>
+                            <a href="recherche.aspx">Recherche</a>
                         </li>
                      
-                            <li>
+                        <li runat="server" id="lblInscription">
                                  <a href="Inscription/Inscription.aspx">Inscription</a>
                             </li>
                                                                                     
-                        <li class="dropdown">
+                        <li>
                             <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
-                            <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" />
+
                         </li>
 
+                        <li class="dropdown" runat="server" id="liConnexion">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" /><b class="caret"></b></a>
+                                
+                                <ul class="dropdown-menu">
+                                <li><a href="Vertic.aspx">Profil</a> </li>
+                                <li><asp:LinkButton ID="lnkbtnDeconnexion" runat="server" Text="Déconnexion" OnClick="lnkbtnDeconnexion_Click" /> </li>
+
+                    </ul>
+
+                            
+                        </li>
 
                     </ul>
                 </div>
@@ -152,7 +164,8 @@
                             </div>
                         </div>
                     </div>
-          <br /><asp:Label ID="lblMessageConnexion" runat="server" Text="" />
+                                <br />
+                                <asp:Label ID="lblMessageConnexion" runat="server" Text="" />
       </div>
 
 
@@ -175,13 +188,14 @@
         <br />
         <br />
         <!--Section provenant des pages-->
-        <div class="wrapper" style="word-wrap:break-word;">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" >
-               
-                
+        <div style="word-wrap: break-word; min-height: 700px;">
+            <br />
+            <br />
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
 
-            <div class="push"></div>
+          
         </div>
 
         <!--Fin de la section provenant des pages-->

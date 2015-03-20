@@ -1,4 +1,10 @@
-﻿using Site_de_la_Technique_Informatique.Model;
+﻿// Cette classe permet de réutiliser les méthodes par l'héritage.
+// Écrit par Karl Gosselin, Février 2015
+// Intrants: Vide
+// Extrants: Vide
+
+
+using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
