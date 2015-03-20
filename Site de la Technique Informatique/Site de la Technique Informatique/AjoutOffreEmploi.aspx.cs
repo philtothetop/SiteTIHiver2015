@@ -12,10 +12,12 @@ using System.Text.RegularExpressions;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class AjoutOffreEmploi : System.Web.UI.Page
+    public partial class AjoutOffreEmploi : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(false, false, false, true);
+
             if (!IsPostBack)
             {
                 txtDescriptionOffre.Attributes.Add("maxlength", txtDescriptionOffre.MaxLength.ToString());
