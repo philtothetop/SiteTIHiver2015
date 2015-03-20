@@ -158,7 +158,6 @@
     <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
     <Content Include="Photos\logoCegep.png" />
-    <Content Include="Photos\photobase.bmp" />
     <Content Include="Photos\Profils\Baron.JPG" />
     <Content Include="Photos\Profils\Bibeau.JPG" />
     <Content Include="Photos\Profils\Cedric.JPG" />
@@ -166,6 +165,7 @@
     <Content Include="Photos\Profils\Jacob.JPG" />
     <Content Include="Photos\Profils\Karl.JPG" />
     <Content Include="Photos\Profils\Marie.JPG" />
+    <Content Include="Photos\Profils\photobase.bmp" />
     <Content Include="Photos\Profils\Raphael.JPG" />
     <Content Include="Photos\Profils\Xavier.JPG" />
     <Content Include="Photos\quiSommesNous.JPG" />
@@ -207,6 +207,7 @@
     <Content Include="Css\Global.css" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
+    <Content Include="temp-editNouvelles.aspx" />
     <Content Include="toast.gif" />
     <Content Include="Temoignage.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
@@ -504,6 +505,13 @@
     </Compile>
     <Compile Include="Temoignage.aspx.designer.cs">
       <DependentUpon>Temoignage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="temp-editNouvelles.aspx.cs">
+      <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="temp-editNouvelles.aspx.designer.cs">
+      <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>

@@ -10,24 +10,24 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class listeOffresEmploi {
+    public partial class temp_editNouvelles {
         
         /// <summary>
-        /// Contrôle lnkAjouterOffre.
+        /// Contrôle lviewNouvelles.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAjouterOffre;
+        protected global::System.Web.UI.WebControls.ListView lviewNouvelles;
         
         /// <summary>
-        /// Contrôle lviewOffresEmploi.
+        /// Contrôle lviewEditNews.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewOffresEmploi;
+        protected global::System.Web.UI.WebControls.ListView lviewEditNews;
     }
 }

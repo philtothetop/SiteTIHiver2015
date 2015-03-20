@@ -12,6 +12,20 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                if (Request.Cookies["TIID"] != null)
+                {
+                    int idUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+                    Employeur employeur = (from employeurs in lecontexte.UtilisateurSet.OfType<Employeur>()
+                                           where employeurs.IDUtilisateur == idUtilisateur
+                                           select employeurs).FirstOrDefault();
+                    if (employeur != null)
+                    {
+                        lnkAjouterOffre.Visible = true;
+                    }
+                }
+            }
         }
 
         public IQueryable<Model.OffreEmploi> getOffresEmploi()
