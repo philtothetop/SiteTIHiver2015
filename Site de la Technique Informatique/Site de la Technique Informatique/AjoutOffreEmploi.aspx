@@ -10,7 +10,7 @@
         <div class="row">
             <h1>Ajout d'une offre d'emploi</h1>
         </div>
-        <asp:MultiView ID="mvAjoutOffre" runat="server" ActiveViewIndex ="0">
+        <asp:MultiView ID="mvAjoutOffre" runat="server" ActiveViewIndex="0">
             <asp:View runat="server" ID="viewAjout">
                 <asp:Label ID="lblErreur" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                 <br />
@@ -161,8 +161,11 @@
                     </div>
                 </div>
             </asp:View>
-            <asp:View runat="server" ID="1">
-
+            <asp:View runat="server" ID="viewFin">
+                <div style="text-align: center">
+                    <h4>Votre offre d'emploi a été ajouté avec succès</h4>
+                    <asp:LinkButton ID="lnkRetour" Text="Accueil" runat="server" CssClass="btn btn-default" PostBackUrl="~/Default.aspx"/>
+                </div>
             </asp:View>
         </asp:MultiView>
     </div>

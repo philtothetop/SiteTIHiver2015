@@ -1,4 +1,14 @@
-﻿footer {
+﻿/*NAVBAR*/
+
+  .navbar-nav > li > label {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
+
+/*FOOTER*/
+
+footer {
 	margin: 0;
 }
 html, body {

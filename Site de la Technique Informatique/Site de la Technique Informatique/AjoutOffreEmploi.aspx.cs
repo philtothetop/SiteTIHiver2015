@@ -347,31 +347,35 @@ namespace Site_de_la_Technique_Informatique
                 }
 
                 fuPDF = (FileUpload)Session["fuPDF"];
-                string fileNameApplication = System.IO.Path.GetFileName(fuPDF.FileName);
-                string ext = System.IO.Path.GetExtension(fileNameApplication);
-                string newFile = Guid.NewGuid().ToString() + ext;
-                string[] allowedExtenstions = new string[] { ".pdf" };
-
-                if (Session["fuPDF"] != null)
+                string newFile = "";
+                if (fuPDF != null)
                 {
-                    
-                    if (fuPDF.HasFile)
+                    string fileNameApplication = System.IO.Path.GetFileName(fuPDF.FileName);
+                    string ext = System.IO.Path.GetExtension(fileNameApplication);
+                    newFile = Guid.NewGuid().ToString() + ext;
+                    string[] allowedExtenstions = new string[] { ".pdf" };
+
+                    if (Session["fuPDF"] != null)
                     {
 
-                        if (!allowedExtenstions.Contains(ext))
+                        if (fuPDF.HasFile)
                         {
-                            fuPDF.BorderColor = Color.Red;
-                            lblPDF.Text = "Le fichier doit être un PDF";
-                            nbErreurs++;
-                        }
-                        else if (fuPDF.PostedFile.ContentLength > 2000000)
-                        {
-                            lblPDF.Text = "Le PDF doit peser 2 Mo au maximum";
-                            fuPDF.BorderColor = Color.Red;
-                            nbErreurs++;
-                        }
 
-                        Session["fuPDF"] = fuPDF;
+                            if (!allowedExtenstions.Contains(ext))
+                            {
+                                fuPDF.BorderColor = Color.Red;
+                                lblPDF.Text = "Le fichier doit être un PDF";
+                                nbErreurs++;
+                            }
+                            else if (fuPDF.PostedFile.ContentLength > 2000000)
+                            {
+                                lblPDF.Text = "Le PDF doit peser 2 Mo au maximum";
+                                fuPDF.BorderColor = Color.Red;
+                                nbErreurs++;
+                            }
+
+                            Session["fuPDF"] = fuPDF;
+                        }
                     }
                 }
 
@@ -423,15 +427,16 @@ namespace Site_de_la_Technique_Informatique
                         offreEmploi.noTelecopieur = txtTelecopieur.Text;
                         offreEmploi.courrielOffre = txtCourriel.Text;
                         offreEmploi.personneRessource = txtRessource.Text;
-                        offreEmploi.EmployeurIDUtilisateur = 1;
-                        offreEmploi.etatOffre = "0";
+                        offreEmploi.etatOffre = "1";
                         offreEmploi.noPoste = txtposte.Text;
                         offreEmploi.validerOffre = false;
                         offreEmploi.VilleIDVille = idVille;
+                        int idUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
                         Employeur employeur = (from employeurs in lecontexte.UtilisateurSet.OfType<Employeur>()
-                                               where employeurs.IDEmployeur == 1
+                                               where employeurs.IDUtilisateur == idUtilisateur
                                                select employeurs).FirstOrDefault();
                         offreEmploi.Employeur = employeur;
+                        offreEmploi.EmployeurIDUtilisateur = idUtilisateur;
 
                         Ville ville = (from villes in lecontexte.VilleSet
                                        where villes.IDVille == idVille
@@ -440,13 +445,13 @@ namespace Site_de_la_Technique_Informatique
 
                         lecontexte.OffreEmploiSet.Add(offreEmploi);
                         lecontexte.SaveChanges();
-
+                        mvAjoutOffre.SetActiveView(viewFin);
 
                     }
-                    catch (Exception ex)
+                     catch (Exception ex)
                     {
 
-                        lblErreur.Text = "Erreur lors de l'ajour de l'offre";
+                        lblErreur.Text = "Erreur lors de l'ajout de l'offre";
                     }
 
                 }

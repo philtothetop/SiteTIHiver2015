@@ -100,6 +100,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin_OffreEmploi.aspx" />
+    <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
@@ -143,28 +145,30 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
-    <Content Include="Photos\Baron.JPG" />
-    <Content Include="Photos\Bibeau.JPG" />
-    <Content Include="Photos\Cedric.JPG" />
     <Content Include="Photos\entete.jpg" />
-    <Content Include="Photos\Francis.JPG" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\image2.jpg" />
     <Content Include="Photos\image3.jpg" />
     <Content Include="Photos\image4.jpg" />
     <Content Include="Photos\image5.jpg" />
     <Content Include="Photos\image6.jpg" />
-    <Content Include="Photos\Jacob.JPG" />
     <Content Include="Photos\logo\Logo_Informatique.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
     <Content Include="Photos\logoCegep.png" />
-    <Content Include="Photos\Marie.JPG" />
     <Content Include="Photos\photobase.bmp" />
+    <Content Include="Photos\Profils\Baron.JPG" />
+    <Content Include="Photos\Profils\Bibeau.JPG" />
+    <Content Include="Photos\Profils\Cedric.JPG" />
+    <Content Include="Photos\Profils\Francis.JPG" />
+    <Content Include="Photos\Profils\Jacob.JPG" />
+    <Content Include="Photos\Profils\Karl.JPG" />
+    <Content Include="Photos\Profils\Marie.JPG" />
+    <Content Include="Photos\Profils\Raphael.JPG" />
+    <Content Include="Photos\Profils\Xavier.JPG" />
     <Content Include="Photos\quiSommesNous.JPG" />
-    <Content Include="Photos\Xavier.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
@@ -204,6 +208,7 @@
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
     <Content Include="toast.gif" />
+    <Content Include="Temoignage.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
@@ -224,6 +229,13 @@
     </Compile>
     <Compile Include="Admin_Evenement.aspx.designer.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Temoignage.aspx.cs">
+      <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Temoignage.aspx.designer.cs">
+      <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Vertic.aspx.cs">
       <DependentUpon>Admin_Vertic.aspx</DependentUpon>
@@ -486,6 +498,13 @@
     <Compile Include="InformationsStage.aspx.designer.cs">
       <DependentUpon>InformationsStage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Temoignage.aspx.cs">
+      <DependentUpon>Temoignage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Temoignage.aspx.designer.cs">
+      <DependentUpon>Temoignage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -506,7 +525,6 @@
     <Folder Include="bin\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Photos\Profils\" />
     <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>

@@ -227,8 +227,8 @@
       <PropertyRef Name="IDFAQ" />
     </Key>
     <Property Name="IDFAQ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="texteQuestion" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="texteReponse" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="texteQuestion" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="texteReponse" Type="nvarchar" Nullable="false" MaxLength="800" />
     <Property Name="ProfesseurIDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NouvelleSet">
@@ -831,8 +831,8 @@
             <PropertyRef Name="IDFAQ" />
           </Key>
           <Property Name="IDFAQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="texteQuestion" Type="String" Nullable="false" MaxLength="50" />
-          <Property Name="texteReponse" Type="String" Nullable="false" MaxLength="500" />
+          <Property Name="texteQuestion" Type="String" Nullable="false" MaxLength="150" />
+          <Property Name="texteReponse" Type="String" Nullable="false" MaxLength="800" />
           <NavigationProperty Name="Professeur" Relationship="LeModelTI.ProfesseurFAQ" FromRole="FAQ" ToRole="Professeur" />
           <Property Name="ProfesseurIDUtilisateur" Type="Int32" Nullable="false" />
         </EntityType>
