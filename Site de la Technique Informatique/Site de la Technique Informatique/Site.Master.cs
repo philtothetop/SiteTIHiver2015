@@ -13,26 +13,25 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Verification s'il y a un utilisateur de connecté.
 
-                //using (LeModelTIContainer lecontexte = new LeModelTIContainer()) //un ti modèle parce que c'est ben pratique
-                //{
+            if (Request.Cookies["TIUtilisateur"] == null) //si l'utilisateur est null, donc personne de connecter
+            {
+                lblConnexion.Visible = true; //Affiche le lien de connexion
+                lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
+            }
+            else //donc utilisateur contient une valeur
+            {
+                lblConnexion.Visible = false; //Cache le lien de connexion
+                lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
 
-                    //Verification s'il y a un utilisateur de connecté.
-
-                    if (Request.Cookies["TIUtilisateur"] == null) //si l'utilisateur est null, donc personne de connecter
-                    {
-                        lblConnexion.Visible = true; //Affiche le lien de connexion
-                        lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
-                    }
-                    else //donc utilisateur contient une valeur
-                    {
-                        lblConnexion.Visible = false; //Cache le lien de connexion
-                        lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
-
-                        lblEnLigne.Text = Server.HtmlEncode(Request.Cookies["TINom"].Value); //Envoie le prénom nom de l'utilisateur dans le label
-                    }
+                if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
+                {
+                    Response.Cookies["TINom"].Value = "Oups..."; //mets un nom bidon pour le 0.0000000000000000001% de chance que ça ne marche pas
                 }
-            //}
+                lblEnLigne.Text = Server.HtmlEncode(Request.Cookies["TINom"].Value); //Envoie le prénom nom de l'utilisateur dans le label
+            }
+        }
 
         //Connexion
         protected void btnConnexion_Click(object sender, EventArgs e)
@@ -71,7 +70,7 @@ namespace Site_de_la_Technique_Informatique
                         Membre userMembre = (from user in lecontexte.Set<Membre>() where user.IDUtilisateur == userConnect.IDUtilisateur select user).FirstOrDefault(); //à cause de l'héritage, ça prend membre pour avoir certains nom + pr.nom
 
                         //Si c'est un admin
-                        if (userAdmin != null) 
+                        if (userAdmin != null)
                         {
                             Response.Cookies["TIUtilisateur"].Value = "Admin"; //On indique le type
                             Response.Cookies["TINom"].Value = "Admin"; //On entre à bras le nom "Admin" car non stocké dans la BD
@@ -84,7 +83,7 @@ namespace Site_de_la_Technique_Informatique
                             {
                                 Response.Cookies["TIUtilisateur"].Value = "Employeur"; //On indique le type
                                 Response.Cookies["TINom"].Value = userEmpl.nomEmployeur.ToString(); //On récupère le nom d'employeur
-                        
+
                             }
                             else //oups, pas de courriel valide
                             {
@@ -115,7 +114,7 @@ namespace Site_de_la_Technique_Informatique
                             Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
                         }
 
-                        }
+                    }
                     else //Si aucun usager correspondant dans la BD
                     {
                         lblMessageConnexion.Text += "Votre courriel ou votre mot de passe n'est pas valide."; //Avertis que le mot de passe est incorrect
