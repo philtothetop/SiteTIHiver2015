@@ -207,6 +207,7 @@
     <Content Include="Css\Global.css" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
+    <Content Include="temp-editNouvelles.aspx" />
     <Content Include="toast.gif" />
     <Content Include="Temoignage.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
@@ -504,6 +505,13 @@
     </Compile>
     <Compile Include="Temoignage.aspx.designer.cs">
       <DependentUpon>Temoignage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="temp-editNouvelles.aspx.cs">
+      <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="temp-editNouvelles.aspx.designer.cs">
+      <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
