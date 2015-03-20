@@ -6,19 +6,19 @@
      <!-- Header Carousel -->
     <div class="container">
 
-        <!-- Page Heading/Breadcrumbs -->
-        <div class="row">
-            <div class="col-lg-12">
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
                 <h1 class="page-header">Page pleine largeur
                     <small>Exemple</small>
-                </h1>
-                <ol class="breadcrumb">
+            </h1>
+            <ol class="breadcrumb">
                     <li><a href="index.html">Accueil</a>
-                    </li>
+                </li>
                     <li class="active">Page pleine largeur</li>
-                </ol>
-            </div>
+            </ol>
         </div>
+    </div>
         <!-- /.row -->
 
         <!-- Content Row -->
@@ -74,7 +74,7 @@
                                         </div>
                                     <div>
                                     <asp:Label ID="lblCourriel" Text='<%# Item.courriel %>' runat="server" Style="text-decoration: none; color: black;"></asp:Label>
-                                        </div>
+                    </div>
                                 </div>
 
                              
@@ -84,8 +84,8 @@
 
                                
 
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
                          </asp:LinkButton>
                   
                 </ItemTemplate>
