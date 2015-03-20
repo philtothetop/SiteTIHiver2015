@@ -18,7 +18,7 @@ namespace Site_de_la_Technique_Informatique
                 //{
 
                     //Verification s'il y a un utilisateur de connecté.
-
+                
                     if (Request.Cookies["TIUtilisateur"] == null) //si l'utilisateur est null, donc personne de connecter
                     {
                         lblConnexion.Visible = true; //Affiche le lien de connexion

@@ -74,17 +74,56 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-
+        //Modifier pour fonctionner avec des cookies le 2015-03-20 par Raphael Brouard
         //Méthode pour savoir si la personne a les autorisations pour voir la page
         //Devrais être utiliser QUE SUR LES PAGES qui on besoin de quelqu'un de connecté
         public void SavoirSiPossedeAutorizationPourLaPage(bool admin, bool professeur, bool etudiant, bool employeur)
         {
-
             try
             {
-                //Un boolean poru savori quoi faire a la fin de la méthode.
+                //Un boolean pour savoir quoi faire a la fin de la méthode.
                 bool doitRedirigerLaPersonne = true;
 
+                //Vérifier si le cookie pour savoir le type d'utilisateur n'est pas vide
+                if (Request.Cookies["TIUtilisateur"] != null)
+                {
+                    //Vérifier si la valeur du cookie n'est pas vide
+                    if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value) != null)
+                    {
+                        string valeurDuCookie = Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).ToString();
+
+                        //Vérifier chaque type a les autorisations ET que lutilisateur connecter est de ce type
+                        if (valeurDuCookie.Equals("Admin") && admin == true)
+                        {
+                            doitRedirigerLaPersonne = false;
+                        }
+                        else if (valeurDuCookie.Equals("Professeur") && professeur == true)
+                        {
+                            doitRedirigerLaPersonne = false;
+                        }
+                        else if (valeurDuCookie.Equals("Étudiant") && etudiant == true)
+                        {
+                            doitRedirigerLaPersonne = false;
+                        }
+                        else if (valeurDuCookie.Equals("Employeur") && employeur == true)
+                        {
+                            doitRedirigerLaPersonne = false;
+                        }
+                        //Si la valeur du cookie est autre chose innatendu
+                        else
+                        {
+                            doitRedirigerLaPersonne = true;
+                        }
+                    }
+                    //Si cookie vide, dire de rediriger la page
+                    else
+                    {
+                         doitRedirigerLaPersonne = true;
+                    }
+                }
+
+                //MÊME FONCTION SI ON DÉCIDE DE RETOURNER UTILISER UN OBJECT SESSION, ES EN COMMENTAIRE POUR LE MOMENT
+                /*
                 //Vérifier si la session n'est pas vide
                 if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
                 {
@@ -135,6 +174,8 @@ namespace Site_de_la_Technique_Informatique
                 {
                     doitRedirigerLaPersonne = true;
                 }
+                */
+
 
                 //Rediriger si pas les droits
                 if (doitRedirigerLaPersonne == true)

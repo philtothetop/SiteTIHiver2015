@@ -63,19 +63,15 @@
             <br />
             <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14" Text='<%# "No de téléphone : " + Item.noTelephone %>'></asp:Label>
 
-
-                                    <div runat="server" id="divNoPoste" visible='<%# PasAfficherSiNull(Item,"noPoste") %>'>
-
-            <asp:Label ID="lblNoPoste" runat="server" Font-Size="14" Text='<%#  "  Ext: (" + Item.noPoste + ")" %>'></asp:Label>
+            <asp:Label ID="lblNoPoste" runat="server" Font-Size="14" Text='<%#  "  Ext: (" + Item.noPoste + ")" %>' Visible='<%# PasAfficherSiNull(Item,"noPoste") %>'></asp:Label>
             <br />
-                                        </div>
                         
-                                    <div runat="server" id="divNoTelecopieur" visible='<%# PasAfficherSiNull(Item,"noTelecopieur") %>'>
+            <div runat="server" id="divNoTelecopieur" visible='<%# PasAfficherSiNull(Item,"noTelecopieur") %>'>
 
             <asp:Label ID="lblNoTelecopieur" runat="server" Font-Size="14" Text='<%# "No de télécopieur : " + Item.noTelecopieur %>'></asp:Label>
             <br />
 
-                                        </div>
+             </div>
 
                         
             <asp:Label ID="lblCourrielOffre" runat="server" Font-Size="14" Text='<%# "Courriel : " + Item.courrielOffre %>'></asp:Label>
@@ -129,7 +125,7 @@
             <EmptyDataTemplate>
         <div>
             <div style="width:100%; text-align:center; padding-top:20px;">
-                       <asp:Label ID="lblPasDeOffreIci" runat="server" Text="Il n'y a pas d'offre d'emploi à valider pour le moment" style="font:bold; font-size:large"></asp:Label>
+                       <asp:Label ID="lblPasDeOffreIci" runat="server" Text="Il n'y a pas d'offre d'emploi pour le moment" style="font:bold; font-size:large"></asp:Label>
                 </div>
         </div>
                 
@@ -149,6 +145,6 @@
                         </asp:DataPager>
                 </div>
 
-    <asp:HiddenField ID="hfieldVoirOffreValideOuNon" runat="server" />
+    <asp:HiddenField ID="hfieldVoirOffreValideOuNon" runat="server" Value="VoirNonValidé" />
 
 </asp:Content>
