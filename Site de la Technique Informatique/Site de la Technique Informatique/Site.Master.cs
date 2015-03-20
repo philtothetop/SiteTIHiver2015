@@ -74,6 +74,7 @@ namespace Site_de_la_Technique_Informatique
                         {
                             Response.Cookies["TIUtilisateur"].Value = "Admin"; //On indique le type
                             Response.Cookies["TINom"].Value = "Admin"; //On entre à bras le nom "Admin" car non stocké dans la BD
+                            Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
                         }
 
                         //Si c'est un employeur
@@ -83,6 +84,7 @@ namespace Site_de_la_Technique_Informatique
                             {
                                 Response.Cookies["TIUtilisateur"].Value = "Employeur"; //On indique le type
                                 Response.Cookies["TINom"].Value = userEmpl.nomEmployeur.ToString(); //On récupère le nom d'employeur
+                                Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
 
                             }
                             else //oups, pas de courriel valide
@@ -99,6 +101,7 @@ namespace Site_de_la_Technique_Informatique
                             {
                                 Response.Cookies["TIUtilisateur"].Value = "Etudiant"; //On indique le type d'usager
                                 Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
+                                Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
                             }
                             else //oups, courriel non validé
                             {
@@ -112,6 +115,7 @@ namespace Site_de_la_Technique_Informatique
                         {
                             Response.Cookies["TIUtilisateur"].Value = "Professeur"; //On indique le type d'usager
                             Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
+                            Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
                         }
 
                     }
