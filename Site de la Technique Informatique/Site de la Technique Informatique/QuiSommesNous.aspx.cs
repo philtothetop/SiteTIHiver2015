@@ -21,13 +21,13 @@ namespace Site_de_la_Technique_Informatique
         #region Évènements de la page
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
-            {
-                index = 0;
-                string PhotoParDefaut = "photobase.bmp";
-                lesEtudiants = (from etudiants in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>() where (etudiants.pathPhotoProfil != PhotoParDefaut) select etudiants).ToList();
-                Randomize(lesEtudiants);
-            }
+            //using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            //{
+            //    index = 0;
+            //    string PhotoParDefaut = "photobase.bmp";
+            //    lesEtudiants = (from etudiants in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>() where (etudiants.pathPhotoProfil != PhotoParDefaut) select etudiants).ToList();
+            //    Randomize(lesEtudiants);
+            //}
         }
         #endregion
 
@@ -53,19 +53,25 @@ namespace Site_de_la_Technique_Informatique
 
         #region Remplissage du ListView lvÉtudiants
 
-        public IQueryable<Etudiant> lvEtudiants_GetData()
+        public IQueryable<Etudiant> lviewEtudiants_GetData()
         {
             List<Etudiant> listeEtudiants = null;
             try
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                    listeEtudiants = (from etudiants in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>() select etudiants).ToList();
+                    index = 0;
+                    string PhotoParDefaut = "photobase.bmp";
+                    listeEtudiants = (from etudiants in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>() /*where (etudiants.pathPhotoProfil != PhotoParDefaut)*/ select etudiants).ToList();
+                    if (listeEtudiants != null)
+                    {
+                        Randomize(listeEtudiants);
+                    }
                 }
             }
-            catch (Exception ex)
+                catch (Exception ex)
             {
-                throw new InvalidOperationException("Une erreur s'est produite dans lors du lvProfesseurs_GetData", ex);
+                LogErreur("QuiSommesNous-getUnEtudiantRandom", ex);
             }
             return listeEtudiants.AsQueryable();
         }
@@ -83,23 +89,6 @@ namespace Site_de_la_Technique_Informatique
                 }
             }
         }
-
-        //VA CHERCHER UN ÉTUDIANT AU RANDOM
-        public Etudiant getUnEtudiantRandom()
-        {
-            Etudiant cestMonTour = new Etudiant();
-            try
-            {
-                cestMonTour = lesEtudiants[index];
-                index++;
-            }
-            catch (Exception ex)
-            {
-                LogErreur("QuiSommesNous-getUnEtudiantRandom", ex);
-            }
-            return cestMonTour;
-        }
-
         #endregion
 
 

@@ -31,6 +31,52 @@ namespace Site_de_la_Technique_Informatique
                     ddlAnneeExpiration.Items.Insert(i + 1, listItem);
                     ddlAnneeDebut.Items.Insert(i + 1, listItem);
                 }
+
+                if (Session["IDOffreEmploiModifier"] != null)
+                {
+                    Model.OffreEmploi offreEmploi;
+                    using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+                    {
+
+                        int idOffre = Int32.Parse(Session["IDOffreEmploiModifier"].ToString());
+
+                        offreEmploi = (from offresEmploi in lecontexte.OffreEmploiSet
+                                       where offresEmploi.IDOffreEmploi == idOffre
+                                       select offresEmploi).FirstOrDefault();
+
+                        txtTitreOffre.Text = offreEmploi.titreOffre;
+                        txtDescriptionOffre.Text = offreEmploi.descriptionOffre;
+
+                        if (offreEmploi.dateExpiration != null)
+                        {
+                            string dateExpiration = offreEmploi.dateExpiration.ToString();
+                            txtJourExpiration.Text = dateExpiration.Substring(8, 2);
+                            txtMoisExpiration.Text = dateExpiration.Substring(5, 2);
+                            ddlAnneeExpiration.SelectedValue = dateExpiration.Substring(0, 4);
+                        }
+
+                        string dateDebut = offreEmploi.dateDebutOffre.ToString();
+                        txtJourDebut.Text = dateDebut.Substring(8, 2);
+                        txtMoisDebut.Text = dateDebut.Substring(5, 2);
+                        ddlAnneeDebut.SelectedValue = dateDebut.Substring(0, 4);
+
+                        txtSalaire.Text = offreEmploi.salaire.ToString();
+                        txtHeures.Text = offreEmploi.nbHeureSemaine.ToString();
+                        txtAdresse.Text = offreEmploi.adresseTravail;
+                        txtVille.Text = offreEmploi.Ville.nomVille;
+                        txtTelephone.Text = offreEmploi.noTelephone;
+                        if (offreEmploi.noPoste != null)
+                        {
+                            txtposte.Text = offreEmploi.noPoste;
+                        }
+                        if (offreEmploi.noTelecopieur != null)
+                        {
+                            txtTelecopieur.Text = offreEmploi.noTelecopieur;
+                        }
+                        txtCourriel.Text = offreEmploi.courrielOffre;
+                        txtRessource.Text = offreEmploi.personneRessource;
+                    }
+                }
             }
 
             if (fuPDF.HasFile)
@@ -118,7 +164,7 @@ namespace Site_de_la_Technique_Informatique
 
                         if (dateExpiration < datemin)
                         {
-                            lblDateExpiration.Text += "Date d'expiration de l'offre invalide";
+                            lblDateExpiration.Text = "Date d'expiration de l'offre invalide";
                             txtJourExpiration.BorderColor = Color.Red;
                             txtMoisExpiration.BorderColor = Color.Red;
                             ddlAnneeExpiration.BorderColor = Color.Red;
@@ -127,7 +173,7 @@ namespace Site_de_la_Technique_Informatique
                         else if (dateExpiration < DateTime.Now.AddDays(1) || dateExpiration > DateTime.Now.AddYears(1))
                         {
 
-                            lblDateExpiration.Text += "La date d'expiration doit être d'ici un an et à partir de demain";
+                            lblDateExpiration.Text = "Date d'exipration de l'offre invalide";
                             txtJourExpiration.BorderColor = Color.Red;
                             txtMoisExpiration.BorderColor = Color.Red;
                             ddlAnneeExpiration.BorderColor = Color.Red;
@@ -136,7 +182,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     catch (Exception)
                     {
-                        lblDateExpiration.Text += "Date d'exipration de l'offre invalide";
+                        lblDateExpiration.Text = "Date d'exipration de l'offre invalide";
                         txtJourExpiration.BorderColor = Color.Red;
                         txtMoisExpiration.BorderColor = Color.Red;
                         ddlAnneeExpiration.BorderColor = Color.Red;
@@ -162,7 +208,7 @@ namespace Site_de_la_Technique_Informatique
 
                         if (dateDebut < datemin)
                         {
-                            lblDebut.Text += "Date de début de l'emploi invalide";
+                            lblDebut.Text = "Date de début de l'emploi invalide";
                             txtJourDebut.BorderColor = Color.Red;
                             txtMoisDebut.BorderColor = Color.Red;
                             ddlAnneeDebut.BorderColor = Color.Red;
@@ -171,7 +217,7 @@ namespace Site_de_la_Technique_Informatique
                         else if (dateDebut < DateTime.Now.AddDays(1) || dateDebut > DateTime.Now.AddYears(1))
                         {
 
-                            lblDebut.Text += "La date de début de l'emploi doit être d'ici un an et à partir de demain";
+                            lblDebut.Text = "Date de début de l'emploi invalide";
                             txtJourDebut.BorderColor = Color.Red;
                             txtMoisDebut.BorderColor = Color.Red;
                             ddlAnneeDebut.BorderColor = Color.Red;
@@ -180,7 +226,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     catch (Exception)
                     {
-                        lblDateExpiration.Text += "Date de début de l'emploi invalide";
+                        lblDateExpiration.Text = "Date de début de l'emploi invalide";
                         txtJourExpiration.BorderColor = Color.Red;
                         txtMoisExpiration.BorderColor = Color.Red;
                         ddlAnneeExpiration.BorderColor = Color.Red;
@@ -347,31 +393,35 @@ namespace Site_de_la_Technique_Informatique
                 }
 
                 fuPDF = (FileUpload)Session["fuPDF"];
-                string fileNameApplication = System.IO.Path.GetFileName(fuPDF.FileName);
-                string ext = System.IO.Path.GetExtension(fileNameApplication);
-                string newFile = Guid.NewGuid().ToString() + ext;
-                string[] allowedExtenstions = new string[] { ".pdf" };
-
-                if (Session["fuPDF"] != null)
+                string newFile = "";
+                if (fuPDF != null)
                 {
-                    
-                    if (fuPDF.HasFile)
+                    string fileNameApplication = System.IO.Path.GetFileName(fuPDF.FileName);
+                    string ext = System.IO.Path.GetExtension(fileNameApplication);
+                    newFile = Guid.NewGuid().ToString() + ext;
+                    string[] allowedExtenstions = new string[] { ".pdf" };
+
+                    if (Session["fuPDF"] != null)
                     {
 
-                        if (!allowedExtenstions.Contains(ext))
+                        if (fuPDF.HasFile)
                         {
-                            fuPDF.BorderColor = Color.Red;
-                            lblPDF.Text = "Le fichier doit être un PDF";
-                            nbErreurs++;
-                        }
-                        else if (fuPDF.PostedFile.ContentLength > 2000000)
-                        {
-                            lblPDF.Text = "Le PDF doit peser 2 Mo au maximum";
-                            fuPDF.BorderColor = Color.Red;
-                            nbErreurs++;
-                        }
 
-                        Session["fuPDF"] = fuPDF;
+                            if (!allowedExtenstions.Contains(ext))
+                            {
+                                fuPDF.BorderColor = Color.Red;
+                                lblPDF.Text = "Le fichier doit être un PDF";
+                                nbErreurs++;
+                            }
+                            else if (fuPDF.PostedFile.ContentLength > 2000000)
+                            {
+                                lblPDF.Text = "Le PDF doit peser 2 Mo au maximum";
+                                fuPDF.BorderColor = Color.Red;
+                                nbErreurs++;
+                            }
+
+                            Session["fuPDF"] = fuPDF;
+                        }
                     }
                 }
 
@@ -385,68 +435,126 @@ namespace Site_de_la_Technique_Informatique
                 }
                 else
                 {
-                    string SaveLocation = System.IO.Path.Combine(Server.MapPath("") + "\\Upload\\", newFile);
-                    Model.OffreEmploi offreEmploi = new Model.OffreEmploi();
-                    Model.OffreEmploi derniereoffre = lecontexte.OffreEmploiSet.OrderByDescending(u => u.IDOffreEmploi).FirstOrDefault();
-
-                    if (derniereoffre == null)
-                    {
-                        offreEmploi.IDOffreEmploi = 1;
-                    }
-                    else
-                    {
-                        offreEmploi.IDOffreEmploi = derniereoffre.IDOffreEmploi + 1;
-                    }
-
                     try
                     {
-                        offreEmploi.titreOffre = txtTitreOffre.Text;
-                        offreEmploi.descriptionOffre = txtDescriptionOffre.Text;
-                        offreEmploi.dateOffre = DateTime.Now;
+                        string SaveLocation = System.IO.Path.Combine(Server.MapPath("") + "\\Upload\\", newFile);
 
-                        if (txtJourExpiration.Text != "")
+                        if (Session["IDOffreEmploiModifier"] != null)
                         {
-                            offreEmploi.dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + txtMoisExpiration.Text + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
+                            Model.OffreEmploi offreEmploiAModfier;
+                            int idOffre = Int32.Parse(Session["IDOffreEmploiModifier"].ToString());
+
+                            offreEmploiAModfier = (from offresEmploi in lecontexte.OffreEmploiSet
+                                                   where offresEmploi.IDOffreEmploi == idOffre
+                                                   select offresEmploi).FirstOrDefault();
+
+                            offreEmploiAModfier.titreOffre = txtTitreOffre.Text;
+                            offreEmploiAModfier.descriptionOffre = txtDescriptionOffre.Text;
+                            offreEmploiAModfier.dateOffre = DateTime.Now;
+
+                            if (txtJourExpiration.Text != "")
+                            {
+                                offreEmploiAModfier.dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + txtMoisExpiration.Text + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
+                            }
+
+                            offreEmploiAModfier.dateDebutOffre = DateTime.Parse(txtJourDebut.Text + "/" + txtMoisDebut.Text + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
+                            if (Session["fuPDF"] != null)
+                            {
+                                fuPDF = (FileUpload)Session["fuPDF"];
+                                fuPDF.PostedFile.SaveAs(SaveLocation);
+                                offreEmploiAModfier.pathPDFDescription = newFile;
+                            }
+                            offreEmploiAModfier.salaire = decimal.Parse(txtSalaire.Text);
+                            offreEmploiAModfier.nbHeureSemaine = short.Parse(txtHeures.Text);
+                            offreEmploiAModfier.adresseTravail = txtAdresse.Text;
+                            offreEmploiAModfier.noTelephone = txtTelephone.Text;
+                            offreEmploiAModfier.noTelecopieur = txtTelecopieur.Text;
+                            offreEmploiAModfier.courrielOffre = txtCourriel.Text;
+                            offreEmploiAModfier.personneRessource = txtRessource.Text;
+                            offreEmploiAModfier.etatOffre = "1";
+                            offreEmploiAModfier.noPoste = txtposte.Text;
+                            offreEmploiAModfier.validerOffre = false;
+                            offreEmploiAModfier.VilleIDVille = idVille;
+                            int idUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+                            Employeur employeur = (from employeurs in lecontexte.UtilisateurSet.OfType<Employeur>()
+                                                   where employeurs.IDUtilisateur == idUtilisateur
+                                                   select employeurs).FirstOrDefault();
+                            offreEmploiAModfier.Employeur = employeur;
+                            offreEmploiAModfier.EmployeurIDUtilisateur = idUtilisateur;
+
+                            Ville ville = (from villes in lecontexte.VilleSet
+                                           where villes.IDVille == idVille
+                                           select villes).FirstOrDefault();
+                            offreEmploiAModfier.Ville = ville;
+
+                            Session["IDOffreEmploiModifier"] = null;
+                        }
+                        else
+                        {
+
+                            Model.OffreEmploi offreEmploi = new Model.OffreEmploi();
+                            Model.OffreEmploi derniereoffre = lecontexte.OffreEmploiSet.OrderByDescending(u => u.IDOffreEmploi).FirstOrDefault();
+
+                            if (derniereoffre == null)
+                            {
+                                offreEmploi.IDOffreEmploi = 1;
+                            }
+                            else
+                            {
+                                offreEmploi.IDOffreEmploi = derniereoffre.IDOffreEmploi + 1;
+                            }
+
+
+                            offreEmploi.titreOffre = txtTitreOffre.Text;
+                            offreEmploi.descriptionOffre = txtDescriptionOffre.Text;
+                            offreEmploi.dateOffre = DateTime.Now;
+
+                            if (txtJourExpiration.Text != "")
+                            {
+                                offreEmploi.dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + txtMoisExpiration.Text + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
+                            }
+
+                            offreEmploi.dateDebutOffre = DateTime.Parse(txtJourDebut.Text + "/" + txtMoisDebut.Text + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
+                            if (Session["fuPDF"] != null)
+                            {
+                                fuPDF = (FileUpload)Session["fuPDF"];
+                                fuPDF.PostedFile.SaveAs(SaveLocation);
+                                offreEmploi.pathPDFDescription = newFile;
+                            }
+                            offreEmploi.salaire = decimal.Parse(txtSalaire.Text);
+                            offreEmploi.nbHeureSemaine = short.Parse(txtHeures.Text);
+                            offreEmploi.adresseTravail = txtAdresse.Text;
+                            offreEmploi.noTelephone = txtTelephone.Text;
+                            offreEmploi.noTelecopieur = txtTelecopieur.Text;
+                            offreEmploi.courrielOffre = txtCourriel.Text;
+                            offreEmploi.personneRessource = txtRessource.Text;
+                            offreEmploi.etatOffre = "1";
+                            offreEmploi.noPoste = txtposte.Text;
+                            offreEmploi.validerOffre = false;
+                            offreEmploi.VilleIDVille = idVille;
+                            int idUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+                            Employeur employeur = (from employeurs in lecontexte.UtilisateurSet.OfType<Employeur>()
+                                                   where employeurs.IDUtilisateur == idUtilisateur
+                                                   select employeurs).FirstOrDefault();
+                            offreEmploi.Employeur = employeur;
+                            offreEmploi.EmployeurIDUtilisateur = idUtilisateur;
+
+                            Ville ville = (from villes in lecontexte.VilleSet
+                                           where villes.IDVille == idVille
+                                           select villes).FirstOrDefault();
+                            offreEmploi.Ville = ville;
+
+                            lecontexte.OffreEmploiSet.Add(offreEmploi);
                         }
 
-                        offreEmploi.dateDebutOffre = DateTime.Parse(txtJourDebut.Text + "/" + txtMoisDebut.Text + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
-                        if (Session["fuPDF"] != null)
-                        {
-                            fuPDF = (FileUpload)Session["fuPDF"];
-                            fuPDF.PostedFile.SaveAs(SaveLocation);
-                            offreEmploi.pathPDFDescription = newFile;
-                        }
-                        offreEmploi.salaire = decimal.Parse(txtSalaire.Text);
-                        offreEmploi.nbHeureSemaine = short.Parse(txtHeures.Text);
-                        offreEmploi.adresseTravail = txtAdresse.Text;
-                        offreEmploi.noTelephone = txtTelephone.Text;
-                        offreEmploi.noTelecopieur = txtTelecopieur.Text;
-                        offreEmploi.courrielOffre = txtCourriel.Text;
-                        offreEmploi.personneRessource = txtRessource.Text;
-                        offreEmploi.EmployeurIDUtilisateur = 1;
-                        offreEmploi.etatOffre = "0";
-                        offreEmploi.noPoste = txtposte.Text;
-                        offreEmploi.validerOffre = false;
-                        offreEmploi.VilleIDVille = idVille;
-                        Employeur employeur = (from employeurs in lecontexte.UtilisateurSet.OfType<Employeur>()
-                                               where employeurs.IDEmployeur == 1
-                                               select employeurs).FirstOrDefault();
-                        offreEmploi.Employeur = employeur;
-
-                        Ville ville = (from villes in lecontexte.VilleSet
-                                       where villes.IDVille == idVille
-                                       select villes).FirstOrDefault();
-                        offreEmploi.Ville = ville;
-
-                        lecontexte.OffreEmploiSet.Add(offreEmploi);
                         lecontexte.SaveChanges();
-
+                        mvAjoutOffre.SetActiveView(viewFin);
 
                     }
                     catch (Exception ex)
                     {
 
-                        lblErreur.Text = "Erreur lors de l'ajour de l'offre";
+                        lblErreur.Text = "Erreur lors de l'ajout de l'offre";
                     }
 
                 }
