@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <!-- Header Carousel -->
-    <div class="container">
+    <div class="container" >
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
