@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Temoignage.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Temoignage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FaireTemoignage.aspx.cs" Inherits="Site_de_la_Technique_Informatique.FaireTemoignage" MaintainScrollPositionOnPostback="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
    <!-- jQuery -->
@@ -20,13 +21,14 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12" style="background-color: #f5f5f5; text-align:center; border-radius:40px; padding-bottom:30px;">
+            <div class="col-lg-12" style="background-color: #f5f5f5; text-align:center; border-radius:40px; padding-bottom:30px; padding-top:5px;">
 
-                <div id="divSuccesEnvoiTemoignage" runat="server" visible="false" style="text-align:center; color:white; background-color:green;">
-                    Votre témoignage a été sauvegardé avec succes!
+                <div id="divSuccesEnvoiTemoignage" runat="server" visible="false" style="text-align:center; color:white; background-color:green; width:80%; margin-left:10%;">
+                     <asp:Label ID="lblSuccesTemoignage" runat="server" Text="Votre témoignage a été sauvegardé avec succes!"></asp:Label>
+
                 </div>
 
-        <div id="divErreurEnvoiTemoignage" runat="server" visible="false" style="text-align:center; clear:both; color:white; background-color:red;">
+        <div id="divErreurEnvoiTemoignage" runat="server" visible="false" style="text-align:center; clear:both; color:white; background-color:red; width:80%; margin-left:10%">
                     <asp:Label ID="lblErreurTemoignage" runat="server" Text=""></asp:Label>
                 </div>
                 <div style="text-align:center;">

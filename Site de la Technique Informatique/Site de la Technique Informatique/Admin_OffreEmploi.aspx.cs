@@ -18,16 +18,13 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           // SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
             //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
-            if (Page.IsPostBack == false)
-            {
-                dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
-            }
+             dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
         }
 
         //Méthode pour downloader le PDF de l'offre d'emploi
@@ -51,20 +48,63 @@ namespace Site_de_la_Technique_Informatique
         {
             int argument = Convert.ToInt32(((Button)sender).CommandArgument);
 
-            using (LeModelTIContainer leModel = new LeModelTIContainer())
+            try
             {
-                Model.OffreEmploi lOffreAAccepter = (from cl in leModel.OffreEmploiSet
-                                                     where cl.IDOffreEmploi == argument
-                                                     select cl).FirstOrDefault();
-
-                //Si l'offre est trouvé
-                if (lOffreAAccepter != null)
+                using (LeModelTIContainer leModel = new LeModelTIContainer())
                 {
-                    lOffreAAccepter.validerOffre = true;
-                    leModel.SaveChanges();
-                    lviewOffresDEmploi.DataBind();
-                }
+                    Model.OffreEmploi lOffreAAccepter = (from cl in leModel.OffreEmploiSet
+                                                         where cl.IDOffreEmploi == argument
+                                                         select cl).FirstOrDefault();
 
+                    //Si l'offre est trouvé
+                    if (lOffreAAccepter != null)
+                    {
+                        lOffreAAccepter.validerOffre = true;
+
+                        Model.Utilisateur lutilisateurCo = new Model.Utilisateur();
+                        lutilisateurCo = null;
+
+                        //Récupérer la personne connecté
+                        if (Request.Cookies["TIID"] != null)
+                        {
+                            if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
+                            {
+                                int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+
+                                lutilisateurCo = (from cl in leModel.UtilisateurSet
+                                                  where cl.IDUtilisateur == leId
+                                                  select cl).FirstOrDefault();
+                            }
+                        }
+
+                        //Créer le log
+                        Model.Log loggerUnLog = new Model.Log();
+
+                        //Si lutilisateur connecté est trouvé
+                        if (lutilisateurCo != null)
+                        {
+                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreAAccepter.titreOffre + " : a été ACCEPTÉ.";
+                            loggerUnLog.dateLog = DateTime.Now;
+                            loggerUnLog.typeLog = 0;
+                            loggerUnLog.Utilisateur = lutilisateurCo;
+                            loggerUnLog.UtilisateurIDUtilisateur = lutilisateurCo.IDUtilisateur;
+                        }
+                        else
+                        {
+                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreAAccepter.titreOffre + " : a été ACCEPTÉ."; 
+                            loggerUnLog.dateLog = DateTime.Now;
+                            loggerUnLog.typeLog = 0;
+                        }
+
+                        leModel.LogSet.Add(loggerUnLog);
+                        leModel.SaveChanges();
+                        lviewOffresDEmploi.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogErreur("Admin_OffreEmploi.aspx.cs dans la méthode AccepterOffreEmploi_Click", ex);
             }
         }
 
@@ -73,20 +113,63 @@ namespace Site_de_la_Technique_Informatique
         {
             int argument = Convert.ToInt32(((Button)sender).CommandArgument);
 
-            using (LeModelTIContainer leModel = new LeModelTIContainer())
+            try
             {
-                Model.OffreEmploi lOffreARefuser = (from cl in leModel.OffreEmploiSet
-                                                    where cl.IDOffreEmploi == argument
-                                                    select cl).FirstOrDefault();
-
-                //Si l'offre est trouvé
-                if (lOffreARefuser != null)
+                using (LeModelTIContainer leModel = new LeModelTIContainer())
                 {
-                    leModel.OffreEmploiSet.Remove(lOffreARefuser);
-                    leModel.SaveChanges();
-                    lviewOffresDEmploi.DataBind();
-                }
+                    Model.OffreEmploi lOffreARefuser = (from cl in leModel.OffreEmploiSet
+                                                        where cl.IDOffreEmploi == argument
+                                                        select cl).FirstOrDefault();
 
+                    //Si l'offre est trouvé
+                    if (lOffreARefuser != null)
+                    {
+                        leModel.OffreEmploiSet.Remove(lOffreARefuser);
+
+                        Model.Utilisateur lutilisateurCo = new Model.Utilisateur();
+                        lutilisateurCo = null;
+
+                        //Récupérer la personne connecté
+                        if (Request.Cookies["TIID"] != null)
+                        {
+                            if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
+                            {
+                                int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+
+                                lutilisateurCo = (from cl in leModel.UtilisateurSet
+                                                  where cl.IDUtilisateur == leId
+                                                  select cl).FirstOrDefault();
+                            }
+                        }
+
+                        //Créer le log
+                        Model.Log loggerUnLog = new Model.Log();
+
+                        //Si lutilisateur connecté est trouvé
+                        if (lutilisateurCo != null)
+                        {
+                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreARefuser.titreOffre + " : a été REFUSÉ.";
+                            loggerUnLog.dateLog = DateTime.Now;
+                            loggerUnLog.typeLog = 0;
+                            loggerUnLog.Utilisateur = lutilisateurCo;
+                            loggerUnLog.UtilisateurIDUtilisateur = lutilisateurCo.IDUtilisateur;
+                        }
+                        else
+                        {
+                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreARefuser.titreOffre + " : a été REFUSÉ.";
+                            loggerUnLog.dateLog = DateTime.Now;
+                            loggerUnLog.typeLog = 0;
+                        }
+
+                        leModel.LogSet.Add(loggerUnLog);
+                        leModel.SaveChanges();
+                        lviewOffresDEmploi.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogErreur("Admin_OffreEmploi.aspx.cs dans la méthode SupprimerOffreEmploi_Click", ex);
             }
         }
 
@@ -127,10 +210,14 @@ namespace Site_de_la_Technique_Informatique
 
                     string VoirOffreValideOuNon = "VoirNonValidé";
 
-                    //Si on a changé la valeur du hidden field
+                    //Vérifier si la valeur n'est pas null
                     if (hfieldVoirOffreValideOuNon.Value != null)
                     {
-                        VoirOffreValideOuNon = Convert.ToString(hfieldVoirOffreValideOuNon.Value);
+                        //Si valeur du hiddenfield n'est pas vide
+                        if(!hfieldVoirOffreValideOuNon.Value.Equals(""))
+                        {
+                            VoirOffreValideOuNon = Convert.ToString(hfieldVoirOffreValideOuNon.Value);
+                        }
                     }
 
                     if (VoirOffreValideOuNon.Equals("VoirNonValidé"))
@@ -151,14 +238,14 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                //A AJOUTER UN LOG DANS LA ROUTINE DERREUR? ATTENDRE ROUTINE DERREUR FINI?
+                LogErreur("Admin_OffreEmploi.aspx.cs dans la méthode GetLesOffresDEmploi", ex);
             }
 
             return listeDesOffresEmploi.AsQueryable();
         }
 
-        //Pas afficher les champs vides
-        public bool PasAfficherSiNull(Model.OffreEmploi trouverOffre, string valeurAChecker)//int idOffre, string valeurAChecker)
+        //Pour ne pas afficher les champs vides
+        public bool PasAfficherSiNull(Model.OffreEmploi trouverOffre, string valeurAChecker)
         {
             if (trouverOffre != null)
             {
@@ -204,6 +291,7 @@ namespace Site_de_la_Technique_Informatique
             return false;
         }
 
+        //Permet de savoir si on veut afficher les offres validé ou non
         public bool VisibiliteBoutonValidation(bool voirLesNonValide)
         {
             string VoirOffreValideOuNon = "VoirNonValidé";
