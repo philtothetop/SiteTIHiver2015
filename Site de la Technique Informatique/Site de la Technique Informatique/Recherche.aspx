@@ -15,10 +15,9 @@
             </ol>
         </div>
     </div>
-    <div style="padding-left: 20px;">
-        <table>
-            <tr>
-                <td>
+
+    <div >
+        
                       <div style="padding-top: 5px;">
                         <asp:Label ID="Label4" runat="server" Text="Prénom du Membre:"></asp:Label>
                         <asp:TextBox runat="server" ID="txtPrenomMembre"></asp:TextBox>
@@ -35,9 +34,7 @@
                     <div style="padding-top: 5px;">
                         <asp:Button runat="server" ID="btnRecherche" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
                     </div>
-                </td>
-            </tr>
-        </table>
+                
         <br />
         <asp:Panel ID="panelResultats" runat="server" BorderStyle="Solid" BorderWidth="1px" Visible="false">
             <asp:ListView runat="server"

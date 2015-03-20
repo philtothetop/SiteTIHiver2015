@@ -89,23 +89,6 @@ namespace Site_de_la_Technique_Informatique
                 }
             }
         }
-
-        //VA CHERCHER UN ÉTUDIANT AU RANDOM
-        public Etudiant getUnEtudiantRandom()
-        {
-            Etudiant cestMonTour = new Etudiant();
-            try
-            {
-                cestMonTour = lesEtudiants[index];
-                index++;
-            }
-            catch (Exception ex)
-            {
-                LogErreur("QuiSommesNous-getUnEtudiantRandom", ex);
-            }
-            return cestMonTour;
-        }
-
         #endregion
 
 
