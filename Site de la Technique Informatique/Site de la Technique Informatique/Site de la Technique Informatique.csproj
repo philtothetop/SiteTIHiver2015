@@ -166,6 +166,7 @@
     <Content Include="Photos\Profils\Jacob.JPG" />
     <Content Include="Photos\Profils\Karl.JPG" />
     <Content Include="Photos\Profils\Marie.JPG" />
+    <Content Include="Photos\Profils\photobase.bmp" />
     <Content Include="Photos\Profils\Raphael.JPG" />
     <Content Include="Photos\Profils\Xavier.JPG" />
     <Content Include="Photos\quiSommesNous.JPG" />
