@@ -72,8 +72,10 @@ namespace Site_de_la_Technique_Informatique
                     if (offreEmploi.EmployeurIDUtilisateur == idUtilisateur)
                     {
                         lnkSupprimer.Visible = true;
+                        lnkModifier.Visible = true;
                     }
                 }
+
             }
         }
 
@@ -119,6 +121,13 @@ namespace Site_de_la_Technique_Informatique
                 Response.Redirect("~/listeOffresEmploi.aspx", false);
 
             }
+        }
+
+        protected void lnkModifier_Click(object sender, EventArgs e)
+        {
+            Session["IDOffreEmploiModifier"] = Int32.Parse(Session["IDOffreEmploi"].ToString());
+            Session["IDOffreEmploi"] = null;
+            Response.Redirect("~/ajoutOffreEmploi.aspx", false);
         }
     }
 }
