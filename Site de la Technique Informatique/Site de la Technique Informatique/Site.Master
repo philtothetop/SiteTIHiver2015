@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Techniques de l'informatique</title>
   
-    
+    <%--lien du favicon a la racine--%>
     <link rel="icon" href="toast.gif" type="image/gif" />
 
     <link href="Css/bootstrap.min.css" rel="stylesheet"/>  
