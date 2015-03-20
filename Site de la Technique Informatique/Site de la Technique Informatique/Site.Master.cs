@@ -168,5 +168,16 @@ namespace Site_de_la_Technique_Informatique
             string hashMdp = Convert.ToBase64String(hash);
             return hashMdp;
         }
+
+        //Bouton Déconnexion
+        protected void lnkbtnDeconnexion_Click(object sender, EventArgs e)
+        {
+            Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
+            Response.Cookies["TINom"].Value = null; //enlève la valeur du cookie
+            Response.Cookies["TIID"].Value = null; //enlève la valeur du cookie
+            Response.Cookies["TIUtilisateur"].Value = null; //enlève la valeur du cookie
+
+            Response.Write(Request.RawUrl.ToString()); // reload la page depuis laquelle la déconnexion a été appellée
+        }
     }
 }

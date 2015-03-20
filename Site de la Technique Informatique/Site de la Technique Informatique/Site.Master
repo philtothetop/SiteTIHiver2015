@@ -111,7 +111,7 @@
                                 
                                 <ul class="dropdown-menu">
                                 <li><a href="Vertic.aspx">Profil</a> </li>
-                                <li><a href="InformationsStage.aspx">Déconnexion</a> </li>
+                                <li><asp:LinkButton ID="lnkbtnDeconnexion" runat="server" Text="Déconnexion" OnClick="lnkbtnDeconnexion_Click" /> </li>
 
                     </ul>
 
