@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="LeModelTI.ParutionMedia" Width="2.25" PointX="13.125" PointY="12.875" />
         <EntityTypeShape EntityType="LeModelTI.FAQ" Width="1.875" PointX="9.75" PointY="13.875" />
         <EntityTypeShape EntityType="LeModelTI.Nouvelle" Width="2.125" PointX="6.5" PointY="13.5" />
-        <EntityTypeShape EntityType="LeModelTI.SectionForum" Width="2.125" PointX="3.625" PointY="13.5" />
+        <EntityTypeShape EntityType="LeModelTI.SectionForum" Width="2.125" PointX="3.25" PointY="14.375" />
         <EntityTypeShape EntityType="LeModelTI.EnteteForum" Width="2.125" PointX="0.75" PointY="11.375" />
         <EntityTypeShape EntityType="LeModelTI.MessageForum" Width="2" PointX="3.75" PointY="11.25" />
         <EntityTypeShape EntityType="LeModelTI.Professeur" Width="1.5" PointX="10" PointY="10.125" />
