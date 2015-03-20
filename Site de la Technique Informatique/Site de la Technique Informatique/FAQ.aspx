@@ -34,16 +34,16 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <%--<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href='<%# Eval("IDFAQ") %>' runat="server">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%# Eval("IDFAQ") %>" runat="server">
                                         <asp:Label ID="lblQuestionFAQ" runat="server" Text='<%# BindItem.texteQuestion %>'></asp:Label>
-                                        </a>--%>
+                                        </a>
                                     </h4>
                                 </div>
-                                <%--<div id='<%# Eval("IDFAQ").ToString() %>' class="panel-collapse collapse" runat="server">
+                                <div id="collapse<%# Eval("IDFAQ").ToString() %>" class="panel-collapse collapse" runat="server">
                                     <div class="panel-body">
                                         <asp:Label ID="lblReponseFAQ" runat="server" Text='<%# BindItem.texteReponse %>'></asp:Label>
                                     </div>
-                                </div>--%>
+                                </div>
                             </div>
                         </div>
                     </ItemTemplate>
