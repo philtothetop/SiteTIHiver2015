@@ -76,13 +76,7 @@
                                     <asp:Label ID="lblCourriel" Text='<%# Item.courriel %>' runat="server" Style="text-decoration: none; color: black;"></asp:Label>
                     </div>
                                 </div>
-
-                             
-
-                                    
-                               
-
-                               
+                              
 
                                     </div>
                                 </div>
