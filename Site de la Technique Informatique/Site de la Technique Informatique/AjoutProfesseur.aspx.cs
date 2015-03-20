@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using Site_de_la_Technique_Informatique.Classes;
 using Site_de_la_Technique_Informatique.Model;
-using Site_de_la_Technique_Informatique.Classes;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Validation;
+using System.Linq;
 
 namespace Site_de_la_Technique_Informatique
 {
