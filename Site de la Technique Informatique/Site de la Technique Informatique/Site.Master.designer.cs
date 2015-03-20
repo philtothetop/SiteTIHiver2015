@@ -40,6 +40,15 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// Contrôle lblInscription.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblInscription;
+        
+        /// <summary>
         /// Contrôle lblConnexion.
         /// </summary>
         /// <remarks>

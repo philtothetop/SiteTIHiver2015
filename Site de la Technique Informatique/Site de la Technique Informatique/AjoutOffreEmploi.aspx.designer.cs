@@ -364,21 +364,12 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.LinkButton lnkAjouter;
         
         /// <summary>
-        /// Contrôle viewFin.
+        /// Contrôle 1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.View viewFin;
-        
-        /// <summary>
-        /// Contrôle lnkRetour.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkRetour;
+        //protected global::System.Web.UI.WebControls.View 1;
     }
 }
