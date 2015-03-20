@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Site_de_la_Technique_Informatique.Model
 {
@@ -13,15 +15,24 @@ using System.ComponentModel;
     public partial class Professeur : Membre
     {
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext ValidationContext)
+        }
+
+
+    public partial class Professeur : IValidatableObject
+    {
+
+        
+ public IEnumerable<ValidationResult> Validate(ValidationContext ValidationContext)
         {
             LeModelTIContainer leContext = new LeModelTIContainer();
-            var listeUtilisateurs = from cl in leContext.UtilisateurSet where cl.IDUtilisateur != this.IDUtilisateur select cl;
             var listeRetour = new List<ValidationResult>();
 
+            List<Utilisateur> listeUtilisateurs = (from cl in leContext.UtilisateurSet where cl.IDUtilisateur != this.IDUtilisateur select cl).ToList();
+            
 
 
-            foreach (Membre member in listeUtilisateurs)
+
+            foreach (Utilisateur member in listeUtilisateurs)
             {
                 if (member.courriel == this.courriel)
                 {
@@ -30,9 +41,10 @@ using System.ComponentModel;
                 }
 
             }
+
             return listeRetour;
+
         }
-      
     }
 
     public partial class ProfesseurValidation 

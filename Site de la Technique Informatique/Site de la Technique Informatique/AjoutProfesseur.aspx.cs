@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿using Site_de_la_Technique_Informatique.Classes;
 using Site_de_la_Technique_Informatique.Model;
-using Site_de_la_Technique_Informatique.Classes;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Validation;
+using System.Linq;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -74,8 +71,18 @@ namespace Site_de_la_Technique_Informatique
 
                         if (isValid)
                         {
+
+                            Model.Log logEntry = new Model.Log
+                            {
+                                dateLog = DateTime.Now,
+                                actionLog = nouveauProf.prenom + " " + nouveauProf.nom + " a été ajouté à la table des professeurs",
+                                typeLog = 3
+                            };
+
+                            lecontexte.LogSet.Add(logEntry);
                             lecontexte.SaveChanges();
                             sendPassword(tempPassword, nouveauProf);
+
                         }
                         else
                         {
@@ -87,10 +94,12 @@ namespace Site_de_la_Technique_Informatique
                         }
 
 
-
+                        lblMessages.Text = "";
                     }
                     catch (DbEntityValidationException ex)
                     {
+
+                        lblMessages.Text = "";
                         foreach (DbEntityValidationResult failure in ex.EntityValidationErrors)
                         {
                             foreach (DbValidationError lerror in failure.ValidationErrors)
@@ -174,13 +183,22 @@ namespace Site_de_la_Technique_Informatique
         {
             try { 
             creerProfesseur();
+
+            if (string.IsNullOrEmpty(lblMessages.Text)) { 
+
             divAjoutProf.Visible = false;
             divComplete.Visible = true;
+            }
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+        protected void lnkRetourAccueil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
         }
 
     }

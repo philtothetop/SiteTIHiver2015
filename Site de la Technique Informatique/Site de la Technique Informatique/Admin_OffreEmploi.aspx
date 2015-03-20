@@ -127,7 +127,6 @@
                         </ItemTemplate>
 
             <EmptyDataTemplate>
-                <!-- Page Heading/Breadcrumbs -->
         <div>
             <div style="width:100%; text-align:center; padding-top:20px;">
                        <asp:Label ID="lblPasDeOffreIci" runat="server" Text="Il n'y a pas d'offre d'emploi à valider pour le moment" style="font:bold; font-size:large"></asp:Label>

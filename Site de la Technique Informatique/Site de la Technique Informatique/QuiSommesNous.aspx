@@ -107,29 +107,32 @@ Extrants: --%>
 
 
             <asp:ListView ID="lvEtudiants" runat="server"
-                    ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
-                    SelectMethod="lvEtudiants_GetData"
-                    GroupItemCount="6">
-                    <LayoutTemplate>
-                        <asp:PlaceHolder ID="groupPlaceHolder" runat="server"></asp:PlaceHolder>
-                    </LayoutTemplate>
-                    <GroupTemplate>
-                        <div class="row">
-                            <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                        </div>
-                    </GroupTemplate>
+                ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
+                SelectMethod="lvEtudiants_GetData"
+                GroupItemCount="6">
+
+                <ItemTemplate>
+                    <div class="col-md-2 col-sm-4 col-xs-6">
+                        <img class="img-responsive customer-img" src="<%# "~/Photos/Profils/" + getUnEtudiantRandom().pathPhotoProfil %>" alt="" />
+                    </div>
+                </ItemTemplate>
+
+                <LayoutTemplate>
+                    <asp:PlaceHolder ID="groupPlaceHolder" runat="server"></asp:PlaceHolder>
+                </LayoutTemplate>
+                <GroupTemplate>
+                    <div class="row">
+                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
+                    </div>
+                </GroupTemplate>
                 <GroupSeparatorTemplate>
                     <div class="row">&nbsp;</div>
                 </GroupSeparatorTemplate>
-                    <ItemTemplate>
-                        <div class="col-md-2 col-sm-4 col-xs-6">
-                            <img class="img-responsive customer-img" src="Photos/image1.jpg" alt="" />
-                        </div>
-                    </ItemTemplate>
-                </asp:ListView>
+
+            </asp:ListView>
 
 
-         
+
 
         </div>
         <!-- /.row -->
