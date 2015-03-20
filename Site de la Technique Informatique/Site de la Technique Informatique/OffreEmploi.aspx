@@ -22,8 +22,11 @@
                     <li class="active">
                         <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click" Visible="false"></asp:LinkButton>
                     </li>
-                     <li class="active">
+                    <li class="active" style="float: right">
                         <asp:LinkButton ID="lnkSupprimer" Text="Supprimer l'offre" runat="server" OnClick="lnkSupprimer_Click" Visible="false"></asp:LinkButton>
+                    </li>
+                    <li class="active" style="float: right">
+                        <asp:LinkButton ID="lnkModifier" Text="Modifier l'offre" runat="server" OnClick="lnkModifier_Click" Visible="false"></asp:LinkButton>
                     </li>
                 </ol>
             </div>

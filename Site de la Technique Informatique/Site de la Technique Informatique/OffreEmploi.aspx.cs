@@ -9,10 +9,13 @@ using System.Net;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class OffreEmploi : System.Web.UI.Page
+    public partial class OffreEmploi : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            SavoirSiPossedeAutorizationPourLaPage(true, true, true, true);
+
             Model.OffreEmploi offreEmploi;
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
@@ -72,8 +75,10 @@ namespace Site_de_la_Technique_Informatique
                     if (offreEmploi.EmployeurIDUtilisateur == idUtilisateur)
                     {
                         lnkSupprimer.Visible = true;
+                        lnkModifier.Visible = true;
                     }
                 }
+
             }
         }
 
@@ -119,6 +124,13 @@ namespace Site_de_la_Technique_Informatique
                 Response.Redirect("~/listeOffresEmploi.aspx", false);
 
             }
+        }
+
+        protected void lnkModifier_Click(object sender, EventArgs e)
+        {
+            Session["IDOffreEmploiModifier"] = Int32.Parse(Session["IDOffreEmploi"].ToString());
+            Session["IDOffreEmploi"] = null;
+            Response.Redirect("~/ajoutOffreEmploi.aspx", false);
         }
     }
 }
