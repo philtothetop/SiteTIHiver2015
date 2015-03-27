@@ -57,6 +57,7 @@ namespace Site_de_la_Technique_Informatique
                     nouveauProf.prenom = txtPrenom.Text.Trim();
                     nouveauProf.nom = txtNom.Text.Trim();
                     nouveauProf.courriel = txtCourriel.Text.Trim();
+                    nouveauProf.pathPhotoProfil = "photobase.bmp";
 
                     lecontexte.UtilisateurSet.Add(nouveauProf);
 

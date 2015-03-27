@@ -104,7 +104,6 @@
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
     <Content Include="Admin_Vertic.aspx" />
-    <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
@@ -141,6 +140,7 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
+    <Content Include="ModifierProfesseur.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -241,13 +241,6 @@
     <Compile Include="Admin_Vertic.aspx.designer.cs">
       <DependentUpon>Admin_Vertic.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AjoutOffreEmploi.aspx.cs">
-      <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
-      <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AjoutProfesseur.aspx.cs">
       <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,6 +250,7 @@
     </Compile>
     <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
+    <Compile Include="Classes\LoadImage.cs" />
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -435,6 +429,13 @@
     </Compile>
     <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
+    <Compile Include="ModifierProfesseur.aspx.cs">
+      <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifierProfesseur.aspx.designer.cs">
+      <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
