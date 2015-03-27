@@ -1,5 +1,5 @@
 ﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir accepter/refuser les offres d'emplois en plus de les supprimers
-// Écrit par Raphael Brouard, Février 2015
+// Écrit par Raphael Brouard, Février-Mars 2015
 // Intrants: Vide
 // Extrants: L'offre choisi a été VALIDÉ ou SUPPRIMÉ dans la BD.
 
@@ -88,17 +88,16 @@ namespace Site_de_la_Technique_Informatique
                             loggerUnLog.typeLog = 0;
                             loggerUnLog.Utilisateur = lutilisateurCo;
                             loggerUnLog.UtilisateurIDUtilisateur = lutilisateurCo.IDUtilisateur;
+
+                            leModel.LogSet.Add(loggerUnLog);
+                            leModel.SaveChanges();
+                            lviewOffresDEmploi.DataBind();
                         }
+                        //Si pu connecté, rediriger a la page d'accueil
                         else
                         {
-                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreAAccepter.titreOffre + " : a été ACCEPTÉ."; 
-                            loggerUnLog.dateLog = DateTime.Now;
-                            loggerUnLog.typeLog = 0;
+                            Response.Redirect("Default.aspx");
                         }
-
-                        leModel.LogSet.Add(loggerUnLog);
-                        leModel.SaveChanges();
-                        lviewOffresDEmploi.DataBind();
                     }
                 }
             }
@@ -148,7 +147,7 @@ namespace Site_de_la_Technique_Informatique
                         //Si lutilisateur connecté est trouvé
                         if (lutilisateurCo != null)
                         {
-                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreARefuser.titreOffre + " : a été REFUSÉ.";
+                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreARefuser.titreOffre + " : a été REFUSÉ/SUPPRIMÉ.";
                             loggerUnLog.dateLog = DateTime.Now;
                             loggerUnLog.typeLog = 0;
                             loggerUnLog.Utilisateur = lutilisateurCo;
@@ -156,7 +155,7 @@ namespace Site_de_la_Technique_Informatique
                         }
                         else
                         {
-                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreARefuser.titreOffre + " : a été REFUSÉ.";
+                            loggerUnLog.actionLog = "L'offre d'emploi : " + lOffreARefuser.titreOffre + " : a été REFUSÉ/SUPPRIMÉ.";
                             loggerUnLog.dateLog = DateTime.Now;
                             loggerUnLog.typeLog = 0;
                         }

@@ -111,6 +111,10 @@ Extrants: --%>
                 SelectMethod="lviewEtudiants_GetData"
                 GroupItemCount="6">
 
+                <EmptyDataTemplate>
+                    Aucune information disponible pour le moment.
+                </EmptyDataTemplate>
+
                 <ItemTemplate>
                     <div class="col-md-2 col-sm-4 col-xs-6">
                         <asp:Image runat="server" class="img-responsive customer-img" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />

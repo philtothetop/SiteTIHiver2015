@@ -23,9 +23,9 @@ namespace Site_de_la_Technique_Informatique
         {
             Exception ex = Server.GetLastError();
 
-            LogErreurCritique(ex);
-
             Server.Transfer("~/ErreursImportants.aspx?handler=" + ex.TargetSite.Name, true);
+
+            LogErreurCritique(ex);
 
             Server.ClearError();
         }
@@ -35,51 +35,66 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer leContext = new LeModelTIContainer())
             {
-                string leMessage = source + "/" + ex.Message + "/" + ex.InnerException;
+                try
+                { 
+                    string leMessage = source + "/" + ex.Message + "/" + ex.InnerException;
 
-                Model.Log uneNouvelleErreur = new Model.Log();
-                uneNouvelleErreur.dateLog = DateTime.Now;
-                uneNouvelleErreur.actionLog = leMessage;
-                uneNouvelleErreur.typeLog = 2;
+                    Model.Log uneNouvelleErreur = new Model.Log();
+                    uneNouvelleErreur.dateLog = DateTime.Now;
+                    uneNouvelleErreur.actionLog = leMessage;
+                    uneNouvelleErreur.typeLog = 2;
 
-                if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
+                    if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
+                    {
+                        String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
+                        Model.Utilisateur lUtilisateurConnecte = (from cl in leContext.UtilisateurSet
+                                                                  where cl.courriel.Equals(courrielDuConnecte)
+                                                                  select cl).FirstOrDefault();
+                        int noCompte = lUtilisateurConnecte.IDUtilisateur;
+                        uneNouvelleErreur.UtilisateurIDUtilisateur = noCompte;
+                    }  
+
+                    leContext.LogSet.Add(uneNouvelleErreur);
+                    leContext.SaveChanges();
+                }
+                catch
                 {
-                    String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
-                    Model.Utilisateur lUtilisateurConnecte = (from cl in leContext.UtilisateurSet
-                                                              where cl.courriel.Equals(courrielDuConnecte)
-                                                              select cl).FirstOrDefault();
-                    int noCompte = lUtilisateurConnecte.IDUtilisateur;
-                    uneNouvelleErreur.UtilisateurIDUtilisateur = noCompte;
-                }  
-
-                leContext.LogSet.Add(uneNouvelleErreur);
-                leContext.SaveChanges();
+                    //On le laisse failer silencieusement...
+                }
             }
         }
 
+        //Pour logger les erreurs dans la bd
         public void LogErreurCritique(Exception ex)
         {
             using (LeModelTIContainer leContext = new LeModelTIContainer())
             {
-                string leMessage = ex.TargetSite.Name + "/" + ex.Message + "/" + ex.InnerException;
+
+                try { 
+                    string leMessage = ex.TargetSite.Name + "/" + ex.Message + "/" + ex.InnerException;
                
-                Model.Log uneNouvelleErreur = new Model.Log();
-                uneNouvelleErreur.dateLog = DateTime.Now;
-                uneNouvelleErreur.actionLog = leMessage;
-                uneNouvelleErreur.typeLog = 1;
+                    Model.Log uneNouvelleErreur = new Model.Log();
+                    uneNouvelleErreur.dateLog = DateTime.Now;
+                    uneNouvelleErreur.actionLog = leMessage;
+                    uneNouvelleErreur.typeLog = 1;
 
-                if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
-                {
-                    String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
-                    Model.Utilisateur lUtilisateurConnecte = (from cl in leContext.UtilisateurSet
-                                                              where cl.courriel.Equals(courrielDuConnecte)
-                                                              select cl).FirstOrDefault();
-                    int noCompte = lUtilisateurConnecte.IDUtilisateur;
-                    uneNouvelleErreur.UtilisateurIDUtilisateur = noCompte;
+                    if (Request.Cookies["TICourriel"] != null && !Request.Cookies["TICourriel"].Equals(""))
+                    {
+                        String courrielDuConnecte = Convert.ToString(Request.Cookies["TICourriel"]);
+                        Model.Utilisateur lUtilisateurConnecte = (from cl in leContext.UtilisateurSet
+                                                                  where cl.courriel.Equals(courrielDuConnecte)
+                                                                  select cl).FirstOrDefault();
+                        int noCompte = lUtilisateurConnecte.IDUtilisateur;
+                        uneNouvelleErreur.UtilisateurIDUtilisateur = noCompte;
+                    }
+
+                    leContext.LogSet.Add(uneNouvelleErreur);
+                    leContext.SaveChanges();
                 }
-
-                leContext.LogSet.Add(uneNouvelleErreur);
-                leContext.SaveChanges();
+                catch
+                {
+                    //On le laisse failer silencieusement...
+                }
             }
         }
 
