@@ -30,8 +30,10 @@
                         <div class="media-left media-middle" style="float:left;">
                             <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="175" Width="175" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
                         </div>
-                        <div class="media-body" style="word-wrap:break-word; float:left;">
+                        <div class="media-body" style="float:left;">
+                            <div style="word-break:break-all;">
                             <asp:Label runat="server" style="text-align:center; word-wrap:break-word;" Text='<%# Item.temoignage.Replace("¤", "\r") %>' />
+                        </div>
                         </div>
                     </div>
                 </ItemTemplate>
@@ -42,7 +44,7 @@
                             <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="175" Width="175" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
                         </div>
                         <div class="media-body" style=" float:right;">
-                            <div style="word-wrap:break-word;">
+                            <div style="word-break:break-all;">
                                 <asp:Label runat="server" style="text-align:center;" Text='<%# Item.temoignage.Replace("¤", "\r") %>' />
                             </div>
                         </div>

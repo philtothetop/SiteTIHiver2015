@@ -10,24 +10,15 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class modifProfilEtudiants {
+    public partial class EnteteForum {
         
         /// <summary>
-        /// Contrôle lblMessage.
+        /// Contrôle lviewEntete.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
-        
-        /// <summary>
-        /// Contrôle lvModifProfilEtudiants.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvModifProfilEtudiants;
+        protected global::System.Web.UI.WebControls.ListView lviewEntete;
     }
 }

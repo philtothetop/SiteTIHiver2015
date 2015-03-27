@@ -147,7 +147,6 @@
     <Content Include="Log.aspx" />
     <Content Include="ModifierFAQ.aspx" />
     <Content Include="modifProfilEtudiant.aspx" />
-    <Content Include="modifProfilEtudiants.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -179,7 +178,6 @@
     <Content Include="PlanDuSite.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
-    <Content Include="SelectionForum.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -486,13 +484,6 @@
     <Compile Include="modifProfilEtudiant.aspx.designer.cs">
       <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="modifProfilEtudiants.aspx.cs">
-      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modifProfilEtudiants.aspx.designer.cs">
-      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -538,13 +529,6 @@
     </Compile>
     <Compile Include="Recherche.aspx.designer.cs">
       <DependentUpon>Recherche.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SelectionForum.aspx.cs">
-      <DependentUpon>SelectionForum.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SelectionForum.aspx.designer.cs">
-      <DependentUpon>SelectionForum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

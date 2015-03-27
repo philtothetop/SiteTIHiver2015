@@ -26,7 +26,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     //Afficher tout les témoignages validés 
                     listeDesTemoignages = (from cl in lecontexte.UtilisateurSet.OfType<Etudiant>() 
-                                           where cl.temoignage.Length > 1 && cl.valideTemoignage == true 
+                                           where cl.temoignage.Length > 1 //&& cl.valideTemoignage == true 
                                            select cl as Membre).ToList(); 
 
                     List<Membre> listeDesProfs = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>() 
