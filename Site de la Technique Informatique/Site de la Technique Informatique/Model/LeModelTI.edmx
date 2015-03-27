@@ -217,6 +217,7 @@
       <PropertyRef Name="IDParutionMedia" />
     </Key>
     <Property Name="IDParutionMedia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreParution" Type="nvarchar" Nullable="false" MaxLength="250" />
     <Property Name="pathFichierPDF" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="descriptionParution" Type="nvarchar(max)" Nullable="false" />
     <Property Name="dateParution" Type="datetime" Nullable="false" />
@@ -326,7 +327,6 @@
     <Property Name="valideTemoignage" Type="bit" Nullable="false" />
     <Property Name="valideCourriel" Type="bit" Nullable="false" />
     <Property Name="pathCV" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="cohorte" Type="smallint" Nullable="false" />
     <Property Name="IDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProfesseurCours">
@@ -820,6 +820,7 @@
             <PropertyRef Name="IDParutionMedia" />
           </Key>
           <Property Name="IDParutionMedia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreParution" Type="String" Nullable="false" MaxLength="250" />
           <Property Name="pathFichierPDF" Type="String" Nullable="false" MaxLength="200" />
           <Property Name="descriptionParution" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="dateParution" Type="DateTime" Nullable="false" />
@@ -898,7 +899,6 @@
           <Property Name="valideTemoignage" Type="Boolean" Nullable="false" />
           <Property Name="valideCourriel" Type="Boolean" Nullable="false" />
           <Property Name="pathCV" Type="String" Nullable="false" MaxLength="200" />
-          <Property Name="cohorte" Type="Int16" Nullable="false" />
         </EntityType>
         <Association Name="UtilisateurLog">
           <End Type="LeModelTI.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
@@ -1149,7 +1149,6 @@
           <ScalarProperty Name="valideTemoignage" ColumnName="valideTemoignage" />
           <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
           <ScalarProperty Name="pathCV" ColumnName="pathCV" />
-          <ScalarProperty Name="cohorte" ColumnName="cohorte" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1223,6 +1222,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.ParutionMedia)">
         <MappingFragment StoreEntitySet="ParutionMediaSet">
           <ScalarProperty Name="IDParutionMedia" ColumnName="IDParutionMedia" />
+          <ScalarProperty Name="titreParution" ColumnName="titreParution" />
           <ScalarProperty Name="pathFichierPDF" ColumnName="pathFichierPDF" />
           <ScalarProperty Name="descriptionParution" ColumnName="descriptionParution" />
           <ScalarProperty Name="dateParution" ColumnName="dateParution" />
