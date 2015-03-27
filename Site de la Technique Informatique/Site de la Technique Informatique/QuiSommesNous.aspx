@@ -8,7 +8,7 @@ Extrants: --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         var count = 15;
         var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
         function timer(myImage) {
@@ -33,7 +33,7 @@ Extrants: --%>
                 timer(myImage);
             }
         }
-    </script>
+    </script>--%>
 
     <!-- Header container -->
     <div class="container">
@@ -162,7 +162,7 @@ Extrants: --%>
 
                 <ItemTemplate>
                     <div class="col-md-2 col-sm-4 col-xs-6">
-                        <asp:Image runat="server" class="img-responsive customer-img" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' onMouseOver="EasterEgg(this);" onMouseOut="reset();" />
+                        <asp:Image runat="server" class="img-responsive customer-img" ToolTip='<%# Eval("prenom") != null && Eval("nom") != null ? Eval("prenom") + " " + Eval("nom") : "Étudiant" %>' ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' /> <%--onMouseOver="EasterEgg(this);" onMouseOut="reset();"--%>
                     </div>
                 </ItemTemplate>
 
