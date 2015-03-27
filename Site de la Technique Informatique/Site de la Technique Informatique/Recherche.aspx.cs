@@ -33,12 +33,12 @@ namespace Site_de_la_Technique_Informatique
                 }
 
 
-                if (chbProfesseur.Checked && !chbEtudiant.Checked)
+                if (rdbProfesseur.Checked && !rdbEtudiant.Checked)
                 {
                     listeMembre = listeMembre.AsQueryable().Where(cl => cl is Professeur).ToList();
                 }
 
-                else if (!chbProfesseur.Checked && chbEtudiant.Checked)
+                else if (!rdbProfesseur.Checked && rdbEtudiant.Checked)
                 {
                     listeMembre = listeMembre.AsQueryable().Where(cl => cl is Etudiant).ToList();
                 }

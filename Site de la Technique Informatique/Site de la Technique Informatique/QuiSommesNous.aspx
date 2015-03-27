@@ -8,8 +8,13 @@ Extrants: --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <%--<script type="text/javascript">
+        function EasterEgg(){
+            alert('salut');
+        }
+    </script>--%>
 
-    <!-- Header Carousel -->
+    <!-- Header container -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
@@ -19,9 +24,9 @@ Extrants: --%>
                     
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Accueil</a>
+                    <li><a href="Default.aspx">Accueil</a>
                     </li>
-                    <li class="active">À propos</li>
+                    <li class="active">Qui sommes-nous?</li>
                 </ol>
             </div>
         </div>
@@ -42,12 +47,11 @@ Extrants: --%>
         <!-- /.row -->
 
         <!-- Prof -->
-
-
         <div class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">Nos professeurs</h2>
             </div>
+
             <asp:ListView ID="lvProfesseurs" runat="server"
                 ItemType="Site_de_la_Technique_Informatique.Model.Professeur"
                 SelectMethod="lvProfesseurs_GetData"
@@ -105,15 +109,18 @@ Extrants: --%>
                 <h2 class="page-header">Nos Étudiants</h2>
             </div>
 
-
             <asp:ListView ID="lvEtudiants" runat="server"
                 ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
                 SelectMethod="lviewEtudiants_GetData"
                 GroupItemCount="6">
 
+                <EmptyDataTemplate>
+                    Aucune information disponible pour le moment.
+                </EmptyDataTemplate>
+
                 <ItemTemplate>
                     <div class="col-md-2 col-sm-4 col-xs-6">
-                        <asp:Image runat="server" class="img-responsive customer-img" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' ToolTip='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                        <asp:Image runat="server" class="img-responsive customer-img" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
                     </div>
                 </ItemTemplate>
 
@@ -130,9 +137,6 @@ Extrants: --%>
                 </GroupSeparatorTemplate>
 
             </asp:ListView>
-
-
-
 
         </div>
         <!-- /.row -->
