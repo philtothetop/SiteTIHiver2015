@@ -98,7 +98,7 @@
                         </li>
                      
                         <li runat="server" id="lblInscription">
-                                 <a href="Inscription/Inscription.aspx">Inscription</a>
+                                 <a href="Inscription.aspx">Inscription</a>
                             </li>
                                                                                     
                         <li>
