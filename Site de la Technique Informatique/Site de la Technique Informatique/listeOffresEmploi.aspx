@@ -42,8 +42,6 @@
 
                             </div>
                         </div>
-
-
                     </asp:LinkButton>
                 </ItemTemplate>
                 <LayoutTemplate>

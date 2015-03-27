@@ -549,7 +549,15 @@ namespace Site_de_la_Technique_Informatique
                             lecontexte.OffreEmploiSet.Add(offreEmploi);
                         }
 
+                        Model.Log log = new Model.Log(); //crée une entrée de log
+                        log.dateLog = DateTime.Now; //on met la date du jour
+                        log.typeLog = 0; //connexion est de type 0
+                        log.actionLog = "L'utilisateur no " + Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value)) + " a ajouté/modifié une offre d'emploi";
+                        lecontexte.LogSet.Add(log); //on ajoute au log
+
                         lecontexte.SaveChanges();
+
+
                         mvAjoutOffre.SetActiveView(viewFin);
 
                     }
