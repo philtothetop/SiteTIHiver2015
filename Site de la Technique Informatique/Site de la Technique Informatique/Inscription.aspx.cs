@@ -143,6 +143,14 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
+                    //Vérifier si le courriel existe.
+                    Utilisateur utilisateurExistant = (from cl in leContext.UtilisateurSet where cl.courriel.Equals(etudiantACreerCopie.courriel) select cl).FirstOrDefault();
+                    if(utilisateurExistant!=null)
+                    {
+                        ValidationResult vald = new ValidationResult("Un membre ayant se courriel existe déjà.", new[] { "Courriel" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
                     //Comparer les mots de passe
                     TextBox txtConfirmationMotDePasse = (TextBox)lviewItem.FindControl("txtConfirmationMotDePasse");
                     if (txtConfirmationMotDePasse != null && etudiantACreerCopie.hashMotDePasse != txtConfirmationMotDePasse.Text)

@@ -172,8 +172,8 @@ Extrants: --%>
                         <div class="control-group form-group" dvcv>
                             <div class="controls">
                                 <label>CV:</label>
-                                <asp:Label ID="lblCV" runat="server" Text="..." />
-
+                                <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
+                                <label>Changer de CV:</label>
                                 <asp:FileUpload ID="fupCV" runat="server" />
                                 (valides: pdf , doc, docx , odf)
                             </div>

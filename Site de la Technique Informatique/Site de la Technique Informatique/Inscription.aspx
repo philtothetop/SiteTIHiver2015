@@ -186,7 +186,6 @@
 
                                 </div>
                                 <asp:Label ID="lblMessage" runat="server" Text="" />
-                                <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" />
                                 <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 
                                 <!-- Modal Termes et conditions-->
