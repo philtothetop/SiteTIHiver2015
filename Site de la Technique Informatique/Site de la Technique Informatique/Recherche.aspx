@@ -26,23 +26,27 @@
             <div class="col-lg-12">
                
 
-                  <div >
-        
-                      <div style="padding-top: 5px;">
-                        <asp:Label ID="Label4" runat="server" Text="Prénom du Membre:"></asp:Label>
-                        <asp:TextBox runat="server" ID="txtPrenomMembre"></asp:TextBox>
+                  <div>
+                               <div class="well">
+                    <h4>Recherche</h4>
+                    <div class="input-group">
+                        <input type="text" class="form-control"/>
+                        <span class="input-group-btn">
+                            <button runat="server" id="btnRecherche" class="btn btn-default" type="button" onclick="btnRecherche_Click"><i class="fa fa-search"></i></button>
+                        </span>
                     </div>
-                    <div style="padding-top: 5px;">
-                        <asp:Label ID="Label1" runat="server" Text="Nom du Membre:"></asp:Label>
+                   
+                </div>
+                                      
                         <asp:TextBox runat="server" ID="txtNomMembre"></asp:TextBox>
-                    </div>                 
+                                
                     <div style="padding-top: 5px;">
                         <asp:Label ID="Label2" runat="server" Text="Type de Membre:"></asp:Label>
                         <asp:CheckBox ID="chbProfesseur" Text="Professeur" runat="server" TextAlign="Left" />
                         <asp:CheckBox ID="chbEtudiant" Text="Etudiant" runat="server" TextAlign="Left" Style="margin-left: 10px;" />
                     </div>
                     <div style="padding-top: 5px;">
-                        <asp:Button runat="server" ID="btnRecherche" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
+                        <%--<asp:Button runat="server" ID="btnRecherche" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>--%>
                     </div>
                     </div>
         <br />

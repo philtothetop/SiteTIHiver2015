@@ -13,13 +13,13 @@ namespace Site_de_la_Technique_Informatique {
     public partial class Recherche {
         
         /// <summary>
-        /// Contrôle Label1.
+        /// Contrôle btnRecherche.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnRecherche;
         
         /// <summary>
         /// Contrôle txtNomMembre.
@@ -56,15 +56,6 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chbEtudiant;
-        
-        /// <summary>
-        /// Contrôle btnRecherche.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRecherche;
         
         /// <summary>
         /// Contrôle panelResultats.
