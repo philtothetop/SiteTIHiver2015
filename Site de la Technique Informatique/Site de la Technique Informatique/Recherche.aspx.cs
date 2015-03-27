@@ -27,18 +27,18 @@ namespace Site_de_la_Technique_Informatique
 
                 if (txtNomMembre.Text != "")
                 {
-                    List<Model.Membre> prenomFirst = listeMembre.AsQueryable().Where(cl => (cl.prenom + " " + cl.nom).ToLower().Contains(txtNomMembre.Text.ToLower())).ToList();
-                    List<Model.Membre> nomFirst = listeMembre.AsQueryable().Where(cl => (cl.nom + " " + cl.prenom).ToLower().Contains(txtNomMembre.Text.ToLower())).ToList();
-                    listeMembre = prenomFirst.Concat(nomFirst).ToList();
+                    List<Model.Membre> prenomFirst = listeMembre.AsQueryable().Where(cl => (cl.prenom + " " + cl.nom).ToLower().Contains(txtNomMembre.Text.Trim().ToLower())).ToList();
+                    List<Model.Membre> nomFirst = listeMembre.AsQueryable().Where(cl => (cl.nom + " " + cl.prenom).ToLower().Contains(txtNomMembre.Text.Trim().ToLower())).ToList();
+                    listeMembre = prenomFirst.Concat(nomFirst).ToList().Distinct().ToList();
                 }
 
 
-                if (chbProfesseur.Checked && !chbEtudiant.Checked)
+                if (rdbProfesseur.Checked && !rdbEtudiant.Checked)
                 {
                     listeMembre = listeMembre.AsQueryable().Where(cl => cl is Professeur).ToList();
                 }
 
-                else if (!chbProfesseur.Checked && chbEtudiant.Checked)
+                else if (!rdbProfesseur.Checked && rdbEtudiant.Checked)
                 {
                     listeMembre = listeMembre.AsQueryable().Where(cl => cl is Etudiant).ToList();
                 }

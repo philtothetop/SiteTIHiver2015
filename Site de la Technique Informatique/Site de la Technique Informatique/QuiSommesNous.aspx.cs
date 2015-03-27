@@ -3,7 +3,7 @@
 
 using Site_de_la_Technique_Informatique.Model;
 using System;
-using System.Collections;
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,9 +14,6 @@ namespace Site_de_la_Technique_Informatique
 {
     public partial class QuiSommesNous : ErrorHandling
     {
-        static Random rng = new Random();
-        int index = new int();
-        List<Etudiant> lesEtudiants = new List<Etudiant>();
 
         #region Évènements de la page
         protected void Page_Load(object sender, EventArgs e)
@@ -60,9 +57,8 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                    index = 0;
                     string PhotoParDefaut = "photobase.bmp";
-                    listeEtudiants = (from etudiants in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>() /*where (etudiants.pathPhotoProfil != PhotoParDefaut)*/ select etudiants).ToList();
+                    listeEtudiants = (from etudiants in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>() where (etudiants.pathPhotoProfil != PhotoParDefaut) select etudiants).ToList();
                     if (listeEtudiants != null)
                     {
                         Randomize(listeEtudiants);
@@ -76,21 +72,7 @@ namespace Site_de_la_Technique_Informatique
             return listeEtudiants.AsQueryable();
         }
 
-        public void Randomize(IList list)
-        {
-            for (int i = list.Count - 1; i > 0; i--)
-            {
-                int swapIndex = rng.Next(i + 1);
-                if (swapIndex != i)
-                {
-                    object tmp = list[swapIndex];
-                    list[swapIndex] = list[i];
-                    list[i] = tmp;
-                }
-            }
-        }
         #endregion
-
 
     }
 }

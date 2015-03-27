@@ -9,10 +9,13 @@ using System.Net;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class OffreEmploi : System.Web.UI.Page
+    public partial class OffreEmploi : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            SavoirSiPossedeAutorizationPourLaPage(true, true, true, true);
+
             Model.OffreEmploi offreEmploi;
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {

@@ -13,33 +13,6 @@ namespace Site_de_la_Technique_Informatique {
     public partial class Recherche {
         
         /// <summary>
-        /// Contrôle Label4.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// Contrôle txtPrenomMembre.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrenomMembre;
-        
-        /// <summary>
-        /// Contrôle Label1.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// Contrôle txtNomMembre.
         /// </summary>
         /// <remarks>
@@ -49,33 +22,6 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.TextBox txtNomMembre;
         
         /// <summary>
-        /// Contrôle Label2.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// Contrôle chbProfesseur.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chbProfesseur;
-        
-        /// <summary>
-        /// Contrôle chbEtudiant.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chbEtudiant;
-        
-        /// <summary>
         /// Contrôle btnRecherche.
         /// </summary>
         /// <remarks>
@@ -83,6 +29,24 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRecherche;
+        
+        /// <summary>
+        /// Contrôle rdbEtudiant.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbEtudiant;
+        
+        /// <summary>
+        /// Contrôle rdbProfesseur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rdbProfesseur;
         
         /// <summary>
         /// Contrôle panelResultats.
