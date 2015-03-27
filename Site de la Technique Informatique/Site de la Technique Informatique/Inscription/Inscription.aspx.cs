@@ -105,33 +105,33 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     //Pénom validation
                     if (etudiantACreerCopie.prenom == "" || etudiantACreerCopie.prenom == null)
                     {
-                        ValidationResult vald = new ValidationResult("Le prénom est requis.", new[] { "nom" });
+                        ValidationResult vald = new ValidationResult("Le prénom est requis.", new[] { "Prenom" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     if (etudiantACreerCopie.prenom != null && etudiantACreerCopie.prenom.Length > 64)
                     {
-                        ValidationResult vald = new ValidationResult("Le prénom doit avoir moins de 64 caractères.", new[] { "nom" });
+                        ValidationResult vald = new ValidationResult("Le prénom doit avoir moins de 64 caractères.", new[] { "Prenom" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     //Nom validation
                     if (etudiantACreerCopie.nom == "" || etudiantACreerCopie.nom == null)
                     {
-                        ValidationResult vald = new ValidationResult("Un nom est requis.", new[] { "nom" });
+                        ValidationResult vald = new ValidationResult("Un nom est requis.", new[] { "Nom" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     if (etudiantACreerCopie.nom != null && etudiantACreerCopie.nom.Length > 64)
                     {
-                        ValidationResult vald = new ValidationResult("Le nom doit avoir moins de 64 caractères.", new[] { "nom" });
+                        ValidationResult vald = new ValidationResult("Le nom doit avoir moins de 64 caractères.", new[] { "Nom" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     //Courriel
                     if (etudiantACreerCopie.courriel == null)
                     {
-                        ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "courriel" });
+                        ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "Courriel" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -139,7 +139,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                     if (etudiantACreerCopie.courriel != null && (isEmail == false || etudiantACreerCopie.courriel.Length > 64))
                     {
-                        ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "courriel" });
+                        ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "Courriel" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -147,7 +147,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     TextBox txtConfirmationMotDePasse = (TextBox)lviewItem.FindControl("txtConfirmationMotDePasse");
                     if (txtConfirmationMotDePasse != null && etudiantACreerCopie.hashMotDePasse != txtConfirmationMotDePasse.Text)
                     {
-                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "hashMotDepasse" });
+                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "MotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -156,9 +156,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                     if (!isValid)
                     {
+                        Label lblMessage = (Label)lviewItem.FindControl("lblMessage");
+                        lblMessage.Text = "";
                         foreach (var ValdationResult in resultatsValidation)
                         {
-                            Label lblMessage = (Label)lviewItem.FindControl("lblMessage");
+                            
                             lblMessage.Text += ValdationResult.ErrorMessage + "<br/>";
                             String input = ValdationResult.MemberNames.FirstOrDefault();
                             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
@@ -198,7 +200,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         etudiantACreerCopie.valideCourriel = false;
                         etudiantACreerCopie.compteActif = false;
                         etudiantACreerCopie.pathCV = "";
-                       
+                        
 
                         leContext.UtilisateurSet.Add(etudiantACreerCopie);
                         leContext.SaveChanges();

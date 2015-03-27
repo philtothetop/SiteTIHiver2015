@@ -14,6 +14,11 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Session["IDOffreEmploi"] == null)
+            {
+                Response.Redirect("ListeOffresEmploi.aspx");
+            }
+
             SavoirSiPossedeAutorizationPourLaPage(true, true, true, true);
 
             Model.OffreEmploi offreEmploi;

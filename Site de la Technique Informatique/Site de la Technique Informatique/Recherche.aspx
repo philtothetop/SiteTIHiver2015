@@ -26,7 +26,8 @@
             <div class="col-lg-12">
 
 
-                <div>
+                <div class="well">
+
                     <div>
                         <div>
                             <asp:TextBox runat="server" ID="txtNomMembre"></asp:TextBox>
@@ -34,7 +35,7 @@
 
                         <div>
                             <asp:Button runat="server" ID="btnRecherche" class="btn btn-default" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
-                            <i class="fa fa-search"></i>
+                            
                         </div>
                     </div>
 

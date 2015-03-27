@@ -153,7 +153,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     if (txtNouveauMotDePasse.Text.Length < 4)
                     {
-                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe est trop court.", new[] { "NouveauMotDePasse" });
+                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe doit être plus grand que 4 caractères.", new[] { "NouveauMotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
