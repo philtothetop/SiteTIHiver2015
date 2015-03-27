@@ -8,10 +8,12 @@ using Site_de_la_Technique_Informatique.Model;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class listeOffresEmploi : System.Web.UI.Page
+    public partial class listeOffresEmploi : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(true,true,true,true);
+
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
                 if (Request.Cookies["TIID"] != null)

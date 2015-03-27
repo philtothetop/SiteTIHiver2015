@@ -8,7 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
-            <h1>Ajout d'une offre d'emploi</h1>
+            <h1>Offre d'emploi</h1>
         </div>
         <asp:MultiView ID="mvAjoutOffre" runat="server" ActiveViewIndex="0">
             <asp:View runat="server" ID="viewAjout">
@@ -163,7 +163,7 @@
             </asp:View>
             <asp:View runat="server" ID="viewFin">
                 <div style="text-align: center">
-                    <h4>Votre offre d'emploi a été ajouté avec succès, elle doit toutefois être acceptée</h4>
+                    <h4>Votre offre d'emploi a été ajoutée/modifiée avec succès, elle doit toutefois être acceptée par un administrateur avant d'être affichée</h4>
                     <asp:LinkButton ID="lnkRetour" Text="Accueil" runat="server" CssClass="btn btn-default" PostBackUrl="~/ListeOffresEmploi.aspx"/>
                 </div>
             </asp:View>
