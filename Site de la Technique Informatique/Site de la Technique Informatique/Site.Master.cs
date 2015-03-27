@@ -15,19 +15,17 @@ namespace Site_de_la_Technique_Informatique
         {
             //Verification s'il y a un utilisateur de connecté.
 
-            if (Request.Cookies["TIUtilisateur"] == null) //si l'utilisateur est null, donc personne de connecter
+            if (Request.Cookies["TIUtilisateur"] == null || Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value) == "") //si l'utilisateur est null, donc personne de connecter
             {
                 lblConnexion.Visible = true; //Affiche le lien de connexion
                 lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
-                liConnexion.Visible = false;
-                lblInscription.Visible = true;
+                lblInscription.Visible = false; //remet le lien inscription car possibilité de nouvel utilisateur
             }
             else //donc utilisateur contient une valeur
             {
                 lblConnexion.Visible = false; //Cache le lien de connexion
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
-                lblInscription.Visible = false;
-                liConnexion.Visible = true;
+                lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
 
                 if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                 {
@@ -172,12 +170,12 @@ namespace Site_de_la_Technique_Informatique
         //Bouton Déconnexion
         protected void lnkbtnDeconnexion_Click(object sender, EventArgs e)
         {
-            Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
-            Response.Cookies["TINom"].Value = null; //enlève la valeur du cookie
-            Response.Cookies["TIID"].Value = null; //enlève la valeur du cookie
-            Response.Cookies["TIUtilisateur"].Value = null; //enlève la valeur du cookie
+            Response.Cookies["TICourriel"].Value = ""; //enlève la valeur du cookie
+            Response.Cookies["TINom"].Value = ""; //enlève la valeur du cookie
+            Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
+            Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
 
-            Response.Write(Request.RawUrl.ToString()); // reload la page depuis laquelle la déconnexion a été appellée
+            Response.Redirect(Request.RawUrl, false); // reload la page depuis laquelle la déconnexion a été appellée
         }
     }
 }
