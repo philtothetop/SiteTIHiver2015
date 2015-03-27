@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Permet de modifier certaines informations du compte professeur, de changer son mot de passe, gérer ses cours et supprimer son compte
+// Philippe Baron, Mars 2015
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,30 +15,31 @@ using System.IO;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class ModifierProfesseur : System.Web.UI.Page
+    public partial class ModifierProfesseur : ErrorHandling
     {
         public Professeur currentProf;
 
+        #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
+
         }
 
-        // Le type de retour peut être modifié en IEnumerable, toutefois pour prendre en charge
-        //la pagination et le tri , vous devez ajouter les paramètres suivants :
-        //     int maximumRows
-        //     int startRowIndex
-        //     out int totalRowCount
-        //     string sortByExpression
+        #endregion 
+
+        #region Modifier_Profil
+
+        
         public Professeur lvProfesseur_GetData()
         {
             try
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-
-                    Professeur profAModifier = lecontexte.UtilisateurSet.OfType<Professeur>().Where(prof => prof.IDUtilisateur == 8).FirstOrDefault();
+                    int id = int.Parse(Request.Cookies["TIID"].Value);
+                    Professeur profAModifier = lecontexte.UtilisateurSet.OfType<Professeur>().Where(prof => prof.IDUtilisateur == id).FirstOrDefault();
 
                     return profAModifier;
 
@@ -46,16 +51,21 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        private void updateProfesseur(Professeur profAUpdater)
+        public void updateProfesseur()
         {
-            string courriel = Request.Cookies["TICourriel"].Value;
+            Professeur profAUpdater = new Professeur();
+            int id = int.Parse(Request.Cookies["TIID"].Value);
 
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                profAUpdater = lecontexte.UtilisateurSet.OfType<Professeur>().Where(p => p.courriel == courriel).FirstOrDefault();
+                profAUpdater = lecontexte.UtilisateurSet.OfType<Professeur>().Where(p => p.IDUtilisateur == id).FirstOrDefault();
+
+                int cPres = (lvProfesseur.Items[0].FindControl("txtPresentation") as TextBox).Text.Count();
+                int cPhoto = (lvProfesseur.Items[0].FindControl("txtDescPhoto") as TextBox).Text.Count();
 
                 TryUpdateModel(profAUpdater);
-
+                lblMessage.Text = "";
+                lblMessage.Visible = false;
                 if (!ModelState.IsValid)
                 {
                     foreach (var modelErrors in ModelState)
@@ -72,62 +82,36 @@ namespace Site_de_la_Technique_Informatique
                     lblMessage.Visible = true;
 
                 }
-                else { 
-
-                String imgData = ImgExSrc.Value;
-                if (imgData != "" && imgData.Length > 21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
+                else
                 {
-                    System.Drawing.Image imageProfil = LoadImage(imgData);
-                    imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
 
-                    String imageNom = (profAUpdater.prenom + profAUpdater.dateInscription.ToString()).GetHashCode() + "_125.jpg";
-                    String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
-                    imageProfil.Save(imageProfilChemin);
-                    profAUpdater.pathPhotoProfil = imageNom;
-                }
-                else// sion photo par défault
-                {
-                    profAUpdater.pathPhotoProfil = "photobase.bmp";
-                }
+                    String imgData = ImgExSrc.Value;
+                    if (imgData != "" && imgData.Length > 21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
+                    {
+                        System.Drawing.Image imageProfil = LoadImage(imgData);
+                        imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
+
+                        String imageNom = (profAUpdater.prenom + profAUpdater.dateInscription.ToString()).GetHashCode() + "_125.jpg";
+                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
+                        imageProfil.Save(imageProfilChemin);
+                        profAUpdater.pathPhotoProfil = imageNom;
+                    }
 
 
+                    Model.Log logEntry = new Model.Log
+                    {
+                        dateLog = DateTime.Now,
+                        actionLog = profAUpdater.prenom + " " + profAUpdater.nom + " a modifié son profil",
+                        typeLog = 0
+                    };
+
+                    lecontexte.LogSet.Add(logEntry);
+                    lecontexte.SaveChanges();
                 }
             }
         }
 
-        protected void lnkUpload_Click(object sender, EventArgs e)
-        {
-
-
-            /*FileUpload fuPhoto = (FileUpload) lvProfesseur.Items[0].FindControl("fuPhoto");
-            System.Web.UI.WebControls.Image imgProfil = (System.Web.UI.WebControls.Image)lvProfesseur.Items[0].FindControl("imgProfil");
-            Classes.LoadImage loadImg = new Classes.LoadImage();
-            Bitmap img;
-
-            if (fuPhoto.HasFile )
-            {
-                string filename = fuPhoto.FileName;
-                var ext = filename.Split('.');
-                
-                string[] acceptedExt = new string[] {"jpg","png", "jpeg", };
-               if (acceptedExt.Contains(ext.Last())){
-
-                   filename = currentProf.nom + currentProf.prenom + "imgProfil" ;
-
-                   fuPhoto.SaveAs(Server.MapPath("/Photos/Profils/" + filename + "." + ext.Last()) );
-
-                   img = loadImg.Resize(Server.MapPath("/Photos/Profils/" + filename), 125,125);
-
-                   img.Save(Server.MapPath("/Photos/profils/" + filename + ".jpg"), System.Drawing.Imaging.ImageFormat.Jpeg);
-
-
-                   imgProfil.ImageUrl = "~/Photos/Profils" + filename;
-               }
-               else {
-
-               }*/
-
-        }
+       
 
         public System.Drawing.Image LoadImage(String data)
         {
@@ -149,6 +133,26 @@ namespace Site_de_la_Technique_Informatique
 
             return image;
         }
+#endregion 
+
+
+        #region Modifier_Password
+
+
+        #endregion 
+
+        #region DeleteAccount
+
+         
+
+        protected void lnkDeleteProfil_Click(object sender, EventArgs e)
+        {
+        lblModalTitle.Text = "Dernière vérification";
+                lblModalBody.Text = "Inscrivez votre mot de passe afin de confirmer que vous voulez supprimer votre compte";
+                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "$('#popupDelete').modal();", true);
+                upDelete.Update();
+        }
+        #endregion
 
     }
 }

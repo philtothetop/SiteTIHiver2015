@@ -65,7 +65,7 @@ Extrants: --%>
                         <div class="thumbnail">
                             <div class="row">
                                 <%-- Photo du professeur --%>
-                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# BindItem.pathPhotoProfil %>' />
+                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' />
                             </div>
                             <div class="row">
                                 <%-- Nom du professeur --%>

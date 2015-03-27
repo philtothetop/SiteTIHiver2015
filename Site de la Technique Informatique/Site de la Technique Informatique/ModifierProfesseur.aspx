@@ -62,7 +62,8 @@
                     <h3>Informations générales</h3>
                     <asp:ListView ID="lvProfesseur" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.Professeur"
-                        SelectMethod="lvProfesseur_GetData">
+                        SelectMethod="lvProfesseur_GetData"
+                        UpdateMethod="updateProfesseur">
 
                         <LayoutTemplate>
                             <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
@@ -89,7 +90,7 @@
                                     <div class="control-group form-group">
                                         <div class="controls">
                                             <label>Texte de présentation:</label>
-                                            <asp:TextBox runat="server" ID="txtPresentation" TextMode="MultiLine" CssClass="form-control" Text='<%#BindItem.presentation %>'></asp:TextBox>
+                                            <asp:TextBox runat="server" ID="txtPresentation" TextMode="MultiLine" CssClass="form-control" Text='<%#BindItem.presentation %>' MaxLength="2000"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +102,7 @@
                                     <div class="col-md-5 col-centered">
                                         <div class="img-thumbnail img-photo preview-photo">
 
-                                            <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/photobase.jpg" Width="125" Height="125" />
+                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' Width="125" Height="125" />
                                         </div>
                                         <div class="div-btnChangerPhoto">
                                             <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
@@ -123,66 +124,80 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row row-centered">
+                                <div class="col-md-5 col-centered">
+                                    <div class="control-group form-group">
+                                        <div class="controls">
+                                            <label>Description de la photo:</label>
+                                            <asp:TextBox runat="server" ID="txtDescPhoto" TextMode="MultiLine" CssClass="form-control" Text='<%#BindItem.photoDescription  %>' MaxLength="500"></asp:TextBox>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row row-centered" style="margin-bottom: 20px;">
                                 <div class="col-md-1 col-md-push-2 col-centered">
-                                    <asp:LinkButton Text="Sauvegarder" runat="server" CssClass="btn btn-default" Style="float: right;" CommandName="updateProfesseur" OnClientClick="copieImgData()" />
+                                    <asp:LinkButton ID="lnkSauvegarderModifs" Text="Sauvegarder" runat="server" CssClass="btn btn-default" Style="float: right;" CommandName="Update" OnClientClick="copieImgData()" />
                                 </div>
                             </div>
 
                         </ItemTemplate>
                     </asp:ListView>
-               
-                <div class="row row-centered">
-                    <h4>Changer mon mot de passe</h4>
-                </div>
-                <div class="row row-centered">
-                    <div class="col-md-5 col-centered">
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Ancien mot de passe:</label>
-                                <asp:TextBox runat="server" ID="txtAncienMp" TextMode="Password" CssClass="form-control"></asp:TextBox>
+
+                    <div class="row row-centered">
+                        <h4>Changer mon mot de passe</h4>
+                    </div>
+                    <div class="row row-centered">
+                        <div class="col-md-5 col-centered">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Ancien mot de passe:</label>
+                                    <asp:TextBox runat="server" ID="txtAncienMp" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-centered">
+                        <div class="col-md-5 col-centered">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Nouveau mot de passe:</label>
+                                    <asp:TextBox runat="server" ID="txtNouveauMp" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-centered">
+                        <div class="col-md-5 col-centered">
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>Confirmer le nouveau mot de passe:</label>
+                                    <asp:TextBox runat="server" ID="txtNouveauMpConfirm" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-centered" style="margin-bottom: 20px;">
+                        <div class="col-md-1 col-md-push-2 col-centered">
+                            <asp:LinkButton ID="lnkSaveNewPassword" runat="server" CssClass="btn btn-default" Style="float: right;" Text="Sauvegarder"></asp:LinkButton>
                         </div>
                     </div>
                 </div>
 
-                <div class="row row-centered">
-                    <div class="col-md-5 col-centered">
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Nouveau mot de passe:</label>
-                                <asp:TextBox runat="server" ID="txtNouveauMp" TextMode="Password" CssClass="form-control"></asp:TextBox>
-                            </div>
-                        </div>
+                <div class="control-group form-group">
+                    <div class="controls">
+                        <asp:Label ID="lblMessage" runat="server" Text="" Visible="false"></asp:Label>
                     </div>
                 </div>
-
-                <div class="row row-centered">
-                    <div class="col-md-5 col-centered">
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <label>Confirmer le nouveau mot de passe:</label>
-                                <asp:TextBox runat="server" ID="txtNouveauMpConfirm" TextMode="Password" CssClass="form-control"></asp:TextBox>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row row-centered" style="margin-bottom: 20px;">
-                    <div class="col-md-1 col-md-push-2 col-centered">
-                        <asp:LinkButton ID="lnkSaveNewPassword" runat="server" CssClass="btn btn-default" Style="float: right;" Text="Sauvegarder"></asp:LinkButton>
-                    </div>
-                </div>
-                 </div>
-
-                 <div class="control-group form-group">
-                            <div class="controls">
-                                <asp:Label ID="lblMessage" runat="server" Text="" Visible="false"></asp:Label>
-                            </div>
-                        </div>
 
             </div>
             <div role="tabpanel" class="tab-pane fade" id="cours">
@@ -191,8 +206,17 @@
 
             </div>
             <div role="tabpanel" class="tab-pane fade" id="delete">
-                <h3>déjà tanné d'être ici? :'(</h3>
-                <p>Si vous supprimez votre profil, vous ne pourrez pas le récupérer. Êtes-vous certain de vouloir supprimer votre compte?</p>
+                <div class="row-centered">
+                    <div class="col-md-8 col-centered" style="text-align: center">
+                        <h3>déjà tanné d'être ici? :'(</h3>
+                        <p>Si vous supprimez votre profil, vous ne pourrez pas le récupérer. Êtes-vous certain de vouloir supprimer votre compte?</p>
+                    </div>
+                </div>
+                <div class="row-centered" style="margin-top: 25px;">
+                    <div class="col-md-1 col-md-push-5">
+                        <asp:LinkButton ID="lnkDeleteProfil" runat="server" Text="Supprimer mon profil" CssClass="btn btn-danger" OnClick="lnkDeleteProfil_Click" />
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -201,6 +225,52 @@
 
 
 
+    </div>
+
+    <div class="modal fade" id="popupDelete" role="dialog" aria-labelledby="popupDelete" aria-hidden="true">
+        <div class="modal-dialog">
+            <asp:UpdatePanel ID="upDelete" runat="server" ChildrenAsTriggers="false" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">
+                                <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
+                        </div>
+                        <div class="modal-body">
+                            <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-6 ">
+                                        <div class="control-group form-group">
+                                            <div class="controls">
+                                                <label>Mot de passe:</label>
+                                                <asp:TextBox runat="server" ID="txtDeletePass" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-md-push-8 col-md-1" >
+                                        <asp:LinkButton ID="lnkDeletePass" runat="server" Text="Supprimer mon Compte" CssClass="btn btn-danger"  ></asp:LinkButton>
+                                    </div>
+                                </div>
+                                            
+                                        
+                                    </div>
+                                </div>
+                            
+
+                        
+                        <div class="modal-footer">
+                            <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Annuler</button>
+                        </div>
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+        </div>
     </div>
 
 
