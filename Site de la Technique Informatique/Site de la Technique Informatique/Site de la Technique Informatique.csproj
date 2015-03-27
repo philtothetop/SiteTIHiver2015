@@ -113,6 +113,7 @@
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
+    <Content Include="FaireTemoignage.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription\Inscription-message.aspx" />
     <Content Include="Inscription\Inscription-valide.aspx" />

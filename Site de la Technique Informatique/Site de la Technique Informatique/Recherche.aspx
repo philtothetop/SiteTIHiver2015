@@ -58,10 +58,9 @@
                     SelectMethod="lviewRecherche_GetData">
 
                     <ItemTemplate>
-
-
-                        <asp:LinkButton ID="lnkOffre" CssClass="couleurGris" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 40%; border-radius: 5px;">
-
+                       
+                        <asp:LinkButton ID="lnkMembre" CssClass="couleurGris" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 50%; border-radius: 5px; text-align:center;">
+                          
                             <div class="row">
                                 <div class="col-lg-12">
 
@@ -82,15 +81,19 @@
 
                                 </div>
                             </div>
+                            
                         </asp:LinkButton>
-
+                      
                     </ItemTemplate>
 
                     <LayoutTemplate>
 
+                    
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
 
                     </LayoutTemplate>
+
+                   
 
                     <EmptyDataTemplate>
                         <div class="row">
@@ -103,6 +106,18 @@
                     </EmptyDataTemplate>
 
                 </asp:ListView>
+
+                 <div style="text-align:center; width:100%;">
+            <asp:DataPager ID="dataPagerRecherche" runat="server" PagedControlID="lviewRecherche"
+                            PageSize="10">
+                            <Fields>
+                                <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
+                                <asp:NumericPagerField />
+                                <asp:NextPreviousPagerField ShowLastPageButton="False" ShowPreviousPageButton="False" NextPageText=">>" />
+                            </Fields>
+                        </asp:DataPager>
+                </div>
+
             </asp:Panel>
         
 
