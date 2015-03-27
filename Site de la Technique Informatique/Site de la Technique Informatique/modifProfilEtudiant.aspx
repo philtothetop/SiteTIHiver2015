@@ -25,13 +25,14 @@ Extrants: --%>
         }
     </script>
     <script type="text/javascript">
-        function copieImgData() {
+        function copieImgData()
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lvModifProfilEtudiant_showDataURL_0.src;
         }
     </script>
     <script type="text/javascript">
         window.transfertDataImg = function (dataURL) {
             $("#ContentPlaceHolder1_lvModifProfilEtudiant_showDataURL_0").attr("src", dataURL);
+            document.getElementById("<%=ImgExSrc.ClientID%>").value = dataURL;
         };
     </script>
     <script type="text/javascript">
@@ -53,12 +54,16 @@ Extrants: --%>
                     ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
                     SelectMethod="SelectEtudiant"
                     UpdateMethod="UpdateEtudiant" 
-                    DeleteMethod="lvModifProfilEtudiant_DeleteItem"
-                    >
+                    DeleteMethod="lvModifProfilEtudiant_DeleteItem">
                     <LayoutTemplate>
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
                     </LayoutTemplate>
                     <ItemTemplate>
+                        <div class="row row-centered">
+                            <div class="col-lg-9 col-centered">
+                                <h1>Modification du profil</h1>
+                            </div>
+                        </div>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <!-- Modal Profil picture-->
@@ -93,33 +98,24 @@ Extrants: --%>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
-                                <label>Prénom:</label>
-                                <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" />
-                                <asp:Label ID="lblPrenom" runat="server" Text="" />
+                                <label>Prénom:</label><br />
+                                <asp:Label ID="lblPrenom" runat="server"  placeholder="Prénom" Text='<%#Eval("prenom") %>' />
+
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
-                                <label>Nom:</label>
-                                <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" />
-                                <asp:Label ID="lblNom" runat="server" Text="" />
+                                <label>Nom:</label><br />
+                                <asp:Label ID="lbltNom" runat="server" placeholder="Nom" Text='<%#Eval("nom") %>' />
+
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
-                                <label>Date de naissance:</label>
-                                <div class="row">
-                                    <div class="col-xs-2">
-                                        <asp:TextBox ID="txtDateNaissanceJour" runat="server" CssClass="form-control inputJourMois" placeholder="JJ" Text='<%#BindItem.dateNaissance.Day %>' />
-                                    </div>
-                                    <div class="col-xs-2">
-                                        <asp:TextBox ID="txtDateNaissanceMois" runat="server" CssClass="form-control inputJourMois" placeholder="mm" Text='<%#BindItem.dateNaissance.Month %>' />
-                                    </div>
-                                    <div class="col-xs-3">
-                                        <asp:TextBox ID="txtDateNaissanceAnnee" runat="server" CssClass="form-control" placeholder="AAAA" Text='<%#BindItem.dateNaissance.Year %>' />
-                                    </div>
-                                    <asp:Label ID="lblDateNaissance" runat="server" Text="" />
-                                </div>
+                                <label>Date de naissance:</label><br />
+
+                                <asp:Label ID="lblDateNaissance" runat="server" Text='<%#Convert.ToDateTime(Eval("dateNaissance")).ToShortDateString() %>' />
+
                             </div>
                         </div>
                         <div class="control-group form-group">
@@ -131,13 +127,47 @@ Extrants: --%>
                         </div>
                                                 <div class="control-group form-group">
                             <div class="controls">
+                                <label>CV:</label>
+                                <asp:Label ID=lblCV runat="server" Text="..." />
+                                 
+                                <asp:FileUpload ID="fupCV"  runat="server" />
+                                (valides: pdf , doc, docx , odf)
+                            </div>
+                        </div>
+                                <div class="row">
+                            <div class="col-lg-8">
+                                <h4>Changer votre mot de passe</h4>
+                                    </div>
+                                    </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Mot de passe actuel:</label>
+                                <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="form-control" Text="" TextMode="Password" />
+                                <asp:Label ID="lblMotDePasse" runat="server" Text="" />
+                                    </div>
+                                </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Nouveau mot de passe:</label>
+                                <asp:TextBox ID="txtNouveauMotDePasse" runat="server" CssClass="form-control" Text="" TextMode="Password" />
+                                <asp:Label ID="lblNouveauMotDePasse" runat="server" Text="" />
+                            </div>
+                        </div>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label>Confirmation du nouveau mot de passe:</label>
+                                <asp:TextBox ID="txtConfirmationNouveauMotDePasse" runat="server" CssClass="form-control" Text="" TextMode="Password" />
+                                <asp:Label ID="lblConfirmationNouveauMotDePasse" runat="server" Text="" />
+                            </div>
+                        </div>
+                                                <div class="control-group form-group">
+                            <div class="controls">
                                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                             </div>
                         </div>
                         <div class="row"></div>
-                        <div class="col-lg-offset-4 col-lg-9 ">
-                            <asp:LinkButton ID="lnkEffacerCompte" runat="server" Text="Supprimer compte" CssClass="btn btn-default"  CommandName="Delete" />
-                            <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update"  OnClientClick="copieImgData()" />
+                        <div class="col-lg-offset-8 col-lg-8 ">
+                            <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" OnClientClick="copieImgData()" />
                         </div>
                     </ItemTemplate>
                 </asp:ListView>

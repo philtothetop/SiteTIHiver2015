@@ -1,14 +1,25 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_Temoignage.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Temoignage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_Temoignage.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Temoignage" MaintainScrollPositionOnPostback="true" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link href="Css/AdministrateutTemoignage.css" rel="stylesheet" />
 
-        <h1>Administrateur : Les Témoignages</h1>
+    <h1>Administrateur : Les Témoignages</h1>
+
+    <ol class="breadcrumb">
+                    <li>
+                        <a href="nullFORnow.aspx">Retour au panneau d'administration</a>
+                    </li>
+                </ol>
+
+        <asp:Button ID="btnVoirTemoignageNonValide" runat="server" Text="Témoignages non-validés" CssClass="btn btnTemoignageSelectionne" OnClick="VoirTemoignageNonValide_Click" />
+        <asp:Button ID="btnVoirTemoignageValide" runat="server" Text="Témoignages validés" CssClass="btn btn-default" OnClick="VoirTemoignageValide_Click" />
+        
 
                 <asp:ListView ID="lviewTemoignage" runat="server"
-                        ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
-                        SelectMethod="GetLesTemoignagesEtudiants">
+                        ItemType="Site_de_la_Technique_Informatique.Model.Membre"
+                        SelectMethod="GetLesTemoignages">
 
                         <LayoutTemplate>
                             <div>
@@ -17,26 +28,24 @@
                         </LayoutTemplate>
 
                         <ItemTemplate>
-                        <div>
-                            <h2> '<%# Item.nom + ", " + Item.prenom %></h2>
-                            <asp:Label ID="lblTemoignage" runat="server" Text='<%# "Témoignage : " + Item.temoignage %>'></asp:Label>
-                        
-                            <div id="divPourTemoignagePasValide" runat="server" style="clear:both;">
-
-                            <div style="float:left; padding-left:35px">
-                                <asp:Button ID="btnAccepterTemoignage" runat="server" Text="Accepter" CssClass="btn btn-success" CommandArgument='<%# Item.IDEtudiant %>' OnClick="AccepterTemoignage_Click" />
-
-                            </div>
-                            <div style="float:right; padding-right:35px">
-
-                            <asp:Button ID="btnRefuserTemoignage" runat="server" Text="Refuser" CssClass="btn btn-danger" CommandArgument='<%# Item.IDEtudiant %>' OnClick="SupprimerTemoignage_Click"/>
-
+                        <div style="padding-right:5px;">
+                            <h2> <%# Item.nom + ", " + Item.prenom %></h2>
+                            <asp:Label ID="lblTemoignage" runat="server" Text='<%# Item.temoignage.Replace("¤","<br />") %>'></asp:Label>
+                        <br />
+                            <br />
+                            <div id="divPourAccepterTemoignage" runat="server" visible='<%# savoirSiEstUnEtudiant(Item) %>' style="float:left;">
+                                <asp:Button ID="btnAccepterTemoignage" runat="server" Text="Accepter" CssClass="btn btn-success" CommandArgument='<%# Item.IDMembre %>' OnClick="AccepterTemoignage_Click" />
 
                             </div>
-                                </div>
+                            <div style="float:right;">
+
+                            <asp:Button ID="btnRefuserTemoignage" runat="server" Text="Refuser/Supprimer" CssClass="btn btn-danger" CommandArgument='<%# Item.IDMembre %>' OnClick="SupprimerTemoignage_Click"/>
+
                             </div>
 
-                             <div style="clear:both; height:10px;">
+                            </div>
+
+                             <div style="clear:both; height:10px; border-bottom:black solid 1px;">
                             </div>
 
                         </ItemTemplate>
@@ -44,16 +53,10 @@
                     <EmptyDataTemplate>
                           <div>
             <div style="width:100%; text-align:center; padding-top:20px;">
-                       <asp:Label ID="lblPasDeTemoignage" runat="server" Text="Il n'y a pas de témoignage à valider pour le moment" style="font:bold; font-size:large"></asp:Label>
+                       <asp:Label ID="lblPasDeTemoignage" runat="server" Text="Il n'y a pas de témoignage pour le moment" style="font:bold; font-size:large"></asp:Label>
                 </div>
         </div>
                     </EmptyDataTemplate>
-
-            <EmptyDataTemplate>
-            <div>
-
-                </div>
-                </EmptyDataTemplate>
             
         </asp:ListView>
 
@@ -68,5 +71,7 @@
                             </Fields>
                         </asp:DataPager>
                 </div>
+
+    <asp:HiddenField ID="hfieldVoirTemoignageValideOuNon" runat="server" Value="NonValidé" />
 
 </asp:Content>
