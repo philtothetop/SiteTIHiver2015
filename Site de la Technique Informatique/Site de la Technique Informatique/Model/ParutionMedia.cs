@@ -15,6 +15,7 @@ namespace Site_de_la_Technique_Informatique.Model
     public partial class ParutionMedia
     {
         public int IDParutionMedia { get; set; }
+        public string titreParution { get; set; }
         public string pathFichierPDF { get; set; }
         public string descriptionParution { get; set; }
         public System.DateTime dateParution { get; set; }
