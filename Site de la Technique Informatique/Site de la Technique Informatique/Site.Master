@@ -89,7 +89,7 @@
                             </ul>
                         </li>
 
-                        <li>
+                        <li runat="server" id="lblOffresEmploi">
                             <a href="listeOffresEmploi.aspx">Offres d'emploi</a>
                         </li>
 

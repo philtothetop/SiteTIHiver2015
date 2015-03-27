@@ -125,6 +125,7 @@ namespace Site_de_la_Technique_Informatique
                     resultatsValidation.Add(vald);
                 }
                 //Vérifier si l'utilisateur modifit sont mot de passe.
+                TextBox txtCourriel = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtCourriel");
                 TextBox txtMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtMotDePasse");
                 TextBox txtNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtNouveauMotDePasse");
                 TextBox txtConfirmationNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtConfirmationNouveauMotDePasse");
@@ -237,7 +238,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     try
                     {
-
+                        etudiantAUpdaterCopie.courriel = txtCourriel.Text;
                         //Changer le mot de passe.
                         if (txtMotDePasse.Text != "")
                         {

@@ -8,14 +8,54 @@ Extrants: --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%--<script type="text/javascript">
-        function EasterEgg(){
-            alert('salut');
+    <script type="text/javascript">
+        var count = 15;
+        var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+        function timer(myImage) {
+            count = count - 1;
+            if (count <= 0) {
+                clearInterval(counter);
+                $('#AxelModal').modal();                      // initialized with defaults
+                $('#AxelModal').modal({ keyboard: false });   // initialized with no keyboard
+                $('#AxelModal').modal('show');                // initializes and invokes show immediately
+                return;
+            }
+
+            //Do code for showing the number of seconds here
         }
-    </script>--%>
+
+        function EasterEgg(myImage) {
+            debugger;
+            if (myImage.title == "Axel") {
+                timer(myImage);
+                count = 10;
+            }
+        }
+    </script>
 
     <!-- Header container -->
     <div class="container">
+
+        <!-- /.modal -->
+        <div class="modal fade" id="AxelModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Oh oh un Easter Egg!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Photos/Profils/Xavier.JPG" height="500" width="500" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- modal ./ -->
 
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
@@ -67,9 +107,9 @@ Extrants: --%>
                 <ItemTemplate>
                     <div class="col-lg-4 text-center">
                         <div class="thumbnail">
-                            <div class="row">
+                            <div class="row" style="">
                                 <%-- Photo du professeur --%>
-                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# BindItem.pathPhotoProfil %>' />
+                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' onMouseOver="EasterEgg(this);" />
                             </div>
                             <div class="row">
                                 <%-- Nom du professeur --%>
