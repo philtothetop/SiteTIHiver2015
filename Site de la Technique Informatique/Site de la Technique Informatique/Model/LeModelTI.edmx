@@ -327,7 +327,6 @@
     <Property Name="valideTemoignage" Type="bit" Nullable="false" />
     <Property Name="valideCourriel" Type="bit" Nullable="false" />
     <Property Name="pathCV" Type="nvarchar" Nullable="false" MaxLength="200" />
-    <Property Name="cohorte" Type="smallint" Nullable="false" />
     <Property Name="IDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProfesseurCours">
@@ -900,7 +899,6 @@
           <Property Name="valideTemoignage" Type="Boolean" Nullable="false" />
           <Property Name="valideCourriel" Type="Boolean" Nullable="false" />
           <Property Name="pathCV" Type="String" Nullable="false" MaxLength="200" />
-          <Property Name="cohorte" Type="Int16" Nullable="false" />
         </EntityType>
         <Association Name="UtilisateurLog">
           <End Type="LeModelTI.Utilisateur" Role="Utilisateur" Multiplicity="0..1" />
@@ -1151,7 +1149,6 @@
           <ScalarProperty Name="valideTemoignage" ColumnName="valideTemoignage" />
           <ScalarProperty Name="valideCourriel" ColumnName="valideCourriel" />
           <ScalarProperty Name="pathCV" ColumnName="pathCV" />
-          <ScalarProperty Name="cohorte" ColumnName="cohorte" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
