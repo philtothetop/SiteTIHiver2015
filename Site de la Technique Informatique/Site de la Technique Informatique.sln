@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Site de la Technique Informatique", "Site de la Technique Informatique\Site de la Technique Informatique.csproj", "{8C2E1698-CB46-4F2C-8829-15C0C994D08A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projet fTrepanier", "..\..\..\..\Documents\Visual Studio 2012\1140716b\Projet fTrepanier\Projet fTrepanier\Projet fTrepanier.csproj", "{AC5E715C-7BE0-4D64-8B92-34D924341911}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8C2E1698-CB46-4F2C-8829-15C0C994D08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C2E1698-CB46-4F2C-8829-15C0C994D08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C2E1698-CB46-4F2C-8829-15C0C994D08A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC5E715C-7BE0-4D64-8B92-34D924341911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC5E715C-7BE0-4D64-8B92-34D924341911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC5E715C-7BE0-4D64-8B92-34D924341911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC5E715C-7BE0-4D64-8B92-34D924341911}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
