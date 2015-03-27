@@ -19,11 +19,39 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
-
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
         function openModal() {
             $('#myModal').modal('show');
         }
+    </script>
+    <!--Afficher les erreurs de input-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".has-error").removeClass("has-error");
+            $(".has-feedback").removeClass("has-feedback");
+            var idValue = '<%=this.lviewFormulaireInscription.ClientID%>';
+            var IDS = JSON.parse('<%= this.idsEnErreurTab%>');
+            var MSGS = '<%= this.msgsEnErreur%>';
+
+            for (index = 0; index < IDS.length; ++index) {
+                var id = IDS[index];
+                var msg = MSGS[index];
+
+                var element = "dv" + id;
+
+                $("#" + element).addClass("has-error");
+                $("#" + element).addClass("has-feedback");
+                if (id == "MotDePasse") {
+                    element = "dvConfirmationMotDePasse";
+                    $("#" + element).addClass("has-error");
+                    $("#" + element).addClass("has-feedback");
+                }
+
+            }
+
+        });
     </script>
     <script type="text/javascript">
         function copieImgData() {
@@ -40,24 +68,23 @@
             $('#maPhotoProfile').modal('hide');
         };
     </script>
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    </asp:Content>
-    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <asp:HiddenField runat="server" ID="ImgExSrc" />
-        <asp:ScriptManagerProxy ID="smProxy" runat="server" />
-        <div class="container">
-            
-            <div class="row row-centered">
-                <div class="col-lg-5 col-centered">
-                    <h1>Inscription</h1>
-                </div>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:HiddenField runat="server" ID="ImgExSrc" />
+    <asp:ScriptManagerProxy ID="smProxy" runat="server" />
+    <div class="container">
+
+        <div class="row row-centered">
+            <div class="col-lg-5 col-centered">
+                <h1>Inscription</h1>
             </div>
-            <asp:ListView ID="lviewFormulaireInscription" runat="server"
-                ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
-                SelectMethod="GetUtilisateurEtudiant"
-                UpdateMethod="CreerUtilisateurEtudiant">
-                <itemtemplate>
+        </div>
+        <asp:ListView ID="lviewFormulaireInscription" runat="server"
+            ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
+            SelectMethod="GetUtilisateurEtudiant"
+            UpdateMethod="CreerUtilisateurEtudiant">
+            <ItemTemplate>
                 <div class="row row-centered">
                     <div class="col-lg-5 col-centered">
                         <div class="control-group form-group champs-requis">
@@ -66,50 +93,50 @@
                         <div class="control-group form-group">
                             <div class="controls">
                                 <!-- Modal Profil picture-->
-                                        <div class="modif-photo">
-                                            <div class="img-thumbnail img-photo preview-photo">
-                                                <div></div>
-                                                <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/photobase.jpg" Width="125" Height="125" />
+                                <div class="modif-photo">
+                                    <div class="img-thumbnail img-photo preview-photo">
+                                        <div></div>
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" Width="125" Height="125" />
+                                    </div>
+                                    <div class="div-btnChangerPhoto">
+                                        <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
+
+                                    </div>
+                                </div>
+                                <div class="modal" id="maPhotoProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
                                             </div>
-                                            <div class="div-btnChangerPhoto">
-                                                <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
+                                            <div class="modal-body">
+                                                <iframe src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
 
                                             </div>
                                         </div>
-                                        <div class="modal" id="maPhotoProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <iframe src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
 
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                    </div>
+                                </div>
                                 <!--Fin Profil picture-->
 
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvPrenom">
                             <div class="controls">
                                 <label>Prénom:</label>
                                 <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" />
                                 <asp:Label ID="lblPrenom" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvNom">
                             <div class="controls">
                                 <label>Nom:</label>
                                 <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" />
                                 <asp:Label ID="lblNom" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvDateNaissance">
                             <div class="controls">
                                 <label>Date de naissance:</label>
                                 <div class="row">
@@ -126,21 +153,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvCourriel">
                             <div class="controls">
                                 <label>Courriel:</label>
                                 <asp:TextBox ID="txtCourriel" runat="server" CssClass="form-control" placeholder="courriel@exemple.qc.ca" Text='<%#BindItem.courriel %>' Font-Names="email" />
                                 <asp:Label ID="lblCourriel" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvMotDePasse">
                             <div class="controls">
                                 <label>Mot de passe:</label>
                                 <asp:TextBox ID="txtMotDePasse" runat="server" TextMode="password" CssClass="form-control" Text='<%#BindItem.hashMotDePasse %>' />
                                 <asp:Label ID="lblMotDePasse" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvConfirmationMotDePasse">
                             <div class="controls">
                                 <label>Confirmation du mot de passe:</label>
                                 <asp:TextBox ID="txtConfirmationMotDePasse" runat="server" TextMode="password" CssClass="form-control" />
@@ -191,8 +218,8 @@
 
                     </div>
                 </div>
-            </itemtemplate>
-            </asp:ListView>
+            </ItemTemplate>
+        </asp:ListView>
 
-        </div>
-    </asp:Content>
+    </div>
+</asp:Content>

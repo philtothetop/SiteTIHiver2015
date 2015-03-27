@@ -52,7 +52,7 @@ namespace Site_de_la_Technique_Informatique
 
         public IQueryable<Etudiant> lviewEtudiants_GetData()
         {
-            List<Etudiant> listeEtudiants = null;
+            List<Etudiant> listeEtudiants = new List<Etudiant>();
             try
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
