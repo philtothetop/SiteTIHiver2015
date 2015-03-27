@@ -107,7 +107,7 @@ namespace Site_de_la_Technique_Informatique
                         {
                             doitRedirigerLaPersonne = false;
                         }
-                        else if (valeurDuCookie.Equals("Étudiant") && etudiant == true)
+                        else if (valeurDuCookie.Equals("Etudiant") && etudiant == true)
                         {
                             doitRedirigerLaPersonne = false;
                         }
