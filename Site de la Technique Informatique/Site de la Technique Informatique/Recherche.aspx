@@ -3,100 +3,107 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <!-- Header Carousel -->
+    <!-- Header Carousel -->
     <div class="container">
 
-    <!-- Page Heading/Breadcrumbs -->
-    <div class="row">
-        <div class="col-lg-12">
-                <h1 class="page-header">Page pleine largeur
-                    <small>Exemple</small>
-            </h1>
-            <ol class="breadcrumb">
-                    <li><a href="index.html">Accueil</a>
-                </li>
-                    <li class="active">Page pleine largeur</li>
-            </ol>
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Recherche
+                   
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="Default.aspx">Accueil</a>
+                    </li>
+                    <li class="active">Recherche</li>
+                </ol>
+            </div>
         </div>
-    </div>
         <!-- /.row -->
 
         <!-- Content Row -->
         <div class="row">
             <div class="col-lg-12">
-               
 
-                  <div>
-                               <div class="well">
-                    <h4>Recherche</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control"/>
-                        <span class="input-group-btn">
-                            <button runat="server" id="btnRecherche" class="btn btn-default" type="button" onclick="btnRecherche_Click"><i class="fa fa-search"></i></button>
-                        </span>
+
+                <div>
+                    <div>
+                        <div>
+                            <asp:TextBox runat="server" ID="txtNomMembre"></asp:TextBox>
+                        </div>
+
+                        <div>
+                            <asp:Button runat="server" ID="btnRecherche" class="btn btn-default" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
+                            <i class="fa fa-search"></i>
+                        </div>
                     </div>
-                   
+
+
+                    <div style="padding-top: 5px;">
+                        <asp:RadioButton ID="rdbEtudiant" Text="Étudiant" runat="server" GroupName="rdbChoix" Checked="true" />
+                        <asp:RadioButton ID="rdbProfesseur" Text="Professeur" runat="server" GroupName="rdbChoix" />
+                    </div>
+
                 </div>
-                                      
-                        <asp:TextBox runat="server" ID="txtNomMembre"></asp:TextBox>
-                                
-                    <div style="padding-top: 5px;">
-                        <asp:Label ID="Label2" runat="server" Text="Type de Membre:"></asp:Label>
-                        <asp:CheckBox ID="chbProfesseur" Text="Professeur" runat="server" TextAlign="Left" />
-                        <asp:CheckBox ID="chbEtudiant" Text="Etudiant" runat="server" TextAlign="Left" Style="margin-left: 10px;" />
-                    </div>
-                    <div style="padding-top: 5px;">
-                        <%--<asp:Button runat="server" ID="btnRecherche" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>--%>
-                    </div>
-                    </div>
-        <br />
-        </div>
+                </div>
+                <br />
+            </div>
 
-        <br />
-        <asp:Panel ID="panelResultats" runat="server" Visible="false">
-            <asp:ListView runat="server"
-                ID="lviewRecherche"
-                ItemType="Site_de_la_Technique_Informatique.Model.Membre"
-                SelectMethod="lviewRecherche_GetData">
-                
-                <ItemTemplate>
-                    
+            <br />
+            <asp:Panel ID="panelResultats" runat="server" Visible="false">
+                <asp:ListView runat="server"
+                    ID="lviewRecherche"
+                    ItemType="Site_de_la_Technique_Informatique.Model.Membre"
+                    SelectMethod="lviewRecherche_GetData">
 
-                    <asp:LinkButton ID="lnkOffre" CssClass="couleurGris"  Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 50%; border-radius: 5px;">
-
-                    <div class="row">
-                            <div class="col-lg-12">
+                    <ItemTemplate>
 
 
-                                <div class="col-lg-2" style="text-align:left;" >
-                                 <asp:Image ID="photoProfil" runat="server" Width="75px" ImageUrl='<%# Item.pathPhotoProfil %>'></asp:Image> 
+                        <asp:LinkButton ID="lnkOffre" CssClass="couleurGris" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 40%; border-radius: 5px;">
+
+                            <div class="row">
+                                <div class="col-lg-12">
+
+
+                                    <div class="col-lg-2" style="text-align: left;">
+                                        <asp:Image ID="photoProfil" runat="server" Width="75px" ImageUrl='<%# Item.pathPhotoProfil %>'></asp:Image>
                                     </div>
 
-                                <div class="col-lg-8" style="text-align:left;" >
-                                    <div>
-                                    <asp:Label runat="server" ID="lblProfil" Text='<%# Item.prenom + " " + Item.nom%>'></asp:Label>
+                                    <div class="col-lg-8" style="text-align: left; color: black;">
+                                        <div>
+                                            <asp:Label runat="server" ID="lblProfil" Text='<%# Item.prenom + " " + Item.nom%>'></asp:Label>
                                         </div>
-                                    <div>
-                                    <asp:Label ID="lblCourriel" Text='<%# Item.courriel %>' runat="server" Style="text-decoration: none; color: black;"></asp:Label>
-                    </div>
-                                </div>
-                              
-
+                                        <div>
+                                            <asp:Label ID="lblCourriel" Text='<%# Item.courriel %>' runat="server" Style="text-decoration: none; color: black;"></asp:Label>
+                                        </div>
                                     </div>
+
+
                                 </div>
-                         </asp:LinkButton>
-                  
-                </ItemTemplate>
+                            </div>
+                        </asp:LinkButton>
 
-                <LayoutTemplate>                   
-                       
-                <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
-                
-                </LayoutTemplate>
+                    </ItemTemplate>
 
-            </asp:ListView>
-        </asp:Panel>
-    </div>
+                    <LayoutTemplate>
+
+                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+
+                    </LayoutTemplate>
+
+                    <EmptyDataTemplate>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-3">
+                                    <asp:Label ID="lblVide" runat="server" Font-Bold="true" Text="Aucun utilisateur trouvé!"></asp:Label>
+                                </div>
+                            </div>
+                        </div>
+                    </EmptyDataTemplate>
+
+                </asp:ListView>
+            </asp:Panel>
         
-</div>
+
+    </div>
 </asp:Content>

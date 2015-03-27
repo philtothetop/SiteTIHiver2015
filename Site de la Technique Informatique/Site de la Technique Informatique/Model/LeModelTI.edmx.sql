@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/06/2015 13:41:07
+-- Date Created: 03/27/2015 09:24:36
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
@@ -260,6 +260,7 @@ GO
 -- Creating table 'ParutionMediaSet'
 CREATE TABLE [dbo].[ParutionMediaSet] (
     [IDParutionMedia] int IDENTITY(1,1) NOT NULL,
+    [titreParution] nvarchar(250)  NOT NULL,
     [pathFichierPDF] nvarchar(200)  NOT NULL,
     [descriptionParution] nvarchar(max)  NOT NULL,
     [dateParution] datetime  NOT NULL,

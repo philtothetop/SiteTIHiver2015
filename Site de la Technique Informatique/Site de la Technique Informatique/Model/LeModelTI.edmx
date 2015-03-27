@@ -217,6 +217,7 @@
       <PropertyRef Name="IDParutionMedia" />
     </Key>
     <Property Name="IDParutionMedia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="titreParution" Type="nvarchar" Nullable="false" MaxLength="250" />
     <Property Name="pathFichierPDF" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="descriptionParution" Type="nvarchar(max)" Nullable="false" />
     <Property Name="dateParution" Type="datetime" Nullable="false" />
@@ -820,6 +821,7 @@
             <PropertyRef Name="IDParutionMedia" />
           </Key>
           <Property Name="IDParutionMedia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreParution" Type="String" Nullable="false" MaxLength="250" />
           <Property Name="pathFichierPDF" Type="String" Nullable="false" MaxLength="200" />
           <Property Name="descriptionParution" Type="String" Nullable="false" MaxLength="Max" />
           <Property Name="dateParution" Type="DateTime" Nullable="false" />
@@ -1223,6 +1225,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(LeModelTI.ParutionMedia)">
         <MappingFragment StoreEntitySet="ParutionMediaSet">
           <ScalarProperty Name="IDParutionMedia" ColumnName="IDParutionMedia" />
+          <ScalarProperty Name="titreParution" ColumnName="titreParution" />
           <ScalarProperty Name="pathFichierPDF" ColumnName="pathFichierPDF" />
           <ScalarProperty Name="descriptionParution" ColumnName="descriptionParution" />
           <ScalarProperty Name="dateParution" ColumnName="dateParution" />
