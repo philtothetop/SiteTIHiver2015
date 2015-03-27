@@ -10,7 +10,16 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class ModifierFAQ {
+    public partial class Admin_FAQ {
+        
+        /// <summary>
+        /// Contrôle lblMessage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
         /// Contrôle ddlQuestionsFAQ.
