@@ -198,7 +198,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         etudiantACreerCopie.valideCourriel = false;
                         etudiantACreerCopie.compteActif = false;
                         etudiantACreerCopie.pathCV = "";
-                        etudiantACreerCopie.cohorte = 0;
+                       
 
                         leContext.UtilisateurSet.Add(etudiantACreerCopie);
                         leContext.SaveChanges();
