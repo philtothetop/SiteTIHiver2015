@@ -8,6 +8,11 @@ Extrants: --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <%--<script type="text/javascript">
+        function EasterEgg(){
+            alert('salut');
+        }
+    </script>--%>
 
     <!-- Header container -->
     <div class="container">
@@ -42,12 +47,11 @@ Extrants: --%>
         <!-- /.row -->
 
         <!-- Prof -->
-
-
         <div class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">Nos professeurs</h2>
             </div>
+
             <asp:ListView ID="lvProfesseurs" runat="server"
                 ItemType="Site_de_la_Technique_Informatique.Model.Professeur"
                 SelectMethod="lvProfesseurs_GetData"
@@ -105,7 +109,6 @@ Extrants: --%>
                 <h2 class="page-header">Nos Étudiants</h2>
             </div>
 
-
             <asp:ListView ID="lvEtudiants" runat="server"
                 ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
                 SelectMethod="lviewEtudiants_GetData"
@@ -134,9 +137,6 @@ Extrants: --%>
                 </GroupSeparatorTemplate>
 
             </asp:ListView>
-
-
-
 
         </div>
         <!-- /.row -->
