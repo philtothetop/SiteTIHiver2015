@@ -108,6 +108,8 @@
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Css\AdministrateurLesOffresEmploi.css" />
+    <Content Include="Css\AdministrateutTemoignage.css" />
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
@@ -141,6 +143,9 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
+    <Content Include="ModifierFAQ.aspx" />
+    <Content Include="modifProfilEtudiant.aspx" />
+    <Content Include="modifProfilEtudiants.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -172,6 +177,7 @@
     <Content Include="PlanDuSite.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
+    <Content Include="SelectionForum.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -207,6 +213,7 @@
     <Content Include="Css\Global.css" />
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
+    <Content Include="Temoignages.aspx" />
     <Content Include="temp-editNouvelles.aspx" />
     <Content Include="toast.gif" />
     <Content Include="Temoignage.aspx" />
@@ -230,6 +237,13 @@
     </Compile>
     <Compile Include="Admin_Evenement.aspx.designer.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_OffreEmploi.aspx.cs">
+      <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_OffreEmploi.aspx.designer.cs">
+      <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Temoignage.aspx.cs">
       <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
@@ -438,7 +452,30 @@
       <DependentUpon>Log.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model_Partielles\Etudiant_partielles.cs" />
+    <Compile Include="Model_Partielles\Membre_Partielles.cs" />
+    <Compile Include="Model_Partielles\Professeur_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
+    <Compile Include="ModifierFAQ.aspx.cs">
+      <DependentUpon>ModifierFAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifierFAQ.aspx.designer.cs">
+      <DependentUpon>ModifierFAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modifProfilEtudiant.aspx.cs">
+      <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modifProfilEtudiant.aspx.designer.cs">
+      <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modifProfilEtudiants.aspx.cs">
+      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modifProfilEtudiants.aspx.designer.cs">
+      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -485,6 +522,13 @@
     <Compile Include="Recherche.aspx.designer.cs">
       <DependentUpon>Recherche.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SelectionForum.aspx.cs">
+      <DependentUpon>SelectionForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SelectionForum.aspx.designer.cs">
+      <DependentUpon>SelectionForum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -505,6 +549,13 @@
     </Compile>
     <Compile Include="Temoignage.aspx.designer.cs">
       <DependentUpon>Temoignage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Temoignages.aspx.cs">
+      <DependentUpon>Temoignages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Temoignages.aspx.designer.cs">
+      <DependentUpon>Temoignages.aspx</DependentUpon>
     </Compile>
     <Compile Include="temp-editNouvelles.aspx.cs">
       <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
