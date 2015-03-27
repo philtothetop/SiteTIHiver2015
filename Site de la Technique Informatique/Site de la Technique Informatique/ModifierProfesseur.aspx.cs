@@ -6,15 +6,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using System.Drawing;
+using Site_de_la_Technique_Informatique.Classes;
+using System.IO;
 
 namespace Site_de_la_Technique_Informatique
 {
     public partial class ModifierProfesseur : System.Web.UI.Page
     {
-        public Professeur currentProf ;
+        public Professeur currentProf;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             currentProf = lvProfesseur_GetData();
         }
 
@@ -43,9 +46,53 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        private void updateProfesseur()
+        private void updateProfesseur(Professeur profAUpdater)
         {
+            string courriel = Request.Cookies["TICourriel"].Value;
 
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                profAUpdater = lecontexte.UtilisateurSet.OfType<Professeur>().Where(p => p.courriel == courriel).FirstOrDefault();
+
+                TryUpdateModel(profAUpdater);
+
+                if (!ModelState.IsValid)
+                {
+                    foreach (var modelErrors in ModelState)
+                    {
+                        string propertyName = modelErrors.Key;
+                        if (modelErrors.Value.Errors.Count > 0)
+                        {
+                            for (int i = 0; i < modelErrors.Value.Errors.Count; i++)
+                            {
+                                lblMessage.Text += "<b>" + propertyName + ": </b>" + modelErrors.Value.Errors[i].ErrorMessage.ToString() + "<br/>";
+                            }
+                        }
+                    }
+                    lblMessage.Visible = true;
+
+                }
+                else { 
+
+                String imgData = ImgExSrc.Value;
+                if (imgData != "" && imgData.Length > 21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
+                {
+                    System.Drawing.Image imageProfil = LoadImage(imgData);
+                    imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
+
+                    String imageNom = (profAUpdater.prenom + profAUpdater.dateInscription.ToString()).GetHashCode() + "_125.jpg";
+                    String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
+                    imageProfil.Save(imageProfilChemin);
+                    profAUpdater.pathPhotoProfil = imageNom;
+                }
+                else// sion photo par défault
+                {
+                    profAUpdater.pathPhotoProfil = "photobase.bmp";
+                }
+
+
+                }
+            }
         }
 
         protected void lnkUpload_Click(object sender, EventArgs e)
@@ -80,6 +127,28 @@ namespace Site_de_la_Technique_Informatique
 
                }*/
 
-            }
         }
+
+        public System.Drawing.Image LoadImage(String data)
+        {
+            //get a temp image from bytes, instead of loading from disk
+            //data:image/gif;base64,
+            //this image is a single pixel (black)
+            //byte[] bytes = Convert.FromBase64String("R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==");
+            data = data.Remove(0, 22);
+            byte[] bytes = Convert.FromBase64String(data);
+            System.Drawing.Image image;
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                image = System.Drawing.Image.FromStream(ms);
+                string cropFileName = "";
+                string cropFilePath = "";
+                cropFileName = "crop_" + "testImg";
+                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Profils/"), cropFileName);
+            }
+
+            return image;
+        }
+
     }
+}

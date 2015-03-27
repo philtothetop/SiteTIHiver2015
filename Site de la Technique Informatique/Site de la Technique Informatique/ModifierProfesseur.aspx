@@ -68,6 +68,11 @@
                             <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
 
                         </LayoutTemplate>
+
+                        <EmptyDataTemplate>
+                            QUI ES-TU, QUE VIENS-TU FAIRE ICI?
+                        </EmptyDataTemplate>
+
                         <ItemTemplate>
                             <div class="row row-centered">
                                 <div class="col-md-5 col-centered">
@@ -123,7 +128,7 @@
                             </div>
                             <div class="row row-centered" style="margin-bottom: 20px;">
                                 <div class="col-md-1 col-md-push-2 col-centered">
-                                    <asp:LinkButton Text="Sauvegarder" runat="server" CssClass="btn btn-default" Style="float: right;" CommandName="updateProfesseur" />
+                                    <asp:LinkButton Text="Sauvegarder" runat="server" CssClass="btn btn-default" Style="float: right;" CommandName="updateProfesseur" OnClientClick="copieImgData()" />
                                 </div>
                             </div>
 
@@ -173,7 +178,11 @@
                 </div>
                  </div>
 
-
+                 <div class="control-group form-group">
+                            <div class="controls">
+                                <asp:Label ID="lblMessage" runat="server" Text="" Visible="false"></asp:Label>
+                            </div>
+                        </div>
 
             </div>
             <div role="tabpanel" class="tab-pane fade" id="cours">
