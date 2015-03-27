@@ -32,8 +32,6 @@ namespace Site_de_la_Technique_Informatique
         public List<String> msgsEnErreur = new List<string>();
         public List<String> panneauxEnErreur = new List<string>();
 
-        // va contenir le courriel modifié 
-        string courrielModifie = "";
 
         #region Évènements de la page
         protected void Page_Load(object sender, EventArgs e)
@@ -52,16 +50,16 @@ namespace Site_de_la_Technique_Informatique
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 try
                 {
-                    String courriel = "";
+                    String strIDUtilisateur = "";
                     //Si c'est l'admin
                     if (Request.Cookies["TIUtilisateur"] != null && Request.Cookies["TIUtilisateur"].Equals("Admin"))
                     {
                         //Si le query etudiantId exist
-                        if (Request.QueryString["etudiantId"]!=null)
+                        if (Request.QueryString["EtudiantId"]!=null)
                         {
                             int idEtudiant = 0;
                              
-                            if(int.TryParse(Request.QueryString["etudiantId"].ToString(),out idEtudiant))
+                            if(int.TryParse(Request.QueryString["EtudiantId"].ToString(),out idEtudiant))
                             {
                                 etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDEtudiant==idEtudiant select etu).FirstOrDefault();
                             }
@@ -76,11 +74,10 @@ namespace Site_de_la_Technique_Informatique
                     else
                     {
                         //Chercher l'utilisateur
-                        courriel = Request.Cookies["TICourriel"].Value;
-                   
+                        strIDUtilisateur = Request.Cookies["TIID"].Value;
+                        int IDUtilisateur = int.Parse(strIDUtilisateur);
 
-
-                    etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.courriel == courriel select etu).FirstOrDefault();
+                        etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDUtilisateur == IDUtilisateur select etu).FirstOrDefault();
                     }
 
                 }
@@ -98,24 +95,22 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                String courriel = "";
+                
                 //Chercher l'utilisateur
-                courriel = Request.Cookies["TICourriel"].Value;
+                String strIDUtilisateur = Request.Cookies["TIID"].Value;
+                int IDUtilisateur = int.Parse(strIDUtilisateur);
 
 
-                Etudiant etudiantAUpdaterCopie = (lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>().SingleOrDefault(m => m.courriel == courriel)); ;
-
-                // contient le nouveau courriel modifié de l'étudiant
-                TextBox txtCourriel = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtCourriel");
-                courrielModifie = txtCourriel.Text;
-
+                Etudiant etudiantAUpdaterCopie = (lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>().SingleOrDefault(m => m.IDUtilisateur == IDUtilisateur)); ;
+                
+                
                 //Validation
 
                 var resultatsValidation = new List<ValidationResult>();
                 var isValid = true;
 
                 //Courriel
-                if (etudiantAUpdater.courriel == null || etudiantAUpdater.courriel=="")
+                if (etudiantAUpdaterCopie.courriel == null || etudiantAUpdaterCopie.courriel == "")
                 {
                     ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "Courriel" });
                     isValid = false;
@@ -123,7 +118,7 @@ namespace Site_de_la_Technique_Informatique
                 }
                 bool isEmail = Regex.IsMatch(etudiantAUpdaterCopie.courriel + "", @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
 
-                if (etudiantAUpdater.courriel != null && (isEmail == false || etudiantAUpdater.courriel.Length > 64))
+                if (etudiantAUpdaterCopie.courriel != null && (isEmail == false || etudiantAUpdaterCopie.courriel.Length > 64))
                 {
                     ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "Courriel" });
                     isValid = false;
@@ -267,7 +262,6 @@ namespace Site_de_la_Technique_Informatique
 
                             etudiantAUpdaterCopie.pathPhotoProfil = imageNom;
                         }
-
                         lecontexte.SaveChanges();
                         Response.Redirect("modifProfilEtudiant.aspx", false);
                     }

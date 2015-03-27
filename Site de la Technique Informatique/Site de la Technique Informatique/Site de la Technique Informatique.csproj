@@ -568,7 +568,7 @@
     <Folder Include="bin\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Upload\" />
+    <Folder Include="Upload\CV\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
