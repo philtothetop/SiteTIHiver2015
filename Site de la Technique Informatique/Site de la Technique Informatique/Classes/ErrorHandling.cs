@@ -6,6 +6,7 @@
 
 using Site_de_la_Technique_Informatique.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -16,6 +17,8 @@ namespace Site_de_la_Technique_Informatique
 {
     public class ErrorHandling : System.Web.UI.Page
     {
+        static Random rng = new Random();
+
         public void Page_Error(Object sender, EventArgs e)
         {
             Exception ex = Server.GetLastError();
@@ -80,6 +83,20 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
+        //Méthode maison pour randomize les items dans une liste
+        public void Randomize(IList list)
+        {
+            for (int i = list.Count - 1; i > 0; i--)
+            {
+                int swapIndex = rng.Next(i + 1);
+                if (swapIndex != i)
+                {
+                    object tmp = list[swapIndex];
+                    list[swapIndex] = list[i];
+                    list[i] = tmp;
+                }
+            }
+        }
 
         //Méthode pour savoir si la personne a les autorisations pour voir la page
         //Devrais être utiliser QUE SUR LES PAGES qui on besoin de quelqu'un de connecté
