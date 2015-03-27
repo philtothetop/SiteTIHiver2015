@@ -9,7 +9,7 @@ Extrants: --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <!-- Header Carousel -->
+    <!-- Header container -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
@@ -19,9 +19,9 @@ Extrants: --%>
                     
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="index.html">Accueil</a>
+                    <li><a href="Default.aspx">Accueil</a>
                     </li>
-                    <li class="active">À propos</li>
+                    <li class="active">Qui sommes-nous?</li>
                 </ol>
             </div>
         </div>
@@ -113,7 +113,7 @@ Extrants: --%>
 
                 <ItemTemplate>
                     <div class="col-md-2 col-sm-4 col-xs-6">
-                        <asp:Image runat="server" class="img-responsive customer-img" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' ToolTip='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                        <asp:Image runat="server" class="img-responsive customer-img" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
                     </div>
                 </ItemTemplate>
 
