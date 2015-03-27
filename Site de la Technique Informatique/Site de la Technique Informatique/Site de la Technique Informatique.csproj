@@ -113,6 +113,7 @@
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EnteteForum.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription\Inscription-message.aspx" />
     <Content Include="Inscription\Inscription-valide.aspx" />
@@ -174,7 +175,7 @@
     <Content Include="PlanDuSite.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
-    <Content Include="SelectionForum.aspx" />
+    <Content Include="SectionForum.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -291,6 +292,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnteteForum.aspx.cs">
+      <DependentUpon>EnteteForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnteteForum.aspx.designer.cs">
+      <DependentUpon>EnteteForum.aspx</DependentUpon>
     </Compile>
     <Compile Include="FAQ.aspx.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
@@ -497,12 +505,12 @@
     <Compile Include="Recherche.aspx.designer.cs">
       <DependentUpon>Recherche.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SelectionForum.aspx.cs">
-      <DependentUpon>SelectionForum.aspx</DependentUpon>
+    <Compile Include="SectionForum.aspx.cs">
+      <DependentUpon>SectionForum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SelectionForum.aspx.designer.cs">
-      <DependentUpon>SelectionForum.aspx</DependentUpon>
+    <Compile Include="SectionForum.aspx.designer.cs">
+      <DependentUpon>SectionForum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
