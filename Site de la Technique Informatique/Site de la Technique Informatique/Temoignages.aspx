@@ -26,28 +26,35 @@
                 </EmptyDataTemplate>
 
                 <ItemTemplate>
-                    <div class="col-md-12 col-sm-6 col-xs-6 media alert alert-info alert-dismissible" style="float:left; display:inline; padding:10px;">
-                        <div class="media-left media-middle" style="float:left;">
-                            <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="175" Width="175" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
-                        </div>
-                        <div class="media-body" style="float:left;">
-                            <div style="word-break:break-all;">
-                            <asp:Label runat="server" style="text-align:center; word-wrap:break-word;" Text='<%# Item.temoignage.Replace("¤", "\r") %>' />
-                        </div>
-                        </div>
+                    <div class="col-md-12 col-sm-6 col-xs-6" style="display:inline; padding:10px; background-color: #eaeaea; text-align:center; border-radius:40px; padding-bottom:30px; margin:10px;">
+                            <div style="clear:both; text-align:center;">
+                                <asp:Label runat="server" Text='<%# Item.prenom + " "  +Item.nom %>' style="text-decoration:underline;" />
+                            </div>
+                            <div class="col-md-4">
+                                <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="275" Width="275" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                            </div>
+                            <div class="col-md-8">
+                                <div style="word-break:break-all; float:right;">
+                                    <asp:Label runat="server" Text='<%# Item.temoignage.Replace("¤", "\r") %>' />
+                                </div>
+                            </div>
                     </div>
                 </ItemTemplate>
 
                 <AlternatingItemTemplate>
-                    <div class="col-md-12 col-sm-6 col-xs-6 media alert alert-info alert-dismissible" style="float:right; display:inline; padding:10px;">
-                        <div class="media-left media-middle" style="float:right;">
-                            <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="175" Width="175" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                    <div class="col-md-12 col-sm-6 col-xs-6" style="display:inline; padding:10px; background-color: #eaeaea; text-align:center; border-radius:40px; padding-bottom:30px; margin:10px;">
+                        <div style="clear:both; text-align:center;">
+                            <asp:Label runat="server" Text='<%# Item.prenom + " "  +Item.nom %>' style="text-anchor:middle; text-decoration:underline;" />
                         </div>
-                        <div class="media-body" style=" float:right;">
+                        <div class="col-md-8">
                             <div style="word-break:break-all;">
-                                <asp:Label runat="server" style="text-align:center;" Text='<%# Item.temoignage.Replace("¤", "\r") %>' />
+                                <asp:Label runat="server" Text='<%# Item.temoignage.Replace("¤", "\r") %>' />
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="275" Width="275" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                        </div>
+                        
                     </div>
                 </AlternatingItemTemplate>
 
