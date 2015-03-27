@@ -13,7 +13,6 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
         }
 
         public IQueryable<Site_de_la_Technique_Informatique.Model.Membre> lviewRecherche_GetData()

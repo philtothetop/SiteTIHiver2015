@@ -23,8 +23,11 @@ namespace Site_de_la_Technique_Informatique
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
-             dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
+            if (Page.IsPostBack == false)
+            {
+                //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
+                dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
+            }
         }
 
         //Méthode pour downloader le PDF de l'offre d'emploi

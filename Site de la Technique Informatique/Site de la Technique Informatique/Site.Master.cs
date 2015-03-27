@@ -19,13 +19,17 @@ namespace Site_de_la_Technique_Informatique
             {
                 lblConnexion.Visible = true; //Affiche le lien de connexion
                 lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
-                lblInscription.Visible = false; //remet le lien inscription car possibilité de nouvel utilisateur
+                lblInscription.Visible = true; //remet le lien inscription car possibilité de nouvel utilisateur
+                lblOffresEmploi.Visible = false; // Même chose que les autres
+                liConnexion.Visible = false;
             }
             else //donc utilisateur contient une valeur
             {
                 lblConnexion.Visible = false; //Cache le lien de connexion
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
+                lblOffresEmploi.Visible = true; // Même chose que les autres
+                liConnexion.Visible = true;
 
                 if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                 {
