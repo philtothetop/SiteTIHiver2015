@@ -19,6 +19,40 @@ Extrants: --%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../Css/Inscription.css" rel="stylesheet" />
+    <!--Afficher les erreurs de input-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".has-error").removeClass("has-error");
+            $(".has-feedback").removeClass("has-feedback");
+            var idValue = '<%=this.lvModifProfilEtudiant.ClientID%>';
+            var IDS = JSON.parse('<%= this.idsEnErreurTab%>');
+            var MSGS = '<%= this.msgsEnErreur%>';
+
+            for (index = 0; index < IDS.length; ++index) {
+                var id = IDS[index];
+                var msg = MSGS[index];
+                   
+                var element ="dv" + id;
+
+                $("#" + element).addClass("has-error");
+                $("#" + element).addClass("has-feedback");
+                if(id=="NouveauMotDePasse"){
+                    element = "dvConfirmationNouveauMotDePasse";
+                    $("#" + element).addClass("has-error");
+                    $("#" + element).addClass("has-feedback");
+                }
+
+            }
+
+        });
+    </script>
+    <!--ToolTips-->
+    <script type="text/javascript">
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <!--Modal-->
     <script type="text/javascript">
         function openModal() {
             $('#myModal').modal('show');
@@ -58,6 +92,16 @@ Extrants: --%>
                     <LayoutTemplate>
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
                     </LayoutTemplate>
+                    <EmptyDataTemplate>
+                        <table class="emptyTable" cellpadding="5" cellspacing="5">
+                            <tr>
+                                <td>Lol
+                                </td>
+                                <td>No records available.
+                                </td>
+                            </tr>
+                        </table>
+                    </EmptyDataTemplate>
                     <ItemTemplate>
                         <div class="row row-centered">
                             <div class="col-lg-9 col-centered">
@@ -99,7 +143,7 @@ Extrants: --%>
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Prénom:</label><br />
-                                <asp:Label ID="lblPrenom" runat="server"  placeholder="Prénom" Text='<%#Eval("prenom") %>' />
+                                <asp:Label ID="lblPrenom" runat="server" placeholder="Prénom" Text='<%#Eval("prenom") %>' />
 
                             </div>
                         </div>
@@ -118,19 +162,19 @@ Extrants: --%>
 
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvCourriel">
                             <div class="controls">
                                 <label>Courriel:</label>
                                 <asp:TextBox ID="txtCourriel" runat="server" CssClass="form-control" placeholder="courriel@exemple.qc.ca" Text='<%#BindItem.courriel %>' />
                                 <asp:Label ID="lblCourriel" runat="server" Text="" />
                             </div>
                         </div>
-                                                <div class="control-group form-group">
+                        <div class="control-group form-group" dvcv>
                             <div class="controls">
                                 <label>CV:</label>
-                                <asp:Label ID=lblCV runat="server" Text="..." />
-                                 
-                                <asp:FileUpload ID="fupCV"  runat="server" />
+                                <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
+                                <label>Changer de CV:</label>
+                                <asp:FileUpload ID="fupCV" runat="server" />
                                 (valides: pdf , doc, docx , odf)
                             </div>
                         </div>
@@ -139,21 +183,21 @@ Extrants: --%>
                                 <h4>Changer votre mot de passe</h4>
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvMotDePasse">
                             <div class="controls">
                                 <label>Mot de passe actuel:</label>
                                 <asp:TextBox ID="txtMotDePasse" runat="server" CssClass="form-control" Text="" TextMode="Password" />
                                 <asp:Label ID="lblMotDePasse" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvNouveauMotDePasse">
                             <div class="controls">
                                 <label>Nouveau mot de passe:</label>
                                 <asp:TextBox ID="txtNouveauMotDePasse" runat="server" CssClass="form-control" Text="" TextMode="Password" />
                                 <asp:Label ID="lblNouveauMotDePasse" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
+                        <div class="control-group form-group" id="dvConfirmationNouveauMotDePasse">
                             <div class="controls">
                                 <label>Confirmation du nouveau mot de passe:</label>
                                 <asp:TextBox ID="txtConfirmationNouveauMotDePasse" runat="server" CssClass="form-control" Text="" TextMode="Password" />
