@@ -1,6 +1,7 @@
 ﻿// Page qui permet aux étudiants de modifier leur profil (photo de profil, nom, prénom, date de naissance, mot de passe)
 // Écrit par Cédric Archambault  et un peut par Marie-Philippe Gill, Février 2015
 
+using Newtonsoft.Json;
 using Site_de_la_Technique_Informatique.Classes;
 using Site_de_la_Technique_Informatique.Model;
 using System;
@@ -19,6 +20,18 @@ namespace Site_de_la_Technique_Informatique
 {
     public partial class modifProfilEtudiant : ErrorHandling
     {
+        //Collect les erreurs de validation
+        String _idsEnErreurTab;
+        public String idsEnErreurTab
+        {
+            get { return _idsEnErreurTab; }
+
+            set { _idsEnErreurTab = value; }
+        }
+        public List<String> idsEnErreur = new List<string>();
+        public List<String> msgsEnErreur = new List<string>();
+        public List<String> panneauxEnErreur = new List<string>();
+
         // va contenir le courriel modifié 
         string courrielModifie = "";
 
@@ -40,11 +53,35 @@ namespace Site_de_la_Technique_Informatique
                 try
                 {
                     String courriel = "";
-                    //Chercher l'utilisateur
-                    courriel = Request.Cookies["TICourriel"].Value;
+                    //Si c'est l'admin
+                    if (Request.Cookies["TIUtilisateur"] != null && Request.Cookies["TIUtilisateur"].Equals("Admin"))
+                    {
+                        //Si le query etudiantId exist
+                        if (Request.QueryString["etudiantId"]!=null)
+                        {
+                            int idEtudiant = 0;
+                             
+                            if(int.TryParse(Request.QueryString["etudiantId"].ToString(),out idEtudiant))
+                            {
+                                etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDEtudiant==idEtudiant select etu).FirstOrDefault();
+                            }
+                            else //Retourne un etudiant null et affiche un message.
+                            {
+                                etudiantCo = null;
+                                Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
+                                lblMessage.Text += "L' id de l'étudiant n'existe pas.";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //Chercher l'utilisateur
+                        courriel = Request.Cookies["TICourriel"].Value;
+                   
+
 
                     etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.courriel == courriel select etu).FirstOrDefault();
-
+                    }
 
                 }
                 catch (Exception ex)
@@ -78,17 +115,17 @@ namespace Site_de_la_Technique_Informatique
                 var isValid = true;
 
                 //Courriel
-                if (etudiantAUpdaterCopie.courriel == null)
+                if (etudiantAUpdater.courriel == null || etudiantAUpdater.courriel=="")
                 {
-                    ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "courriel" });
+                    ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "Courriel" });
                     isValid = false;
                     resultatsValidation.Add(vald);
                 }
                 bool isEmail = Regex.IsMatch(etudiantAUpdaterCopie.courriel + "", @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
 
-                if (etudiantAUpdaterCopie.courriel != null && (isEmail == false || etudiantAUpdaterCopie.courriel.Length > 64))
+                if (etudiantAUpdater.courriel != null && (isEmail == false || etudiantAUpdater.courriel.Length > 64))
                 {
-                    ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "courriel" });
+                    ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "Courriel" });
                     isValid = false;
                     resultatsValidation.Add(vald);
                 }
@@ -104,26 +141,27 @@ namespace Site_de_la_Technique_Informatique
                     String strHashMotDePassehash = hash.GetSHA256Hash(txtMotDePasse.Text);
                     if (txtMotDePasse.Text == "" || !etudiantAUpdaterCopie.hashMotDePasse.Equals(strHashMotDePassehash))
                     {
-                        ValidationResult vald = new ValidationResult("Le mot de passe n'est pas valide.", new[] { "MotDepasse" });
+                        ValidationResult vald = new ValidationResult("Le mot de passe n'est pas valide.", new[] { "MotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     if (txtNouveauMotDePasse.Text == "")
                     {
-                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe ne doit pas être vide.", new[] { "hashMotDepasse" });
+                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe ne doit pas être vide.", new[] { "NouveauMotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     if (txtNouveauMotDePasse.Text.Length < 4)
                     {
-                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe est trop court.", new[] { "hashMotDepasse" });
+                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe doit être plus grand que 4 caractères.", new[] { "NouveauMotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     //Comparer les mots de passe
                     if (txtNouveauMotDePasse.Text != txtConfirmationNouveauMotDePasse.Text)
                     {
-                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "hashMotDepasse" });
+
+                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "NouveauMotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -151,10 +189,23 @@ namespace Site_de_la_Technique_Informatique
                 if (!isValid) // NON VALIDE
                 {
                     lblMessage.Text = "";
+                    foreach (var ValidationResult in resultatsValidation)
+                    {
+
+                        String input = ValidationResult.MemberNames.FirstOrDefault();
+                        input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
+
+                        idsEnErreur.Add(input);
+                        msgsEnErreur.Add(ValidationResult.ErrorMessage);
+                        lblMessage.Text += ValidationResult.ErrorMessage + "<br/>";
+
+                    }
+
+                    idsEnErreurTab = JsonConvert.SerializeObject(idsEnErreur);
                     foreach (var validationResult in resultatsValidation)
                     {
 
-                        lblMessage.Text += validationResult.ErrorMessage + "<br/>";
+                        
                     }
                 }
                 else // VALIDE

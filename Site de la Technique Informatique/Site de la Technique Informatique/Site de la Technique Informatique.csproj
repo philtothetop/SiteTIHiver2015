@@ -127,6 +127,7 @@
     <Content Include="Jquery\Cropper\js\cropper.js" />
     <Content Include="Jquery\Cropper\js\docs.js" />
     <Content Include="Jquery\Cropper\js\jquery.min.js" />
+    <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -146,7 +147,6 @@
     <Content Include="Log.aspx" />
     <Content Include="ModifierFAQ.aspx" />
     <Content Include="modifProfilEtudiant.aspx" />
-    <Content Include="modifProfilEtudiants.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -178,7 +178,6 @@
     <Content Include="PlanDuSite.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
-    <Content Include="SelectionForum.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -203,6 +202,7 @@
     </Content>
     <Content Include="Admin.master" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="Upload\Media\plan420616H15.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -297,6 +297,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FaireTemoignage.aspx.cs">
+      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FaireTemoignage.aspx.designer.cs">
+      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FAQ.aspx.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -338,6 +345,13 @@
     </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.designer.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LesParutionsMedias.aspx.cs">
+      <DependentUpon>LesParutionsMedias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LesParutionsMedias.aspx.designer.cs">
+      <DependentUpon>LesParutionsMedias.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -470,13 +484,6 @@
     <Compile Include="modifProfilEtudiant.aspx.designer.cs">
       <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="modifProfilEtudiants.aspx.cs">
-      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modifProfilEtudiants.aspx.designer.cs">
-      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -522,13 +529,6 @@
     </Compile>
     <Compile Include="Recherche.aspx.designer.cs">
       <DependentUpon>Recherche.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SelectionForum.aspx.cs">
-      <DependentUpon>SelectionForum.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SelectionForum.aspx.designer.cs">
-      <DependentUpon>SelectionForum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -585,7 +585,6 @@
     <Folder Include="bin\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
