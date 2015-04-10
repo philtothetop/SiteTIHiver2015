@@ -117,10 +117,6 @@
     <Content Include="DiscussionForum.aspx" />
     <Content Include="EnteteForum.aspx" />
     <Content Include="FAQ.aspx" />
-    <Content Include="Inscription\Inscription-message.aspx" />
-    <Content Include="Inscription\Inscription-valide.aspx" />
-    <Content Include="Inscription\Inscription.aspx" />
-    <Content Include="Inscription\Validation-Inscription.aspx" />
     <Content Include="Jquery\Cropper\Cropper.aspx" />
     <Content Include="Jquery\Cropper\css\bootstrap.min.css" />
     <Content Include="Jquery\Cropper\css\cropper.css" />
@@ -149,7 +145,6 @@
     <Content Include="Log.aspx" />
     <Content Include="ModifierFAQ.aspx" />
     <Content Include="modifProfilEtudiant.aspx" />
-    <Content Include="modifProfilEtudiants.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -328,34 +323,6 @@
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inscription\Inscription-message.aspx.cs">
-      <DependentUpon>Inscription-message.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription-message.aspx.designer.cs">
-      <DependentUpon>Inscription-message.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription-valide.aspx.cs">
-      <DependentUpon>Inscription-valide.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
-      <DependentUpon>Inscription-valide.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Inscription.aspx.designer.cs">
-      <DependentUpon>Inscription.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription\Validation-Inscription.aspx.cs">
-      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription\Validation-Inscription.aspx.designer.cs">
-      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -501,13 +468,6 @@
     <Compile Include="modifProfilEtudiant.aspx.designer.cs">
       <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="modifProfilEtudiants.aspx.cs">
-      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modifProfilEtudiants.aspx.designer.cs">
-      <DependentUpon>modifProfilEtudiants.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -614,6 +574,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
+    <Folder Include="Inscription\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Upload\" />
