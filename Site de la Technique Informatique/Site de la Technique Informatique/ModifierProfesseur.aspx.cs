@@ -146,11 +146,12 @@ namespace Site_de_la_Technique_Informatique
         protected void lnkSaveNewPassword_Click(object sender, EventArgs e)
         {
             var hash = new hash();
-            string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
+           
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
                 Professeur profAModifier = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).First();
-
+                if(!String.IsNullOrEmpty(txtAncienMp.Text) && !String.IsNullOrEmpty(txtNouveauMp.Text) && !String.IsNullOrEmpty(txtNouveauMpConfirm.Text) ){
+                    string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
                 if (profAModifier.hashMotDePasse.Equals(ancienPwd))
                 {
                     if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
@@ -168,7 +169,11 @@ namespace Site_de_la_Technique_Informatique
                     }
                 }
             }
-           
+                else{
+                    lblMessage.Text = "<b>Des valeurs ont été laissé vides.</b>";
+                    divWarning.Attributes["style"] = "visibility:visible;";
+                }
+           }
             
         }
 
