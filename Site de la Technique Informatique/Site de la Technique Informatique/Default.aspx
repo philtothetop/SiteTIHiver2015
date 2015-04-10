@@ -20,7 +20,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Vous n'êtes pas certain de vous incrire dans une spécialisation de l'informatique de gestion? Vous vous interrogez si c'est votre vraie vocation? Apprenez tout ce que vous devez savoir sur le programme! </p>
-                        <a href="full-width.html" class="btn btn-default">En savoir plus...</a>
+                        <a href="QuiSommesNous.aspx" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Apprenez toutes les nouvelles de la technique</p>
-                        <a href="full-width.html" class="btn btn-default">En savoir plus...</a>
+                        <a href="Nouvelle.aspx" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Vous êtes sur le point d'avoir votre diplôme et vous cherchez un travail le plus rapidement possible? Vous serez gâté(e) par toutes les offres d'emploi que nous vous proposons!</p>
-                        <a href="full-width.html" class="btn btn-default">En savoir plus...</a>
+                        <a href="ListeOffresEmploi.aspx" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
             </div>
