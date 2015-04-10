@@ -100,6 +100,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin_AjoutPhoto.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
@@ -231,6 +232,13 @@
     </Compile>
     <Compile Include="Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_AjoutPhoto.aspx.cs">
+      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_AjoutPhoto.aspx.designer.cs">
+      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Evenement.aspx.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
@@ -585,6 +593,8 @@
     <Folder Include="bin\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Photos\Cégep\" />
+    <Folder Include="Photos\Souvenir\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
