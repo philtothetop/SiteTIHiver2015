@@ -48,6 +48,12 @@ public partial class MembreValidation
     [DisplayName("Mot de passe"), Required(ErrorMessage = "Un mot de passe est requis.")]
     [StringLengthRange(Minimum = 4, ErrorMessage = "Le mot de passe doit avoir au minimu 4 caractères.")]
     public string hashMotDePasse { get; set; }
+
+    [DisplayName("Description de la photo")]
+     [StringLengthRange(Maximum = 500, ErrorMessage = "La description de la photo ne peut pas avoir plus de 500 caractères.")]
+    public string photoDescription { get; set; }
+
+
 }
 public class StringLengthRangeAttribute : ValidationAttribute
 {
