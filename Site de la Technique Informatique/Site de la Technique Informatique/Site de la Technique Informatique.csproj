@@ -100,6 +100,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin_AjoutPhoto.aspx" />
+    <Content Include="Admin_Default.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
@@ -114,6 +116,8 @@
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DiscussionForum.aspx" />
+    <Content Include="EnteteForum.aspx" />
     <Content Include="FaireTemoignage.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription-Employeur.aspx" />
@@ -131,6 +135,7 @@
     <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
+    <Content Include="MesDiscussionsForum.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
     <Content Include="Css\bootstrap.css" />
     <Content Include="Css\bootstrap.min.css" />
@@ -316,6 +321,20 @@
     <Compile Include="Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
     </Compile>
+    <Compile Include="Admin_AjoutPhoto.aspx.cs">
+      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_AjoutPhoto.aspx.designer.cs">
+      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Default.aspx.cs">
+      <DependentUpon>Admin_Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Default.aspx.designer.cs">
+      <DependentUpon>Admin_Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Evenement.aspx.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -389,7 +408,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EnteteForum.aspx.designer.cs" />
+    <Compile Include="DiscussionForum.aspx.cs">
+      <DependentUpon>DiscussionForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DiscussionForum.aspx.designer.cs">
+      <DependentUpon>DiscussionForum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EnteteForum.aspx.cs">
+      <DependentUpon>EnteteForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnteteForum.aspx.designer.cs">
+      <DependentUpon>EnteteForum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FaireTemoignage.aspx.cs">
       <DependentUpon>FaireTemoignage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -460,6 +492,13 @@
     </Compile>
     <Compile Include="marie-TestVerTIC.aspx.designer.cs">
       <DependentUpon>marie-TestVerTIC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MesDiscussionsForum.aspx.cs">
+      <DependentUpon>MesDiscussionsForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MesDiscussionsForum.aspx.designer.cs">
+      <DependentUpon>MesDiscussionsForum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Admin.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
