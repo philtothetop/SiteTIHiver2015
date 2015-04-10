@@ -105,6 +105,8 @@
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
     <Content Include="Admin_Vertic.aspx" />
+    <Content Include="AjoutDiscussion.aspx" />
+    <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
@@ -116,6 +118,7 @@
     <Content Include="Default.aspx" />
     <Content Include="DiscussionForum.aspx" />
     <Content Include="EnteteForum.aspx" />
+    <Content Include="FaireTemoignage.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription-Employeur.aspx" />
     <Content Include="Inscription-message.aspx" />
@@ -207,6 +210,7 @@
     </Content>
     <Content Include="Admin.master" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="Upload\Media\plan420616H15.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -222,6 +226,7 @@
     <Content Include="temp-editNouvelles.aspx" />
     <Content Include="toast.gif" />
     <Content Include="Temoignage.aspx" />
+    <Content Include="Validation-Inscription.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
@@ -270,6 +275,20 @@
     </Compile>
     <Compile Include="Admin_Vertic.aspx.designer.cs">
       <DependentUpon>Admin_Vertic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutDiscussion.aspx.cs">
+      <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutDiscussion.aspx.designer.cs">
+      <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutMedia.aspx.cs">
+      <DependentUpon>AjoutMedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutMedia.aspx.designer.cs">
+      <DependentUpon>AjoutMedia.aspx</DependentUpon>
     </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
@@ -597,6 +616,13 @@
     <Compile Include="temp-editNouvelles.aspx.designer.cs">
       <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Validation-Inscription.aspx.cs">
+      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Validation-Inscription.aspx.designer.cs">
+      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -615,7 +641,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
-    <Folder Include="Inscription\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Photos\Autre\" />
