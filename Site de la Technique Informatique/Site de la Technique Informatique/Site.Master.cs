@@ -22,6 +22,7 @@ namespace Site_de_la_Technique_Informatique
                 lblInscription.Visible = true; //remet le lien inscription car possibilité de nouvel utilisateur
                 lblOffresEmploi.Visible = false; // Même chose que les autres
                 liConnexion.Visible = false;
+                lblForum.Visible = false;
             }
             else //donc utilisateur contient une valeur
             {
@@ -30,6 +31,7 @@ namespace Site_de_la_Technique_Informatique
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
                 lblOffresEmploi.Visible = true; // Même chose que les autres
                 liConnexion.Visible = true;
+                lblForum.Visible = true;
 
                 if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                 {
