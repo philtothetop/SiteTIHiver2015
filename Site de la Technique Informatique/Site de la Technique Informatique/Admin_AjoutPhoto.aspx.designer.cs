@@ -10,7 +10,7 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class ModifierProfesseur {
+    public partial class Admin_AjoutPhoto {
         
         /// <summary>
         /// Contrôle ImgExSrc.
@@ -31,129 +31,75 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.ScriptManagerProxy smProxy;
         
         /// <summary>
-        /// Contrôle divSuccess.
+        /// Contrôle divReussiAjouterImage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSuccess;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReussiAjouterImage;
         
         /// <summary>
-        /// Contrôle divWarning.
+        /// Contrôle lblReussi.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divWarning;
+        protected global::System.Web.UI.WebControls.Label lblReussi;
         
         /// <summary>
-        /// Contrôle lblMessage.
+        /// Contrôle btnAjouterAutreImage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Button btnAjouterAutreImage;
         
         /// <summary>
-        /// Contrôle lvProfesseur.
+        /// Contrôle divPasReussiAjouterImage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvProfesseur;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPasReussiAjouterImage;
         
         /// <summary>
-        /// Contrôle txtAncienMp.
+        /// Contrôle lblPasReussi.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAncienMp;
+        protected global::System.Web.UI.WebControls.Label lblPasReussi;
         
         /// <summary>
-        /// Contrôle txtNouveauMp.
+        /// Contrôle divPourAjouterUnePhoto.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNouveauMp;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPourAjouterUnePhoto;
         
         /// <summary>
-        /// Contrôle txtNouveauMpConfirm.
+        /// Contrôle lviewPhoto.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNouveauMpConfirm;
+        protected global::System.Web.UI.WebControls.ListView lviewPhoto;
         
         /// <summary>
-        /// Contrôle lnkSaveNewPassword.
+        /// Contrôle ddlTypeDImage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSaveNewPassword;
-        
-        /// <summary>
-        /// Contrôle lnkDeleteProfil.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkDeleteProfil;
-        
-        /// <summary>
-        /// Contrôle upDelete.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upDelete;
-        
-        /// <summary>
-        /// Contrôle lblModalTitle.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModalTitle;
-        
-        /// <summary>
-        /// Contrôle lblModalBody.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModalBody;
-        
-        /// <summary>
-        /// Contrôle txtDeletePass.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeletePass;
-        
-        /// <summary>
-        /// Contrôle lnkDeletePass.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkDeletePass;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTypeDImage;
     }
 }

@@ -20,8 +20,9 @@ namespace Site_de_la_Technique_Informatique.Model
         }
     
         public int IDConsultationForum { get; set; }
-        public string dateConsulte { get; set; }
+        public System.DateTime dateConsulte { get; set; }
         public int EnteteForumIDEnteteForum { get; set; }
+        public int IDMembre { get; set; }
     
         public virtual EnteteForum EnteteForum { get; set; }
         public virtual ICollection<Membre> Membre { get; set; }

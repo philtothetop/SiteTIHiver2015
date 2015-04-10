@@ -17,10 +17,12 @@
 
     <div id="divReussiAjouterImage" runat="server" visible="false">
         <asp:Label ID="lblReussi" runat="server" Text="L'image a bien été ajouté."></asp:Label>
+        <br />
+        <asp:Button ID="btnAjouterAutreImage" runat="server" Text="Ajouter une autre image" OnClick="btnajouterAutreImage_Click"/>
     </div>
 
     <div id="divPasReussiAjouterImage" runat="server" visible="false">
-        <asp:Label ID="lblPasReussi" runat="server" Text="" Visible="false"></asp:Label>
+        <asp:Label ID="lblPasReussi" runat="server" Text=""></asp:Label>
     </div>
 
     <div id="divPourAjouterUnePhoto" runat="server">
@@ -61,13 +63,14 @@
                 <asp:Button ID="btnSauvegarderImage" Text="Sauvegarder" runat="server" OnClientClick="copieImgData()" OnClick="SauvegarderLaPhoto_Click" />
             </ItemTemplate>
         </asp:ListView>
-        </div>
+        
     <asp:DropDownList ID="ddlTypeDImage" runat="server">
         <asp:ListItem Text="Souvenir"></asp:ListItem>
         <asp:ListItem Text="Cégep"></asp:ListItem>
         <asp:ListItem Text="Autre"></asp:ListItem>
     </asp:DropDownList>
 
+    </div>
 
     <link rel="stylesheet" href="Css/Inscription.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
