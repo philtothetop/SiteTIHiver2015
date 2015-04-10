@@ -10,60 +10,60 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class temp_editNouvelles {
+    public partial class AjoutMedia {
         
         /// <summary>
-        /// Contrôle lviewNouvelles.
+        /// Contrôle lblListMedia.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewNouvelles;
+        protected global::System.Web.UI.WebControls.Label lblListMedia;
         
         /// <summary>
-        /// Contrôle lviewEditNews.
+        /// Contrôle ddlMedia.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEditNews;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMedia;
         
         /// <summary>
-        /// Contrôle txtTitreAjout.
+        /// Contrôle btnModif.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitreAjout;
+        protected global::System.Web.UI.WebControls.Button btnModif;
         
         /// <summary>
-        /// Contrôle txtNouvelleAjout.
+        /// Contrôle btnAjout.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNouvelleAjout;
+        protected global::System.Web.UI.WebControls.Button btnAjout;
         
         /// <summary>
-        /// Contrôle btnAjouter.
+        /// Contrôle lvMedia.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouter;
+        protected global::System.Web.UI.WebControls.ListView lvMedia;
         
         /// <summary>
-        /// Contrôle btnAnnuler.
+        /// Contrôle lblMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnnuler;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

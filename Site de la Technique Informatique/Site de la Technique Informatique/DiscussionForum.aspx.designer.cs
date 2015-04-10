@@ -10,60 +10,60 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class temp_editNouvelles {
+    public partial class DiscussionForum {
         
         /// <summary>
-        /// Contrôle lviewNouvelles.
+        /// Contrôle lblTitreDiscussion.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewNouvelles;
+        protected global::System.Web.UI.WebControls.Label lblTitreDiscussion;
         
         /// <summary>
-        /// Contrôle lviewEditNews.
+        /// Contrôle lnkRetour.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEditNews;
+        protected global::System.Web.UI.WebControls.LinkButton lnkRetour;
         
         /// <summary>
-        /// Contrôle txtTitreAjout.
+        /// Contrôle lviewDiscussion.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitreAjout;
+        protected global::System.Web.UI.WebControls.ListView lviewDiscussion;
         
         /// <summary>
-        /// Contrôle txtNouvelleAjout.
+        /// Contrôle DataPager1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNouvelleAjout;
+        protected global::System.Web.UI.WebControls.DataPager DataPager1;
         
         /// <summary>
-        /// Contrôle btnAjouter.
+        /// Contrôle txtMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouter;
+        protected global::System.Web.UI.WebControls.TextBox txtMessage;
         
         /// <summary>
-        /// Contrôle btnAnnuler.
+        /// Contrôle lnkNouveauMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnnuler;
+        protected global::System.Web.UI.WebControls.LinkButton lnkNouveauMessage;
     }
 }

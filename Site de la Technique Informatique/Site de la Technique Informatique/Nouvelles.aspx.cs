@@ -22,35 +22,10 @@ namespace Site_de_la_Technique_Informatique
             {
                 Nouvelle ok = new Nouvelle();
 
-                listeNouvelle = (from nouvelles in lecontexte.NouvelleSet select nouvelles).ToList();
+                listeNouvelle = (from nouvelles in lecontexte.NouvelleSet orderby nouvelles.dateNouvelle descending select nouvelles).ToList();
             }
 
             return listeNouvelle.AsQueryable();
-        }
-
-        public IQueryable<Nouvelle> getNouvelleToEdit()
-        {
-            int id = 2;
-
-            if ( id == null)
-            {
-                id = 1;
-            }
-
-            List<Nouvelle> listeNouvelle = new List<Nouvelle>();
-            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
-            {
-                Nouvelle ok = new Nouvelle();
-
-                listeNouvelle = (from nouvelles in lecontexte.NouvelleSet where nouvelles.IDNouvelle == id select nouvelles).ToList();
-            }
-
-            return listeNouvelle.AsQueryable();
-        }
-
-        protected void lnkEdit_Command(object sender, CommandEventArgs e)
-        {
-            
         }
 	}
 }

@@ -8,36 +8,38 @@ Extrants: --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         var count = 15;
         var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
         function timer(myImage) {
             count = count - 1;
             if (count <= 0) {
                 clearInterval(counter);
-                $('#AxelModal').modal();                      // initialized with defaults
-                $('#AxelModal').modal({ keyboard: false });   // initialized with no keyboard
-                $('#AxelModal').modal('show');                // initializes and invokes show immediately
+                $('#toastModal').modal();                      // initialized with defaults
+                $('#toastModal').modal({ keyboard: false });   // initialized with no keyboard
+                $('#toastModal').modal('show');                // initializes and invokes show immediately
                 return;
             }
-
-            //Do code for showing the number of seconds here
         }
+
+        function reset() {
+            count = 15;
+            counter = setInterval(timer, 1000);
+        }
+
 
         function EasterEgg(myImage) {
-            debugger;
-            if (myImage.title == "Axel") {
+            if (myImage.title == "Karl.JPG") {
                 timer(myImage);
-                count = 10;
             }
         }
-    </script>
+    </script>--%>
 
     <!-- Header container -->
     <div class="container">
 
         <!-- /.modal -->
-        <div class="modal fade" id="AxelModal">
+        <div class="modal fade" id="toastModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -45,7 +47,7 @@ Extrants: --%>
                         <h4 class="modal-title">Oh oh un Easter Egg!</h4>
                     </div>
                     <div class="modal-body">
-                        <img src="Photos/Profils/Xavier.JPG" height="500" width="500" />
+                        <img src="toast.gif" />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -109,7 +111,7 @@ Extrants: --%>
                         <div class="thumbnail">
                             <div class="row" style="">
                                 <%-- Photo du professeur --%>
-                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' onMouseOver="EasterEgg(this);" />
+                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' />
                             </div>
                             <div class="row">
                                 <%-- Nom du professeur --%>
@@ -160,7 +162,7 @@ Extrants: --%>
 
                 <ItemTemplate>
                     <div class="col-md-2 col-sm-4 col-xs-6">
-                        <asp:Image runat="server" class="img-responsive customer-img" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                        <asp:Image runat="server" class="img-responsive customer-img" ToolTip='<%# Eval("prenom") != null && Eval("nom") != null ? Eval("prenom") + " " + Eval("nom") : "Étudiant" %>' ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' /> <%--onMouseOver="EasterEgg(this);" onMouseOut="reset();"--%>
                     </div>
                 </ItemTemplate>
 

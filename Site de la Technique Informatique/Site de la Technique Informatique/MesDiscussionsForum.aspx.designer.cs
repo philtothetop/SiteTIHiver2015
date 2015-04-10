@@ -10,33 +10,24 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class EnteteForum {
+    public partial class MesDiscussionsForum {
         
         /// <summary>
-        /// Contrôle lblTitreSection.
+        /// Contrôle lblTitre.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitreSection;
+        protected global::System.Web.UI.WebControls.Label lblTitre;
         
         /// <summary>
-        /// Contrôle lnkNouvelleDiscusison.
+        /// Contrôle lviewMesDiscussions.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkNouvelleDiscusison;
-        
-        /// <summary>
-        /// Contrôle lviewEntete.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEntete;
+        protected global::System.Web.UI.WebControls.ListView lviewMesDiscussions;
     }
 }

@@ -10,33 +10,51 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class EnteteForum {
+    public partial class ProfilEtudiant {
         
         /// <summary>
-        /// Contrôle lblTitreSection.
+        /// Contrôle ImgExSrc.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitreSection;
+        protected global::System.Web.UI.WebControls.HiddenField ImgExSrc;
         
         /// <summary>
-        /// Contrôle lnkNouvelleDiscusison.
+        /// Contrôle smProxy.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkNouvelleDiscusison;
+        protected global::System.Web.UI.ScriptManagerProxy smProxy;
         
         /// <summary>
-        /// Contrôle lviewEntete.
+        /// Contrôle lvModifProfilEtudiant.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEntete;
+        protected global::System.Web.UI.WebControls.ListView lvModifProfilEtudiant;
+        
+        /// <summary>
+        /// Contrôle dvModifier.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvModifier;
+        
+        /// <summary>
+        /// Contrôle lnkModifier.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkModifier;
     }
 }
