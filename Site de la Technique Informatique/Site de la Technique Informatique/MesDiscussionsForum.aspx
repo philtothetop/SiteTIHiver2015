@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="EnteteForum.aspx.cs" Inherits="Site_de_la_Technique_Informatique.EnteteForum" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="MesDiscussionsForum.aspx.cs" Inherits="Site_de_la_Technique_Informatique.MesDiscussionsForum" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -10,11 +10,8 @@
             <div class="col-lg-12">
                 <div class="col-lg-3">
                     <h1 class="page-header">
-                        <asp:Label ID="lblTitreSection" runat="server" Font-Size="20"></asp:Label>
+                        <asp:Label ID="lblTitre" Text="Mes discussions" runat="server" Font-Size="20"></asp:Label>
                     </h1>
-                </div>
-                <div style="margin-top: 45px;">
-                    <asp:LinkButton ID="lnkNouvelleDiscusison" Text="Nouvelle discussion" runat="server" CssClass="btn btn-default" OnClick="lnkNouvelleDiscusison_Click" />
                 </div>
             </div>
         </div>
@@ -23,7 +20,7 @@
             </li>
         </ol>
         <div class="row">
-            <asp:ListView ID="lviewEntete" runat="server" SelectMethod="getEntetesForum" DataKeyNames="MembreIDUtilisateur, dateEnteteForum" OnItemDataBound="lviewEntete_ItemDataBound">
+            <asp:ListView ID="lviewMesDiscussions" runat="server" SelectMethod="getEntetesForum" DataKeyNames="MembreIDUtilisateur, dateEnteteForum" OnItemDataBound="lviewMesDiscussions_ItemDataBound">
                 <ItemTemplate>
                     <asp:LinkButton ID="lnkEntete" CssClass="couleurGris" CommandArgument='<%# Eval("IDEnteteForum").ToString()%>' OnClick="lnkEntete_Click" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 60%; border-radius: 5px; text-decoration: none; color: black;">
                         <div class="col-lg-offset-1">
@@ -41,7 +38,7 @@
                 <EmptyDataTemplate>
                     <div style="text-align: center">
                         <asp:Label ID="lblPasDeMessage" runat="server">
-                         <h4 class="sous-titre">Il n'y a aucune discussion pour l'instant</h4>
+                         <h4 class="sous-titre">Vous ne participez à aucune discussion</h4>
                         </asp:Label>
                     </div>
                 </EmptyDataTemplate>

@@ -10,33 +10,51 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class EnteteForum {
+    public partial class DiscussionForum {
         
         /// <summary>
-        /// Contrôle lblTitreSection.
+        /// Contrôle lblTitreDiscussion.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitreSection;
+        protected global::System.Web.UI.WebControls.Label lblTitreDiscussion;
         
         /// <summary>
-        /// Contrôle lnkNouvelleDiscusison.
+        /// Contrôle lviewDiscussion.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkNouvelleDiscusison;
+        protected global::System.Web.UI.WebControls.ListView lviewDiscussion;
         
         /// <summary>
-        /// Contrôle lviewEntete.
+        /// Contrôle DataPager1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEntete;
+        protected global::System.Web.UI.WebControls.DataPager DataPager1;
+        
+        /// <summary>
+        /// Contrôle txtMessage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMessage;
+        
+        /// <summary>
+        /// Contrôle lnkNouveauMessage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkNouveauMessage;
     }
 }

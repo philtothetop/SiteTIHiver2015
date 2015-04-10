@@ -39,7 +39,6 @@
                                 <div class="col-lg-12" style="text-align: center;">
                                     <asp:Label ID="lblDescriptionOffre" Text='<%# Eval("descriptionOffre").ToString()%>' runat="server" Font-Size="10" Style="text-decoration: none; color: black;"></asp:Label>
                                 </div>
-
                             </div>
                         </div>
                     </asp:LinkButton>
