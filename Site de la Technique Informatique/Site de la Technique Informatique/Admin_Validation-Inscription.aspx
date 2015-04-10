@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Validation-Inscription.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Validation_Inscription" MasterPageFile="~/Admin.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Validation_Inscription" MasterPageFile="~/Admin.master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script src="js/jquery.js"></script>

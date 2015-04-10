@@ -146,14 +146,19 @@ namespace Site_de_la_Technique_Informatique
         protected void lnkSaveNewPassword_Click(object sender, EventArgs e)
         {
             var hash = new hash();
-            string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
+           
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                Professeur profAModifier = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).First();
 
+
+                Professeur profAModifier = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).First();
+                if(!String.IsNullOrEmpty(txtAncienMp.Text) && !String.IsNullOrEmpty(txtNouveauMp.Text) && !String.IsNullOrEmpty(txtNouveauMpConfirm.Text) ){
+                    string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
                 if (profAModifier.hashMotDePasse.Equals(ancienPwd))
                 {
-                    if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
+
+
+                    if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text) && txtAncienMp.Text != txtNouveauMpConfirm.Text)
                     {
                         string newPwd = hash.GetSHA256Hash(txtNouveauMpConfirm.Text);
                         profAModifier.hashMotDePasse = newPwd;
@@ -164,11 +169,31 @@ namespace Site_de_la_Technique_Informatique
                             typeLog = 0
                         };
                         lecontexte.SaveChanges();
-                        divSuccess.Attributes["style"] = "visibility:'visible'";
+                        divWarning.Attributes["style"] = "visibility:hidden;";
+                        divSuccess.Attributes["style"] = "visibility:visible";
+                    }
+                    else if (!txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
+                    {
+                        lblMessage.Text = "<b>Nouveau mot de passe:</b>Les deux nouveaux mots de passe ne sont pas identiques";
+                        divWarning.Attributes["style"] = "visibility:visible;";
+                    }
+                    else
+                    {
+                        lblMessage.Text = "<b>Nouveau mot de passe:</b>Le nouveau mot de passe doit être différent du mot de passe actuel";
+                        divWarning.Attributes["style"] = "visibility:visible;";
                     }
                 }
+                else
+                {
+                    lblMessage.Text = "<b>Ancien mot de passe:</b>Le mot de passe que vous avez entré n'est pas valide";
+                    divWarning.Attributes["style"] = "visibility:visible;";
+                }
             }
-           
+                else{
+                    lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
+                    divWarning.Attributes["style"] = "visibility:visible;";
+                }
+           }
             
         }
 
