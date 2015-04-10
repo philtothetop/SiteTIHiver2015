@@ -10,8 +10,8 @@
                 <asp:Label ID="lblListMedia" runat="server" Text="Article(s): " />
             </div>
             <div class="col-lg-3">
-                <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="descriptionParution" DataValueField="IDParutionMedia" AppendDataBoundItems="true"></asp:DropDownList>
-            </div>
+               <%-- <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="descriptionParution" DataValueField="IDParutionMedia" AppendDataBoundItems="true"></asp:DropDownList>
+          --%>  </div>
             <div class=" col-lg-2">
                 <asp:Button ID="btnModif" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="btnModif_Click" />
             </div>
@@ -23,7 +23,7 @@
         <hr />
 
         <asp:ListView ID="lvMedia" runat="server"
-            ItemType="Model.ParutionMedia"
+            ItemType="Site_de_la_Technique_Informatique.Model.ParutionMedia"
             SelectMethod="GetMedia"
             UpdateMethod="UpdateMedia"
             DeleteMethod="DeleteMedia"
@@ -51,7 +51,7 @@
                         <asp:Label ID="lblTitre" runat="server" Text="Titre: " />
                     </div>
                     <div class="col-lg-3">
-                        <asp:TextBox ID="txtTitre" CssClass="form-control" runat="server" Text='<%# BindItem.titreParution %>'></asp:TextBox>
+                        <asp:TextBox ID="txtTitre" CssClass="form-control" runat="server" Text='<%# BindItem.titreParution %>' ></asp:TextBox>
                     </div>
                     <div class="col-lg-offset-1 col-lg-2">
                         <asp:Label ID="lblDate" runat="server" Text="Date: "></asp:Label>
@@ -102,9 +102,10 @@
                 <br />
 
             </ItemTemplate>
-
+            
             <asp:Label runat="server" id="lblMessage" Text="" />
 
+            
         </asp:ListView>
     </div>
 

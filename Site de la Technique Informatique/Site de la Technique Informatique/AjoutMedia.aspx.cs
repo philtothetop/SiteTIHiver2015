@@ -170,7 +170,7 @@ namespace Site_de_la_Technique_Informatique
         protected void btnModif_Click(object sender, EventArgs e)
         {
             
-            ViewState["noMedia"] = ddlMedia.SelectedValue;
+            //ViewState["noMedia"] = ddlMedia.SelectedValue;
             ViewState["mode"] = "édite";
             lvMedia.DataBind();
         }

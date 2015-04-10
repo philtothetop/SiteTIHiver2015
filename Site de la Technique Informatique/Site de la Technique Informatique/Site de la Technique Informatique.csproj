@@ -114,6 +114,7 @@
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
+    <Content Include="ErreursImportants.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription-Employeur.aspx" />
     <Content Include="Inscription-message.aspx" />
@@ -136,7 +137,6 @@
     <Content Include="Css\customStyleSheet.css" />
     <Content Include="Css\modern-business.css" />
     <Content Include="Css\scrolling-nav.css" />
-    <Content Include="ErreursImportants.aspx" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Js\bootstrap.js" />
     <Content Include="Js\bootstrap.min.js" />
@@ -304,6 +304,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="EnteteForum.aspx.designer.cs" />
+    <Compile Include="ErreursImportants.aspx.cs">
+      <DependentUpon>ErreursImportants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErreursImportants.aspx.designer.cs">
+      <DependentUpon>ErreursImportants.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FaireTemoignage.aspx.cs">
       <DependentUpon>FaireTemoignage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -445,13 +452,6 @@
     </Compile>
     <Compile Include="Model\Ville.cs">
       <DependentUpon>LeModelTI.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ErreursImportants.aspx.cs">
-      <DependentUpon>ErreursImportants.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ErreursImportants.aspx.designer.cs">
-      <DependentUpon>ErreursImportants.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\ErrorHandling.cs">
       <SubType>ASPXCodeBehind</SubType>
