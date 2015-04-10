@@ -43,10 +43,10 @@
                             <div id="collapse<%# Item.IDNouvelle %>" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <p><%# Item.dateNouvelle.ToLongDateString() %></p>
-                                    <p><%# Item.texteNouvelle %></p>
+                                    <asp:Literal runat="server" Text="<%# Server.HtmlDecode(Item.texteNouvelle) %>"></asp:Literal>
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
                     </ItemTemplate>
                 </asp:ListView>              
             </div>
