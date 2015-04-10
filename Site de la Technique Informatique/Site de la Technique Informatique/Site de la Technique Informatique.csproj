@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin_AjoutPhoto.aspx" />
+    <Content Include="Admin_Default.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
@@ -256,16 +257,19 @@
     <Compile Include="Admin_AjoutPhoto.aspx.designer.cs">
       <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Default.aspx.cs">
+      <DependentUpon>Admin_Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Default.aspx.designer.cs">
+      <DependentUpon>Admin_Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Evenement.aspx.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin_Evenement.aspx.designer.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_FAQ.aspx.cs">
-      <DependentUpon>Admin_FAQ.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
