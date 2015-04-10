@@ -26,7 +26,7 @@ Extrants: --%>
             count = 15;
             counter = setInterval(timer, 1000);
         }
-        
+
 
         function EasterEgg(myImage) {
             if (myImage.title == "Karl.JPG") {

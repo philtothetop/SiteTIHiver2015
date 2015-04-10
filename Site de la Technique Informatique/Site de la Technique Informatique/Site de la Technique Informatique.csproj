@@ -114,6 +114,7 @@
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
+    <Content Include="FaireTemoignage.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription-Employeur.aspx" />
     <Content Include="Inscription-message.aspx" />
@@ -127,6 +128,7 @@
     <Content Include="Jquery\Cropper\js\cropper.js" />
     <Content Include="Jquery\Cropper\js\docs.js" />
     <Content Include="Jquery\Cropper\js\jquery.min.js" />
+    <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -144,6 +146,7 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
+    <Content Include="ModifierProfesseur.aspx" />
     <Content Include="ModifierFAQ.aspx" />
     <Content Include="modifProfilEtudiant.aspx" />
     <Content Include="Nouvelles.aspx" />
@@ -282,6 +285,7 @@
     </Compile>
     <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
+    <Compile Include="Classes\LoadImage.cs" />
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -352,6 +356,13 @@
     </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.designer.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LesParutionsMedias.aspx.cs">
+      <DependentUpon>LesParutionsMedias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LesParutionsMedias.aspx.designer.cs">
+      <DependentUpon>LesParutionsMedias.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -483,6 +494,13 @@
     </Compile>
     <Compile Include="modifProfilEtudiant.aspx.designer.cs">
       <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierProfesseur.aspx.cs">
+      <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifierProfesseur.aspx.designer.cs">
+      <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
     </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>

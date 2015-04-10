@@ -50,4 +50,6 @@ public partial class UtilisateurValidation
     public string hashMotDePasse { get; set; }
     public System.DateTime dateInscription { get; set; }
 
+
+
 }
