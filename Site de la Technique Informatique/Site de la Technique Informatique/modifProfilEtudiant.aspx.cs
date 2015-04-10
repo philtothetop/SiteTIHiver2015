@@ -1,6 +1,7 @@
 ﻿// Page qui permet aux étudiants de modifier leur profil (photo de profil, nom, prénom, date de naissance, mot de passe)
 // Écrit par Cédric Archambault  et un peut par Marie-Philippe Gill, Février 2015
 
+using Newtonsoft.Json;
 using Site_de_la_Technique_Informatique.Classes;
 using Site_de_la_Technique_Informatique.Model;
 using System;
@@ -19,8 +20,18 @@ namespace Site_de_la_Technique_Informatique
 {
     public partial class modifProfilEtudiant : ErrorHandling
     {
-        // va contenir le courriel modifié 
-        string courrielModifie = "";
+        //Collect les erreurs de validation
+        String _idsEnErreurTab;
+        public String idsEnErreurTab
+        {
+            get { return _idsEnErreurTab; }
+
+            set { _idsEnErreurTab = value; }
+        }
+        public List<String> idsEnErreur = new List<string>();
+        public List<String> msgsEnErreur = new List<string>();
+        public List<String> panneauxEnErreur = new List<string>();
+
 
         #region Évènements de la page
         protected void Page_Load(object sender, EventArgs e)
@@ -39,12 +50,35 @@ namespace Site_de_la_Technique_Informatique
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 try
                 {
-                    String courriel = "";
-                    //Chercher l'utilisateur
-                    courriel = Request.Cookies["TICourriel"].Value;
+                    String strIDUtilisateur = "";
+                    //Si c'est l'admin
+                    if (Request.Cookies["TIUtilisateur"] != null && Request.Cookies["TIUtilisateur"].Equals("Admin"))
+                    {
+                        //Si le query etudiantId exist
+                        if (Request.QueryString["EtudiantId"]!=null)
+                        {
+                            int idEtudiant = 0;
+                             
+                            if(int.TryParse(Request.QueryString["EtudiantId"].ToString(),out idEtudiant))
+                            {
+                                etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDEtudiant==idEtudiant select etu).FirstOrDefault();
+                            }
+                            else //Retourne un etudiant null et affiche un message.
+                            {
+                                etudiantCo = null;
+                                Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
+                                lblMessage.Text += "L' id de l'étudiant n'existe pas.";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //Chercher l'utilisateur
+                        strIDUtilisateur = Request.Cookies["TIID"].Value;
+                        int IDUtilisateur = int.Parse(strIDUtilisateur);
 
-                    etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.courriel == courriel select etu).FirstOrDefault();
-
+                        etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDUtilisateur == IDUtilisateur select etu).FirstOrDefault();
+                    }
 
                 }
                 catch (Exception ex)
@@ -61,26 +95,24 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                String courriel = "";
+                
                 //Chercher l'utilisateur
-                courriel = Request.Cookies["TICourriel"].Value;
+                String strIDUtilisateur = Request.Cookies["TIID"].Value;
+                int IDUtilisateur = int.Parse(strIDUtilisateur);
 
 
-                Etudiant etudiantAUpdaterCopie = (lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>().SingleOrDefault(m => m.courriel == courriel)); ;
-
-                // contient le nouveau courriel modifié de l'étudiant
-                TextBox txtCourriel = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtCourriel");
-                courrielModifie = txtCourriel.Text;
-
+                Etudiant etudiantAUpdaterCopie = (lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>().SingleOrDefault(m => m.IDUtilisateur == IDUtilisateur)); ;
+                
+                
                 //Validation
 
                 var resultatsValidation = new List<ValidationResult>();
                 var isValid = true;
 
                 //Courriel
-                if (etudiantAUpdaterCopie.courriel == null)
+                if (etudiantAUpdaterCopie.courriel == null || etudiantAUpdaterCopie.courriel == "")
                 {
-                    ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "courriel" });
+                    ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "Courriel" });
                     isValid = false;
                     resultatsValidation.Add(vald);
                 }
@@ -88,11 +120,12 @@ namespace Site_de_la_Technique_Informatique
 
                 if (etudiantAUpdaterCopie.courriel != null && (isEmail == false || etudiantAUpdaterCopie.courriel.Length > 64))
                 {
-                    ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "courriel" });
+                    ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "Courriel" });
                     isValid = false;
                     resultatsValidation.Add(vald);
                 }
                 //Vérifier si l'utilisateur modifit sont mot de passe.
+                TextBox txtCourriel = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtCourriel");
                 TextBox txtMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtMotDePasse");
                 TextBox txtNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtNouveauMotDePasse");
                 TextBox txtConfirmationNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtConfirmationNouveauMotDePasse");
@@ -104,26 +137,27 @@ namespace Site_de_la_Technique_Informatique
                     String strHashMotDePassehash = hash.GetSHA256Hash(txtMotDePasse.Text);
                     if (txtMotDePasse.Text == "" || !etudiantAUpdaterCopie.hashMotDePasse.Equals(strHashMotDePassehash))
                     {
-                        ValidationResult vald = new ValidationResult("Le mot de passe n'est pas valide.", new[] { "MotDepasse" });
+                        ValidationResult vald = new ValidationResult("Le mot de passe n'est pas valide.", new[] { "MotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     if (txtNouveauMotDePasse.Text == "")
                     {
-                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe ne doit pas être vide.", new[] { "hashMotDepasse" });
+                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe ne doit pas être vide.", new[] { "NouveauMotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     if (txtNouveauMotDePasse.Text.Length < 4)
                     {
-                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe est trop court.", new[] { "hashMotDepasse" });
+                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe doit être plus grand que 4 caractères.", new[] { "NouveauMotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
                     //Comparer les mots de passe
                     if (txtNouveauMotDePasse.Text != txtConfirmationNouveauMotDePasse.Text)
                     {
-                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "hashMotDepasse" });
+
+                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "NouveauMotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -151,10 +185,23 @@ namespace Site_de_la_Technique_Informatique
                 if (!isValid) // NON VALIDE
                 {
                     lblMessage.Text = "";
+                    foreach (var ValidationResult in resultatsValidation)
+                    {
+
+                        String input = ValidationResult.MemberNames.FirstOrDefault();
+                        input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
+
+                        idsEnErreur.Add(input);
+                        msgsEnErreur.Add(ValidationResult.ErrorMessage);
+                        lblMessage.Text += ValidationResult.ErrorMessage + "<br/>";
+
+                    }
+
+                    idsEnErreurTab = JsonConvert.SerializeObject(idsEnErreur);
                     foreach (var validationResult in resultatsValidation)
                     {
 
-                        lblMessage.Text += validationResult.ErrorMessage + "<br/>";
+                        
                     }
                 }
                 else // VALIDE
@@ -191,7 +238,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     try
                     {
-
+                        etudiantAUpdaterCopie.courriel = txtCourriel.Text;
                         //Changer le mot de passe.
                         if (txtMotDePasse.Text != "")
                         {
@@ -216,7 +263,6 @@ namespace Site_de_la_Technique_Informatique
 
                             etudiantAUpdaterCopie.pathPhotoProfil = imageNom;
                         }
-
                         lecontexte.SaveChanges();
                         Response.Redirect("modifProfilEtudiant.aspx", false);
                     }

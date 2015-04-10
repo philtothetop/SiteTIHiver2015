@@ -22,8 +22,11 @@ namespace Site_de_la_Technique_Informatique
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
-            dataPagerDesTemoignages.Visible = (dataPagerDesTemoignages.PageSize < dataPagerDesTemoignages.TotalRowCount);
+            if (Page.IsPostBack == false)
+            {
+                //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
+                dataPagerDesTemoignages.Visible = (dataPagerDesTemoignages.PageSize < dataPagerDesTemoignages.TotalRowCount);
+            }
         }
 
         //Méthode pour récupérer les témoignages de la BD
