@@ -102,10 +102,12 @@
   <ItemGroup>
     <Content Include="Admin_AjoutPhoto.aspx" />
     <Content Include="Admin_Default.aspx" />
+    <Content Include="Admin_FAQ.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
     <Content Include="Admin_Vertic.aspx" />
+    <Content Include="AjoutDiscussion.aspx" />
     <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="AjoutProfesseur.aspx" />
@@ -182,8 +184,10 @@
     <Content Include="Photos\Profils\Xavier.JPG" />
     <Content Include="Photos\quiSommesNous.JPG" />
     <Content Include="PlanDuSite.aspx" />
+    <Content Include="ProfilEtudiant.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
+    <Content Include="SectionForum.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -342,6 +346,10 @@
     <Compile Include="Admin_Evenement.aspx.designer.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_FAQ.aspx.cs">
+      <DependentUpon>Admin_FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -362,6 +370,13 @@
     </Compile>
     <Compile Include="Admin_Vertic.aspx.designer.cs">
       <DependentUpon>Admin_Vertic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutDiscussion.aspx.cs">
+      <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutDiscussion.aspx.designer.cs">
+      <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
     </Compile>
     <Compile Include="AjoutMedia.aspx.cs">
       <DependentUpon>AjoutMedia.aspx</DependentUpon>
@@ -647,6 +662,13 @@
     <Compile Include="PlanDuSite.aspx.designer.cs">
       <DependentUpon>PlanDuSite.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProfilEtudiant.aspx.cs">
+      <DependentUpon>ProfilEtudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfilEtudiant.aspx.designer.cs">
+      <DependentUpon>ProfilEtudiant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuiSommesNous.aspx.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>
@@ -664,6 +686,10 @@
     </Compile>
     <Compile Include="SectionForum.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>SectionForum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SectionForum.aspx.designer.cs">
+      <DependentUpon>SectionForum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
