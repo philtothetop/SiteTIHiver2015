@@ -124,6 +124,14 @@
     <Content Include="Inscription-message.aspx" />
     <Content Include="Inscription-valide.aspx" />
     <Content Include="Inscription.aspx" />
+    <Content Include="Jquery\Cropper2\Cropper2.aspx" />
+    <Content Include="Jquery\Cropper2\css\bootstrap.min.css" />
+    <Content Include="Jquery\Cropper2\css\cropper.css" />
+    <Content Include="Jquery\Cropper2\css\docs.css" />
+    <Content Include="Jquery\Cropper2\js\bootstrap.min.js" />
+    <Content Include="Jquery\Cropper2\js\cropper.js" />
+    <Content Include="Jquery\Cropper2\js\docsV2.js" />
+    <Content Include="Jquery\Cropper2\js\jquery.min.js" />
     <Content Include="Jquery\Cropper\Cropper.aspx" />
     <Content Include="Jquery\Cropper\css\bootstrap.min.css" />
     <Content Include="Jquery\Cropper\css\cropper.css" />
@@ -334,6 +342,13 @@
     <Compile Include="DiscussionForum.aspx.designer.cs">
       <DependentUpon>DiscussionForum.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FaireTemoignage.aspx.cs">
+      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FaireTemoignage.aspx.designer.cs">
+      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FAQ.aspx.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -368,6 +383,13 @@
     </Compile>
     <Compile Include="Inscription.aspx.designer.cs">
       <DependentUpon>Inscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Jquery\Cropper2\Cropper2.aspx.cs">
+      <DependentUpon>Cropper2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jquery\Cropper2\Cropper2.aspx.designer.cs">
+      <DependentUpon>Cropper2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
@@ -641,12 +663,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
+    <Folder Include="Jquery\Cropper2\img\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Photos\Autre\" />
     <Folder Include="Photos\Cégep\" />
     <Folder Include="Photos\Souvenir\" />
-    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
