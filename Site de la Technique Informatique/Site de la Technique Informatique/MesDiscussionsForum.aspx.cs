@@ -67,7 +67,7 @@ namespace Site_de_la_Technique_Informatique
 
                 if (consultationExistante != null)
                 {
-                    lblTitreEntete.ForeColor = Color.Blue;
+                    lblTitreEntete.ForeColor = Color.Gray;
                 }
 
             }
