@@ -25,13 +25,17 @@ namespace Site_de_la_Technique_Informatique
             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
 
+            if (!Page.IsPostBack) { 
+            divSuccess.Attributes["style"] = "visibility:hidden";
+            divWarning.Attributes["style"] = "visibility:hidden";
+            }
         }
 
-        #endregion 
+        #endregion
 
         #region Modifier_Profil
 
-        
+
         public Professeur lvProfesseur_GetData()
         {
             try
@@ -65,7 +69,7 @@ namespace Site_de_la_Technique_Informatique
 
                 TryUpdateModel(profAUpdater);
                 lblMessage.Text = "";
-                lblMessage.Visible = false;
+               
                 if (!ModelState.IsValid)
                 {
                     foreach (var modelErrors in ModelState)
@@ -79,7 +83,7 @@ namespace Site_de_la_Technique_Informatique
                             }
                         }
                     }
-                    lblMessage.Visible = true;
+                    divWarning.Attributes["style"] = "visibility:visible";
 
                 }
                 else
@@ -107,11 +111,12 @@ namespace Site_de_la_Technique_Informatique
 
                     lecontexte.LogSet.Add(logEntry);
                     lecontexte.SaveChanges();
+                    divSuccess.Attributes["style"] = "visibility:visible";
                 }
             }
         }
 
-       
+
 
         public System.Drawing.Image LoadImage(String data)
         {
@@ -133,26 +138,56 @@ namespace Site_de_la_Technique_Informatique
 
             return image;
         }
-#endregion 
+        #endregion
 
 
         #region Modifier_Password
 
+        protected void lnkSaveNewPassword_Click(object sender, EventArgs e)
+        {
+            var hash = new hash();
+            string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                Professeur profAModifier = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).First();
 
-        #endregion 
+                if (profAModifier.hashMotDePasse.Equals(ancienPwd))
+                {
+                    if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
+                    {
+                        string newPwd = hash.GetSHA256Hash(txtNouveauMpConfirm.Text);
+                        profAModifier.hashMotDePasse = newPwd;
+                        Model.Log logEntry = new Model.Log
+                        {
+                            dateLog = DateTime.Now,
+                            actionLog = profAModifier.prenom + " " + profAModifier.nom + " a modifié son mot de passe",
+                            typeLog = 0
+                        };
+                        lecontexte.SaveChanges();
+                        divSuccess.Attributes["style"] = "visibility:'visible'";
+                    }
+                }
+            }
+           
+            
+        }
+
+        #endregion
 
         #region DeleteAccount
 
-         
+
 
         protected void lnkDeleteProfil_Click(object sender, EventArgs e)
         {
-        lblModalTitle.Text = "Dernière vérification";
-                lblModalBody.Text = "Inscrivez votre mot de passe afin de confirmer que vous voulez supprimer votre compte";
-                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "$('#popupDelete').modal();", true);
-                upDelete.Update();
+            lblModalTitle.Text = "Dernière vérification";
+            lblModalBody.Text = "Inscrivez votre mot de passe afin de confirmer la suppression de votre compte";
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "$('#popupDelete').modal();", true);
+            upDelete.Update();
         }
         #endregion
+
+        
 
     }
 }
