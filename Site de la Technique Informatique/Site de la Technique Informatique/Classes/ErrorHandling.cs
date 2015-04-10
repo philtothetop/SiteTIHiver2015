@@ -99,6 +99,8 @@ namespace Site_de_la_Technique_Informatique
         }
         #endregion
 
+
+        #region CustomMéthode
         //Méthode maison pour randomize les items dans une liste
         public void Randomize(IList list)
         {
@@ -227,6 +229,6 @@ namespace Site_de_la_Technique_Informatique
                 Response.Redirect("Default.aspx");
             }
         }
-        
+        #endregion
     }
 }

@@ -126,14 +126,14 @@
                         <div class="control-group form-group" id="dvPrenom">
                             <div class="controls">
                                 <label>Prénom:</label>
-                                <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" MaxLength="64" />
+                                <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" MaxLength="32" />
                                 <asp:Label ID="lblPrenom" runat="server" Text="" />
                             </div>
                         </div>
                         <div class="control-group form-group" id="dvNom">
                             <div class="controls">
                                 <label>Nom:</label>
-                                <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" MaxLength="64" />
+                                <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" MaxLength="32" />
                                 <asp:Label ID="lblNom" runat="server" Text="" />
                             </div>
                         </div>
