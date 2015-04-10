@@ -60,12 +60,8 @@ namespace Site_de_la_Technique_Informatique
                                 {
                                     System.Drawing.Image imageAAjouter = LoadImage(imgData);
 
-                                    //Grosseur max est de 1000 px et kinimum 120 px
-                                    float resizeValueImage = ResizeValue(1000,120, imageAAjouter);
-                                    int widthImage = Convert.ToInt32(imageAAjouter.Width * resizeValueImage);
-                                    int heightImage = Convert.ToInt32(imageAAjouter.Height * resizeValueImage);
-
-                                    imageAAjouter = (System.Drawing.Image)new Bitmap(imageAAjouter, new Size(widthImage, heightImage));
+                                    //Grosseur max est de 1000 px et minimum 120 px
+                                    imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
                                     
                                     String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
                                     String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/" + ddlTypeDImage.SelectedValue.ToString() + "/"), imageNom);
@@ -123,10 +119,47 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        public float ResizeValue(int maxSize, int minSize, System.Drawing.Image imageAChecker)
-        { 
-            //if(imageAChecker.Height > maxSize )
-            return 0;
+        public System.Drawing.Image ResizeTheImage(int maxSize, int minSize, System.Drawing.Image imageAChecker)
+        {
+            int valeurAUtiliser = imageAChecker.Height;
+
+            //Si image plus grand que max size
+            if (imageAChecker.Height > maxSize && imageAChecker.Width > maxSize)
+            {
+                if (valeurAUtiliser < imageAChecker.Width)
+                {
+                    valeurAUtiliser = imageAChecker.Width;
+                }
+            }
+            else if (imageAChecker.Height > maxSize)
+            {
+                valeurAUtiliser = imageAChecker.Height;
+            }
+            else if (imageAChecker.Width > maxSize)
+            {
+                valeurAUtiliser = imageAChecker.Width;
+            }
+            else
+            {
+                valeurAUtiliser = maxSize;
+            }
+
+            double valeurDivision = Convert.ToDouble(maxSize) / Convert.ToDouble(valeurAUtiliser);
+
+            imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(Convert.ToInt32(imageAChecker.Width * valeurDivision), Convert.ToInt32(imageAChecker.Height * valeurDivision)));
+
+            //Si plus petit que min grosseur maintenant
+            if (imageAChecker.Width < minSize)
+            {
+                imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(minSize, imageAChecker.Height));
+            }
+
+            if (imageAChecker.Height < minSize)
+            {
+                imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(imageAChecker.Width, minSize));
+            }
+
+            return imageAChecker;
         }
 
         public Model.Photos GetUnePhoto()

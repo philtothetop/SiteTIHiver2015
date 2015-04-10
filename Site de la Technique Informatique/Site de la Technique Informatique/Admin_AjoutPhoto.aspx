@@ -38,8 +38,9 @@
                 <div class="modif-photo">
                     <div class="img-thumbnail img-photo preview-photo">
                         <div></div>
-                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" Width="125" Height="125" />
+                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" style="min-width:120px;min-height:120px;max-width:1000px;max-height:1000px;" />
                     </div>
+                    <br />
                     <div class="div-btnChangerPhoto">
                         <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
 
@@ -53,7 +54,7 @@
                                 <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
                             </div>
                             <div class="modal-body">
-                                <iframe src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
+                                <iframe src="../Jquery/Cropper2/Cropper2.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
 
                             </div>
                         </div>
@@ -72,7 +73,7 @@
 
     </div>
 
-    <link rel="stylesheet" href="Css/Inscription.css" />
+    <link rel="stylesheet" href="Css/Inscription.css" 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -81,9 +82,9 @@
     <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, image cropping, web development">
     <meta name="author" content="Fengyuan Chen">
     <title>Cropper</title>
-    <link href="Cropper/css/bootstrap.min.css" rel="stylesheet">
-    <link href="Cropper/css/cropper.css" rel="stylesheet">
-    <link href="Cropper/css/docs.css" rel="stylesheet">
+    <link href="Cropper2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Cropper2/css/cropper.css" rel="stylesheet">
+    <link href="Cropper2/css/docs.css" rel="stylesheet">
     <link href="Css/Inscription.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
