@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Drawing;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -41,8 +42,8 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-
                 Label lblNom = (Label)e.Item.FindControl("lblNom");
+                Label lblTitreEntete = (Label)e.Item.FindControl("lblTitreEntete");
                 Label lblDateForum = (Label)e.Item.FindControl("lblDateForum");
 
                 int idUtilisateur = Int32.Parse(lviewMesDiscussions.DataKeys[e.Item.DisplayIndex].Values[0].ToString());
@@ -51,6 +52,23 @@ namespace Site_de_la_Technique_Informatique
                 lblNom.Text = membre.prenom + " " + membre.nom;
                 string date = lviewMesDiscussions.DataKeys[e.Item.DisplayIndex].Values[1].ToString();
                 lblDateForum.Text = date.Substring(0, 16);
+
+                int idEnteteForum = Int32.Parse(lviewMesDiscussions.DataKeys[e.Item.DisplayIndex].Values[2].ToString());
+                int IDUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+
+                Model.Membre membreVisite = (from membres in lecontexte.UtilisateurSet.OfType<Membre>()
+                                             where membres.IDUtilisateur == IDUtilisateur
+                                             select membres).FirstOrDefault();
+
+                Model.ConsultationForum consultationExistante = (from consultations in lecontexte.ConsultationForumSet
+                                                                 where consultations.EnteteForumIDEnteteForum == idEnteteForum &&
+                                                                 consultations.IDMembre == membreVisite.IDMembre
+                                                                 select consultations).FirstOrDefault();
+
+                if (consultationExistante != null)
+                {
+                    lblTitreEntete.ForeColor = Color.Blue;
+                }
 
             }
         }

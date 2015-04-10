@@ -334,6 +334,13 @@
     <Compile Include="DiscussionForum.aspx.designer.cs">
       <DependentUpon>DiscussionForum.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EnteteForum.aspx.cs">
+      <DependentUpon>EnteteForum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EnteteForum.aspx.designer.cs">
+      <DependentUpon>EnteteForum.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FAQ.aspx.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -646,7 +653,6 @@
     <Folder Include="Photos\Autre\" />
     <Folder Include="Photos\Cégep\" />
     <Folder Include="Photos\Souvenir\" />
-    <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
