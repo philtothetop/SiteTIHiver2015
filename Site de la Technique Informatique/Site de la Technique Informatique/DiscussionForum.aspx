@@ -12,7 +12,8 @@
                     <asp:Label ID="lblTitreDiscussion" runat="server" Font-Size="20"></asp:Label>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="EnteteForum.aspx">Retour liste discussions</a>
+                    <li>
+                        <asp:LinkButton ID="lnkRetour" Text="Retour liste discussions" runat="server" OnClick="lnkRetour_Click"></asp:LinkButton>
                     </li>
                 </ol>
             </div>

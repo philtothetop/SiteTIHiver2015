@@ -201,14 +201,7 @@ namespace Site_de_la_Technique_Informatique
             {
                 try
                 {
-                    if (leContext.PhotosSet.ToList() != null)
-                    {
-                        listePhoto = (from cl in leContext.PhotosSet select cl).ToList();
-                    }
-                    else
-                    {
-                        return null;
-                    }
+                    listePhoto = (from cl in leContext.PhotosSet select cl).ToList();
                 }
                 catch (Exception ex)
                 {

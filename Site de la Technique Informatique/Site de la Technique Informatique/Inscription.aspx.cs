@@ -155,7 +155,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     TextBox txtConfirmationMotDePasse = (TextBox)lviewItem.FindControl("txtConfirmationMotDePasse");
                     if (txtConfirmationMotDePasse != null && etudiantACreerCopie.hashMotDePasse != txtConfirmationMotDePasse.Text)
                     {
-                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "MotDePasse" });
+                        ValidationResult vald = new ValidationResult("Les mots de passe ne correspondent pas.", new[] { "MotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }

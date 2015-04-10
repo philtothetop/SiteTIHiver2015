@@ -19,6 +19,7 @@ namespace Site_de_la_Technique_Informatique
     {
         static Random rng = new Random();
 
+        #region Error Handling
         public void Page_Error(Object sender, EventArgs e)
         {
             Exception ex = Server.GetLastError();
@@ -29,7 +30,6 @@ namespace Site_de_la_Technique_Informatique
 
             Server.ClearError();
         }
-
 
         public  void LogErreur(String source, Exception ex)
         {
@@ -97,6 +97,7 @@ namespace Site_de_la_Technique_Informatique
                 }
             }
         }
+        #endregion
 
         //Méthode maison pour randomize les items dans une liste
         public void Randomize(IList list)
