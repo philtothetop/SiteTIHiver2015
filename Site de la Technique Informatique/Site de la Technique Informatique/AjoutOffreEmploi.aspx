@@ -164,7 +164,7 @@
             <asp:View runat="server" ID="viewFin">
                 <div style="text-align: center">
                     <h4>Votre offre d'emploi a été ajoutée/modifiée avec succès, elle doit toutefois être acceptée par un administrateur avant d'être affichée</h4>
-                    <asp:LinkButton ID="lnkRetour" Text="Accueil" runat="server" CssClass="btn btn-default" PostBackUrl="~/ListeOffresEmploi.aspx"/>
+                    <asp:LinkButton ID="lnkRetour" Text="Ok" runat="server" CssClass="btn btn-default" PostBackUrl="~/ListeOffresEmploi.aspx"/>
                 </div>
             </asp:View>
         </asp:MultiView>

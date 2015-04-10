@@ -10,60 +10,60 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class FaireTemoignage {
+    public partial class DiscussionForum {
         
         /// <summary>
-        /// Contrôle divSuccesEnvoiTemoignage.
+        /// Contrôle lblTitreDiscussion.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSuccesEnvoiTemoignage;
+        protected global::System.Web.UI.WebControls.Label lblTitreDiscussion;
         
         /// <summary>
-        /// Contrôle lblSuccesTemoignage.
+        /// Contrôle lnkRetour.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSuccesTemoignage;
+        protected global::System.Web.UI.WebControls.LinkButton lnkRetour;
         
         /// <summary>
-        /// Contrôle divErreurEnvoiTemoignage.
+        /// Contrôle lviewDiscussion.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divErreurEnvoiTemoignage;
+        protected global::System.Web.UI.WebControls.ListView lviewDiscussion;
         
         /// <summary>
-        /// Contrôle lblErreurTemoignage.
+        /// Contrôle DataPager1.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErreurTemoignage;
+        protected global::System.Web.UI.WebControls.DataPager DataPager1;
         
         /// <summary>
-        /// Contrôle txtbLeTemoignageDuConnecte.
+        /// Contrôle txtMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbLeTemoignageDuConnecte;
+        protected global::System.Web.UI.WebControls.TextBox txtMessage;
         
         /// <summary>
-        /// Contrôle btnFaireUnTemoignage.
+        /// Contrôle lnkNouveauMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFaireUnTemoignage;
+        protected global::System.Web.UI.WebControls.LinkButton lnkNouveauMessage;
     }
 }

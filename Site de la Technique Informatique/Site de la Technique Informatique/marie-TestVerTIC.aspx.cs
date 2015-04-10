@@ -16,12 +16,12 @@ namespace Site_de_la_Technique_Informatique
             using (LeModelTIContainer leModel = new LeModelTIContainer())
             {
                 Etudiant leMembre = (from cl in leModel.UtilisateurSet.OfType<Etudiant>()
-                                   where cl.IDUtilisateur == 54
+                                   where cl.IDUtilisateur == 55
                                    select cl).FirstOrDefault();
 
                 leMembre.valideCourriel = true;
 
-
+                leModel.SaveChanges();
 
             }
 

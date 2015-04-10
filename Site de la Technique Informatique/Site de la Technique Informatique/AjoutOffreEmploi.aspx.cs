@@ -18,10 +18,9 @@ namespace Site_de_la_Technique_Informatique
         {
             SavoirSiPossedeAutorizationPourLaPage(false, false, false, true);
 
+            txtDescriptionOffre.Attributes.Add("maxlength", txtDescriptionOffre.MaxLength.ToString());
             if (!IsPostBack)
-            {
-                txtDescriptionOffre.Attributes.Add("maxlength", txtDescriptionOffre.MaxLength.ToString());
-
+            {            
                 for (int i = 0; i < 2; i++)
                 {
                     ListItem listItem = new ListItem();
