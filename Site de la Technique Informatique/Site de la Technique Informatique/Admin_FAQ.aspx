@@ -6,9 +6,10 @@
     <div class="col-lg-12">
         <div class="col-lg-8">
             <div class="row">
+                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                 <h1>Gérer la FAQ</h1>
                 <p>Sur cette page, vous pouvez modifier, ajouter ou supprimer des questions de la Foire aux questions.</p>
-                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+                
             </div>
             <div class="row">
                 <h3>Ajouter une question</h3>
@@ -29,9 +30,12 @@
                 <asp:DropDownList ID="ddlQuestionsFAQ" runat="server" CssClass="form-control" SelectMethod="getQuestionsFAQ" DataTextField="texteQuestion" DataValueField="IDFAQ" AutoPostBack="true" OnSelectedIndexChanged="ddlQuestionsFAQ_SelectedIndexChanged"></asp:DropDownList>
             </div>
             <asp:ListView ID="lviewModifFAQ" runat="server"
-                SelectMethod="getQuestionAModifier">
+                SelectMethod="getQuestionAModifier"
+                OnItemCommand="lviewModifFAQ_ItemCommand"
+                ItemType="Site_de_la_Technique_Informatique.Model.FAQ">
                 <LayoutTemplate>
                     <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
+                    <asp:Button ID="btnModifier" runat="server" Text="Ajouter" CssClass="btn btn-primary pull-right" CommandName="Modifier" CommandArgument='<%# Item.IDFAQ %>' />
                 </LayoutTemplate>
                 <ItemTemplate>
                     <div class="row">
