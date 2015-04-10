@@ -123,7 +123,9 @@ namespace Site_de_la_Technique_Informatique
                                                                   where etetesForum.dateEnteteForum.CompareTo(dateAjout) == 1
                                                                   select etetesForum).FirstOrDefault();
 
-                        messageForum.EnteteForumIDEnteteForum = enteteForumRecherche.IDEnteteForum;
+                        ViewState["IDEnteteForum"] = enteteForumRecherche.IDEnteteForum;
+
+                        messageForum.EnteteForumIDEnteteForum = Int32.Parse(ViewState["IDEnteteForum"].ToString());
                         messageForum.EnteteForum = enteteForumRecherche;
 
                         messageForum.MembreIDUtilisateur = IDUtilisateur;
@@ -144,6 +146,13 @@ namespace Site_de_la_Technique_Informatique
                     }
                 }
             }
+        }
+
+        protected void lnkRetour_Click(object sender, EventArgs e)
+        {
+
+            Session["IDEnteteForum"] = Int32.Parse(ViewState["IDEnteteForum"].ToString());
+            Response.Redirect("~/DiscussionForum.aspx", false);
         }
     }
 }
