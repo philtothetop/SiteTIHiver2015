@@ -28,6 +28,11 @@
                 <asp:ListView ID="lviewNouvelles" runat="server"
                     ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
                     SelectMethod="getNouvelles">
+                    <LayoutTemplate>
+                       <div class="panel-group" id="accordion">
+                           <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
+                       </div>
+                    </LayoutTemplate>
                     <ItemTemplate>
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -43,18 +48,7 @@
                             </div>
                         </div>
                     </ItemTemplate>
-                </asp:ListView>
-
-                <asp:ListView ID="lviewNouvellesEdit" runat="server" Visible="false"
-                    ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
-                    SelectMethod="getNouvelleToEdit">
-                    <ItemTemplate>
-                        <div>
-                            <asp:TextBox runat="server" Text="<%# Item.dateNouvelle.ToLongDateString() %>"></asp:TextBox>
-                            <asp:TextBox runat="server" Text="<%# Item.texteNouvelle %>" TextMode="MultiLine"></asp:TextBox>
-                        </div>
-                    </ItemTemplate>
-                </asp:ListView>
+                </asp:ListView>              
             </div>
             <!-- /.row -->
            
