@@ -114,7 +114,7 @@ Extrants: --%>
                                 <div class="modif-photo">
                                     <div class="img-thumbnail img-photo preview-photo">
                                         <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#"Photos/Profils/"+Eval("pathPhotoProfil") %>' Width="125" Height="125" />
+                                                <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval("Photos/Profils/{0}","pathPhotoProfil") %>' Width="125" Height="125" />
                                     </div>
                                     <div class="div-btnChangerPhoto">
                                         <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
@@ -172,8 +172,8 @@ Extrants: --%>
                         <div class="control-group form-group" dvcv>
                             <div class="controls">
                                 <label>CV:</label>
-                                <asp:Label ID="lblCV" runat="server" Text="..." />
-
+                                <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
+                                <label>Changer de CV:</label>
                                 <asp:FileUpload ID="fupCV" runat="server" />
                                 (valides: pdf , doc, docx , odf)
                             </div>

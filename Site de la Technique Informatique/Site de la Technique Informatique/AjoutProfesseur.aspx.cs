@@ -1,4 +1,7 @@
-﻿using Site_de_la_Technique_Informatique.Classes;
+﻿// Page qui permet aux professeurs et aux administrateurs d'ajouter un autre professeur (nom, prénom, courriel, mot de passe généré auto)
+// Écrit par Philippe Baron, Février 2015
+
+using Site_de_la_Technique_Informatique.Classes;
 using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
@@ -8,15 +11,45 @@ using System.Linq;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class AjoutProfesseur : System.Web.UI.Page
+    public partial class AjoutProfesseur :ErrorHandling
     {
+
+        #region Page_Events
         protected void Page_Load(object sender, EventArgs e)
         {
-
+             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
-        
+        //Envoie le mot de passe
+        protected void lnkEnvoyer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                creerProfesseur();
 
+                if (string.IsNullOrEmpty(lblMessages.Text))
+                {
+
+                    divAjoutProf.Visible = false;
+                    divComplete.Visible = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        //Retour à l'Accueil
+        protected void lnkRetourAccueil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
+
+        #endregion
+
+        //Va checher le professeur 
         public Professeur getProfesseur()
         {
             try
@@ -37,6 +70,7 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
+        //Créée le professeur selon les informations reçues 
         public void creerProfesseur()
         {
             try
@@ -57,6 +91,7 @@ namespace Site_de_la_Technique_Informatique
                     nouveauProf.prenom = txtPrenom.Text.Trim();
                     nouveauProf.nom = txtNom.Text.Trim();
                     nouveauProf.courriel = txtCourriel.Text.Trim();
+                    nouveauProf.pathPhotoProfil = "photobase.bmp";
 
                     lecontexte.UtilisateurSet.Add(nouveauProf);
 
@@ -117,6 +152,8 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
+
+        #region création et envoi MP
         private void sendPassword(string tempPassword, Professeur nouveauProf)
         {
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
@@ -136,8 +173,8 @@ namespace Site_de_la_Technique_Informatique
 
 
             // Corps du message : contient ce que la personne a écrit dans le module seulement
-          
-          
+
+
             mail.Body = "Bonjour, <br/>" +
                  "Un administrateur vous a ajouté en tant qu'Utilisateur Professeur sur le site de la technique informatique du Cégep de Granby." + " Vous pouvez dès maintenant vous connecter sur le site à l'aide des informations de connexion suivantes:<br/> <br/>" +
                 "Courriel: " + nouveauProf.courriel + "<br/>" +
@@ -169,6 +206,8 @@ namespace Site_de_la_Technique_Informatique
         }
 
         static Random random = new Random();
+
+        //Génère un nombre hexa aléatoire pour le mot de passe
         public static string GetRandomHexNumber(int digits)
         {
             byte[] buffer = new byte[digits / 2];
@@ -178,28 +217,10 @@ namespace Site_de_la_Technique_Informatique
                 return result;
             return result + random.Next(16).ToString("X");
         }
+        #endregion 
+        //Envoie le mot de passe généré
+   
 
-        protected void lnkEnvoyer_Click(object sender, EventArgs e)
-        {
-            try { 
-            creerProfesseur();
-
-            if (string.IsNullOrEmpty(lblMessages.Text)) { 
-
-            divAjoutProf.Visible = false;
-            divComplete.Visible = true;
-            }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        protected void lnkRetourAccueil_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Default.aspx");
-        }
-
+     
     }
 }
