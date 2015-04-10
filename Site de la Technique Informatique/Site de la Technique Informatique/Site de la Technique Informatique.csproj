@@ -118,7 +118,6 @@
     <Content Include="Default.aspx" />
     <Content Include="DiscussionForum.aspx" />
     <Content Include="EnteteForum.aspx" />
-    <Content Include="FaireTemoignage.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription-Employeur.aspx" />
     <Content Include="Inscription-message.aspx" />
@@ -333,20 +332,6 @@
     </Compile>
     <Compile Include="DiscussionForum.aspx.designer.cs">
       <DependentUpon>DiscussionForum.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FaireTemoignage.aspx.cs">
-      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FaireTemoignage.aspx.designer.cs">
-      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="FaireTemoignage.aspx.cs">
-      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="FaireTemoignage.aspx.designer.cs">
-      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
     </Compile>
     <Compile Include="FAQ.aspx.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
