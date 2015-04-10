@@ -240,7 +240,7 @@
                             <h3>Aide </h3>
                             <ul>
                                 <li><a href="FAQ.aspx">FAQ </a></li>
-                                <li><a href="#">Plan du site </a></li>
+                                <li><a href="PlanDuSite.aspx">Plan du site </a></li>
 
                             </ul>
                         </div>

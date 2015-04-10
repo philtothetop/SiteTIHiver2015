@@ -20,16 +20,49 @@ namespace Site_de_la_Technique_Informatique
             {
                 Response.Redirect("~/EnteteForum.aspx", false);
             }
-
-            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            if (Page.IsPostBack != true)
             {
-                int idEnteteForum = Int32.Parse(Session["IDEnteteForum"].ToString());
-                Model.EnteteForum enteteForum = (from entetesForum in lecontexte.EnteteForumSet
-                                                 where entetesForum.IDEnteteForum == idEnteteForum
-                                                 select entetesForum).FirstOrDefault();
+                using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+                {
+                    int idEnteteForum = Int32.Parse(Session["IDEnteteForum"].ToString());
+                    int IDUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
 
-                lblTitreDiscussion.Text = enteteForum.titreEnteteForum;
+                    Model.Membre membre = (from membres in lecontexte.UtilisateurSet.OfType<Membre>()
+                                           where membres.IDUtilisateur == IDUtilisateur
+                                           select membres).FirstOrDefault();
 
+                    Model.ConsultationForum consultationExistante = (from consultations in lecontexte.ConsultationForumSet
+                                                                     where consultations.EnteteForumIDEnteteForum == idEnteteForum &&
+                                                                     consultations.IDMembre == membre.IDMembre
+                                                                     select consultations).FirstOrDefault();
+
+                    if (consultationExistante == null)
+                    {
+
+                        Model.EnteteForum enteteForum = (from entetesForum in lecontexte.EnteteForumSet
+                                                         where entetesForum.IDEnteteForum == idEnteteForum
+                                                         select entetesForum).FirstOrDefault();
+
+                        lblTitreDiscussion.Text = enteteForum.titreEnteteForum;
+
+                        Model.ConsultationForum consultation = new ConsultationForum();
+
+                        consultation.dateConsulte = DateTime.Now;
+                        consultation.EnteteForum = enteteForum;
+                        consultation.EnteteForumIDEnteteForum = enteteForum.IDEnteteForum;
+                        consultation.IDMembre = membre.IDMembre;
+                        consultation.Membre.Add(membre);
+
+                        lecontexte.ConsultationForumSet.Add(consultation);
+                        lecontexte.SaveChanges();
+
+                    }
+                    else
+                    {
+                        consultationExistante.dateConsulte = DateTime.Now;
+                        lecontexte.SaveChanges();
+                    }
+                }
             }
         }
 
@@ -110,7 +143,9 @@ namespace Site_de_la_Technique_Informatique
             if (Session["IDSectionForum"] == null)
             {
                 Response.Redirect("MesDiscussionsForum.aspx");
-            }else{
+            }
+            else
+            {
                 Response.Redirect("EnteteForum.aspx");
             }
 
