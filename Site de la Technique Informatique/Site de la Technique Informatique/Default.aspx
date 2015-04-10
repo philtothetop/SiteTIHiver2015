@@ -31,7 +31,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Apprenez toutes les nouvelles de la technique</p>
-                        <a href="Nouvelles.aspx" class="btn btn-default">En savoir plus...</a>
+                        <a href="Nouvelle.aspx" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Vous êtes sur le point d'avoir votre diplôme et vous cherchez un travail le plus rapidement possible? Vous serez gâté(e) par toutes les offres d'emploi que nous vous proposons!</p>
-                        <a href="OffreEmploi.aspx" class="btn btn-default">En savoir plus...</a>
+                        <a href="ListeOffresEmploi.aspx" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
             </div>
@@ -55,20 +55,19 @@
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000" style="height: 400px;">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
+                    <asp:ListView ID="lviewAlbumPhoto" runat="server"
+                        ItemType="Site_de_la_Technique_Informatique.Model.Photos"
+                        SelectMethod="lviewAlbumPhoto_GetData">
 
-                    <div class="item active">
+                        <ItemTemplate>
+
+                            <div class="item active">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                                     <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
                                     <img src="../Photos/Jacob.jpg" height="400" width="500" />
                                 </div>
                                 <div class="carousel-caption"></div>
                             </div>
-
-                    <asp:ListView ID="lviewAlbumPhoto" runat="server"
-                        ItemType="Site_de_la_Technique_Informatique.Model.Photos"
-                        SelectMethod="lviewAlbumPhoto_GetData">
-
-                        <ItemTemplate>
 
                             <div class="item">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">

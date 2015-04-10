@@ -10,78 +10,96 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class Admin_FAQ {
+    public partial class Admin_AjoutPhoto {
         
         /// <summary>
-        /// Contrôle lblMessage.
+        /// Contrôle ImgExSrc.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.HiddenField ImgExSrc;
         
         /// <summary>
-        /// Contrôle lblAjouterQuestion.
+        /// Contrôle smProxy.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAjouterQuestion;
+        protected global::System.Web.UI.ScriptManagerProxy smProxy;
         
         /// <summary>
-        /// Contrôle txtAjouterQuestion.
+        /// Contrôle divReussiAjouterImage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAjouterQuestion;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReussiAjouterImage;
         
         /// <summary>
-        /// Contrôle lblAjouterReponse.
+        /// Contrôle lblReussi.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAjouterReponse;
+        protected global::System.Web.UI.WebControls.Label lblReussi;
         
         /// <summary>
-        /// Contrôle txtAjouterReponse.
+        /// Contrôle btnAjouterAutreImage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAjouterReponse;
+        protected global::System.Web.UI.WebControls.Button btnAjouterAutreImage;
         
         /// <summary>
-        /// Contrôle btnAjouter.
+        /// Contrôle divPasReussiAjouterImage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouter;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPasReussiAjouterImage;
         
         /// <summary>
-        /// Contrôle ddlQuestionsFAQ.
+        /// Contrôle lblPasReussi.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlQuestionsFAQ;
+        protected global::System.Web.UI.WebControls.Label lblPasReussi;
         
         /// <summary>
-        /// Contrôle lviewModifFAQ.
+        /// Contrôle divPourAjouterUnePhoto.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewModifFAQ;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPourAjouterUnePhoto;
+        
+        /// <summary>
+        /// Contrôle lviewPhoto.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lviewPhoto;
+        
+        /// <summary>
+        /// Contrôle ddlTypeDImage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTypeDImage;
     }
 }
