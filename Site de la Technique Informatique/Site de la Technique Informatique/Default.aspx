@@ -51,23 +51,24 @@
 
         <!-- Carousel Section -->
         <div class="row well">
-            <h1 style="margin-top:-15px">Une place dynamique!</h1>
+            <h1 style="margin-top: -15px">Une place dynamique!</h1>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000" style="height: 400px;">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
+
+                    <div class="item active">
+                        <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
+                            <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                            <img src="../Photos/logo/Logo_Informatique.jpg" height="400" width="500" />
+                        </div>
+                        <div class="carousel-caption"></div>
+                    </div>
+
                     <asp:ListView ID="lviewAlbumPhoto" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.Photos"
                         SelectMethod="lviewAlbumPhoto_GetData">
 
                         <ItemTemplate>
-
-                            <div class="item active">
-                                <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
-                                    <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                                    <img src="../Photos/logo/Logo_Informatique.jpg" height="400" width="500" />
-                                </div>
-                                <div class="carousel-caption"></div>
-                            </div>
 
                             <div class="item">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
@@ -100,13 +101,13 @@
             <!-- Information carousel bottom side -->
             <div style="padding-left: 20px;">
                 <ul>
-                    <li style="display:inline-block; margin-left:80px;">
+                    <li style="display: inline-block; margin-left: 80px;">
                         <h3><a href="QuiSommesNous.aspx">Qui sommes-nous?</a></h3>
                     </li>
-                    <li style="display:inline-block; margin-left:80px;">
+                    <li style="display: inline-block; margin-left: 80px;">
                         <h3><a href="marie-TestVerTIC.aspx">La page à Marie yolo</a></h3>
                     </li>
-                    <li style="display:inline-block; margin-left:80px;">
+                    <li style="display: inline-block; margin-left: 80px;">
                         <h3><a href="QuiSommesNous.aspx">Une autre page</a></h3>
                     </li>
                 </ul>
