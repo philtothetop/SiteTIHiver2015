@@ -186,7 +186,6 @@
     <Content Include="ProfilEtudiant.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
-    <Content Include="SectionForum.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -335,12 +334,12 @@
     <Compile Include="DiscussionForum.aspx.designer.cs">
       <DependentUpon>DiscussionForum.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EnteteForum.aspx.cs">
-      <DependentUpon>EnteteForum.aspx</DependentUpon>
+    <Compile Include="FaireTemoignage.aspx.cs">
+      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EnteteForum.aspx.designer.cs">
-      <DependentUpon>EnteteForum.aspx</DependentUpon>
+    <Compile Include="FaireTemoignage.aspx.designer.cs">
+      <DependentUpon>FaireTemoignage.aspx</DependentUpon>
     </Compile>
     <Compile Include="FaireTemoignage.aspx.cs">
       <DependentUpon>FaireTemoignage.aspx</DependentUpon>
@@ -595,13 +594,6 @@
     </Compile>
     <Compile Include="Recherche.aspx.designer.cs">
       <DependentUpon>Recherche.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SectionForum.aspx.cs">
-      <DependentUpon>SectionForum.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SectionForum.aspx.designer.cs">
-      <DependentUpon>SectionForum.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
