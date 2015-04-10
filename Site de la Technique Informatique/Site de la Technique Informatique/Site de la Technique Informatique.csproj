@@ -100,6 +100,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin_AjoutPhoto.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
@@ -117,6 +118,10 @@
     <Content Include="DiscussionForum.aspx" />
     <Content Include="EnteteForum.aspx" />
     <Content Include="FAQ.aspx" />
+    <Content Include="Inscription\Inscription-message.aspx" />
+    <Content Include="Inscription\Inscription-valide.aspx" />
+    <Content Include="Inscription\Inscription.aspx" />
+    <Content Include="Inscription\Validation-Inscription.aspx" />
     <Content Include="Jquery\Cropper\Cropper.aspx" />
     <Content Include="Jquery\Cropper\css\bootstrap.min.css" />
     <Content Include="Jquery\Cropper\css\cropper.css" />
@@ -125,6 +130,7 @@
     <Content Include="Jquery\Cropper\js\cropper.js" />
     <Content Include="Jquery\Cropper\js\docs.js" />
     <Content Include="Jquery\Cropper\js\jquery.min.js" />
+    <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="MesDiscussionsForum.aspx" />
@@ -202,6 +208,7 @@
     </Content>
     <Content Include="Admin.master" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="Upload\Media\plan420616H15.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -230,6 +237,13 @@
     </Compile>
     <Compile Include="Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_AjoutPhoto.aspx.cs">
+      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_AjoutPhoto.aspx.designer.cs">
+      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Evenement.aspx.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
@@ -324,12 +338,47 @@
     <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inscription\Inscription-message.aspx.cs">
+      <DependentUpon>Inscription-message.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription-message.aspx.designer.cs">
+      <DependentUpon>Inscription-message.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Inscription-valide.aspx.cs">
+      <DependentUpon>Inscription-valide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription-valide.aspx.designer.cs">
+      <DependentUpon>Inscription-valide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Inscription.aspx.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Inscription.aspx.designer.cs">
+      <DependentUpon>Inscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription\Validation-Inscription.aspx.cs">
+      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription\Validation-Inscription.aspx.designer.cs">
+      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.designer.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LesParutionsMedias.aspx.cs">
+      <DependentUpon>LesParutionsMedias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LesParutionsMedias.aspx.designer.cs">
+      <DependentUpon>LesParutionsMedias.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
@@ -502,6 +551,7 @@
     </Compile>
     <Compile Include="ProfilEtudiant.aspx.cs">
       <DependentUpon>ProfilEtudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProfilEtudiant.aspx.designer.cs">
       <DependentUpon>ProfilEtudiant.aspx</DependentUpon>
@@ -581,10 +631,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
-    <Folder Include="Inscription\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Upload\" />
+    <Folder Include="Photos\Cégep\" />
+    <Folder Include="Photos\Souvenir\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
