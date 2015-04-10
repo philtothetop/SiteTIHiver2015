@@ -1,4 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AjoutProfesseur.aspx.cs" Inherits="Site_de_la_Technique_Informatique.AjoutProfesseur" %>
+﻿<%--Cette classe permet aux admins d'ajouter un nouveau professeur (nom, prénom, courriel)
+Écrit par Philippe Baron , Février 2015
+Intrants: MasterPage
+Extrants: --%>
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AjoutProfesseur.aspx.cs" Inherits="Site_de_la_Technique_Informatique.AjoutProfesseur" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -66,7 +71,7 @@
         <div class="row" runat="server" id="divComplete" visible ="false">
             <div class="col-md-12">
                 <h2>Le professeur a été ajouté.</h2>
-                <asp:LinkButton ID="lnkRetourAccueil" runat="server" CssClass="btn btn-default" Text="Accueil" />
+                <asp:LinkButton ID="lnkRetourAccueil" runat="server" CssClass="btn btn-default" Text="Accueil" OnClick="lnkRetourAccueil_Click" />
             </div>
         </div>
                 

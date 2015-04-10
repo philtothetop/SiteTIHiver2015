@@ -1,6 +1,8 @@
 ﻿// Page qui permet aux étudiants de modifier leur profil (photo de profil, nom, prénom, date de naissance, mot de passe)
-// Écrit par Marie-Philippe Gill, Février 2015
+// Écrit par Cédric Archambault  et un peut par Marie-Philippe Gill, Février 2015
 
+using Newtonsoft.Json;
+using Site_de_la_Technique_Informatique.Classes;
 using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
@@ -16,17 +18,25 @@ using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class modifProfilEtudiant : System.Web.UI.Page
+    public partial class modifProfilEtudiant : ErrorHandling
     {
-        // va contenir le courriel modifié 
-        string courrielModifie = "";
+        //Collect les erreurs de validation
+        String _idsEnErreurTab;
+        public String idsEnErreurTab
+        {
+            get { return _idsEnErreurTab; }
+
+            set { _idsEnErreurTab = value; }
+        }
+        public List<String> idsEnErreur = new List<string>();
+        public List<String> msgsEnErreur = new List<string>();
+        public List<String> panneauxEnErreur = new List<string>();
+
 
         #region Évènements de la page
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Pour tests seulement pendant que la connexion était non fonctionnelle !! à enlever 
-            Session["Courriel"] = "philippe@bibeau.com";
-            // fin de la partie pour test à effacer
+            SavoirSiPossedeAutorizationPourLaPage(true, false, true, false);
         }
         #endregion
 
@@ -35,16 +45,45 @@ namespace Site_de_la_Technique_Informatique
         {
             Etudiant etudiantCo = null;
 
-            string courriel = Session["Courriel"].ToString();
+
+
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 try
                 {
-                    etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.courriel == courriel select etu).FirstOrDefault();
-                   
-                   
+                    String strIDUtilisateur = "";
+
+                    if (Request.Cookies["TIUtilisateur"].Value.Equals("Admin"))//Si c'est un Admin
+                    {
+                        //Si le query etudiantId exist
+                        if (Request.QueryString["id"] != null)
+                        {
+                            int idEtudiant = 0;
+
+                            if (int.TryParse(Request.QueryString["id"].ToString(), out idEtudiant))
+                            {
+                                etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDEtudiant == idEtudiant select etu).FirstOrDefault();
+                            }
+                            else //Retourne un etudiant null et affiche un message.
+                            {
+                                etudiantCo = null;
+                                Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
+                                lblMessage.Text += "L' id de l'étudiant n'existe pas.";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //Chercher l'utilisateur
+                        strIDUtilisateur = Request.Cookies["TIID"].Value;
+                        int IDUtilisateur = int.Parse(strIDUtilisateur);
+
+                        etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDUtilisateur == IDUtilisateur select etu).FirstOrDefault();
+                    }
+
                 }
                 catch (Exception ex)
                 {
+                    LogErreur("modifProfilEtudiant-erreur-SelectEtudiant", ex);
                     Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
                     lblMessage.Text += "ERREUR AVEC LE MEMBRE, " + ex.ToString();
                 }
@@ -56,98 +95,156 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                Etudiant etudiantAUpdaterCopie = new Etudiant();
+                //Vérifier si l'utilisateur modifit sont mot de passe.
+                TextBox txtCourriel = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtCourriel");
+                TextBox txtMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtMotDePasse");
+                TextBox txtNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtNouveauMotDePasse");
+                TextBox txtConfirmationNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtConfirmationNouveauMotDePasse");
+                //Chercher l'utilisateur
+                String strIDUtilisateur = Request.Cookies["TIID"].Value;
+                int IDUtilisateur = int.Parse(strIDUtilisateur);
 
-                // contient le courriel de départ de l'étudiant (avant qu'il ne soit modifié)
-                string courrielDeBase = Session["Courriel"].ToString();
 
-                // contient le nouveau courriel modifié de l'étudiant
-                TextBox txtCourriel = (TextBox) lvModifProfilEtudiant.Items[0].FindControl("txtCourriel");
-                courrielModifie = txtCourriel.Text;
+                Etudiant etudiantAUpdaterCopie = (lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>().SingleOrDefault(m => m.IDUtilisateur == IDUtilisateur)); ;
 
-                //Valider la date de naissance
-                TextBox txtDateNaissanceJour = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtDateNaissanceJour");
-                TextBox txtDateNaissanceMois = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtDateNaissanceMois");
-                TextBox txtDateNaissanceAnnee = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtDateNaissanceAnnee");
 
-                String strDateNaissance = txtDateNaissanceAnnee.Text + "/" + txtDateNaissanceMois.Text + "/" + txtDateNaissanceJour.Text;
-
-                DateTime dateNaissance;
-                DateTime.TryParse(strDateNaissance, out dateNaissance);
-                etudiantAUpdaterCopie.dateNaissance = (DateTime)dateNaissance;
                 //Validation
 
-                TryUpdateModel(etudiantAUpdaterCopie);
-                var contextVal = new ValidationContext(etudiantAUpdaterCopie, serviceProvider: null, items: null);
                 var resultatsValidation = new List<ValidationResult>();
-                var isValid = Validator.TryValidateObject(etudiantAUpdaterCopie, contextVal, resultatsValidation, true);
+                var isValid = true;
 
-                //Pénom validation
-                if (etudiantAUpdaterCopie.prenom == "" || etudiantAUpdaterCopie.prenom == null)
-                {
-                    ValidationResult vald = new ValidationResult("Le prénom est requis.", new[] { "nom" });
-                    isValid = false;
-                    resultatsValidation.Add(vald);
-                }
-                if (etudiantAUpdaterCopie.prenom != null && etudiantAUpdaterCopie.prenom.Length > 64)
-                {
-                    ValidationResult vald = new ValidationResult("Le prénom doit avoir moins de 64 caractères.", new[] { "nom" });
-                    isValid = false;
-                    resultatsValidation.Add(vald);
-                }
-                //Nom validation
-                if (etudiantAUpdaterCopie.nom == "" || etudiantAUpdaterCopie.nom == null)
-                {
-                    ValidationResult vald = new ValidationResult("Un nom est requis.", new[] { "nom" });
-                    isValid = false;
-                    resultatsValidation.Add(vald);
-                }
-                if (etudiantAUpdaterCopie.nom != null && etudiantAUpdaterCopie.nom.Length > 64)
-                {
-                    ValidationResult vald = new ValidationResult("Le nom doit avoir moins de 64 caractères.", new[] { "nom" });
-                    isValid = false;
-                    resultatsValidation.Add(vald);
-                }
                 //Courriel
-                if (etudiantAUpdaterCopie.courriel == null)
+                etudiantAUpdaterCopie.courriel = txtCourriel.Text;
+                if (etudiantAUpdaterCopie.courriel == null || etudiantAUpdaterCopie.courriel == "")
                 {
-                    ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "courriel" });
+                    ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "Courriel" });
                     isValid = false;
                     resultatsValidation.Add(vald);
                 }
                 bool isEmail = Regex.IsMatch(etudiantAUpdaterCopie.courriel + "", @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
 
-                if (etudiantAUpdaterCopie.courriel != null && (isEmail == false || etudiantAUpdaterCopie.courriel.Length > 64))
+                if (etudiantAUpdaterCopie.courriel.Length > 64)
                 {
-                    ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "courriel" });
+                    ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "Courriel" });
                     isValid = false;
                     resultatsValidation.Add(vald);
                 }
-                //Comparer les mots de passe
-                TextBox txtConfirmationMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtConfirmationMotDePasse");
-                if (txtConfirmationMotDePasse != null && etudiantAUpdaterCopie.hashMotDePasse != txtConfirmationMotDePasse.Text)
+
+                if (txtMotDePasse.Text != "" || txtNouveauMotDePasse.Text != "" || txtMotDePasse.Text != "")
                 {
-                    ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "hashMotDepasse" });
-                    isValid = false;
-                    resultatsValidation.Add(vald);
+                    //Vérifier si le mot de passe les valide.
+                    hash hash = new hash();
+                    String strHashMotDePassehash = hash.GetSHA256Hash(txtMotDePasse.Text);
+                    if (txtMotDePasse.Text == "" || !etudiantAUpdaterCopie.hashMotDePasse.Equals(strHashMotDePassehash))
+                    {
+                        ValidationResult vald = new ValidationResult("Le mot de passe n'est pas valide.", new[] { "MotDePasse" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
+                    if (txtNouveauMotDePasse.Text == "")
+                    {
+                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe ne doit pas être vide.", new[] { "NouveauMotDePasse" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
+                    if (txtNouveauMotDePasse.Text.Length < 4)
+                    {
+                        ValidationResult vald = new ValidationResult("Le nouveau mot de passe doit être plus grand que 4 caractères.", new[] { "NouveauMotDePasse" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
+                    //Comparer les mots de passe
+                    if (txtNouveauMotDePasse.Text != txtConfirmationNouveauMotDePasse.Text)
+                    {
+
+                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "NouveauMotDePasse" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
                 }
-                // Va chercher le bon étudiant car le courriel pourrait avoir été changé
-                etudiantAUpdaterCopie = (lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>().SingleOrDefault(m => m.courriel == courrielDeBase));
+                //CV upload
+                FileUpload fupCV = (FileUpload)lvModifProfilEtudiant.Items[0].FindControl("fupCV");
+                if (fupCV.HasFile)
+                {
+                    String extension = fupCV.FileName.Substring(fupCV.FileName.LastIndexOf('.') + 1).ToLower();
+
+                    if (extension.Equals("pdf") || extension.Equals("docx") || extension.Equals("doc") || extension.Equals("odf"))
+                    {
+
+                    }
+                    else
+                    {
+                        ValidationResult vald = new ValidationResult("Le C.V. n'a pas une extension  valide.", new[] { "CV" });
+                        isValid = false;
+                        resultatsValidation.Add(vald);
+                    }
+                }
+
                 Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
-             
+
                 if (!isValid) // NON VALIDE
                 {
+                    lblMessage.Text = "";
+                    foreach (var ValidationResult in resultatsValidation)
+                    {
+
+                        String input = ValidationResult.MemberNames.FirstOrDefault();
+                        input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
+
+                        idsEnErreur.Add(input);
+                        msgsEnErreur.Add(ValidationResult.ErrorMessage);
+                        lblMessage.Text += ValidationResult.ErrorMessage + "<br/>";
+
+                    }
+
+                    idsEnErreurTab = JsonConvert.SerializeObject(idsEnErreur);
                     foreach (var validationResult in resultatsValidation)
                     {
-                        
-                        lblMessage.Text += validationResult.ErrorMessage+"<br/>";
+
+
                     }
                 }
                 else // VALIDE
                 {
+
                     lblMessage.Text = "";
+                    //CV upload
+                    if (fupCV.HasFile)
+                    {
+                        try
+                        {
+                            String AdresseCV = "";
+                            if (etudiantAUpdaterCopie.pathCV != "")
+                            {
+                                AdresseCV = Server.MapPath("/Upload/CV/" + etudiantAUpdaterCopie.pathCV);
+                                File.Delete(AdresseCV);//Efface l'ancien CV.
+                            }
+                            //Ajouter path CV et saugarder.
+                            String extension = fupCV.FileName.Substring(fupCV.FileName.LastIndexOf('.') + 1).ToLower();
+                            String date = DateTime.Now.ToString("dd MM yyyy");
+                            date.Replace("/", "-");
+                            String CVNom = etudiantAUpdaterCopie.prenom + "_" + etudiantAUpdaterCopie.nom + "_CV_" + date + "." + extension;
+                            AdresseCV = Server.MapPath("/Upload/CV/" + CVNom);
+                            etudiantAUpdaterCopie.pathCV = CVNom;
+                            fupCV.SaveAs(AdresseCV);
+                        }
+                        catch (Exception ex)
+                        {
+                            etudiantAUpdaterCopie.pathCV = "";
+                            lblMessage.Text = "Erreur de la sauvegarde du CV.";
+                            LogErreur("ModifProfilEtudiant-SauvegardeCV", ex);
+                        }
+
+                    }
                     try
                     {
+
+                        //Changer le mot de passe.
+                        if (txtMotDePasse.Text != "")
+                        {
+                            hash hash = new hash();
+                            etudiantAUpdaterCopie.hashMotDePasse = hash.GetSHA256Hash(txtNouveauMotDePasse.Text);
+                        }
                         //Sauvegarder image du profil
                         String imgData = ImgExSrc.Value;
                         if (imgData != "" && imgData.Length > 21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
@@ -158,16 +255,16 @@ namespace Site_de_la_Technique_Informatique
                             String imageNom = (etudiantAUpdaterCopie.prenom + etudiantAUpdaterCopie.dateInscription.ToString()).GetHashCode() + "_125.jpg";
                             String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
                             if (!etudiantAUpdaterCopie.pathPhotoProfil.Equals("photobase.bmp"))
-                            { 
-                            File.Delete("~/Photos/Profils/" + etudiantAUpdaterCopie.pathPhotoProfil);//Efface l'ancienne photo.
+                            {
+                                String AdressePhoto = Server.MapPath("/Photos/Profils/" + etudiantAUpdaterCopie.pathPhotoProfil);
+                                File.Delete(AdressePhoto);//Efface l'ancienne photo.
                             }
                             imageProfil.Save(imageProfilChemin);
-                            
+
                             etudiantAUpdaterCopie.pathPhotoProfil = imageNom;
                         }
-
                         lecontexte.SaveChanges();
-                        Response.Redirect("modifProfilEtudiant.aspx",false);
+                        Response.Redirect("ProfilEtudiant.aspx", false);
                     }
                     catch (DbEntityValidationException ex) // D'AUTRES ERREURS PEUVENT SURVENIR QUI N'ONT PAS ÉTÉ PRÉVUE VIA DATAANNOTATIONS.
                     {
@@ -181,6 +278,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     catch (Exception ex)
                     {
+                        LogErreur("modifProfilEtudiant-erreur-update-Profil", ex);
                         throw new InvalidOperationException("Une erreur s'est produite lors de la mise à jour de l'étudiant." + ex.ToString());
                     }
 
@@ -219,18 +317,19 @@ namespace Site_de_la_Technique_Informatique
         {
             try
             {
-                using(LeModelTIContainer leContext = new LeModelTIContainer())
+                using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant==id select cl).FirstOrDefault();
+                    Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
                     etudiant.compteActif = false;
                     leContext.SaveChanges();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
         }
 
-      
+
     }
 }

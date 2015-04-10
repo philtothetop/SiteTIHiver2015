@@ -13,7 +13,6 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_Load(object sender, EventArgs e)
         {
 
-
         }
 
         public IQueryable<Site_de_la_Technique_Informatique.Model.Membre> lviewRecherche_GetData()
@@ -27,56 +26,18 @@ namespace Site_de_la_Technique_Informatique
 
                 if (txtNomMembre.Text != "")
                 {
-                    if (txtNomMembre.Text.ToCharArray()[txtNomMembre.Text.ToCharArray().Length - 1] == '*' && txtNomMembre.Text.ToCharArray()[0] == '*')
-                    {
-                        listeMembre = listeMembre.AsQueryable().Where(cl => cl.nom.ToLower().Contains(txtNomMembre.Text.Substring(1, txtNomMembre.Text.ToCharArray().Length - 2).ToLower())).ToList();
-                    }
-
-                    else if (txtNomMembre.Text.ToCharArray()[txtNomMembre.Text.ToCharArray().Length - 1] == '*')
-                    {
-                        listeMembre = listeMembre.AsQueryable().Where(cl => cl.nom.ToLower().StartsWith(txtNomMembre.Text.Substring(0, txtNomMembre.Text.ToCharArray().Length - 1).ToLower())).ToList();
-                    }
-
-                    else if (txtNomMembre.Text.ToCharArray()[0] == '*')
-                    {
-                        listeMembre = listeMembre.AsQueryable().Where(cl => cl.nom.ToLower().EndsWith(txtNomMembre.Text.Substring(1).ToLower())).ToList();
-                    }
-
-                    else
-                    {
-                        listeMembre = listeMembre.AsQueryable().Where(cl => cl.nom.ToLower().Contains(txtNomMembre.Text.ToLower())).ToList();
-                    }
+                    List<Model.Membre> prenomFirst = listeMembre.AsQueryable().Where(cl => (cl.prenom + " " + cl.nom).ToLower().Contains(txtNomMembre.Text.Trim().ToLower())).ToList();
+                    List<Model.Membre> nomFirst = listeMembre.AsQueryable().Where(cl => (cl.nom + " " + cl.prenom).ToLower().Contains(txtNomMembre.Text.Trim().ToLower())).ToList();
+                    listeMembre = prenomFirst.Concat(nomFirst).ToList().Distinct().ToList();
                 }
 
-                if (txtPrenomMembre.Text != "")
-                {
-                    if (txtPrenomMembre.Text.ToCharArray()[txtPrenomMembre.Text.ToCharArray().Length - 1] == '*' && txtPrenomMembre.Text.ToCharArray()[0] == '*')
-                    {
-                        listeMembre = listeMembre.AsQueryable().Where(cl => cl.prenom.ToLower().Contains(txtPrenomMembre.Text.Substring(1, txtPrenomMembre.Text.ToCharArray().Length - 2).ToLower())).ToList();
-                    }
 
-                    else if (txtPrenomMembre.Text.ToCharArray()[txtPrenomMembre.Text.ToCharArray().Length - 1] == '*')
-                    {
-                        listeMembre = listeMembre.AsQueryable().Where(cl => cl.prenom.ToLower().StartsWith(txtPrenomMembre.Text.Substring(0, txtPrenomMembre.Text.ToCharArray().Length - 1).ToLower())).ToList();
-                    }
-
-                    else if (txtPrenomMembre.Text.ToCharArray()[0] == '*')
-                    {
-                        listeMembre = listeMembre.AsQueryable().Where(cl => cl.prenom.ToLower().EndsWith(txtPrenomMembre.Text.Substring(1).ToLower())).ToList();
-                    }
-
-                    else
-                    {
-                        listeMembre = listeMembre.AsQueryable().Where(cl => cl.prenom.ToLower().Contains(txtPrenomMembre.Text.ToLower())).ToList();
-                    }
-                }
-
-                if (chbProfesseur.Checked && !chbEtudiant.Checked)
+                if (rdbProfesseur.Checked && !rdbEtudiant.Checked)
                 {
                     listeMembre = listeMembre.AsQueryable().Where(cl => cl is Professeur).ToList();
                 }
 
-                else if (!chbProfesseur.Checked && chbEtudiant.Checked)
+                else if (!rdbProfesseur.Checked && rdbEtudiant.Checked)
                 {
                     listeMembre = listeMembre.AsQueryable().Where(cl => cl is Etudiant).ToList();
                 }
