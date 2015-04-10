@@ -141,10 +141,10 @@
                             <div class="controls">
                                 <label>Date de naissance:</label>
                                 <div class="row">
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:TextBox ID="txtDateNaissanceJour" runat="server" CssClass="form-control inputJourMois" placeholder="JJ" MaxLength="2" />
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:TextBox ID="txtDateNaissanceMois" runat="server" CssClass="form-control inputJourMois" placeholder="mm" MaxLength="2" />
                                     </div>
                                     <div class="col-xs-3">
