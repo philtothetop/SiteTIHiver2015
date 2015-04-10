@@ -104,5 +104,16 @@ namespace Site_de_la_Technique_Informatique
             }
 
         }
+
+        protected void lnkRetour_Click(object sender, EventArgs e)
+        {
+            if (Session["IDSectionForum"] == null)
+            {
+                Response.Redirect("MesDiscussionsForum.aspx");
+            }else{
+                Response.Redirect("EnteteForum.aspx");
+            }
+
+        }
     }
 }
