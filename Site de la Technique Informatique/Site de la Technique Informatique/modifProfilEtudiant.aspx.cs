@@ -46,22 +46,22 @@ namespace Site_de_la_Technique_Informatique
             Etudiant etudiantCo = null;
 
 
-       
+
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 try
                 {
                     String strIDUtilisateur = "";
-                    //Si c'est l'admin
-                    if (Request.Cookies["TIUtilisateur"] != null && Request.Cookies["TIUtilisateur"].Equals("Admin"))
+
+                    if (Request.Cookies["TIUtilisateur"].Value.Equals("Admin"))//Si c'est un Admin
                     {
                         //Si le query etudiantId exist
-                        if (Request.QueryString["EtudiantId"]!=null)
+                        if (Request.QueryString["id"] != null)
                         {
                             int idEtudiant = 0;
-                             
-                            if(int.TryParse(Request.QueryString["EtudiantId"].ToString(),out idEtudiant))
+
+                            if (int.TryParse(Request.QueryString["id"].ToString(), out idEtudiant))
                             {
-                                etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDEtudiant==idEtudiant select etu).FirstOrDefault();
+                                etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDEtudiant == idEtudiant select etu).FirstOrDefault();
                             }
                             else //Retourne un etudiant null et affiche un message.
                             {
@@ -95,21 +95,26 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                
+                //Vérifier si l'utilisateur modifit sont mot de passe.
+                TextBox txtCourriel = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtCourriel");
+                TextBox txtMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtMotDePasse");
+                TextBox txtNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtNouveauMotDePasse");
+                TextBox txtConfirmationNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtConfirmationNouveauMotDePasse");
                 //Chercher l'utilisateur
                 String strIDUtilisateur = Request.Cookies["TIID"].Value;
                 int IDUtilisateur = int.Parse(strIDUtilisateur);
 
 
                 Etudiant etudiantAUpdaterCopie = (lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>().SingleOrDefault(m => m.IDUtilisateur == IDUtilisateur)); ;
-                
-                
+
+
                 //Validation
 
                 var resultatsValidation = new List<ValidationResult>();
                 var isValid = true;
 
                 //Courriel
+                etudiantAUpdaterCopie.courriel = txtCourriel.Text;
                 if (etudiantAUpdaterCopie.courriel == null || etudiantAUpdaterCopie.courriel == "")
                 {
                     ValidationResult vald = new ValidationResult("Le courriel est requis.", new[] { "Courriel" });
@@ -118,17 +123,12 @@ namespace Site_de_la_Technique_Informatique
                 }
                 bool isEmail = Regex.IsMatch(etudiantAUpdaterCopie.courriel + "", @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
 
-                if (etudiantAUpdaterCopie.courriel != null && (isEmail == false || etudiantAUpdaterCopie.courriel.Length > 64))
+                if (etudiantAUpdaterCopie.courriel.Length > 64)
                 {
                     ValidationResult vald = new ValidationResult("Le courriel doit être valide et doit avoir moins de 64 caractères.", new[] { "Courriel" });
                     isValid = false;
                     resultatsValidation.Add(vald);
                 }
-                //Vérifier si l'utilisateur modifit sont mot de passe.
-                TextBox txtCourriel = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtCourriel");
-                TextBox txtMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtMotDePasse");
-                TextBox txtNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtNouveauMotDePasse");
-                TextBox txtConfirmationNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtConfirmationNouveauMotDePasse");
 
                 if (txtMotDePasse.Text != "" || txtNouveauMotDePasse.Text != "" || txtMotDePasse.Text != "")
                 {
@@ -201,7 +201,7 @@ namespace Site_de_la_Technique_Informatique
                     foreach (var validationResult in resultatsValidation)
                     {
 
-                        
+
                     }
                 }
                 else // VALIDE
@@ -238,7 +238,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     try
                     {
-                        etudiantAUpdaterCopie.courriel = txtCourriel.Text;
+
                         //Changer le mot de passe.
                         if (txtMotDePasse.Text != "")
                         {
@@ -264,7 +264,7 @@ namespace Site_de_la_Technique_Informatique
                             etudiantAUpdaterCopie.pathPhotoProfil = imageNom;
                         }
                         lecontexte.SaveChanges();
-                        Response.Redirect("modifProfilEtudiant.aspx", false);
+                        Response.Redirect("ProfilEtudiant.aspx", false);
                     }
                     catch (DbEntityValidationException ex) // D'AUTRES ERREURS PEUVENT SURVENIR QUI N'ONT PAS ÉTÉ PRÉVUE VIA DATAANNOTATIONS.
                     {
