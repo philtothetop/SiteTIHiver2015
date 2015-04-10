@@ -48,7 +48,6 @@
                 <br />
                 <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC" 
                     SelectMethod="lvEcheancier_GetData" 
-                    DataKeyNames="LeModelTI.IDDateEvenementVerTIC" 
                     UpdateMethod="lviewEcheancier_UpdateItem">
                     <LayoutTemplate>
                         <div class="row" style="background-color: #eee; border-bottom: 1px solid black; border-radius: 3px; width: 1100px;">
