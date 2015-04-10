@@ -1,5 +1,4 @@
-﻿<%@ Page Title="Modifier la FAQ" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_FAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_FAQ" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_FAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_FAQ" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
