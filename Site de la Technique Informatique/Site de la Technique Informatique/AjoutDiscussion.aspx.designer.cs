@@ -10,7 +10,61 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class Admin_FAQ {
+    public partial class AjoutDiscussion {
+        
+        /// <summary>
+        /// Contrôle mvAjoutDiscussion.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView mvAjoutDiscussion;
+        
+        /// <summary>
+        /// Contrôle viewAjout.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View viewAjout;
+        
+        /// <summary>
+        /// Contrôle lblErreur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErreur;
+        
+        /// <summary>
+        /// Contrôle txtTitreDiscussion.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTitreDiscussion;
+        
+        /// <summary>
+        /// Contrôle lblTitreDiscussion.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTitreDiscussion;
+        
+        /// <summary>
+        /// Contrôle txtMessage.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMessage;
         
         /// <summary>
         /// Contrôle lblMessage.
@@ -22,66 +76,39 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// Contrôle lblAjouterQuestion.
+        /// Contrôle lnkAnnuler.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAjouterQuestion;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAnnuler;
         
         /// <summary>
-        /// Contrôle txtAjouterQuestion.
+        /// Contrôle lnkAjouter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAjouterQuestion;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAjouter;
         
         /// <summary>
-        /// Contrôle lblAjouterReponse.
+        /// Contrôle viewFin.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAjouterReponse;
+        protected global::System.Web.UI.WebControls.View viewFin;
         
         /// <summary>
-        /// Contrôle txtAjouterReponse.
+        /// Contrôle lnkRetour.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAjouterReponse;
-        
-        /// <summary>
-        /// Contrôle btnAjouter.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouter;
-        
-        /// <summary>
-        /// Contrôle ddlQuestionsFAQ.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlQuestionsFAQ;
-        
-        /// <summary>
-        /// Contrôle lviewModifFAQ.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewModifFAQ;
+        protected global::System.Web.UI.WebControls.LinkButton lnkRetour;
     }
 }

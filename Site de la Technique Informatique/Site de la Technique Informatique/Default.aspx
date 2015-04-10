@@ -19,7 +19,7 @@
                         <h4><i class="glyphicon glyphicon-question-sign"></i>Qui sommes-nous?</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Vous n'êtes pas certain de vous incrire dans une spécialisation de l'informatique de gestion? Vous vous interrogez si c'est votre vraie vocation? Apprenez tout ce que vous devez savoir de la technique! </p>
+                        <p>Vous n'êtes pas certain de vous incrire dans une spécialisation de l'informatique de gestion? Vous vous interrogez si c'est votre vraie vocation? Apprenez tout ce que vous devez savoir sur le programme! </p>
                         <a href="full-width.html" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         <h4><i class="glyphicon glyphicon-usd"></i>Offres d'emploi</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Vous êtes sur le point d'avoir votre diplôme et vous cherchez un travail le plus rapidement que possible? Vous serez gâté(e) par toutes les offres d'emploi que nous vous proposons!</p>
+                        <p>Vous êtes sur le point d'avoir votre diplôme et vous cherchez un travail le plus rapidement possible? Vous serez gâté(e) par toutes les offres d'emploi que nous vous proposons!</p>
                         <a href="full-width.html" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
@@ -101,10 +101,10 @@
             <div style="padding-left: 20px;">
                 <ul>
                     <li style="display:inline-block; margin-left:80px;">
-                        <h3><a href="QuiSommesNous.aspx">Qui sommes nous?</a></h3>
+                        <h3><a href="QuiSommesNous.aspx">Qui sommes-nous?</a></h3>
                     </li>
                     <li style="display:inline-block; margin-left:80px;">
-                        <h3><a href="marie-TestVerTIC.aspx">La page a Marie yolo</a></h3>
+                        <h3><a href="marie-TestVerTIC.aspx">La page à Marie yolo</a></h3>
                     </li>
                     <li style="display:inline-block; margin-left:80px;">
                         <h3><a href="QuiSommesNous.aspx">Une autre page</a></h3>
@@ -120,7 +120,7 @@
                 <h2 class="page-header">Une technique spécialisée en programmation</h2>
             </div>
             <div class="col-md-6">
-                <p>La programmation exige certaine qualités</p>
+                <p>La programmation exige certaines qualités</p>
                 <ul>
                     <li>Débrouillardise</li>
                     <li>Logique</li>
@@ -215,10 +215,10 @@
         <div class="well col-lg-12" style="margin-top: 30px;">
             <div class="row">
                 <div class="col-md-8">
-                    <p>Ici vous trouverai une liste de tous les cours de la technique avec leur description</p>
+                    <p>Pour une liste de tous les cours avec leur description détaillée.</p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="#">Liste de cours</a>
+                    <a class="btn btn-lg btn-default btn-block" href="#">Liste des cours</a>
                 </div>
             </div>
         </div>

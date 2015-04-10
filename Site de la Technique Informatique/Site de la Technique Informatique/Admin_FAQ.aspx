@@ -21,7 +21,9 @@
                 <asp:Label ID="lblAjouterReponse" runat="server" Text="Réponse:"></asp:Label>
                 <asp:TextBox ID="txtAjouterReponse" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
             </div>
-
+            <div class="row">
+                <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" CssClass="btn btn-success pull-right" OnClick="btnAjouter_Click" />
+            </div>
             <div class="row">
                 <h3>Modifier une question</h3>
                 <asp:DropDownList ID="ddlQuestionsFAQ" runat="server" CssClass="form-control" SelectMethod="getQuestionsFAQ" DataTextField="texteQuestion" DataValueField="IDFAQ" AutoPostBack="true" OnSelectedIndexChanged="ddlQuestionsFAQ_SelectedIndexChanged"></asp:DropDownList>
