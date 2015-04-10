@@ -113,6 +113,7 @@
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
     <Content Include="Default.aspx" />
+    <Content Include="FaireTemoignage.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription-Employeur.aspx" />
     <Content Include="Inscription-message.aspx" />
@@ -126,6 +127,7 @@
     <Content Include="Jquery\Cropper\js\cropper.js" />
     <Content Include="Jquery\Cropper\js\docs.js" />
     <Content Include="Jquery\Cropper\js\jquery.min.js" />
+    <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
     <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -344,6 +346,13 @@
     </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.designer.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LesParutionsMedias.aspx.cs">
+      <DependentUpon>LesParutionsMedias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LesParutionsMedias.aspx.designer.cs">
+      <DependentUpon>LesParutionsMedias.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListeOffresEmploi.aspx.cs">
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
