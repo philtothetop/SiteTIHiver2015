@@ -20,7 +20,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Vous n'êtes pas certain de vous incrire dans une spécialisation de l'informatique de gestion? Vous vous interrogez si c'est votre vraie vocation? Apprenez tout ce que vous devez savoir de la technique! </p>
-                        <a href="full-width.html" class="btn btn-default">En savoir plus...</a>
+                        <a href="QuiSommesNous.aspx" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Apprenez toutes les nouvelles de la technique</p>
-                        <a href="full-width.html" class="btn btn-default">En savoir plus...</a>
+                        <a href="Nouvelles.aspx" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="panel-body">
                         <p>Vous êtes sur le point d'avoir votre diplôme et vous cherchez un travail le plus rapidement que possible? Vous serez gâté(e) par toutes les offres d'emploi que nous vous proposons!</p>
-                        <a href="full-width.html" class="btn btn-default">En savoir plus...</a>
+                        <a href="OffreEmploi.aspx" class="btn btn-default">En savoir plus...</a>
                     </div>
                 </div>
             </div>
@@ -51,32 +51,33 @@
 
         <!-- Carousel Section -->
         <div class="row well">
-            <h1 style="margin-top:-15px">Une place dynamique!</h1>
+            <h1 style="margin-top: -15px">Une place dynamique!</h1>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000" style="height: 400px;">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
+
+
+                    <div class="item active">
+                        <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
+                            <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
+                            <img src="../Photos/logo/Logo_Informatique.jpg" height="400" width="500" />
+                        </div>
+                        <div class="carousel-caption"></div>
+                    </div>
+
                     <asp:ListView ID="lviewAlbumPhoto" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.Photos"
                         SelectMethod="lviewAlbumPhoto_GetData">
 
                         <ItemTemplate>
 
-                            <div class="item active">
-                                <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
-                                    <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                                    <img src="../Photos/Jacob.jpg" height="400" width="500" />
-                                </div>
-                                <div class="carousel-caption"></div>
-                            </div>
-
                             <div class="item">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                                     <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# ".." + Item.pathPhoto %>' Style="vertical-align: middle;" />
+                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# Item.pathPhoto %>' Style="vertical-align: middle;" />
                                 </div>
 
-                                <div class="carousel-caption">
-                                </div>
+                                <div class="carousel-caption"></div>
                             </div>
 
                         </ItemTemplate>
@@ -100,13 +101,13 @@
             <!-- Information carousel bottom side -->
             <div style="padding-left: 20px;">
                 <ul>
-                    <li style="display:inline-block; margin-left:80px;">
+                    <li style="display: inline-block; margin-left: 80px;">
                         <h3><a href="QuiSommesNous.aspx">Qui sommes nous?</a></h3>
                     </li>
-                    <li style="display:inline-block; margin-left:80px;">
+                    <li style="display: inline-block; margin-left: 80px;">
                         <h3><a href="marie-TestVerTIC.aspx">La page a Marie yolo</a></h3>
                     </li>
-                    <li style="display:inline-block; margin-left:80px;">
+                    <li style="display: inline-block; margin-left: 80px;">
                         <h3><a href="QuiSommesNous.aspx">Une autre page</a></h3>
                     </li>
                 </ul>
