@@ -62,23 +62,15 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
 
+                          <li runat="server" id="lblQuiSommesNous">
+                            <a href="QuiSommesNous.aspx">Qui sommes-nous</a>
+                        </li>
                       
                         <li runat="server" id="lblNouvelles">
                             <a href="Nouvelles.aspx">Nouvelles</a>
                         </li>
                         <li class="dropdown" runat="server" id="lblSouvenir">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Souvenirs<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="portfolio-1-col.aspx">Photos étudiants</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-2-col.aspx">Photos professeurs</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-3-col.aspx">Photos projets</a>
-                                </li>
-                            </ul>
+                            <a href="#">Souvenirs</a>
                         </li>
 
                         <li runat="server" id="lblInformation" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
@@ -109,7 +101,7 @@
                             </li>
 
                         <li runat="server" id="lblAdmin">
-                                 <a href="Admin_Default.aspx">Admin</a>
+                                 <a href="Admin_Default.aspx">Administrateur</a>
                             </li>
 
                         
