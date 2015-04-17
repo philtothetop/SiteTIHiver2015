@@ -10,87 +10,60 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class Log {
+    public partial class Admin_Media {
         
         /// <summary>
-        /// Contrôle lviewLogs.
+        /// Contrôle lblListMedia.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewLogs;
+        protected global::System.Web.UI.WebControls.Label lblListMedia;
         
         /// <summary>
-        /// Contrôle btnVoirToutLesLogs.
+        /// Contrôle ddlMedia.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirToutLesLogs;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMedia;
         
         /// <summary>
-        /// Contrôle btnVoirQueLogNormal.
+        /// Contrôle btnModif.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirQueLogNormal;
+        protected global::System.Web.UI.WebControls.Button btnModif;
         
         /// <summary>
-        /// Contrôle btnVoirQueLogErreur.
+        /// Contrôle btnAjout.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirQueLogErreur;
+        protected global::System.Web.UI.WebControls.Button btnAjout;
         
         /// <summary>
-        /// Contrôle btnVoirQueLogWarning.
+        /// Contrôle lvMedia.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirQueLogWarning;
+        protected global::System.Web.UI.WebControls.ListView lvMedia;
         
         /// <summary>
-        /// Contrôle btnVoirQueLogInscription.
+        /// Contrôle lblMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirQueLogInscription;
-        
-        /// <summary>
-        /// Contrôle btnVoirQueLogBanni.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirQueLogBanni;
-        
-        /// <summary>
-        /// Contrôle dataPagerDesLogs.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager dataPagerDesLogs;
-        
-        /// <summary>
-        /// Contrôle hfieldTrierType.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfieldTrierType;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }

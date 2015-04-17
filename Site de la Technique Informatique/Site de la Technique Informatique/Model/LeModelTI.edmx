@@ -301,7 +301,7 @@
     <Property Name="photoDescription" Type="nvarchar" Nullable="true" MaxLength="500" />
     <Property Name="temoignage" Type="nvarchar" Nullable="true" MaxLength="1000" />
     <Property Name="dateTemoignage" Type="datetime" Nullable="true" />
-    <Property Name="compteActif" Type="bit" Nullable="false" />
+    <Property Name="compteActif" Type="int" Nullable="false" />
     <Property Name="IDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UtilisateurSet_Professeur">
@@ -788,7 +788,7 @@
           <Property Name="photoDescription" Type="String" Nullable="true" MaxLength="500" />
           <Property Name="temoignage" Type="String" Nullable="true" MaxLength="1000" />
           <Property Name="dateTemoignage" Type="DateTime" Nullable="true" />
-          <Property Name="compteActif" Type="Boolean" Nullable="false" />
+          <Property Name="compteActif" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EnteteForum" Relationship="LeModelTI.MembreEnteteForum" FromRole="Membre" ToRole="EnteteForum" />
           <NavigationProperty Name="ConsultationForum" Relationship="LeModelTI.MembreConsultationForum" FromRole="Membre" ToRole="ConsultationForum" />
           <NavigationProperty Name="MessageForum" Relationship="LeModelTI.MembreMessageForum" FromRole="Membre" ToRole="MessageForum" />

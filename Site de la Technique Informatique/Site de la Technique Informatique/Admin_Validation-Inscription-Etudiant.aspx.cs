@@ -37,7 +37,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     DateTime dt = DateTime.Now.AddHours(-24);
-                    return (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == false && cl.compteActif == false && cl.dateInscription < dt select cl).Count().ToString();
+                    return (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == false && cl.compteActif == 0 && cl.dateInscription < dt select cl).Count().ToString();
                 }
 
             }
@@ -57,7 +57,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == true && cl.compteActif == false orderby cl.IDEtudiant descending select cl).ToList();
+                    List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == true && cl.compteActif == 0 orderby cl.IDEtudiant descending select cl).ToList();
 
                     
                     if(etudiantList.Count==0)
@@ -99,6 +99,16 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
                             File.Delete("~Photos/Profils/" + etudiant.pathPhotoProfil);
                             leContext.UtilisateurSet.Remove(etudiant);
+                            if (envoie_courriel_confirmationRefuser(etudiant) == false)
+                            {
+                                lblMessage.Text = "Il est impossible d'envoyer les courriels de confirmation du refus, mais les inscription ont été refusé.";
+                                lblMessage.Visible = true;
+                                break;
+                            }
+                            else
+                            {
+                                lblMessage.Visible = false;
+                            }
                         }
                     }
                     leContext.SaveChanges();
@@ -125,6 +135,16 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == idEtudiant select cl).FirstOrDefault();
                     leContext.UtilisateurSet.Remove(etudiant);
                     File.Delete("~Photos/Profils/" + etudiant.pathPhotoProfil);
+
+                    if (envoie_courriel_confirmationRefuser(etudiant) == false)
+                    {
+                        lblMessage.Text = "Il est impossible d'envoyer un courriel de confirmation du refus, mais inscription a été refusé.";
+                        lblMessage.Visible = true;
+                    }
+                    else
+                    {
+                        lblMessage.Visible = false;
+                    }
                     leContext.SaveChanges();
                     Response.Redirect(Request.RawUrl);
 
@@ -155,12 +175,21 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         {
                             int id = int.Parse(lblId.Text);
                             Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
-                            envoie_courriel_confirmation(etudiant);
-                            etudiant.compteActif = true;
+                            if (envoie_courriel_confirmation(etudiant) == false)
+                            {
+                                lblMessage.Text = "Impossible de Accepter tous les inscriptions, car il est impossible d'envoyer les courriels de validation.";
+                                lblMessage.Visible = true;
+                                break;// sort de la boucle 
+                            }
+                            else
+                            {
+                                lblMessage.Visible = false;
+                                etudiant.compteActif = 1;//Ative le compte.
+                                leContext.SaveChanges();
+                                Response.Redirect(Request.RawUrl);
+                            }
                         }
                     }
-                    leContext.SaveChanges();
-                    Response.Redirect(Request.RawUrl);
                 }
             }
             catch (Exception ex)
@@ -181,10 +210,20 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     LinkButton lnkAccepter = (LinkButton)sender;
                     int idEtudiant = int.Parse(lnkAccepter.CommandArgument);
                     Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == idEtudiant select cl).FirstOrDefault();
-                    etudiant.compteActif = true;
-                    leContext.SaveChanges();
-                    envoie_courriel_confirmation(etudiant);
-                    Response.Redirect(Request.RawUrl);
+
+                    if (envoie_courriel_confirmation(etudiant) == false)
+                    {
+                        lblMessage.Text = "Impossible de Accepter l'inscription, car il est impossible d'envoyer un courriel de validation.";
+                        lblMessage.Visible = true;
+                    }
+                    else
+                    {
+                        lblMessage.Visible = false;
+                        etudiant.compteActif = 1;//Ative le compte.
+                        leContext.SaveChanges();
+                        Response.Redirect(Request.RawUrl);
+                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -256,7 +295,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     DateTime dt = DateTime.Now.AddHours(-24);
-                    List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == false && cl.compteActif == false && cl.dateInscription < dt select cl).ToList();
+                    List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == false && cl.compteActif == 0 && cl.dateInscription < dt select cl).ToList();
 
                     if (etudiantList.Count > 0)
                     {
@@ -278,7 +317,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Écrit par Cédric Archambault 18 février 2015
         //Intrants:Etudiant
         //Extrants:Aucun
-        public void envoie_courriel_confirmation(Etudiant etudiant)
+        public bool envoie_courriel_confirmation(Etudiant etudiant)
         {
             // METTRE ICI LE EMAIL DE LA PERSONNE QUI VA RÉPONDRE AUX MESSAGES DES FUTURS ÉTUDIANTS 
 
@@ -315,17 +354,64 @@ namespace Site_de_la_Technique_Informatique.Inscription
             try
             {
                 client.Send(mail);
+                return true;
             }
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur d'envoie de message : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
+                return false;
             }
 
 
         }
 
+        public bool envoie_courriel_confirmationRefuser(Etudiant etudiant)
+        {
+            // METTRE ICI LE EMAIL DE LA PERSONNE QUI VA RÉPONDRE AUX MESSAGES DES FUTURS ÉTUDIANTS 
 
+            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+            mail.To.Add(etudiant.courriel);
+
+            // Informations de l'en-tête du message 
+            // 1- Email de la personne qui contacte le département 
+            // 2- Nom / Prénom de la personne qui contacte le département 
+            mail.From = new System.Net.Mail.MailAddress(etudiant.courriel, "Cgep", System.Text.Encoding.UTF8);
+
+            // Sujet de l'email envoyé
+            mail.Subject = "Inscription TI Cegep de Granby";
+
+            mail.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            // Email de qui provient l'email (donc va chercher l'email de la personne dans le textbox)
+
+
+            // Corps du message : contient ce que la personne a écrit dans le module seulement
+
+            mail.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a refuser votre inscription. ";
+
+
+
+            mail.BodyEncoding = System.Text.Encoding.UTF8;
+            mail.IsBodyHtml = true;
+            mail.Priority = System.Net.Mail.MailPriority.High;
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+            client.Credentials = new System.Net.NetworkCredential("mariephilippe.gill@gmail.com", "(pap!er)");
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            try
+            {
+                client.Send(mail);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Exception logEx = ex;
+                return false;
+            }
+
+
+        }
 
     }
 }

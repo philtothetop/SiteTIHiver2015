@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.IO;
+using System.Drawing;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_AjoutPhoto : ErrorHandling
+    public partial class Admin_LesPhotos : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,13 +20,11 @@ namespace Site_de_la_Technique_Informatique
 
         protected void btnajouterAutreImage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Admin_AjoutPhoto");
+            Response.Redirect("QuePourTest.aspx");
         }
 
 
-        //---------------------------------------------------------------
-        //V2 POUR SAUVEGARDER PHOTO
-        //Uploader une photo dans PhotoProfil
+        //Uploader une image dans souvenir
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -50,10 +48,6 @@ namespace Site_de_la_Technique_Informatique
                             //Si le prof connecté est trouvé
                             if (leProfCo != null)
                             {
-                                //VERSION 2 TEST DE FILE UPLOAD
-                                FileUpload fuplPhoto = (FileUpload)lviewAjouterUneImage.Items[0].FindControl("fuplPhoto");
-                                Label lblEchecImage = (Label)lviewAjouterUneImage.Items[0].FindControl("lblEchecImage");
-
                                 //Si le fileupload n'est pas vide
                                 if (fuplPhoto.HasFile)
                                 {
@@ -66,8 +60,8 @@ namespace Site_de_la_Technique_Informatique
                                             //Grosseur max est de 1000 px et minimum 120 px
                                             imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
 
-                                            String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
-                                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/" + ddlTypeDImage.SelectedValue.ToString() + "/"), imageNom);
+                                            String imageNom = ddlTypeDImage.SelectedValue.ToString() + "/" + (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
+                                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/" + ddlTypeDImage.SelectedValue.ToString() + "/"), imageNom);
                                             imageAAjouter.Save(imageProfilChemin);
 
                                             //Sauvegarder image pour utiliser avec la bd
@@ -91,17 +85,18 @@ namespace Site_de_la_Technique_Informatique
                                             divPasReussiAjouterImage.Visible = false;
                                             divPourAjouterUnePhoto.Visible = false;
 
-                                            lblEchecImage.Text = "";
+                                            //lblEchecImage.Text = "";
                                         }
                                         catch (Exception ex)
                                         {
-                                            lblEchecImage.Text = "Upload de l'image à échoué";
+                                            divPasReussiAjouterImage.Visible = true;
+                                            lblPasReussi.Text = "Problème pour uploader l'image.";
                                         }
                                     }
-                                    else 
+                                    else
                                     {
                                         divPasReussiAjouterImage.Visible = true;
-                                        lblPasReussi.Text = "Mauvais format de l'image";
+                                        lblPasReussi.Text = "Mauvais format de l'image.";
                                     }
                                 }
                                 else
@@ -130,106 +125,13 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-
+                LogErreur("Admin_LesPhotos.aspx.cs dans la méthode btnUpdate_Click", ex);
             }
         }
 
-        //---------------------------------------------------------------
-
-        //Pour sauvegarder la photo
-        protected void SauvegarderLaPhoto_Click(object sender, EventArgs e)
+        protected void lviewSupprimerPhotosDataBound(object sender, EventArgs e)
         {
-            try
-            {
-                using (LeModelTIContainer modelTI = new LeModelTIContainer())
-                {
-                    Model.Professeur leProfCo = new Model.Professeur();
-                    leProfCo = null;
-
-                    //Récupérer la personne connecté
-                    if (Request.Cookies["TIID"] != null)
-                    {
-                        if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
-                        {
-                            int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
-
-                            leProfCo = (from cl in modelTI.UtilisateurSet.OfType<Professeur>()
-                                        where cl.IDUtilisateur == leId
-                                        select cl).FirstOrDefault();
-
-                            //Si le prof connecté est trouvé
-                            if (leProfCo != null)
-                            {
-                                //Sauvegarder image sur le server
-                                String imgData = ImgExSrc.Value;
-
-                                //Si photos de base, donc pas choisi de photo, à peut-être optimiser plus tard
-                                if (imgData.Contains("Photos/Profils/photobase.bmp"))
-                                {
-                                    imgData = "";
-                                }
-
-                                if (imgData != "" && imgData.Length > 21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
-                                {
-                                    System.Drawing.Image imageAAjouter = LoadImage(imgData);
-
-                                    //Grosseur max est de 1000 px et minimum 120 px
-                                    imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
-                                    
-                                    String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
-                                    String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/" + ddlTypeDImage.SelectedValue.ToString() + "/"), imageNom);
-                                    imageAAjouter.Save(imageProfilChemin);
-
-                                    //Sauvegarder image pour utiliser avec la bd
-                                    Model.Photos laPhotoBD = new Model.Photos();
-                                    laPhotoBD.pathPhoto = imageNom;
-                                    laPhotoBD.typePhoto = ddlTypeDImage.SelectedItem.Text;
-
-                                    //Faire un log pour l'action
-                                    Model.Log logPhoto = new Model.Log();
-                                    logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vien d'ajouter une photos sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
-                                    logPhoto.dateLog = DateTime.Now;
-                                    logPhoto.typeLog = 0;
-                                    logPhoto.Utilisateur = leProfCo;
-
-                                    modelTI.PhotosSet.Add(laPhotoBD);
-                                    modelTI.LogSet.Add(logPhoto);
-                                    modelTI.SaveChanges();
-
-                                    //Indiquer que cela a marché
-                                    divReussiAjouterImage.Visible = true;
-                                    divPasReussiAjouterImage.Visible = false;
-                                    divPourAjouterUnePhoto.Visible = false;
-                                }
-                                else
-                                {
-                                    divPasReussiAjouterImage.Visible = true;
-                                    lblPasReussi.Text = "Image impossible à ajouter.";
-                                }
-                            }
-                            else
-                            {
-                                divPasReussiAjouterImage.Visible = true;
-                                lblPasReussi.Text = "Veuillez-vous reconnecter.";
-                            }
-                        }
-                        else
-                        {
-                            divPasReussiAjouterImage.Visible = true;
-                            lblPasReussi.Text = "Veuillez-vous reconnecter.";
-                        }
-                    }
-                    else
-                    {
-                        Response.Redirect("Default.aspx");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                divPasReussiAjouterImage.Visible = true;
-                lblPasReussi.Text = "Problème avec le serveur, veuillez réassayer plus tard";
-            }
+            dataPagerPhotosSouvenirs.Visible = (dataPagerPhotosSouvenirs.PageSize < dataPagerPhotosSouvenirs.TotalRowCount);
         }
 
         public System.Drawing.Image ResizeTheImage(int maxSize, int minSize, System.Drawing.Image imageAChecker)
@@ -280,29 +182,83 @@ namespace Site_de_la_Technique_Informatique
             return new Model.Photos();
         }
 
-        //Cette class permet de convertir data/jpeg à image.
-        //Écrit par Cédric Archambault 26 février 2015 (Recopier par Raphael pour utiliser dans cette page)
-        //Intrants:String Data
-        //Extrants:Image
-        public System.Drawing.Image LoadImage(String data)
+        //Méthode pour récupérer les photos dans la BD
+        public IQueryable<Model.Photos> GetLesPhotos()
         {
-            //get a temp image from bytes, instead of loading from disk
-            //data:image/gif;base64,
-            //this image is a single pixel (black)
-            //byte[] bytes = Convert.FromBase64String("R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==");
-            data = data.Remove(0, 22);
-            byte[] bytes = Convert.FromBase64String(data);
-            System.Drawing.Image image;
-            using (MemoryStream ms = new MemoryStream(bytes))
+            //Créer une liste de base
+            List<Model.Photos> listeDesPhotos = new List<Model.Photos>();
+
+            try
             {
-                image = System.Drawing.Image.FromStream(ms);
-                string cropFileName = "";
-                string cropFilePath = "";
-                cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), cropFileName);
+                using (LeModelTIContainer modelTI = new LeModelTIContainer())
+                {
+                    string voirSeTypeDePhotos = ddlTypePhotoSupprimer.SelectedValue;
+
+                    if (voirSeTypeDePhotos.Equals("Tous"))
+                    {
+                        //Récupérer toutes les photos
+                        listeDesPhotos = (from cl in modelTI.PhotosSet
+                                          select cl).ToList();
+                    }
+                    else
+                    {
+                        //Récupérer les photos du type choisi
+                        listeDesPhotos = (from cl in modelTI.PhotosSet
+                                          where cl.typePhoto.Equals(voirSeTypeDePhotos)
+                                          select cl).ToList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogErreur("Admin_LesPhotos.aspx.cs dans la méthode GetLesPhotos", ex);
             }
 
-            return image;
+            return listeDesPhotos.AsQueryable();
         }
+
+        //Changer d'onglet pour ajouter une photos
+        protected void btnAjouterUnePhoto_Click(object sender, EventArgs e)
+        {
+            mviewLesPhotos.ActiveViewIndex = 1;
+        }
+
+        //Changer d'onglet pour modifier une photo
+        protected void btnModifierLaPhoto_Click(object sender, EventArgs e)
+        {
+            mviewLesPhotos.ActiveViewIndex = 2;
+        }
+
+        //Changer d'onglet pour voir les photos
+        protected void btnModifierSupprimerPhoto_Click(object sender, EventArgs e)
+        {
+            mviewLesPhotos.ActiveViewIndex = 3;
+        }
+
+
+        //Supprimer la photo choisi
+        protected void btnSupprimerLaPhoto_Click(object sender, EventArgs e)
+        {
+            int argumentIDPhoto = Convert.ToInt32(((Button)sender).CommandArgument);
+
+            using (LeModelTIContainer modelTI = new LeModelTIContainer())
+            {
+                Model.Photos laPhotoATrouver = new Model.Photos();
+                laPhotoATrouver = null;
+
+                laPhotoATrouver = (from cl in modelTI.PhotosSet
+                                   where cl.IDPhotos == argumentIDPhoto
+                                   select cl).FirstOrDefault();
+
+                //Si la photo est trouvé
+                if (laPhotoATrouver != null)
+                {
+                    
+                }
+
+            }
+        }
+
+        
     }
 }

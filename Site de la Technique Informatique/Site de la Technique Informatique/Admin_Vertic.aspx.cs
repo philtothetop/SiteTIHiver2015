@@ -1,4 +1,7 @@
-﻿using Site_de_la_Technique_Informatique.Model;
+﻿// Cette classe permet à un administrateur ET aux professeurs de pouvoir changer les caractéristiques des portables et les licenses
+// Écrit par Jacob Fontaine, Mars-Avril 2015
+
+using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,15 +12,11 @@ using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_Vertic : System.Web.UI.Page
+    public partial class Admin_Vertic : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //HtmlControl body = Master.FindControl("pageBody") as HtmlControl;
-            //body.Attributes.Add("data-spy", "scroll");
-            //body.Attributes.Add("data-target", ".scrolltarget");
-            //body.Attributes.Add("data-offset", "20");
-            //body.Attributes.Add("style", "position:relative; overflow:auto;");
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             if (!IsPostBack)
             {
 
@@ -106,16 +105,54 @@ namespace Site_de_la_Technique_Informatique
 
         protected void btnSauvegarder_Click(object sender, EventArgs e)
         {
-            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            try
             {
-                VerTIC vertic = new VerTIC();
-                vertic = (from tic in lecontexte.VerTICSet select tic).FirstOrDefault();
-                vertic.descriptionLicence = txtLogicielLicenses.Text;
-                vertic.descriptionLibre = txtLogicielLibres.Text;
-                vertic.caractéristiquesPortable = txtCaractPortatif.Text;
-                vertic.autrePortable = txtAutres.Text;
-                lecontexte.SaveChanges();
+                using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+                {
+                    VerTIC vertic = new VerTIC();
+                    vertic = (from tic in lecontexte.VerTICSet select tic).FirstOrDefault();
+                    vertic.descriptionLicence = txtLogicielLicenses.Text;
+                    vertic.descriptionLibre = txtLogicielLibres.Text;
+                    vertic.caractéristiquesPortable = txtCaractPortatif.Text;
+                    vertic.autrePortable = txtAutres.Text;
+
+                    Model.Utilisateur lutilisateurCo = new Model.Utilisateur();
+                    lutilisateurCo = null;
+                    if (Request.Cookies["TIID"] != null)
+                    {
+                        if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
+                        {
+                            int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+
+                            lutilisateurCo = (from cl in lecontexte.UtilisateurSet
+                                              where cl.IDUtilisateur == leId
+                                              select cl).FirstOrDefault();
+                        }
+                    }
+                    Model.Log loggerUnLog = new Model.Log();
+
+                    loggerUnLog.actionLog = "Les changements aux caractéristiques et aux licences ont été SAUVEGARDER";
+                    loggerUnLog.dateLog = DateTime.Now;
+                    loggerUnLog.typeLog = 0;
+                    loggerUnLog.Utilisateur = lutilisateurCo;
+                    loggerUnLog.UtilisateurIDUtilisateur = lutilisateurCo.IDUtilisateur;
+                    lecontexte.LogSet.Add(loggerUnLog);
+                    lecontexte.SaveChanges();
+                    mvAdmin_Vertic.SetActiveView(viewFin);
+
+
+                }
             }
+            catch (Exception ex)
+            {
+                LogErreur("Admin_OffreEmploi.aspx.cs dans la méthode GetLesOffresDEmploi", ex);
+            }
+        }
+
+        protected void lnkRetour_Click(object sender, EventArgs e)
+        {
+            mvAdmin_Vertic.SetActiveView(viewDefault);
+
         }
     }
 }
