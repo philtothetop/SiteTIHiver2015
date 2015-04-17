@@ -13,6 +13,24 @@ namespace Site_de_la_Technique_Informatique {
     public partial class Admin_Vertic {
         
         /// <summary>
+        /// Contrôle mvAdmin_Vertic.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.MultiView mvAdmin_Vertic;
+        
+        /// <summary>
+        /// Contrôle viewDefault.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View viewDefault;
+        
+        /// <summary>
         /// Contrôle lblConfirmation.
         /// </summary>
         /// <remarks>
@@ -65,5 +83,23 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSauvegarder;
+        
+        /// <summary>
+        /// Contrôle viewFin.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View viewFin;
+        
+        /// <summary>
+        /// Contrôle lnkRetour.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkRetour;
     }
 }

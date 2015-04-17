@@ -57,7 +57,7 @@ namespace Site_de_la_Technique_Informatique
                     int IDUtilisateur = 0;
                     if (int.TryParse(strIDUtilisateur, out IDUtilisateur))
                     {
-                        etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDUtilisateur == IDUtilisateur select etu).FirstOrDefault();
+                        etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDUtilisateur == IDUtilisateur && etu.compteActif==1 select etu).FirstOrDefault();
                      
                     }
                     else

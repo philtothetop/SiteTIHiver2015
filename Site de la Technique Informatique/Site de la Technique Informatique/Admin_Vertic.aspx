@@ -5,6 +5,8 @@
 </asp:Content>
 
 <asp:Content ID="Content1"  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+      <asp:MultiView ID="mvAdmin_Vertic" runat="server" ActiveViewIndex="0">
+            <asp:View runat="server" ID="viewDefault">
     <div class="row">
         <div class="col-lg-9">
               <asp:Label ID="lblConfirmation" runat="server" ></asp:Label>
@@ -56,4 +58,12 @@
 
         </div>
     </div>
+                </asp:View>
+           <asp:View runat="server" ID="viewFin">
+                <div style="text-align: left">
+                    <h4>Sauvegarde réussie</h4>
+                    <asp:LinkButton ID="lnkRetour" Text="Ok" runat="server" CssClass="btn btn-default" OnClick="lnkRetour_Click"/>
+                </div>
+            </asp:View>
+                </asp:MultiView>
 </asp:Content>
