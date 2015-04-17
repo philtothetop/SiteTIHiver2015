@@ -113,6 +113,10 @@
                             </li>
 
                         
+                        <li runat="server" id="lblAjouterProfesseur">
+                                 <a href="AjoutProfesseur.aspx">Ajouter un professeur</a>
+                            </li>
+                        
                                                                                     
                         <li>
                             <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
