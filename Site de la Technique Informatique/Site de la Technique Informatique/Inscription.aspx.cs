@@ -109,9 +109,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
-                    if (etudiantACreerCopie.prenom != null && etudiantACreerCopie.prenom.Length > 64)
+                    if (etudiantACreerCopie.prenom != null && etudiantACreerCopie.prenom.Length > 32)
                     {
-                        ValidationResult vald = new ValidationResult("Le prénom doit avoir moins de 64 caractères.", new[] { "Prenom" });
+                        ValidationResult vald = new ValidationResult("Le prénom doit avoir moins de 32 caractères.", new[] { "Prenom" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -122,9 +122,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
-                    if (etudiantACreerCopie.nom != null && etudiantACreerCopie.nom.Length > 64)
+                    if (etudiantACreerCopie.nom != null && etudiantACreerCopie.nom.Length > 32)
                     {
-                        ValidationResult vald = new ValidationResult("Le nom doit avoir moins de 64 caractères.", new[] { "Nom" });
+                        ValidationResult vald = new ValidationResult("Le nom doit avoir moins de 32 caractères.", new[] { "Nom" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -204,7 +204,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         etudiantACreerCopie.hashMotDePasse = hash.GetSHA256Hash(etudiantACreerCopie.hashMotDePasse);
                         //Date inscription
                         etudiantACreerCopie.dateInscription = (DateTime)DateTime.Now;
-
+                        etudiantACreerCopie.courriel = etudiantACreerCopie.courriel.ToLower();
                         etudiantACreerCopie.valideCourriel = false;
                         etudiantACreerCopie.compteActif = false;
                         etudiantACreerCopie.pathCV = "";
@@ -238,6 +238,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
+                Response.Redirect("Inscription-message.aspx?id=0", false);
             }
         }
         //Cette class permet des/active le bouton accepter par le checkbox

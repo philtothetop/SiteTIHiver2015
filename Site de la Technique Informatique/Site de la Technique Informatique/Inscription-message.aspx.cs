@@ -12,6 +12,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
         protected void Page_Load(object sender, EventArgs e)
         {
             
+            if (Request.QueryString["id"]=="0")
+            {
+                lblMessage.Text ="<b>L'administrateur</b> vous enverra un courriel pour confirmer votre inscription.";
+            }
         }
     }
 }
