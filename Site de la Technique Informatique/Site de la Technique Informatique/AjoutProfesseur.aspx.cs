@@ -86,7 +86,7 @@ namespace Site_de_la_Technique_Informatique
 
                     nouveauProf.hashMotDePasse = hash.GetSHA256Hash(tempPassword);
                     nouveauProf.dateInscription = DateTime.Now;
-                    nouveauProf.compteActif = 0;
+                    nouveauProf.compteActif = 1;
 
                     nouveauProf.prenom = txtPrenom.Text.Trim();
                     nouveauProf.nom = txtNom.Text.Trim();
