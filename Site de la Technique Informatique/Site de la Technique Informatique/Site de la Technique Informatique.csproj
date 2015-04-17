@@ -104,14 +104,16 @@
     <Content Include="Admin_Default.aspx" />
     <Content Include="Admin_laFAQ.aspx" />
     <Content Include="Admin_LesPhotos.aspx" />
+    <Content Include="Admin_Media.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_SupprimerPhoto.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
+    <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
-    <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
+    <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\AdministrateurLesOffresEmploi.css" />
@@ -154,6 +156,8 @@
     <Content Include="Js\jquery.js" />
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
+    <Content Include="ModifierProfesseur.aspx" />
+    <Content Include="modifProfilEtudiant.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -219,6 +223,10 @@
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Upload\Media\Exemple product Backlog.pdf" />
+    <Content Include="Upload\Media\plan420616H15.pdf" />
+    <Content Include="Upload\Media\AnalysePreliminaire.pdf" />
+    <Content Include="Upload\Media\Les tests en SCRUM.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -310,6 +318,7 @@
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="toast.gif" />
     <Content Include="Temoignage.aspx" />
+    <Content Include="Admin_Validation-Inscription-Etudiant.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
@@ -359,6 +368,13 @@
     <Compile Include="Admin_laFAQ.aspx.designer.cs">
       <DependentUpon>Admin_laFAQ.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Media.aspx.cs">
+      <DependentUpon>Admin_Media.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Media.aspx.designer.cs">
+      <DependentUpon>Admin_Media.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -380,6 +396,13 @@
     <Compile Include="Admin_Temoignage.aspx.designer.cs">
       <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Validation-Inscription-Employeur.aspx.cs">
+      <DependentUpon>Admin_Validation-Inscription-Employeur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Validation-Inscription-Employeur.aspx.designer.cs">
+      <DependentUpon>Admin_Validation-Inscription-Employeur.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Vertic.aspx.cs">
       <DependentUpon>Admin_Vertic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -394,13 +417,6 @@
     <Compile Include="AjoutDiscussion.aspx.designer.cs">
       <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AjoutMedia.aspx.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.designer.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -408,8 +424,16 @@
     <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AjoutProfesseur.aspx.cs">
+      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutProfesseur.aspx.designer.cs">
+      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
+    <Compile Include="Classes\Listes.cs" />
     <Compile Include="Classes\LoadImage.cs" />
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
@@ -619,6 +643,20 @@
     <Compile Include="Model_Partielles\Membre_Partielles.cs" />
     <Compile Include="Model_Partielles\Professeur_Partielles.cs" />
     <Compile Include="Model_Partielles\UtilisateurJeu_Partielles.cs" />
+    <Compile Include="ModifierProfesseur.aspx.cs">
+      <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModifierProfesseur.aspx.designer.cs">
+      <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modifProfilEtudiant.aspx.cs">
+      <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modifProfilEtudiant.aspx.designer.cs">
+      <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -720,6 +758,13 @@
     </Compile>
     <Compile Include="temp-editNouvelles.aspx.designer.cs">
       <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.cs">
+      <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.designer.cs">
+      <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>

@@ -17,6 +17,9 @@
     <link href="Css/scrolling-nav.css" rel="stylesheet" /> 
     <link href="Css/MasterPage.css" rel="stylesheet" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 
     <script src="Js/jquery.js"></script>
     <script type="text/javascript"></script>
@@ -59,31 +62,21 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li>
-                            <a href="QuiSommesNous.aspx">Qui sommes-nous?</a>
+                          <li runat="server" id="lblQuiSommesNous">
+                            <a href="QuiSommesNous.aspx">Qui sommes-nous</a>
                         </li>
-                        <li>
+                      
+                        <li runat="server" id="lblNouvelles">
                             <a href="Nouvelles.aspx">Nouvelles</a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Souvenirs<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="portfolio-1-col.aspx">Photos étudiants</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-2-col.aspx">Photos professeurs</a>
-                                </li>
-                                <li>
-                                    <a href="portfolio-3-col.aspx">Photos projets</a>
-                                </li>
-                            </ul>
+                        <li class="dropdown" runat="server" id="lblSouvenir">
+                            <a href="#">Souvenirs</a>
                         </li>
 
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
+                        <li runat="server" id="lblInformation" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="Vertic.aspx">Vertic</a> </li>
-                                <li><a href="InformationsStage.aspx">Stages</a> </li>
+                                <li runat="server" id="lblStage"><a href="InformationsStage.aspx">Stages</a> </li>
                                 <li><a href="Temoignages.aspx">Témoignages</a> </li>
                                 
                             </ul>
@@ -93,17 +86,29 @@
                             <a href="listeOffresEmploi.aspx">Offres d'emploi</a>
                         </li>
 
-                        <li>
+                        
+
+                        <li runat="server" id="lblRecherche">
                             <a href="recherche.aspx">Recherche</a>
                         </li>
                      
                         <li runat="server" id="lblInscription">
-                                 <a href="Inscription.aspx">Inscription</a>
+                                 <a href="Inscription-Etudiant.aspx">Inscription</a>
                             </li>
 
                          <li runat="server" id="lblForum">
                                  <a href="SectionForum.aspx">Forum</a>
                             </li>
+
+                        <li runat="server" id="lblAdmin">
+                                 <a href="Admin_Default.aspx">Administrateur</a>
+                            </li>
+
+                        
+                        <li runat="server" id="lblAjouterProfesseur">
+                                 <a href="AjoutProfesseur.aspx">Ajouter un professeur</a>
+                            </li>
+                        
                                                                                     
                         <li>
                             <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
@@ -114,7 +119,8 @@
                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" /><b class="caret"></b></a>
                                 
                                 <ul class="dropdown-menu">
-                                <li><a href="ProfilEtudiant.aspx">Profil</a> </li>
+                                <li runat="server" id="lblProfilEtudiant"><a href="ProfilEtudiant.aspx">Profil</a> </li>
+                                <li runat="server" id="lblProfilProf"><a href="ModifierProfesseur.aspx">Profil</a> </li>
                                 <li><asp:LinkButton ID="lnkbtnDeconnexion" runat="server" Text="Déconnexion" OnClick="lnkbtnDeconnexion_Click" /> </li>
 
                     </ul>
