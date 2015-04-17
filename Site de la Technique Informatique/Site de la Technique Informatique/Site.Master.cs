@@ -182,6 +182,8 @@ namespace Site_de_la_Technique_Informatique
                     string pwdVerification = ""; //Permet de stocker le mot de passe hashé de la BD
                     Utilisateur userConnect = new Utilisateur(); //Crée un utilisateur vide
 
+                    lblMessageConnexion.Text = ""; //vide le label de message d'erreur
+
                     userConnect = (from user in lecontexte.UtilisateurSet where user.courriel == txtIdentifiant.Text select user).FirstOrDefault(); //Va chercher l'utilisateur qui correspond au courriel
 
                     if (userConnect == null) //si le courriel n'est pas dans la BD
@@ -233,7 +235,7 @@ namespace Site_de_la_Technique_Informatique
                         //Si c'est un étudiant
                         if (userEtu != null)
                         {
-                            if (userEtu.valideCourriel == true) //ça prend un courriel validé
+                            if (userEtu.compteActif == 1) //ça prend un compte validé
                             {
                                 Response.Cookies["TIUtilisateur"].Value = "Etudiant"; //On indique le type d'usager
                                 Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre

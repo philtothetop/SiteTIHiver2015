@@ -320,7 +320,7 @@ namespace Site_de_la_Technique_Informatique
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
-                    etudiant.compteActif = false;
+                    etudiant.compteActif = 2;
                     leContext.SaveChanges();
                 }
             }
