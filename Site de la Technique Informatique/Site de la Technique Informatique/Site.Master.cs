@@ -39,13 +39,12 @@ namespace Site_de_la_Technique_Informatique
                 lblProfilProf.Visible = false;
                 
             }
-            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Étudiant")) 
+            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Etudiant")) 
             {
                 lblConnexion.Visible = false; //Cache le lien de connexion
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
-                lblOffresEmploi.Visible = true; // Même chose que les autres
-                
+                lblOffresEmploi.Visible = true; // Même chose que les autres               
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
                 lblAdmin.Visible = false;
