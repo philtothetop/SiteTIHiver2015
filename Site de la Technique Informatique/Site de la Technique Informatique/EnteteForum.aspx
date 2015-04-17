@@ -23,7 +23,7 @@
             </li>
         </ol>
         <div class="row">
-            <asp:ListView ID="lviewEntete" runat="server" SelectMethod="getEntetesForum" DataKeyNames="MembreIDUtilisateur, dateEnteteForum" OnItemDataBound="lviewEntete_ItemDataBound">
+            <asp:ListView ID="lviewEntete" runat="server" SelectMethod="getEntetesForum" DataKeyNames="MembreIDUtilisateur, dateEnteteForum,IDEnteteForum" OnItemDataBound="lviewEntete_ItemDataBound">
                 <ItemTemplate>
                     <asp:LinkButton ID="lnkEntete" CssClass="couleurGris" CommandArgument='<%# Eval("IDEnteteForum").ToString()%>' OnClick="lnkEntete_Click" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 60%; border-radius: 5px; text-decoration: none; color: black;">
                         <div class="col-lg-offset-1">

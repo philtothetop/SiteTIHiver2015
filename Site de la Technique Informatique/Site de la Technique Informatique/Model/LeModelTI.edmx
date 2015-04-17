@@ -187,8 +187,9 @@
       <PropertyRef Name="IDConsultationForum" />
     </Key>
     <Property Name="IDConsultationForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="dateConsulte" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="dateConsulte" Type="datetime" Nullable="false" />
     <Property Name="EnteteForumIDEnteteForum" Type="int" Nullable="false" />
+    <Property Name="IDMembre" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CoursSet">
     <Key>
@@ -294,13 +295,13 @@
       <PropertyRef Name="IDUtilisateur" />
     </Key>
     <Property Name="IDMembre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="64" />
-    <Property Name="prenom" Type="nvarchar" Nullable="false" MaxLength="64" />
+    <Property Name="nom" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="prenom" Type="nvarchar" Nullable="false" MaxLength="32" />
     <Property Name="pathPhotoProfil" Type="nvarchar" Nullable="true" MaxLength="200" />
     <Property Name="photoDescription" Type="nvarchar" Nullable="true" MaxLength="500" />
     <Property Name="temoignage" Type="nvarchar" Nullable="true" MaxLength="1000" />
     <Property Name="dateTemoignage" Type="datetime" Nullable="true" />
-    <Property Name="compteActif" Type="bit" Nullable="false" />
+    <Property Name="compteActif" Type="int" Nullable="false" />
     <Property Name="IDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UtilisateurSet_Professeur">
@@ -773,20 +774,21 @@
             <PropertyRef Name="IDConsultationForum" />
           </Key>
           <Property Name="IDConsultationForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="dateConsulte" Type="String" Nullable="false" />
+          <Property Name="dateConsulte" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="EnteteForum" Relationship="LeModelTI.EnteteForumConsultationForum" FromRole="ConsultationForum" ToRole="EnteteForum" />
           <Property Name="EnteteForumIDEnteteForum" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Membre" Relationship="LeModelTI.MembreConsultationForum" FromRole="ConsultationForum" ToRole="Membre" />
+          <Property Name="IDMembre" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Membre" BaseType="LeModelTI.Utilisateur">
           <Property Name="IDMembre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nom" Type="String" Nullable="false" MaxLength="64" />
-          <Property Name="prenom" Type="String" Nullable="false" MaxLength="64" />
+          <Property Name="nom" Type="String" Nullable="false" MaxLength="32" />
+          <Property Name="prenom" Type="String" Nullable="false" MaxLength="32" />
           <Property Name="pathPhotoProfil" Type="String" Nullable="true" MaxLength="200" />
           <Property Name="photoDescription" Type="String" Nullable="true" MaxLength="500" />
           <Property Name="temoignage" Type="String" Nullable="true" MaxLength="1000" />
           <Property Name="dateTemoignage" Type="DateTime" Nullable="true" />
-          <Property Name="compteActif" Type="Boolean" Nullable="false" />
+          <Property Name="compteActif" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EnteteForum" Relationship="LeModelTI.MembreEnteteForum" FromRole="Membre" ToRole="EnteteForum" />
           <NavigationProperty Name="ConsultationForum" Relationship="LeModelTI.MembreConsultationForum" FromRole="Membre" ToRole="ConsultationForum" />
           <NavigationProperty Name="MessageForum" Relationship="LeModelTI.MembreMessageForum" FromRole="Membre" ToRole="MessageForum" />
@@ -1191,6 +1193,7 @@
           <ScalarProperty Name="IDConsultationForum" ColumnName="IDConsultationForum" />
           <ScalarProperty Name="dateConsulte" ColumnName="dateConsulte" />
           <ScalarProperty Name="EnteteForumIDEnteteForum" ColumnName="EnteteForumIDEnteteForum" />
+          <ScalarProperty Name="IDMembre" ColumnName="IDMembre" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

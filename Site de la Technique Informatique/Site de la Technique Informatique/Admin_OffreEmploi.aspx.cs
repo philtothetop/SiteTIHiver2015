@@ -26,7 +26,7 @@ namespace Site_de_la_Technique_Informatique
             if (Page.IsPostBack == false)
             {
                 //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
-                dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
+                dataPagerDesOffresEmplois.Visible = (dataPagerDesOffresEmplois.PageSize < dataPagerDesOffresEmplois.TotalRowCount);
             }
         }
 
@@ -196,7 +196,7 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lviewOffresDEmploiDataBound(object sender, EventArgs e)
         {
-            dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
+            dataPagerDesOffresEmplois.Visible = (dataPagerDesOffresEmplois.PageSize < dataPagerDesOffresEmplois.TotalRowCount);
         }
 
         //Méthode pour récupérer les offres d'emploi de la BD

@@ -9,8 +9,8 @@
     <title>Techniques de l'informatique</title>
   
     <%--lien du favicon a la racine--%>
-    <link rel="icon" href="toast.gif" type="image/gif" />
 
+    <link rel="icon" href="toast.gif" type="image/gif" />
     <link href="Css/bootstrap.min.css" rel="stylesheet"/>  
     <link href="Css/modern-business.css" rel="stylesheet"/>  
     <link href="Css/customStyleSheet.css" rel="stylesheet"/>
@@ -18,10 +18,10 @@
     <link href="Css/MasterPage.css" rel="stylesheet" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
-
+    <script src="Js/jquery.js"></script>
     <script type="text/javascript"></script>
     <script src="Js/bootstrap.js"></script>
-    <script src="Js/jquery.js"></script>
+    
 
     <script type="text/javascript">
         function openModal() {

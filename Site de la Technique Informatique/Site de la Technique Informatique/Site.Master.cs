@@ -56,6 +56,8 @@ namespace Site_de_la_Technique_Informatique
                 lblProfilEtudiant.Visible = true;
                 lblProfilProf.Visible = false;
 
+               
+
                 if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                 {
                     Response.Cookies["TINom"].Value = "Oups..."; //mets un nom bidon pour le 0.0000000000000000001% de chance que ça ne marche pas

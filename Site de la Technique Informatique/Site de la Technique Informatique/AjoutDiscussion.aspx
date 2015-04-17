@@ -48,7 +48,7 @@
                     <asp:View runat="server" ID="viewFin">
                         <div style="text-align: center">
                             <h4>Votre discussion a été créée avec succès</h4>
-                            <asp:LinkButton ID="lnkRetour" Text="Ok" runat="server" CssClass="btn btn-default" PostBackUrl="~/EnteteForum.aspx" />
+                            <asp:LinkButton ID="lnkRetour" Text="Ok" runat="server" CssClass="btn btn-default" onclick="lnkRetour_Click" />
                         </div>
                     </asp:View>
                 </asp:MultiView>
