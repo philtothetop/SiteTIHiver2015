@@ -25,8 +25,7 @@ namespace Site_de_la_Technique_Informatique
                 lblConnexion.Visible = true; //Affiche le lien de connexion
                 lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
                 lblInscription.Visible = true; //remet le lien inscription car possibilité de nouvel utilisateur
-                lblOffresEmploi.Visible = false; // Même chose que les autres
-                
+                lblOffresEmploi.Visible = false; // Même chose que les autres               
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
@@ -37,15 +36,15 @@ namespace Site_de_la_Technique_Informatique
                 lblInformation.Visible = true;
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = false;
-                
+                lblAjouterProfesseur.Visible = false;
+                lblQuiSommesNous.Visible = true;
             }
-            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Étudiant")) 
+            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Etudiant")) 
             {
                 lblConnexion.Visible = false; //Cache le lien de connexion
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
-                lblOffresEmploi.Visible = true; // Même chose que les autres
-                
+                lblOffresEmploi.Visible = true; // Même chose que les autres               
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
                 lblAdmin.Visible = false;
@@ -56,7 +55,8 @@ namespace Site_de_la_Technique_Informatique
                 lblInformation.Visible = true;
                 lblProfilEtudiant.Visible = true;
                 lblProfilProf.Visible = false;
-
+                lblAjouterProfesseur.Visible = false;
+                lblQuiSommesNous.Visible = false;
                
 
                 if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
@@ -72,8 +72,7 @@ namespace Site_de_la_Technique_Informatique
                 lblConnexion.Visible = false; //Cache le lien de connexion
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
-                lblOffresEmploi.Visible = true; // Même chose que les autres
-             
+                lblOffresEmploi.Visible = true; // Même chose que les autres          
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
                 lblAdmin.Visible = true;
@@ -84,6 +83,8 @@ namespace Site_de_la_Technique_Informatique
                 lblInformation.Visible = true;
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = true;
+                lblAjouterProfesseur.Visible = false;
+                lblQuiSommesNous.Visible = false;
 
                 if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                 {
@@ -110,6 +111,8 @@ namespace Site_de_la_Technique_Informatique
                 lblInformation.Visible = true;
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = false;
+                lblAjouterProfesseur.Visible = false;
+                lblQuiSommesNous.Visible = false;
 
                 if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                 {
@@ -137,6 +140,8 @@ namespace Site_de_la_Technique_Informatique
                 lblInformation.Visible = false;
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = false;
+                lblAjouterProfesseur.Visible = true;
+                lblQuiSommesNous.Visible = false;
 
                 if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                 {
@@ -153,18 +158,18 @@ namespace Site_de_la_Technique_Informatique
                 lblConnexion.Visible = true; //Affiche le lien de connexion
                 lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
                 lblInscription.Visible = true; //remet le lien inscription car possibilité de nouvel utilisateur
-                lblOffresEmploi.Visible = false; // Même chose que les autres
-               
+                lblOffresEmploi.Visible = false; // Même chose que les autres              
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
-                lblStage.Visible = false;
-              
+                lblStage.Visible = false;             
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
                 lblInformation.Visible = true;
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = false;
+                lblAjouterProfesseur.Visible = false;
+                lblQuiSommesNous.Visible = false;
             }
            }
             
