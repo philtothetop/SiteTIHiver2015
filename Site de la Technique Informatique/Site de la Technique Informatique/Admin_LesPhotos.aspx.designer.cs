@@ -40,13 +40,13 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Button btnAjouterUnePhoto;
         
         /// <summary>
-        /// Contrôle btnModifierSupprimerPhoto.
+        /// Contrôle btnAccueilVoirLesPhotos.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModifierSupprimerPhoto;
+        protected global::System.Web.UI.WebControls.Button btnAccueilVoirLesPhotos;
         
         /// <summary>
         /// Contrôle viewAjouterPhoto.
@@ -83,6 +83,15 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAjouterAutreImage;
+        
+        /// <summary>
+        /// Contrôle btnVoirLesPhotos.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVoirLesPhotos;
         
         /// <summary>
         /// Contrôle divPasReussiAjouterImage.
@@ -148,15 +157,6 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.FileUpload fuplPhoto;
         
         /// <summary>
-        /// Contrôle btnUpdate.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
         /// Contrôle lblImageTailleInitial.
         /// </summary>
         /// <remarks>
@@ -175,6 +175,42 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Label lblImageTailleFinal;
         
         /// <summary>
+        /// Contrôle lblDescription.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescription;
+        
+        /// <summary>
+        /// Contrôle txtbDescriptionPhotoAAjouter.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbDescriptionPhotoAAjouter;
+        
+        /// <summary>
+        /// Contrôle btnUpdate.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        
+        /// <summary>
+        /// Contrôle btnAllezVoirLesPhotos.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAllezVoirLesPhotos;
+        
+        /// <summary>
         /// Contrôle viewModifierPhoto.
         /// </summary>
         /// <remarks>
@@ -182,6 +218,132 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View viewModifierPhoto;
+        
+        /// <summary>
+        /// Contrôle divModifierPhotoReussi.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divModifierPhotoReussi;
+        
+        /// <summary>
+        /// Contrôle lblModifierPhotoReussi.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifierPhotoReussi;
+        
+        /// <summary>
+        /// Contrôle btnModifierRetourAuPhotos.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModifierRetourAuPhotos;
+        
+        /// <summary>
+        /// Contrôle divModifierPhotoPasReussi.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divModifierPhotoPasReussi;
+        
+        /// <summary>
+        /// Contrôle lblModifierPhotoPasReussi.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifierPhotoPasReussi;
+        
+        /// <summary>
+        /// Contrôle divModifierPhotoGlobal.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divModifierPhotoGlobal;
+        
+        /// <summary>
+        /// Contrôle divModifierPhoto.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divModifierPhoto;
+        
+        /// <summary>
+        /// Contrôle ddlModifierPhoto.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlModifierPhoto;
+        
+        /// <summary>
+        /// Contrôle imgModifierPhoto.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgModifierPhoto;
+        
+        /// <summary>
+        /// Contrôle lblModifierDescription.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModifierDescription;
+        
+        /// <summary>
+        /// Contrôle txtbModifierPhotoDescription.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbModifierPhotoDescription;
+        
+        /// <summary>
+        /// Contrôle btnUpdaterModifierPhoto.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdaterModifierPhoto;
+        
+        /// <summary>
+        /// Contrôle btnModifierRetourAuPhoto.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModifierRetourAuPhoto;
+        
+        /// <summary>
+        /// Contrôle hfieldIDItemAModifier.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfieldIDItemAModifier;
         
         /// <summary>
         /// Contrôle viewSupprimerPhoto.
@@ -227,5 +389,14 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataPager dataPagerPhotosSouvenirs;
+        
+        /// <summary>
+        /// Contrôle btnAllezAjouterUnePhoto.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAllezAjouterUnePhoto;
     }
 }
