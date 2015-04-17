@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AjoutMedia.aspx.cs" Inherits="Site_de_la_Technique_Informatique.AjoutMedia" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Admin_Media.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Media" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,10 +12,10 @@
            <div class="col-lg-3">
                 <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="titreParution" DataValueField="IDParutionMedia" AppendDataBoundItems="true"></asp:DropDownList>
            </div> 
-            <div class=" col-lg-2">
+            <div class=" col-lg-1">
                 <asp:Button ID="btnModif" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="btnModif_Click" />
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-1">
                 <asp:Button ID="btnAjout" runat="server" Text="Ajouter" CssClass="btn btn-primary" OnClick="btnAjout_Click" />
             </div>
 
@@ -54,24 +54,24 @@
                <div class="row rowEspace">
                    
                        
-                    <div class="col-lg-2">
+                    <div class="col-lg-1">
                         <asp:Label ID="lblTitre" runat="server" Text="Titre: " />
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <asp:TextBox ID="txtTitre" CssClass="form-control" runat="server" Text='<%# BindItem.titreParution %>' ></asp:TextBox> 
                     </div>
-                    <div class="col-lg-offset-1 col-lg-2">
+                    <div class=" col-lg-1">
                         <asp:Label ID="lblDate" runat="server" Text="Date: "></asp:Label>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <asp:TextBox ID="txtDate" CssClass="form-control" runat="server" Text='<%# BindItem.dateParution %>'></asp:TextBox> 
                      </div>
                 </div>
 
                 <!--Rangée 3-->
-
+                <br />
                 <div class="row rowEspace">
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 rowEspace">
                         <asp:Label ID="lblDescription" runat="server" Text="Description: " />
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                         <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" Text='<%# BindItem.descriptionParution %>'></asp:TextBox>
                     </div>
                 </div>
-
+                <br />
 
 
                 <!--Rangée 5-->
@@ -95,12 +95,12 @@
                 </div>
 
                 <!--Rangée 5A-->
-                <div class="row">
-                    <div class="col-lg-3">
+                <div class="row rowEspace">
+                    <div class="col-lg-1">
                         <asp:Button ID="btnUpload" CssClass="btn btn-primary rowEspace" runat="server" Text="Télécharger" OnClick="btnUpload_Click" />
                     </div>
-                    <div class="col-lg-1">
-                        <asp:TextBox ID="txtArticle" runat="server" Text='<%# BindItem.pathFichierPDF %>' Enabled="false" />
+                    <div class="col-lg-offset-1 col-lg-3">
+                        <asp:TextBox ID="txtArticle" CssClass="form-control" runat="server" Text='<%# BindItem.pathFichierPDF %>' Enabled="false" />
                     </div>
                     <div class="col-lg-3">
                         <asp:Label runat="server" ID="lblMessageSuccess" Text="" />
@@ -113,11 +113,11 @@
                 <!--Rangée 6-->
                 <br />
                 <div class="row rowEspace">
-                    <div class="col-lg-offset-8 col-lg-2">
-                        <asp:Button ID="btnSave" runat="server" Text="Enregistrer" CssClass="btn btn-primary" CommandName="Update" />
+                    <div class="col-lg-offset-5 col-lg-1">
+                        <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" />
                     </div>
                     <div class="col-lg-2">
-                        <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-danger" CommandName="Delete" />
+                       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-danger" CommandName="Delete" />
                     </div>
                 </div>
                 <br />

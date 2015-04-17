@@ -104,13 +104,13 @@
     <Content Include="Admin_Default.aspx" />
     <Content Include="Admin_laFAQ.aspx" />
     <Content Include="Admin_LesPhotos.aspx" />
+    <Content Include="Admin_Media.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_SupprimerPhoto.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
-    <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
@@ -221,6 +221,10 @@
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Upload\Media\Exemple product Backlog.pdf" />
+    <Content Include="Upload\Media\plan420616H15.pdf" />
+    <Content Include="Upload\Media\AnalysePreliminaire.pdf" />
+    <Content Include="Upload\Media\Les tests en SCRUM.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -362,6 +366,13 @@
     <Compile Include="Admin_laFAQ.aspx.designer.cs">
       <DependentUpon>Admin_laFAQ.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Media.aspx.cs">
+      <DependentUpon>Admin_Media.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Media.aspx.designer.cs">
+      <DependentUpon>Admin_Media.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -396,13 +407,6 @@
     </Compile>
     <Compile Include="AjoutDiscussion.aspx.designer.cs">
       <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.designer.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
     </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
