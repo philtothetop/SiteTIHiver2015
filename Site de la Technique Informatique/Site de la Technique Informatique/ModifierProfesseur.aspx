@@ -10,12 +10,13 @@
     <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, image cropping, web development" />
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
     
     <link rel="stylesheet" href="../Css/Inscription.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
     <script type="text/javascript">
         function openModal() {
             $('#myModal').modal('show');
@@ -139,7 +140,7 @@
                                                         <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <iframe src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
+                                                        <iframe runat="server" id="ifrImage" src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
 
                                                     </div>
                                                 </div>

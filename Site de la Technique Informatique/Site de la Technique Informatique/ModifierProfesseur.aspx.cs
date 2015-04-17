@@ -12,20 +12,24 @@ using Site_de_la_Technique_Informatique.Model;
 using System.Drawing;
 using Site_de_la_Technique_Informatique.Classes;
 using System.IO;
+using System.Web.UI.HtmlControls;
+
 
 namespace Site_de_la_Technique_Informatique
 {
     public partial class ModifierProfesseur : ErrorHandling
     {
         public Professeur currentProf;
-
+      
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
-
-            if (!Page.IsPostBack) { 
+            
+            if (!Page.IsPostBack) {
+               
+                
             divSuccess.Attributes["style"] = "visibility:hidden";
             divWarning.Attributes["style"] = "visibility:hidden";
             }
