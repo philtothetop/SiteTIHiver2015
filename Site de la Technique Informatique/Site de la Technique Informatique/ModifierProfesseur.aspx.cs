@@ -227,7 +227,7 @@ namespace Site_de_la_Technique_Informatique
 
 
                 
-                profADesactiver.compteActif = false;
+                profADesactiver.compteActif = 0;
 
                 lecontexte.SaveChanges();
 
