@@ -200,6 +200,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
+                Response.Redirect("Inscription-message.aspx?id=0", false);
             }
         }
         //Cette class permet des/active le bouton accepter par le checkbox
