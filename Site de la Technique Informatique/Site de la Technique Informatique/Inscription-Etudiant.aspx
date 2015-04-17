@@ -74,7 +74,6 @@
         <asp:HiddenField runat="server" ID="ImgExSrc" />
         <asp:ScriptManagerProxy ID="smProxy" runat="server" />
         <div class="container">
-            
             <div class="row row-centered">
                 <div class="col-lg-5 col-centered">
                     <h1>Inscription</h1>
@@ -112,7 +111,7 @@
                                                         <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <iframe src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
+                                                        <iframe src='<%=".."+Request.ApplicationPath +"/Jquery/Cropper/Cropper.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
 
                                                     </div>
                                                 </div>
