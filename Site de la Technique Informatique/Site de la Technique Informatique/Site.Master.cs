@@ -30,7 +30,7 @@ namespace Site_de_la_Technique_Informatique
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
                 lblStage.Visible = false;
-                lblQuiSommesNous.Visible = true;
+              
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
                 lblInformation.Visible = true;
@@ -49,7 +49,7 @@ namespace Site_de_la_Technique_Informatique
                 lblForum.Visible = true;
                 lblAdmin.Visible = false;
                 lblStage.Visible = true;
-                lblQuiSommesNous.Visible = true;
+               
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
                 lblInformation.Visible = true;
@@ -77,7 +77,7 @@ namespace Site_de_la_Technique_Informatique
                 lblForum.Visible = true;
                 lblAdmin.Visible = true;
                 lblStage.Visible = true;
-                lblQuiSommesNous.Visible = true;
+               
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
                 lblInformation.Visible = true;
@@ -103,7 +103,7 @@ namespace Site_de_la_Technique_Informatique
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
                 lblStage.Visible = false;
-                lblQuiSommesNous.Visible = true;
+               
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
                 lblInformation.Visible = true;
@@ -130,7 +130,7 @@ namespace Site_de_la_Technique_Informatique
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
                 lblStage.Visible = false;
-                lblQuiSommesNous.Visible = false;
+            
                 lblSouvenir.Visible = false;
                 lblRecherche.Visible = false;
                 lblInformation.Visible = false;
@@ -160,7 +160,7 @@ namespace Site_de_la_Technique_Informatique
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
                 lblStage.Visible = false;
-                lblQuiSommesNous.Visible = true;
+              
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
                 lblInformation.Visible = true;
