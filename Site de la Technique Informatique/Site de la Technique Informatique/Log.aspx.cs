@@ -26,7 +26,13 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+        }
+
+        protected void Page_PreRender(object sender, EventArgs e)
+        {
+            //Besoin de cela pour mettre le datapager visible ou non si plusieurs logs
+            dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
         }
 
         //Méthode pour récupérer les logs de la BD
