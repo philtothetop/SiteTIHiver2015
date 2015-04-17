@@ -156,6 +156,7 @@
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
     <Content Include="ModifierProfesseur.aspx" />
+    <Content Include="modifProfilEtudiant.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
@@ -634,6 +635,13 @@
     </Compile>
     <Compile Include="ModifierProfesseur.aspx.designer.cs">
       <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="modifProfilEtudiant.aspx.cs">
+      <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modifProfilEtudiant.aspx.designer.cs">
+      <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="Nouvelles.aspx.cs">
       <DependentUpon>Nouvelles.aspx</DependentUpon>
