@@ -31,7 +31,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         {
             try
             {
-                using(LeModelTIContainer leContext= new LeModelTIContainer())
+                using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     Employeur employeur = new Employeur();
                     List<Employeur> listEmployeur = (from cl in leContext.UtilisateurSet.OfType<Employeur>() select cl).ToList();
@@ -40,7 +40,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                     return listEmployeur.Last();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
@@ -59,7 +60,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     Employeur employeurACreerCopie = new Employeur();
                     ListViewItem lviewItem = lviewFormulaireInscriptionEmployeur.Items[0];
 
-                    
+
                     //Validation
 
                     TryUpdateModel(employeurACreerCopie);
@@ -67,7 +68,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     var resultatsValidation = new List<ValidationResult>();
                     var isValid = Validator.TryValidateObject(employeurACreerCopie, contextVal, resultatsValidation, true);
 
-                    
+
                     //Nom validation
                     if (employeurACreerCopie.nomEmployeur == "" || employeurACreerCopie.nomEmployeur == null)
                     {
@@ -111,7 +112,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         //Effacer les erreurs
                         Label lblMessageValidationErreur = (Label)lviewItem.FindControl("lblMessageValidationErreur");
-                        
+
                         TextBox txtNom = (TextBox)lviewItem.FindControl("txtNom");
                         Label lblnom = (Label)lviewItem.FindControl("lblNomErreur");
                         lblnom.Text = "";
@@ -133,8 +134,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         {
                             lblMessageValidationErreur.Text += ValidationResult.ErrorMessage + "<br/>";
 
-                           
-                            if(ValidationResult.MemberNames.FirstOrDefault().Equals("nom"))
+
+                            if (ValidationResult.MemberNames.FirstOrDefault().Equals("nom"))
                             {
                                 lblnom.Text = ValidationResult.ErrorMessage;
                                 txtNom.CssClass = "form-control hash-error";
@@ -161,7 +162,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     }
                     else
                     {
-                        
+
                         //Convertir le mot de passe en hashcode
                         hash hash = new hash();
                         employeurACreerCopie.hashMotDePasse = hash.GetSHA256Hash(employeurACreerCopie.hashMotDePasse);
@@ -171,12 +172,18 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         employeurACreerCopie.valideCourriel = false;
                         employeurACreerCopie.compteActif = false;
 
+                        if (envoie_courriel_confirmation(employeurACreerCopie) == true)
+                        {
 
-                        leContext.UtilisateurSet.Add(employeurACreerCopie);
-                        leContext.SaveChanges();
-                        envoie_courriel_confirmation(employeurACreerCopie);
+                            leContext.UtilisateurSet.Add(employeurACreerCopie);
+                            leContext.SaveChanges();
 
-                        Response.Redirect("Inscription-message.aspx", false);
+                            Response.Redirect("Inscription-message.aspx", false);
+                        }
+                        else
+                        {
+                            Response.Redirect("Inscription-message.aspx?id=0", false);//Si le courriel ne peut être envoyer il l'envoie sur la page avec un text modifier.
+                        }
                     }
                 }
             }
@@ -261,7 +268,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Écrit par Cédric Archambault 18 février 2015
         //Intrants:Etudiant
         //Extrants:Aucun
-        public void envoie_courriel_confirmation(Employeur employeur)
+        public bool envoie_courriel_confirmation(Employeur employeur)
         {
             // METTRE ICI LE EMAIL DE LA PERSONNE QUI VA RÉPONDRE AUX MESSAGES DES FUTURS ÉTUDIANTS 
 
@@ -297,11 +304,12 @@ namespace Site_de_la_Technique_Informatique.Inscription
             try
             {
                 client.Send(mail);
+                return true;
             }
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur d'envoie de message : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
+                return false;
             }
 
 
