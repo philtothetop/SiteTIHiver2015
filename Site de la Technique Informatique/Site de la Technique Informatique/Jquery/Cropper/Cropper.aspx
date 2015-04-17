@@ -64,15 +64,15 @@
         <script src="Cropper/js/cropper.js"></script>
         <script src="Cropper/js/docs.js"></script>
 
-       
 
-                                                        <div class="modal-footer">
-                                                            <div class="row eg-output">
-                                                                <div class="col-md-12">
-                                                                    <button class="btn btn-primary" id="getDataURL3" type="button" data-dismiss="modal">Fermer</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
+        <div class="modal-footer">
+            <div class="row eg-output">
+                <div class="col-md-12">
+                    <button class="btn btn-primary" id="getDataURL3" type="button" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
