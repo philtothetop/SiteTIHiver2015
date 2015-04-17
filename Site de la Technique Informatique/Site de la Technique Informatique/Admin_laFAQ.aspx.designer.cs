@@ -10,7 +10,7 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class Admin_FAQ {
+    public partial class Admin_laFAQ {
         
         /// <summary>
         /// Contrôle lblMessage.

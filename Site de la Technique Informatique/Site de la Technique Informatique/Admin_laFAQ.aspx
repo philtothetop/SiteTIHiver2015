@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_FAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_FAQ" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_laFAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_laFAQ" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,7 +9,7 @@
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                 <h1>Gérer la FAQ</h1>
                 <p>Sur cette page, vous pouvez modifier, ajouter ou supprimer des questions de la Foire aux questions.</p>
-                
+
             </div>
             <div class="row">
                 <h3>Ajouter une question</h3>
@@ -34,7 +35,7 @@
                 ItemType="Site_de_la_Technique_Informatique.Model.FAQ">
                 <LayoutTemplate>
                     <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                    <asp:Button ID="btnModifier" runat="server" Text="Ajouter" CssClass="btn btn-primary pull-right" CommandName="Modifier" CommandArgument='<%# Item.IDFAQ %>' />
+                    
                 </LayoutTemplate>
                 <ItemTemplate>
                     <div class="row">

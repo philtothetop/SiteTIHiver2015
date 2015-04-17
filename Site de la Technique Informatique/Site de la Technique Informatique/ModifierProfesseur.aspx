@@ -39,7 +39,11 @@
        function closeDivs() {
             document.getElementById("ContentPlaceHolder1_divSuccess").style.visibility = "hidden";
             document.getElementById("ContentPlaceHolder1_divWarning").style.visibility = "hidden";
-        };
+       };
+       function keepTab() {
+           document.getElementById("aDelete").click();
+       };
+       
     </script>
     <!-- jQuery -->
     
@@ -52,9 +56,9 @@
 
     <div class="container">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#informations" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs()">Informations générales</a></li>
-            <li role="presentation" class="" ><a href="#cours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs()">Mes Cours</a></li>
-            <li role="presentation" class=""><a href="#delete" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs()">Supprimer mon profil</a></li>
+            <li role="presentation" class="active"><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs()">Informations générales</a></li>
+            <li role="presentation" class="" ><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs()">Mes Cours</a></li>
+            <li role="presentation" class=""><a href="#delete" id="aDelete" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs()">Supprimer mon profil</a></li>
         </ul>
 
         <div class="row row-centered">
@@ -227,12 +231,12 @@
                 <div class="row-centered">
                     <div class="col-md-8 col-centered" style="text-align: center">
                         <h3>déjà tanné d'être ici? :'(</h3>
-                        <p>Si vous supprimez votre profil, vous ne pourrez pas le récupérer. Êtes-vous certain de vouloir supprimer votre compte?</p>
+                        <p>Si vous désactivez votre profil, vous ne pourrez plus vous connecter. Êtes-vous certain de vouloir désactiver votre compte?</p>
                     </div>
                 </div>
                 <div class="row-centered" style="margin-top: 25px;">
                     <div class="col-md-1 col-md-push-5">
-                        <asp:LinkButton ID="lnkDeleteProfil" runat="server" Text="Supprimer mon profil" CssClass="btn btn-danger" OnClick="lnkDeleteProfil_Click" />
+                        <asp:LinkButton ID="lnkDeleteProfil" runat="server" Text="Désactiver mon profil" CssClass="btn btn-danger" OnClick="lnkDeleteProfil_Click" />
                     </div>
                 </div>
             </div>
@@ -272,7 +276,7 @@
                                     </div>
                                 <div class="row">
                                     <div class="col-md-push-8 col-md-1" >
-                                        <asp:LinkButton ID="lnkDeletePass" runat="server" Text="Supprimer mon Compte" CssClass="btn btn-danger"  ></asp:LinkButton>
+                                        <asp:LinkButton ID="lnkDeletePass" runat="server" Text="Désactiver mon Compte" CssClass="btn btn-danger" OnClick="lnkDeletePass_Click"  ></asp:LinkButton>
                                     </div>
                                 </div>
                                             
