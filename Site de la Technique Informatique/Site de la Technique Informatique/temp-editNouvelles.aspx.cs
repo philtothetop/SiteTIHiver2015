@@ -16,7 +16,7 @@ namespace Site_de_la_Technique_Informatique
         public int id = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public IQueryable<Nouvelle> getNouvelles()
@@ -26,7 +26,7 @@ namespace Site_de_la_Technique_Informatique
             {
                 Nouvelle ok = new Nouvelle();
 
-                listeNouvelle = (from nouvelles in lecontexte.NouvelleSet orderby nouvelles.dateNouvelle select nouvelles).ToList();
+                listeNouvelle = (from nouvelles in lecontexte.NouvelleSet orderby nouvelles.dateNouvelle descending select nouvelles).ToList();
             }
 
             return listeNouvelle.AsQueryable();
@@ -47,8 +47,14 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lnkEditNews_Command(object sender, CommandEventArgs e)
         {
+            panelNouvelles.Visible = false;
+            btnNewNouvelle.Visible = false;
+            lviewEditNews.Visible = true;
+            msgError.Visible = false;
             id = Convert.ToInt32(e.CommandArgument);
             lviewEditNews.DataBind();
+            ((TextBox)lviewEditNews.Items[0].FindControl("txtContenuNouvelle")).Text = Server.HtmlDecode(((TextBox)lviewEditNews.Items[0].FindControl("txtContenuNouvelle")).Text);
+
         }
 
         // Le nom du paramètre id doit correspondre à la valeur DataKeyNames définie sur le contrôle
@@ -67,6 +73,9 @@ namespace Site_de_la_Technique_Informatique
 
                 lecontexte.SaveChanges();
                 lviewNouvelles.DataBind();
+                msgError.Text = "Nouvelle Éditée avec Succès";
+                msgError.Visible = true;
+                this.reset_Page();
             }
         }
 
@@ -84,7 +93,50 @@ namespace Site_de_la_Technique_Informatique
                     lecontexte.NouvelleSet.Add(lanewsAUpdate);
                     lecontexte.SaveChanges();
                     lviewNouvelles.DataBind();
+                    msgError.Text = "Nouvelle Ajoutée avec Succès";
+                    msgError.Visible = true;
+                    this.reset_Page();
+                   
                 }
+            }
+        }
+
+        protected void btnNewNouvelle_Click(object sender, EventArgs e)
+        {
+            panelNouvelles.Visible = false;
+            btnNewNouvelle.Visible = false;
+            panelAjoutNews.Visible = true;
+            msgError.Visible = false;
+        }
+
+        protected void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            msgError.Visible = false;
+            this.reset_Page();
+        }
+
+        protected void reset_Page()
+        {
+            panelNouvelles.Visible = true;
+            btnNewNouvelle.Visible = true;
+            panelAjoutNews.Visible = false;
+            lviewEditNews.Visible = false;
+            txtTitreAjout.Text = "";
+            txtNouvelleAjout.Text = "";
+        }
+
+        protected void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                string newsid = ((Label)lviewEditNews.Items[0].FindControl("idNews")).Text;
+                Model.Nouvelle lanewsAUpdate = ((Model.Nouvelle)lecontexte.NouvelleSet.Find(Convert.ToInt32(newsid)));
+                lecontexte.NouvelleSet.Remove(lanewsAUpdate);
+                lecontexte.SaveChanges();
+                lviewNouvelles.DataBind();
+                msgError.Text = "Nouvelle Supprimée avec Succès";
+                msgError.Visible = true;
+                this.reset_Page();
             }
         }
     }
