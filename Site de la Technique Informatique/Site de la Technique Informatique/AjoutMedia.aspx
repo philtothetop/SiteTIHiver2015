@@ -9,9 +9,9 @@
             <div class="col-lg-2">
                 <asp:Label ID="lblListMedia" runat="server" Text="Article(s): " />
             </div>
-            <div class="col-lg-3">
-               <%-- <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="descriptionParution" DataValueField="IDParutionMedia" AppendDataBoundItems="true"></asp:DropDownList>
-          --%>  </div>
+           <div class="col-lg-3">
+                <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="titreParution" DataValueField="IDParutionMedia" AppendDataBoundItems="true"></asp:DropDownList>
+           </div> 
             <div class=" col-lg-2">
                 <asp:Button ID="btnModif" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="btnModif_Click" />
             </div>
@@ -27,38 +27,49 @@
             SelectMethod="GetMedia"
             UpdateMethod="UpdateMedia"
             DeleteMethod="DeleteMedia"
-            OnItemDataBound="lvMedia_ItemDataBound">
+             OnItemDataBound="lvMedia_ItemDataBound" 
+            Visible="false"
+            >
 
             <LayoutTemplate>
+
                 <div class="row">
                     <div class="col-lg-9"></div>
                     <div class="col-lg-3">
                         <asp:DataPager ID="datapagerMedia" runat="server"
                             PagedControlID="lvMedia" PageSize="1">
                         </asp:DataPager>
-                    </div>
+                     </div>
                 </div>
 
+                
                 <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+                
 
-            </LayoutTemplate>
+                </LayoutTemplate>
             <ItemTemplate>
 
-                <!--Rangée 2-->
+                 <!--Rangée 2-->
 
-                <div class="row rowEspace">
+               <div class="row rowEspace">
+                    <div class="col-lg-2">
+                        <asp:Label ID="lblNo" runat="server" Text="No: " />
+                    </div>
+                    <div class="col-lg-3">
+                        <asp:TextBox ID="txtNo" CssClass="form-control" runat="server" Text='<%# BindItem.IDParutionMedia %>' ></asp:TextBox> 
+                    </div>
                     <div class="col-lg-2">
                         <asp:Label ID="lblTitre" runat="server" Text="Titre: " />
                     </div>
                     <div class="col-lg-3">
-                        <asp:TextBox ID="txtTitre" CssClass="form-control" runat="server" Text='<%# BindItem.titreParution %>' ></asp:TextBox>
+                        <asp:TextBox ID="txtTitre" CssClass="form-control" runat="server" Text='<%# BindItem.titreParution %>' ></asp:TextBox> 
                     </div>
                     <div class="col-lg-offset-1 col-lg-2">
                         <asp:Label ID="lblDate" runat="server" Text="Date: "></asp:Label>
                     </div>
                     <div class="col-lg-3">
-                        <asp:TextBox ID="txtDate" CssClass="form-control" runat="server" Text='<%# BindItem.dateParution %>'></asp:TextBox>
-                    </div>
+                        <asp:TextBox ID="txtDate" CssClass="form-control" runat="server" Text='<%# BindItem.dateParution %>'></asp:TextBox> 
+                     </div>
                 </div>
 
                 <!--Rangée 3-->
@@ -73,8 +84,8 @@
 
                 <div class="row rowEspace">
                     <div class="col-lg-6">
-                        <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" Text='<%# BindItem.descriptionParution %>'></asp:TextBox>
-                    </div>
+                        <asp:TextBox ID="txtDescription" CssClass="form-control" runat="server" TextMode="MultiLine" Text='<%# BindItem.descriptionParution %>'></asp:TextBox>   
+                 </div>
                 </div>
                 
                 <!--Rangée 5-->
@@ -82,7 +93,7 @@
                 <div class="row rowEspace">
                     <asp:FileUpload ID="fuMedia" runat="server" />
                     <asp:Button ID="btnUpload" CssClass="btn btn-primary rowEspace" runat="server" Text="Télécharger" OnClick="btnUpload_Click" />
-                    <asp:Textbox ID="txtArticle" runat="server" Text="" Enabled="false" />
+                    <asp:Textbox ID="txtArticle" runat="server" Text='<%# BindItem.pathFichierPDF %>' Enabled="false" />
                     <asp:Label runat="server" id="lblMessageSuccess" Text="" />
                                                 
 
@@ -102,11 +113,16 @@
                 <br />
 
             </ItemTemplate>
+
+        </asp:ListView>
+
+
+       
             
-            <asp:Label runat="server" id="lblMessage" Text="" />
+           <asp:Label runat="server" id="lblMessage" Text="" />
 
             
-        </asp:ListView>
+     
     </div>
 
 
