@@ -28,7 +28,7 @@ namespace Site_de_la_Technique_Informatique.Model
         public string photoDescription { get; set; }
         public string temoignage { get; set; }
         public Nullable<System.DateTime> dateTemoignage { get; set; }
-        public bool compteActif { get; set; }
+        public int compteActif { get; set; }
     
         public virtual ICollection<EnteteForum> EnteteForum { get; set; }
         public virtual ICollection<ConsultationForum> ConsultationForum { get; set; }

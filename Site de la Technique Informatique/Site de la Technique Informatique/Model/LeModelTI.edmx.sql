@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/10/2015 11:26:23
+-- Date Created: 04/17/2015 09:34:23
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
@@ -344,7 +344,7 @@ CREATE TABLE [dbo].[UtilisateurSet_Membre] (
     [photoDescription] nvarchar(500)  NULL,
     [temoignage] nvarchar(1000)  NULL,
     [dateTemoignage] datetime  NULL,
-    [compteActif] bit  NOT NULL,
+    [compteActif] int  NOT NULL,
     [IDUtilisateur] int  NOT NULL
 );
 GO

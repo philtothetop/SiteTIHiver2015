@@ -10,7 +10,8 @@
             <div class="col-lg-6 col-centered">
                 <h1>Inscription</h1>
                 Votre inscription a été sauvegarder.<br />
-                Un courriel vous sera envoyé pour confirmer votre inscription.<br />
+                <asp:Label ID="lblMessage" runat="server" Text="Un courriel vous sera envoyé pour confirmer votre inscription." />
+                <br />
                 Cliquez sur le lien pour confirmer et attendez la confirmation de l'administrateur.
                
             </div>

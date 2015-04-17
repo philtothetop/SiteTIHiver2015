@@ -1,4 +1,7 @@
-﻿using Site_de_la_Technique_Informatique.Model;
+﻿//Cette Afficher le profil du étudiant
+//Écrit par Cédric Archambault 27 mars 2015
+
+using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +18,10 @@ namespace Site_de_la_Technique_Informatique
         {
             SavoirSiPossedeAutorizationPourLaPage(true, true, true, false);
         }
+        //Cette classe va chercher l'étudiant
+        //Écrit par Cédric Archambault 18 février 2015
+        //Intrants: aucun
+        //Extrants:Etudiant
         public Etudiant SelectEtudiant()
         {
             Etudiant etudiantCo = null;
@@ -67,7 +74,10 @@ namespace Site_de_la_Technique_Informatique
                 }
             return etudiantCo;
         }
-
+        //Cette classe permet d'allez sur la page modifier profil
+        //Écrit par Cédric Archambault 18 février 2015
+        //Intrants: aucun
+        //Extrants:Aucun
         protected void lnkModifier_Click(object sender, EventArgs e)
         {
             try

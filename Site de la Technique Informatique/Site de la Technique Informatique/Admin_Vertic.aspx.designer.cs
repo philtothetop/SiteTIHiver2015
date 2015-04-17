@@ -13,6 +13,15 @@ namespace Site_de_la_Technique_Informatique {
     public partial class Admin_Vertic {
         
         /// <summary>
+        /// Contrôle lblConfirmation.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirmation;
+        
+        /// <summary>
         /// Contrôle txtCaractPortatif.
         /// </summary>
         /// <remarks>
