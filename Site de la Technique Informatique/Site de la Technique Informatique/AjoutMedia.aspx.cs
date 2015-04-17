@@ -91,16 +91,11 @@ namespace Site_de_la_Technique_Informatique
                     ParutionMedia mediaASupprimer = (lecontexte.Set<ParutionMedia>().SingleOrDefault(article => article.IDParutionMedia == leMediaASupprimer.IDParutionMedia));
 
 
-                    //employeASupprimer.Sexe = "Sexe";
-                    //employeASupprimer.HashMdp = GetSHA256Hash("password1" + employeASupprimer.SaltMdp);
-                    //employeASupprimer.VilleIDVille = 0;
-                    //employeASupprimer.Adresse = "";
-                    //employeASupprimer.NoTelephone = "";
-                    //employeASupprimer.Nom += employeASupprimer.Nom + " DESACTIVÉ";
-                    //employeASupprimer.Prenom = "";
+                    lecontexte.ParutionMediaSet.Remove(mediaASupprimer);
 
                     lecontexte.SaveChanges();
                     lvMedia.DataBind();
+                    lvMedia.Visible = false;
                 }
                 catch (Exception ex)
                 {
@@ -108,7 +103,7 @@ namespace Site_de_la_Technique_Informatique
                 }
         }
 
-        
+
         protected void lvMedia_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
@@ -137,9 +132,9 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                    
-                    nbMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() select article).ToList());  //génère une liste des membres pour en avoir un nombre de membres et générer le bon ID Utilisateur
-                    
+                     nbMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() select article).ToList());  //génère une liste des membres pour en avoir un nombre de membres et générer le bon ID Utilisateur
+                     newMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() where article.IDParutionMedia == nbMedia.Count select article).ToList()); 
+                   
                 }
 
                 if ((string)ViewState["mode"] + "" == "ajoute")  // SEULEMENT UN MEDIA «VIDE»
@@ -161,7 +156,7 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "ERREUR AVEC L'EMPLOYE, " + ex.ToString();
+                lblMessage.Text += "ERREUR AVEC LE MÉDIA, " + ex.ToString();
             }
             return newMedia.AsQueryable();
         }
@@ -169,7 +164,8 @@ namespace Site_de_la_Technique_Informatique
         //modifie une parution
         protected void btnModif_Click(object sender, EventArgs e)
         {
-            
+
+            lvMedia.Visible = true;
             ViewState["noMedia"] = ddlMedia.SelectedValue;
             ViewState["mode"] = "édite";
             lvMedia.DataBind();
@@ -180,6 +176,7 @@ namespace Site_de_la_Technique_Informatique
         {
             try
             {
+                lvMedia.Visible = true;
                 ViewState["mode"] = "ajoute";
                 lvMedia.DataBind();
             }

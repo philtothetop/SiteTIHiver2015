@@ -117,6 +117,7 @@
     <Content Include="Css\AdministrateutTemoignage.css" />
     <Content Include="Css\Log.css" />
     <Content Include="Css\MasterPage.css" />
+    <Content Include="Css\Validation-Inscription.css" />
     <Content Include="Default.aspx" />
     <Content Include="DiscussionForum.aspx" />
     <Content Include="EnteteForum.aspx" />
@@ -310,7 +311,7 @@
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="toast.gif" />
     <Content Include="Temoignage.aspx" />
-    <Content Include="Validation-Inscription.aspx" />
+    <Content Include="Admin_Validation-Inscription.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
@@ -729,12 +730,12 @@
     <Compile Include="temp-editNouvelles.aspx.designer.cs">
       <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Validation-Inscription.aspx.cs">
-      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+    <Compile Include="Admin_Validation-Inscription.aspx.cs">
+      <DependentUpon>Admin_Validation-Inscription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Validation-Inscription.aspx.designer.cs">
-      <DependentUpon>Validation-Inscription.aspx</DependentUpon>
+    <Compile Include="Admin_Validation-Inscription.aspx.designer.cs">
+      <DependentUpon>Admin_Validation-Inscription.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
