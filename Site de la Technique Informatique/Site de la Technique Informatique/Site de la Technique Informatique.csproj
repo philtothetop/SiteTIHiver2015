@@ -351,6 +351,7 @@
     </Compile>
     <Compile Include="Admin_LesPhotos.aspx.cs">
       <DependentUpon>Admin_LesPhotos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin_laFAQ.aspx.cs">
       <DependentUpon>Admin_laFAQ.aspx</DependentUpon>
