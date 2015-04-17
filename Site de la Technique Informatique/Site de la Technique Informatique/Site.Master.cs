@@ -13,25 +13,48 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
+             if (Request.Cookies["TIUtilisateur"] != null) { 
+
             //Verification s'il y a un utilisateur de connecté.
 
-            if (Request.Cookies["TIUtilisateur"] == null || Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value) == "") //si l'utilisateur est null, donc personne de connecter
+            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value) == null) //si l'utilisateur est null, donc personne de connecter
             {
                 lblConnexion.Visible = true; //Affiche le lien de connexion
                 lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
                 lblInscription.Visible = true; //remet le lien inscription car possibilité de nouvel utilisateur
                 lblOffresEmploi.Visible = false; // Même chose que les autres
+                lblFaireDemandeEmploi.Visible = false;
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
+                lblAdmin.Visible = false;
+                lblStage.Visible = false;
+                lblQuiSommesNous.Visible = true;
+                lblSouvenir.Visible = true;
+                lblRecherche.Visible = true;
+                lblInformation.Visible = true;
+                lblProfilEtudiant.Visible = false;
+                lblProfilProf.Visible = false;
+                
             }
-            else //donc utilisateur contient une valeur
+            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Étudiant")) 
             {
                 lblConnexion.Visible = false; //Cache le lien de connexion
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
                 lblOffresEmploi.Visible = true; // Même chose que les autres
+                lblFaireDemandeEmploi.Visible = false;
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
+                lblAdmin.Visible = false;
+                lblStage.Visible = true;
+                lblQuiSommesNous.Visible = true;
+                lblSouvenir.Visible = true;
+                lblRecherche.Visible = true;
+                lblInformation.Visible = true;
+                lblProfilEtudiant.Visible = true;
+                lblProfilProf.Visible = false;
 
                
 
@@ -39,10 +62,114 @@ namespace Site_de_la_Technique_Informatique
                 {
                     Response.Cookies["TINom"].Value = "Oups..."; //mets un nom bidon pour le 0.0000000000000000001% de chance que ça ne marche pas
                 }
+
                 lblEnLigne.Text = Server.HtmlEncode(Request.Cookies["TINom"].Value); //Envoie le prénom nom de l'utilisateur dans le label
             }
-        }
 
+            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Professeur"))
+            {
+                lblConnexion.Visible = false; //Cache le lien de connexion
+                lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
+                lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
+                lblOffresEmploi.Visible = true; // Même chose que les autres
+                lblFaireDemandeEmploi.Visible = false;
+                liConnexion.Visible = true;
+                lblForum.Visible = true;
+                lblAdmin.Visible = true;
+                lblStage.Visible = true;
+                lblQuiSommesNous.Visible = true;
+                lblSouvenir.Visible = true;
+                lblRecherche.Visible = true;
+                lblInformation.Visible = true;
+                lblProfilEtudiant.Visible = false;
+                lblProfilProf.Visible = true;
+
+                if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
+                {
+                    Response.Cookies["TINom"].Value = "Oups..."; //mets un nom bidon pour le 0.0000000000000000001% de chance que ça ne marche pas
+                }
+
+                lblEnLigne.Text = Server.HtmlEncode(Request.Cookies["TINom"].Value); //Envoie le prénom nom de l'utilisateur dans le label
+             
+            }
+
+            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Employeur"))
+            {
+                lblConnexion.Visible = false; //Cache le lien de connexion
+                lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
+                lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
+                lblOffresEmploi.Visible = true; // Même chose que les autres
+                lblFaireDemandeEmploi.Visible = true;
+                liConnexion.Visible = true;
+                lblForum.Visible = false;
+                lblAdmin.Visible = false;
+                lblStage.Visible = false;
+                lblQuiSommesNous.Visible = true;
+                lblSouvenir.Visible = true;
+                lblRecherche.Visible = true;
+                lblInformation.Visible = true;
+                lblProfilEtudiant.Visible = false;
+                lblProfilProf.Visible = false;
+
+                if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
+                {
+                    Response.Cookies["TINom"].Value = "Oups..."; //mets un nom bidon pour le 0.0000000000000000001% de chance que ça ne marche pas
+                }
+
+                lblEnLigne.Text = Server.HtmlEncode(Request.Cookies["TINom"].Value); //Envoie le prénom nom de l'utilisateur dans le label
+
+            }
+
+            if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Admin"))
+            {
+                lblConnexion.Visible = false; //Cache le lien de connexion
+                lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
+                lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
+                lblOffresEmploi.Visible = false; // Même chose que les autres
+                lblFaireDemandeEmploi.Visible = false;
+                liConnexion.Visible = true;
+                lblForum.Visible = false;
+                lblAdmin.Visible = false;
+                lblStage.Visible = false;
+                lblQuiSommesNous.Visible = false;
+                lblSouvenir.Visible = false;
+                lblRecherche.Visible = false;
+                lblInformation.Visible = false;
+                lblProfilEtudiant.Visible = false;
+                lblProfilProf.Visible = false;
+
+                if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
+                {
+                    Response.Cookies["TINom"].Value = "Oups..."; //mets un nom bidon pour le 0.0000000000000000001% de chance que ça ne marche pas
+                }
+
+                lblEnLigne.Text = Server.HtmlEncode(Request.Cookies["TINom"].Value); //Envoie le prénom nom de l'utilisateur dans le label
+
+            }
+
+
+
+        }
+            else
+            {
+                lblConnexion.Visible = true; //Affiche le lien de connexion
+                lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
+                lblInscription.Visible = true; //remet le lien inscription car possibilité de nouvel utilisateur
+                lblOffresEmploi.Visible = false; // Même chose que les autres
+                lblFaireDemandeEmploi.Visible = false;
+                liConnexion.Visible = false;
+                lblForum.Visible = false;
+                lblAdmin.Visible = false;
+                lblStage.Visible = false;
+                lblQuiSommesNous.Visible = true;
+                lblSouvenir.Visible = true;
+                lblRecherche.Visible = true;
+                lblInformation.Visible = true;
+                lblProfilEtudiant.Visible = false;
+                lblProfilProf.Visible = false;
+            }
+           }
+            
         //Connexion
         protected void btnConnexion_Click(object sender, EventArgs e)
         {
@@ -55,6 +182,8 @@ namespace Site_de_la_Technique_Informatique
                     string pwdUserConnect = null; //Permet de stocker le mot de passe entré et hashé
                     string pwdVerification = ""; //Permet de stocker le mot de passe hashé de la BD
                     Utilisateur userConnect = new Utilisateur(); //Crée un utilisateur vide
+
+                    lblMessageConnexion.Text = ""; //vide le label de message d'erreur
 
                     userConnect = (from user in lecontexte.UtilisateurSet where user.courriel == txtIdentifiant.Text select user).FirstOrDefault(); //Va chercher l'utilisateur qui correspond au courriel
 
@@ -107,7 +236,7 @@ namespace Site_de_la_Technique_Informatique
                         //Si c'est un étudiant
                         if (userEtu != null)
                         {
-                            if (userEtu.valideCourriel == true) //ça prend un courriel validé
+                            if (userEtu.compteActif == 1) //ça prend un compte validé
                             {
                                 Response.Cookies["TIUtilisateur"].Value = "Etudiant"; //On indique le type d'usager
                                 Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre

@@ -200,7 +200,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-                Response.Redirect("Inscription-message.aspx?id=0", false);
+                Response.Redirect("Inscription-message.aspx?id=0", false);//Si le courriel ne peut être envoyer il l'envoie sur la page avec un text modifier.
             }
         }
         //Cette class permet des/active le bouton accepter par le checkbox

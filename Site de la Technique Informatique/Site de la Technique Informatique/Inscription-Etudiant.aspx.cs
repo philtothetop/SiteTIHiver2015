@@ -206,7 +206,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         etudiantACreerCopie.dateInscription = (DateTime)DateTime.Now;
                         etudiantACreerCopie.courriel = etudiantACreerCopie.courriel.ToLower();
                         etudiantACreerCopie.valideCourriel = false;
-                        etudiantACreerCopie.compteActif = false;
+                        etudiantACreerCopie.compteActif = 0;
                         etudiantACreerCopie.pathCV = "";
                         
 

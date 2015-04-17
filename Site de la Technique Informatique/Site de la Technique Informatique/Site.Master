@@ -59,13 +59,13 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li>
+                        <li runat="server" id="lblQuiSommesNous">
                             <a href="QuiSommesNous.aspx">Qui sommes-nous?</a>
                         </li>
-                        <li>
+                        <li runat="server" id="lblNouvelles">
                             <a href="Nouvelles.aspx">Nouvelles</a>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown" runat="server" id="lblSouvenir">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Souvenirs<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -80,10 +80,10 @@
                             </ul>
                         </li>
 
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
+                        <li runat="server" id="lblInformation" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="Vertic.aspx">Vertic</a> </li>
-                                <li><a href="InformationsStage.aspx">Stages</a> </li>
+                                <li runat="server" id="lblStage"><a href="InformationsStage.aspx">Stages</a> </li>
                                 <li><a href="Temoignages.aspx">Témoignages</a> </li>
                                 
                             </ul>
@@ -93,7 +93,11 @@
                             <a href="listeOffresEmploi.aspx">Offres d'emploi</a>
                         </li>
 
-                        <li>
+                         <li runat="server" id="lblFaireDemandeEmploi">
+                            <a href="AjoutOffreEmploi.aspx">Demande d'emploi</a>
+                        </li>
+
+                        <li runat="server" id="lblRecherche">
                             <a href="recherche.aspx">Recherche</a>
                         </li>
                      
@@ -103,6 +107,10 @@
 
                          <li runat="server" id="lblForum">
                                  <a href="SectionForum.aspx">Forum</a>
+                            </li>
+
+                        <li runat="server" id="lblAdmin">
+                                 <a href="SectionForum.aspx">Admin</a>
                             </li>
                                                                                     
                         <li>
@@ -114,7 +122,8 @@
                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" /><b class="caret"></b></a>
                                 
                                 <ul class="dropdown-menu">
-                                <li><a href="ProfilEtudiant.aspx">Profil</a> </li>
+                                <li runat="server" id="lblProfilEtudiant"><a href="ProfilEtudiant.aspx">Profil</a> </li>
+                                <li runat="server" id="lblProfilProf"><a href="ModifierProfesseur.aspx">Profil</a> </li>
                                 <li><asp:LinkButton ID="lnkbtnDeconnexion" runat="server" Text="Déconnexion" OnClick="lnkbtnDeconnexion_Click" /> </li>
 
                     </ul>
