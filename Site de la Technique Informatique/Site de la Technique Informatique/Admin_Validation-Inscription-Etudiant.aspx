@@ -2,20 +2,23 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script src="js/jquery.js"></script>
-    <link rel="stylesheet" href="../Css/Validation-Inscription.css"/>
+    <link rel="stylesheet" href="../Css/Validation-Inscription.css" />
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
- 
+
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-lg-11">
             <h1 class="page-header">Validation des inscriptions des étudiants</h1>
+            <div class="col-lg-11 control-group form-group champs-requis">
+                <asp:Label ID="lblMessage" runat="server" Text="" Visible="false" />
+            </div>
             <span id="lblCourrielNonValider"><%=GetCourrielNonValiderList()%> inscription(s) dont la validation du courriel n'a pas été validé dans les 24 dernières heures.</span>
             <asp:LinkButton ID="lnkEffacerInscriptionCourrielNonValider" runat="server" Text="Effacer" OnClick="lnkEffacerInscriptionCourrielNonValider_Click" />
         </div>
     </div>
-    
+
     <div class="row">
         <div class="col-lg-11">
             <div id="divAucunNouvelleInscription" class="aucunInsctiption" runat="server" visible="false">
@@ -92,5 +95,5 @@
                 </asp:UpdatePanel>
             </div>
         </div>
-        </div>
+    </div>
 </asp:Content>

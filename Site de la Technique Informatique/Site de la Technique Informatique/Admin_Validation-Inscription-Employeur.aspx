@@ -1,21 +1,26 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription-Employeur.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Validation_Inscription_Employeur"  MasterPageFile="~/Admin.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription-Employeur.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Validation_Inscription_Employeur" MasterPageFile="~/Admin.master" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script src="js/jquery.js"></script>
-    <link rel="stylesheet" href="../Css/Validation-Inscription.css"/>
+    <link rel="stylesheet" href="../Css/Validation-Inscription.css" />
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
- 
+
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-lg-11">
             <h1 class="page-header">Validation des inscriptions des employeurs.</h1>
+            <div class="col-lg-11 control-group form-group champs-requis">
+                <asp:Label ID="lblMessage" runat="server" Text="" Visible="false" />
+            </div>
             <span id="lblCourrielNonValider"><%=GetCourrielEmployeurNonValiderList()%> inscription(s) dont la validation du courriel n'a pas été validé dans les 24 dernières heures.</span>
             <asp:LinkButton ID="lnkEffacerInscriptionCourrielNonValider" runat="server" Text="Effacer" OnClick="lnkEffacerInscriptionCourrielNonValider_Click" />
         </div>
     </div>
-    
+
     <div class="row">
+
         <div class="col-lg-11">
             <div id="divAucunNouvelleInscription" class="aucunInsctiption" runat="server" visible="false">
                 Aucune nouvelle inscription.
@@ -46,7 +51,7 @@
                                     <span class="col-md-2 vcenter">Date inscription</span>
 
                                     <asp:LinkButton ID="lnkAccepterTousHaut" Text="Accepter tous" runat="server" CssClass="btn btn-primary" OnClick="lnkAccepterTousHaut_Click" />&nbsp;
-                        <asp:LinkButton ID="lnkRefuserTousHaut" Text="Supprimer tous" runat="server" CssClass="btn btn-warning" OnClick="lnkRefuserTousHaut_Click" />
+                        <asp:LinkButton ID="lnkRefuserTousHaut" Text="Refuser tous" runat="server" CssClass="btn btn-warning" OnClick="lnkRefuserTousHaut_Click" />
                                 </div>
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
 
@@ -57,7 +62,7 @@
                                     <span class="col-md-3 vcenter"></span>
                                     <span class="col-md-2 vcenter"></span>
                                     <asp:LinkButton ID="LinkButton1" Text="Accepter tous" runat="server" CssClass="btn btn-primary" />&nbsp;
-                        <asp:LinkButton ID="LinkButton2" Text="Supprimer tous" runat="server" CssClass="btn btn-warning" />
+                        <asp:LinkButton ID="LinkButton2" Text="Refuser tous" runat="server" CssClass="btn btn-warning" />
                                 </div>
                                 <div class="col-lg-11">
                                     <asp:DataPager ID="dpLview2" runat="server" PagedControlID="lviewValidationInscription" PageSize="10">
@@ -79,7 +84,7 @@
                                     <asp:Label ID="lblDateInscription" runat="server" Text='<%#Eval("dateInscription") %>' CssClass="col-md-2 vcenter" />
                                     &nbsp;&nbsp;&nbsp;
                         <asp:LinkButton ID="lnkAccepter" Text="Accepter" runat="server" CssClass="btn" OnClick="lnkAccepter_Click" CommandArgument='<%#Eval("IDEmployeur") %>' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:LinkButton ID="lnkRefuser" Text="Supprimer" runat="server" CssClass="btn" OnClick="lnkRefuser_Click" CommandArgument='<%#Eval("IDEmployeur") %>' />
+                        <asp:LinkButton ID="lnkRefuser" Text="Refuser" runat="server" CssClass="btn" OnClick="lnkRefuser_Click" CommandArgument='<%#Eval("IDEmployeur") %>' />
                                 </div>
                             </ItemTemplate>
                         </asp:ListView>
@@ -87,7 +92,7 @@
                 </asp:UpdatePanel>
             </div>
         </div>
-        </div>
+    </div>
 </asp:Content>
 
 

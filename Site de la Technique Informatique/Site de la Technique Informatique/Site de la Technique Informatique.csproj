@@ -113,6 +113,7 @@
     <Content Include="AjoutDiscussion.aspx" />
     <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
+    <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\AdministrateurLesOffresEmploi.css" />
@@ -419,6 +420,13 @@
     </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AjoutProfesseur.aspx.cs">
+      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutProfesseur.aspx.designer.cs">
+      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
