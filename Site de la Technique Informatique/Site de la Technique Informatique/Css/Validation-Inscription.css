@@ -1,0 +1,11 @@
+﻿.vcenter{
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.EvenRowColor{
+    background-color:#cacaca;
+}
+.OddRowColor{
+    background-color:#ffffff;
+}

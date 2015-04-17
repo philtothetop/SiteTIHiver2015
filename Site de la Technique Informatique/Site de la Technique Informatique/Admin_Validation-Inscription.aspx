@@ -18,7 +18,7 @@
     </div>
     
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-13" style="border:1px solid">
             <div id="divAucunNouvelleInscription" runat="server" visible="false">
                 Aucune nouvelle inscription.
             </div>
