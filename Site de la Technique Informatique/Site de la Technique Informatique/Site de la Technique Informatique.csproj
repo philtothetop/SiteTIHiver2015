@@ -108,6 +108,7 @@
     <Content Include="Admin_SupprimerPhoto.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
+    <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
     <Content Include="AjoutMedia.aspx" />
@@ -313,7 +314,7 @@
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="toast.gif" />
     <Content Include="Temoignage.aspx" />
-    <Content Include="Admin_Validation-Inscription.aspx" />
+    <Content Include="Admin_Validation-Inscription-Etudiant.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
@@ -383,6 +384,13 @@
     </Compile>
     <Compile Include="Admin_Temoignage.aspx.designer.cs">
       <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Validation-Inscription-Employeur.aspx.cs">
+      <DependentUpon>Admin_Validation-Inscription-Employeur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Validation-Inscription-Employeur.aspx.designer.cs">
+      <DependentUpon>Admin_Validation-Inscription-Employeur.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Vertic.aspx.cs">
       <DependentUpon>Admin_Vertic.aspx</DependentUpon>
@@ -746,12 +754,12 @@
     <Compile Include="temp-editNouvelles.aspx.designer.cs">
       <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Validation-Inscription.aspx.cs">
-      <DependentUpon>Admin_Validation-Inscription.aspx</DependentUpon>
+    <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.cs">
+      <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Validation-Inscription.aspx.designer.cs">
-      <DependentUpon>Admin_Validation-Inscription.aspx</DependentUpon>
+    <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.designer.cs">
+      <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>

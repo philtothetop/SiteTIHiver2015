@@ -7,11 +7,12 @@
 .EvenRowColor{
     background-color:#cacaca;
     padding-top:3px;
-    height:68px;
 }
 .OddRowColor{
     background-color:#ffffff;
     padding-top:3px;
+}
+.OddHeight{
     height:68px;
 }
 .bar-bottom{
@@ -26,4 +27,9 @@
 .img-thumbnail{
     height:60px;
     width:60px;
+    min-height:60px;
+    min-width:60px;
+}
+.aucunInsctiption{
+padding:20px 0;
 }
