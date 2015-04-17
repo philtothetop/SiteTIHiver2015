@@ -404,6 +404,7 @@
     </Compile>
     <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
+    <Compile Include="Classes\Listes.cs" />
     <Compile Include="Classes\LoadImage.cs" />
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
