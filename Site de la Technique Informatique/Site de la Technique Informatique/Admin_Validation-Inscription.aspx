@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-11">
             <h1 class="page-header">Validation des inscriptions des étudiants</h1>
             <span id="lblCourrielNonValider"><%=GetCourrielNonValiderList()%> inscription(s) dont la validation du courriel n'a pas été validé dans les 24 dernières heures.</span>
             <asp:LinkButton ID="lnkEffacerInscriptionCourrielNonValider" runat="server" Text="Effacer" OnClick="lnkEffacerInscriptionCourrielNonValider_Click" />
@@ -17,7 +17,7 @@
     </div>
     
     <div class="row">
-        <div class="col-lg-13" style="border:1px solid">
+        <div class="col-lg-11">
             <div id="divAucunNouvelleInscription" runat="server" visible="false">
                 Aucune nouvelle inscription.
             </div>
@@ -30,7 +30,7 @@
                             SelectMethod="GetUtilisateurEtudiantList"
                             UpdateMethod="CreerUtilisateurEtudiantList">
                             <LayoutTemplate>
-                                <div class="col-lg-12">
+                                <div class="col-lg-11">
                                     <asp:DataPager ID="dpLviewValidationInscription" runat="server" PagedControlID="lviewValidationInscription" PageSize="10">
                                         <Fields>
                                             <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
@@ -40,7 +40,7 @@
                                         </Fields>
                                     </asp:DataPager>
                                 </div>
-                                <div class="col-lg-12 top-list  bar-bottom">
+                                <div class="col-lg-11 top-list  bar-bottom">
                                     <asp:CheckBox ID="chSelectionnerTous" runat="server" CssClass="vcenter chk" OnCheckedChanged="chSelectionnerTous_CheckedChanged" AutoPostBack="true" />
                                     <span class="col-md-1 vcenter">Photo</span>
                                     <span class="col-md-3 vcenter">Prénom Nom</span>
@@ -52,7 +52,7 @@
                                 </div>
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
 
-                                <div class="col-lg-12 top-list bar-top">
+                                <div class="col-lg-11 top-list bar-top">
                                     &nbsp;&nbsp;&nbsp;
                         <span class="col-md-1 vcenter btn-bas"></span>
                                     <span class="col-md-3 vcenter"></span>
@@ -61,7 +61,7 @@
                                     <asp:LinkButton ID="LinkButton1" Text="Accepter tous" runat="server" CssClass="btn btn-primary" />&nbsp;
                         <asp:LinkButton ID="LinkButton2" Text="Supprimer tous" runat="server" CssClass="btn btn-warning" />
                                 </div>
-                                <div class="col-lg-12">
+                                <div class="col-lg-11">
                                     <asp:DataPager ID="dpLview2" runat="server" PagedControlID="lviewValidationInscription" PageSize="10">
                                         <Fields>
                                             <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
@@ -73,7 +73,7 @@
                                 </div>
                             </LayoutTemplate>
                             <ItemTemplate>
-                                <div class='<%#Convert.ToBoolean(Container.DisplayIndex % 2) ? "OddRowColor col-lg-12" : "EvenRowColor col-lg-12" %>'>
+                                <div class='<%#Convert.ToBoolean(Container.DisplayIndex % 2) ? "OddRowColor col-lg-11" : "EvenRowColor col-lg-11" %>'>
                                     <asp:Label ID="lblId" runat="server" Text='<%#Eval("IDEtudiant") %>' Visible="false" />
                                     <asp:CheckBox ID="chSelectionner" runat="server" CssClass="vcenter chk" />
                                     <span class="col-md-1 vcenter">

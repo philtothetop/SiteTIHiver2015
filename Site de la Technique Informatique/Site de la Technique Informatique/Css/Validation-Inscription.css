@@ -2,10 +2,28 @@
     display: inline-block;
     vertical-align: middle;
     float: none;
+    
 }
 .EvenRowColor{
     background-color:#cacaca;
+    padding-top:3px;
+    height:68px;
 }
 .OddRowColor{
     background-color:#ffffff;
+    padding-top:3px;
+    height:68px;
+}
+.bar-bottom{
+    padding-bottom:20px;
+    border-bottom:1px solid #000000;
+
+}
+.bar-top{
+    padding-top:20px;
+    border-top:1px solid #000000;
+}
+.img-thumbnail{
+    height:60px;
+    width:60px;
 }
