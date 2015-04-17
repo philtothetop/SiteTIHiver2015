@@ -12,20 +12,24 @@ using Site_de_la_Technique_Informatique.Model;
 using System.Drawing;
 using Site_de_la_Technique_Informatique.Classes;
 using System.IO;
+using System.Web.UI.HtmlControls;
+
 
 namespace Site_de_la_Technique_Informatique
 {
     public partial class ModifierProfesseur : ErrorHandling
     {
         public Professeur currentProf;
-
+      
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
-
-            if (!Page.IsPostBack) { 
+            
+            if (!Page.IsPostBack) {
+               
+                
             divSuccess.Attributes["style"] = "visibility:hidden";
             divWarning.Attributes["style"] = "visibility:hidden";
             }
@@ -207,10 +211,45 @@ namespace Site_de_la_Technique_Informatique
         {
             lblModalTitle.Text = "Dernière vérification";
             lblModalBody.Text = "Inscrivez votre mot de passe afin de confirmer la suppression de votre compte";
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "$('#popupDelete').modal();", true);
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "  document.getElementById('aDelete').click(); $('#popupDelete').modal();", true);
             upDelete.Update();
         }
+
+        protected void lnkDeletePass_Click(object sender, EventArgs e)
+        {
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                try {
+                    hash hashing = new hash();
+                    string inputPwd = hashing.GetSHA256Hash(txtDeletePass.Text);
+                    Professeur profADesactiver = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).FirstOrDefault();
+                    if (inputPwd.Equals(profADesactiver.hashMotDePasse)) { 
+
+
+                
+                profADesactiver.compteActif = 0;
+
+                lecontexte.SaveChanges();
+
+                Response.Cookies["TICourriel"].Value = ""; //enlève la valeur du cookie
+                Response.Cookies["TINom"].Value = ""; //enlève la valeur du cookie
+                Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
+                Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
+
+                Response.Redirect(Request.RawUrl, false);
+
+                    }
+
+                    }catch{
+                        throw;
+                    }
+            }
+        }
+
+
         #endregion
+
+       
 
         
 

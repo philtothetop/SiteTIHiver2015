@@ -135,7 +135,7 @@
 
         <div style="text-align:center; width:100%;">
             
-            <asp:DataPager ID="dataPagerDesLogs" runat="server" PagedControlID="lviewOffresDEmploi"
+            <asp:DataPager ID="dataPagerDesOffresEmplois" runat="server" PagedControlID="lviewOffresDEmploi"
                             PageSize="4">
                             <Fields>
                                 <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />

@@ -331,12 +331,14 @@
                     <p>
                         Courriel: MDesAulniers
                 <br />
-                    Téléphone: (450) 372-6614 poste 1164<p>
+                    Téléphone: (450) 372-6614 poste 1164</p>
                 </div>
             </section>
 
         </div>
         </div>
+ 
+
     <!-- jQuery -->
 
     <!-- Bootstrap Core JavaScript -->

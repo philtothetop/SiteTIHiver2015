@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscription.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Inscription" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscription-Etudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Inscription" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../Css/Inscription.css" />
@@ -97,7 +97,7 @@
                                         <div class="modif-photo">
                                             <div class="img-thumbnail img-photo preview-photo">
                                                 <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Profils/photobase.bmp" Width="125" Height="125" />
                                             </div>
                                             <div class="div-btnChangerPhoto">
                                                 <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
@@ -126,14 +126,14 @@
                         <div class="control-group form-group" id="dvPrenom">
                             <div class="controls">
                                 <label>Prénom:</label>
-                                <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" MaxLength="64" />
+                                <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" MaxLength="32" />
                                 <asp:Label ID="lblPrenom" runat="server" Text="" />
                             </div>
                         </div>
                         <div class="control-group form-group" id="dvNom">
                             <div class="controls">
                                 <label>Nom:</label>
-                                <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" MaxLength="64" />
+                                <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" MaxLength="32" />
                                 <asp:Label ID="lblNom" runat="server" Text="" />
                             </div>
                         </div>
@@ -141,10 +141,10 @@
                             <div class="controls">
                                 <label>Date de naissance:</label>
                                 <div class="row">
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:TextBox ID="txtDateNaissanceJour" runat="server" CssClass="form-control inputJourMois" placeholder="JJ" MaxLength="2" />
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-3">
                                         <asp:TextBox ID="txtDateNaissanceMois" runat="server" CssClass="form-control inputJourMois" placeholder="mm" MaxLength="2" />
                                     </div>
                                     <div class="col-xs-3">

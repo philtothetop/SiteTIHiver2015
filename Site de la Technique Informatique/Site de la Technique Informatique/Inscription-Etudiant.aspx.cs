@@ -109,9 +109,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
-                    if (etudiantACreerCopie.prenom != null && etudiantACreerCopie.prenom.Length > 64)
+                    if (etudiantACreerCopie.prenom != null && etudiantACreerCopie.prenom.Length > 32)
                     {
-                        ValidationResult vald = new ValidationResult("Le prénom doit avoir moins de 64 caractères.", new[] { "Prenom" });
+                        ValidationResult vald = new ValidationResult("Le prénom doit avoir moins de 32 caractères.", new[] { "Prenom" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -122,9 +122,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
-                    if (etudiantACreerCopie.nom != null && etudiantACreerCopie.nom.Length > 64)
+                    if (etudiantACreerCopie.nom != null && etudiantACreerCopie.nom.Length > 32)
                     {
-                        ValidationResult vald = new ValidationResult("Le nom doit avoir moins de 64 caractères.", new[] { "Nom" });
+                        ValidationResult vald = new ValidationResult("Le nom doit avoir moins de 32 caractères.", new[] { "Nom" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -204,17 +204,23 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         etudiantACreerCopie.hashMotDePasse = hash.GetSHA256Hash(etudiantACreerCopie.hashMotDePasse);
                         //Date inscription
                         etudiantACreerCopie.dateInscription = (DateTime)DateTime.Now;
-
+                        etudiantACreerCopie.courriel = etudiantACreerCopie.courriel.ToLower();
                         etudiantACreerCopie.valideCourriel = false;
-                        etudiantACreerCopie.compteActif = false;
+                        etudiantACreerCopie.compteActif = 0;
                         etudiantACreerCopie.pathCV = "";
-                        
 
-                        leContext.UtilisateurSet.Add(etudiantACreerCopie);
-                        leContext.SaveChanges();
-                        envoie_courriel_confirmation(etudiantACreerCopie);
+                        if (envoie_courriel_confirmation(etudiantACreerCopie) == true)
+                        {
+                            leContext.UtilisateurSet.Add(etudiantACreerCopie);
+                            leContext.SaveChanges();
+                            Response.Redirect("Inscription-message.aspx", false);
+                        }
+                        else
+                        {
 
-                        Response.Redirect("Inscription-message.aspx", false);
+                            Response.Redirect("Inscription-message.aspx?id=0", false);
+                        }
+
                     }
                 }
             }
@@ -238,6 +244,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
+                Response.Redirect("Inscription-message.aspx?id=0", false);
             }
         }
         //Cette class permet des/active le bouton accepter par le checkbox
@@ -298,7 +305,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Écrit par Cédric Archambault 18 février 2015
         //Intrants:Etudiant
         //Extrants:Aucun
-        public void envoie_courriel_confirmation(Etudiant etudiant)
+        public bool envoie_courriel_confirmation(Etudiant etudiant)
         {
             // METTRE ICI LE EMAIL DE LA PERSONNE QUI VA RÉPONDRE AUX MESSAGES DES FUTURS ÉTUDIANTS 
 
@@ -336,11 +343,12 @@ namespace Site_de_la_Technique_Informatique.Inscription
             try
             {
                 client.Send(mail);
+                return true;
             }
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur d'envoie de message : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
+                return false;
             }
 
 

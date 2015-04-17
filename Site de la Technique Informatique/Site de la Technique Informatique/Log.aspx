@@ -47,14 +47,6 @@
                             <div style="clear:both; height:15px;"></div>
                             
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
-
-                            <asp:Button ID="btnVoirToutLesLogs" runat="server" Text="Tous" OnClick="ChercherUnTypeDeLog" CommandArgument="9000" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btn-default"  />
-                            <asp:Button ID="btnVoirQueLogNormal" runat="server" Text="Logs normaux" OnClick="ChercherUnTypeDeLog" CommandArgument="0" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btn-default"  />
-                            <asp:Button ID="btnVoirQueLogErreur" runat="server" Text="Logs erreurs" OnClick="ChercherUnTypeDeLog" CommandArgument="1" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnErreur" />
-                            <asp:Button ID="btnVoirQueLogWarning" runat="server" Text="Logs warnings" OnClick="ChercherUnTypeDeLog" CommandArgument="2" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnWarning" />
-                            <asp:Button ID="btnVoirQueLogInscription" runat="server" Text="Logs inscriptions" OnClick="ChercherUnTypeDeLog" CommandArgument="3" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnInscription" />
-                            <asp:Button ID="btnVoirQueLogBanni" runat="server" Text="Logs bannissement" OnClick="ChercherUnTypeDeLog" CommandArgument="4" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnBanissement"/>
-
                         </LayoutTemplate>
 
                         <ItemTemplate>
@@ -81,12 +73,22 @@
                         </ItemTemplate>
 
             <EmptyDataTemplate>
+                <br />
                 <div style="width:100%; text-align:center;">
                                             <asp:Label ID="lblPasDeLog" runat="server" Text="Il n'y a pas de log" style="font:bold; font-size:large"></asp:Label>
-                                            </div>
+                <br />
+                    <br />                            
+                </div>
                 </EmptyDataTemplate>
             
         </asp:ListView>
+
+                <asp:Button ID="btnVoirToutLesLogs" runat="server" Text="Tous" OnClick="ChercherUnTypeDeLog" CommandArgument="9000" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btn-default"  />
+                            <asp:Button ID="btnVoirQueLogNormal" runat="server" Text="Logs normaux" OnClick="ChercherUnTypeDeLog" CommandArgument="0" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btn-default"  />
+                            <asp:Button ID="btnVoirQueLogErreur" runat="server" Text="Logs erreurs" OnClick="ChercherUnTypeDeLog" CommandArgument="1" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnErreur" />
+                            <asp:Button ID="btnVoirQueLogWarning" runat="server" Text="Logs warnings" OnClick="ChercherUnTypeDeLog" CommandArgument="2" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnWarning" />
+                            <asp:Button ID="btnVoirQueLogInscription" runat="server" Text="Logs inscriptions" OnClick="ChercherUnTypeDeLog" CommandArgument="3" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnInscription" />
+                            <asp:Button ID="btnVoirQueLogBanni" runat="server" Text="Logs bannissement" OnClick="ChercherUnTypeDeLog" CommandArgument="4" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnBanissement"/>
             </div>
 
             <div style="text-align:center; width:100%;">

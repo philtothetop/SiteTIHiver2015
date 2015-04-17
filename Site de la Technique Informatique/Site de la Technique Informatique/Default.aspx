@@ -13,39 +13,9 @@
                 <h1 class="page-header">Bienvenue sur le site de la techniques en informatique de gestion du Cégep de Granby
                 </h1>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="glyphicon glyphicon-question-sign"></i>Qui sommes-nous?</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Vous n'êtes pas certain de vous incrire dans une spécialisation de l'informatique de gestion? Vous vous interrogez si c'est votre vraie vocation? Apprenez tout ce que vous devez savoir sur le programme! </p>
-                        <a href="QuiSommesNous.aspx" class="btn btn-default">En savoir plus...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="glyphicon glyphicon-info-sign"></i>Nouvelles</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Apprenez toutes les nouvelles de la technique</p>
-                        <a href="Nouvelle.aspx" class="btn btn-default">En savoir plus...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="glyphicon glyphicon-usd"></i>Offres d'emploi</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Vous êtes sur le point d'avoir votre diplôme et vous cherchez un travail le plus rapidement possible? Vous serez gâté(e) par toutes les offres d'emploi que nous vous proposons!</p>
-                        <a href="ListeOffresEmploi.aspx" class="btn btn-default">En savoir plus...</a>
-                    </div>
-                </div>
-            </div>
+           
+           
+            
         </div>
         <!-- /.row -->
 
@@ -98,20 +68,7 @@
                 </a>
             </div>
 
-            <!-- Information carousel bottom side -->
-            <div style="padding-left: 20px;">
-                <ul>
-                    <li style="display: inline-block; margin-left: 80px;">
-                        <h3><a href="QuiSommesNous.aspx">Qui sommes-nous?</a></h3>
-                    </li>
-                    <li style="display: inline-block; margin-left: 80px;">
-                        <h3><a href="marie-TestVerTIC.aspx">La page à Marie yolo</a></h3>
-                    </li>
-                    <li style="display: inline-block; margin-left: 80px;">
-                        <h3><a href="QuiSommesNous.aspx">Une autre page</a></h3>
-                    </li>
-                </ul>
-            </div>
+           
         </div>
         <!-- /.row -->
 

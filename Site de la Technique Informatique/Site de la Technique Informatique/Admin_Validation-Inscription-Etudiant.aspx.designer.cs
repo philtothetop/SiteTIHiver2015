@@ -7,54 +7,54 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace Site_de_la_Technique_Informatique {
+namespace Site_de_la_Technique_Informatique.Inscription {
     
     
-    public partial class Admin_OffreEmploi {
+    public partial class Validation_Inscription {
         
         /// <summary>
-        /// Contrôle btnVoirOffreEmploiNonValide.
+        /// Contrôle lblMessage.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirOffreEmploiNonValide;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// Contrôle btnVoirOffreEmploiValide.
+        /// Contrôle lnkEffacerInscriptionCourrielNonValider.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoirOffreEmploiValide;
+        protected global::System.Web.UI.WebControls.LinkButton lnkEffacerInscriptionCourrielNonValider;
         
         /// <summary>
-        /// Contrôle lviewOffresDEmploi.
+        /// Contrôle divAucunNouvelleInscription.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewOffresDEmploi;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAucunNouvelleInscription;
         
         /// <summary>
-        /// Contrôle dataPagerDesOffresEmplois.
+        /// Contrôle upListValidation.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataPager dataPagerDesOffresEmplois;
+        protected global::System.Web.UI.UpdatePanel upListValidation;
         
         /// <summary>
-        /// Contrôle hfieldVoirOffreValideOuNon.
+        /// Contrôle lviewValidationInscription.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfieldVoirOffreValideOuNon;
+        protected global::System.Web.UI.WebControls.ListView lviewValidationInscription;
     }
 }
