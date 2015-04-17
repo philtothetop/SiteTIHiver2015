@@ -7,11 +7,11 @@
 <asp:Content ID="Content1"  ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row">
         <div class="col-lg-9">
+              <asp:Label ID="lblConfirmation" runat="server" ></asp:Label>
             <section id="portable">
                 <div class="row">
                     <h2>Portable</h2>
                     <div class="col-lg-12">
-
                         <div class="row">
                             <div class="col-lg-8">
                                 <asp:TextBox ID="txtCaractPortatif" runat="server" Text="" TextMode="MultiLine" Style="max-height: 150px; min-height: 150px; max-width: 599px; min-width: 500px;">
