@@ -13,8 +13,9 @@
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
-
+    
     <link rel="stylesheet" href="../Css/Inscription.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
         function openModal() {
             $('#myModal').modal('show');
@@ -34,9 +35,13 @@
         window.closeModal = function () {
             $('#maPhotoProfile').modal('hide');
         };
+       function closeDivs() {
+            document.getElementById("ContentPlaceHolder1_divSuccess").style.visibility = "hidden";
+            document.getElementById("ContentPlaceHolder1_divWarning").style.visibility = "hidden";
+        };
     </script>
     <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -46,9 +51,9 @@
 
     <div class="container">
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#informations" aria-controls="informations" role="tab" data-toggle="tab">Informations générales</a></li>
-            <li role="presentation" class=""><a href="#cours" aria-controls="cours" role="tab" data-toggle="tab">Mes Cours</a></li>
-            <li role="presentation" class=""><a href="#delete" aria-controls="cours" role="tab" data-toggle="tab">Supprimer mon profil</a></li>
+            <li role="presentation" class="active"><a href="#informations" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs()">Informations générales</a></li>
+            <li role="presentation" class="" ><a href="#cours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs()">Mes Cours</a></li>
+            <li role="presentation" class=""><a href="#delete" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs()">Supprimer mon profil</a></li>
         </ul>
 
         <div class="row row-centered">
@@ -56,6 +61,22 @@
         </div>
 
         <div class="tab-content">
+
+            <div class="row">
+                <div class="col-md-3 col-md-offset-8" style="position:absolute">
+                <div class="alert alert-success" runat="server" id="divSuccess"  >
+                    <p>Les modifications ont été effectuées.</p>
+                </div>
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-md-offset-8" style="position:absolute; ">
+                <div class="alert alert-warning" runat="server" id="divWarning"  >
+                    <p>Veuillez porter attention à ces champs:</p><br/>
+                    <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+                </div>
+                    </div>
+            </div>
 
             <div role="tabpanel" class="tab-pane fade in active" id="informations">
                 <div class="row row-centered">
@@ -188,16 +209,12 @@
 
                     <div class="row row-centered" style="margin-bottom: 20px;">
                         <div class="col-md-1 col-md-push-2 col-centered">
-                            <asp:LinkButton ID="lnkSaveNewPassword" runat="server" CssClass="btn btn-default" Style="float: right;" Text="Sauvegarder"></asp:LinkButton>
+                            <asp:LinkButton ID="lnkSaveNewPassword" runat="server" CssClass="btn btn-default" Style="float: right;" Text="Sauvegarder" OnClick="lnkSaveNewPassword_Click"></asp:LinkButton>
                         </div>
                     </div>
                 </div>
 
-                <div class="control-group form-group">
-                    <div class="controls">
-                        <asp:Label ID="lblMessage" runat="server" Text="" Visible="false"></asp:Label>
-                    </div>
-                </div>
+                
 
             </div>
             <div role="tabpanel" class="tab-pane fade" id="cours">
@@ -238,10 +255,11 @@
                                 <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
                         </div>
                         <div class="modal-body">
-                            <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                          
 
                             <div class="container-fluid">
-                                <div class="row">
+                                  <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                                <div class="row" style="margin-top:5px;">
                                     <div class="col-md-6 ">
                                         <div class="control-group form-group">
                                             <div class="controls">

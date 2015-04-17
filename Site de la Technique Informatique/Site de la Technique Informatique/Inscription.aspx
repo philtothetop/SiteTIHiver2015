@@ -88,7 +88,8 @@
                 <div class="row row-centered">
                     <div class="col-lg-5 col-centered">
                         <div class="control-group form-group champs-requis">
-                            Tous les champs sont requis.
+                            <p>Tous les champs sont requis.</p>
+                             <asp:Label ID="lblMessage" runat="server" Text="" />
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
@@ -125,14 +126,14 @@
                         <div class="control-group form-group" id="dvPrenom">
                             <div class="controls">
                                 <label>Prénom:</label>
-                                <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" />
+                                <asp:TextBox ID="txtPrenom" runat="server" CssClass="form-control" placeholder="Prénom" Text='<%#BindItem.prenom %>' name="fname" MaxLength="64" />
                                 <asp:Label ID="lblPrenom" runat="server" Text="" />
                             </div>
                         </div>
                         <div class="control-group form-group" id="dvNom">
                             <div class="controls">
                                 <label>Nom:</label>
-                                <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" />
+                                <asp:TextBox ID="txtNom" runat="server" CssClass="form-control" placeholder="Nom" Text='<%#BindItem.nom %>' name="lname" MaxLength="64" />
                                 <asp:Label ID="lblNom" runat="server" Text="" />
                             </div>
                         </div>
@@ -141,13 +142,13 @@
                                 <label>Date de naissance:</label>
                                 <div class="row">
                                     <div class="col-xs-2">
-                                        <asp:TextBox ID="txtDateNaissanceJour" runat="server" CssClass="form-control inputJourMois" placeholder="JJ" />
+                                        <asp:TextBox ID="txtDateNaissanceJour" runat="server" CssClass="form-control inputJourMois" placeholder="JJ" MaxLength="2" />
                                     </div>
                                     <div class="col-xs-2">
-                                        <asp:TextBox ID="txtDateNaissanceMois" runat="server" CssClass="form-control inputJourMois" placeholder="mm" />
+                                        <asp:TextBox ID="txtDateNaissanceMois" runat="server" CssClass="form-control inputJourMois" placeholder="mm" MaxLength="2" />
                                     </div>
                                     <div class="col-xs-3">
-                                        <asp:TextBox ID="txtDateNaissanceAnnee" runat="server" CssClass="form-control" placeholder="AAAA" />
+                                        <asp:TextBox ID="txtDateNaissanceAnnee" runat="server" CssClass="form-control" placeholder="AAAA" MaxLength="4" />
                                     </div>
                                     <asp:Label ID="lblDateNaissance" runat="server" Text="" />
                                 </div>
@@ -185,7 +186,7 @@
                                     </div>
 
                                 </div>
-                                <asp:Label ID="lblMessage" runat="server" Text="" />
+                               
                                 <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 
                                 <!-- Modal Termes et conditions-->
