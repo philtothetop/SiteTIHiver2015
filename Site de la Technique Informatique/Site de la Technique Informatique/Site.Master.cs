@@ -25,7 +25,7 @@ namespace Site_de_la_Technique_Informatique
                 lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
                 lblInscription.Visible = true; //remet le lien inscription car possibilité de nouvel utilisateur
                 lblOffresEmploi.Visible = false; // Même chose que les autres
-                lblFaireDemandeEmploi.Visible = false;
+                
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
@@ -44,7 +44,7 @@ namespace Site_de_la_Technique_Informatique
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
                 lblOffresEmploi.Visible = true; // Même chose que les autres
-                lblFaireDemandeEmploi.Visible = false;
+                
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
                 lblAdmin.Visible = false;
@@ -72,7 +72,7 @@ namespace Site_de_la_Technique_Informatique
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
                 lblOffresEmploi.Visible = true; // Même chose que les autres
-                lblFaireDemandeEmploi.Visible = false;
+             
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
                 lblAdmin.Visible = true;
@@ -98,8 +98,7 @@ namespace Site_de_la_Technique_Informatique
                 lblConnexion.Visible = false; //Cache le lien de connexion
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
-                lblOffresEmploi.Visible = true; // Même chose que les autres
-                lblFaireDemandeEmploi.Visible = true;
+                lblOffresEmploi.Visible = true; // Même chose que les autres              
                 liConnexion.Visible = true;
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
@@ -126,7 +125,7 @@ namespace Site_de_la_Technique_Informatique
                 lblEnLigne.Visible = true; //Affiche le label donnant le nom de l'utilisateur
                 lblInscription.Visible = false; //enlève le lien Inscription car un user existant n'a plus besoin de s'inscrire... pis ça fait de la place
                 lblOffresEmploi.Visible = false; // Même chose que les autres
-                lblFaireDemandeEmploi.Visible = false;
+              
                 liConnexion.Visible = true;
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
@@ -156,7 +155,7 @@ namespace Site_de_la_Technique_Informatique
                 lblEnLigne.Visible = false; //Cache le label donnant le nom de l'utilisateur
                 lblInscription.Visible = true; //remet le lien inscription car possibilité de nouvel utilisateur
                 lblOffresEmploi.Visible = false; // Même chose que les autres
-                lblFaireDemandeEmploi.Visible = false;
+               
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
