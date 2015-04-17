@@ -37,7 +37,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     DateTime dt = DateTime.Now.AddHours(-24);
-                    return (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == false && cl.compteActif == false && cl.dateInscription < dt select cl).Count().ToString();
+                    return (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == false && cl.compteActif == 0 && cl.dateInscription < dt select cl).Count().ToString();
                 }
 
             }
@@ -57,7 +57,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-                    List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == true && cl.compteActif == false orderby cl.IDEtudiant descending select cl).ToList();
+                    List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == true && cl.compteActif == 0 orderby cl.IDEtudiant descending select cl).ToList();
 
                     
                     if(etudiantList.Count==0)
@@ -156,7 +156,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             int id = int.Parse(lblId.Text);
                             Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
                             envoie_courriel_confirmation(etudiant);
-                            etudiant.compteActif = true;
+                            etudiant.compteActif = 1;//Ative le compte.
                         }
                     }
                     leContext.SaveChanges();
@@ -181,7 +181,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     LinkButton lnkAccepter = (LinkButton)sender;
                     int idEtudiant = int.Parse(lnkAccepter.CommandArgument);
                     Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == idEtudiant select cl).FirstOrDefault();
-                    etudiant.compteActif = true;
+                    etudiant.compteActif = 1;//Ative le compte.
                     leContext.SaveChanges();
                     envoie_courriel_confirmation(etudiant);
                     Response.Redirect(Request.RawUrl);
@@ -256,7 +256,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     DateTime dt = DateTime.Now.AddHours(-24);
-                    List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == false && cl.compteActif == false && cl.dateInscription < dt select cl).ToList();
+                    List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.valideCourriel == false && cl.compteActif == 0 && cl.dateInscription < dt select cl).ToList();
 
                     if (etudiantList.Count > 0)
                     {
