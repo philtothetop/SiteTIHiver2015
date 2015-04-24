@@ -16,7 +16,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, true, false);
+            //SavoirSiPossedeAutorizationPourLaPage(true, true, true, false);
         }
         //Cette classe va chercher l'étudiant
         //Écrit par Cédric Archambault 18 février 2015

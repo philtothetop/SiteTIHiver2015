@@ -11,9 +11,9 @@
     <div class="row">
         <div class="col-lg-11">
             <h1 class="page-header">Validation des inscriptions des étudiants</h1>
-            <div class="col-lg-11 control-group form-group champs-requis">
+            <div class="col-lg-11 control-group form-group ">
                 <asp:Label ID="lblMessage" runat="server" Text="" Visible="false" />
-            </div>
+            </div><br />
             <span id="lblCourrielNonValider"><%=GetCourrielNonValiderList()%> inscription(s) dont la validation du courriel n'a pas été validé dans les 24 dernières heures.</span>
             <asp:LinkButton ID="lnkEffacerInscriptionCourrielNonValider" runat="server" Text="Effacer" OnClick="lnkEffacerInscriptionCourrielNonValider_Click" />
         </div>

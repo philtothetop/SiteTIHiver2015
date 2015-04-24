@@ -116,7 +116,7 @@ namespace Site_de_la_Technique_Informatique
 
         //Méthode pour savoir si la personne a les autorisations pour voir la page
         //Devrais être utiliser QUE SUR LES PAGES qui on besoin de quelqu'un de connecté
-        public void SavoirSiPossedeAutorizationPourLaPage(bool admin, bool professeur, bool etudiant, bool employeur)
+        public void SavoirSiPossedeAutorizationPourLaPage(bool admin, bool professeur, bool etudiant, bool employeur, bool visiteur)
         {
             try
             {
@@ -154,67 +154,20 @@ namespace Site_de_la_Technique_Informatique
                             doitRedirigerLaPersonne = true;
                         }
                     }
+                    else if (visiteur == true)
+                    {
+                        doitRedirigerLaPersonne = false;
+                    }
                     //Si cookie vide, dire de rediriger la page
                     else
                     {
-                         doitRedirigerLaPersonne = true;
+                        doitRedirigerLaPersonne = true;
                     }
                 }
-
-                //MÊME FONCTION SI ON DÉCIDE DE RETOURNER UTILISER UN OBJECT SESSION, ES EN COMMENTAIRE POUR LE MOMENT
-                /*
-                //Vérifier si la session n'est pas vide
-                if (Session["Courriel"] != null && !Session["Courriel"].Equals(""))
+                else if (visiteur == true)
                 {
-                    String courrielDuConnecte = Convert.ToString(Session["Courriel"]);
-
-                    //Trouver la personne connecté dans la bd
-                    using (LeModelTIContainer leModelTI = new LeModelTIContainer())
-                    {
-                        Model.Utilisateur lUtilisateurConnecte = (from cl in leModelTI.UtilisateurSet
-                                                                  where cl.courriel.Equals(courrielDuConnecte)
-                                                                  select cl).FirstOrDefault();
-
-                        //Si un utilisateur est trouvé
-                        if (lUtilisateurConnecte != null)
-                        {
-                            //Vérifier chaque type a les autorisations ET que lutilisateur connecter est de ce type
-                            if (lUtilisateurConnecte is Admin && admin == true)
-                            {
-                                doitRedirigerLaPersonne = false;
-                            }
-                            else if (lUtilisateurConnecte is Professeur && professeur == true)
-                            {
-                                doitRedirigerLaPersonne = false;
-                            }
-                            else if (lUtilisateurConnecte is Etudiant && etudiant == true)
-                            {
-                                doitRedirigerLaPersonne = false;
-                            }
-                            else if (lUtilisateurConnecte is Employeur && employeur == true)
-                            {
-                                doitRedirigerLaPersonne = false;
-                            }
-                            //Pas les autorisations
-                            else
-                            {
-                                doitRedirigerLaPersonne = true;
-                            }
-                        }
-                        else
-                        {
-                            //Aussi écrire un Log peut-etre?
-                            doitRedirigerLaPersonne = true;
-                        }
-                    }
+                    doitRedirigerLaPersonne = false;
                 }
-                //Pas connecté, alors n'a pas les droits
-                else
-                {
-                    doitRedirigerLaPersonne = true;
-                }
-                */
-
 
                 //Rediriger si pas les droits
                 if (doitRedirigerLaPersonne == true)

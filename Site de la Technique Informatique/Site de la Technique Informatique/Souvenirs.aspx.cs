@@ -45,7 +45,7 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_PreRender(object sender, EventArgs e)
         {
             //Pour afficher ou non le datapager si besoin
-            dataPagerDesSouvenirs.Visible = (dataPagerDesSouvenirs.PageSize < dataPagerDesSouvenirs.TotalRowCount);
+            //dataPagerDesSouvenirs.Visible = (dataPagerDesSouvenirs.PageSize < dataPagerDesSouvenirs.TotalRowCount);
         }
 
 

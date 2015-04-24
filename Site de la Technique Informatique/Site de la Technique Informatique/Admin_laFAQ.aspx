@@ -8,7 +8,7 @@
             <div class="row">
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                 <h1>Gérer la FAQ</h1>
-                <p>Sur cette page, vous pouvez modifier, ajouter ou supprimer des questions de la Foire aux questions.</p>
+                <p>Sur cette page, vous pouvez modifier, ajouter ou supprimer des questions de la foire aux questions (FAQ).</p>
 
             </div>
             <div class="row">
