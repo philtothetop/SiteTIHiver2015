@@ -131,7 +131,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     Model.Log loggerUnLog = new Model.Log();
 
-                    loggerUnLog.actionLog = "Les changements aux caractéristiques et aux licences ont été SAUVEGARDER";
+                    loggerUnLog.actionLog = "Les changements aux caractéristiques et aux licences ont été SAUVEGARDÉS";
                     loggerUnLog.dateLog = DateTime.Now;
                     loggerUnLog.typeLog = 0;
                     loggerUnLog.Utilisateur = lutilisateurCo;

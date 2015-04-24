@@ -102,7 +102,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             leContext.UtilisateurSet.Remove(etudiant);
                             if (envoie_courriel_confirmationRefuser(etudiant) == false)
                             {
-                                lblMessage.Text = "Il est impossible d'envoyer les courriels de confirmation du refus, mais les inscription ont été refusé.";
+                                lblMessage.Text = "Il est impossible d'envoyer les courriels de confirmation du refus, mais les inscriptions ont été refusées.";
                                 lblMessage.Visible = true;
                                 break;
                             }
@@ -139,7 +139,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                     if (envoie_courriel_confirmationRefuser(etudiant) == false)
                     {
-                        lblMessage.Text = "Il est impossible d'envoyer un courriel de confirmation du refus, mais inscription a été refusé.";
+                        lblMessage.Text = "Il est impossible d'envoyer un courriel de confirmation du refus, mais inscription a été refusée.";
                         lblMessage.Visible = true;
                     }
                     else
@@ -178,7 +178,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
                             if (envoie_courriel_confirmation(etudiant) == false)
                             {
-                                lblMessage.Text = "Impossible de Accepter tous les inscriptions, car il est impossible d'envoyer les courriels de validation.";
+                                lblMessage.Text = "Impossible d'accepter toutes les inscriptions, car il est impossible d'envoyer les courriels de validation.";
                                 lblMessage.Visible = true;
                                 break;// sort de la boucle 
                             }
@@ -214,7 +214,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                     if (envoie_courriel_confirmation(etudiant) == false)
                     {
-                        lblMessage.Text = "Impossible de Accepter l'inscription, car il est impossible d'envoyer un courriel de validation.";
+                        lblMessage.Text = "Impossible d'accepter l'inscription, car il est impossible d'envoyer un courriel de validation.";
                         lblMessage.Visible = true;
                     }
                     else
@@ -320,8 +320,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Extrants:Aucun
         public bool envoie_courriel_confirmation(Etudiant etudiant)
         {
-            String titre = "Inscription TI Cegep de Granby";
-            String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a activé votre compte. ";
+            String titre = "Inscription TI Cégep de Granby";
+            String message = "Cher/Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a activé votre compte. ";
 
             courrielAutomatiser courriel = new courrielAutomatiser();
 
@@ -336,8 +336,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
         {
 
              
-            String titre = "Inscription TI Cegep de Granby";
-            String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a refuser votre inscription. ";
+            String titre = "Inscription TI Cégep de Granby";
+            String message = "Cher/Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a refusé votre inscription. ";
 
             courrielAutomatiser courriel = new courrielAutomatiser();
 
