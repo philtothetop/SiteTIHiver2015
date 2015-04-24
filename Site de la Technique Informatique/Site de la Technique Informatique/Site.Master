@@ -32,10 +32,15 @@
         }
 </script>
 
+
+
     <script type="text/javascript">
         function closeModal() {
             $('#myModal').modal('close');
         }
+
+
+       
 </script>
 
     
@@ -111,7 +116,7 @@
                         
                                                                                     
                         <li>
-                            <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal">Connexion</a>
+                            <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false">Connexion</a>
 
                         </li>
 
@@ -137,13 +142,14 @@
 
 
         <!--Menu Connexion-->
-
+        
         <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true">&times;</span></button>
+
         <h4 class="modal-title" id="myModalLabel">Connexion</h4>
       </div>
         <asp:ScriptManager runat="server"></asp:ScriptManager>
