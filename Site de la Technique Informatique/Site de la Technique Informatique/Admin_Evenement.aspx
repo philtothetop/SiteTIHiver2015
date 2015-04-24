@@ -6,24 +6,9 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <style>
-        .outer {
-            width: 100%;
-            position: relative;
-        }
-
-            .outer .inner {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-            }
-    </style>
 
     <%@ Import Namespace="Site_de_la_Technique_Informatique.Classes" %>
 
-    <div class="row">
         <section id="echeancier" class="echeancier-section">
             <asp:Label ID="lblErreur" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
             <div class="row col-lg-12" style="margin-bottom: 40px;">
@@ -156,5 +141,5 @@
 
             </div>
         </section>
-    </div>
+
 </asp:Content>
