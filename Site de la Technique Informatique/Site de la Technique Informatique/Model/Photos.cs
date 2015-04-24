@@ -17,5 +17,6 @@ namespace Site_de_la_Technique_Informatique.Model
         public int IDPhotos { get; set; }
         public string pathPhoto { get; set; }
         public string typePhoto { get; set; }
+        public string descriptionPhoto { get; set; }
     }
 }

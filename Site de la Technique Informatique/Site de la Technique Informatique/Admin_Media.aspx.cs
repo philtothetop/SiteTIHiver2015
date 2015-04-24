@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class AjoutMedia : System.Web.UI.Page
+    public partial class Admin_Media : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -132,9 +132,9 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                     nbMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() select article).ToList());  //génère une liste des membres pour en avoir un nombre de membres et générer le bon ID Utilisateur
-                     newMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() where article.IDParutionMedia == nbMedia.Count select article).ToList()); 
-                   
+                    nbMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() select article).ToList());  //génère une liste des membres pour en avoir un nombre de membres et générer le bon ID Utilisateur
+                    newMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() where article.IDParutionMedia == nbMedia.Count select article).ToList());
+
                 }
 
                 if ((string)ViewState["mode"] + "" == "ajoute")  // SEULEMENT UN MEDIA «VIDE»
@@ -148,8 +148,8 @@ namespace Site_de_la_Technique_Informatique
                     mediaVide.titreParution = "";
                     mediaVide.descriptionParution = "";
                     mediaVide.ProfesseurIDUtilisateur = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
-                    
-                    
+
+
                     newMedia.Add(mediaVide);
                 }
 
@@ -189,7 +189,7 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        
+
 
         //Mettre à jour le Media
         public void UpdateMedia(ParutionMedia leMediaAUpdater)
