@@ -28,8 +28,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = false; // Même chose que les autres               
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
-                lblAdmin.Visible = false;
-                lblStage.Visible = false;
+                lblAdmin.Visible = false;              
                 lblNouvelles.Visible = true;
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
@@ -47,8 +46,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = true; // Même chose que les autres               
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
-                lblAdmin.Visible = false;
-                lblStage.Visible = true;
+                lblAdmin.Visible = false;             
                 lblNouvelles.Visible = true;
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
@@ -75,8 +73,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = true; // Même chose que les autres          
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
-                lblAdmin.Visible = true;
-                lblStage.Visible = true;
+                lblAdmin.Visible = true;            
                 lblNouvelles.Visible = true;
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
@@ -103,8 +100,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = true; // Même chose que les autres              
                 liConnexion.Visible = true;
                 lblForum.Visible = false;
-                lblAdmin.Visible = false;
-                lblStage.Visible = false;
+                lblAdmin.Visible = false;              
                 lblNouvelles.Visible = true;
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
@@ -133,7 +129,6 @@ namespace Site_de_la_Technique_Informatique
                 liConnexion.Visible = true;
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
-                lblStage.Visible = false;
                 lblNouvelles.Visible = false;
                 lblSouvenir.Visible = false;
                 lblRecherche.Visible = false;
@@ -161,8 +156,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = false; // Même chose que les autres              
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
-                lblAdmin.Visible = false;
-                lblStage.Visible = false;             
+                lblAdmin.Visible = false;           
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
                 lblInformation.Visible = true;

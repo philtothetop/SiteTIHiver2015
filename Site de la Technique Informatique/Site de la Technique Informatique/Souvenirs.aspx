@@ -32,30 +32,42 @@
             <asp:ListView ID="lviewSouvenirs" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.Photos"
                         SelectMethod="GetLesPhotos"                
-                        GroupItemCount="2">
+                       >
 
                         <LayoutTemplate>
                             <div style="clear:both;">
-                                <asp:PlaceHolder runat="server" ID="groupPlaceholder" />
+                                <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
                             </div>
                         </LayoutTemplate>
 
-                        <GroupTemplate>
-                            <div style=" clear:both;">
-                                <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
-                            </div>
-                        </GroupTemplate>
+                   
 
                         <ItemTemplate>
+                            
+                                <div style="border:Solid; border-color:black; border-width:1px; border-radius:5px;background-color:#eaeaea; margin-top:5px;">
                             <div class="col-md-6 img-portfolio">
                                 <div>
-                                    <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="width:400px;" />
+                                    <div>
+                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="width:500px;" />
 
-                                     <div> <asp:Label ID="lblDescriptionDuSouvenir" runat="server" Text='<%# SavoirSiDescriptionEstVide(Item.descriptionPhoto) %>'></asp:Label></div> 
-
+                                    </div>                             
                                 </div>                           
                                
                             </div>
+
+                             <div class="col-md-6 img-portfolio">
+
+                                       <div style="text-align:center;"> 
+                                         <asp:Label ID="lblDescriptionDuSouvenir" runat="server" Text='<%# SavoirSiDescriptionEstVide(Item.descriptionPhoto) %>'></asp:Label>
+
+                                     </div> 
+                                   </div>
+
+                            <div style="clear:both;">
+
+                            </div>
+                                    </div>
+                               
                         </ItemTemplate>
 
                         <EmptyDataTemplate>
@@ -69,7 +81,7 @@
             <div style="text-align:center;  clear:both;">
             
                 <asp:DataPager ID="dataPagerDesSouvenirs" runat="server" PagedControlID="lviewSouvenirs"
-                                PageSize="10">
+                                PageSize="5">
                                 <Fields>
                                     <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
                                     <asp:NumericPagerField />
