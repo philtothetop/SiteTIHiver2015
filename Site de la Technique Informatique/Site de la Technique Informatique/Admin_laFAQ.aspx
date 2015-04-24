@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="Css/Global.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="col-lg-12">
+
 
         <div class="row">
             <div class="col-lg-8">
@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <asp:Label ID="lblAjouterReponse" runat="server" Text="Réponse:"></asp:Label>
-                <asp:TextBox ID="txtAjouterReponse" runat="server" CssClass="form-control noresize" TextMode="MultiLine" Height="200px"></asp:TextBox>
+                <asp:TextBox ID="txtAjouterReponse" runat="server" CssClass="form-control noresize" TextMode="MultiLine" Height="180px"></asp:TextBox>
             </div>
         </div>
         <br />
@@ -65,7 +65,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <asp:Label ID="lblReponse" runat="server" Text="Réponse:"></asp:Label>
-                        <asp:TextBox ID="txtReponse" runat="server" CssClass="form-control noresize" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtReponse" runat="server" CssClass="form-control noresize" TextMode="MultiLine" Height="180px"></asp:TextBox>
                     </div>
                 </div>
             </ItemTemplate>
@@ -73,14 +73,14 @@
         <br />
         <div class="row">
             <div class="col-lg-offset-6 col-lg-1">
-                <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" OnClick="btnSupprimer_Click" CssClass="btn btn-danger" />
+                <asp:Button ID="btnModifier" runat="server" Text="Modifier" OnClick="btnModifier_Click" CssClass="btn btn-primary" />
             </div>
             <div class="col-lg-2">
-                <asp:Button ID="btnModifier" runat="server" Text="Modifier" OnClick="btnModifier_Click" CssClass="btn btn-primary" />
+                <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" OnClick="btnSupprimer_Click" CssClass="btn btn-danger" />
             </div>
         </div>
 
 
-    </div>
+
 
 </asp:Content>
