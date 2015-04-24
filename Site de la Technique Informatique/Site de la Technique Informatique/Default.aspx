@@ -13,9 +13,7 @@
                 <h1 class="page-header">Bienvenue sur le site de la techniques en informatique de gestion du Cégep de Granby
                 </h1>
             </div>
-           
-           
-            
+                
         </div>
         <!-- /.row -->
 
