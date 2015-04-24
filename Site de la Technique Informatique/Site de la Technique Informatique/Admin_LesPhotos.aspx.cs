@@ -1,4 +1,4 @@
-﻿// Cette classe permet aux proffeseurs de pouvoir ajouter un souvenir (Photo et description) pour le rendre visible a tous
+﻿// Cette classe permet aux profeseurs de pouvoir ajouter un souvenir (Photo et description) pour le rendre visible a tous
 // Écrit par Raphael Brouard, Avril 2015
 // Intrants: Photos a uploader et la description
 // Extrants: Un éléments photos de la BD a été créé/modifié/supprimé et enregustré dans la BD.
@@ -98,11 +98,16 @@ namespace Site_de_la_Technique_Informatique
                             //Si le prof connecté est trouvé
                             if (leProfCo != null)
                             {
-                                //Si le fileupload n'est pas vide
-                                if (fuplPhoto.HasFile)
+
+                                ////Si le fileupload n'est pas vide
+                                //if (fuplPhoto.HasFile)
+                                //{
+
+                                String imgData = ImgExSrc.Value;
+                                if (imgData != "" && imgData.Length>21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                                 {
-                                    if (Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpg" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".png" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpeg")
-                                    {
+                                    //if (Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpg" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".png" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpeg")
+                                    //{
                                         try
                                         {
                                             System.Drawing.Image imageAAjouter = System.Drawing.Image.FromStream(fuplPhoto.PostedFile.InputStream);
@@ -130,7 +135,7 @@ namespace Site_de_la_Technique_Informatique
 
                                             //Faire un log pour l'action
                                             Model.Log logPhoto = new Model.Log();
-                                            logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vien d'ajouter une photos sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
+                                            logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vient d'ajouter une photo sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
                                             logPhoto.dateLog = DateTime.Now;
                                             logPhoto.typeLog = 0;
                                             logPhoto.Utilisateur = leProfCo;
@@ -149,14 +154,14 @@ namespace Site_de_la_Technique_Informatique
                                         catch (Exception ex)
                                         {
                                             divPasReussiAjouterImage.Visible = true;
-                                            lblPasReussi.Text = "Problème pour uploader l'image.";
+                                            lblPasReussi.Text = "Nous avons eu un problème pour téléverser l'image.";
                                         }
-                                    }
-                                    else
-                                    {
-                                        divPasReussiAjouterImage.Visible = true;
-                                        lblPasReussi.Text = "Mauvais format de l'image.";
-                                    }
+                                    //}
+                                    //else
+                                    //{
+                                    //    divPasReussiAjouterImage.Visible = true;
+                                    //    lblPasReussi.Text = "Mauvais format de l'image.";
+                                    //}
                                 }
                                 else
                                 {
@@ -167,13 +172,13 @@ namespace Site_de_la_Technique_Informatique
                             else
                             {
                                 divPasReussiAjouterImage.Visible = true;
-                                lblPasReussi.Text = "Veuillez-vous reconnecter.";
+                                lblPasReussi.Text = "Veuillez vous reconnecter.";
                             }
                         }
                         else
                         {
                             divPasReussiAjouterImage.Visible = true;
-                            lblPasReussi.Text = "Veuillez-vous reconnecter.";
+                            lblPasReussi.Text = "Veuillez vous reconnecter.";
                         }
                     }
                     else
