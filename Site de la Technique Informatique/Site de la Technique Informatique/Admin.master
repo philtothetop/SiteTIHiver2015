@@ -15,6 +15,8 @@
                    <li><a href="Admin_laFAQ.aspx">FAQ</a><br /></li>
                  
                    <li><a href="Admin_LesPhotos.aspx">Photos</a><br /></li>
+
+               <li><a href="Admin_Media.aspx">.Médias</a><br /></li>
                  
                    <li><a href="Admin_OffreEmploi.aspx">Offres d'emploi</a><br /></li>
                   

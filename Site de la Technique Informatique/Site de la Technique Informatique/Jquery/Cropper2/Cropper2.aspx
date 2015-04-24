@@ -59,20 +59,22 @@
             </div>
         </div>
 
-        <script src="Cropper/js/jquery.min.js"></script>
-        <script src="Cropper/js/bootstrap.min.js"></script>
-        <script src="Cropper/js/cropper.js"></script>
-        <script src="Cropper/js/docsV2.js"></script>
+        <script src="Cropper2/js/jquery.min.js"></script>
+        <script src="Cropper2/js/bootstrap.min.js"></script>
+        <script src="Cropper2/js/cropper.js"></script>
+        <script src="Cropper2/js/docsV2.js"></script>
 
        
 
-                                                        <div class="modal-footer">
-                                                            <div class="row eg-output">
-                                                                <div class="col-md-12">
-                                                                    <button class="btn btn-primary" id="getDataURL3" type="button" data-dismiss="modal">Fermer</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+        <div class="modal-footer">
+            <div class="row eg-output">
+                <div class="col-md-12">
+                    <button class="btn btn-primary" id="getDataURL3" type="button" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+
+
 
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

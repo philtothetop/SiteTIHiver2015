@@ -123,7 +123,7 @@
                 <h3>
                     Francis Trépanier
                 </h3>
-                <p>Le grand gardien de la BD et de Minecraft.</p>
+                <p>Le grand gardien de la chasteté de la BD et de Minecraft.</p>
             </div>           
         </div>
         <!-- /.row -->

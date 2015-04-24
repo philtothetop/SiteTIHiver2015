@@ -1,6 +1,7 @@
 ﻿using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -8,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_laFAQ : System.Web.UI.Page
+    public partial class Admin_laFAQ : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -100,25 +101,61 @@ namespace Site_de_la_Technique_Informatique
             {
                 try
                 {
-                    Model.FAQ nouvelleQuestion = new Model.FAQ();
-                    string ajouterQuestion = txtAjouterQuestion.Text;
-                    string ajouterReponse = txtAjouterReponse.Text;
-                    nouvelleQuestion.texteQuestion = ajouterQuestion;
-                    nouvelleQuestion.texteReponse = ajouterReponse;
-                    lecontexte.FAQSet.Add(nouvelleQuestion);
-                    nouvelleQuestion.ProfesseurIDUtilisateur = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
-                    lecontexte.SaveChanges();
+                    int nbErreurs = 0;
+                    string ajouterQuestion = txtAjouterQuestion.Text.Trim();
+                    string ajouterReponse = txtAjouterReponse.Text.Trim();
+                    if (ajouterQuestion.Length > 150)
+                    {
+                        lblMessage.Attributes["style"] = "color:red;";
+                        lblMessage.Text += "- Votre question est trop longue. Elle doit avoir 150 caractères ou moins. <br />";
+
+                        txtAjouterQuestion.BorderColor = Color.Red;
+                        nbErreurs++;
+                    }
+                    else if (ajouterQuestion.Length == 0)
+                    {
+                        lblMessage.Attributes["style"] = "color:red;";
+                        lblMessage.Text += "- Vous devez entrer une question.<br />";
+                        txtAjouterQuestion.BorderColor = Color.Red;
+                        nbErreurs++;
+                    }
+
+                    if (ajouterReponse.Length > 800)
+                    {
+                        lblMessage.Attributes["style"] = "color:red;";
+                        lblMessage.Text += "- Votre réponse est trop longue. Elle doit avoir 800 caractères ou moins.<br />";
+                        txtAjouterReponse.BorderColor = Color.Red;
+                        nbErreurs++;
+                    }
+                    else if (ajouterReponse.Length == 0) {
+                        lblMessage.Attributes["style"] = "color:red;";
+                        lblMessage.Text += "- Vous devez entrer une réponse.<br />";
+                        txtAjouterReponse.BorderColor = Color.Red;
+                        nbErreurs++;
+                    }
+
+                    if (nbErreurs == 0)
+                    {
+                        Model.FAQ nouvelleQuestion = new Model.FAQ();
+                        nouvelleQuestion.texteQuestion = ajouterQuestion;
+                        nouvelleQuestion.texteReponse = ajouterReponse;
+                        lecontexte.FAQSet.Add(nouvelleQuestion);
+                        nouvelleQuestion.ProfesseurIDUtilisateur = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+                        lecontexte.SaveChanges();
+                        lblMessage.Attributes["style"] = "color:green;";
+                        lblMessage.Text += "Vous avez bien ajouté votre question à la FAQ!";
+                        txtAjouterQuestion.Text = "";
+                        txtAjouterReponse.Text = "";
+                        ddlQuestionsFAQ.DataBind();
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
                     lblMessage.Attributes["style"] = "color:red;";
-                    lblMessage.Text += "Erreur lors du clic sur btn_Ajouter: " + ex.ToString();
+                    lblMessage.Text += "Erreur lors du clic sur le bouton Ajouter: " + ex.ToString();
                 }
-                lblMessage.Attributes["style"] = "color:green;";
-                lblMessage.Text += "Vous avez bien ajouté votre question à la FAQ!";
-                txtAjouterQuestion.Text = "";
-                txtAjouterReponse.Text = "";
-                ddlQuestionsFAQ.DataBind();
+
             }
         }
 
@@ -134,14 +171,40 @@ namespace Site_de_la_Technique_Informatique
                     int ID = Convert.ToInt32(ddlQuestionsFAQ.SelectedValue);
                     Model.FAQ questionAMod = (from question in lecontexte.FAQSet where question.IDFAQ == ID select question).FirstOrDefault();
                     TextBox txtQuestion = lviewModifFAQ.Items[0].FindControl("txtQuestion") as TextBox;
-                    questionAMod.texteQuestion = txtQuestion.Text;
                     TextBox txtReponse = lviewModifFAQ.Items[0].FindControl("txtReponse") as TextBox;
-                    questionAMod.texteReponse = txtReponse.Text;
-                    lecontexte.SaveChanges();
-                    ddlQuestionsFAQ.DataBind();
-                    lviewModifFAQ.DataBind();
-                    lblMessage.Attributes["style"] = "color:green;"; 
-                    lblMessage.Text = "Vous avez bien modifié la question!";
+
+                    if (txtQuestion.ToString().Length > 150)
+                    {
+                        lblMessage.Attributes["style"] = "color:red;";
+                        lblMessage.Text += "- Votre question est trop longue. Elle doit avoir 150 caractères ou moins.<br />";
+                        txtQuestion.BorderColor = Color.Red;
+                    }
+                    else if (txtReponse.ToString().Length > 800)
+                    {
+                        lblMessage.Attributes["style"] = "color:red;";
+                        lblMessage.Text += "- Votre réponse est trop longue. Elle doit avoir 800 caractères ou moins.<br />";
+                        txtReponse.BorderColor = Color.Red;
+                    }
+                    else if (txtQuestion.ToString().Length == 0) {
+                        lblMessage.Attributes["style"] = "color:red;";
+                        lblMessage.Text += "- Entrez une question.<br />";
+                        txtQuestion.BorderColor = Color.Red;
+                    }
+                    else if (txtReponse.ToString().Length == 0) {
+                        lblMessage.Attributes["style"] = "color:red;";
+                        lblMessage.Text += "- Entrez une réponse.<br />";
+                        txtReponse.BorderColor = Color.Red;
+                    }
+                    else
+                    {
+                        questionAMod.texteQuestion = txtQuestion.Text;
+                        questionAMod.texteReponse = txtReponse.Text;
+                        lecontexte.SaveChanges();
+                        ddlQuestionsFAQ.DataBind();
+                        lviewModifFAQ.DataBind();
+                        lblMessage.Attributes["style"] = "color:green;";
+                        lblMessage.Text = "Vous avez bien modifié la question!";
+                    }
                 }
             }
             catch (Exception ex)
@@ -165,6 +228,8 @@ namespace Site_de_la_Technique_Informatique
                     lecontexte.SaveChanges();
                     ddlQuestionsFAQ.DataBind();
                     lviewModifFAQ.DataBind();
+                    lblMessage.Attributes["style"] = "color:green;";
+                    lblMessage.Text += "La question de la FAQ a bien été supprimée.";
                 }
             }
             catch (Exception ex)

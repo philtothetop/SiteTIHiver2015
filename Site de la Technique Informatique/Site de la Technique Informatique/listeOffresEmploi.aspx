@@ -56,5 +56,15 @@
             </asp:ListView>
             <hr />
         </div>
+        <div style="text-align: center; width: 100%;">
+            <asp:DataPager ID="dataPager" runat="server" PagedControlID="lviewOffresEmploi"
+                PageSize="10">
+                <Fields>
+                    <asp:NextPreviousPagerField ShowFirstPageButton="False" ShowNextPageButton="False" PreviousPageText="<<" />
+                    <asp:NumericPagerField />
+                    <asp:NextPreviousPagerField ShowLastPageButton="False" ShowPreviousPageButton="False" NextPageText=">>" />
+                </Fields>
+            </asp:DataPager>
+        </div>
     </div>
 </asp:Content>

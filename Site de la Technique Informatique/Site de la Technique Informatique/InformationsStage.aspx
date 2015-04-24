@@ -182,7 +182,7 @@
                             <tbody>
                                 <tr>
                                     <th>Langages de programmation</th>
-                                    <td>Java, VB.NET, C, C#</td>
+                                    <td>Java, VB.NET, C#, Android</td>
                                 </tr>
                                 <tr>
                                     <th>Bases de données</th>
@@ -190,11 +190,11 @@
                                 </tr>
                                 <tr>
                                     <th>Internet</th>
-                                    <td>HTML, ASP.NET, PHP, Flash, Web Expressions</td>
+                                    <td>HTML, ASP.NET, PHP, Flash, Web Expression</td>
                                 </tr>
                                 <tr>
                                     <th>Systèmes d'exploitation</th>
-                                    <td>Windows XP, Windows Vista, Windows 7, Linux</td>
+                                    <td>Windows, Linux</td>
                                 </tr>
                                 <tr>
                                     <th>Analyse et modélisation</th>
@@ -202,7 +202,7 @@
                                 </tr>
                                 <tr>
                                     <th>Réseaux</th>
-                                    <td>Windows Server 2008</td>
+                                    <td>Windows Server 2012</td>
                                 </tr>
                                 <tr>
                                     <th>Logiciels de bureautique</th>
