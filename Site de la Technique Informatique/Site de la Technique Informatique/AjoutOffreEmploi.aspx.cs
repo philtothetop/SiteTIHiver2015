@@ -16,7 +16,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(false, false, false, true);
+            //SavoirSiPossedeAutorizationPourLaPage(false, false, false, true);
 
             txtDescriptionOffre.Attributes.Add("maxlength", txtDescriptionOffre.MaxLength.ToString());
             if (!IsPostBack)

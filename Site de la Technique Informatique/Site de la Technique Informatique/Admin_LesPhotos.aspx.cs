@@ -110,7 +110,8 @@ namespace Site_de_la_Technique_Informatique
                                     //{
                                         try
                                         {
-                                            System.Drawing.Image imageAAjouter = System.Drawing.Image.FromStream(fuplPhoto.PostedFile.InputStream);
+                                            //System.Drawing.Image imageAAjouter = System.Drawing.Image.FromStream(fuplPhoto.PostedFile.InputStream);
+                                            System.Drawing.Image imageAAjouter = LoadImage(imgData);
 
                                             //Grosseur max est de 1000 px et minimum 120 px
                                             imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
@@ -123,6 +124,8 @@ namespace Site_de_la_Technique_Informatique
                                             Model.Photos laPhotoBD = new Model.Photos();
                                             laPhotoBD.pathPhoto = imageNom;
                                             laPhotoBD.typePhoto = ddlTypeDImage.SelectedItem.Text;
+
+                                            TextBox txtbDescriptionPhotoAAjouter = (TextBox)lviewPhoto.Items[0].FindControl("txtbDescriptionPhotoAAjouter");
 
                                             if (txtbDescriptionPhotoAAjouter.Text != null)
                                             {
@@ -328,6 +331,10 @@ namespace Site_de_la_Technique_Informatique
                     ddlModifierPhoto.SelectedValue = laPhotoATrouver.typePhoto;
                     hfieldIDItemAModifier.Value = Convert.ToString(laPhotoATrouver.IDPhotos);
 
+                    divModifierPhotoReussi.Visible = false;
+                    divModifierPhotoPasReussi.Visible = false;
+                    divModifierPhotoGlobal.Visible = true;
+
                     mviewLesPhotos.ActiveViewIndex = 2;
                 }
                 //Si pu connecté, rediriger a la page d'accueil
@@ -352,8 +359,6 @@ namespace Site_de_la_Technique_Informatique
         {
             lviewSupprimerPhotos.DataBind();
         }
-
-
 
         //Pour mettre a jour la photo
         protected void btnUpdaterModifierPhoto_Click(object sender, EventArgs e)
@@ -401,25 +406,39 @@ namespace Site_de_la_Technique_Informatique
                     //Si lutilisateur connecté est trouvé et la photo
                     if (lutilisateurCo != null && laPhotoATrouver != null)
                     {
-                        laPhotoATrouver.descriptionPhoto = txtbModifierPhotoDescription.Text;
-
-                        //Si le type de photos est changé, changer l'emplacement de la photo dans le bon dossier
-                        if (!laPhotoATrouver.typePhoto.Equals(ddlModifierPhoto.SelectedValue))
+                        try
                         {
-                            String lePath = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
-                            String lePathAAllez = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlModifierPhoto.SelectedValue + "/" + laPhotoATrouver.pathPhoto);
+                            laPhotoATrouver.descriptionPhoto = txtbModifierPhotoDescription.Text;
 
-                            //Changer lemplacement de la photo
-                            if (File.Exists(@lePath))
+                            //Si le type de photos est changé, changer l'emplacement de la photo dans le bon dossier
+                            if (!laPhotoATrouver.typePhoto.Equals(ddlModifierPhoto.SelectedValue))
                             {
-                                File.Move(@lePath, @lePathAAllez);
+                                String lePath = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
+                                String lePathAAllez = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlModifierPhoto.SelectedValue + "/" + laPhotoATrouver.pathPhoto);
+
+                                //Changer lemplacement de la photo
+                                if (File.Exists(@lePath))
+                                {
+                                    File.Move(@lePath, @lePathAAllez);
+                                }
+
+                                laPhotoATrouver.typePhoto = ddlModifierPhoto.SelectedValue;
                             }
 
-                            laPhotoATrouver.typePhoto = ddlModifierPhoto.SelectedValue;
-                        }
+                            modelTI.SaveChanges();
 
-                        modelTI.SaveChanges();
-                        hfieldIDItemAModifier.Value = "";
+                            divModifierPhotoReussi.Visible = true;
+                            divModifierPhotoPasReussi.Visible = false;
+                            divModifierPhotoGlobal.Visible = false;
+
+                            hfieldIDItemAModifier.Value = "";
+                        }
+                        catch (Exception ex)
+                        {
+                            divModifierPhotoReussi.Visible = false;
+                            divModifierPhotoPasReussi.Visible = true;
+                            lblModifierPhotoPasReussi.Text = "Problème pour modifier cette photo.";
+                        }
                     }
                     //Si pu connecté, rediriger a la page d'accueil
                     else
@@ -499,6 +518,32 @@ namespace Site_de_la_Technique_Informatique
             {
                 LogErreur("Admin_LesPhotos.aspx.cs dans la méthode btnSupprimerLaPhoto_Click", ex);
             }
+        }
+
+
+        //Cette class permet de convertir data/jpeg à image.
+        //Écrit par Cédric Archambault 26 février 2015 (Recopier par Raphael pour utiliser dans cette page)
+        //Intrants:String Data
+        //Extrants:Image
+        public System.Drawing.Image LoadImage(String data)
+        {
+            //get a temp image from bytes, instead of loading from disk
+            //data:image/gif;base64,
+            //this image is a single pixel (black)
+            //byte[] bytes = Convert.FromBase64String("R0lGODlhAQABAIAAAAAAAAAAACH5BAAAAAAALAAAAAABAAEAAAICTAEAOw==");
+            data = data.Remove(0, 22);
+            byte[] bytes = Convert.FromBase64String(data);
+            System.Drawing.Image image;
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                image = System.Drawing.Image.FromStream(ms);
+                string cropFileName = "";
+                string cropFilePath = "";
+                cropFileName = "crop_" + "testImg";
+                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), cropFileName);
+            }
+
+            return image;
         }
     }
 }

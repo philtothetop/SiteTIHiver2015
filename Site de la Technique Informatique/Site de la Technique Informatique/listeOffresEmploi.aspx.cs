@@ -38,6 +38,10 @@ namespace Site_de_la_Technique_Informatique
             {
 
                 listeOffresEmploi = (from offresEmploi in lecontexte.OffreEmploiSet where offresEmploi.etatOffre == "1" && offresEmploi.validerOffre == true select offresEmploi).ToList();
+                if (listeOffresEmploi.Count <= 10)
+                {
+                    dataPager.Visible = false;
+                }
             }
             return listeOffresEmploi.AsQueryable();
         }
