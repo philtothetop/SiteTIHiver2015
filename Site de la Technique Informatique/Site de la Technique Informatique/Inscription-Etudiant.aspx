@@ -65,7 +65,7 @@
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
-            $('#maPhotoProfile').modal('hide');
+            $('#maPhotoProfile').modal('close');
         };
     </script>
 
@@ -99,7 +99,7 @@
                                         <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" Width="125" Height="125" />
                                             </div>
                                             <div class="div-btnChangerPhoto">
-                                                <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
+                                                <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" data-backdrop="static" data-keyboard="false" />
 
                                             </div>
                                         </div>
