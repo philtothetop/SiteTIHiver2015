@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Cette classe permet aux proffeseurs de pouvoir ajouter un souvenir (Photo et description) pour le rendre visible a tous
+// Écrit par Raphael Brouard, Avril 2015
+// Intrants: Photos a uploader et la description
+// Extrants: Un éléments photos de la BD a été créé/modifié/supprimé et enregustré dans la BD.
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -332,8 +337,8 @@ namespace Site_de_la_Technique_Informatique
         //Changer d'onglet pour voir les photos
         protected void btnVoirLesPhotos_Click(object sender, EventArgs e)
         {
-            lviewSupprimerPhotos.DataBind();
             ddlTypePhotoSupprimer.SelectedIndex = 0;
+            lviewSupprimerPhotos.DataBind();
             mviewLesPhotos.ActiveViewIndex = 3;
         }
 
@@ -391,7 +396,7 @@ namespace Site_de_la_Technique_Informatique
                     //Si lutilisateur connecté est trouvé et la photo
                     if (lutilisateurCo != null && laPhotoATrouver != null)
                     {
-                        laPhotoATrouver.descriptionPhoto = txtbDescriptionPhotoAAjouter.Text;
+                        laPhotoATrouver.descriptionPhoto = txtbModifierPhotoDescription.Text;
 
                         //Si le type de photos est changé, changer l'emplacement de la photo dans le bon dossier
                         if (!laPhotoATrouver.typePhoto.Equals(ddlModifierPhoto.SelectedValue))
@@ -470,7 +475,7 @@ namespace Site_de_la_Technique_Informatique
                         lviewSupprimerPhotos.DataBind();
 
                         //Supprimer la photo du serveur
-                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.pathPhoto);
+                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
 
                         if (File.Exists(@imageProfilChemin))
                         {
@@ -490,7 +495,5 @@ namespace Site_de_la_Technique_Informatique
                 LogErreur("Admin_LesPhotos.aspx.cs dans la méthode btnSupprimerLaPhoto_Click", ex);
             }
         }
-
-        
     }
 }
