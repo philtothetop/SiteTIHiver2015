@@ -112,6 +112,7 @@
     <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
+    <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
@@ -127,9 +128,17 @@
     <Content Include="FaireTemoignage.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription-Employeur.aspx" />
+    <Content Include="Inscription-Etudiant.aspx" />
     <Content Include="Inscription-message.aspx" />
     <Content Include="Inscription-valide.aspx" />
-    <Content Include="Inscription-Etudiant.aspx" />
+    <Content Include="Jquery\Cropper2\Cropper2.aspx" />
+    <Content Include="Jquery\Cropper2\css\bootstrap.min.css" />
+    <Content Include="Jquery\Cropper2\css\cropper.css" />
+    <Content Include="Jquery\Cropper2\css\docs.css" />
+    <Content Include="Jquery\Cropper2\js\bootstrap.min.js" />
+    <Content Include="Jquery\Cropper2\js\cropper.js" />
+    <Content Include="Jquery\Cropper2\js\docsV2.js" />
+    <Content Include="Jquery\Cropper2\js\jquery.min.js" />
     <Content Include="Jquery\Cropper\Cropper.aspx" />
     <Content Include="Jquery\Cropper\css\bootstrap.min.css" />
     <Content Include="Jquery\Cropper\css\cropper.css" />
@@ -163,6 +172,8 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
+    <Content Include="Photos\Concepteurs\Cedric.JPG" />
+    <Content Include="Photos\Concepteurs\Yannick.JPG" />
     <Content Include="Photos\entete.jpg" />
     <Content Include="Photos\image1.jpg" />
     <Content Include="Photos\image2.jpg" />
@@ -170,22 +181,22 @@
     <Content Include="Photos\image4.jpg" />
     <Content Include="Photos\image5.jpg" />
     <Content Include="Photos\image6.jpg" />
+    <Content Include="Photos\logo\Logo_Informatique-mini.jpg" />
     <Content Include="Photos\logo\Logo_Informatique.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
     <Content Include="Photos\logoCegep.png" />
-    <Content Include="Photos\Profils\Baron.JPG" />
-    <Content Include="Photos\Profils\Bibeau.JPG" />
-    <Content Include="Photos\Profils\Cedric.JPG" />
-    <Content Include="Photos\Profils\Francis.JPG" />
-    <Content Include="Photos\Profils\Jacob.JPG" />
-    <Content Include="Photos\Profils\Karl.JPG" />
-    <Content Include="Photos\Profils\Marie.JPG" />
+    <Content Include="Photos\Concepteurs\Baron.JPG" />
+    <Content Include="Photos\Concepteurs\Bibeau.JPG" />
+    <Content Include="Photos\Concepteurs\Francis.JPG" />
+    <Content Include="Photos\Concepteurs\Jacob.JPG" />
+    <Content Include="Photos\Concepteurs\Karl.JPG" />
+    <Content Include="Photos\Concepteurs\Marie.JPG" />
     <Content Include="Photos\Profils\photobase.bmp" />
-    <Content Include="Photos\Profils\Raphael.JPG" />
-    <Content Include="Photos\Profils\Xavier.JPG" />
+    <Content Include="Photos\Concepteurs\Raphael.JPG" />
+    <Content Include="Photos\Concepteurs\Xavier.JPG" />
     <Content Include="Photos\quiSommesNous.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
@@ -217,6 +228,8 @@
     </Content>
     <Content Include="Admin.master" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="Souvenirs.aspx" />
+    <Content Include="TermesConditions.aspx" />
     <Content Include="tinymce\js\tinymce\langs\readme.md" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
@@ -418,6 +431,13 @@
     <Compile Include="AjoutDiscussion.aspx.designer.cs">
       <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AjoutMedia.aspx.cs">
+      <DependentUpon>AjoutMedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjoutMedia.aspx.designer.cs">
+      <DependentUpon>AjoutMedia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -432,6 +452,7 @@
     <Compile Include="AjoutProfesseur.aspx.designer.cs">
       <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\courrielAutomatiser.cs" />
     <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
     <Compile Include="Classes\Listes.cs" />
@@ -492,6 +513,13 @@
     <Compile Include="Inscription-Employeur.aspx.designer.cs">
       <DependentUpon>Inscription-Employeur.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Inscription-Etudiant.aspx.cs">
+      <DependentUpon>Inscription-Etudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription-Etudiant.aspx.designer.cs">
+      <DependentUpon>Inscription-Etudiant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Inscription-message.aspx.cs">
       <DependentUpon>Inscription-message.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -506,12 +534,12 @@
     <Compile Include="Inscription-valide.aspx.designer.cs">
       <DependentUpon>Inscription-valide.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Inscription-Etudiant.aspx.cs">
-      <DependentUpon>Inscription-Etudiant.aspx</DependentUpon>
+    <Compile Include="Jquery\Cropper2\Cropper2.aspx.cs">
+      <DependentUpon>Cropper2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inscription-Etudiant.aspx.designer.cs">
-      <DependentUpon>Inscription-Etudiant.aspx</DependentUpon>
+    <Compile Include="Jquery\Cropper2\Cropper2.aspx.designer.cs">
+      <DependentUpon>Cropper2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
@@ -746,6 +774,13 @@
     <Compile Include="InformationsStage.aspx.designer.cs">
       <DependentUpon>InformationsStage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Souvenirs.aspx.cs">
+      <DependentUpon>Souvenirs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Souvenirs.aspx.designer.cs">
+      <DependentUpon>Souvenirs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Temoignage.aspx.cs">
       <DependentUpon>Temoignage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -774,6 +809,13 @@
     <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.designer.cs">
       <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TermesConditions.aspx.cs">
+      <DependentUpon>TermesConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermesConditions.aspx.designer.cs">
+      <DependentUpon>TermesConditions.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -792,11 +834,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
+    <Folder Include="Jquery\Cropper2\img\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Photos\Autre\" />
+    <Folder Include="Photos\Cégep\" />
     <Folder Include="Photos\Souvenir\Autre\" />
     <Folder Include="Photos\Souvenir\Cégep\" />
+    <Folder Include="Photos\Souvenir\Professeurs\" />
     <Folder Include="Photos\Souvenir\Projets\" />
+    <Folder Include="Photos\Souvenir\Étudiants\" />
     <Folder Include="Upload\CV\" />
   </ItemGroup>
   <ItemGroup>

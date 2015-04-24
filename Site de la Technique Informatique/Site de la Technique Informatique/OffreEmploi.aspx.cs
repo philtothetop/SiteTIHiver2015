@@ -19,7 +19,7 @@ namespace Site_de_la_Technique_Informatique
                 Response.Redirect("ListeOffresEmploi.aspx");
             }
 
-            SavoirSiPossedeAutorizationPourLaPage(true, true, true, true);
+            //SavoirSiPossedeAutorizationPourLaPage(true, true, true, true);
 
             Model.OffreEmploi offreEmploi;
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())

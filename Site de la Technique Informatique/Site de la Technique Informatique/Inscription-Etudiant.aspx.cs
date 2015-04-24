@@ -21,7 +21,7 @@ using Site_de_la_Technique_Informatique.Classes;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : System.Web.UI.Page
+    public partial class Inscription : ErrorHandling
     {
 
         //Recolte des erreurs des champs du formulaire.
@@ -42,10 +42,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         #endregion
         protected void Page_Load()
         {
-            if (Session["Utilisateur"] != null)
-            {
-                Response.Redirect("../Default.aspx", false);
-            }
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, true);
         }
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
         //Écrit par Cédric Archambault 17 février 2015
@@ -307,50 +304,16 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Extrants:Aucun
         public bool envoie_courriel_confirmation(Etudiant etudiant)
         {
-            // METTRE ICI LE EMAIL DE LA PERSONNE QUI VA RÉPONDRE AUX MESSAGES DES FUTURS ÉTUDIANTS 
-
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            mail.To.Add(etudiant.courriel);
-
-            // Informations de l'en-tête du message 
-            // 1- Email de la personne qui contacte le département 
-            // 2- Nom / Prénom de la personne qui contacte le département 
-            mail.From = new System.Net.Mail.MailAddress(etudiant.courriel, "Cgep", System.Text.Encoding.UTF8);
-
-            // Sujet de l'email envoyé
-            mail.Subject = "Inscription TI Cegep de Granby";
-
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
-
-            // Email de qui provient l'email (donc va chercher l'email de la personne dans le textbox)
-
-
-            // Corps du message : contient ce que la personne a écrit dans le module seulement
             hash hash = new hash();
+
             String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
-            String hyperLien = "http://"+HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
-            mail.Body = "Chère " + etudiant.prenom + "" + etudiant.nom + ",<br/><br/>Valider votre courriel :<a href=\"" + hyperLien + "\">cliquez ici.</a>";
+            String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority + "/Inscription/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
+            String titre = "Inscription TI Cegep de Granby";
+            String message = "Chère " + etudiant.prenom + "" + etudiant.nom + ",<br/><br/>Valider votre courriel :<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
+            courrielAutomatiser courriel = new courrielAutomatiser();
 
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
-            mail.IsBodyHtml = true;
-            mail.Priority = System.Net.Mail.MailPriority.High;
-            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("mariephilippe.gill@gmail.com", "(pap!er)");
-            client.Port = 587;
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true;
-            try
-            {
-                client.Send(mail);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Exception logEx = ex;
-                return false;
-            }
-
+            return courriel.envoie(etudiant.courriel,titre,message);
 
         }
 
@@ -377,6 +340,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
 
             return image;
+        }
+
+        protected void lnkAnnuler_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.UrlReferrer.ToString());
         }
 
 

@@ -76,7 +76,7 @@
                         
             <asp:Label ID="lblCourrielOffre" runat="server" Font-Size="14" Text='<%# "Courriel : " + Item.courrielOffre %>'></asp:Label>
             <br />
-            <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14" Text='<%# "Personne resources : " + Item.personneRessource %>'></asp:Label>
+            <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14" Text='<%# "Personne resource : " + Item.personneRessource %>'></asp:Label>
                         <br />
              <div runat="server" id="divPDF" visible='<%# PasAfficherSiNull(Item,"pathPDFDescription") %>'>
 
