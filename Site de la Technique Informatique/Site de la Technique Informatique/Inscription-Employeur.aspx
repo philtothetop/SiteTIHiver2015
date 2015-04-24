@@ -24,13 +24,14 @@
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <div class="container">
         <asp:ScriptManagerProxy ID="smProxy" runat="server" />
+        <div class="col-lg-3"></div>
         <div class="row row-centered">
             <div class="col-lg-5 col-centered">
                 <h1>Inscription Employeur</h1>
             </div>
 
         </div>
-
+        <div class="col-lg-3"></div>
         <asp:ListView ID="lviewFormulaireInscriptionEmployeur" runat="server"
             ItemType="Site_de_la_Technique_Informatique.Model.Employeur"
             SelectMethod="GetUtilisateurEmployeur"
@@ -38,8 +39,9 @@
             <ItemTemplate>
                 <div class="row row-centered">
                     <div class="col-lg-5 col-centered">
-                        <div class="control-group form-group champs-requis">
-                            Tous les champs sont requis.
+                            <div class="control-group form-group champs-requis">
+                            <p>Tous les champs sont requis.</p>
+                             <asp:Label ID="lblMessage" runat="server" Text="" />
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
@@ -70,7 +72,7 @@
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
-                                    <asp:Label ID="lblMessageValidationErreur" runat="server" Text="" Visible="false" />
+                                <asp:Label ID="lblMessageValidationErreur" runat="server" Text="" Visible="false" />
                             </div>
                         </div>
                         <div class="control-group form-group">
@@ -86,7 +88,8 @@
                                     <div class="control-group form-group">
                                         <div class="controls">
                                             <asp:CheckBox ID="cbCondition" runat="server" OnCheckedChanged="cbCondition_CheckedChanged" AutoPostBack="true" />
-                                            <asp:LinkButton ID="lnkConditions" runat="server" Text="Termes et conditions" data-toggle="modal" data-target="#mesConditions" />
+                                            <a href="TermesConditions.aspx" target="_blank">Termes et conditions</a>
+                                            <%--<asp:LinkButton ID="lnkConditions" runat="server" Text="Termes et conditions" data-toggle="modal" data-target="#mesConditions" />--%>
                                         </div>
 
                                     </div>
@@ -123,6 +126,7 @@
 
                         </div>
                     </div>
+                    <div class="col-lg-3"></div>
             </ItemTemplate>
         </asp:ListView>
     </div>
