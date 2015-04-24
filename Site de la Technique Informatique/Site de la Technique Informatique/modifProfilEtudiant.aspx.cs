@@ -36,7 +36,7 @@ namespace Site_de_la_Technique_Informatique
         #region Évènements de la page
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, false, true, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, false, true, false, false);
         }
         #endregion
 
@@ -327,6 +327,8 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
 
+                Exception logEx = ex;
+                throw new Exception("Erreur lvModifProfilEtudiant_DeleteItem : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
 

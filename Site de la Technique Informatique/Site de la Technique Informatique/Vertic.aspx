@@ -96,8 +96,8 @@
 
 
             <section id="echeancier" class="echeancier-section">
-                <div class="row" style="width:937px;margin-left:15px;">
-                    <div class="row" style="width:937px;">
+                <div>
+                    <div >
                     <h3>Les dates à retenir</h3>
 
                     <p>Il est important que vous portiez une attention spéciale à la présente section. Les dates qui y sont inscrites vous permettront de prendre les actions nécessaires pour faire l’acquisition de votre portatif VerTIC.</p>
@@ -105,8 +105,8 @@
                 </div>           
                 <asp:ListView ID="lviewEcheancier" runat="server" ItemType="Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC" SelectMethod="lvEcheancier_GetData">
                     <LayoutTemplate>
-                        <div class="row" style="background-color:#eee;border-bottom:1px solid black; border-radius:3px;width:937px;">
-                            <div class="col-lg-8" style=" border-right:1px solid black;">
+                        <div style="background-color:#eee;border-bottom:1px solid black; border-radius:3px;min-height:50px;">
+                            <div class="col-lg-8">
                                 <h4>Événement</h4>
                             </div>
                             <div id="topDate" class="col-lg-4" style=" ">
@@ -114,26 +114,23 @@
                             </div>
                             
                     </div>
-                            <div>
                          <asp:PlaceHolder runat="server" ID="itemPlaceHolder"></asp:PlaceHolder>
-                            </div>
                     </LayoutTemplate>
                      <ItemTemplate>
-                        <div class="row" style="min-height:50px; height:auto; position:relative;width:937px; ">
+                        <div  style="min-height:50px; height:auto; position:relative; ">
                           
                             <div class="col-lg-4" style=" min-height:50px; height:100%; padding-top:10px; padding-bottom:10px;float:right; position:inherit ">
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>'  />
                                 </div>
                             <div style="float:right; border-right:1px solid black; margin:auto;  padding-top:10px; min-height:50px; width:63%;  ">
-                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' style="width:450px; word-wrap:break-word ; height:auto"   />
+                                <asp:Label ID="lblDescEvent" runat="server" Text='<%#BindItem.evenement %>' style="word-wrap:break-word ; height:auto"   />
                               </div>
                                 
                             </div>
                         </ItemTemplate>
                     <AlternatingItemTemplate>
-                         <div class="row"  style="background-color:#eee; height:50px; border-radius:3px;width:937px; " >
-                         <div class="divUpdateEvent" style="float:left;"  >
-                              </div>
+                         <div   style="background-color:#eee; height:50px; border-radius:3px;" >
+                       
                              <div class="col-lg-4" style="padding-top:10px; min-height:50px; height:auto; padding-bottom:10px; float:right;" >
                                    <asp:Label ID="lblDateEvent" runat="server" Text='<%#BindItem.dateDescription %>' />
                                 </div>

@@ -48,7 +48,7 @@
                             <div class="col-md-6 img-portfolio">
                                 <div>
                                     <div>
-                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="width:500px;" />
+                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="max-width:500px; max-height:500px;" />
 
                                     </div>                             
                                 </div>                           

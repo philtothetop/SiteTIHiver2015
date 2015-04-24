@@ -58,6 +58,7 @@ Extrants: --%>
             $('#myModal').modal('show');
         }
     </script>
+
     <script type="text/javascript">
         function copieImgData()
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lvModifProfilEtudiant_showDataURL_0.src;
@@ -71,7 +72,7 @@ Extrants: --%>
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
-            $('#maPhotoProfile').modal('hide');
+            $('#maPhotoProfile').modal('close');
         };
     </script>
     <!-- jQuery -->
@@ -81,6 +82,7 @@ Extrants: --%>
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
     <div class="container">
+        <div class="col-lg-2"></div>
         <div class="col-lg-6 col-centered">
 
             <div class="container-fluid">
@@ -114,7 +116,7 @@ Extrants: --%>
                                 <div class="modif-photo">
                                     <div class="img-thumbnail img-photo preview-photo">
                                         <div></div>
-                                                <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval("Photos/Profils/{0}","pathPhotoProfil") %>' Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#"Photos/Profils/"+Eval("pathPhotoProfil") %>' Width="125" Height="125" />
                                     </div>
                                     <div class="div-btnChangerPhoto">
                                         <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
@@ -218,5 +220,6 @@ Extrants: --%>
                 </asp:ListView>
             </div>
         </div>
+        <div class="col-lg-1"></div>
     </div>
 </asp:Content>
