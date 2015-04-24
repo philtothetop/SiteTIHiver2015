@@ -252,24 +252,13 @@
             </div>
         </asp:View>
 
-
-
-
-
-
-
-
     </asp:MultiView>
-    
-    <img id="imgIDOK" width="100" height="100"/>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#fuplPhoto").change(function () {
                 //POUR DÉBUGER
-                //$("#imgIDOK").attr("width", 200);
-                //$("#imgIDOK").attr("height", 200);
 
                 //Max et min size pour le preview
                 var maxSize = 1000;
