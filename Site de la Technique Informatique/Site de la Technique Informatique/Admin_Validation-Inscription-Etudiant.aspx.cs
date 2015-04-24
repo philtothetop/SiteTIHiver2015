@@ -15,6 +15,7 @@ using System.Web.UI.HtmlControls;
 using Newtonsoft.Json;
 using System.Drawing;
 using System.IO;
+using Site_de_la_Technique_Informatique.Classes;
 
 
 
@@ -319,96 +320,30 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Extrants:Aucun
         public bool envoie_courriel_confirmation(Etudiant etudiant)
         {
-            // METTRE ICI LE EMAIL DE LA PERSONNE QUI VA RÉPONDRE AUX MESSAGES DES FUTURS ÉTUDIANTS 
+            String titre = "Inscription TI Cegep de Granby";
+            String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a activé votre compte. ";
 
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            mail.To.Add(etudiant.courriel);
+            courrielAutomatiser courriel = new courrielAutomatiser();
 
-            // Informations de l'en-tête du message 
-            // 1- Email de la personne qui contacte le département 
-            // 2- Nom / Prénom de la personne qui contacte le département 
-            mail.From = new System.Net.Mail.MailAddress(etudiant.courriel, "Cgep", System.Text.Encoding.UTF8);
+            return courriel.envoie(etudiant.courriel, titre, message);
 
-            // Sujet de l'email envoyé
-            mail.Subject = "Inscription TI Cegep de Granby";
-
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
-
-            // Email de qui provient l'email (donc va chercher l'email de la personne dans le textbox)
-
-
-            // Corps du message : contient ce que la personne a écrit dans le module seulement
-
-            mail.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a activé votre compte. ";
-
-
-
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
-            mail.IsBodyHtml = true;
-            mail.Priority = System.Net.Mail.MailPriority.High;
-            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("mariephilippe.gill@gmail.com", "(pap!er)");
-            client.Port = 587;
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true;
-            try
-            {
-                client.Send(mail);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Exception logEx = ex;
-                return false;
-            }
+           
 
 
         }
 
         public bool envoie_courriel_confirmationRefuser(Etudiant etudiant)
         {
-            // METTRE ICI LE EMAIL DE LA PERSONNE QUI VA RÉPONDRE AUX MESSAGES DES FUTURS ÉTUDIANTS 
 
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            mail.To.Add(etudiant.courriel);
+             
+            String titre = "Inscription TI Cegep de Granby";
+            String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a refuser votre inscription. ";
 
-            // Informations de l'en-tête du message 
-            // 1- Email de la personne qui contacte le département 
-            // 2- Nom / Prénom de la personne qui contacte le département 
-            mail.From = new System.Net.Mail.MailAddress(etudiant.courriel, "Cgep", System.Text.Encoding.UTF8);
+            courrielAutomatiser courriel = new courrielAutomatiser();
 
-            // Sujet de l'email envoyé
-            mail.Subject = "Inscription TI Cegep de Granby";
+            return courriel.envoie(etudiant.courriel, titre, message);
+            
 
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
-
-            // Email de qui provient l'email (donc va chercher l'email de la personne dans le textbox)
-
-
-            // Corps du message : contient ce que la personne a écrit dans le module seulement
-
-            mail.Body = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a refuser votre inscription. ";
-
-
-
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
-            mail.IsBodyHtml = true;
-            mail.Priority = System.Net.Mail.MailPriority.High;
-            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("mariephilippe.gill@gmail.com", "(pap!er)");
-            client.Port = 587;
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true;
-            try
-            {
-                client.Send(mail);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Exception logEx = ex;
-                return false;
-            }
 
 
         }

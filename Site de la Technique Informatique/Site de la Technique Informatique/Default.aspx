@@ -19,7 +19,7 @@
 
         <!-- Carousel Section -->
         <div class="row well">
-            <h1 style="margin-top: -15px">Une place dynamique!</h1>
+            
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000" style="height: 400px;">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
