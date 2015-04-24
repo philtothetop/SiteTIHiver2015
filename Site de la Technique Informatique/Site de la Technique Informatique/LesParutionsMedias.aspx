@@ -55,7 +55,7 @@
 
                     <EmptyDataTemplate>
                         <div style="text-align:center;">
-                            <asp:Label ID="lblPasDeParution" runat="server" Text="Il n'y a pas de parution média depuis plus de un ans"></asp:Label>
+                            <asp:Label ID="lblPasDeParution" runat="server" Text="Il n'y a pas de parution média depuis plus d'un an."></asp:Label>
                         </div>
                 </EmptyDataTemplate>
             

@@ -67,7 +67,7 @@ namespace Site_de_la_Technique_Informatique
                             {
                                 etudiantCo = null;
                                 Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
-                                lblMessage.Text += "L' id de l'étudiant n'existe pas.";
+                                lblMessage.Text += "L'id de l'étudiant n'existe pas.";
                             }
                         }
                     }
@@ -157,7 +157,7 @@ namespace Site_de_la_Technique_Informatique
                     if (txtNouveauMotDePasse.Text != txtConfirmationNouveauMotDePasse.Text)
                     {
 
-                        ValidationResult vald = new ValidationResult("Les mots de passes ne match pas.", new[] { "NouveauMotDePasse" });
+                        ValidationResult vald = new ValidationResult("Les mots de passes ne correspondent pas.", new[] { "NouveauMotDePasse" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
@@ -174,7 +174,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     else
                     {
-                        ValidationResult vald = new ValidationResult("Le C.V. n'a pas une extension  valide.", new[] { "CV" });
+                        ValidationResult vald = new ValidationResult("Le C.V. n'a pas une extension valide.", new[] { "CV" });
                         isValid = false;
                         resultatsValidation.Add(vald);
                     }
