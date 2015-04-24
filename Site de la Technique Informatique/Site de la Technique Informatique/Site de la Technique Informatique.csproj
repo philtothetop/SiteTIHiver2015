@@ -112,7 +112,6 @@
     <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
-    <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
@@ -430,13 +429,6 @@
     </Compile>
     <Compile Include="AjoutDiscussion.aspx.designer.cs">
       <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.designer.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
     </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
