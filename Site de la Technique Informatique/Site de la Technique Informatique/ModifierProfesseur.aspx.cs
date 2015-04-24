@@ -24,12 +24,13 @@ namespace Site_de_la_Technique_Informatique
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
 
          
                    ddlCours.Enabled = ddlCours.Items.Count >0 ? true: false;
+                   btnModif.Enabled = ddlCours.Enabled;
 
             if (!Page.IsPostBack)
             {
@@ -355,12 +356,14 @@ namespace Site_de_la_Technique_Informatique
             {
                 ddlCours.Enabled = true;
                 lblNoClass.Visible = false;
+                btnModif.Enabled = true;
                
             }
             else
             {
                 ddlCours.Enabled = false;
                 lblNoClass.Visible = true;
+                btnModif.Enabled = false;
             }
         }
 

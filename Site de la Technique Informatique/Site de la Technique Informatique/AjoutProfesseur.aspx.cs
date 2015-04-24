@@ -17,7 +17,7 @@ namespace Site_de_la_Technique_Informatique
         #region Page_Events
         protected void Page_Load(object sender, EventArgs e)
         {
-             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+             //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
 
         //Envoie le mot de passe
@@ -156,26 +156,9 @@ namespace Site_de_la_Technique_Informatique
         #region création et envoi MP
         private void sendPassword(string tempPassword, Professeur nouveauProf)
         {
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            mail.To.Add(nouveauProf.courriel);
 
-            // Informations de l'en-tête du message 
-            // 1- Email de la personne qui contacte le département 
-            // 2- Nom / Prénom de la personne qui contacte le département 
-            mail.From = new System.Net.Mail.MailAddress("mariephilippe.gill@gmail.com", "Cégep", System.Text.Encoding.UTF8);
-
-            // Sujet de l'email envoyé
-            mail.Subject = "Inscription Professeur TI Cegep de Granby";
-
-            mail.SubjectEncoding = System.Text.Encoding.UTF8;
-
-            // Email de qui provient l'email (donc va chercher l'email de la personne dans le textbox)
-
-
-            // Corps du message : contient ce que la personne a écrit dans le module seulement
-
-
-            mail.Body = "Bonjour, <br/>" +
+            String titre = "Inscription Professeur TI Cegep de Granby";
+            String message = "Bonjour, <br/>" +
                  "Un administrateur vous a ajouté en tant qu'Utilisateur Professeur sur le site de la technique informatique du Cégep de Granby." + " Vous pouvez dès maintenant vous connecter sur le site à l'aide des informations de connexion suivantes:<br/> <br/>" +
                 "Courriel: " + nouveauProf.courriel + "<br/>" +
             "Mot de Passe: " + tempPassword + "<br/> <br/>" +
@@ -184,25 +167,9 @@ namespace Site_de_la_Technique_Informatique
             "Les administrateurs du site de la technique d'informatique de gestion<br/>" +
             "Cégep de Granby.";
 
+            courrielAutomatiser courriel = new courrielAutomatiser();
 
-
-            mail.BodyEncoding = System.Text.Encoding.UTF8;
-            mail.IsBodyHtml = true;
-            mail.Priority = System.Net.Mail.MailPriority.High;
-            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("mariephilippe.gill@gmail.com", "(pap!er)");
-            client.Port = 587;
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true;
-            try
-            {
-                client.Send(mail);
-            }
-            catch (Exception ex)
-            {
-                Exception logEx = ex;
-                throw new Exception("Erreur d'envoie de message : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
-            }
+            bool courrielBool = courriel.envoie(nouveauProf.courriel, titre, message);
         }
 
         static Random random = new Random();

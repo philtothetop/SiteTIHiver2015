@@ -74,10 +74,9 @@
         <asp:HiddenField runat="server" ID="ImgExSrc" />
         <asp:ScriptManagerProxy ID="smProxy" runat="server" />
         <div class="container">
-            
             <div class="row row-centered">
                 <div class="col-lg-5 col-centered">
-                    <h1>Inscription</h1>
+                    <h1>Inscription Étudiant</h1>
                 </div>
             </div>
             <asp:ListView ID="lviewFormulaireInscription" runat="server"
@@ -97,7 +96,7 @@
                                         <div class="modif-photo">
                                             <div class="img-thumbnail img-photo preview-photo">
                                                 <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Profils/photobase.bmp" Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" Width="125" Height="125" />
                                             </div>
                                             <div class="div-btnChangerPhoto">
                                                 <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
@@ -112,7 +111,7 @@
                                                         <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <iframe src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
+                                                        <iframe src='<%=".."+Request.ApplicationPath +"/Jquery/Cropper/Cropper.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
 
                                                     </div>
                                                 </div>
@@ -182,13 +181,14 @@
                                 <div class="control-group form-group">
                                     <div class="controls">
                                         <asp:CheckBox ID="cbCondition" runat="server" OnCheckedChanged="cbCondition_CheckedChanged" AutoPostBack="true" />
-                                        <asp:LinkButton ID="lnkConditions" runat="server" Text="Termes et conditions" data-toggle="modal" data-target="#mesConditions" />
+                                        <a href="TermesConditions.aspx" target="_blank">Termes et conditions</a>
+                                        <%--<asp:LinkButton ID="lnkConditions" runat="server" Text="Termes et conditions" data-toggle="modal" data-target="#mesConditions" />--%>
                                     </div>
 
                                 </div>
                                
                                 <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
-
+                               
                                 <!-- Modal Termes et conditions-->
                                 <div class="modal fade" id="mesConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">

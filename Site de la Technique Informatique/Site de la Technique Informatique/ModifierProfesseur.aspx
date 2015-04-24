@@ -37,21 +37,21 @@
             $('#maPhotoProfile').modal('hide');
         };
         function closeDivs(value) {
-            
+
             document.getElementById('<%= hidTab.ClientID%>').value = value;
             document.getElementById("ContentPlaceHolder1_divSuccess").style.visibility = "hidden";
             document.getElementById("ContentPlaceHolder1_divWarning").style.visibility = "hidden";
-            
+
         };
         function keepTab() {
             document.getElementById("aDelete").click();
         };
 
         $(document).ready(function () {
-            
-                var tab = document.getElementById('<%= hidTab.ClientID%>').value;
-                $('#myTab a[href="#' + tab + '"]').tab('show');
-            });
+
+            var tab = document.getElementById('<%= hidTab.ClientID%>').value;
+            $('#myTab a[href="#' + tab + '"]').tab('show');
+        });
 
     </script>
     <!-- jQuery -->
@@ -66,9 +66,9 @@
 
     <div class="container">
         <ul class="nav nav-tabs" id="myTab">
-            <li role="presentation" class="active" ><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs('informations')">Informations générales</a></li>
-            <li role="presentation" ><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('cours') ">Mes Cours</a></li>
-            <li role="presentation" ><a href="#delete" id="aDelete" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('delete'); ">Supprimer mon profil</a></li>
+            <li role="presentation" class="active"><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs('informations')">Informations générales</a></li>
+            <li role="presentation"><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('cours') ">Mes Cours</a></li>
+            <li role="presentation"><a href="#delete" id="aDelete" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('delete'); ">Supprimer mon profil</a></li>
         </ul>
 
         <div class="row row-centered">
@@ -155,8 +155,7 @@
                                                         <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <iframe runat="server" id="ifrImage" src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
-
+                                                        <iframe src='<%=".."+Request.ApplicationPath +"/Jquery/Cropper/Cropper.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
                                                     </div>
                                                 </div>
                                             </div>
@@ -234,7 +233,7 @@
             <div role="tabpanel" class="tab-pane fade" id="cours">
                 <div class="row row-centered">
                     <div class="col-md-10 col-centered">
-                        <div class="row ">
+                        <div class="row row-centered">
 
                             <h3>Mes Cours</h3>
                             <div>
@@ -245,8 +244,7 @@
                                             <div class="controls">
                                                 <label>Session</label>
                                                 <asp:DropDownList ID="ddlSession" CssClass="form-control" runat="server"
-                                                     OnSelectedIndexChanged="ddlSession_SelectedIndexChanged" AutoPostBack="true"
-                                                    >
+                                                    OnSelectedIndexChanged="ddlSession_SelectedIndexChanged" AutoPostBack="true">
                                                     <asp:ListItem Text="Session 1" Value="1"></asp:ListItem>
                                                     <asp:ListItem Text="Session 2" Value="2"></asp:ListItem>
                                                     <asp:ListItem Text="Session 3" Value="3"></asp:ListItem>
@@ -261,26 +259,26 @@
                                         <div class="control-group form-group">
                                             <div class="controls">
                                                 <label>Cours</label>
-                                                <asp:DropDownList ID="ddlCours" CssClass="form-control" runat="server" SelectMethod="getAllCours" DataTextField="nomCours" DataValueField="IDCours" ></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlCours" CssClass="form-control" runat="server" SelectMethod="getAllCours" DataTextField="nomCours" DataValueField="IDCours"></asp:DropDownList>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class=" col-md-1 col-centered">
+                                    <div class="col-md-1 col-centered">
                                         <asp:Button ID="btnModif" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="btnModif_Click" />
                                     </div>
                                     <div class="col-md-1 col-centered">
                                         <asp:Button ID="btnAjout" runat="server" Text="Ajouter" CssClass="btn btn-primary" OnClick="btnAjout_Click" />
                                     </div>
                                 </div>
-                                <div class ="row row-centered">
-                                    <asp:Label ID="lblNoClass" runat="server" Text="Vous n'avez pas de cours lors de cette session" Visible ="false" />
+                                <div class="row row-centered">
+                                    <asp:Label ID="lblNoClass" runat="server" Text="Vous n'avez pas de cours lors de cette session" Visible="false" />
                                 </div>
                             </div>
                         </div>
                         <hr />
                         <asp:ListView ID="lvModifierCours" runat="server"
-                            SelectMethod="lvModifierCours_GetData"                            
+                            SelectMethod="lvModifierCours_GetData"
                             ItemType="Site_de_la_Technique_Informatique.Model.Cours"
                             Visible="false"
                             UpdateMethod="updateCours"
@@ -288,7 +286,7 @@
                             OnItemDataBound="lvModifierCours_ItemDataBound">
 
                             <EmptyDataTemplate>
-                                <p>Vous n'avez aucun cours d'assigné!</p>
+                                <p>Vous n'avez aucun cours assignés!</p>
                             </EmptyDataTemplate>
                             <LayoutTemplate>
                                 <div class="row">
@@ -299,62 +297,32 @@
                                         </asp:DataPager>
                                     </div>
                                 </div>
-                                <div class="row row-centered">
 
-                                    <div class="col-md-3 col-centered">
-                                        <asp:Label ID="lblNoCours" runat="server">No. de cours</asp:Label>
-                                    </div>
+                                <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
 
-                                    <div class="col-md-4 col-centered">
-                                        <asp:Label ID="lblNomCours" runat="server">Nom du cours</asp:Label>
-                                    </div>
-
-                                    <div class="col-md-5 col-centered">
-                                        <asp:Label ID="lblDescCours" runat="server">Description</asp:Label>
-                                    </div>
-                                    <hr />
-                                </div>
-
-
-                                <div class="row row-centered">
-                                    <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                                </div>
                                 <div class="row-centered">
 
                                     <asp:LinkButton ID="lnkSaveCours" runat="server" Text="Sauvegarder" Style="float: right" CssClass="btn btn-default" />
 
                                 </div>
                             </LayoutTemplate>
-                            <ItemSeparatorTemplate>
-                                <hr style="border-color: #428BCA;" />
-                            </ItemSeparatorTemplate>
+
 
                             <ItemTemplate>
-                                <div class="form-inline">
-                                    <div class="col-md-4 col-centered">
+                                <div class="row row-centered">
 
-                                        <div class="control-group form-group" style="width: 100%;">
-                                            <div class="controls">
-                                                <asp:TextBox runat="server" ID="txtNomCours" CssClass="form-control" Style="width: 100%" Text='<%#BindItem.nomCours %>'></asp:TextBox>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-2 col-centered form-group form">
+
+                                        <label>No. de cours</label>
+                                        <asp:TextBox ID="txtNoCours" runat="server" CssClass="form-control" Text='<%#BindItem.noCours %>' />
+
                                     </div>
-                                    <div class="col-md-3 col-centered">
-                                        <div class="control-group form-group">
-                                            <div class="controls">
-                                                <asp:TextBox runat="server" ID="txtNoCours" CssClass="form-control" Text='<%#BindItem.noCours %>'></asp:TextBox>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-4 col-centered form-group form">
+                                        <label>Nom du cours</label>
+                                        <asp:TextBox ID="txtNomCours" CssClass="form-control" runat="server" Text='<%#BindItem.nomCours %>' />
                                     </div>
-                                    <div class="col-md-5 col-centered">
-                                        <div class="control-group form-group" style="width: 100%;">
-                                            <div class="controls">
-                                                <asp:TextBox runat="server" TextMode="MultiLine" ID="txtDescCours" CssClass="form-control" Style="width: 100%;" Text='<%#BindItem.descriptionCours %>'></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
-                                <br />
 
 
                             </ItemTemplate>
