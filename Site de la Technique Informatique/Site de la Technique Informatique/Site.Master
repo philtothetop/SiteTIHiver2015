@@ -70,7 +70,7 @@
                             <a href="Nouvelles.aspx">Nouvelles</a>
                         </li>
                         <li class="dropdown" runat="server" id="lblSouvenir">
-                            <a href="#">Souvenirs</a>
+                            <a href="Souvenirs.aspx">Souvenirs</a>
                         </li>
 
                         <li runat="server" id="lblInformation" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
