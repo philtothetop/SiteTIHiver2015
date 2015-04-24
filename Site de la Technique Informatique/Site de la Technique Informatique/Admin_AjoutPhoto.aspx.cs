@@ -27,112 +27,112 @@ namespace Site_de_la_Technique_Informatique
         //---------------------------------------------------------------
         //V2 POUR SAUVEGARDER PHOTO
         //Uploader une photo dans PhotoProfil
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (LeModelTIContainer modelTI = new LeModelTIContainer())
-                {
-                    Model.Professeur leProfCo = new Model.Professeur();
-                    leProfCo = null;
+        //protected void btnUpdate_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        using (LeModelTIContainer modelTI = new LeModelTIContainer())
+        //        {
+        //            Model.Professeur leProfCo = new Model.Professeur();
+        //            leProfCo = null;
 
-                    //Récupérer la personne connecté
-                    if (Request.Cookies["TIID"] != null)
-                    {
-                        if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
-                        {
-                            int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+        //            //Récupérer la personne connecté
+        //            if (Request.Cookies["TIID"] != null)
+        //            {
+        //                if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
+        //                {
+        //                    int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
 
-                            leProfCo = (from cl in modelTI.UtilisateurSet.OfType<Professeur>()
-                                        where cl.IDUtilisateur == leId
-                                        select cl).FirstOrDefault();
+        //                    leProfCo = (from cl in modelTI.UtilisateurSet.OfType<Professeur>()
+        //                                where cl.IDUtilisateur == leId
+        //                                select cl).FirstOrDefault();
 
-                            //Si le prof connecté est trouvé
-                            if (leProfCo != null)
-                            {
-                                //VERSION 2 TEST DE FILE UPLOAD
-                                FileUpload fuplPhoto = (FileUpload)lviewAjouterUneImage.Items[0].FindControl("fuplPhoto");
-                                Label lblEchecImage = (Label)lviewAjouterUneImage.Items[0].FindControl("lblEchecImage");
+        //                    //Si le prof connecté est trouvé
+        //                    if (leProfCo != null)
+        //                    {
+        //                        //VERSION 2 TEST DE FILE UPLOAD
+        //                        FileUpload fuplPhoto = (FileUpload)lviewAjouterUneImage.Items[0].FindControl("fuplPhoto");
+        //                        Label lblEchecImage = (Label)lviewAjouterUneImage.Items[0].FindControl("lblEchecImage");
 
-                                //Si le fileupload n'est pas vide
-                                if (fuplPhoto.HasFile)
-                                {
-                                    if (Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpg" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".png" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpeg")
-                                    {
-                                        try
-                                        {
-                                            System.Drawing.Image imageAAjouter = System.Drawing.Image.FromStream(fuplPhoto.PostedFile.InputStream);
+        //                        //Si le fileupload n'est pas vide
+        //                        if (fuplPhoto.HasFile)
+        //                        {
+        //                            if (Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpg" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".png" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpeg")
+        //                            {
+        //                                try
+        //                                {
+        //                                    System.Drawing.Image imageAAjouter = System.Drawing.Image.FromStream(fuplPhoto.PostedFile.InputStream);
 
-                                            //Grosseur max est de 1000 px et minimum 120 px
-                                            imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
+        //                                    //Grosseur max est de 1000 px et minimum 120 px
+        //                                    imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
 
-                                            String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
-                                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/" + ddlTypeDImage.SelectedValue.ToString() + "/"), imageNom);
-                                            imageAAjouter.Save(imageProfilChemin);
+        //                                    String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
+        //                                    String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/" + ddlTypeDImage.SelectedValue.ToString() + "/"), imageNom);
+        //                                    imageAAjouter.Save(imageProfilChemin);
 
-                                            //Sauvegarder image pour utiliser avec la bd
-                                            Model.Photos laPhotoBD = new Model.Photos();
-                                            laPhotoBD.pathPhoto = imageNom;
-                                            laPhotoBD.typePhoto = ddlTypeDImage.SelectedItem.Text;
+        //                                    //Sauvegarder image pour utiliser avec la bd
+        //                                    Model.Photos laPhotoBD = new Model.Photos();
+        //                                    laPhotoBD.pathPhoto = imageNom;
+        //                                    laPhotoBD.typePhoto = ddlTypeDImage.SelectedItem.Text;
 
-                                            //Faire un log pour l'action
-                                            Model.Log logPhoto = new Model.Log();
-                                            logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vien d'ajouter une photos sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
-                                            logPhoto.dateLog = DateTime.Now;
-                                            logPhoto.typeLog = 0;
-                                            logPhoto.Utilisateur = leProfCo;
+        //                                    //Faire un log pour l'action
+        //                                    Model.Log logPhoto = new Model.Log();
+        //                                    logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vien d'ajouter une photos sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
+        //                                    logPhoto.dateLog = DateTime.Now;
+        //                                    logPhoto.typeLog = 0;
+        //                                    logPhoto.Utilisateur = leProfCo;
 
-                                            modelTI.PhotosSet.Add(laPhotoBD);
-                                            modelTI.LogSet.Add(logPhoto);
-                                            modelTI.SaveChanges();
+        //                                    modelTI.PhotosSet.Add(laPhotoBD);
+        //                                    modelTI.LogSet.Add(logPhoto);
+        //                                    modelTI.SaveChanges();
 
-                                            //Indiquer que cela a marché
-                                            divReussiAjouterImage.Visible = true;
-                                            divPasReussiAjouterImage.Visible = false;
-                                            divPourAjouterUnePhoto.Visible = false;
+        //                                    //Indiquer que cela a marché
+        //                                    divReussiAjouterImage.Visible = true;
+        //                                    divPasReussiAjouterImage.Visible = false;
+        //                                    divPourAjouterUnePhoto.Visible = false;
 
-                                            lblEchecImage.Text = "";
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            lblEchecImage.Text = "Upload de l'image à échoué";
-                                        }
-                                    }
-                                    else 
-                                    {
-                                        divPasReussiAjouterImage.Visible = true;
-                                        lblPasReussi.Text = "Mauvais format de l'image";
-                                    }
-                                }
-                                else
-                                {
-                                    divPasReussiAjouterImage.Visible = true;
-                                    lblPasReussi.Text = "Image impossible à ajouter.";
-                                }
-                            }
-                            else
-                            {
-                                divPasReussiAjouterImage.Visible = true;
-                                lblPasReussi.Text = "Veuillez-vous reconnecter.";
-                            }
-                        }
-                        else
-                        {
-                            divPasReussiAjouterImage.Visible = true;
-                            lblPasReussi.Text = "Veuillez-vous reconnecter.";
-                        }
-                    }
-                    else
-                    {
-                        Response.Redirect("Default.aspx");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
+        //                                    lblEchecImage.Text = "";
+        //                                }
+        //                                catch (Exception ex)
+        //                                {
+        //                                    lblEchecImage.Text = "Upload de l'image à échoué";
+        //                                }
+        //                            }
+        //                            else 
+        //                            {
+        //                                divPasReussiAjouterImage.Visible = true;
+        //                                lblPasReussi.Text = "Mauvais format de l'image";
+        //                            }
+        //                        }
+        //                        else
+        //                        {
+        //                            divPasReussiAjouterImage.Visible = true;
+        //                            lblPasReussi.Text = "Image impossible à ajouter.";
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        divPasReussiAjouterImage.Visible = true;
+        //                        lblPasReussi.Text = "Veuillez-vous reconnecter.";
+        //                    }
+        //                }
+        //                else
+        //                {
+        //                    divPasReussiAjouterImage.Visible = true;
+        //                    lblPasReussi.Text = "Veuillez-vous reconnecter.";
+        //                }
+        //            }
+        //            else
+        //            {
+        //                Response.Redirect("Default.aspx");
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
         //---------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Admin_AjoutPhoto.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_AjoutPhoto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_AjoutPhoto.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_AjoutPhoto" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>
@@ -7,7 +7,7 @@
     <script src="http://code.jquery.com/jquery.js"></script>
 
     <asp:HiddenField runat="server" ID="ImgExSrc" />
-    <%--<asp:ScriptManagerProxy ID="smProxy" runat="server" />--%>
+    <asp:ScriptManagerProxy ID="smProxy" runat="server" />
 
  <h1>Administrateur : Ajouter une photo</h1>
 
@@ -67,7 +67,7 @@
             </ItemTemplate>
         </asp:ListView>
 
-        <div style="clear:both">
+        <%--<div style="clear:both">
             <br />
             <br />
             <br />
@@ -101,19 +101,19 @@
 
                         </ItemTemplate>
                 </asp:ListView>
-            </div>
-        
+            </div>--%>
+        <div style="clear:both;">
     <asp:DropDownList ID="ddlTypeDImage" runat="server">
         <asp:ListItem Text="Souvenir"></asp:ListItem>
         <asp:ListItem Text="Cégep"></asp:ListItem>
         <asp:ListItem Text="Autre"></asp:ListItem>
     </asp:DropDownList>
-
+            </div>
     </div>
 
     <asp:HiddenField ID="hfPathPhotoProfil" runat="server" />
 
-    <%--<link rel="stylesheet" href="Css/Inscription.css" 
+    <link rel="stylesheet" href="Css/Inscription.css" 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -152,7 +152,7 @@
         window.closeModal = function () {
             $('#maPhotoProfile').modal('hide');
         };
-    </script>--%>
+    </script>
 
 
 
