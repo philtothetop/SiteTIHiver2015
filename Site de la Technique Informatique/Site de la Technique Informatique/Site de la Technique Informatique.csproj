@@ -173,6 +173,7 @@
     <Content Include="Photos\image4.jpg" />
     <Content Include="Photos\image5.jpg" />
     <Content Include="Photos\image6.jpg" />
+    <Content Include="Photos\logo\Logo_Informatique-mini.jpg" />
     <Content Include="Photos\logo\Logo_Informatique.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
@@ -219,6 +220,7 @@
     <Content Include="Admin.master" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <Content Include="Souvenirs.aspx" />
+    <Content Include="TermesConditions.aspx" />
     <Content Include="tinymce\js\tinymce\langs\readme.md" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
@@ -783,6 +785,13 @@
     </Compile>
     <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.designer.cs">
       <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermesConditions.aspx.cs">
+      <DependentUpon>TermesConditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermesConditions.aspx.designer.cs">
+      <DependentUpon>TermesConditions.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>

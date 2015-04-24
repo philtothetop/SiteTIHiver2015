@@ -7,15 +7,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row row-centered">
+            <div class="col-lg-3 col-centered"></div>
             <div class="col-lg-6 col-centered">
                 <h1>Inscription</h1>
-                Votre inscription a été sauvegarder.<br />
-                <asp:Label ID="lblMessage" runat="server" Text="Un courriel vous sera envoyé pour confirmer votre inscription." />
-                <br />
-                Cliquez sur le lien pour confirmer et attendez la confirmation de l'administrateur.
-               
+                <p>Votre inscription a été sauvegarder.</p>
+                <p>
+                    <asp:Label ID="lblMessage" runat="server" Text="Un courriel vous sera envoyé contenant un lien pour valider votre courriel." />
+                    
+                </p>
             </div>
+            <div class="col-lg-3 col-centered"></div>
         </div>
-        </div>
-    
+    </div>
+
 </asp:Content>

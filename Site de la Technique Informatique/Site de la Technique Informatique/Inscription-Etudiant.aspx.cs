@@ -21,7 +21,7 @@ using Site_de_la_Technique_Informatique.Classes;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : System.Web.UI.Page
+    public partial class Inscription : ErrorHandling
     {
 
         //Recolte des erreurs des champs du formulaire.
@@ -42,10 +42,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         #endregion
         protected void Page_Load()
         {
-            if (Session["Utilisateur"] != null)
-            {
-                Response.Redirect("../Default.aspx", false);
-            }
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
         }
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
         //Écrit par Cédric Archambault 17 février 2015
@@ -343,6 +340,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
 
             return image;
+        }
+
+        protected void lnkAnnuler_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.UrlReferrer.ToString());
         }
 
 
