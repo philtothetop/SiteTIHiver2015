@@ -122,6 +122,71 @@
         </asp:DropDownList>
         <br />
         <br />
+
+
+
+
+
+
+
+
+        <div id="divPourAjouterUnePhotoModal" runat="server">
+     <asp:ListView ID="lviewPhoto" runat="server"
+            ItemType="Site_de_la_Technique_Informatique.Model.Photos"
+            SelectMethod="GetUnePhoto">
+
+         <LayoutTemplate>
+             <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+         </LayoutTemplate>
+
+            <ItemTemplate>
+                <div class="modif-photo">
+                    <div id="divDeLImage" runat="server" class="preview-photo" style="min-height:500px; clear:both;">
+                        
+                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" style="width:500px;height:500px;max-width:500px;max-height:500px;" />
+                    </div>
+
+                    <div class="div-btnChangerPhoto" style="clear:both; min-height:100px;">
+                        <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary" data-toggle="modal" data-target="#maPhotoProfile" />
+                    </div>
+                </div>
+                <div class="modal" id="maPhotoProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
+                            </div>
+                            <div class="modal-body">
+                                <iframe src='<%=".." + Request.ApplicationPath +"/Jquery/Cropper2/Cropper2.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div style="clear:both; float:none; padding:0px; margin:0px;">
+                <asp:Button ID="btnSauvegarderImage" Text="Sauvegarder" runat="server" OnClientClick="copieImgData()" OnClick="SauvegarderLaPhoto_Click" />
+            </div>
+            </ItemTemplate>
+
+        </asp:ListView>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Prévisualisation
                         <div id="dvPreview2" style="text-align:center; width:100%;">
                             <asp:Image ID="imgModifierPhoto" runat="server" />

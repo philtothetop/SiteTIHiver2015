@@ -129,6 +129,14 @@
     <Content Include="Inscription-Etudiant.aspx" />
     <Content Include="Inscription-message.aspx" />
     <Content Include="Inscription-valide.aspx" />
+    <Content Include="Jquery\Cropper2\Cropper2.aspx" />
+    <Content Include="Jquery\Cropper2\css\bootstrap.min.css" />
+    <Content Include="Jquery\Cropper2\css\cropper.css" />
+    <Content Include="Jquery\Cropper2\css\docs.css" />
+    <Content Include="Jquery\Cropper2\js\bootstrap.min.js" />
+    <Content Include="Jquery\Cropper2\js\cropper.js" />
+    <Content Include="Jquery\Cropper2\js\docsV2.js" />
+    <Content Include="Jquery\Cropper2\js\jquery.min.js" />
     <Content Include="Jquery\Cropper\Cropper.aspx" />
     <Content Include="Jquery\Cropper\css\bootstrap.min.css" />
     <Content Include="Jquery\Cropper\css\cropper.css" />
@@ -506,6 +514,13 @@
     <Compile Include="Inscription-valide.aspx.designer.cs">
       <DependentUpon>Inscription-valide.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Jquery\Cropper2\Cropper2.aspx.cs">
+      <DependentUpon>Cropper2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Jquery\Cropper2\Cropper2.aspx.designer.cs">
+      <DependentUpon>Cropper2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -792,6 +807,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="bin\" />
+    <Folder Include="Jquery\Cropper2\img\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="Photos\Autre\" />
