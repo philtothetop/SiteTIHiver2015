@@ -164,6 +164,7 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
+    <Content Include="Photos\Autres\Accueil.JPG" />
     <Content Include="Photos\Concepteurs\Cedric.JPG" />
     <Content Include="Photos\Concepteurs\Yannick.JPG" />
     <Content Include="Photos\entete.jpg" />
@@ -189,7 +190,7 @@
     <Content Include="Photos\Profils\photobase.bmp" />
     <Content Include="Photos\Concepteurs\Raphael.JPG" />
     <Content Include="Photos\Concepteurs\Xavier.JPG" />
-    <Content Include="Photos\quiSommesNous.JPG" />
+    <Content Include="Photos\Autres\quiSommesNous.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
     <Content Include="QuiSommesNous.aspx" />
@@ -232,6 +233,7 @@
     <Content Include="Upload\Media\plan420616H15.pdf" />
     <Content Include="Upload\Media\AnalysePreliminaire.pdf" />
     <Content Include="Upload\Media\Les tests en SCRUM.pdf" />
+    <Content Include="Upload\Cours\grilles_informatique.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -813,7 +815,6 @@
     <Folder Include="bin\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Photos\Autre\" />
     <Folder Include="Photos\Cégep\" />
     <Folder Include="Photos\Souvenir\Autre\" />
     <Folder Include="Photos\Souvenir\Cégep\" />
