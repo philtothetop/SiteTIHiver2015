@@ -44,9 +44,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur liste etudiant courriel non valide 24h : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Chercher liste nombre courriel : ");
             }
-            return "";
+            
         }
         //Cette class chercher la liste des étudiant inscription dont leur courriel à été validé, mais leur compte n'est pas acctiver.
         //Écrit par Cédric Archambault 27 février 2015
@@ -76,8 +77,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
 
+                Exception logEx = ex;
+                throw new Exception("Erreur GetUtilisateurEtudiantList : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
-            return null;
+       
         }
         //Cette class Efface tous les comptes étudiants sélectionner
         //Écrit par Cédric Archambault 27 février 2015
@@ -118,7 +121,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Supprimer Tous : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
         //Cette class refuser un étudiant.
@@ -153,7 +157,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Refuser : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
 
@@ -195,7 +200,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Accepter Tous : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
         //Cette class Accepter un étudiant.
@@ -229,7 +235,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Accepter Click : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
         //Cette class sélectionne tous les étudiants à l'écran.
@@ -268,7 +275,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur check tous : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
 
@@ -311,7 +319,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Effacer Inscription Courriel Non Valide : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + " ");
             }
         }
         //Cette class permet d'envoyer un courriel de confirmation de l'inscription.

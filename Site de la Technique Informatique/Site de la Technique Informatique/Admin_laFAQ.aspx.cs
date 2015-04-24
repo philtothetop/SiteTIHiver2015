@@ -153,7 +153,7 @@ namespace Site_de_la_Technique_Informatique
                 catch (Exception ex)
                 {
                     lblMessage.Attributes["style"] = "color:red;";
-                    lblMessage.Text += "Erreur lors du clic sur btn_Ajouter: " + ex.ToString();
+                    lblMessage.Text += "Erreur lors du clic sur le bouton Ajouter: " + ex.ToString();
                 }
 
             }

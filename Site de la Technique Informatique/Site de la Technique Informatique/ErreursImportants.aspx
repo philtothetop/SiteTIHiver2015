@@ -15,8 +15,8 @@
                 <div id="divLesExcuses" class="row">
                     <h3>humm... c'est embarrassant...</h3>
                     <label>
-                        Nous sommes désolés, il semblerait que l'une de vos manoeuvre a fait s'écrouler la page où vous étiez.<br />
-                        Nous tenons ce problème très à coeur et en cas de problème persistant veuillez contacter le Cégep De Granby
+                        Nous sommes désolés, il semblerait que l'une de vos manoeuvres a fait s'écrouler la page où vous étiez.<br />
+                        Nous tenons ce problème très à coeur et en cas de problème persistant, veuillez contacter le Cégep de Granby
                         - Département de la technique informatique. <a href="../Default.aspx">Revenir à l'accueil</a>.
                     </label>
                     <br />

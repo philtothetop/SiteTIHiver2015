@@ -42,11 +42,11 @@
                 <div class="eg-button">
                     <button class="btn btn-warning" id="reset" type="button">Restaurer</button>
 
-                    <button class="btn btn-info" id="zoomIn" type="button">Zoom In</button>
-                    <button class="btn btn-info" id="zoomOut" type="button">Zoom Out</button>
-                    <label class="btn btn-primary" for="inputImage" title="Télécharger">
+                    <button class="btn btn-info" id="zoomIn" type="button">Agrandir</button>
+                    <button class="btn btn-info" id="zoomOut" type="button">Dézoomer</button>
+                    <label class="btn btn-primary" for="inputImage" title="arcourir">
                         <input class="hide" id="inputImage" name="file" type="file" accept="image/*">
-                        Télécharger
+                        Parcourir
        
                     </label>
                 </div>

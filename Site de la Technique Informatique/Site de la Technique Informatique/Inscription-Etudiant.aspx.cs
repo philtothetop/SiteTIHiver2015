@@ -21,7 +21,7 @@ using Site_de_la_Technique_Informatique.Classes;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Inscription : System.Web.UI.Page
+    public partial class Inscription : ErrorHandling
     {
 
         //Recolte des erreurs des champs du formulaire.
@@ -38,14 +38,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
         public List<String> panneauxEnErreur = new List<string>();
 
         //Url de la photo du profil
-        String urlPhoto = "";
+     
         #endregion
         protected void Page_Load()
         {
-            if (Session["Utilisateur"] != null)
-            {
-                Response.Redirect("../Default.aspx", false);
-            }
+            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, true);
         }
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
         //Écrit par Cédric Archambault 17 février 2015
@@ -68,9 +65,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur GetUtilisateurEtudiant : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
-            return null;
+         
         }
         //Cette class permet de valider l'utilisateur qui est a l'écran et sauvegarder dans la BD
         //Écrit par Cédric Archambault 17 février 2015
@@ -245,6 +243,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
                 Response.Redirect("Inscription-message.aspx?id=0", false);
+                Exception logEx = ex;
             }
         }
         //Cette class permet des/active le bouton accepter par le checkbox
@@ -259,7 +258,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Condition CheckedChanged : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
         //Cette class permet des/active le bouton accepter par le link  Accepter
@@ -278,7 +278,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Accepter Click : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
         //Cette class permet des/active le bouton accepter
@@ -343,6 +344,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
 
             return image;
+        }
+
+        protected void lnkAnnuler_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.UrlReferrer.ToString());
         }
 
 

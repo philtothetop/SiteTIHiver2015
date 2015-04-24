@@ -5,15 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Site_de_la_Technique_Informatique.Jquery.Cropper2
+namespace Site_de_la_Technique_Informatique
 {
-    public partial class Cropper2 : System.Web.UI.Page
+    public partial class TermesConditions : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }

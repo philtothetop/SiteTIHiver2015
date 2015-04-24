@@ -14,7 +14,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             
             if (Request.QueryString["id"]=="0")//Si l'envoie du courriel ne fonctionne pas.
             {
-                lblMessage.Text ="Un problèeme est survernue durant l'inscription, votre inscription a été automatiquement refuser.";
+                lblMessage.Text ="Un problème est survenu durant l'inscription, votre inscription a été automatiquement refusée.";
             }
         }
     }

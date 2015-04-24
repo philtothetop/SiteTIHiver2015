@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Admin_AjoutPhoto.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_AjoutPhoto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_AjoutPhoto.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_AjoutPhoto" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>
@@ -7,7 +7,7 @@
     <script src="http://code.jquery.com/jquery.js"></script>
 
     <asp:HiddenField runat="server" ID="ImgExSrc" />
-    <%--<asp:ScriptManagerProxy ID="smProxy" runat="server" />--%>
+    <asp:ScriptManagerProxy ID="smProxy" runat="server" />
 
  <h1>Administrateur : Ajouter une photo</h1>
 
@@ -37,15 +37,55 @@
          </LayoutTemplate>
 
             <ItemTemplate>
-                <div class="modif-photo">
-                    <div class="img-thumbnail img-photo preview-photo">
-                        <div></div>
-                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" style="min-width:120px;min-height:120px;max-width:1000px;max-height:1000px;" />
-                    </div>
-                    <br />
-                    <div class="div-btnChangerPhoto">
-                        <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
 
+<%--
+                <div>
+                    <div style="clear:both;">
+                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" style="width:00px;height:300px;max-width:500px;max-height:500px;" />
+                    </div>
+                    <div style="clear:both;">
+                        <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary" data-toggle="modal" data-target="#maPhotoProfile" />
+                    </div>
+                    <div class="modal" id="maPhotoProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
+                            </div>
+                            <div class="modal-body">
+                                <iframe src='<%=".." + Request.ApplicationPath +"/Jquery/Cropper2/Cropper2.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                    <div>
+                        <asp:Button ID="btnSauvegarderImage" Text="Sauvegarder" runat="server" OnClientClick="copieImgData()" OnClick="SauvegarderLaPhoto_Click" />
+                    </div>
+                </div>
+
+
+--%>
+
+
+
+
+
+
+
+
+
+
+
+                <div class="modif-photo">
+                    <div id="divDeLImage" runat="server" class="preview-photo" style="min-height:500px; clear:both;">
+                        
+                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" style="width:500px;height:500px;max-width:500px;max-height:500px;" />
+                    </div>
+
+                    <div class="div-btnChangerPhoto" style="clear:both; min-height:100px;">
+                        <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary" data-toggle="modal" data-target="#maPhotoProfile" />
                     </div>
                 </div>
                 <div class="modal" id="maPhotoProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -56,18 +96,25 @@
                                 <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
                             </div>
                             <div class="modal-body">
-                                <iframe src="../Jquery/Cropper2/Cropper2.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
-
+                                <iframe src='<%=".." + Request.ApplicationPath +"/Jquery/Cropper2/Cropper2.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
                             </div>
                         </div>
 
                     </div>
                 </div>
+                <div style="clear:both; float:none; padding:0px; margin:0px;">
                 <asp:Button ID="btnSauvegarderImage" Text="Sauvegarder" runat="server" OnClientClick="copieImgData()" OnClick="SauvegarderLaPhoto_Click" />
+            </div>
+            
+            
+            
+            
+            
+            
             </ItemTemplate>
         </asp:ListView>
 
-        <div style="clear:both">
+        <%--<div style="clear:both">
             <br />
             <br />
             <br />
@@ -101,19 +148,19 @@
 
                         </ItemTemplate>
                 </asp:ListView>
-            </div>
-        
+            </div>--%>
+        <div style="clear:both;">
     <asp:DropDownList ID="ddlTypeDImage" runat="server">
         <asp:ListItem Text="Souvenir"></asp:ListItem>
         <asp:ListItem Text="Cégep"></asp:ListItem>
         <asp:ListItem Text="Autre"></asp:ListItem>
     </asp:DropDownList>
-
+            </div>
     </div>
 
     <asp:HiddenField ID="hfPathPhotoProfil" runat="server" />
 
-    <%--<link rel="stylesheet" href="Css/Inscription.css" 
+    <link rel="stylesheet" href="Css/Inscription.css" 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -125,7 +172,6 @@
     <link href="Cropper2/css/bootstrap.min.css" rel="stylesheet">
     <link href="Cropper2/css/cropper.css" rel="stylesheet">
     <link href="Cropper2/css/docs.css" rel="stylesheet">
-    <link href="Css/Inscription.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -140,19 +186,90 @@
     </script>
     <script type="text/javascript">
         function copieImgData() {
-            document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lviewPhoto_showDataURL_0.src;
+            document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_showDataURL_0.src;
         }
     </script>
     <script type="text/javascript">
         window.transfertDataImg = function (dataURL) {
-            $("#ContentPlaceHolder1_lviewPhoto_showDataURL_0").attr("src", dataURL);
+            //POUR DÉBUGER
+            //$("#imgIDOK").attr("width", 300);
+            //$("#imgIDOK").attr("height", 300);
+
+
+            $("#ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_showDataURL_0").attr("src", dataURL);
+            
+            var maxSize = 500;
+            var minSize = 120;
+
+            var img = new Image();
+            img.src = dataURL// e.target.result;
+
+            var width = img.width;
+            var height = img.height;
+
+            if (width == height) {
+                width = maxSize;
+                height = maxSize;
+            }
+            else if (width > height) {
+                height = (maxSize / width) * height;
+                width = maxSize;
+            }
+            else if (height > width) {
+                width = (maxSize / height) * width;
+                height = maxSize;
+            }
+
+            var valeurAUtiliser = img.height;
+
+            //Si image plus grand que max size
+            if (img.height > maxSize && img.width > maxSize) {
+                if (valeurAUtiliser < img.width) {
+                    valeurAUtiliser = img.width;
+                }
+            }
+            else if (img.height > maxSize) {
+                valeurAUtiliser = img.height;
+            }
+            else if (img.width > maxSize) {
+                valeurAUtiliser = img.width;
+            }
+            else {
+                valeurAUtiliser = maxSize;
+            }
+
+            var valeurDivision = maxSize / valeurAUtiliser;
+            width = img.width * valeurDivision;
+            height = img.height * valeurDivision;
+
+            //Si plus petit que min grosseur maintenant
+            if (width < minSize) {
+                width = minSize;
+            }
+
+            //Si plus petit que min hauteur maintenant
+            if (height < minSize) {
+                height = minSize;
+            }
+
+            //Pour redimentionner le div avec l'image
+            //$("#ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_divDeLImage_0").attr("width", width);
+            //$("#ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_divDeLImage_0").attr("height", height);
+
+            //Pour redimentionner le preview image
+            $("#ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_showDataURL_0").attr("width", width);
+            $("#ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_showDataURL_0").attr("height", height);
+
+
+            
+            
         };
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
             $('#maPhotoProfile').modal('hide');
         };
-    </script>--%>
+    </script>
 
 
 
@@ -165,8 +282,8 @@
                 var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
                 if (regex.test($(this).val().toLowerCase())) {
                     if ($.browser.msie && parseFloat(jQuery.browser.version) <= 9.0) {
-                        $("#dvPreview").show();
-                        $("#dvPreview")[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(this).val();
+                        //$("#dvPreview").show();
+                        //$("#dvPreview")[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(this).val();
                     }
                     else {
                         if (typeof (FileReader) != "undefined") {
@@ -174,9 +291,69 @@
                             $("#dvPreview").append("<img />");
                             var reader = new FileReader();
                             reader.onload = function (e) {
-                                $("#dvPreview img").attr("src", e.target.result);
-                                $("#dvPreview img").attr("width", 120);
-                                $("#dvPreview img").attr("height", 120);
+
+
+                            //POUR DÉBUGER
+                            // $("#imgIDOK").attr("width", 300);
+                            // $("#imgIDOK").attr("height", 300);
+
+                            //var maxSize = 500;
+                            //var minSize = 120;
+
+                            //var img = new Image();
+                            //img.src = e.target.result;
+
+                            //var width = img.width;
+                            //var height = img.height;
+
+                            //if (width == height) {
+                            //    width = maxSize;
+                            //    height = maxSize;
+                            //}
+                            //else if (width > height) {
+                            //    height = (maxSize / width) * height;
+                            //    width = maxSize;
+                            //}
+                            //else if (height > width) {
+                            //    width = (maxSize / height) * width;
+                            //    height = maxSize;
+                            //}
+
+                            //var valeurAUtiliser = img.height;
+
+                            ////Si image plus grand que max size
+                            //if (img.height > maxSize && img.width > maxSize) {
+                            //    if (valeurAUtiliser < img.width) {
+                            //        valeurAUtiliser = img.width;
+                            //    }
+                            //}
+                            //else if (img.height > maxSize) {
+                            //    valeurAUtiliser = img.height;
+                            //}
+                            //else if (img.width > maxSize) {
+                            //    valeurAUtiliser = img.width;
+                            //}
+                            //else {
+                            //    valeurAUtiliser = maxSize;
+                            //}
+
+                            //var valeurDivision = maxSize / valeurAUtiliser;
+                            //width = img.width * valeurDivision;
+                            //height = img.height * valeurDivision;
+
+                            ////Si plus petit que min grosseur maintenant
+                            //if (width < minSize) {
+                            //    width = minSize;
+                            //}
+
+                            ////Si plus petit que min hauteur maintenant
+                            //if (height < minSize) {
+                            //    height = minSize;
+                            //}
+
+                            //$("#dvPreview img").attr("width", width);
+                            //$("#dvPreview img").attr("height", height);
+
                             }
                             reader.readAsDataURL($(this)[0].files[0]);
                         } else {

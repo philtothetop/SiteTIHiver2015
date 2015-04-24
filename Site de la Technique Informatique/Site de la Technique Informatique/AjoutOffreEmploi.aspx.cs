@@ -16,7 +16,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(false, false, false, true);
+            //SavoirSiPossedeAutorizationPourLaPage(false, false, false, true);
 
             txtDescriptionOffre.Attributes.Add("maxlength", txtDescriptionOffre.MaxLength.ToString());
             if (!IsPostBack)
@@ -83,7 +83,7 @@ namespace Site_de_la_Technique_Informatique
             if (fuPDF.HasFile)
             {
                 Session["fuPDF"] = fuPDF;
-                lblNomPDF.Text = "Fichier sélectioné: " + fuPDF.FileName;
+                lblNomPDF.Text = "Fichier sélectionné: " + fuPDF.FileName;
                 lnkRetirerPDF.Visible = true;
             }
         }
@@ -244,7 +244,7 @@ namespace Site_de_la_Technique_Informatique
                 }
                 else if (Double.TryParse(txtSalaire.Text, out d) == false)
                 {
-                    lblSalaire.Text = "Salaire invalide (Utilisez la virgule pour les décimals)";
+                    lblSalaire.Text = "Salaire invalide (Utilisez la virgule pour les décimales)";
                     txtSalaire.BorderColor = Color.Red;
                     nbErreurs++;
                 }
@@ -264,7 +264,7 @@ namespace Site_de_la_Technique_Informatique
                 }
                 else if (Int32.TryParse(txtHeures.Text, out i) == false)
                 {
-                    lblHeures.Text = "Nombre d'heures par semaine invalid";
+                    lblHeures.Text = "Nombre d'heures par semaine invalide";
                     txtHeures.BorderColor = Color.Red;
                     nbErreurs++;
                 }
@@ -416,7 +416,7 @@ namespace Site_de_la_Technique_Informatique
                             }
                             else if (fuPDF.PostedFile.ContentLength > 2000000)
                             {
-                                lblPDF.Text = "Le PDF doit peser 2 Mo au maximum";
+                                lblPDF.Text = "Le PDF ne doit pas dépasser 2mo";
                                 fuPDF.BorderColor = Color.Red;
                                 nbErreurs++;
                             }

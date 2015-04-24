@@ -11,6 +11,7 @@
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
     <div class="container">
+        <div class="col-lg-3"></div>
         <div class="col-lg-6 col-centered">
 
             <div class="container-fluid">
@@ -33,7 +34,7 @@
                     <ItemTemplate>
                         <div class="row row-centered">
                             <div class="col-lg-9 col-centered">
-                                <h1>Modification du profil</h1>
+                                <h1>Profil</h1>
                             </div>
                         </div>
                         <div class="control-group form-group">
@@ -93,6 +94,7 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-1"></div>
     </div>
 </asp:Content>
 
