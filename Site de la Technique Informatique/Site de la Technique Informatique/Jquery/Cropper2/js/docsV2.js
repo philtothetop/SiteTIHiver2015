@@ -31,8 +31,8 @@
 
         //maxWidth: 1000,
         //maxHeight: 1000,
-        minWidth: 125,
-        minHeight: 125,
+        minWidth: 120,
+        minHeight: 120,
 
         done: function (data) {
             $dataX.val(data.x);
