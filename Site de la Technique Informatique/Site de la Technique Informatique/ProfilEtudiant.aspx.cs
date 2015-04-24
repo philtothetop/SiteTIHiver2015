@@ -86,7 +86,8 @@ namespace Site_de_la_Technique_Informatique
                 Response.Redirect("modifProfilEtudiant.aspx?id=" + Request.QueryString["id"]);
             }catch(Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Modifier_click : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
     }

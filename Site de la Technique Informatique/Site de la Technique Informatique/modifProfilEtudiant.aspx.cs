@@ -327,6 +327,8 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
 
+                Exception logEx = ex;
+                throw new Exception("Erreur lvModifProfilEtudiant_DeleteItem : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
 
