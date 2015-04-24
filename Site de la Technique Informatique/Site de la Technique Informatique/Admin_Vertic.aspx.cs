@@ -138,7 +138,7 @@ namespace Site_de_la_Technique_Informatique
                     loggerUnLog.UtilisateurIDUtilisateur = lutilisateurCo.IDUtilisateur;
                     lecontexte.LogSet.Add(loggerUnLog);
                     lecontexte.SaveChanges();
-                    lblConfirmation.Text = "Sauvegarde réussie";
+                    mvAdmin_Vertic.SetActiveView(viewFin);
 
 
                 }
@@ -147,6 +147,12 @@ namespace Site_de_la_Technique_Informatique
             {
                 LogErreur("Admin_OffreEmploi.aspx.cs dans la méthode GetLesOffresDEmploi", ex);
             }
+        }
+
+        protected void lnkRetour_Click(object sender, EventArgs e)
+        {
+            mvAdmin_Vertic.SetActiveView(viewDefault);
+
         }
     }
 }

@@ -14,15 +14,60 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Page.IsPostBack == false)
+            {
+                //Set les drops downs listes (modifier/Ajouter)
+                Dictionary<string, string> listeDesElements = listeStaticSouvenirs(false); 
+
+                ddlTypeDImage.DataSource = listeDesElements;
+                ddlTypeDImage.DataTextField = "Key";
+                ddlTypeDImage.DataValueField = "Value";
+                ddlTypeDImage.DataBind();
+
+                ddlModifierPhoto.DataSource = listeDesElements;
+                ddlModifierPhoto.DataTextField = "Key";
+                ddlModifierPhoto.DataValueField = "Value";
+                ddlModifierPhoto.DataBind();
+
+                //Set le drop down liste(Pour voir photos)
+                Dictionary<string, string> listeDesElementsAVoir = listeStaticSouvenirs(true); 
+
+                ddlTypePhotoSupprimer.DataSource = listeDesElementsAVoir;
+                ddlTypePhotoSupprimer.DataTextField = "Key";
+                ddlTypePhotoSupprimer.DataValueField = "Value";
+                ddlTypePhotoSupprimer.DataBind();
+
+            }
+
             Response.Cookies["TIID"].Value = "2";
             //SavoirSiPossedeAutorizationPourLaPage(false, true, false, false);
         }
 
-        protected void btnajouterAutreImage_Click(object sender, EventArgs e)
+        //Pour recevoir la liste des type de souvenirs
+        public  Dictionary<string, string> listeStaticSouvenirs(bool avecTous)
         {
-            Response.Redirect("QuePourTest.aspx");
+             Dictionary<string, string> listeDesElements= new Dictionary<string, string>();
+
+             if (avecTous == true)
+             {
+                 listeDesElements.Add("Tous","Tous");
+             }
+
+             listeDesElements.Add("Cégep","Cégep");
+             listeDesElements.Add("Étudiants", "Étudiants");
+             listeDesElements.Add("Professeurs", "Professeurs");
+             listeDesElements.Add("Projets", "Projets");
+             listeDesElements.Add("Autre", "Autre");
+
+             return listeDesElements;
         }
 
+        protected void btnajouterAutreImage_Click(object sender, EventArgs e)
+        {
+            divPasReussiAjouterImage.Visible = false;
+            divReussiAjouterImage.Visible = false;
+            divPourAjouterUnePhoto.Visible = true;
+        }
 
         //Uploader une image dans souvenir
         protected void btnUpdate_Click(object sender, EventArgs e)
@@ -60,14 +105,23 @@ namespace Site_de_la_Technique_Informatique
                                             //Grosseur max est de 1000 px et minimum 120 px
                                             imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
 
-                                            String imageNom = ddlTypeDImage.SelectedValue.ToString() + "/" + (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
-                                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/" + ddlTypeDImage.SelectedValue.ToString() + "/"), imageNom);
+                                            String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
+                                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlTypeDImage.Text + "/" + imageNom);
                                             imageAAjouter.Save(imageProfilChemin);
 
                                             //Sauvegarder image pour utiliser avec la bd
                                             Model.Photos laPhotoBD = new Model.Photos();
                                             laPhotoBD.pathPhoto = imageNom;
                                             laPhotoBD.typePhoto = ddlTypeDImage.SelectedItem.Text;
+
+                                            if (txtbDescriptionPhotoAAjouter.Text != null)
+                                            {
+                                                laPhotoBD.descriptionPhoto = txtbDescriptionPhotoAAjouter.Text;
+                                            }
+                                            else
+                                            {
+                                                laPhotoBD.descriptionPhoto = "";
+                                            }
 
                                             //Faire un log pour l'action
                                             Model.Log logPhoto = new Model.Log();
@@ -131,7 +185,7 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lviewSupprimerPhotosDataBound(object sender, EventArgs e)
         {
-            dataPagerPhotosSouvenirs.Visible = (dataPagerPhotosSouvenirs.PageSize < dataPagerPhotosSouvenirs.TotalRowCount);
+            //dataPagerPhotosSouvenirs.Visible = (dataPagerPhotosSouvenirs.PageSize < dataPagerPhotosSouvenirs.TotalRowCount);
         }
 
         public System.Drawing.Image ResizeTheImage(int maxSize, int minSize, System.Drawing.Image imageAChecker)
@@ -220,19 +274,150 @@ namespace Site_de_la_Technique_Informatique
         //Changer d'onglet pour ajouter une photos
         protected void btnAjouterUnePhoto_Click(object sender, EventArgs e)
         {
+            divPasReussiAjouterImage.Visible = false;
+            divReussiAjouterImage.Visible = false;
+            divPourAjouterUnePhoto.Visible = true;
             mviewLesPhotos.ActiveViewIndex = 1;
         }
 
         //Changer d'onglet pour modifier une photo
         protected void btnModifierLaPhoto_Click(object sender, EventArgs e)
         {
-            mviewLesPhotos.ActiveViewIndex = 2;
+            int argumentIDPhoto = Convert.ToInt32(((Button)sender).CommandArgument);
+
+            using (LeModelTIContainer modelTI = new LeModelTIContainer())
+            {
+                Model.Utilisateur lutilisateurCo = new Model.Utilisateur();
+                lutilisateurCo = null;
+
+                Model.Photos laPhotoATrouver = new Model.Photos();
+                laPhotoATrouver = null;
+
+                //Récupérer la personne connecté
+                if (Request.Cookies["TIID"] != null)
+                {
+                    if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
+                    {
+                        int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+
+                        lutilisateurCo = (from cl in modelTI.UtilisateurSet
+                                            where cl.IDUtilisateur == leId
+                                            select cl).FirstOrDefault();
+
+                        laPhotoATrouver = (from cl in modelTI.PhotosSet
+                                            where cl.IDPhotos == argumentIDPhoto
+                                            select cl).FirstOrDefault();
+                    }
+                }
+
+                //Si lutilisateur connecté est trouvé et la photo
+                if (lutilisateurCo != null && laPhotoATrouver != null)
+                {
+                    txtbModifierPhotoDescription.Text = laPhotoATrouver.descriptionPhoto;
+                    imgModifierPhoto.ImageUrl = "~/Photos/Souvenir/" + laPhotoATrouver.typePhoto + "/"+ laPhotoATrouver.pathPhoto;
+                    ddlModifierPhoto.SelectedValue = laPhotoATrouver.typePhoto;
+                    hfieldIDItemAModifier.Value = Convert.ToString(laPhotoATrouver.IDPhotos);
+
+                    mviewLesPhotos.ActiveViewIndex = 2;
+                }
+                //Si pu connecté, rediriger a la page d'accueil
+                else
+                {
+                    Response.Redirect("Default.aspx");
+                          
+                }
+            }
         }
 
         //Changer d'onglet pour voir les photos
-        protected void btnModifierSupprimerPhoto_Click(object sender, EventArgs e)
+        protected void btnVoirLesPhotos_Click(object sender, EventArgs e)
         {
+            lviewSupprimerPhotos.DataBind();
+            ddlTypePhotoSupprimer.SelectedIndex = 0;
             mviewLesPhotos.ActiveViewIndex = 3;
+        }
+
+        //Pour changer les photos a voir
+        protected void ddlTypePhotoSupprimer_IndexChange(object sender, EventArgs e)
+        {
+            lviewSupprimerPhotos.DataBind();
+        }
+
+
+
+        //Pour mettre a jour la photo
+        protected void btnUpdaterModifierPhoto_Click(object sender, EventArgs e)
+        {
+            using (LeModelTIContainer modelTI = new LeModelTIContainer())
+            {
+
+                int leID = -1;
+
+                //Allez cherché le ID dans le hiddenfield
+                if (hfieldIDItemAModifier.Value != null)
+                {
+                    if (!hfieldIDItemAModifier.Value.Equals(""))
+                    {
+                        leID = Convert.ToInt32(hfieldIDItemAModifier.Value);
+                    }
+                }
+
+                if (leID != -1)
+                {
+
+                    Model.Utilisateur lutilisateurCo = new Model.Utilisateur();
+                    lutilisateurCo = null;
+
+                    Model.Photos laPhotoATrouver = new Model.Photos();
+                    laPhotoATrouver = null;
+
+                    //Récupérer la personne connecté
+                    if (Request.Cookies["TIID"] != null)
+                    {
+                        if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
+                        {
+                            int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+
+                            lutilisateurCo = (from cl in modelTI.UtilisateurSet
+                                              where cl.IDUtilisateur == leId
+                                              select cl).FirstOrDefault();
+
+                            laPhotoATrouver = (from cl in modelTI.PhotosSet
+                                               where cl.IDPhotos == leID
+                                               select cl).FirstOrDefault();
+                        }
+                    }
+
+                    //Si lutilisateur connecté est trouvé et la photo
+                    if (lutilisateurCo != null && laPhotoATrouver != null)
+                    {
+                        laPhotoATrouver.descriptionPhoto = txtbDescriptionPhotoAAjouter.Text;
+
+                        //Si le type de photos est changé, changer l'emplacement de la photo dans le bon dossier
+                        if (!laPhotoATrouver.typePhoto.Equals(ddlModifierPhoto.SelectedValue))
+                        {
+                            String lePath = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
+                            String lePathAAllez = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlModifierPhoto.SelectedValue + "/" + laPhotoATrouver.pathPhoto);
+
+                            //Changer lemplacement de la photo
+                            if (File.Exists(@lePath))
+                            {
+                                File.Move(@lePath, @lePathAAllez);
+                            }
+
+                            laPhotoATrouver.typePhoto = ddlModifierPhoto.SelectedValue;
+                        }
+
+                        modelTI.SaveChanges();
+                        hfieldIDItemAModifier.Value = "";
+                    }
+                    //Si pu connecté, rediriger a la page d'accueil
+                    else
+                    {
+                        Response.Redirect("Default.aspx");
+                    }
+                }
+            }
         }
 
 
@@ -241,21 +426,68 @@ namespace Site_de_la_Technique_Informatique
         {
             int argumentIDPhoto = Convert.ToInt32(((Button)sender).CommandArgument);
 
-            using (LeModelTIContainer modelTI = new LeModelTIContainer())
+            try
             {
-                Model.Photos laPhotoATrouver = new Model.Photos();
-                laPhotoATrouver = null;
-
-                laPhotoATrouver = (from cl in modelTI.PhotosSet
-                                   where cl.IDPhotos == argumentIDPhoto
-                                   select cl).FirstOrDefault();
-
-                //Si la photo est trouvé
-                if (laPhotoATrouver != null)
+                using (LeModelTIContainer modelTI = new LeModelTIContainer())
                 {
-                    
-                }
+                    Model.Utilisateur lutilisateurCo = new Model.Utilisateur();
+                    lutilisateurCo = null;
 
+                    Model.Photos laPhotoATrouver = new Model.Photos();
+                    laPhotoATrouver = null;
+
+                    //Récupérer la personne connecté
+                    if (Request.Cookies["TIID"] != null)
+                    {
+                        if (Server.HtmlEncode(Request.Cookies["TIID"].Value) != null)
+                        {
+                            int leId = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+
+                            lutilisateurCo = (from cl in modelTI.UtilisateurSet
+                                              where cl.IDUtilisateur == leId
+                                              select cl).FirstOrDefault();
+
+                            laPhotoATrouver = (from cl in modelTI.PhotosSet
+                                               where cl.IDPhotos == argumentIDPhoto
+                                               select cl).FirstOrDefault();
+                        }
+                    }
+
+                    //Si lutilisateur connecté est trouvé et la photo
+                    if (lutilisateurCo != null && laPhotoATrouver != null)
+                    {
+                        //Créer le log
+                        Model.Log loggerUnLog = new Model.Log();
+                        loggerUnLog.actionLog = "Une photos de souvenir a été supprimé.";
+                        loggerUnLog.dateLog = DateTime.Now;
+                        loggerUnLog.typeLog = 0;
+                        loggerUnLog.Utilisateur = lutilisateurCo;
+                        loggerUnLog.UtilisateurIDUtilisateur = lutilisateurCo.IDUtilisateur;
+
+                        modelTI.LogSet.Add(loggerUnLog);
+                        modelTI.PhotosSet.Remove(laPhotoATrouver);
+                        modelTI.SaveChanges();
+                        lviewSupprimerPhotos.DataBind();
+
+                        //Supprimer la photo du serveur
+                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.pathPhoto);
+
+                        if (File.Exists(@imageProfilChemin))
+                        {
+                            File.Delete(@imageProfilChemin);
+                        }
+
+                    }
+                    //Si pu connecté, rediriger a la page d'accueil
+                    else
+                    {
+                        Response.Redirect("Default.aspx");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogErreur("Admin_LesPhotos.aspx.cs dans la méthode btnSupprimerLaPhoto_Click", ex);
             }
         }
 
