@@ -41,7 +41,7 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException("Une erreur s'est produite dans lors du lvProfesseurs_GetData", ex);
+                LogErreur("QuiSommesNous-lvProfesseurs_GetData", ex);
             }
             return listeProf.AsQueryable();
         }
@@ -67,7 +67,7 @@ namespace Site_de_la_Technique_Informatique
             }
                 catch (Exception ex)
             {
-                LogErreur("QuiSommesNous-getUnEtudiantRandom", ex);
+                LogErreur("QuiSommesNous-lvProfesseurs_GetData", ex);
             }
             return listeEtudiants.AsQueryable();
         }

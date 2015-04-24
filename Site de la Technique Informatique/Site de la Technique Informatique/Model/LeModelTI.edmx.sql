@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/17/2015 09:34:23
+-- Date Created: 04/17/2015 11:21:17
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
@@ -321,7 +321,8 @@ GO
 CREATE TABLE [dbo].[PhotosSet] (
     [IDPhotos] int IDENTITY(1,1) NOT NULL,
     [pathPhoto] nvarchar(200)  NOT NULL,
-    [typePhoto] nvarchar(20)  NOT NULL
+    [typePhoto] nvarchar(20)  NOT NULL,
+    [descriptionPhoto] nvarchar(max)  NULL
 );
 GO
 

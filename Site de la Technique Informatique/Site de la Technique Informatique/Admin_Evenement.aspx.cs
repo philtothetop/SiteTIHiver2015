@@ -13,8 +13,24 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            //if (!IsPostBack)
+            //{
+            //    for (int i = 0; i < 6; i++)
+            //    {
+            //        ListItem listItem = new ListItem();
+
+            //        DateTime date = DateTime.Now.AddYears(i);
+            //        string annee = date.Year.ToString();
+            //        listItem.Text = annee;
+            //        listItem.Value = annee;
+                    
+            //        DropDownList ddlAnneeEvent = (lviewEcheancier.Items[0].FindControl("ddlAnneeEvent") as DropDownList);
+            //        ddlAnneeEvent.Items.Insert(i + 1, listItem);
+            //    }
+            //}
         }
+
+        #region GETDATA DES ÉVÉNEMENTS
         public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
         {
             var listeEvenements = new List<DateEvenementVerTIC>();
@@ -23,37 +39,40 @@ namespace Site_de_la_Technique_Informatique
                 listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
             }
 
-            if (listeEvenements.Count() == 0)
-            {
-
-                DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
-                eventTest.dateDescription = DateTime.Today;
-                eventTest.evenement = "Date de Test";
-                eventTest.IDDateEvenementVerTIC = 1;
-                listeEvenements.Add(eventTest);
-            }
             return listeEvenements.AsQueryable();
         }
+        #endregion
 
-        protected void UpdateEvent()
+        #region UPDATE/ADD/DELETE UN ÉVÉNEMENT
+
+        protected void UpdateEvent(object sender, EventArgs e)
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                //Button btnModifier = (Button)sender;
-                //int idEvent = Int32.Parse(btnModifier.CommandArgument);
+                Button btnModifier = (Button)sender;
+                int idEvent = Int32.Parse(btnModifier.CommandArgument);
                 DateEvenementVerTIC eventTest = (from even in lecontexte.DateEvenementVerTICSet
-                                                 where even.IDDateEvenementVerTIC == 6 //idEvent
+                                                 where even.IDDateEvenementVerTIC == idEvent
                                                  select even).FirstOrDefault();
-             
-             //string id=   lviewEcheancier.ID;
-             //   TextBox txtDate= new TextBox();
-             //   TextBox txtEvent= new TextBox();
-             //txtEvent =  (TextBox)lviewEcheancier.FindControl("txtDescEvent");
-             //txtDate = (TextBox)lviewEcheancier.FindControl("txtDate");
-             //   eventTest.dateDescription = DateTime.Parse(txtDate.Text);
-                //   eventTest.evenement = txtEvent.Text;
 
-                TryUpdateModel(eventTest);
+                //TextBox lblMinuteActivite = (e.Item.FindControl("txtDescEvent") as TextBox);
+                TextBox txtEvent = (lviewEcheancier.Items[0].FindControl("txtDescEvent") as TextBox);
+                TextBox txtJourEvent = (lviewEcheancier.Items[0].FindControl("txtJourEvent") as TextBox);
+                DropDownList ddlMoisEvent = (lviewEcheancier.Items[0].FindControl("ddlMoisEvent") as DropDownList);
+                if (ddlMoisEvent.Text == "" && ddlMoisEvent.SelectedValue == "0")
+                {
+                    //Erreur
+                }
+                DropDownList ddlAnneeEvent = (lviewEcheancier.Items[0].FindControl("ddlAnneeEvent") as DropDownList);
+
+                DropDownList ddlHeures = (lviewEcheancier.Items[0].FindControl("ddlHeures") as DropDownList);
+                DropDownList ddlMinutes = (lviewEcheancier.Items[0].FindControl("ddlMinutes") as DropDownList);
+
+                DateTime date = new DateTime(Int32.Parse(ddlAnneeEvent.Text), Int32.Parse(ddlMoisEvent.Text), Int32.Parse(txtJourEvent.Text), Int32.Parse(ddlHeures.Text), Int32.Parse(ddlMinutes.Text), 0);
+
+                eventTest.dateDescription = date;
+                eventTest.evenement = txtEvent.Text;
+
                 lecontexte.SaveChanges();
                 Response.Redirect("~/Admin_Evenement.aspx");
             }
@@ -70,6 +89,7 @@ namespace Site_de_la_Technique_Informatique
                 lecontexte.DateEvenementVerTICSet.Add(eventTest);
                 lecontexte.SaveChanges();
                 Response.Redirect("~/Admin_Evenement.aspx");
+               
 
             }
         }
@@ -90,27 +110,7 @@ namespace Site_de_la_Technique_Informatique
                 }
         }
 
-        // Le nom du paramètre id doit correspondre à la valeur DataKeyNames définie sur le contrôle
-        public void lviewEcheancier_UpdateItem(string id)
-        {
-            Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC item = null;
-            // Charge l'élément ici, par ex. item = MyDataLayer.Find(id);
-            if (item == null)
-            {
-                // Élément introuvable
-                ModelState.AddModelError("", String.Format("L'élément avec l'ID {0} est introuvable", id));
-                return;
-            }
-            TryUpdateModel(item);
-            if (ModelState.IsValid)
-            {
-                // Enregistre les modifications ici, par ex. MyDataLayer.SaveChanges();
+        #endregion
 
-            }
-        }
-
-           
-
-     
     }
 }

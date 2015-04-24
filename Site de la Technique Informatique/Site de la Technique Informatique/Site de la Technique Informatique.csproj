@@ -100,17 +100,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin_AjoutPhoto.aspx" />
     <Content Include="Admin_Default.aspx" />
     <Content Include="Admin_laFAQ.aspx" />
     <Content Include="Admin_LesPhotos.aspx" />
+    <Content Include="Admin_Media.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
-    <Content Include="Admin_SupprimerPhoto.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
+    <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
-    <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
@@ -128,7 +127,6 @@
     <Content Include="Inscription-Employeur.aspx" />
     <Content Include="Inscription-message.aspx" />
     <Content Include="Inscription-valide.aspx" />
-    <Content Include="Inscription-Etudiant.aspx" />
     <Content Include="Jquery\Cropper\Cropper.aspx" />
     <Content Include="Jquery\Cropper\css\bootstrap.min.css" />
     <Content Include="Jquery\Cropper\css\cropper.css" />
@@ -188,7 +186,6 @@
     <Content Include="Photos\quiSommesNous.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
-    <Content Include="QuePourTest.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
     <Content Include="SectionForum.aspx" />
@@ -216,6 +213,7 @@
     </Content>
     <Content Include="Admin.master" />
     <None Include="Properties\PublishProfiles\test.pubxml" />
+    <Content Include="Souvenirs.aspx" />
     <Content Include="tinymce\js\tinymce\langs\readme.md" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
@@ -223,6 +221,10 @@
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Upload\Media\Exemple product Backlog.pdf" />
+    <Content Include="Upload\Media\plan420616H15.pdf" />
+    <Content Include="Upload\Media\AnalysePreliminaire.pdf" />
+    <Content Include="Upload\Media\Les tests en SCRUM.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -314,7 +316,7 @@
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="toast.gif" />
     <Content Include="Temoignage.aspx" />
-    <Content Include="Admin_Validation-Inscription.aspx" />
+    <Content Include="Admin_Validation-Inscription-Etudiant.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
@@ -328,13 +330,6 @@
     </Compile>
     <Compile Include="Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_AjoutPhoto.aspx.cs">
-      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_AjoutPhoto.aspx.designer.cs">
-      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Default.aspx.cs">
       <DependentUpon>Admin_Default.aspx</DependentUpon>
@@ -364,6 +359,13 @@
     <Compile Include="Admin_laFAQ.aspx.designer.cs">
       <DependentUpon>Admin_laFAQ.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Media.aspx.cs">
+      <DependentUpon>Admin_Media.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Media.aspx.designer.cs">
+      <DependentUpon>Admin_Media.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -371,19 +373,19 @@
     <Compile Include="Admin_OffreEmploi.aspx.designer.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_SupprimerPhoto.aspx.cs">
-      <DependentUpon>Admin_SupprimerPhoto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_SupprimerPhoto.aspx.designer.cs">
-      <DependentUpon>Admin_SupprimerPhoto.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin_Temoignage.aspx.cs">
       <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin_Temoignage.aspx.designer.cs">
       <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Validation-Inscription-Employeur.aspx.cs">
+      <DependentUpon>Admin_Validation-Inscription-Employeur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Validation-Inscription-Employeur.aspx.designer.cs">
+      <DependentUpon>Admin_Validation-Inscription-Employeur.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Vertic.aspx.cs">
       <DependentUpon>Admin_Vertic.aspx</DependentUpon>
@@ -398,13 +400,6 @@
     </Compile>
     <Compile Include="AjoutDiscussion.aspx.designer.cs">
       <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.designer.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
     </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
@@ -422,6 +417,7 @@
     </Compile>
     <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
+    <Compile Include="Classes\Listes.cs" />
     <Compile Include="Classes\LoadImage.cs" />
     <Compile Include="Concepteur.aspx.cs">
       <DependentUpon>Concepteur.aspx</DependentUpon>
@@ -492,13 +488,6 @@
     </Compile>
     <Compile Include="Inscription-valide.aspx.designer.cs">
       <DependentUpon>Inscription-valide.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inscription-Etudiant.aspx.cs">
-      <DependentUpon>Inscription-Etudiant.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inscription-Etudiant.aspx.designer.cs">
-      <DependentUpon>Inscription-Etudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="Jquery\Cropper\Cropper.aspx.cs">
       <DependentUpon>Cropper.aspx</DependentUpon>
@@ -691,13 +680,6 @@
       <DependentUpon>ProfilEtudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuePourTest.aspx.cs">
-      <DependentUpon>QuePourTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="QuePourTest.aspx.designer.cs">
-      <DependentUpon>QuePourTest.aspx</DependentUpon>
-    </Compile>
     <Compile Include="QuiSommesNous.aspx.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -733,6 +715,13 @@
     <Compile Include="InformationsStage.aspx.designer.cs">
       <DependentUpon>InformationsStage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Souvenirs.aspx.cs">
+      <DependentUpon>Souvenirs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Souvenirs.aspx.designer.cs">
+      <DependentUpon>Souvenirs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Temoignage.aspx.cs">
       <DependentUpon>Temoignage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -754,12 +743,12 @@
     <Compile Include="temp-editNouvelles.aspx.designer.cs">
       <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Validation-Inscription.aspx.cs">
-      <DependentUpon>Admin_Validation-Inscription.aspx</DependentUpon>
+    <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.cs">
+      <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin_Validation-Inscription.aspx.designer.cs">
-      <DependentUpon>Admin_Validation-Inscription.aspx</DependentUpon>
+    <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.designer.cs">
+      <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValiderLesOffresEmploi.aspx.cs">
       <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
@@ -781,9 +770,13 @@
     <Folder Include="bin\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Photos\Autre\" />
+    <Folder Include="Photos\Cégep\" />
     <Folder Include="Photos\Souvenir\Autre\" />
     <Folder Include="Photos\Souvenir\Cégep\" />
+    <Folder Include="Photos\Souvenir\Professeurs\" />
     <Folder Include="Photos\Souvenir\Projets\" />
+    <Folder Include="Photos\Souvenir\Étudiants\" />
     <Folder Include="Upload\CV\" />
   </ItemGroup>
   <ItemGroup>
