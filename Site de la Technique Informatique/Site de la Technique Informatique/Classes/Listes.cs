@@ -66,7 +66,6 @@ namespace Site_de_la_Technique_Informatique.Classes
         {
             this.Add(0, "");
             this.Add(1, "01");
-            this.Add(1, "01");
             this.Add(2, "02");
             this.Add(3, "03");
             this.Add(4, "04");
