@@ -21,7 +21,7 @@
             }
     </style>
 
-
+    <div class="container">
     <div class="row">
         <section id="echeancier" class="echeancier-section">
 
@@ -89,5 +89,6 @@
                     
             </div>
         </section>
+            </div>
     </div>
 </asp:Content>

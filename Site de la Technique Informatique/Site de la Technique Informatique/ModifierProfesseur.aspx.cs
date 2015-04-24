@@ -20,19 +20,22 @@ namespace Site_de_la_Technique_Informatique
     public partial class ModifierProfesseur : ErrorHandling
     {
         public Professeur currentProf;
-      
+
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
-            
-            if (!Page.IsPostBack) {
-               
-                
-            divSuccess.Attributes["style"] = "visibility:hidden";
-            divWarning.Attributes["style"] = "visibility:hidden";
+
+            if (!Page.IsPostBack)
+            {
+
+
+                divSuccess.Attributes["style"] = "visibility:hidden";
+                divWarning.Attributes["style"] = "visibility:hidden";
             }
+             
+
         }
 
         #endregion
@@ -73,7 +76,7 @@ namespace Site_de_la_Technique_Informatique
 
                 TryUpdateModel(profAUpdater);
                 lblMessage.Text = "";
-               
+
                 if (!ModelState.IsValid)
                 {
                     foreach (var modelErrors in ModelState)
@@ -150,55 +153,57 @@ namespace Site_de_la_Technique_Informatique
         protected void lnkSaveNewPassword_Click(object sender, EventArgs e)
         {
             var hash = new hash();
-           
+
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
 
                 Professeur profAModifier = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).First();
-                if(!String.IsNullOrEmpty(txtAncienMp.Text) && !String.IsNullOrEmpty(txtNouveauMp.Text) && !String.IsNullOrEmpty(txtNouveauMpConfirm.Text) ){
-                    string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
-                if (profAModifier.hashMotDePasse.Equals(ancienPwd))
+                if (!String.IsNullOrEmpty(txtAncienMp.Text) && !String.IsNullOrEmpty(txtNouveauMp.Text) && !String.IsNullOrEmpty(txtNouveauMpConfirm.Text))
                 {
-
-
-                    if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text) && txtAncienMp.Text != txtNouveauMpConfirm.Text)
+                    string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
+                    if (profAModifier.hashMotDePasse.Equals(ancienPwd))
                     {
-                        string newPwd = hash.GetSHA256Hash(txtNouveauMpConfirm.Text);
-                        profAModifier.hashMotDePasse = newPwd;
-                        Model.Log logEntry = new Model.Log
+
+
+                        if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text) && txtAncienMp.Text != txtNouveauMpConfirm.Text)
                         {
-                            dateLog = DateTime.Now,
-                            actionLog = profAModifier.prenom + " " + profAModifier.nom + " a modifié son mot de passe",
-                            typeLog = 0
-                        };
-                        lecontexte.SaveChanges();
-                        divWarning.Attributes["style"] = "visibility:hidden;";
-                        divSuccess.Attributes["style"] = "visibility:visible";
-                    }
-                    else if (!txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
-                    {
-                        lblMessage.Text = "<b>Nouveau mot de passe:</b>Les deux nouveaux mots de passe ne sont pas identiques";
-                        divWarning.Attributes["style"] = "visibility:visible;";
+                            string newPwd = hash.GetSHA256Hash(txtNouveauMpConfirm.Text);
+                            profAModifier.hashMotDePasse = newPwd;
+                            Model.Log logEntry = new Model.Log
+                            {
+                                dateLog = DateTime.Now,
+                                actionLog = profAModifier.prenom + " " + profAModifier.nom + " a modifié son mot de passe",
+                                typeLog = 0
+                            };
+                            lecontexte.SaveChanges();
+                            divWarning.Attributes["style"] = "visibility:hidden;";
+                            divSuccess.Attributes["style"] = "visibility:visible";
+                        }
+                        else if (!txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
+                        {
+                            lblMessage.Text = "<b>Nouveau mot de passe:</b>Les deux nouveaux mots de passe ne sont pas identiques";
+                            divWarning.Attributes["style"] = "visibility:visible;";
+                        }
+                        else
+                        {
+                            lblMessage.Text = "<b>Nouveau mot de passe:</b>Le nouveau mot de passe doit être différent du mot de passe actuel";
+                            divWarning.Attributes["style"] = "visibility:visible;";
+                        }
                     }
                     else
                     {
-                        lblMessage.Text = "<b>Nouveau mot de passe:</b>Le nouveau mot de passe doit être différent du mot de passe actuel";
+                        lblMessage.Text = "<b>Ancien mot de passe:</b>Le mot de passe que vous avez entré n'est pas valide";
                         divWarning.Attributes["style"] = "visibility:visible;";
                     }
                 }
                 else
                 {
-                    lblMessage.Text = "<b>Ancien mot de passe:</b>Le mot de passe que vous avez entré n'est pas valide";
-                    divWarning.Attributes["style"] = "visibility:visible;";
-                }
-            }
-                else{
                     lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
                     divWarning.Attributes["style"] = "visibility:visible;";
                 }
-           }
-            
+            }
+
         }
 
         #endregion
@@ -219,39 +224,71 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                try {
+                try
+                {
                     hash hashing = new hash();
                     string inputPwd = hashing.GetSHA256Hash(txtDeletePass.Text);
                     Professeur profADesactiver = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).FirstOrDefault();
-                    if (inputPwd.Equals(profADesactiver.hashMotDePasse)) { 
+                    if (inputPwd.Equals(profADesactiver.hashMotDePasse))
+                    {
 
 
-                
-                profADesactiver.compteActif = 0;
 
-                lecontexte.SaveChanges();
+                        profADesactiver.compteActif = 0;
 
-                Response.Cookies["TICourriel"].Value = ""; //enlève la valeur du cookie
-                Response.Cookies["TINom"].Value = ""; //enlève la valeur du cookie
-                Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
-                Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
+                        lecontexte.SaveChanges();
 
-                Response.Redirect(Request.RawUrl, false);
+                        Response.Cookies["TICourriel"].Value = ""; //enlève la valeur du cookie
+                        Response.Cookies["TINom"].Value = ""; //enlève la valeur du cookie
+                        Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
+                        Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
+
+                        Response.Redirect(Request.RawUrl, false);
 
                     }
 
-                    }catch{
-                        throw;
-                    }
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
 
         #endregion
 
-       
 
-        
+
+        #region Modifier_Cours
+        public IQueryable lvModifierCours_GetData()
+        {
+
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+
+             //   short session = short.Parse(ddlSession.SelectedValue);
+                short session = 3;
+                Professeur profCours = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>()
+                                       from cr in cl.Cours
+                                       where cr.noSessionCours == session && cl.IDMembre == currentProf.IDMembre
+                                        select cl).FirstOrDefault();
+                                       
+
+               var cours =  profCours.Cours;
+
+               return cours.AsQueryable();
+            }
+        }
+
+        public void updateCours()
+        {
+
+        }
+
+        #endregion
+
+       
 
     }
 }
