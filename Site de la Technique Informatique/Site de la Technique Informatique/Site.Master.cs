@@ -242,7 +242,7 @@ namespace Site_de_la_Technique_Informatique
                             if (userEtu.compteActif == 1) //ça prend un compte validé
                             {
                                 Response.Cookies["TIUtilisateur"].Value = "Etudiant"; //On indique le type d'usager
-                                Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
+                                Response.Cookies["TINom"].Value = userMembre.prenom; //on récupère le prénom de membre
                                 Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
                             }
                             else //oups, courriel non validé
@@ -256,7 +256,7 @@ namespace Site_de_la_Technique_Informatique
                         if (userProf != null)
                         {
                             Response.Cookies["TIUtilisateur"].Value = "Professeur"; //On indique le type d'usager
-                            Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
+                            Response.Cookies["TINom"].Value = userMembre.prenom; //on récupère prénom de membre
                             Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
                         }
 
@@ -315,7 +315,7 @@ namespace Site_de_la_Technique_Informatique
             Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
             Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
 
-            Response.Redirect(Request.RawUrl, false); // reload la page depuis laquelle la déconnexion a été appellée
+            Response.Redirect("default.aspx"); // reload la page d'accueil
         }
     }
 }
