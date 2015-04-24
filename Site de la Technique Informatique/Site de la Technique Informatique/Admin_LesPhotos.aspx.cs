@@ -98,11 +98,16 @@ namespace Site_de_la_Technique_Informatique
                             //Si le prof connecté est trouvé
                             if (leProfCo != null)
                             {
-                                //Si le fileupload n'est pas vide
-                                if (fuplPhoto.HasFile)
+
+                                ////Si le fileupload n'est pas vide
+                                //if (fuplPhoto.HasFile)
+                                //{
+
+                                String imgData = ImgExSrc.Value;
+                                if (imgData != "" && imgData.Length>21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                                 {
-                                    if (Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpg" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".png" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpeg")
-                                    {
+                                    //if (Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpg" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".png" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpeg")
+                                    //{
                                         try
                                         {
                                             System.Drawing.Image imageAAjouter = System.Drawing.Image.FromStream(fuplPhoto.PostedFile.InputStream);
@@ -151,12 +156,12 @@ namespace Site_de_la_Technique_Informatique
                                             divPasReussiAjouterImage.Visible = true;
                                             lblPasReussi.Text = "Nous avons eu un problème pour téléverser l'image.";
                                         }
-                                    }
-                                    else
-                                    {
-                                        divPasReussiAjouterImage.Visible = true;
-                                        lblPasReussi.Text = "Mauvais format de l'image.";
-                                    }
+                                    //}
+                                    //else
+                                    //{
+                                    //    divPasReussiAjouterImage.Visible = true;
+                                    //    lblPasReussi.Text = "Mauvais format de l'image.";
+                                    //}
                                 }
                                 else
                                 {
