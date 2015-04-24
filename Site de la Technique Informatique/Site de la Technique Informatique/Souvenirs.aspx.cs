@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Drawing;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -102,6 +103,75 @@ namespace Site_de_la_Technique_Informatique
             {
                 return laDescription;
             }
+        }
+
+        public string ImageToResize(string pathImage, bool faireHauteur)
+        {
+
+            System.Drawing.Image imageDuMoment = System.Drawing.Image.FromFile(pathImage);
+            imageDuMoment = ResizeTheImage(500, 120, imageDuMoment);
+
+            //Pour height
+            if (faireHauteur == true)
+            {
+                return Convert.ToString(imageDuMoment.Height);
+            }
+            //Pour Width
+            else
+            {
+                return Convert.ToString(imageDuMoment.Width);
+            }
+        }
+
+        public System.Drawing.Image ResizeTheImage(int maxSize, int minSize, System.Drawing.Image imageAChecker)
+        {
+            int valeurAUtiliser = imageAChecker.Height;
+
+            //Si image plus grand que max size width et height
+            if (imageAChecker.Height > maxSize && imageAChecker.Width > maxSize)
+            {
+                if (valeurAUtiliser < imageAChecker.Width)
+                {
+                    valeurAUtiliser = imageAChecker.Width;
+                }
+            }
+            //Si image plus grand que max size height
+            else if (imageAChecker.Height > maxSize)
+            {
+                valeurAUtiliser = imageAChecker.Height;
+            }
+            //Si image plus grand que max size widht
+            else if (imageAChecker.Width > maxSize)
+            {
+                valeurAUtiliser = imageAChecker.Width;
+            }
+            else
+            {
+                valeurAUtiliser = maxSize;
+            }
+
+            double valeurDivision = Convert.ToDouble(maxSize) / Convert.ToDouble(valeurAUtiliser);
+
+            imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(Convert.ToInt32(imageAChecker.Width * valeurDivision), Convert.ToInt32(imageAChecker.Height * valeurDivision)));
+
+            //Si plus petit que min grosseur maintenant
+            if (imageAChecker.Width < minSize)
+            {
+                imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(minSize, imageAChecker.Height));
+            }
+
+            if (imageAChecker.Height < minSize)
+            {
+                imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(imageAChecker.Width, minSize));
+            }
+            /*
+            //Pour mettre au moin hauteur ou largeur a 500
+            if (imageAChecker.Width < 500 && imageAChecker.Height < 500)
+            { 
+                if ()
+            }
+                */
+            return imageAChecker;
         }
 
          
