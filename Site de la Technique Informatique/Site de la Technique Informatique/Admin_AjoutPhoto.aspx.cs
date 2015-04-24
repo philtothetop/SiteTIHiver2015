@@ -95,7 +95,7 @@ namespace Site_de_la_Technique_Informatique
                                         }
                                         catch (Exception ex)
                                         {
-                                            lblEchecImage.Text = "Upload de l'image à échoué";
+                                            lblEchecImage.Text = "Le téléchargement de l'image a échoué";
                                         }
                                     }
                                     else 
@@ -113,13 +113,13 @@ namespace Site_de_la_Technique_Informatique
                             else
                             {
                                 divPasReussiAjouterImage.Visible = true;
-                                lblPasReussi.Text = "Veuillez-vous reconnecter.";
+                                lblPasReussi.Text = "Veuillez vous reconnecter.";
                             }
                         }
                         else
                         {
                             divPasReussiAjouterImage.Visible = true;
-                            lblPasReussi.Text = "Veuillez-vous reconnecter.";
+                            lblPasReussi.Text = "Veuillez vous reconnecter.";
                         }
                     }
                     else
@@ -187,7 +187,7 @@ namespace Site_de_la_Technique_Informatique
 
                                     //Faire un log pour l'action
                                     Model.Log logPhoto = new Model.Log();
-                                    logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vien d'ajouter une photos sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
+                                    logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vient d'ajouter une photo sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
                                     logPhoto.dateLog = DateTime.Now;
                                     logPhoto.typeLog = 0;
                                     logPhoto.Utilisateur = leProfCo;
@@ -210,13 +210,13 @@ namespace Site_de_la_Technique_Informatique
                             else
                             {
                                 divPasReussiAjouterImage.Visible = true;
-                                lblPasReussi.Text = "Veuillez-vous reconnecter.";
+                                lblPasReussi.Text = "Veuillez vous reconnecter.";
                             }
                         }
                         else
                         {
                             divPasReussiAjouterImage.Visible = true;
-                            lblPasReussi.Text = "Veuillez-vous reconnecter.";
+                            lblPasReussi.Text = "Veuillez vous reconnecter.";
                         }
                     }
                     else
@@ -228,7 +228,7 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 divPasReussiAjouterImage.Visible = true;
-                lblPasReussi.Text = "Problème avec le serveur, veuillez réassayer plus tard";
+                lblPasReussi.Text = "Nous éprouvons un problème avec le serveur, veuillez réassayer plus tard";
             }
         }
 
