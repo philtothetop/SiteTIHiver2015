@@ -22,6 +22,7 @@
         </asp:View>
 
         <asp:View ID="viewAjouterPhoto" runat="server">
+
             <div id="divReussiAjouterImage" runat="server" visible="false" style="text-align:center; width:100%;">
         <asp:Label ID="lblReussi" runat="server" Text="L'image a bien été ajouté."></asp:Label>
         <br />
@@ -35,10 +36,72 @@
         <br />
     </div>
 
+            <div id="divPourAjouterUnePhoto" runat="server" style="text-align:center; width:100%;">
+
+                Type d'image : <asp:DropDownList ID="ddlTypeDImage" runat="server">
+        </asp:DropDownList>
+        <br />
+        <br />
+
+     <asp:ListView ID="lviewPhoto" runat="server"
+            ItemType="Site_de_la_Technique_Informatique.Model.Photos"
+            SelectMethod="GetUnePhoto">
+
+         <LayoutTemplate>
+             <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
+         </LayoutTemplate>
+
+            <ItemTemplate>
+                <div>
+                <div>
+                    Prévisualisation
+                    <div id="divDeLImage" style="clear:both; max-height:500px; margin:0px; padding:0px;">
+                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" style="min-width:120px;min-height:120px; max-width:500px; max-height:500px" />
+                    </div>
+
+                    <div style="clear:both;">
+                        <br />
+                        <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Choisir une image" CssClass="btn btn-primary" data-toggle="modal" data-target="#maPhotoProfile" />
+                    </div>
+                </div>
+                <div class="modal" id="maPhotoProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
+                            </div>
+                            <div class="modal-body">
+                                <iframe src='<%=".." + Request.ApplicationPath +"/Jquery/Cropper2/Cropper2.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                    
+        <div style="text-align:left; width:100%;">
+            <asp:Label ID="lblDescription" runat="server" Text="Decription de la photo :" style="margin-left:15%;"></asp:Label>
+            <br />
+            <div style="text-align:center; width:100%;">
+                <asp:TextBox ID="txtbDescriptionPhotoAAjouter" runat="server" TextMode="MultiLine" style="max-width:70%; min-width:70%; text-align:left; min-height:100px; max-height:500px;"></asp:TextBox>
+           </div>
+
+        </div>
+                <div style="clear:both; float:none; padding:0px; margin:0px;">
+                <asp:Button ID="btnSauvegarderImage" Text="Sauvegarder" runat="server" OnClientClick="copieImgData()" OnClick="btnUpdate_Click" />
+            </div>
+                    </div>
+            </ItemTemplate>
+
+        </asp:ListView>
+            </div>
+
+<%--
     <div id="divPourAjouterUnePhoto" runat="server">
 
     <div id="divPourUpdatePhoto" runat="server" style="text-align:center; width:100%;">
-    Type d'image : <asp:DropDownList ID="ddlTypeDImage" runat="server">
+    <%--Type d'image : <asp:DropDownList ID="ddlTypeDImage" runat="server">
         </asp:DropDownList>
         <br />
         <br />
@@ -73,7 +136,7 @@
         
          </div>
 
-        </div>
+        </div>--%>
 
             <br />
             <asp:Button ID="btnAllezVoirLesPhotos" runat="server" Text="Voir les photos" OnClick="btnVoirLesPhotos_Click" />
@@ -81,34 +144,12 @@
             
         </asp:View>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <asp:View ID="viewModifierPhoto" runat="server">
+
+
+
             <div id="divModifierPhotoReussi" runat="server" visible="false" style="text-align:center; width:100%;">
         <asp:Label ID="lblModifierPhotoReussi" runat="server" Text="L'image a bien été ajouté."></asp:Label>
-        <br />
-                <asp:Button ID="btnModifierRetourAuPhotos" runat="server" Text="Revenir aux photos" OnClick="btnVoirLesPhotos_Click"/>
     </div>
 
     <div id="divModifierPhotoPasReussi" runat="server" visible="false" style="text-align:center; width:100%; color:red;">
@@ -124,74 +165,9 @@
         </asp:DropDownList>
         <br />
         <br />
-
-
-
-
-
-
-
-
-        <div id="divPourAjouterUnePhotoModal" runat="server">
-     <asp:ListView ID="lviewPhoto" runat="server"
-            ItemType="Site_de_la_Technique_Informatique.Model.Photos"
-            SelectMethod="GetUnePhoto">
-
-         <LayoutTemplate>
-             <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
-         </LayoutTemplate>
-
-            <ItemTemplate>
-                <div class="modif-photo">
-                    <div id="divDeLImage" runat="server" class="preview-photo" style="min-height:500px; clear:both;">
-                        
-                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" style="width:500px;height:500px;max-width:500px;max-height:500px;" />
-                    </div>
-
-                    <div class="div-btnChangerPhoto" style="clear:both; min-height:100px;">
-                        <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary" data-toggle="modal" data-target="#maPhotoProfile" />
-                    </div>
-                </div>
-                <div class="modal" id="maPhotoProfile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
-                            </div>
-                            <div class="modal-body">
-                                <iframe src='<%=".." + Request.ApplicationPath +"/Jquery/Cropper2/Cropper2.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div style="clear:both; float:none; padding:0px; margin:0px;">
-                <asp:Button ID="btnSauvegarderImage" Text="Sauvegarder" runat="server" OnClientClick="copieImgData()" OnClick="SauvegarderLaPhoto_Click" />
-            </div>
-            </ItemTemplate>
-
-        </asp:ListView>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        Prévisualisation
+                Photo
                         <div id="dvPreview2" style="text-align:center; width:100%;">
-                            <asp:Image ID="imgModifierPhoto" runat="server" />
+                            <asp:Image ID="imgModifierPhoto" runat="server" style="max-height:500px;max-width:500px;" />
                         </div>
         <br />
         <br />
@@ -216,34 +192,6 @@
             <br />
             <asp:HiddenField ID="hfieldIDItemAModifier" runat="server" Value="" />
         </asp:View>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <asp:View ID="viewSupprimerPhoto" runat="server">
             <div id="divSupprimerPhotos" runat="server" style="text-align:center; width:100%; clear:both;">
@@ -276,7 +224,7 @@
                                 <asp:Image ID="imgLaPhoto" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="max-width:100%; max-height:100%;" />
                              </div>
                                 <div style="width:97%;padding-left:3%; clear:both;">
-                                    <asp:TextBox ID="txtbDescriptionVoir" runat="server" TextMode="MultiLine" Text='<%# Item.descriptionPhoto %>' style="width:100%; min-height:100px;" Enabled="false"></asp:TextBox>
+                                    <asp:TextBox ID="txtbDescriptionVoir" runat="server" TextMode="MultiLine" Text='<%# Item.descriptionPhoto %>' style="width:100%; max-width:100%; min-height:100px;" Enabled="false"></asp:TextBox>
                              </div>
                                 <div style="clear:both">
 
@@ -322,18 +270,6 @@
     </asp:MultiView>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     <asp:HiddenField ID="hfPathPhotoProfil" runat="server" />
 
     <link rel="stylesheet" href="Css/Inscription.css" 
@@ -367,9 +303,6 @@
     </script>
     <script type="text/javascript">
         window.transfertDataImg = function (dataURL) {
-            //POUR DÉBUGER
-            //$("#imgIDOK").attr("width", 300);
-            //$("#imgIDOK").attr("height", 300);
 
             $("#ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_showDataURL_0").attr("src", dataURL);
 
@@ -446,25 +379,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%--
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -489,7 +404,7 @@
                             var img = new Image();
                             img.src = e.target.result;
 
-                            document.getElementById('<%= lblImageTailleInitial.ClientID %>').textContent = "Taille Initial : " + img.width + "x" + img.height;
+                            document.getElementById('<%= "lblImageTailleInitial.ClientID" %>').textContent = "Taille Initial : " + img.width + "x" + img.height;
 
                                 var width = img.width;
                                 var height = img.height;
@@ -538,9 +453,9 @@
                                 if (height < minSize) {
                                     height = minSize;
                                 }
-
-                                document.getElementById('<%= lblImageTailleFinal.ClientID %>').textContent = "Taille Final : " + width + "x" + height;
-
+                            
+                                document.getElementById('<%= "lblImageTailleFinal.ClientID" %>').textContent = "Taille Final : " + width + "x" + height;
+                            
                                 $("#dvPreview img").attr("width", width);
                                 $("#dvPreview img").attr("height", height);
                             }
@@ -559,5 +474,5 @@
                     }
             });
         });
-</script>
+</script>--%>
 </asp:Content>

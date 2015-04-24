@@ -23,6 +23,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <div class="container">
+<ul class="nav nav-tabs">
+            <li><a href="Inscription-Etudiant.aspx">Étudiant</a></li>
+            <li class="active"><a href="#">Employeur</a></li>
+</ul>
         <asp:ScriptManagerProxy ID="smProxy" runat="server" />
         <div class="col-lg-3"></div>
         <div class="row row-centered">
