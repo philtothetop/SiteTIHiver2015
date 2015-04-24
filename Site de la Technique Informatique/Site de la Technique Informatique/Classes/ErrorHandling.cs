@@ -129,26 +129,37 @@ namespace Site_de_la_Technique_Informatique
                     //Vérifier si la valeur du cookie n'est pas vide
                     if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value) != null)
                     {
-                        string valeurDuCookie = Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).ToString();
+                        if (!Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals(""))
+                        {
+                            string valeurDuCookie = Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).ToString();
 
-                        //Vérifier chaque type a les autorisations ET que lutilisateur connecter est de ce type
-                        if (valeurDuCookie.Equals("Admin") && admin == true)
+                            //Vérifier chaque type a les autorisations ET que lutilisateur connecter est de ce type
+                            if (valeurDuCookie.Equals("Admin") && admin == true)
+                            {
+                                doitRedirigerLaPersonne = false;
+                            }
+                            else if (valeurDuCookie.Equals("Professeur") && professeur == true)
+                            {
+                                doitRedirigerLaPersonne = false;
+                            }
+                            else if (valeurDuCookie.Equals("Etudiant") && etudiant == true)
+                            {
+                                doitRedirigerLaPersonne = false;
+                            }
+                            else if (valeurDuCookie.Equals("Employeur") && employeur == true)
+                            {
+                                doitRedirigerLaPersonne = false;
+                            }
+                            //Si la valeur du cookie est autre chose innatendu
+                            else
+                            {
+                                doitRedirigerLaPersonne = true;
+                            }
+                        }
+                        else if (visiteur == true)
                         {
                             doitRedirigerLaPersonne = false;
                         }
-                        else if (valeurDuCookie.Equals("Professeur") && professeur == true)
-                        {
-                            doitRedirigerLaPersonne = false;
-                        }
-                        else if (valeurDuCookie.Equals("Etudiant") && etudiant == true)
-                        {
-                            doitRedirigerLaPersonne = false;
-                        }
-                        else if (valeurDuCookie.Equals("Employeur") && employeur == true)
-                        {
-                            doitRedirigerLaPersonne = false;
-                        }
-                        //Si la valeur du cookie est autre chose innatendu
                         else
                         {
                             doitRedirigerLaPersonne = true;
