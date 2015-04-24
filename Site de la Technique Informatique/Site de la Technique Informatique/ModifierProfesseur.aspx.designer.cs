@@ -22,6 +22,15 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.HiddenField ImgExSrc;
         
         /// <summary>
+        /// Contrôle hidTab.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidTab;
+        
+        /// <summary>
         /// Contrôle smProxy.
         /// </summary>
         /// <remarks>
@@ -112,13 +121,40 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.DropDownList ddlSession;
         
         /// <summary>
-        /// Contrôle btnAjouterCours.
+        /// Contrôle ddlCours.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAjouterCours;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCours;
+        
+        /// <summary>
+        /// Contrôle btnModif.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModif;
+        
+        /// <summary>
+        /// Contrôle btnAjout.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAjout;
+        
+        /// <summary>
+        /// Contrôle lblNoClass.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoClass;
         
         /// <summary>
         /// Contrôle lvModifierCours.

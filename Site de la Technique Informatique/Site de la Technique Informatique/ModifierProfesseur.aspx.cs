@@ -26,11 +26,15 @@ namespace Site_de_la_Technique_Informatique
         {
             SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
+            string tab = hidTab.Value;
+
+         
+                   ddlCours.Enabled = ddlCours.Items.Count >0 ? true: false;
 
             if (!Page.IsPostBack)
             {
 
-
+                
                 divSuccess.Attributes["style"] = "visibility:hidden";
                 divWarning.Attributes["style"] = "visibility:hidden";
             }
@@ -216,7 +220,7 @@ namespace Site_de_la_Technique_Informatique
         {
             lblModalTitle.Text = "Dernière vérification";
             lblModalBody.Text = "Inscrivez votre mot de passe afin de confirmer la suppression de votre compte";
-            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "  document.getElementById('aDelete').click(); $('#popupDelete').modal();", true);
+         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "  document.getElementById('aDelete').click(); $('#popupDelete').modal();", true);
             upDelete.Update();
         }
 
@@ -261,32 +265,104 @@ namespace Site_de_la_Technique_Informatique
 
 
         #region Modifier_Cours
-        public IQueryable lvModifierCours_GetData()
+        public IQueryable<Cours> lvModifierCours_GetData()
         {
 
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
              //   short session = short.Parse(ddlSession.SelectedValue);
-                short session = 3;
-                Professeur profCours = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>()
-                                       from cr in cl.Cours
-                                       where cr.noSessionCours == session && cl.IDMembre == currentProf.IDMembre
-                                        select cl).FirstOrDefault();
-                                       
-
-               var cours =  profCours.Cours;
+                int idCours = int.Parse(ddlCours.SelectedValue);
+              //  Cours cours = new Cours();
+                List<Cours> cours = (from cl in lecontexte.CoursSet                                       
+                                       where cl.IDCours ==  idCours
+                                        select cl).ToList();                           
+                
 
                return cours.AsQueryable();
             }
         }
+
+        public IQueryable<Cours> getAllCours()
+        {
+
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                var session = short.Parse(ddlSession.SelectedValue);
+
+                
+                List<Cours> cours = new List<Cours>();
+               
+                Professeur profCours = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>()
+                                        from cr in cl.Cours
+                                       where  cl.IDMembre == currentProf.IDMembre
+                                        select cl).FirstOrDefault();
+
+                if (profCours != null) {
+               cours = profCours.Cours.Where(x => x.noSessionCours == session).ToList();
+                }
+                return cours.AsQueryable();
+            }
+        }
+
+
+        //public 
 
         public void updateCours()
         {
 
         }
 
+        public void deleteCours()
+        {
+
+        }
         #endregion
+
+        protected void btnModif_Click(object sender, EventArgs e)
+        {
+            lvModifierCours.DataBind();
+            lvModifierCours.Visible = true;
+        }
+
+        protected void btnAjout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lvModifierCours_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            try { 
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                if (e.Item.ItemType == ListViewItemType.DataItem)
+                {
+                    Cours currentCours = (Cours)e.Item.DataItem;
+                    Cours leCours = (lecontexte.Set<Cours>().SingleOrDefault(cours => cours.IDCours == currentCours.IDCours));
+                }
+            }
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text += "ERREUR DE ITEMDATABOUND, " + ex.ToString();
+            }
+        }
+
+        protected void ddlSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlCours.DataBind();
+            if (ddlCours.Items.Count > 0)
+            {
+                ddlCours.Enabled = true;
+                lblNoClass.Visible = false;
+               
+            }
+            else
+            {
+                ddlCours.Enabled = false;
+                lblNoClass.Visible = true;
+            }
+        }
 
        
 
