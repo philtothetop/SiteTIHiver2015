@@ -35,38 +35,38 @@
                         GroupItemCount="2">
 
                         <LayoutTemplate>
-                            <div style="clear:both; width:100%;">
+                            <div style="clear:both;">
                                 <asp:PlaceHolder runat="server" ID="groupPlaceholder" />
                             </div>
                         </LayoutTemplate>
 
                         <GroupTemplate>
-                            <div style="width:100%; clear:both;">
+                            <div style=" clear:both;">
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
                             </div>
                         </GroupTemplate>
 
                         <ItemTemplate>
-                            <div style="float:left;width:50%;">
-                                <div style="text-align:center;max-height:500px; min-height:500px">
-                                    <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="max-width:100%;" />
-                                </div>
+                            <div class="col-md-6 img-portfolio">
+                                <div>
+                                    <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="width:400px;" />
 
-                                <div style="clear:both; min-height:100px; border:1px solid black;">
-                                    <asp:Label ID="lblDescriptionDuSouvenir" runat="server" Text='<%# SavoirSiDescriptionEstVide(Item.descriptionPhoto) %>'></asp:Label>
-                                </div>
+                                     <div> <asp:Label ID="lblDescriptionDuSouvenir" runat="server" Text='<%# SavoirSiDescriptionEstVide(Item.descriptionPhoto) %>'></asp:Label></div> 
+
+                                </div>                           
+                               
                             </div>
                         </ItemTemplate>
 
                         <EmptyDataTemplate>
-                            <div style="width:100%;">
+                             <div class="col-md-6 img-portfolio">
                                 <asp:Label ID="lblPasDeSouvenirs" runat="server" Text="Il n'y a pas de souvenir pour le type recherché"></asp:Label>
                             </div>
                         </EmptyDataTemplate>
             
             </asp:ListView>
 
-            <div style="text-align:center; width:100%; clear:both;">
+            <div style="text-align:center;  clear:both;">
             
                 <asp:DataPager ID="dataPagerDesSouvenirs" runat="server" PagedControlID="lviewSouvenirs"
                                 PageSize="10">

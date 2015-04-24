@@ -169,7 +169,7 @@ namespace Site_de_la_Technique_Informatique
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = false;
                 lblAjouterProfesseur.Visible = false;
-                lblQuiSommesNous.Visible = false;
+                lblQuiSommesNous.Visible = true;
             }
            }
             

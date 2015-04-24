@@ -75,7 +75,7 @@
                             <a href="Nouvelles.aspx">Nouvelles</a>
                         </li>
                         <li class="dropdown" runat="server" id="lblSouvenir">
-                            <a href="#">Souvenirs</a>
+                            <a href="Souvenirs.aspx">Souvenirs</a>
                         </li>
 
                         <li runat="server" id="lblInformation" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
@@ -227,7 +227,7 @@
                             <ul>
                                 <li><a href="contact.aspx">Contactez-nous </a></li>
                                 <li><a href="concepteur.aspx">Concepteurs </a></li>
-                                <li><a href="#">Parutions média </a></li>
+                                <li><a href="LesParutionsMedias.aspx">Parutions média </a></li>
 
                             </ul>
                         </div>
@@ -256,18 +256,11 @@
 
                             </ul>
                         </div>
-                        <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
-                            <h3>Recherche</h3>
-                            <ul>
-                                <li>
-                                    <div class="input-append newsletter-box text-center">
-                                        <input type="text" class="full text-center" placeholder="Recherche " />
-                                        <button class="btn  bg-gray" type="button">Recherche <i class="fa fa-long-arrow-right"></i></button>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
+                         
                             <ul class="social">
-                                <li><a href="https://www.facebook.com/DepartementDinformatiqueCegepDeGranbyHauteYamaska"><i class="fa fa-facebook"></i></a></li>
+                               
+                                <li style="margin-top:40px;"><a href="https://www.facebook.com/DepartementDinformatiqueCegepDeGranbyHauteYamaska"><i class="fa fa-facebook"></i></a></li>
 
                             </ul>
                         </div>
@@ -280,7 +273,7 @@
 
             <div class="footer-bottom">
                 <div class="container">
-                    <p class="pull-left">Copyright © Techniques de l'informatique du Cégep de Granby </p>
+                    <p style="text-align:center;">Copyright © Techniques de l'informatique du Cégep de Granby </p>
                 </div>
             </div>
             <!--/.footer-bottom-->
