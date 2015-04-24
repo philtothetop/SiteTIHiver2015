@@ -8,7 +8,7 @@
             <div class="row">
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                 <h1>Gérer la FAQ</h1>
-                <p>Sur cette page, vous pouvez modifier, ajouter ou supprimer des questions de la Foire aux questions.</p>
+                <p>Sur cette page, vous pouvez modifier, ajouter ou supprimer des questions de la foire aux questions (FAQ).</p>
 
             </div>
             <div class="row">
@@ -22,16 +22,18 @@
                 <asp:Label ID="lblAjouterReponse" runat="server" Text="Réponse:"></asp:Label>
                 <asp:TextBox ID="txtAjouterReponse" runat="server" CssClass="form-control" TextMode="MultiLine"></asp:TextBox>
             </div>
+            <br />
             <div class="row">
                 <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" CssClass="btn btn-success pull-right" OnClick="btnAjouter_Click" />
             </div>
             <div class="row">
                 <h3>Modifier une question</h3>
-                <asp:DropDownList ID="ddlQuestionsFAQ" runat="server" CssClass="form-control" SelectMethod="getQuestionsFAQ" DataTextField="texteQuestion" DataValueField="IDFAQ" AutoPostBack="true" OnSelectedIndexChanged="ddlQuestionsFAQ_SelectedIndexChanged"></asp:DropDownList>
+                <asp:DropDownList ID="ddlQuestionsFAQ" runat="server" CssClass="form-control" SelectMethod="getQuestionsFAQ" DataTextField="texteQuestion" DataValueField="IDFAQ" AutoPostBack="true" OnSelectedIndexChanged="ddlQuestionsFAQ_SelectedIndexChanged"> 
+
+                     </asp:DropDownList>
             </div>
             <asp:ListView ID="lviewModifFAQ" runat="server"
                 SelectMethod="getQuestionAModifier"
-                OnItemCommand="lviewModifFAQ_ItemCommand"
                 ItemType="Site_de_la_Technique_Informatique.Model.FAQ">
                 <LayoutTemplate>
                     <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
@@ -48,6 +50,10 @@
                     </div>
                 </ItemTemplate>
             </asp:ListView>
+            <br />
+            <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" OnClick="btnSupprimer_Click" CssClass="btn btn-danger pull-right" /><div>&nbsp;</div>
+            <asp:Button ID="btnModifier" runat="server" Text="Modifier" OnClick="btnModifier_Click" CssClass="btn btn-primary pull-right" />
+            
         </div>
     </div>
 </asp:Content>

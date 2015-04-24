@@ -18,13 +18,21 @@ namespace Site_de_la_Technique_Informatique
 
         public IQueryable<Model.FAQ> getQuestionsFAQ()
         {
-            List<Model.FAQ> listeDesQuestions = null;
+            // sert à remplir le listview 
+
+            List<Model.FAQ> listeDesQuestions = new List<Model.FAQ>();
 
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
                 try
                 {
-                    listeDesQuestions = (from faq in lecontexte.FAQSet select faq).ToList();
+                    Model.FAQ premiereQuestion = new Model.FAQ();
+                    premiereQuestion.IDFAQ = 0;
+                    premiereQuestion.texteQuestion = "Sélectionnez une question";
+                    premiereQuestion.texteReponse = "";
+                    listeDesQuestions.Add(premiereQuestion);
+                    listeDesQuestions.AddRange((from faq in lecontexte.FAQSet select faq).ToList());
+                    
                 }
                 catch (Exception ex)
                 {
@@ -56,6 +64,7 @@ namespace Site_de_la_Technique_Informatique
 
         protected void ddlQuestionsFAQ_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Sert à afficher la question sélectionnée du dropdownlist dans le listview (et pouvoir par la suite la modifier ou la supprimer)
 
             TextBox txtQuestion = (TextBox)lviewModifFAQ.Items[0].FindControl("txtQuestion");
             TextBox txtReponse = (TextBox)lviewModifFAQ.Items[0].FindControl("txtReponse");
@@ -64,9 +73,17 @@ namespace Site_de_la_Technique_Informatique
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
                     int selectedValue = Convert.ToInt32(ddlQuestionsFAQ.SelectedValue);
-                    Model.FAQ laFaq = (lecontexte.FAQSet.SingleOrDefault(m => m.IDFAQ == selectedValue));
-                    txtQuestion.Text = laFaq.texteQuestion;
-                    txtReponse.Text = laFaq.texteReponse;
+                    if (selectedValue != 0)
+                    {
+                        Model.FAQ laFaq = (lecontexte.FAQSet.SingleOrDefault(m => m.IDFAQ == selectedValue));
+                        txtQuestion.Text = laFaq.texteQuestion;
+                        txtReponse.Text = laFaq.texteReponse;
+                    }
+                    else
+                    {
+                        txtQuestion.Text = "";
+                        txtReponse.Text = "";
+                    }
                 }
             }
             catch (Exception ex)
@@ -77,6 +94,8 @@ namespace Site_de_la_Technique_Informatique
 
         protected void btnAjouter_Click(object sender, EventArgs e)
         {
+            // Sert à ajouter une question à la FAQ 
+
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
                 try
@@ -93,7 +112,7 @@ namespace Site_de_la_Technique_Informatique
                 catch (Exception ex)
                 {
                     lblMessage.Attributes["style"] = "color:red;";
-                    lblMessage.Text += "Erreur lors du clic sur btn_Ajouter: " + ex.ToString();
+                    lblMessage.Text += "Erreur lors du clic sur le bouton Ajouter: " + ex.ToString();
                 }
                 lblMessage.Attributes["style"] = "color:green;";
                 lblMessage.Text += "Vous avez bien ajouté votre question à la FAQ!";
@@ -103,26 +122,57 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        protected void lviewModifFAQ_ItemCommand(object sender, ListViewCommandEventArgs e)
+
+        protected void btnModifier_Click(object sender, EventArgs e)
         {
+            // Sert à modifier une question de la FAQ
+
             try
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                    int ID = Convert.ToInt32(e.CommandArgument);
-                    //string pseudo = (from mem in lecontexte.UtilisateurJeu.OfType<Membre>() where mem.IDUtilisateur == ID select mem.Pseudo).FirstOrDefault();
-                    if (e.CommandName == "Modifier")
-                    {
-                        Model.FAQ questionAMod = (from question in lecontexte.FAQSet where question.IDFAQ == ID select question).FirstOrDefault();
-                        //questionAMod.texteQuestion = lviewModifFAQ.FindControl.
-                    }
+                    int ID = Convert.ToInt32(ddlQuestionsFAQ.SelectedValue);
+                    Model.FAQ questionAMod = (from question in lecontexte.FAQSet where question.IDFAQ == ID select question).FirstOrDefault();
+                    TextBox txtQuestion = lviewModifFAQ.Items[0].FindControl("txtQuestion") as TextBox;
+                    questionAMod.texteQuestion = txtQuestion.Text;
+                    TextBox txtReponse = lviewModifFAQ.Items[0].FindControl("txtReponse") as TextBox;
+                    questionAMod.texteReponse = txtReponse.Text;
+                    lecontexte.SaveChanges();
+                    ddlQuestionsFAQ.DataBind();
+                    lviewModifFAQ.DataBind();
+                    lblMessage.Attributes["style"] = "color:green;"; 
+                    lblMessage.Text = "Vous avez bien modifié la question!";
                 }
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté d'aller sur la messagerie " + ex.InnerException;
+                lblMessage.Attributes["style"] = "color:red;";
+                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de modifer la question de la FAQ : " + ex.InnerException;
             }
-
         }
+
+        protected void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            // Sert à supprimer une question de la FAQ 
+
+            try
+            {
+                using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+                {
+                    int ID = Convert.ToInt32(ddlQuestionsFAQ.SelectedValue);
+                    Model.FAQ questionASupprimer = (from question in lecontexte.FAQSet where question.IDFAQ == ID select question).FirstOrDefault();
+                    lecontexte.FAQSet.Remove(questionASupprimer);
+                    lecontexte.SaveChanges();
+                    ddlQuestionsFAQ.DataBind();
+                    lviewModifFAQ.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Attributes["style"] = "color:red;";
+                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de supprimer une question de la FAQ : " + ex.InnerException;
+            }
+        }
+
     }
 }

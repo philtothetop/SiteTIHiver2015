@@ -27,21 +27,21 @@
         <div class="row">
             <div class="col-md-6 img-portfolio">
                
-                    <img class="img-responsive" src="Photos/Cedric.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Cedric.jpg" alt=""/>
                
                 <h3>
                     Cédric Archambault
                 </h3>
-                <p>Tu vas m'agrandir ça pour commencer. En installant ton ItemTemplate, tu vas checker dans le DataKeyNames. Quand ça marche, regarde sur mon site pour voir comment mettre à jour Entity Framework. Avec ASP, tu niaiseras pas avec des contrôles trouvés sur internet.</p>
+                <p>Le grand designer en formulaire.</p>
             </div>
             <div class="col-md-6 img-portfolio">
               
-                    <img class="img-responsive" src="Photos/Baron.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Baron.jpg" alt=""/>
                
                 <h3>
                     Philippe Baron
                 </h3>
-                <p>Pour mettre à jour le DataKeyNames, vas simplifier le listview. Ensuite, il faut apprendre comment utiliser ton événement ItemUpdating. Avec les contrôles ASP, ça devient ben plus intéressant que d'utiliser des contrôles jQuery.</p>
+                <p>Le grand Gitmaster. (Libéral)</p>
             </div>
         </div>
         <!-- /.row -->
@@ -50,21 +50,21 @@
         <div class="row">
             <div class="col-md-6 img-portfolio">
                
-                    <img class="img-responsive" src="Photos/Bibeau.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Bibeau.jpg" alt=""/>
               
                 <h3>
                     Philippe Bibeau
                 </h3>
-                <p>Pour débugger ta base de donnés, regarde sur mon site pour voir comment reinstaller ton contrôle. Ensuite, tu mets un breakpoint pour updater ta base de donnés. Avec ASP, perdras pas ton temps avec 56 000 lignes de code.</p>
+                <p>Le grand concepteur de meme.</p>
             </div>
             <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/image1.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Raphael.jpg" alt=""/>
                
                 <h3>
                     Raphael Brouard
                 </h3>
-                <p>Tu vas m'agrandir ça pour commencer. Mets un breakpoint sur ton linkbutton, commence par reinstaller le datagrid. Après ça, il faut simplifier ta base de données. Avec les contrôles ASP, ça va être pas mal plus rapide sans PHP dans 5 ans.</p>
+                <p>Le grand adorateur de poney.</p>
             </div>
         </div>
         <!-- /.row -->
@@ -73,57 +73,57 @@
         <div class="row">
             <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Jacob.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Jacob.jpg" alt=""/>
                 
                 <h3>
                     Jacob Fontaine
                 </h3>
-                <p>Montre moi ton code. Mets un breakpoint sur le général Typeof, tu fais un update et tu vas simplifier Microsoft. Après ça, tu vas updater ton message d'erreur. Avec Entity, ton listview fait pas mal plus de choses que jQuery quand ça sera plus supporté.</p>
+                <p>Le grand "la journée a mal été".</p>
             </div>
             <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Marie.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Marie.jpg" alt=""/>
                
                 <h3>
                     Marie-Philippe Gill
                 </h3>
-                <p>En dernier recours tu prend le colonel Sender, va voir sur internet pour voir comment aller chercher ton breakpoint. Une fois que ça marche, demande à ton coéquipier comment gosser Entity Framework. Quand t'as les contrôles ASP, ça va être pas mal plus rapide sans juste du CSS.</p>
+                <p>Le grand côté féminin du groupe, avec 500$ en poche.</p>
             </div>
              <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/image1.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Karl.jpg" alt=""/>
                 
                 <h3>
                     Karl Gosselin
                 </h3>
-                <p>Commence par m'agrandir ton code. En dernier recours tu prend SQL server, tu vas mettre un breakpoint sur le général Typeof. Ensuite, essayes d'aller mettre à jour les contrôles AJAX. Quand t'utilises Entity, tu verras comment c'est plus facile que si t'avais utilisé des contrôles jQuery.</p>
+                <p>Le grand Johnny Fap, star d'internet.</p>
             </div>
              <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/image1.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Yannick.jpg" alt=""/>
                
                 <h3>
                     Yannick Huard
                 </h3>
-                <p>Commence par m'agrandir ton code. En dernier recours tu prend SQL server, tu vas mettre un breakpoint sur le général Typeof. Ensuite, essayes d'aller mettre à jour les contrôles AJAX. Quand t'utilises Entity, tu verras comment c'est plus facile que si t'avais utilisé des contrôles jQuery.</p>
+                <p>Le grand escroc qui paye en dessous de la table.</p>
             </div>
              <div class="col-md-6 img-portfolio">
                
-                    <img class="img-responsive" src="Photos/Xavier.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Xavier.jpg" alt=""/>
                 
                 <h3>
                     Xavier Poutré
                 </h3>
-                <p>Montre moi ton code. Mets un breakpoint sur les contrôles ASP, tu fais debugger ton ItemTemplate. Quand ça marche, tu fais mettre un breakpoint sur ton linkbutton. Avec ASP, ça va être pas mal plus rapide sans PHP dans 5 ans.</p>
+                <p>Le grand destructeur de BD.</p>
             </div>
              <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Francis.jpg" alt=""/>
+                    <img class="img-responsive" src="Photos/Concepteurs/Francis.jpg" alt=""/>
                
                 <h3>
                     Francis Trépanier
                 </h3>
-                <p>Commence par m'agrandir ton code. En installant le bon EntityDataSource, demande à ton coéquipier comment patenter le datagrid. Quand t'auras fini, il faut mettre un breakpoint sur ton ItemTemplate. Avec les contrôles ASP, ça va être plus facile qu'avec 56 000 lignes de code.</p>
+                <p>Le grand gardien de la chasteté de la BD et de Minecraft.</p>
             </div>           
         </div>
         <!-- /.row -->

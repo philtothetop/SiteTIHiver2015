@@ -28,8 +28,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = false; // Même chose que les autres               
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
-                lblAdmin.Visible = false;
-                lblStage.Visible = false;
+                lblAdmin.Visible = false;              
                 lblNouvelles.Visible = true;
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
@@ -47,8 +46,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = true; // Même chose que les autres               
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
-                lblAdmin.Visible = false;
-                lblStage.Visible = true;
+                lblAdmin.Visible = false;             
                 lblNouvelles.Visible = true;
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
@@ -75,8 +73,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = true; // Même chose que les autres          
                 liConnexion.Visible = true;
                 lblForum.Visible = true;
-                lblAdmin.Visible = true;
-                lblStage.Visible = true;
+                lblAdmin.Visible = true;            
                 lblNouvelles.Visible = true;
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
@@ -103,8 +100,7 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = true; // Même chose que les autres              
                 liConnexion.Visible = true;
                 lblForum.Visible = false;
-                lblAdmin.Visible = false;
-                lblStage.Visible = false;
+                lblAdmin.Visible = false;              
                 lblNouvelles.Visible = true;
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
@@ -133,7 +129,6 @@ namespace Site_de_la_Technique_Informatique
                 liConnexion.Visible = true;
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
-                lblStage.Visible = false;
                 lblNouvelles.Visible = false;
                 lblSouvenir.Visible = false;
                 lblRecherche.Visible = false;
@@ -161,15 +156,14 @@ namespace Site_de_la_Technique_Informatique
                 lblOffresEmploi.Visible = false; // Même chose que les autres              
                 liConnexion.Visible = false;
                 lblForum.Visible = false;
-                lblAdmin.Visible = false;
-                lblStage.Visible = false;             
+                lblAdmin.Visible = false;           
                 lblSouvenir.Visible = true;
                 lblRecherche.Visible = true;
                 lblInformation.Visible = true;
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = false;
                 lblAjouterProfesseur.Visible = false;
-                lblQuiSommesNous.Visible = false;
+                lblQuiSommesNous.Visible = true;
             }
            }
             
@@ -242,7 +236,7 @@ namespace Site_de_la_Technique_Informatique
                             if (userEtu.compteActif == 1) //ça prend un compte validé
                             {
                                 Response.Cookies["TIUtilisateur"].Value = "Etudiant"; //On indique le type d'usager
-                                Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
+                                Response.Cookies["TINom"].Value = userMembre.prenom; //on récupère le prénom de membre
                                 Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
                             }
                             else //oups, courriel non validé
@@ -256,7 +250,7 @@ namespace Site_de_la_Technique_Informatique
                         if (userProf != null)
                         {
                             Response.Cookies["TIUtilisateur"].Value = "Professeur"; //On indique le type d'usager
-                            Response.Cookies["TINom"].Value = userMembre.prenom + " " + userMembre.nom; //on récupère le nom + prénom de membre
+                            Response.Cookies["TINom"].Value = userMembre.prenom; //on récupère prénom de membre
                             Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
                         }
 
@@ -315,7 +309,7 @@ namespace Site_de_la_Technique_Informatique
             Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
             Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
 
-            Response.Redirect(Request.RawUrl, false); // reload la page depuis laquelle la déconnexion a été appellée
+            Response.Redirect("default.aspx"); // reload la page d'accueil
         }
     }
 }

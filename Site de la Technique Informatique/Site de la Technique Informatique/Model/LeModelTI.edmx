@@ -279,6 +279,7 @@
     <Property Name="IDPhotos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="pathPhoto" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="typePhoto" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="descriptionPhoto" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="UtilisateurSet_Employeur">
     <Key>
@@ -1061,6 +1062,7 @@
           <Property Name="IDPhotos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="pathPhoto" Type="String" Nullable="false" MaxLength="200" />
           <Property Name="typePhoto" Type="String" Nullable="false" MaxLength="20" />
+          <Property Name="descriptionPhoto" Type="String" Nullable="true" MaxLength="1500" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1292,6 +1294,7 @@
           <ScalarProperty Name="IDPhotos" ColumnName="IDPhotos" />
           <ScalarProperty Name="pathPhoto" ColumnName="pathPhoto" />
           <ScalarProperty Name="typePhoto" ColumnName="typePhoto" />
+          <ScalarProperty Name="descriptionPhoto" ColumnName="descriptionPhoto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

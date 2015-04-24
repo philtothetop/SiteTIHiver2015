@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Globalization;
 
 
 namespace Site_de_la_Technique_Informatique
@@ -13,47 +15,77 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            lblErreur.Text = "";
         }
+
+        #region GETDATA DES ÉVÉNEMENTS
         public IQueryable<DateEvenementVerTIC> lvEcheancier_GetData()
         {
             var listeEvenements = new List<DateEvenementVerTIC>();
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
+                listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet where cl.dateDescription >= DateTime.Now select cl).ToList();
             }
 
-            if (listeEvenements.Count() == 0)
-            {
-
-                DateEvenementVerTIC eventTest = new DateEvenementVerTIC();
-                eventTest.dateDescription = DateTime.Today;
-                eventTest.evenement = "Date de Test";
-                eventTest.IDDateEvenementVerTIC = 1;
-                listeEvenements.Add(eventTest);
-            }
             return listeEvenements.AsQueryable();
         }
+        #endregion
 
-        protected void UpdateEvent()
+        #region UPDATE/ADD/DELETE UN ÉVÉNEMENT
+
+        protected void UpdateEvent(object sender, EventArgs e)
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                //Button btnModifier = (Button)sender;
-                //int idEvent = Int32.Parse(btnModifier.CommandArgument);
+                Button btnModifier = (Button)sender;
+                int idEvent = Int32.Parse(btnModifier.CommandArgument);
                 DateEvenementVerTIC eventTest = (from even in lecontexte.DateEvenementVerTICSet
-                                                 where even.IDDateEvenementVerTIC == 6 //idEvent
+                                                 where even.IDDateEvenementVerTIC == idEvent
                                                  select even).FirstOrDefault();
-             
-             //string id=   lviewEcheancier.ID;
-             //   TextBox txtDate= new TextBox();
-             //   TextBox txtEvent= new TextBox();
-             //txtEvent =  (TextBox)lviewEcheancier.FindControl("txtDescEvent");
-             //txtDate = (TextBox)lviewEcheancier.FindControl("txtDate");
-             //   eventTest.dateDescription = DateTime.Parse(txtDate.Text);
-                //   eventTest.evenement = txtEvent.Text;
 
-                TryUpdateModel(eventTest);
+                //TextBox lblMinuteActivite = (e.Item.FindControl("txtDescEvent") as TextBox);
+                TextBox txtEvent = (lviewEcheancier.Items[0].FindControl("txtDescEvent") as TextBox);
+                TextBox txtJourEvent = (lviewEcheancier.Items[0].FindControl("txtJourEvent") as TextBox);
+
+                DropDownList ddlMoisEvent = (lviewEcheancier.Items[0].FindControl("ddlMoisEvent") as DropDownList);
+                DropDownList ddlAnneeEvent = (lviewEcheancier.Items[0].FindControl("ddlAnneeEvent") as DropDownList);
+
+                DropDownList ddlHeures = (lviewEcheancier.Items[0].FindControl("ddlHeures") as DropDownList);
+                DropDownList ddlMinutes = (lviewEcheancier.Items[0].FindControl("ddlMinutes") as DropDownList);
+                try
+                {
+                    DateTime date = new DateTime(Int32.Parse(ddlAnneeEvent.Text), Int32.Parse(ddlMoisEvent.Text), Int32.Parse(txtJourEvent.Text), Int32.Parse(ddlHeures.Text), Int32.Parse(ddlMinutes.Text), 0);
+                    eventTest.dateDescription = date;
+
+                    DateTime datemin = DateTime.Parse("01/01/1900", new CultureInfo("en-CA"));
+
+                    if (date < datemin)
+                    {
+                        lblErreur.Text = "La date n'est pas valide.";
+                        txtJourEvent.BorderColor = Color.Red;
+                        ddlMoisEvent.BorderColor = Color.Red;
+                        ddlAnneeEvent.BorderColor = Color.Red;
+                    }
+                    else if (date < DateTime.Now.AddDays(1))
+                    {
+
+                        lblErreur.Text = "La date n'est pas valide.";
+                        txtJourEvent.BorderColor = Color.Red;
+                        ddlMoisEvent.BorderColor = Color.Red;
+                        ddlAnneeEvent.BorderColor = Color.Red;
+                    }
+                }
+                catch (Exception)
+                {
+                    lblErreur.Text = "La date n'est pas valide.";
+                    txtJourEvent.BorderColor = Color.Red;
+                    ddlMoisEvent.BorderColor = Color.Red;
+                    ddlAnneeEvent.BorderColor = Color.Red;
+                    return;
+                }
+
+                eventTest.evenement = txtEvent.Text;
+
                 lecontexte.SaveChanges();
                 Response.Redirect("~/Admin_Evenement.aspx");
             }
@@ -64,13 +96,44 @@ namespace Site_de_la_Technique_Informatique
             var listeEvenements = new List<DateEvenementVerTIC>();
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                DateEvenementVerTIC eventTest = new DateEvenementVerTIC { dateDescription = DateTime.Parse(txtAjoutDate.Text), evenement = txtAjoutEvenement.Text };
+                DateEvenementVerTIC eventAjouter = new DateEvenementVerTIC();
+                try
+                {
+                    DateTime dateAjout = new DateTime(Int32.Parse(ddlAnneeEventAjouter.Text), Int32.Parse(ddlMoisEventAjouter.Text), Int32.Parse(txtJourEventAjouter.Text), Int32.Parse(ddlHeuresAjouter.Text), Int32.Parse(ddlMinutesAjouter.Text), 0);
+                    DateTime datemin = DateTime.Parse("01/01/1900", new CultureInfo("en-CA"));
+
+                    if (dateAjout < datemin)
+                    {
+                        lblErreur.Text = "La date n'est pas valide.";
+                        txtJourEventAjouter.BorderColor = Color.Red;
+                        ddlMoisEventAjouter.BorderColor = Color.Red;
+                        ddlAnneeEventAjouter.BorderColor = Color.Red;
+                    }
+                    else if (dateAjout < DateTime.Now.AddDays(1))
+                    {
+
+                        lblErreur.Text = "La date n'est pas valide.";
+                        txtJourEventAjouter.BorderColor = Color.Red;
+                        ddlMoisEventAjouter.BorderColor = Color.Red;
+                        ddlAnneeEventAjouter.BorderColor = Color.Red;
+                    }
+                    eventAjouter.dateDescription = dateAjout;
+                }
+                catch (Exception)
+                {
+                    lblErreur.Text = "La date n'est pas valide.";
+                    txtJourEventAjouter.BorderColor = Color.Red;
+                    ddlMoisEventAjouter.BorderColor = Color.Red;
+                    ddlAnneeEventAjouter.BorderColor = Color.Red;
+                    return;
+                }
+
+                eventAjouter.evenement = txtAjoutEvenement.Text;
                 listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
-                listeEvenements.Add(eventTest);
-                lecontexte.DateEvenementVerTICSet.Add(eventTest);
+                listeEvenements.Add(eventAjouter);
+                lecontexte.DateEvenementVerTICSet.Add(eventAjouter);
                 lecontexte.SaveChanges();
                 Response.Redirect("~/Admin_Evenement.aspx");
-
             }
         }
 
@@ -90,27 +153,7 @@ namespace Site_de_la_Technique_Informatique
                 }
         }
 
-        // Le nom du paramètre id doit correspondre à la valeur DataKeyNames définie sur le contrôle
-        public void lviewEcheancier_UpdateItem(string id)
-        {
-            Site_de_la_Technique_Informatique.Model.DateEvenementVerTIC item = null;
-            // Charge l'élément ici, par ex. item = MyDataLayer.Find(id);
-            if (item == null)
-            {
-                // Élément introuvable
-                ModelState.AddModelError("", String.Format("L'élément avec l'ID {0} est introuvable", id));
-                return;
-            }
-            TryUpdateModel(item);
-            if (ModelState.IsValid)
-            {
-                // Enregistre les modifications ici, par ex. MyDataLayer.SaveChanges();
+        #endregion
 
-            }
-        }
-
-           
-
-     
     }
 }
