@@ -148,7 +148,6 @@
     <Content Include="Jquery\Cropper\js\jquery.min.js" />
     <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
-    <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="MesDiscussionsForum.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
     <Content Include="Css\bootstrap.css" />
@@ -555,13 +554,6 @@
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\ExceptionUtility.cs" />
-    <Compile Include="marie-TestVerTIC.aspx.cs">
-      <DependentUpon>marie-TestVerTIC.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="marie-TestVerTIC.aspx.designer.cs">
-      <DependentUpon>marie-TestVerTIC.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MesDiscussionsForum.aspx.cs">
       <DependentUpon>MesDiscussionsForum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
