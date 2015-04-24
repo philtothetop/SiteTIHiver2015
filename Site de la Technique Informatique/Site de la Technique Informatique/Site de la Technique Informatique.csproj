@@ -127,6 +127,7 @@
     <Content Include="FaireTemoignage.aspx" />
     <Content Include="FAQ.aspx" />
     <Content Include="Inscription-Employeur.aspx" />
+    <Content Include="Inscription-Etudiant.aspx" />
     <Content Include="Inscription-message.aspx" />
     <Content Include="Inscription-valide.aspx" />
     <Content Include="Jquery\Cropper\Cropper.aspx" />
@@ -490,6 +491,13 @@
     </Compile>
     <Compile Include="Inscription-Employeur.aspx.designer.cs">
       <DependentUpon>Inscription-Employeur.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription-Etudiant.aspx.cs">
+      <DependentUpon>Inscription-Etudiant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inscription-Etudiant.aspx.designer.cs">
+      <DependentUpon>Inscription-Etudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inscription-message.aspx.cs">
       <DependentUpon>Inscription-message.aspx</DependentUpon>
