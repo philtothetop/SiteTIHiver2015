@@ -30,7 +30,7 @@ namespace Site_de_la_Technique_Informatique
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
 
-
+            lblCoursErreurs.Visible = false;
             ddlCours.Enabled = ddlCours.Items.Count > 0 ? true : false;
             btnModif.Enabled = ddlCours.Enabled;
 
@@ -341,9 +341,13 @@ namespace Site_de_la_Technique_Informatique
                     leCoursAUpdaterCopie = (lecontexte.Set<Cours>().SingleOrDefault(m => m.IDCours == leCoursAUpdater.IDCours));
                 }
                 else
-                { leCoursAUpdaterCopie = leCoursAUpdater; }
+                { leCoursAUpdaterCopie = leCoursAUpdater;
+                leCoursAUpdaterCopie.noSessionCours = short.Parse(ddlSession.SelectedValue);
+                leCoursAUpdaterCopie.Professeur.Add(currentProf);
+                
+                }
 
-                ListViewItem lvmediacourant = lvModifierCours.Items[0];
+                ListViewItem lvcourscourant = lvModifierCours.Items[0];
 
                 //VÉRIFIE SI CE QUI EST A L'ÉCRAN EST VALIDE ET EN VERSE LE CONTENU DANS LEMEMBREAUPDATER
                 //---------------------------------------------------------------------------------------
@@ -355,8 +359,9 @@ namespace Site_de_la_Technique_Informatique
                 {
                     foreach (var validationResult in results)
                     {
-                        lblMessage.Text += validationResult.ErrorMessage;
+                        lblCoursErreurs.Text += validationResult.ErrorMessage;
                     }
+                    lblCoursErreurs.Visible = true;
                 }
                 else // VALIDE
                 {
@@ -369,8 +374,6 @@ namespace Site_de_la_Technique_Informatique
                             lecontexte.Set<Cours>().Add(leCoursAUpdaterCopie);
                         }
 
-                        ListViewItem lvmediacourant1 = lvModifierCours.Items[0];
-
                         lecontexte.SaveChanges();
                     }
                     // Attrappe les erreurs au Save Changes. Utile pour découvrir quelle propriété est en erreur.
@@ -378,16 +381,15 @@ namespace Site_de_la_Technique_Informatique
                     {
                         foreach (var eve in el.EntityValidationErrors)
                         {
-                            lblMessage.Text += "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:" +
+                            lblCoursErreurs.Text += "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:" +
                                 eve.Entry.Entity.GetType().Name + eve.Entry.State;
                             foreach (var ve in eve.ValidationErrors)
                             {
-                                lblMessage.Text += "- Property: \"{0}\", Error: \"{1}\"" +
+                                lblCoursErreurs.Text += "- Property: \"{0}\", Error: \"{1}\"" +
                                     ve.PropertyName + ve.ErrorMessage;
                             }
                         }
                     }
-
                     ViewState["mode"] = "édite";
                     ddlCours.DataBind();
                 }
@@ -410,7 +412,8 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-
+                    lblCoursErreurs.Text += "ERREUR DE SUPPRESSION D'UN COURS, " + ex.ToString();
+                    lblCoursErreurs.Visible = true;
                 }
         }
         #endregion
@@ -432,7 +435,8 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                
+               lblCoursErreurs.Text += "ERREUR LORS DE L'«AJOUT» D'UN COURS, " + ex.ToString();
+               lblCoursErreurs.Visible = true;
             }
         }
 
@@ -444,14 +448,16 @@ namespace Site_de_la_Technique_Informatique
                 {
                     if (e.Item.ItemType == ListViewItemType.DataItem)
                     {
-                        Cours currentCours = (Cours)e.Item.DataItem;
+                        Cours currentCours = (Cours)e.Item.DataItem;                    
                         Cours leCours = (lecontexte.Set<Cours>().SingleOrDefault(cours => cours.IDCours == currentCours.IDCours));
+                                                
                     }
                 }
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "ERREUR DE ITEMDATABOUND, " + ex.ToString();
+                lblCoursErreurs.Text += "ERREUR DE ITEMDATABOUND, " + ex.ToString();
+                lblCoursErreurs.Visible = true;
             }
         }
 
