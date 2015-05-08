@@ -20,24 +20,24 @@ namespace Site_de_la_Technique_Informatique
     public partial class ModifierProfesseur : ErrorHandling
     {
         public Professeur currentProf;
-
+      
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
             //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
-
-         
+            
+               
                    ddlCours.Enabled = ddlCours.Items.Count >0 ? true: false;
                    btnModif.Enabled = ddlCours.Enabled;
-
+                
             if (!Page.IsPostBack)
             {
 
                 
-                divSuccess.Attributes["style"] = "visibility:hidden";
-                divWarning.Attributes["style"] = "visibility:hidden";
+            divSuccess.Attributes["style"] = "visibility:hidden";
+            divWarning.Attributes["style"] = "visibility:hidden";
             }
              
 
@@ -81,7 +81,7 @@ namespace Site_de_la_Technique_Informatique
 
                 TryUpdateModel(profAUpdater);
                 lblMessage.Text = "";
-
+               
                 if (!ModelState.IsValid)
                 {
                     foreach (var modelErrors in ModelState)
@@ -158,7 +158,7 @@ namespace Site_de_la_Technique_Informatique
         protected void lnkSaveNewPassword_Click(object sender, EventArgs e)
         {
             var hash = new hash();
-
+           
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
@@ -167,48 +167,48 @@ namespace Site_de_la_Technique_Informatique
                 if (!String.IsNullOrEmpty(txtAncienMp.Text) && !String.IsNullOrEmpty(txtNouveauMp.Text) && !String.IsNullOrEmpty(txtNouveauMpConfirm.Text))
                 {
                     string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
-                    if (profAModifier.hashMotDePasse.Equals(ancienPwd))
+                if (profAModifier.hashMotDePasse.Equals(ancienPwd))
+                {
+
+
+                    if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text) && txtAncienMp.Text != txtNouveauMpConfirm.Text)
                     {
-
-
-                        if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text) && txtAncienMp.Text != txtNouveauMpConfirm.Text)
+                        string newPwd = hash.GetSHA256Hash(txtNouveauMpConfirm.Text);
+                        profAModifier.hashMotDePasse = newPwd;
+                        Model.Log logEntry = new Model.Log
                         {
-                            string newPwd = hash.GetSHA256Hash(txtNouveauMpConfirm.Text);
-                            profAModifier.hashMotDePasse = newPwd;
-                            Model.Log logEntry = new Model.Log
-                            {
-                                dateLog = DateTime.Now,
-                                actionLog = profAModifier.prenom + " " + profAModifier.nom + " a modifié son mot de passe",
-                                typeLog = 0
-                            };
-                            lecontexte.SaveChanges();
-                            divWarning.Attributes["style"] = "visibility:hidden;";
-                            divSuccess.Attributes["style"] = "visibility:visible";
-                        }
-                        else if (!txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
-                        {
-                            lblMessage.Text = "<b>Nouveau mot de passe:</b>Les deux nouveaux mots de passe ne sont pas identiques";
-                            divWarning.Attributes["style"] = "visibility:visible;";
-                        }
-                        else
-                        {
-                            lblMessage.Text = "<b>Nouveau mot de passe:</b>Le nouveau mot de passe doit être différent du mot de passe actuel";
-                            divWarning.Attributes["style"] = "visibility:visible;";
-                        }
+                            dateLog = DateTime.Now,
+                            actionLog = profAModifier.prenom + " " + profAModifier.nom + " a modifié son mot de passe",
+                            typeLog = 0
+                        };
+                        lecontexte.SaveChanges();
+                        divWarning.Attributes["style"] = "visibility:hidden;";
+                        divSuccess.Attributes["style"] = "visibility:visible";
+                    }
+                    else if (!txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
+                    {
+                        lblMessage.Text = "<b>Nouveau mot de passe: </b>Les deux nouveaux mots de passe ne sont pas identiques";
+                        divWarning.Attributes["style"] = "visibility:visible;";
                     }
                     else
                     {
-                        lblMessage.Text = "<b>Ancien mot de passe:</b>Le mot de passe que vous avez entré n'est pas valide";
+                        lblMessage.Text = "<b>Nouveau mot de passe: </b>Le nouveau mot de passe doit être différent du mot de passe actuel";
                         divWarning.Attributes["style"] = "visibility:visible;";
                     }
                 }
                 else
                 {
-                    lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
+                    lblMessage.Text = "<b>Ancien mot de passe: </b>Le mot de passe que vous avez entré n'est pas valide";
                     divWarning.Attributes["style"] = "visibility:visible;";
                 }
             }
-
+                else
+                {
+                    lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
+                    divWarning.Attributes["style"] = "visibility:visible;";
+                }
+           }
+            
         }
 
         #endregion
@@ -221,7 +221,7 @@ namespace Site_de_la_Technique_Informatique
         {
             lblModalTitle.Text = "Dernière vérification";
             lblModalBody.Text = "Inscrivez votre mot de passe afin de confirmer la suppression de votre compte";
-         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "  document.getElementById('aDelete').click(); $('#popupDelete').modal();", true);
+            ScriptManager.RegisterStartupScript(Page, Page.GetType(), "popupDelete", "  document.getElementById('aDelete').click(); $('#popupDelete').modal();", true);
             upDelete.Update();
         }
 
@@ -238,25 +238,25 @@ namespace Site_de_la_Technique_Informatique
                     {
 
 
+                
+                profADesactiver.compteActif = 0;
 
-                        profADesactiver.compteActif = 0;
+                lecontexte.SaveChanges();
 
-                        lecontexte.SaveChanges();
+                Response.Cookies["TICourriel"].Value = ""; //enlève la valeur du cookie
+                Response.Cookies["TINom"].Value = ""; //enlève la valeur du cookie
+                Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
+                Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
 
-                        Response.Cookies["TICourriel"].Value = ""; //enlève la valeur du cookie
-                        Response.Cookies["TINom"].Value = ""; //enlève la valeur du cookie
-                        Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
-                        Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
-
-                        Response.Redirect(Request.RawUrl, false);
+                Response.Redirect(Request.RawUrl, false);
 
                     }
 
                 }
                 catch
                 {
-                    throw;
-                }
+                        throw;
+                    }
             }
         }
 
@@ -357,7 +357,7 @@ namespace Site_de_la_Technique_Informatique
                 ddlCours.Enabled = true;
                 lblNoClass.Visible = false;
                 btnModif.Enabled = true;
-               
+       
             }
             else
             {
@@ -367,7 +367,7 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-       
+        
 
     }
 }

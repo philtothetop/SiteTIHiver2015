@@ -71,7 +71,7 @@
         <!-- /.row -->
 
         <!-- Features Section -->
-        <div class="row">
+        <div class="row" style="background-color:#eaeaea; padding-bottom:5px;">
             <div class="col-lg-12">
                 <h2 class="page-header">Une technique spécialisée en programmation</h2>
             </div>
@@ -93,7 +93,7 @@
                 <p>Cette technique ne concerne en rien la programmation de jeux vidéo, prendre note qu'il faut s'appliquer et travailler fort pour réussir les cours.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/image1.jpg" alt="" />
+                <img class="img-responsive" src="Photos/Autres/Accueil.jpg" alt="" />
             </div>
         </div>
         <!-- /.row -->
@@ -174,7 +174,7 @@
                     <p>Pour une liste de tous les cours avec leur description détaillée.</p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="#">Liste des cours</a>
+                    <a class="btn btn-lg btn-default btn-block" onclick="window.open('Upload/Cours/grilles_informatique.pdf', '_blank', 'fullscreen=yes'); return false;" href="#">Liste des cours</a>
                 </div>
             </div>
         </div>

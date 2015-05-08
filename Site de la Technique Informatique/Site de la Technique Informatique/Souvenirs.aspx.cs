@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using System.Drawing;
+using System.IO;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -33,12 +34,6 @@ namespace Site_de_la_Technique_Informatique
                 ddlTypeDeSouvenir.DataTextField = "Key";
                 ddlTypeDeSouvenir.DataValueField = "Value";
                 ddlTypeDeSouvenir.DataBind();
-
-                //Querystring truc ici a faire SI ON VA UTILSER SA, A DEMENDER AU GROUPE POUR ACCUEIL TRUC
-                //
-                //
-                //
-
 
             }
         }
@@ -105,21 +100,29 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        public string ImageToResize(string pathImage, bool faireHauteur)
+        public int ImageToResize(string nomImage, bool faireHauteur)
         {
+            string pathImage = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), nomImage);
 
-            System.Drawing.Image imageDuMoment = System.Drawing.Image.FromFile(pathImage);
-            imageDuMoment = ResizeTheImage(500, 120, imageDuMoment);
-
-            //Pour height
-            if (faireHauteur == true)
+            if (File.Exists(pathImage))
             {
-                return Convert.ToString(imageDuMoment.Height);
+                System.Drawing.Image imageDuMoment = System.Drawing.Image.FromFile(pathImage);
+                imageDuMoment = ResizeTheImage(500, 120, imageDuMoment);
+
+                //Pour height
+                if (faireHauteur == true)
+                {
+                    return imageDuMoment.Height;
+                }
+                //Pour Width
+                else
+                {
+                    return imageDuMoment.Width;
+                }
             }
-            //Pour Width
             else
             {
-                return Convert.ToString(imageDuMoment.Width);
+                return 500;
             }
         }
 
@@ -164,13 +167,7 @@ namespace Site_de_la_Technique_Informatique
             {
                 imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(imageAChecker.Width, minSize));
             }
-            /*
-            //Pour mettre au moin hauteur ou largeur a 500
-            if (imageAChecker.Width < 500 && imageAChecker.Height < 500)
-            { 
-                if ()
-            }
-                */
+
             return imageAChecker;
         }
 
