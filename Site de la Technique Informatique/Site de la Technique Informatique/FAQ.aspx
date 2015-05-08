@@ -58,7 +58,4 @@ Extrants: --%>
         </div>
         </div>
         <!-- /.panel-group -->
-
-
-
 </asp:Content>
