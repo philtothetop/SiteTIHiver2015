@@ -6,9 +6,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="row">
-        <div  class="col-lg-3">
-           <ul>
+
+        <div >
+            <div class="col-lg-3">
+           <ul style="list-style-type:none;">
                
                    <li><a href="Admin_Evenement.aspx">Événement</a><br /></li>
                    
@@ -22,7 +23,7 @@
                   
                    <li><a href="Admin_Temoignage.aspx">Témoignage</a><br /></li>
 
-                  <li> <a href="AjoutProfesseur.aspx">Inscrire un professeur</a><br /></li>
+                  <li> <a href="Admin_InscriptionProfesseur.aspx">Inscrire un professeur</a><br /></li>
                   
                   <li> <a href="Admin_Validation-Inscription-Etudiant.aspx">Valider inscription étudiants</a><br /></li>
 
@@ -31,12 +32,15 @@
                   <li> <a href="Admin_Vertic.aspx">Vertic</a><br /></li>
                
            </ul>
-        </div>
+    </div>
         
         <div class="col-lg-9">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
         </asp:ContentPlaceHolder>
          </div>
-    </div>
+
+             <br /> <%--Ne pas toucher, c'est un fixe.--%>
+       </div>
+
 </asp:Content>
