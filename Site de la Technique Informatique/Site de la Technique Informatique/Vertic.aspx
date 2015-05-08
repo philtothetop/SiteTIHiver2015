@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <link href="../Css/scrolling-nav.css" rel="stylesheet" />
+    <link href="~­/Css/scrolling-nav.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Custom CSS -->

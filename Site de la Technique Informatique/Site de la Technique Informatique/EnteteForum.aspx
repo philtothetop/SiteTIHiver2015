@@ -18,10 +18,6 @@
                 </div>
             </div>
         </div>
-        <ol class="breadcrumb">
-            <li><a href="SectionForum.aspx">Retour aux sections</a>
-            </li>
-        </ol>
         <div class="row">
             <asp:ListView ID="lviewEntete" runat="server" SelectMethod="getEntetesForum" DataKeyNames="MembreIDUtilisateur, dateEnteteForum,IDEnteteForum" OnItemDataBound="lviewEntete_ItemDataBound">
                 <ItemTemplate>
