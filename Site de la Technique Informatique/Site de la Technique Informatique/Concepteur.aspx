@@ -14,11 +14,7 @@
                 <h1 class="page-header">Concepteurs
                     
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Concepteurs</li>
-                </ol>
+              
             </div>
         </div>
         <!-- /.row -->

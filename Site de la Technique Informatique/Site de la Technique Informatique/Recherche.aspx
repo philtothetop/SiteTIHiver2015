@@ -12,11 +12,7 @@
                 <h1 class="page-header">Recherche
                    
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="Default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Recherche</li>
-                </ol>
+               
             </div>
         </div>
         <!-- /.row -->

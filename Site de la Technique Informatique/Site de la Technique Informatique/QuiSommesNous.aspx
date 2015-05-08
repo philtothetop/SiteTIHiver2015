@@ -65,11 +65,7 @@ Extrants: --%>
                 <h1 class="page-header">Qui sommes-nous?
                     
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="Default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Qui sommes-nous?</li>
-                </ol>
+               
             </div>
         </div>
         <!-- /.row -->

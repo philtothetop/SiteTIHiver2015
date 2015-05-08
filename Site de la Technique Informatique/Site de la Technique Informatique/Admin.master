@@ -21,8 +21,12 @@
                    <li><a href="Admin_OffreEmploi.aspx">Offres d'emploi</a><br /></li>
                   
                    <li><a href="Admin_Temoignage.aspx">Témoignage</a><br /></li>
+
+                  <li> <a href="AjoutProfesseur.aspx">Inscrire un professeur</a><br /></li>
                   
-                  <li> <a href="Admin_Validation-Inscription.aspx">Inscription</a><br /></li>
+                  <li> <a href="Admin_Validation-Inscription-Etudiant.aspx">Valider inscription étudiants</a><br /></li>
+
+                  <li> <a href="Admin_Validation-Inscription-Employeur.aspx">Valider inscription employeur</a><br /></li>                 
                   
                   <li> <a href="Admin_Vertic.aspx">Vertic</a><br /></li>
                

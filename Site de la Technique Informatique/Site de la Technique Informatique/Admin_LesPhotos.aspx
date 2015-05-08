@@ -384,7 +384,6 @@
     <script type="text/javascript">
         $(function () {
             $("#fuplPhoto").change(function () {
-                //POUR DÉBUGER
 
                 //Max et min size pour le preview
                 var maxSize = 1000;

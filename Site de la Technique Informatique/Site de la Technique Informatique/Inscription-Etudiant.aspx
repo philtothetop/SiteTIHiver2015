@@ -28,7 +28,9 @@
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
-            $('#maPhotoProfile').modal('close');
+            $('#maPhotoProfile').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         };
     </script>
     <!--Afficher les erreurs de input-->
@@ -104,7 +106,7 @@
                                         <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" Width="125" Height="125" />
                                     </div>
                                     <div class="div-btnChangerPhoto">
-                                        <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" data-backdrop="static" data-keyboard="false"  />
+                                        <a href="#maPhotoProfile" class="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" data-backdrop="static" data-keyboard="false">Changer la photo du profil</a>
 
                                     </div>
                                 </div>
@@ -206,7 +208,7 @@
                                                 bla bla bla...
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal" >Fermer</button>
                                                 <asp:LinkButton ID="lnkAcccepter" runat="server" CssClass="btn btn-primary" Text="Accepter" OnClick="lnkAcccepter_Click" />
                                             </div>
                                         </div>

@@ -189,7 +189,6 @@
     <Content Include="Photos\logoCegep.png" />
     <Content Include="Photos\Concepteurs\Baron.JPG" />
     <Content Include="Photos\Concepteurs\Bibeau.JPG" />
-    <Content Include="Photos\Concepteurs\Francis.JPG" />
     <Content Include="Photos\Concepteurs\Jacob.JPG" />
     <Content Include="Photos\Concepteurs\Karl.JPG" />
     <Content Include="Photos\Concepteurs\Marie.JPG" />
@@ -247,6 +246,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Global.css" />
@@ -331,7 +331,6 @@
     <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="toast.gif" />
-    <Content Include="Temoignage.aspx" />
     <Content Include="Admin_Validation-Inscription-Etudiant.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
@@ -766,13 +765,6 @@
     </Compile>
     <Compile Include="Souvenirs.aspx.designer.cs">
       <DependentUpon>Souvenirs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Temoignage.aspx.cs">
-      <DependentUpon>Temoignage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Temoignage.aspx.designer.cs">
-      <DependentUpon>Temoignage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Temoignages.aspx.cs">
       <DependentUpon>Temoignages.aspx</DependentUpon>
