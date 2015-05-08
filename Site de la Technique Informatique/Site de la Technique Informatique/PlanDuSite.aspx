@@ -11,11 +11,7 @@
                 <h1 class="page-header">Plan du site
                     
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Plan du site</li>
-                </ol>
+               
             </div>
         </div>
         <!-- /.row -->
