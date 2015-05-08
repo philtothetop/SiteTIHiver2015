@@ -77,7 +77,7 @@ Extrants: --%>
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/quiSommesNous.jpg" alt="" />
+                <img class="img-responsive" src="Photos/Autres/quiSommesNous.jpg" alt="" />
             </div>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>

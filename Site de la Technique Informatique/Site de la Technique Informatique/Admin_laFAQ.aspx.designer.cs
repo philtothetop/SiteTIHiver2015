@@ -85,15 +85,6 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.ListView lviewModifFAQ;
         
         /// <summary>
-        /// Contrôle btnSupprimer.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSupprimer;
-        
-        /// <summary>
         /// Contrôle btnModifier.
         /// </summary>
         /// <remarks>
@@ -101,5 +92,14 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnModifier;
+        
+        /// <summary>
+        /// Contrôle btnSupprimer.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSupprimer;
     }
 }
