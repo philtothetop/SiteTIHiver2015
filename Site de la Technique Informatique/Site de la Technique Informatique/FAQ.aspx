@@ -1,4 +1,9 @@
-﻿<%@ Page Title="Foire aux questions" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.FAQ" %>
+﻿<%--Cette classe permet à qui le souhaite de lire les questions et réponses de la FAQ 
+Écrit par Marie-Philippe Gill, Avril 2015
+Intrants: MasterPage
+Extrants: --%>
+
+<%@ Page Title="Foire aux questions" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.FAQ" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script>
         $('.collapse').collapse()
@@ -53,7 +58,4 @@
         </div>
         </div>
         <!-- /.panel-group -->
-
-
-
 </asp:Content>

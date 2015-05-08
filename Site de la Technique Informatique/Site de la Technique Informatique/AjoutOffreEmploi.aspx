@@ -55,9 +55,23 @@
                                         <asp:TextBox runat="server" ID="txtJourExpiration" placeholder="Jour" MaxLength="2" Width="60" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-lg-2" style="margin-left: -15px;">
-                                        <asp:TextBox runat="server" ID="txtMoisExpiration" placeholder="Mois" MaxLength="2" Width="60" CssClass="form-control"></asp:TextBox>
+                                     <asp:DropDownList ID="ddlMoisExpiration" runat="Server" Width="130" CssClass="form-control">
+                                            <asp:ListItem Text="" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="Janvier" Value="01"></asp:ListItem>
+                                            <asp:ListItem Text="Février" Value="02"></asp:ListItem>
+                                            <asp:ListItem Text="Mars" Value="03"></asp:ListItem>
+                                            <asp:ListItem Text="Avril" Value="04"></asp:ListItem>
+                                            <asp:ListItem Text="Mai" Value="05"></asp:ListItem>
+                                            <asp:ListItem Text="Juin" Value="06"></asp:ListItem>
+                                            <asp:ListItem Text="Juillet" Value="07"></asp:ListItem>
+                                            <asp:ListItem Text="Août" Value="08"></asp:ListItem>
+                                            <asp:ListItem Text="Septembre" Value="09"></asp:ListItem>
+                                            <asp:ListItem Text="Octobre" Value="10"></asp:ListItem>
+                                            <asp:ListItem Text="Novembre" Value="11"></asp:ListItem>
+                                            <asp:ListItem Text="Décembre" Value="12"></asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
-                                    <div class="col-lg-3" style="margin-left: -15px;">
+                                    <div class="col-lg-3" style="margin-left: 55px;">
                                         <asp:DropDownList runat="server" ID="ddlAnneeExpiration" Width="100" CssClass="form-control">
                                             <asp:ListItem Text="Année" Value="" />
                                         </asp:DropDownList>
@@ -74,9 +88,23 @@
                                         <asp:TextBox runat="server" ID="txtJourDebut" placeholder="Jour" MaxLength="2" Width="60" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-lg-2" style="margin-left: -15px;">
-                                        <asp:TextBox runat="server" ID="txtMoisDebut" placeholder="Mois" MaxLength="2" Width="60" CssClass="form-control"></asp:TextBox>
+                                        <asp:DropDownList ID="ddlMoisDebut" runat="Server" Width="130" CssClass="form-control">
+                                            <asp:ListItem Text="" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="Janvier" Value="01"></asp:ListItem>
+                                            <asp:ListItem Text="Février" Value="02"></asp:ListItem>
+                                            <asp:ListItem Text="Mars" Value="03"></asp:ListItem>
+                                            <asp:ListItem Text="Avril" Value="04"></asp:ListItem>
+                                            <asp:ListItem Text="Mai" Value="05"></asp:ListItem>
+                                            <asp:ListItem Text="Juin" Value="06"></asp:ListItem>
+                                            <asp:ListItem Text="Juillet" Value="07"></asp:ListItem>
+                                            <asp:ListItem Text="Août" Value="08"></asp:ListItem>
+                                            <asp:ListItem Text="Septembre" Value="09"></asp:ListItem>
+                                            <asp:ListItem Text="Octobre" Value="10"></asp:ListItem>
+                                            <asp:ListItem Text="Novembre" Value="11"></asp:ListItem>
+                                            <asp:ListItem Text="Décembre" Value="12"></asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
-                                    <div class="col-lg-3" style="margin-left: -15px;">
+                                    <div class="col-lg-3" style="margin-left:55px;">
                                         <asp:DropDownList runat="server" ID="ddlAnneeDebut" Width="100" CssClass="form-control">
                                             <asp:ListItem Text="Année" Value="" />
                                         </asp:DropDownList>
