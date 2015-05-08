@@ -8,9 +8,9 @@ namespace Site_de_la_Technique_Informatique.Classes
     public class courrielAutomatiser
     {
 
-        private String CourrielEnvoyeur = "mariephilippe.gill@gmail.com";
+        private String CourrielEnvoyeur = "sitewebti@gmail.com";
         private String nomAfficher = "Technique Informatique Cegep";
-        private String motPasse = "(pap!er)";
+        private String motPasse = "site1web!ti?";
         private String host = "smtp.gmail.com";
         private int clientPort = 587;
 

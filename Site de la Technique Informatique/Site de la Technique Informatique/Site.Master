@@ -163,7 +163,7 @@
 
         <!--Fil d'Arianne-->
 
-        <div style="float: left; width: 50%; text-align: center; margin-top: 75px; margin-left:25%" runat="server" id="divSiteMap">
+        <div style="float: left; width: 50%; margin-top: 75px; margin-left:25%" runat="server" id="divSiteMap">
             <ol class="breadcrumb">
                 <asp:SiteMapPath ID="siteMapPath" runat="server" PathDirection="RootToCurrent"
                     RenderCurrentNodeAsLink="false" ShowToolTips="true" Style="width: 100%; display: inline-block" Font-Bold="true" Font-Size="14px">
@@ -191,35 +191,36 @@
 
 
                                     <div class="row-fluid">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-3">
                                             <asp:Label ID="lblIdentifiant" runat="server" Text="Courriel :" />
                                         </div>
-                                        <div class="col-lg-6">
-                                            <asp:TextBox ID="txtIdentifiant" runat="server"></asp:TextBox>
+                                        <div class="col-lg-7">
+                                            <asp:TextBox ID="txtIdentifiant" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                     <br />
                                     <br />
                                     <div class="row-fluid">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-3">
                                             <asp:Label ID="lblPassword" runat="server" Text="Mot de passe :" />
                                         </div>
-                                        <div class="col-lg-6">
-                                            <asp:TextBox ID="txtPassword" runat="server" TextMode="password"></asp:TextBox>
+                                        <div class="col-lg-5">
+                                            <asp:TextBox ID="txtPassword" runat="server" TextMode="password" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
                                 <br />
+                                <br />
                                 <asp:Label ID="lblMessageConnexion" runat="server" Text="" />
                             </div>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
+                       
 
                     <div class="modal-footer">
                         <asp:Button ID="btnConnexion" runat="server" CssClass="btn btn-primary" Text="Se connecter" OnClick="btnConnexion_Click" />
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                     </div>
-
+                     </ContentTemplate>
+                    </asp:UpdatePanel>
 
 
                 </div>
