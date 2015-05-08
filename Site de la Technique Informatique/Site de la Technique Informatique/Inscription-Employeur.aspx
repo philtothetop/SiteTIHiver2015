@@ -15,6 +15,9 @@
     <script type="text/javascript">
         window.closeModal = function () {
             $('#maPhotoProfile').modal('hide');
+            $('#maPhotoProfile').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         };
     </script>
     <!-- jQuery -->
