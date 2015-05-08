@@ -10,6 +10,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Drawing;
+using System.IO;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -32,12 +34,6 @@ namespace Site_de_la_Technique_Informatique
                 ddlTypeDeSouvenir.DataTextField = "Key";
                 ddlTypeDeSouvenir.DataValueField = "Value";
                 ddlTypeDeSouvenir.DataBind();
-
-                //Querystring truc ici a faire SI ON VA UTILSER SA, A DEMENDER AU GROUPE POUR ACCUEIL TRUC
-                //
-                //
-                //
-
 
             }
         }
@@ -103,5 +99,78 @@ namespace Site_de_la_Technique_Informatique
                 return laDescription;
             }
         }
+
+        public int ImageToResize(string nomImage, bool faireHauteur)
+        {
+            string pathImage = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), nomImage);
+
+            if (File.Exists(pathImage))
+            {
+                System.Drawing.Image imageDuMoment = System.Drawing.Image.FromFile(pathImage);
+                imageDuMoment = ResizeTheImage(500, 120, imageDuMoment);
+
+                //Pour height
+                if (faireHauteur == true)
+                {
+                    return imageDuMoment.Height;
+                }
+                //Pour Width
+                else
+                {
+                    return imageDuMoment.Width;
+                }
+            }
+            else
+            {
+                return 500;
+            }
+        }
+
+        public System.Drawing.Image ResizeTheImage(int maxSize, int minSize, System.Drawing.Image imageAChecker)
+        {
+            int valeurAUtiliser = imageAChecker.Height;
+
+            //Si image plus grand que max size width et height
+            if (imageAChecker.Height > maxSize && imageAChecker.Width > maxSize)
+            {
+                if (valeurAUtiliser < imageAChecker.Width)
+                {
+                    valeurAUtiliser = imageAChecker.Width;
+                }
+            }
+            //Si image plus grand que max size height
+            else if (imageAChecker.Height > maxSize)
+            {
+                valeurAUtiliser = imageAChecker.Height;
+            }
+            //Si image plus grand que max size widht
+            else if (imageAChecker.Width > maxSize)
+            {
+                valeurAUtiliser = imageAChecker.Width;
+            }
+            else
+            {
+                valeurAUtiliser = maxSize;
+            }
+
+            double valeurDivision = Convert.ToDouble(maxSize) / Convert.ToDouble(valeurAUtiliser);
+
+            imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(Convert.ToInt32(imageAChecker.Width * valeurDivision), Convert.ToInt32(imageAChecker.Height * valeurDivision)));
+
+            //Si plus petit que min grosseur maintenant
+            if (imageAChecker.Width < minSize)
+            {
+                imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(minSize, imageAChecker.Height));
+            }
+
+            if (imageAChecker.Height < minSize)
+            {
+                imageAChecker = (System.Drawing.Image)new Bitmap(imageAChecker, new Size(imageAChecker.Width, minSize));
+            }
+
+            return imageAChecker;
+        }
+
+         
     }
 }

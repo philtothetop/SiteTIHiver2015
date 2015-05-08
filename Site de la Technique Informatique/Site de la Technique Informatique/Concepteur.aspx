@@ -14,11 +14,7 @@
                 <h1 class="page-header">Concepteurs
                     
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Concepteurs</li>
-                </ol>
+              
             </div>
         </div>
         <!-- /.row -->
@@ -123,7 +119,7 @@
                 <h3>
                     Francis Trépanier
                 </h3>
-                <p>Le grand gardien de la BD et de Minecraft.</p>
+                <p>Le grand gardien de la chasteté de la BD et de Minecraft.</p>
             </div>           
         </div>
         <!-- /.row -->

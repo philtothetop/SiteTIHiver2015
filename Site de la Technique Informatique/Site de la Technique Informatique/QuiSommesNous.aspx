@@ -65,11 +65,7 @@ Extrants: --%>
                 <h1 class="page-header">Qui sommes-nous?
                     
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="Default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Qui sommes-nous?</li>
-                </ol>
+               
             </div>
         </div>
         <!-- /.row -->
@@ -77,7 +73,7 @@ Extrants: --%>
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/quiSommesNous.jpg" alt="" />
+                <img class="img-responsive" src="Photos/Autres/quiSommesNous.jpg" alt="" />
             </div>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>

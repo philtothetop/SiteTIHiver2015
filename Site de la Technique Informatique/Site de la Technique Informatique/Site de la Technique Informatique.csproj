@@ -112,7 +112,6 @@
     <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
-    <Content Include="AjoutMedia.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
     <Content Include="AjoutProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
@@ -149,7 +148,6 @@
     <Content Include="Jquery\Cropper\js\jquery.min.js" />
     <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
-    <Content Include="marie-TestVerTIC.aspx" />
     <Content Include="MesDiscussionsForum.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
     <Content Include="Css\bootstrap.css" />
@@ -172,6 +170,7 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
+    <Content Include="Photos\Autres\Accueil.JPG" />
     <Content Include="Photos\Concepteurs\Cedric.JPG" />
     <Content Include="Photos\Concepteurs\Yannick.JPG" />
     <Content Include="Photos\entete.jpg" />
@@ -197,7 +196,7 @@
     <Content Include="Photos\Profils\photobase.bmp" />
     <Content Include="Photos\Concepteurs\Raphael.JPG" />
     <Content Include="Photos\Concepteurs\Xavier.JPG" />
-    <Content Include="Photos\quiSommesNous.JPG" />
+    <Content Include="Photos\Autres\quiSommesNous.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
     <Content Include="QuePourTest.aspx" />
@@ -241,6 +240,7 @@
     <Content Include="Upload\Media\plan420616H15.pdf" />
     <Content Include="Upload\Media\AnalysePreliminaire.pdf" />
     <Content Include="Upload\Media\Les tests en SCRUM.pdf" />
+    <Content Include="Upload\Cours\grilles_informatique.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -332,7 +332,6 @@
     <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="toast.gif" />
-    <Content Include="Temoignage.aspx" />
     <Content Include="Admin_Validation-Inscription-Etudiant.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
@@ -431,13 +430,6 @@
     </Compile>
     <Compile Include="AjoutDiscussion.aspx.designer.cs">
       <DependentUpon>AjoutDiscussion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AjoutMedia.aspx.designer.cs">
-      <DependentUpon>AjoutMedia.aspx</DependentUpon>
     </Compile>
     <Compile Include="AjoutOffreEmploi.aspx.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
@@ -564,13 +556,6 @@
       <DependentUpon>ListeOffresEmploi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logic\ExceptionUtility.cs" />
-    <Compile Include="marie-TestVerTIC.aspx.cs">
-      <DependentUpon>marie-TestVerTIC.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="marie-TestVerTIC.aspx.designer.cs">
-      <DependentUpon>marie-TestVerTIC.aspx</DependentUpon>
-    </Compile>
     <Compile Include="MesDiscussionsForum.aspx.cs">
       <DependentUpon>MesDiscussionsForum.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -782,13 +767,6 @@
     <Compile Include="Souvenirs.aspx.designer.cs">
       <DependentUpon>Souvenirs.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Temoignage.aspx.cs">
-      <DependentUpon>Temoignage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Temoignage.aspx.designer.cs">
-      <DependentUpon>Temoignage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Temoignages.aspx.cs">
       <DependentUpon>Temoignages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -838,7 +816,6 @@
     <Folder Include="Jquery\Cropper2\img\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Photos\Autre\" />
     <Folder Include="Photos\Cégep\" />
     <Folder Include="Photos\Souvenir\Autre\" />
     <Folder Include="Photos\Souvenir\Cégep\" />

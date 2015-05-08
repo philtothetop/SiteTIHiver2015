@@ -4,3 +4,9 @@
 .greenText {
     color: green;
 }
+
+/* Pour empêcher de resizer les TextBox sur Firefox et Chrome */
+.noresize { 
+    resize: none; 
+
+}

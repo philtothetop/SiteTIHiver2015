@@ -8,13 +8,9 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Les Parutions Médias
+                <h1 class="page-header">Les parutions médias
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="Default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Les Parutions Médias</li>
-                </ol>
+                
             </div>
         </div>
         <!-- /.row -->
@@ -55,7 +51,7 @@
 
                     <EmptyDataTemplate>
                         <div style="text-align:center;">
-                            <asp:Label ID="lblPasDeParution" runat="server" Text="Il n'y a pas de parution média depuis plus de un ans"></asp:Label>
+                            <asp:Label ID="lblPasDeParution" runat="server" Text="Il n'y a pas de parution média depuis plus d'un an."></asp:Label>
                         </div>
                 </EmptyDataTemplate>
             

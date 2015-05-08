@@ -21,10 +21,11 @@ using Site_de_la_Technique_Informatique.Classes;
 
 namespace Site_de_la_Technique_Informatique.Inscription
 {
-    public partial class Validation_Inscription : System.Web.UI.Page
+    public partial class Validation_Inscription : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
 
         }
         //Cette class chercher la liste des étudiant inscription dont leur courriel n'a pas été validé depuis plus de 24 h.
@@ -44,9 +45,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur liste etudiant courriel non valide 24h : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Chercher liste nombre courriel : ");
             }
-            return "";
+            
         }
         //Cette class chercher la liste des étudiant inscription dont leur courriel à été validé, mais leur compte n'est pas acctiver.
         //Écrit par Cédric Archambault 27 février 2015
@@ -76,8 +78,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
 
+                Exception logEx = ex;
+                throw new Exception("Erreur GetUtilisateurEtudiantList : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
-            return null;
+       
         }
         //Cette class Efface tous les comptes étudiants sélectionner
         //Écrit par Cédric Archambault 27 février 2015
@@ -102,7 +106,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             leContext.UtilisateurSet.Remove(etudiant);
                             if (envoie_courriel_confirmationRefuser(etudiant) == false)
                             {
-                                lblMessage.Text = "Il est impossible d'envoyer les courriels de confirmation du refus, mais les inscriptions ont été refusées.";
+                                lblMessage.Text = "Il est impossible d'envoyer les courriels de confirmation du refus, mais les inscription ont été refusé.";
                                 lblMessage.Visible = true;
                                 break;
                             }
@@ -118,7 +122,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Supprimer Tous : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
         //Cette class refuser un étudiant.
@@ -139,7 +144,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                     if (envoie_courriel_confirmationRefuser(etudiant) == false)
                     {
-                        lblMessage.Text = "Il est impossible d'envoyer un courriel de confirmation du refus, mais inscription a été refusée.";
+                        lblMessage.Text = "Il est impossible d'envoyer un courriel de confirmation du refus, mais inscription a été refusé.";
                         lblMessage.Visible = true;
                     }
                     else
@@ -153,7 +158,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Refuser : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
 
@@ -178,7 +184,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
                             if (envoie_courriel_confirmation(etudiant) == false)
                             {
-                                lblMessage.Text = "Impossible d'accepter toutes les inscriptions, car il est impossible d'envoyer les courriels de validation.";
+                                lblMessage.Text = "Impossible de Accepter tous les inscriptions, car il est impossible d'envoyer les courriels de validation.";
                                 lblMessage.Visible = true;
                                 break;// sort de la boucle 
                             }
@@ -195,7 +201,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Accepter Tous : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
         //Cette class Accepter un étudiant.
@@ -214,7 +221,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                     if (envoie_courriel_confirmation(etudiant) == false)
                     {
-                        lblMessage.Text = "Impossible d'accepter l'inscription, car il est impossible d'envoyer un courriel de validation.";
+                        lblMessage.Text = "Impossible de Accepter l'inscription, car il est impossible d'envoyer un courriel de validation.";
                         lblMessage.Visible = true;
                     }
                     else
@@ -229,7 +236,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Accepter Click : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
         //Cette class sélectionne tous les étudiants à l'écran.
@@ -268,7 +276,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur check tous : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
 
@@ -311,7 +320,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             }
             catch (Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Effacer Inscription Courriel Non Valide : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + " ");
             }
         }
         //Cette class permet d'envoyer un courriel de confirmation de l'inscription.
@@ -320,8 +330,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
         //Extrants:Aucun
         public bool envoie_courriel_confirmation(Etudiant etudiant)
         {
-            String titre = "Inscription TI Cégep de Granby";
-            String message = "Cher/Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a activé votre compte. ";
+            String titre = "Inscription TI Cegep de Granby";
+            String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a activé votre compte. ";
 
             courrielAutomatiser courriel = new courrielAutomatiser();
 
@@ -336,8 +346,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
         {
 
              
-            String titre = "Inscription TI Cégep de Granby";
-            String message = "Cher/Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a refusé votre inscription. ";
+            String titre = "Inscription TI Cegep de Granby";
+            String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ", administrateur a refuser votre inscription. ";
 
             courrielAutomatiser courriel = new courrielAutomatiser();
 

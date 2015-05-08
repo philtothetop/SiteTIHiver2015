@@ -1,33 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Globalization;
 
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_Evenement : System.Web.UI.Page
+    public partial class Admin_Evenement : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    for (int i = 0; i < 6; i++)
-            //    {
-            //        ListItem listItem = new ListItem();
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
 
-            //        DateTime date = DateTime.Now.AddYears(i);
-            //        string annee = date.Year.ToString();
-            //        listItem.Text = annee;
-            //        listItem.Value = annee;
-                    
-            //        DropDownList ddlAnneeEvent = (lviewEcheancier.Items[0].FindControl("ddlAnneeEvent") as DropDownList);
-            //        ddlAnneeEvent.Items.Insert(i + 1, listItem);
-            //    }
-            //}
+            lblErreur.Text = "";
+            ddlAnneeEventAjouter.DataBind();
+            ddlHeuresAjouter.DataBind();
+            ddlMinutesAjouter.DataBind();
+            ddlMoisEventAjouter.DataBind();
+            ddlMoisEventAjouter.SelectedIndex = 1;
         }
 
         #region GETDATA DES ÉVÉNEMENTS
@@ -36,7 +31,7 @@ namespace Site_de_la_Technique_Informatique
             var listeEvenements = new List<DateEvenementVerTIC>();
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
+                listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet where cl.dateDescription >= DateTime.Now select cl).ToList();
             }
 
             return listeEvenements.AsQueryable();
@@ -55,22 +50,46 @@ namespace Site_de_la_Technique_Informatique
                                                  where even.IDDateEvenementVerTIC == idEvent
                                                  select even).FirstOrDefault();
 
-                //TextBox lblMinuteActivite = (e.Item.FindControl("txtDescEvent") as TextBox);
                 TextBox txtEvent = (lviewEcheancier.Items[0].FindControl("txtDescEvent") as TextBox);
                 TextBox txtJourEvent = (lviewEcheancier.Items[0].FindControl("txtJourEvent") as TextBox);
+
                 DropDownList ddlMoisEvent = (lviewEcheancier.Items[0].FindControl("ddlMoisEvent") as DropDownList);
-                if (ddlMoisEvent.Text == "" && ddlMoisEvent.SelectedValue == "0")
-                {
-                    //Erreur
-                }
                 DropDownList ddlAnneeEvent = (lviewEcheancier.Items[0].FindControl("ddlAnneeEvent") as DropDownList);
 
                 DropDownList ddlHeures = (lviewEcheancier.Items[0].FindControl("ddlHeures") as DropDownList);
                 DropDownList ddlMinutes = (lviewEcheancier.Items[0].FindControl("ddlMinutes") as DropDownList);
+                try
+                {
+                    DateTime date = new DateTime(Int32.Parse(ddlAnneeEvent.Text), Int32.Parse(ddlMoisEvent.Text), Int32.Parse(txtJourEvent.Text), Int32.Parse(ddlHeures.Text), Int32.Parse(ddlMinutes.Text), 0);
+                    eventTest.dateDescription = date;
 
-                DateTime date = new DateTime(Int32.Parse(ddlAnneeEvent.Text), Int32.Parse(ddlMoisEvent.Text), Int32.Parse(txtJourEvent.Text), Int32.Parse(ddlHeures.Text), Int32.Parse(ddlMinutes.Text), 0);
+                    DateTime datemin = DateTime.Parse("01/01/1900", new CultureInfo("en-CA"));
 
-                eventTest.dateDescription = date;
+                    if (date < datemin)
+                    {
+                        lblErreur.Text = "La date n'est pas valide.";
+                        txtJourEvent.BorderColor = Color.Red;
+                        ddlMoisEvent.BorderColor = Color.Red;
+                        ddlAnneeEvent.BorderColor = Color.Red;
+                    }
+                    else if (date < DateTime.Now.AddDays(1))
+                    {
+
+                        lblErreur.Text = "La date n'est pas valide.";
+                        txtJourEvent.BorderColor = Color.Red;
+                        ddlMoisEvent.BorderColor = Color.Red;
+                        ddlAnneeEvent.BorderColor = Color.Red;
+                    }
+                }
+                catch (Exception)
+                {
+                    lblErreur.Text = "La date n'est pas valide.";
+                    txtJourEvent.BorderColor = Color.Red;
+                    ddlMoisEvent.BorderColor = Color.Red;
+                    ddlAnneeEvent.BorderColor = Color.Red;
+                    return;
+                }
+
                 eventTest.evenement = txtEvent.Text;
 
                 lecontexte.SaveChanges();
@@ -83,14 +102,44 @@ namespace Site_de_la_Technique_Informatique
             var listeEvenements = new List<DateEvenementVerTIC>();
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                DateEvenementVerTIC eventTest = new DateEvenementVerTIC { dateDescription = DateTime.Parse(txtAjoutDate.Text), evenement = txtAjoutEvenement.Text };
+                DateEvenementVerTIC eventAjouter = new DateEvenementVerTIC();
+                try
+                {
+                    DateTime dateAjout = new DateTime(Int32.Parse(ddlAnneeEventAjouter.Text), Int32.Parse(ddlMoisEventAjouter.Text), Int32.Parse(txtJourEventAjouter.Text), Int32.Parse(ddlHeuresAjouter.Text), Int32.Parse(ddlMinutesAjouter.Text), 0);
+                    DateTime datemin = DateTime.Parse("01/01/1900", new CultureInfo("en-CA"));
+
+                    if (dateAjout < datemin)
+                    {
+                        lblErreur.Text = "La date n'est pas valide.";
+                        txtJourEventAjouter.BorderColor = Color.Red;
+                        ddlMoisEventAjouter.BorderColor = Color.Red;
+                        ddlAnneeEventAjouter.BorderColor = Color.Red;
+                    }
+                    else if (dateAjout < DateTime.Now.AddDays(1))
+                    {
+
+                        lblErreur.Text = "La date n'est pas valide.";
+                        txtJourEventAjouter.BorderColor = Color.Red;
+                        ddlMoisEventAjouter.BorderColor = Color.Red;
+                        ddlAnneeEventAjouter.BorderColor = Color.Red;
+                    }
+                    eventAjouter.dateDescription = dateAjout;
+                }
+                catch (Exception)
+                {
+                    lblErreur.Text = "La date n'est pas valide.";
+                    txtJourEventAjouter.BorderColor = Color.Red;
+                    ddlMoisEventAjouter.BorderColor = Color.Red;
+                    ddlAnneeEventAjouter.BorderColor = Color.Red;
+                    return;
+                }
+
+                eventAjouter.evenement = txtAjoutEvenement.Text;
                 listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
-                listeEvenements.Add(eventTest);
-                lecontexte.DateEvenementVerTICSet.Add(eventTest);
+                listeEvenements.Add(eventAjouter);
+                lecontexte.DateEvenementVerTICSet.Add(eventAjouter);
                 lecontexte.SaveChanges();
                 Response.Redirect("~/Admin_Evenement.aspx");
-               
-
             }
         }
 

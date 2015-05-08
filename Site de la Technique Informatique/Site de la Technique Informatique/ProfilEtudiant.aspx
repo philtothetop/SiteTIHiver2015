@@ -11,6 +11,7 @@
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
     <div class="container">
+        <div class="col-lg-3"></div>
         <div class="col-lg-6 col-centered">
 
             <div class="container-fluid">
@@ -33,7 +34,7 @@
                     <ItemTemplate>
                         <div class="row row-centered">
                             <div class="col-lg-9 col-centered">
-                                <h1>Modification du profil</h1>
+                                <h1>Profil</h1>
                             </div>
                         </div>
                         <div class="control-group form-group">
@@ -90,9 +91,11 @@
                 </asp:ListView>
                 <div class="col-lg-offset-8 col-lg-8 " id="dvModifier" runat="server">
                     <asp:LinkButton ID="lnkModifier" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="lnkModifier_Click" CommandArgument='<%#Eval("IDEtudiant")%>' />
-                </div>
+                     <asp:LinkButton ID="lnkFaireTemoignage" runat="server" Text="Faire un témoignage" CssClass="btn btn-primary" OnClick="lnkFaireTemoignage_Click"  />
+                </div> 
             </div>
         </div>
+        <div class="col-lg-1"></div>
     </div>
 </asp:Content>
 
