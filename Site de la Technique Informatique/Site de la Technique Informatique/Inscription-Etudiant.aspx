@@ -60,6 +60,11 @@
 
         });
     </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <script type="text/javascript">
         function copieImgData() {
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lviewFormulaireInscription_showDataURL_0.src;
@@ -193,7 +198,7 @@
                                     </div>
 
                                 </div>
-
+                                <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-default" OnClientClick="goBack()" />
                                 <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 
                                 <!-- Modal Termes et conditions-->
@@ -208,7 +213,7 @@
                                                 bla bla bla...
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal" >Fermer</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                                                 <asp:LinkButton ID="lnkAcccepter" runat="server" CssClass="btn btn-primary" Text="Accepter" OnClick="lnkAcccepter_Click" />
                                             </div>
                                         </div>

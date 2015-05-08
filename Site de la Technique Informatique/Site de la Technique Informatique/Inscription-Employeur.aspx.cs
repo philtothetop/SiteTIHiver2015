@@ -113,7 +113,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         //Effacer les erreurs
                         Label lblMessageValidationErreur = (Label)lviewItem.FindControl("lblMessageValidationErreur");
-
+                        lblMessageValidationErreur.Text = "";
                         TextBox txtNom = (TextBox)lviewItem.FindControl("txtNom");
                         Label lblnom = (Label)lviewItem.FindControl("lblNomErreur");
                         lblnom.Text = "";

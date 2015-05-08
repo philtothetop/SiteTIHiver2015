@@ -105,6 +105,7 @@
     <Content Include="Admin_laFAQ.aspx" />
     <Content Include="Admin_LesPhotos.aspx" />
     <Content Include="Admin_Media.aspx" />
+    <Content Include="Admin_Profil.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_SupprimerPhoto.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
@@ -387,6 +388,13 @@
     </Compile>
     <Compile Include="Admin_Media.aspx.designer.cs">
       <DependentUpon>Admin_Media.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Profil.aspx.cs">
+      <DependentUpon>Admin_Profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Profil.aspx.designer.cs">
+      <DependentUpon>Admin_Profil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
