@@ -11,11 +11,7 @@
                 <h1 class="page-header">Plan du site
                     
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Plan du site</li>
-                </ol>
+               
             </div>
         </div>
         <!-- /.row -->
@@ -37,7 +33,7 @@
 
                                 <asp:TreeNode Text="Vertic" NavigateUrl="~/Vertic.aspx"  />
                                 <asp:TreeNode Text="Stages" NavigateUrl="~/InformationsStage.aspx" />
-                                <asp:TreeNode Text="Témoignages"  />
+                                <asp:TreeNode Text="Témoignages" NavigateUrl="~/.aspx"  />
                                 <asp:TreeNode Text="Parutions média" NavigateUrl="~/LesParutionsMedias.aspx" />
 
                             </asp:TreeNode>
