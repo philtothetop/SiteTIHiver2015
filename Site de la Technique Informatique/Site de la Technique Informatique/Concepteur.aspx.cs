@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Fait par Yannick Huard, Janvier 2015
+//#troll
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

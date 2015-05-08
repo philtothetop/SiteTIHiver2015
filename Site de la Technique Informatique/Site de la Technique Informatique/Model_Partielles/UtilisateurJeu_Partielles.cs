@@ -5,6 +5,7 @@ using System.Web;
 using Site_de_la_Technique_Informatique.Model;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 
 namespace Site_de_la_Technique_Informatique.Model
 {

@@ -98,11 +98,11 @@ Extrants: --%>
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
                     </LayoutTemplate>
                     <EmptyDataTemplate>
-                        <table class="emptyTable" cellpadding="5" cellspacing="5">
+                        <table class="emptyTable">
                             <tr>
                                 <td>Lol
                                 </td>
-                                <td>No records available.
+                                <td>Cet étudiant n'existe pas.
                                 </td>
                             </tr>
                         </table>
@@ -216,7 +216,7 @@ Extrants: --%>
                         </div>
                         <div class="row"></div>
                         <div class="col-lg-offset-8 col-lg-8 ">
-                            <asp:Button ID="btnDesactiver" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Delete" OnClientClick="copieImgData()" />
+                            <asp:Button ID="btnDesactiver" runat="server" Text="Supprimer" CssClass="btn btn-primary" CommandName="Delete" />
                             <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" OnClientClick="copieImgData()" />
                         </div>
                     </ItemTemplate>

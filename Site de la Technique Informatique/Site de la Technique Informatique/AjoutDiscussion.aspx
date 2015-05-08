@@ -13,10 +13,6 @@
                 </h1>
             </div>
         </div>
-        <ol class="breadcrumb">
-            <li><a href="EnteteForum.aspx">Retour aux entêtes</a>
-            </li>
-        </ol>
         <div class="row">
             <div class="row row-centered">
                 <asp:MultiView ID="mvAjoutDiscussion" runat="server" ActiveViewIndex="0">
@@ -28,7 +24,7 @@
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label>*Titre discussion:</label><br />
-                                    <asp:TextBox ID="txtTitreDiscussion" runat="server" MaxLength="30" placeholder="Titre discussion"></asp:TextBox><br />
+                                    <asp:TextBox ID="txtTitreDiscussion" runat="server" MaxLength="150" placeholder="Titre discussion" Width="600px"></asp:TextBox><br />
                                     <asp:Label ID="lblTitreDiscussion" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                                 </div>
                             </div>
@@ -39,8 +35,8 @@
                                     <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                                 </div>
                             </div>
-                            <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" PostBackUrl="~/EnteteForum.aspx" />
-                            <asp:LinkButton ID="lnkAjouter" Text="Valider" runat="server" CssClass="btn btn-default" OnClick="lnkAjouter_Click" />
+                             <asp:LinkButton ID="lnkAjouter" Text="Valider" runat="server" CssClass="btn btn-primary" OnClick="lnkAjouter_Click" />
+                            <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-danger" PostBackUrl="~/EnteteForum.aspx" />                          
                             <br />
                             <br />
                         </div>
@@ -48,7 +44,7 @@
                     <asp:View runat="server" ID="viewFin">
                         <div style="text-align: center">
                             <h4>Votre discussion a été créée avec succès</h4>
-                            <asp:LinkButton ID="lnkRetour" Text="Ok" runat="server" CssClass="btn btn-default" onclick="lnkRetour_Click" />
+                            <asp:LinkButton ID="lnkRetour" Text="Voir ma discussion" runat="server" CssClass="btn btn-primary" onclick="lnkRetour_Click" />
                         </div>
                     </asp:View>
                 </asp:MultiView>

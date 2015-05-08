@@ -13,5 +13,10 @@ namespace Site_de_la_Technique_Informatique
         {
 
         }
+
+        protected void Redirect_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }
