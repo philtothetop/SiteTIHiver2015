@@ -13,7 +13,7 @@
                     </h1>
                 </div>
                 <div style="margin-top: 45px;">
-                    <asp:LinkButton ID="lnkMesDiscussions" Text="Mes discussions" runat="server" CssClass="btn btn-default" PostBackUrl="~/MesDiscussionsForum.aspx" />
+                    <asp:LinkButton ID="lnkMesDiscussions" Text="Mes discussions" runat="server" CssClass="btn btn-primary" PostBackUrl="~/MesDiscussionsForum.aspx" />
                 </div>
             </div>
         </div>

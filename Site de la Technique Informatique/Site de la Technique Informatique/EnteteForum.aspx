@@ -14,7 +14,7 @@
                     </h1>
                 </div>
                 <div style="margin-top: 45px;">
-                    <asp:LinkButton ID="lnkNouvelleDiscusison" Text="Nouvelle discussion" runat="server" CssClass="btn btn-default" OnClick="lnkNouvelleDiscusison_Click" />
+                    <asp:LinkButton ID="lnkNouvelleDiscusison" Text="Nouvelle discussion" runat="server" CssClass="btn btn-primary" OnClick="lnkNouvelleDiscusison_Click" />
                 </div>
             </div>
         </div>

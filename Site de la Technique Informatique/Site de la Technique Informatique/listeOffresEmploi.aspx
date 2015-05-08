@@ -11,7 +11,7 @@
                     <h1>Liste des offres d'emploi</h1>
                 </div>
                 <div style="margin-top: 25px;">
-                    <asp:LinkButton ID="lnkAjouterOffre" Text="Ajouter une offre" runat="server" CssClass="btn btn-default" PostBackUrl="~/AjoutOffreEmploi.aspx" Visible="false" />
+                    <asp:LinkButton ID="lnkAjouterOffre" Text="Ajouter une offre" runat="server" CssClass="btn btn-primary" PostBackUrl="~/AjoutOffreEmploi.aspx" Visible="false" />
                 </div>
             </div>
         </div>

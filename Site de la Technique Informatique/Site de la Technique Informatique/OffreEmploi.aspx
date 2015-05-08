@@ -4,7 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <<!-- Header Carousel -->
+    <!-- Header Carousel -->
     <div class="container">
 
         <!-- Page Heading/Breadcrumbs -->
@@ -13,17 +13,12 @@
                 <h1 class="page-header">
                     <asp:Label ID="lblTitreOffre" runat="server" Font-Size="20"></asp:Label>
                 </h1>
-                <ol class="breadcrumb">
-                    <li class="active">
-                        <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click" Visible="false"></asp:LinkButton>
-                    </li>
-                    <li class="active" style="float: right">
-                        <asp:LinkButton ID="lnkSupprimer" Text="Supprimer l'offre" runat="server" OnClick="lnkSupprimer_Click" Visible="false"></asp:LinkButton>
-                    </li>
-                    <li class="active" style="float: right">
-                        <asp:LinkButton ID="lnkModifier" Text="Modifier l'offre" runat="server" OnClick="lnkModifier_Click" Visible="false"></asp:LinkButton>
-                    </li>
-                </ol>
+                <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click" Visible="false"></asp:LinkButton>
+                <div style="float: right">
+                    <asp:LinkButton ID="lnkSupprimer" Text="Supprimer l'offre" runat="server" OnClick="lnkSupprimer_Click" Visible="false"></asp:LinkButton>
+                    <asp:LinkButton Style="margin-left: 5px" ID="lnkModifier" Text="Modifier l'offre" runat="server" OnClick="lnkModifier_Click" Visible="false"></asp:LinkButton>
+                </div>
+
             </div>
         </div>
         <!-- /.row -->
@@ -34,7 +29,8 @@
 
                 <div class="col-lg-6">
                     <div class="row" style="margin-left: 5px; float: left;">
-
+                        <asp:Label ID="lblDescriptionOffre" runat="server" Font-Size="14"></asp:Label>
+                        <br />
                         <asp:Label ID="lblAdresseVille" runat="server" Font-Size="14"></asp:Label>
                         <br />
                         <asp:Label ID="lblNbHeureSemaine" runat="server" Font-Size="14"></asp:Label>
@@ -56,9 +52,6 @@
                         <br />
                         <br />
                     </div>
-                </div>
-                <div class="col-lg-6" style="font-weight: bold;">
-                    <asp:Label ID="lblDescriptionOffre" runat="server" Font-Size="14"></asp:Label>
                 </div>
             </div>
         </div>

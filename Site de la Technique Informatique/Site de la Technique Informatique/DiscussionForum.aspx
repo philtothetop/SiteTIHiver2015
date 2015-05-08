@@ -51,7 +51,7 @@
                 <br />
                 <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" placeholder="Message" Style="max-height: 150px; min-height: 150px; min-width: 600px; max-width: 600px" MaxLength="2000"></asp:TextBox>
                 <br />
-                <asp:LinkButton ID="lnkNouveauMessage" Text="Envoyer" runat="server" CssClass="btn btn-default" OnClick="lnkNouveauMessage_Click" />
+                <asp:LinkButton ID="lnkNouveauMessage" Text="Envoyer" runat="server" CssClass="btn btn-primary" OnClick="lnkNouveauMessage_Click" />
             </div>
             <hr />
         </div>
