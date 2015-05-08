@@ -11,10 +11,12 @@ using System.Globalization;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_Evenement : System.Web.UI.Page
+    public partial class Admin_Evenement : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
+
             lblErreur.Text = "";
         }
 
