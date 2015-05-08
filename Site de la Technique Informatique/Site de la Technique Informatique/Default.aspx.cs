@@ -19,6 +19,9 @@ namespace Site_de_la_Technique_Informatique
         {
             int i = 0;
 
+            SiteMapPath sitemap = (SiteMapPath)Master.FindControl("siteMapPath");
+            sitemap.Visible = false;
+
             foreach (ListViewItem lvi in lviewAlbumPhoto.Items)
             {
                 System.Web.UI.WebControls.Image imgDansCarousel = (System.Web.UI.WebControls.Image)lviewAlbumPhoto.Items[i].FindControl("imgDansCarousel");
