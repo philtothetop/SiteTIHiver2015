@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Accueil" url="~/Default.aspx">
+    <siteMapNode title="Contactez-nous" url="~/contact.aspx"/>
+    <siteMapNode title="Concepteurs" url="~/concepteur.aspx"/>
+    <siteMapNode title="Parutions média" url="~/LesParutionsMedias.aspx"/>
+    <siteMapNode title="Stage" url="~/InformationsStage.aspx"/>
+    <siteMapNode title="Vertic" url="~/vertic.aspx"/>
+    <siteMapNode title="FAQ" url="~/FAQ.aspx"/>
+    <siteMapNode title="Plan du site" url="~/PlanDuSite.aspx"/>
+    <siteMapNode title="Nouvelles" url="~/Nouvelles.aspx"/>
+    <siteMapNode title="Souvenirs" url="~/Souvenirs.aspx"/>
+    <siteMapNode title="Témoignages" url="~/Temoignages.aspx"/>
+    <siteMapNode title="Membres" url="~/recherche.aspx"/>
+    <siteMapNode title="Inscription" url="~/Inscription-Etudiant.aspx"/>
+    <siteMapNode title="Offres d'emploi" url="~/listeOffresEmploi.aspx">
+      <siteMapNode title="Ajouter une offre" url="~/AjoutOffreEmploi.aspx"/>
+      <siteMapNode title="Offre d'emploi" url="~/OffreEmploi.aspx"/>
+   </siteMapNode>
+    <siteMapNode title="Sections forum" url="~/SectionForum.aspx">
+      <siteMapNode title="Mes discussions" url="~/MesDiscussionsForum.aspx"/>
+      <siteMapNode title="Entêtes forum" url="~/EnteteForum.aspx">
+        <siteMapNode title="Nouvelle discussion" url="~/AjoutDiscussion.aspx"/>
+        <siteMapNode title="Discussion" url="~/DiscussionForum.aspx"/>
+     </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Accueil administration" url="~/Admin_Default.aspx">
+      <siteMapNode title="Photos" url="~/Admin_LesPhotos.aspx">
+        <siteMapNode title="Ajout photo" url="~/Admin_AjoutPhoto.aspx"/>
+        <siteMapNode title="Supprimer photo" url="~/Admin_SupprimerPhoto.aspx"/>
+      </siteMapNode>
+      <siteMapNode title="Événements" url="~/Admin_Evenement.aspx"/>
+      <siteMapNode title="FAQ" url="~/Admin_laFAQ.aspx"/>
+      <siteMapNode title="Médias" url="~/Admin_Media.aspx"/>
+      <siteMapNode title="Offres d'emploi" url="~/Admin_OffreEmploi.aspx"/>
+      <siteMapNode title="Témoignages" url="~/Admin_Temoignage.aspx"/>
+      <siteMapNode title="Inscriptions employeurs" url="~/Admin_Validation-Inscription-Employeur.aspx"/>
+      <siteMapNode title="Inscriptions étudiants" url="~/Admin_Validation-Inscription-Etudiant.aspx"/>
+      <siteMapNode title="Vertic" url="~/Admin_Vertic.aspx"/>
+    </siteMapNode>
+    <siteMapNode title="Modifier mon profil" url="~/ModifierProfesseur.aspx"/>
+    <siteMapNode title="Modifier mon profil" url="~/ProfilEtudiant.aspx"/>
+    <siteMapNode title="Ajout professeur" url="~/AjoutProfesseur.aspx"/>
+  </siteMapNode>
+</siteMap>
