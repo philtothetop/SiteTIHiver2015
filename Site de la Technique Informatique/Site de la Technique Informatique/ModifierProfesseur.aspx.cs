@@ -26,13 +26,21 @@ namespace Site_de_la_Technique_Informatique
         {
             //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
+            string tab = hidTab.Value;
             
-            if (!Page.IsPostBack) {
                
+                   ddlCours.Enabled = ddlCours.Items.Count >0 ? true: false;
+                   btnModif.Enabled = ddlCours.Enabled;
+                
+            if (!Page.IsPostBack)
+            {
+
                 
             divSuccess.Attributes["style"] = "visibility:hidden";
             divWarning.Attributes["style"] = "visibility:hidden";
             }
+             
+
         }
 
         #endregion
@@ -156,7 +164,8 @@ namespace Site_de_la_Technique_Informatique
 
 
                 Professeur profAModifier = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).First();
-                if(!String.IsNullOrEmpty(txtAncienMp.Text) && !String.IsNullOrEmpty(txtNouveauMp.Text) && !String.IsNullOrEmpty(txtNouveauMpConfirm.Text) ){
+                if (!String.IsNullOrEmpty(txtAncienMp.Text) && !String.IsNullOrEmpty(txtNouveauMp.Text) && !String.IsNullOrEmpty(txtNouveauMpConfirm.Text))
+                {
                     string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
                 if (profAModifier.hashMotDePasse.Equals(ancienPwd))
                 {
@@ -193,8 +202,9 @@ namespace Site_de_la_Technique_Informatique
                     divWarning.Attributes["style"] = "visibility:visible;";
                 }
             }
-                else{
-                    lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissées vides.";
+                else
+                {
+                    lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
                     divWarning.Attributes["style"] = "visibility:visible;";
                 }
            }
@@ -219,11 +229,13 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                try {
+                try
+                {
                     hash hashing = new hash();
                     string inputPwd = hashing.GetSHA256Hash(txtDeletePass.Text);
                     Professeur profADesactiver = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).FirstOrDefault();
-                    if (inputPwd.Equals(profADesactiver.hashMotDePasse)) { 
+                    if (inputPwd.Equals(profADesactiver.hashMotDePasse))
+                    {
 
 
                 
@@ -240,7 +252,9 @@ namespace Site_de_la_Technique_Informatique
 
                     }
 
-                    }catch{
+                }
+                catch
+                {
                         throw;
                     }
             }
@@ -249,7 +263,109 @@ namespace Site_de_la_Technique_Informatique
 
         #endregion
 
+
+
+        #region Modifier_Cours
+        public IQueryable<Cours> lvModifierCours_GetData()
+        {
+
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+
+             //   short session = short.Parse(ddlSession.SelectedValue);
+                int idCours = int.Parse(ddlCours.SelectedValue);
+              //  Cours cours = new Cours();
+                List<Cours> cours = (from cl in lecontexte.CoursSet                                       
+                                       where cl.IDCours ==  idCours
+                                        select cl).ToList();                           
+                
+
+               return cours.AsQueryable();
+            }
+        }
+
+        public IQueryable<Cours> getAllCours()
+        {
+
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                var session = short.Parse(ddlSession.SelectedValue);
+
+                
+                List<Cours> cours = new List<Cours>();
+               
+                Professeur profCours = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>()
+                                        from cr in cl.Cours
+                                       where  cl.IDMembre == currentProf.IDMembre
+                                        select cl).FirstOrDefault();
+
+                if (profCours != null) {
+               cours = profCours.Cours.Where(x => x.noSessionCours == session).ToList();
+                }
+                return cours.AsQueryable();
+            }
+        }
+
+
+        //public 
+
+        public void updateCours()
+        {
+
+        }
+
+        public void deleteCours()
+        {
+
+        }
+        #endregion
+
+        protected void btnModif_Click(object sender, EventArgs e)
+        {
+            lvModifierCours.DataBind();
+            lvModifierCours.Visible = true;
+        }
+
+        protected void btnAjout_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lvModifierCours_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            try { 
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                if (e.Item.ItemType == ListViewItemType.DataItem)
+                {
+                    Cours currentCours = (Cours)e.Item.DataItem;
+                    Cours leCours = (lecontexte.Set<Cours>().SingleOrDefault(cours => cours.IDCours == currentCours.IDCours));
+                }
+            }
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text += "ERREUR DE ITEMDATABOUND, " + ex.ToString();
+            }
+        }
+
+        protected void ddlSession_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlCours.DataBind();
+            if (ddlCours.Items.Count > 0)
+            {
+                ddlCours.Enabled = true;
+                lblNoClass.Visible = false;
+                btnModif.Enabled = true;
        
+            }
+            else
+            {
+                ddlCours.Enabled = false;
+                lblNoClass.Visible = true;
+                btnModif.Enabled = false;
+            }
+        }
 
         
 
