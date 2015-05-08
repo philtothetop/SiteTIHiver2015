@@ -12,7 +12,7 @@ using Site_de_la_Technique_Informatique.Model;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Contact : System.Web.UI.Page
+    public partial class Contact : ErrorHandling 
     {
         protected void Page_Load(object sender, EventArgs e)
         {
