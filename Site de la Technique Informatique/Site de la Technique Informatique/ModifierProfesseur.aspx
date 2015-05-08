@@ -300,11 +300,7 @@
 
                                 <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
 
-                                <div class="row-centered">
-
-                                    <asp:LinkButton ID="lnkSaveCours" runat="server" Text="Sauvegarder" Style="float: right" CssClass="btn btn-default" />
-
-                                </div>
+                             
                             </LayoutTemplate>
 
 
@@ -317,11 +313,23 @@
                                         <asp:TextBox ID="txtNoCours" runat="server" CssClass="form-control" Text='<%#BindItem.noCours %>' />
 
                                     </div>
-                                    <div class="col-md-4 col-centered form-group form">
+                                    <div class="col-md-4 col-md-offset-1 col-centered form-group form">
                                         <label>Nom du cours</label>
                                         <asp:TextBox ID="txtNomCours" CssClass="form-control" runat="server" Text='<%#BindItem.nomCours %>' />
                                     </div>
-
+                                    <div class="col-md-7 col-centered form-group form">
+                                        <label>Description</label>
+                                        <asp:TextBox ID="txtDescriptionCours" CssClass="form-control" runat="server" TextMode="MultiLine"   Text='<%#BindItem.descriptionCours %>' style="resize:none;height:200px;" />
+                                    </div>
+                                        <div class="row row-centered">
+                    <div class="col-md-1 ">
+                        <asp:LinkButton ID="lnkSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" />
+                    </div>
+                    <div class="col-md-1 ">
+                       <asp:LinkButton ID="lnkSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-danger" CommandName="Delete" />
+                    </div>
+                </div>
+                                     
                                 </div>
 
 
