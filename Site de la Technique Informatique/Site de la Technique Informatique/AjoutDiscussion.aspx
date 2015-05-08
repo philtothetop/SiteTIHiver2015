@@ -24,7 +24,7 @@
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label>*Titre discussion:</label><br />
-                                    <asp:TextBox ID="txtTitreDiscussion" runat="server" MaxLength="30" placeholder="Titre discussion" Width="600px"></asp:TextBox><br />
+                                    <asp:TextBox ID="txtTitreDiscussion" runat="server" MaxLength="150" placeholder="Titre discussion" Width="600px"></asp:TextBox><br />
                                     <asp:Label ID="lblTitreDiscussion" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                                 </div>
                             </div>
