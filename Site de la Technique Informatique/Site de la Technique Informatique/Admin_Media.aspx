@@ -27,7 +27,7 @@
             SelectMethod="GetMedia"
             UpdateMethod="UpdateMedia"
             DeleteMethod="DeleteMedia"
-             OnItemDataBound="lvMedia_ItemDataBound" 
+            OnItemDataBound="lvMedia_ItemDataBound" 
             Visible="false"
             >
 

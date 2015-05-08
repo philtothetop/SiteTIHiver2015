@@ -97,5 +97,10 @@ namespace Site_de_la_Technique_Informatique
                 throw new Exception("Erreur Modifier_click : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
+
+        protected void lnkFaireTemoignage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FaireTemoignage.aspx");
+        }
     }
 }

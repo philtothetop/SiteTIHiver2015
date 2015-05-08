@@ -331,7 +331,6 @@
     <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="toast.gif" />
-    <Content Include="Temoignage.aspx" />
     <Content Include="Admin_Validation-Inscription-Etudiant.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
@@ -766,13 +765,6 @@
     </Compile>
     <Compile Include="Souvenirs.aspx.designer.cs">
       <DependentUpon>Souvenirs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Temoignage.aspx.cs">
-      <DependentUpon>Temoignage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Temoignage.aspx.designer.cs">
-      <DependentUpon>Temoignage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Temoignages.aspx.cs">
       <DependentUpon>Temoignages.aspx</DependentUpon>

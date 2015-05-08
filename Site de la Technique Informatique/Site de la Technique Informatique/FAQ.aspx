@@ -15,12 +15,7 @@
                 <h1 class="page-header">Foire aux questions (FAQ)
                     
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="index.html">Accueil</a>
-                    </li>
-                    <li class="active">Foire aux questions</li>
-                </ol>
-            </div>
+                </div>
         </div>
         <!-- /.row -->
 
