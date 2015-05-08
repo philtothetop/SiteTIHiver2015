@@ -16,7 +16,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, true, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, true, true, true,false);
         }
         //Cette classe va chercher l'étudiant
         //Écrit par Cédric Archambault 18 février 2015
@@ -82,11 +82,19 @@ namespace Site_de_la_Technique_Informatique
         {
             try
             {
-                LinkButton monBouton = (LinkButton)sender;
-                Response.Redirect("modifProfilEtudiant.aspx?id=" + Request.QueryString["id"]);
+                if(Request.QueryString["id"]==null)
+                {
+                    Response.Redirect("modifProfilEtudiant.aspx",false);
+                }
+                else
+                {
+                    Response.Redirect("modifProfilEtudiant.aspx?id=" + Request.QueryString["id"]);
+                }
+                
             }catch(Exception ex)
             {
-
+                Exception logEx = ex;
+                throw new Exception("Erreur Modifier_click : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
     }

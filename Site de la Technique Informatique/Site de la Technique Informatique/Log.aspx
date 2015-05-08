@@ -66,7 +66,7 @@
                                 </div>
 
                                 <div class="col-lg-2">
-                                            <asp:Label ID="lblDate" runat="server" Text='<%# String.Format("{0:dd/MM/yyyy}",Item.dateLog) + "<br/>" + String.Format("{0:H:m}",Item.dateLog)  %>'></asp:Label>
+                                            <asp:Label ID="lblDate" runat="server" Text='<%# String.Format("{0:dd/MM/yyyy}",Item.dateLog) + "<br/>" + String.Format("{0:H:mm}",Item.dateLog)  %>'></asp:Label>
                                             </div>
                             <div style="clear:both;"></div>
                                 </div>

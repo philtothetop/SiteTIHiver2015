@@ -44,11 +44,12 @@
 
                         <ItemTemplate>
                             
-                                <div style="border:Solid; border-color:black; border-width:1px; border-radius:5px;background-color:#eaeaea; margin-top:5px;">
+                                <div style="border:Solid; border-color:black; border-width:1px; border-radius:5px;background-color:#eaeaea; margin-top:5px; padding-top:20px;">
+
                             <div class="col-md-6 img-portfolio">
                                 <div>
-                                    <div>
-                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="width:500px;" />
+                                    <div style="text-align:center;">
+                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' Height='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, true) %>' Width='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, false) %>' style="max-width:500px; max-height:500px;" />
 
                                     </div>                             
                                 </div>                           

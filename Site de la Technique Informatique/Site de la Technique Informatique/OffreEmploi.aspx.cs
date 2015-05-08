@@ -57,7 +57,7 @@ namespace Site_de_la_Technique_Informatique
 
                 lblNoTelecopieur.Text = "No de télécopieur : " + offreEmploi.noTelecopieur;
                 lblCourrielOffre.Text = "Courriel : " + offreEmploi.courrielOffre;
-                lblPersonneRessource.Text = "Personne resources : " + offreEmploi.personneRessource;
+                lblPersonneRessource.Text = "Personne ressources : " + offreEmploi.personneRessource;
 
                 if (offreEmploi.pathPDFDescription == "" || offreEmploi.pathPDFDescription == null)
                 {
