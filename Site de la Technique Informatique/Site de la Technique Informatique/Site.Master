@@ -38,10 +38,26 @@
         function closeModal() {
             $('#myModal').modal('close');
         }
-
-
        
 </script>
+
+        <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <!--   <script src="Js/bootstrap.min.js"></script> -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="../Js/jquery.easing.min.js"></script>
+        <script src="../Js/scrolling-nav.js"></script>
+
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
 
     
 
@@ -220,6 +236,9 @@
           
         </div>
 
+        <br />
+         <br />
+
         <!--Fin de la section provenant des pages-->
 
         <!-- Footer -->
@@ -242,6 +261,7 @@
                             <ul>
                                 <li><a href="InformationsStage.aspx">Stages </a></li>
                                 <li><a href="vertic.aspx">Vertic </a></li>
+                                <li><a href="Temoignages.aspx">Témoignages </a></li>
 
                             </ul>
                         </div>
@@ -284,26 +304,7 @@
             </div>
             <!--/.footer-bottom-->
         </footer>
-
-
-         <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
-    <!-- Bootstrap Core JavaScript -->
-    <!--   <script src="Js/bootstrap.min.js"></script> -->
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <script src="../Js/jquery.easing.min.js"></script>
-        <script src="../Js/scrolling-nav.js"></script>
-
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
-
+     
 
     </form>
 </body>
