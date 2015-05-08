@@ -1,4 +1,9 @@
-﻿using System;
+﻿// Cette page est l'entête qu'on retrouve sur toutes les pages, ainsi que le footer
+// Écrit par: Philippe Bibeau, janvier 2015
+// Intrants: Aucun
+// Extrants: Aucun	
+	
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;

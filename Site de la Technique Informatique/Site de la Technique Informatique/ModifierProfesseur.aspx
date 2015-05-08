@@ -322,12 +322,14 @@
                                         <asp:TextBox ID="txtDescriptionCours" CssClass="form-control" runat="server" TextMode="MultiLine"   Text='<%#BindItem.descriptionCours %>' style="resize:none;height:200px;" />
                                     </div>
                                         <div class="row row-centered">
-                    <div class="col-md-1 ">
+                                            <div class="col-md-6 col-centered">
+                    <div class="col-md-1 col-md-offset-7">
                         <asp:LinkButton ID="lnkSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" />
                     </div>
-                    <div class="col-md-1 ">
+                    <div class="col-md-1 col-md-offset-2">
                        <asp:LinkButton ID="lnkSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-danger" CommandName="Delete" />
                     </div>
+                                                </div>
                 </div>
                                      
                                 </div>
