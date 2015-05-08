@@ -19,10 +19,11 @@ using Site_de_la_Technique_Informatique.Classes;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_Validation_Inscription_Employeur : System.Web.UI.Page
+    public partial class Admin_Validation_Inscription_Employeur : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
 
         }
         //Cette class chercher la liste des étudiant inscription dont leur courriel n'a pas été validé depuis plus de 24 h.
