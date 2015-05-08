@@ -34,7 +34,7 @@
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
-            $('#maPhotoProfile').modal('hide');
+            $('#maPhotoProfile').modal('close');
         };
        function closeDivs() {
             document.getElementById("ContentPlaceHolder1_divSuccess").style.visibility = "hidden";

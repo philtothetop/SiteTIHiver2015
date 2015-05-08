@@ -15,6 +15,9 @@
     <script type="text/javascript">
         window.closeModal = function () {
             $('#maPhotoProfile').modal('hide');
+            $('#maPhotoProfile').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         };
     </script>
     <!-- jQuery -->
@@ -23,6 +26,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <div class="container">
+<ul class="nav nav-tabs">
+            <li><a href="Inscription-Etudiant.aspx">Étudiant</a></li>
+            <li class="active"><a href="#">Employeur</a></li>
+</ul>
         <asp:ScriptManagerProxy ID="smProxy" runat="server" />
         <div class="col-lg-3"></div>
         <div class="row row-centered">
@@ -41,7 +48,12 @@
                     <div class="col-lg-5 col-centered">
                             <div class="control-group form-group champs-requis">
                             <p>Tous les champs sont requis.</p>
-                             <asp:Label ID="lblMessage" runat="server" Text="" />
+                                <div class="control-group form-group">
+                            <div class="controls">
+                                <asp:Label ID="lblMessageValidationErreur" runat="server" Text="" Visible="false" />
+                            </div>
+                        </div>
+                             
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
@@ -70,11 +82,7 @@
                                 <asp:Label ID="lblMotDePasseErreur" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <asp:Label ID="lblMessageValidationErreur" runat="server" Text="" Visible="false" />
-                            </div>
-                        </div>
+                        
                         <div class="control-group form-group">
                             <div class="controls">
                                 <label>Confirmation du mot de passe:</label>

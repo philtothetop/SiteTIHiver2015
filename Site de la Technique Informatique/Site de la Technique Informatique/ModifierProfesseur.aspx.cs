@@ -178,23 +178,23 @@ namespace Site_de_la_Technique_Informatique
                     }
                     else if (!txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
                     {
-                        lblMessage.Text = "<b>Nouveau mot de passe:</b>Les deux nouveaux mots de passe ne sont pas identiques";
+                        lblMessage.Text = "<b>Nouveau mot de passe: </b>Les deux nouveaux mots de passe ne sont pas identiques";
                         divWarning.Attributes["style"] = "visibility:visible;";
                     }
                     else
                     {
-                        lblMessage.Text = "<b>Nouveau mot de passe:</b>Le nouveau mot de passe doit être différent du mot de passe actuel";
+                        lblMessage.Text = "<b>Nouveau mot de passe: </b>Le nouveau mot de passe doit être différent du mot de passe actuel";
                         divWarning.Attributes["style"] = "visibility:visible;";
                     }
                 }
                 else
                 {
-                    lblMessage.Text = "<b>Ancien mot de passe:</b>Le mot de passe que vous avez entré n'est pas valide";
+                    lblMessage.Text = "<b>Ancien mot de passe: </b>Le mot de passe que vous avez entré n'est pas valide";
                     divWarning.Attributes["style"] = "visibility:visible;";
                 }
             }
                 else{
-                    lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
+                    lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissées vides.";
                     divWarning.Attributes["style"] = "visibility:visible;";
                 }
            }
