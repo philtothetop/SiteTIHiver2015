@@ -21,7 +21,6 @@
                     <li role="presentation"><a href="#logiciel" class="page-scroll">Les logiciels</a></li>
                     <li role="presentation"><a href="#garantie" class="page-scroll">Garantie et assurance</a></li>
                     <li role="presentation"><a href="#financement" class="page-scroll">Financement</a></li>
-                    <li role="presentation"><a href="#inscription" class="page-scroll">Pour s'inscrire</a></li>
                     <li role="presentation"><a href="#accueil" class="page-scroll">Accueil et VerTICamp</a></li>
                 </ul>
 
@@ -289,15 +288,6 @@
                         </div>
                     </div>
                 </div>
-
-            </section>
-            <section id="inscription" class="inscription-section">
-                <h3>Inscription à VerTIC</h3>
-
-                <p>... EXPLIQUER LA PROCÉDURE D'INSCRIPTION AU SITE ... </p>
-                <br />
-                <br />
-
 
             </section>
 
