@@ -13,6 +13,8 @@ using System.Drawing;
 using Site_de_la_Technique_Informatique.Classes;
 using System.IO;
 using System.Web.UI.HtmlControls;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 
 
 namespace Site_de_la_Technique_Informatique
@@ -20,26 +22,26 @@ namespace Site_de_la_Technique_Informatique
     public partial class ModifierProfesseur : ErrorHandling
     {
         public Professeur currentProf;
-      
+
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
             //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
-            
-               
-                   ddlCours.Enabled = ddlCours.Items.Count >0 ? true: false;
-                   btnModif.Enabled = ddlCours.Enabled;
-                
+
+
+            ddlCours.Enabled = ddlCours.Items.Count > 0 ? true : false;
+            btnModif.Enabled = ddlCours.Enabled;
+
             if (!Page.IsPostBack)
             {
 
-                
-            divSuccess.Attributes["style"] = "visibility:hidden";
-            divWarning.Attributes["style"] = "visibility:hidden";
+
+                divSuccess.Attributes["style"] = "visibility:hidden";
+                divWarning.Attributes["style"] = "visibility:hidden";
             }
-             
+
 
         }
 
@@ -81,7 +83,7 @@ namespace Site_de_la_Technique_Informatique
 
                 TryUpdateModel(profAUpdater);
                 lblMessage.Text = "";
-               
+
                 if (!ModelState.IsValid)
                 {
                     foreach (var modelErrors in ModelState)
@@ -158,7 +160,7 @@ namespace Site_de_la_Technique_Informatique
         protected void lnkSaveNewPassword_Click(object sender, EventArgs e)
         {
             var hash = new hash();
-           
+
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
@@ -167,48 +169,48 @@ namespace Site_de_la_Technique_Informatique
                 if (!String.IsNullOrEmpty(txtAncienMp.Text) && !String.IsNullOrEmpty(txtNouveauMp.Text) && !String.IsNullOrEmpty(txtNouveauMpConfirm.Text))
                 {
                     string ancienPwd = hash.GetSHA256Hash(txtAncienMp.Text.ToString());
-                if (profAModifier.hashMotDePasse.Equals(ancienPwd))
-                {
-
-
-                    if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text) && txtAncienMp.Text != txtNouveauMpConfirm.Text)
+                    if (profAModifier.hashMotDePasse.Equals(ancienPwd))
                     {
-                        string newPwd = hash.GetSHA256Hash(txtNouveauMpConfirm.Text);
-                        profAModifier.hashMotDePasse = newPwd;
-                        Model.Log logEntry = new Model.Log
+
+
+                        if (txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text) && txtAncienMp.Text != txtNouveauMpConfirm.Text)
                         {
-                            dateLog = DateTime.Now,
-                            actionLog = profAModifier.prenom + " " + profAModifier.nom + " a modifié son mot de passe",
-                            typeLog = 0
-                        };
-                        lecontexte.SaveChanges();
-                        divWarning.Attributes["style"] = "visibility:hidden;";
-                        divSuccess.Attributes["style"] = "visibility:visible";
-                    }
-                    else if (!txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
-                    {
-                        lblMessage.Text = "<b>Nouveau mot de passe: </b>Les deux nouveaux mots de passe ne sont pas identiques";
-                        divWarning.Attributes["style"] = "visibility:visible;";
+                            string newPwd = hash.GetSHA256Hash(txtNouveauMpConfirm.Text);
+                            profAModifier.hashMotDePasse = newPwd;
+                            Model.Log logEntry = new Model.Log
+                            {
+                                dateLog = DateTime.Now,
+                                actionLog = profAModifier.prenom + " " + profAModifier.nom + " a modifié son mot de passe",
+                                typeLog = 0
+                            };
+                            lecontexte.SaveChanges();
+                            divWarning.Attributes["style"] = "visibility:hidden;";
+                            divSuccess.Attributes["style"] = "visibility:visible";
+                        }
+                        else if (!txtNouveauMp.Text.Equals(txtNouveauMpConfirm.Text))
+                        {
+                            lblMessage.Text = "<b>Nouveau mot de passe: </b>Les deux nouveaux mots de passe ne sont pas identiques";
+                            divWarning.Attributes["style"] = "visibility:visible;";
+                        }
+                        else
+                        {
+                            lblMessage.Text = "<b>Nouveau mot de passe: </b>Le nouveau mot de passe doit être différent du mot de passe actuel";
+                            divWarning.Attributes["style"] = "visibility:visible;";
+                        }
                     }
                     else
                     {
-                        lblMessage.Text = "<b>Nouveau mot de passe: </b>Le nouveau mot de passe doit être différent du mot de passe actuel";
+                        lblMessage.Text = "<b>Ancien mot de passe: </b>Le mot de passe que vous avez entré n'est pas valide";
                         divWarning.Attributes["style"] = "visibility:visible;";
                     }
                 }
-                else
-                {
-                    lblMessage.Text = "<b>Ancien mot de passe: </b>Le mot de passe que vous avez entré n'est pas valide";
-                    divWarning.Attributes["style"] = "visibility:visible;";
-                }
-            }
                 else
                 {
                     lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
                     divWarning.Attributes["style"] = "visibility:visible;";
                 }
-           }
-            
+            }
+
         }
 
         #endregion
@@ -238,25 +240,25 @@ namespace Site_de_la_Technique_Informatique
                     {
 
 
-                
-                profADesactiver.compteActif = 0;
 
-                lecontexte.SaveChanges();
+                        profADesactiver.compteActif = 0;
 
-                Response.Cookies["TICourriel"].Value = ""; //enlève la valeur du cookie
-                Response.Cookies["TINom"].Value = ""; //enlève la valeur du cookie
-                Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
-                Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
+                        lecontexte.SaveChanges();
 
-                Response.Redirect(Request.RawUrl, false);
+                        Response.Cookies["TICourriel"].Value = ""; //enlève la valeur du cookie
+                        Response.Cookies["TINom"].Value = ""; //enlève la valeur du cookie
+                        Response.Cookies["TIID"].Value = ""; //enlève la valeur du cookie
+                        Response.Cookies["TIUtilisateur"].Value = ""; //enlève la valeur du cookie
+
+                        Response.Redirect(Request.RawUrl, false);
 
                     }
 
                 }
                 catch
                 {
-                        throw;
-                    }
+                    throw;
+                }
             }
         }
 
@@ -269,19 +271,38 @@ namespace Site_de_la_Technique_Informatique
         public IQueryable<Cours> lvModifierCours_GetData()
         {
 
-            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            List<Cours> nbCours = null;
+            List<Cours> newCours = null;
+
+            try
             {
+                using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+                {
+                    nbCours = ((from cours in lecontexte.CoursSet.OfType<Cours>() select cours).ToList());  //génère une liste des membres pour en avoir un nombre de membres et générer le bon ID Utilisateur
+                    newCours = ((from cours in lecontexte.CoursSet.OfType<Cours>() where cours.IDCours == nbCours.Count select cours).ToList());
 
-             //   short session = short.Parse(ddlSession.SelectedValue);
-                int idCours = int.Parse(ddlCours.SelectedValue);
-              //  Cours cours = new Cours();
-                List<Cours> cours = (from cl in lecontexte.CoursSet                                       
-                                       where cl.IDCours ==  idCours
-                                        select cl).ToList();                           
-                
+                }
 
-               return cours.AsQueryable();
+                if ((string)ViewState["mode"] + "" == "ajoute")  // SEULEMENT UN MEDIA «VIDE»
+                {
+                    newCours = new List<Cours>();
+                    Cours coursVide = new Cours();
+
+                    
+                    coursVide.noCours = "";
+                    coursVide.nomCours = "";
+                    coursVide.noSessionCours = short.Parse( ddlSession.SelectedValue);
+                    coursVide.Professeur.Add(currentProf);
+                    newCours.Add(coursVide);
+                }
+
+
             }
+            catch (Exception ex)
+            {
+                lblMessage.Text += "ERREUR AVEC LE MÉDIA, " + ex.ToString();
+            }
+            return newCours.AsQueryable();
         }
 
         public IQueryable<Cours> getAllCours()
@@ -291,16 +312,17 @@ namespace Site_de_la_Technique_Informatique
             {
                 var session = short.Parse(ddlSession.SelectedValue);
 
-                
+
                 List<Cours> cours = new List<Cours>();
-               
+
                 Professeur profCours = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>()
                                         from cr in cl.Cours
-                                       where  cl.IDMembre == currentProf.IDMembre
+                                        where cl.IDMembre == currentProf.IDMembre
                                         select cl).FirstOrDefault();
 
-                if (profCours != null) {
-               cours = profCours.Cours.Where(x => x.noSessionCours == session).ToList();
+                if (profCours != null)
+                {
+                    cours = profCours.Cours.Where(x => x.noSessionCours == session).ToList();
                 }
                 return cours.AsQueryable();
             }
@@ -309,14 +331,87 @@ namespace Site_de_la_Technique_Informatique
 
         //public 
 
-        public void updateCours()
+        public void updateCours(Cours leCoursAUpdater)
         {
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
+                Cours leCoursAUpdaterCopie = new Cours();
+                if ((string)ViewState["mode"] == "édite")
+                {
+                    leCoursAUpdaterCopie = (lecontexte.Set<Cours>().SingleOrDefault(m => m.IDCours == leCoursAUpdater.IDCours));
+                }
+                else
+                { leCoursAUpdaterCopie = leCoursAUpdater; }
 
+                ListViewItem lvmediacourant = lvModifierCours.Items[0];
+
+                //VÉRIFIE SI CE QUI EST A L'ÉCRAN EST VALIDE ET EN VERSE LE CONTENU DANS LEMEMBREAUPDATER
+                //---------------------------------------------------------------------------------------
+                TryUpdateModel(leCoursAUpdaterCopie);  //RAMÈNE LE MEMBRE QUI EST A L'ÉCRAN VERS L'OBJET, FAIT AUSSI LA VALIDATION MAIS ON L'IGNORE
+                var contextval = new ValidationContext(leCoursAUpdaterCopie, serviceProvider: null, items: null);
+                var results = new List<ValidationResult>();
+                var isValid = Validator.TryValidateObject(leCoursAUpdaterCopie, contextval, results); // VALIDE LE MEMBRE
+                if (!isValid) // NON VALIDE
+                {
+                    foreach (var validationResult in results)
+                    {
+                        lblMessage.Text += validationResult.ErrorMessage;
+                    }
+                }
+                else // VALIDE
+                {
+                    lblMessage.Text = "";
+                    try
+                    {
+
+                        if ((string)ViewState["mode"] == "ajoute")
+                        {
+                            lecontexte.Set<Cours>().Add(leCoursAUpdaterCopie);
+                        }
+
+                        ListViewItem lvmediacourant1 = lvModifierCours.Items[0];
+
+                        lecontexte.SaveChanges();
+                    }
+                    // Attrappe les erreurs au Save Changes. Utile pour découvrir quelle propriété est en erreur.
+                    catch (DbEntityValidationException el)
+                    {
+                        foreach (var eve in el.EntityValidationErrors)
+                        {
+                            lblMessage.Text += "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:" +
+                                eve.Entry.Entity.GetType().Name + eve.Entry.State;
+                            foreach (var ve in eve.ValidationErrors)
+                            {
+                                lblMessage.Text += "- Property: \"{0}\", Error: \"{1}\"" +
+                                    ve.PropertyName + ve.ErrorMessage;
+                            }
+                        }
+                    }
+
+                    ViewState["mode"] = "édite";
+                    ddlCours.DataBind();
+                }
+            }
         }
 
-        public void deleteCours()
+        public void deleteCours(Cours coursASupprimer)
         {
+            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+                try
+                {
+                    Cours cours = (lecontexte.Set<Cours>().SingleOrDefault(x => x.IDCours == coursASupprimer.IDCours));
 
+                    lecontexte.CoursSet.Remove(cours);
+
+                    lecontexte.SaveChanges();
+                    lvModifierCours.DataBind();
+                    ddlCours.DataBind();
+                    lvModifierCours.Visible = false;
+                }
+                catch (Exception ex)
+                {
+
+                }
         }
         #endregion
 
@@ -328,20 +423,31 @@ namespace Site_de_la_Technique_Informatique
 
         protected void btnAjout_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                lvModifierCours.Visible = true;
+                ViewState["mode"] = "ajoute";
+                lvModifierCours.DataBind();
+                lblNoClass.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
 
         protected void lvModifierCours_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
-            try { 
-            using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            try
             {
-                if (e.Item.ItemType == ListViewItemType.DataItem)
+                using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                    Cours currentCours = (Cours)e.Item.DataItem;
-                    Cours leCours = (lecontexte.Set<Cours>().SingleOrDefault(cours => cours.IDCours == currentCours.IDCours));
+                    if (e.Item.ItemType == ListViewItemType.DataItem)
+                    {
+                        Cours currentCours = (Cours)e.Item.DataItem;
+                        Cours leCours = (lecontexte.Set<Cours>().SingleOrDefault(cours => cours.IDCours == currentCours.IDCours));
+                    }
                 }
-            }
             }
             catch (Exception ex)
             {
@@ -357,7 +463,7 @@ namespace Site_de_la_Technique_Informatique
                 ddlCours.Enabled = true;
                 lblNoClass.Visible = false;
                 btnModif.Enabled = true;
-       
+
             }
             else
             {
@@ -367,7 +473,7 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        
+
 
     }
 }
