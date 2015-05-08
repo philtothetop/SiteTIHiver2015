@@ -43,7 +43,7 @@ public partial class UtilisateurValidation
     [Key(),Required(ErrorMessage="Il y a eu un problème lors de l'inscription du membre")]
     public int IDUtilisateur { get; set; }
 
-    [Required(ErrorMessage="L'adresse courriel est obligatoire"), StringLength(200, ErrorMessage="L'adresse courriel ne doit pas dépasser 200 caractères"), RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",ErrorMessage="L'adresse courriel ne convient pas au bon format")]
+    [Required(ErrorMessage = "L'adresse courriel est obligatoire"), StringLength(200, ErrorMessage = "L'adresse courriel ne doit pas dépasser 200 caractères"), RegularExpression(@"[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}", ErrorMessage = "L'adresse courriel ne convient pas au bon format")]
     public string courriel { get; set; }
 
     [Required(ErrorMessage= "Le mot de passe est obligatoire")]
