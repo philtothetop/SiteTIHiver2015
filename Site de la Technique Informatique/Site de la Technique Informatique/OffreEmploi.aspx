@@ -14,11 +14,6 @@
                     <asp:Label ID="lblTitreOffre" runat="server" Font-Size="20"></asp:Label>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="listeOffresEmploi.aspx">Retour à la liste</a>
-                    </li>
-                    <li class="active">
-                        <asp:Label ID="lblTitreOffre2" runat="server" Font-Size="10"></asp:Label>
-                    </li>
                     <li class="active">
                         <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" OnClick="lnkPDF_Click" Visible="false"></asp:LinkButton>
                     </li>
