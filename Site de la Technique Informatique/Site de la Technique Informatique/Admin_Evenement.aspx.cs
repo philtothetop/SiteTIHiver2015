@@ -114,6 +114,7 @@ namespace Site_de_la_Technique_Informatique
                         txtJourEventAjouter.BorderColor = Color.Red;
                         ddlMoisEventAjouter.BorderColor = Color.Red;
                         ddlAnneeEventAjouter.BorderColor = Color.Red;
+                        return;
                     }
                     else if (dateAjout < DateTime.Now.AddDays(1))
                     {
@@ -122,6 +123,7 @@ namespace Site_de_la_Technique_Informatique
                         txtJourEventAjouter.BorderColor = Color.Red;
                         ddlMoisEventAjouter.BorderColor = Color.Red;
                         ddlAnneeEventAjouter.BorderColor = Color.Red;
+                        return;
                     }
                     eventAjouter.dateDescription = dateAjout;
                 }
