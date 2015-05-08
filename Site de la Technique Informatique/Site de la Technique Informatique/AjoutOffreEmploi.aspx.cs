@@ -16,11 +16,11 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(false, false, false, true);
+            SavoirSiPossedeAutorizationPourLaPage(false, false, false, true, false);
 
             txtDescriptionOffre.Attributes.Add("maxlength", txtDescriptionOffre.MaxLength.ToString());
             if (!IsPostBack)
-            {            
+            {
                 for (int i = 0; i < 2; i++)
                 {
                     ListItem listItem = new ListItem();
@@ -52,13 +52,13 @@ namespace Site_de_la_Technique_Informatique
                         {
                             string dateExpiration = offreEmploi.dateExpiration.ToString();
                             txtJourExpiration.Text = dateExpiration.Substring(8, 2);
-                            txtMoisExpiration.Text = dateExpiration.Substring(5, 2);
+                            ddlMoisExpiration.SelectedValue = dateExpiration.Substring(5, 2);
                             ddlAnneeExpiration.SelectedValue = dateExpiration.Substring(0, 4);
                         }
 
                         string dateDebut = offreEmploi.dateDebutOffre.ToString();
                         txtJourDebut.Text = dateDebut.Substring(8, 2);
-                        txtMoisDebut.Text = dateDebut.Substring(5, 2);
+                        ddlMoisDebut.SelectedValue = dateDebut.Substring(5, 2);
                         ddlAnneeDebut.SelectedValue = dateDebut.Substring(0, 4);
 
                         txtSalaire.Text = offreEmploi.salaire.ToString();
@@ -113,10 +113,10 @@ namespace Site_de_la_Technique_Informatique
                 txtTitreOffre.BorderColor = Color.LightGray;
                 txtDescriptionOffre.BorderColor = Color.LightGray;
                 txtJourExpiration.BorderColor = Color.LightGray;
-                txtMoisExpiration.BorderColor = Color.LightGray;
+                ddlMoisExpiration.BorderColor = Color.LightGray;
                 ddlAnneeExpiration.BorderColor = Color.LightGray;
                 txtJourDebut.BorderColor = Color.LightGray;
-                txtMoisDebut.BorderColor = Color.LightGray;
+                ddlMoisDebut.BorderColor = Color.LightGray;
                 ddlAnneeDebut.BorderColor = Color.LightGray;
                 txtSalaire.BorderColor = Color.LightGray;
                 txtHeures.BorderColor = Color.LightGray;
@@ -155,11 +155,11 @@ namespace Site_de_la_Technique_Informatique
                     nbErreurs++;
                 }
 
-                if (txtJourExpiration.Text != "" || txtMoisExpiration.Text != "" || ddlAnneeExpiration.SelectedIndex != 0)
+                if (txtJourExpiration.Text != "" || ddlMoisExpiration.SelectedIndex != 0 || ddlAnneeExpiration.SelectedIndex != 0)
                 {
                     try
                     {
-                        DateTime dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + txtMoisExpiration.Text + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
+                        DateTime dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + ddlMoisExpiration.SelectedValue + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
 
                         DateTime datemin = DateTime.Parse("01/01/1900", new CultureInfo("en-CA"));
 
@@ -167,7 +167,7 @@ namespace Site_de_la_Technique_Informatique
                         {
                             lblDateExpiration.Text = "Date d'expiration de l'offre invalide";
                             txtJourExpiration.BorderColor = Color.Red;
-                            txtMoisExpiration.BorderColor = Color.Red;
+                            ddlMoisExpiration.BorderColor = Color.Red;
                             ddlAnneeExpiration.BorderColor = Color.Red;
                             nbErreurs++;
                         }
@@ -176,7 +176,7 @@ namespace Site_de_la_Technique_Informatique
 
                             lblDateExpiration.Text = "Date d'exipration de l'offre invalide";
                             txtJourExpiration.BorderColor = Color.Red;
-                            txtMoisExpiration.BorderColor = Color.Red;
+                            ddlMoisExpiration.BorderColor = Color.Red;
                             ddlAnneeExpiration.BorderColor = Color.Red;
                             nbErreurs++;
                         }
@@ -185,17 +185,17 @@ namespace Site_de_la_Technique_Informatique
                     {
                         lblDateExpiration.Text = "Date d'exipration de l'offre invalide";
                         txtJourExpiration.BorderColor = Color.Red;
-                        txtMoisExpiration.BorderColor = Color.Red;
+                        ddlMoisExpiration.BorderColor = Color.Red;
                         ddlAnneeExpiration.BorderColor = Color.Red;
                         nbErreurs++;
                     }
                 }
 
-                if (txtJourDebut.Text == "" || txtMoisDebut.Text == "" || ddlAnneeDebut.SelectedIndex == 0)
+                if (txtJourDebut.Text == "" || ddlMoisDebut.SelectedIndex == 0 || ddlAnneeDebut.SelectedIndex == 0)
                 {
                     lblDebut.Text = "Date de début de l'emploi requise";
                     txtJourDebut.BorderColor = Color.Red;
-                    txtMoisDebut.BorderColor = Color.Red;
+                    ddlMoisDebut.BorderColor = Color.Red;
                     ddlAnneeDebut.BorderColor = Color.Red;
                     nbErreurs++;
                 }
@@ -203,7 +203,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     try
                     {
-                        DateTime dateDebut = DateTime.Parse(txtJourDebut.Text + "/" + txtMoisDebut.Text + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
+                        DateTime dateDebut = DateTime.Parse(txtJourDebut.Text + "/" + ddlMoisDebut.SelectedValue + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
 
                         DateTime datemin = DateTime.Parse("01/01/1900", new CultureInfo("en-CA"));
 
@@ -211,7 +211,7 @@ namespace Site_de_la_Technique_Informatique
                         {
                             lblDebut.Text = "Date de début de l'emploi invalide";
                             txtJourDebut.BorderColor = Color.Red;
-                            txtMoisDebut.BorderColor = Color.Red;
+                            ddlMoisDebut.BorderColor = Color.Red;
                             ddlAnneeDebut.BorderColor = Color.Red;
                             nbErreurs++;
                         }
@@ -220,7 +220,7 @@ namespace Site_de_la_Technique_Informatique
 
                             lblDebut.Text = "Date de début de l'emploi invalide";
                             txtJourDebut.BorderColor = Color.Red;
-                            txtMoisDebut.BorderColor = Color.Red;
+                            ddlMoisDebut.BorderColor = Color.Red;
                             ddlAnneeDebut.BorderColor = Color.Red;
                             nbErreurs++;
                         }
@@ -229,7 +229,7 @@ namespace Site_de_la_Technique_Informatique
                     {
                         lblDateExpiration.Text = "Date de début de l'emploi invalide";
                         txtJourExpiration.BorderColor = Color.Red;
-                        txtMoisExpiration.BorderColor = Color.Red;
+                        ddlMoisExpiration.BorderColor = Color.Red;
                         ddlAnneeExpiration.BorderColor = Color.Red;
                         nbErreurs++;
                     }
@@ -455,10 +455,10 @@ namespace Site_de_la_Technique_Informatique
 
                             if (txtJourExpiration.Text != "")
                             {
-                                offreEmploiAModfier.dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + txtMoisExpiration.Text + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
+                                offreEmploiAModfier.dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + ddlMoisExpiration.SelectedValue + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
                             }
 
-                            offreEmploiAModfier.dateDebutOffre = DateTime.Parse(txtJourDebut.Text + "/" + txtMoisDebut.Text + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
+                            offreEmploiAModfier.dateDebutOffre = DateTime.Parse(txtJourDebut.Text + "/" + ddlMoisDebut.SelectedValue + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
                             if (Session["fuPDF"] != null)
                             {
                                 fuPDF = (FileUpload)Session["fuPDF"];
@@ -512,10 +512,10 @@ namespace Site_de_la_Technique_Informatique
 
                             if (txtJourExpiration.Text != "")
                             {
-                                offreEmploi.dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + txtMoisExpiration.Text + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
+                                offreEmploi.dateExpiration = DateTime.Parse(txtJourExpiration.Text + "/" + ddlMoisExpiration.SelectedIndex + "/" + ddlAnneeExpiration.Text, new CultureInfo("en-CA"));
                             }
 
-                            offreEmploi.dateDebutOffre = DateTime.Parse(txtJourDebut.Text + "/" + txtMoisDebut.Text + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
+                            offreEmploi.dateDebutOffre = DateTime.Parse(txtJourDebut.Text + "/" + ddlMoisDebut.SelectedIndex + "/" + ddlAnneeDebut.Text, new CultureInfo("en-CA"));
                             if (Session["fuPDF"] != null)
                             {
                                 fuPDF = (FileUpload)Session["fuPDF"];
