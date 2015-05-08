@@ -82,10 +82,7 @@
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
     <div class="container">
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#">Étudiant</a></li>
-            <li><a href="Inscription-Employeur.aspx">Employeur</a></li>
-        </ul>
+
         <div class="row row-centered">
             <div class="col-lg-5 col-centered">
                 <h1>Inscription Étudiant</h1>
