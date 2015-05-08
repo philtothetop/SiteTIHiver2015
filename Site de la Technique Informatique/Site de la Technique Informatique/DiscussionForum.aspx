@@ -11,11 +11,6 @@
                 <h1 class="page-header">
                     <asp:Label ID="lblTitreDiscussion" runat="server" Font-Size="20"></asp:Label>
                 </h1>
-                <ol class="breadcrumb">
-                    <li>
-                        <asp:LinkButton ID="lnkRetour" Text="Retour liste discussions" runat="server" OnClick="lnkRetour_Click"></asp:LinkButton>
-                    </li>
-                </ol>
             </div>
         </div>
         <div class="row">
@@ -56,7 +51,7 @@
                 <br />
                 <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" placeholder="Message" Style="max-height: 150px; min-height: 150px; min-width: 600px; max-width: 600px" MaxLength="2000"></asp:TextBox>
                 <br />
-                <asp:LinkButton ID="lnkNouveauMessage" Text="Envoyer" runat="server" CssClass="btn btn-default" OnClick="lnkNouveauMessage_Click" />
+                <asp:LinkButton ID="lnkNouveauMessage" Text="Envoyer" runat="server" CssClass="btn btn-primary" OnClick="lnkNouveauMessage_Click" />
             </div>
             <hr />
         </div>

@@ -102,7 +102,18 @@ namespace Site_de_la_Technique_Informatique
                 TextBox txtConfirmationNouveauMotDePasse = (TextBox)lvModifProfilEtudiant.Items[0].FindControl("txtConfirmationNouveauMotDePasse");
                 //Chercher l'utilisateur
                 String strIDUtilisateur = Request.Cookies["TIID"].Value;
-                int IDUtilisateur = int.Parse(strIDUtilisateur);
+
+                int IDUtilisateur;
+
+                if(Request.QueryString["id"]!=null)
+                {
+                    IDUtilisateur = int.Parse(Request.QueryString["id"]);
+                }
+                else
+                {
+                    IDUtilisateur = int.Parse(strIDUtilisateur);
+                }
+            
 
 
                 Etudiant etudiantAUpdaterCopie = (lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>().SingleOrDefault(m => m.IDUtilisateur == IDUtilisateur)); ;
@@ -264,7 +275,13 @@ namespace Site_de_la_Technique_Informatique
                             etudiantAUpdaterCopie.pathPhotoProfil = imageNom;
                         }
                         lecontexte.SaveChanges();
+                        if (Request.QueryString["id"] != null)
+                        {
+                            String id = Request.QueryString["id"];
+                            Response.Redirect("ProfilEtudiant.aspx?id="+id, false);
+                        }else{
                         Response.Redirect("ProfilEtudiant.aspx", false);
+                            }
                     }
                     catch (DbEntityValidationException ex) // D'AUTRES ERREURS PEUVENT SURVENIR QUI N'ONT PAS ÉTÉ PRÉVUE VIA DATAANNOTATIONS.
                     {

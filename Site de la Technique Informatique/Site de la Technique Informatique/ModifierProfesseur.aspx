@@ -330,6 +330,7 @@
                        <asp:LinkButton ID="lnkSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-danger" CommandName="Delete" />
                     </div>
                                                 </div>
+                                         
                 </div>
                                      
                                 </div>
@@ -338,6 +339,7 @@
                             </ItemTemplate>
 
                         </asp:ListView>
+                           <asp:Label ID="lblCoursErreurs" runat="server" Visible ="false" />
                     </div>
                 </div>
 

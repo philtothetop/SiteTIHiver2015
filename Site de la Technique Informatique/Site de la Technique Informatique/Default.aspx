@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" MaintainScrollPositionOnPostback="true" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Default" %>
 
 
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <!-- Page Content -->
@@ -125,17 +124,17 @@
                     </EmptyDataTemplate>
 
                     <ItemTemplate>
-                        <div class="well col-lg-4" style="height: 130px;">
+                        <div class="well col-lg-4" style="min-height: 150px;">
                             <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + " " + Convert.ToDateTime(Eval("dateDebutEvenement")).ToString("MMM") + "" + (Item.dateFinEvenement.HasValue == true ? ( ((Eval("dateDebutEvenement.Date") == Eval("dateFinEvenement.Date")) ? (" au " + Eval("dateFinEvenement.Day") + " " + Convert.ToDateTime(Eval("dateFinEvenement")).ToString("MMM")) : "")) : "" ) %>' />
                             <br />
                             <asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
                                 Text='<%# Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
                                    (Eval("titreEvenement").ToString().Length > 50 ? "..." :  "") %>' />
                             <asp:Label runat="server" ID="lblHeureEvent" Text='<%# ((Item.dateDebutEvenement.TimeOfDay.ToString() != "00:00:00" ) ? ( "\n" + Eval("dateDebutEvenement.TimeOfDay.Hours") + "h" + (Eval("dateDebutEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateDebutEvenement.TimeOfDay.Minutes") ) ) : "\r" ) 
-                        + "" + ((Item.dateFinEvenement.HasValue == true) && (Item.dateFinEvenement.Value.TimeOfDay.ToString() != "00:00:00" ) ? (" à " + Eval("dateFinEvenement.TimeOfDay.Hours") + "h" + (Eval("dateFinEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateFinEvenement.TimeOfDay.Minutes") ) ) : "" ) %>' />
+                            + "" + ((Item.dateFinEvenement.HasValue == true) && (Item.dateFinEvenement.Value.TimeOfDay.ToString() != "00:00:00" ) ? (" à " + Eval("dateFinEvenement.TimeOfDay.Hours") + "h" + (Eval("dateFinEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateFinEvenement.TimeOfDay.Minutes") ) ) : "" ) %>' />
                             <br />
-                            <asp:LinkButton runat="server" ID="btnPlusEvents" Text="En savoir plus..."
-                                OnClick="btnPlusEvents_Click" CommandArgument='<%# Eval("IDEvenement") %>' /><br />
+                            <asp:Label runat="server" ID="Label2" Text='<%# Eval("descriptionEvenement").ToString().PadLeft(50).Substring(0, 50) +
+                                   (Eval("descriptionEvenement").ToString().Length > 50 ? "..." :  "") %>' />
                             <br />
                         </div>
                     </ItemTemplate>
