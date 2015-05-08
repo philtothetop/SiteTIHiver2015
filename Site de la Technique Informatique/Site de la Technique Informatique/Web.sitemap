@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode title="Accueil" url="~/Default.aspx">
+    <siteMapNode title="Qui sommes-nous" url="~/QuiSommesNous.aspx"/>
     <siteMapNode title="Contactez-nous" url="~/contact.aspx"/>
     <siteMapNode title="Concepteurs" url="~/concepteur.aspx"/>
     <siteMapNode title="Parutions média" url="~/LesParutionsMedias.aspx"/>
@@ -12,7 +13,8 @@
     <siteMapNode title="Souvenirs" url="~/Souvenirs.aspx"/>
     <siteMapNode title="Témoignages" url="~/Temoignages.aspx"/>
     <siteMapNode title="Membres" url="~/recherche.aspx"/>
-    <siteMapNode title="Inscription" url="~/Inscription-Etudiant.aspx"/>
+    <siteMapNode title="Inscription étudiant" url="~/Inscription-Etudiant.aspx"/>
+    <siteMapNode title="Inscription employeur" url="~/Inscription-Employeur.aspx"/>
     <siteMapNode title="Offres d'emploi" url="~/listeOffresEmploi.aspx">
       <siteMapNode title="Ajouter une offre" url="~/AjoutOffreEmploi.aspx"/>
       <siteMapNode title="Offre d'emploi" url="~/OffreEmploi.aspx"/>

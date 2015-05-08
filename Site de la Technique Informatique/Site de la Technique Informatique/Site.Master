@@ -163,7 +163,7 @@
 
         <!--Fil d'Arianne-->
 
-        <div style="float: left; width: 50%; text-align: center; margin-top: 75px; margin-left:25%" runat="server" id="divSiteMap">
+        <div style="float: left; width: 50%; margin-top: 75px; margin-left:25%" runat="server" id="divSiteMap">
             <ol class="breadcrumb">
                 <asp:SiteMapPath ID="siteMapPath" runat="server" PathDirection="RootToCurrent"
                     RenderCurrentNodeAsLink="false" ShowToolTips="true" Style="width: 100%; display: inline-block" Font-Bold="true" Font-Size="14px">
