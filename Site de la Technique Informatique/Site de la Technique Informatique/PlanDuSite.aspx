@@ -37,7 +37,7 @@
 
                                 <asp:TreeNode Text="Vertic" NavigateUrl="~/Vertic.aspx"  />
                                 <asp:TreeNode Text="Stages" NavigateUrl="~/InformationsStage.aspx" />
-                                <asp:TreeNode Text="Témoignages"  />
+                                <asp:TreeNode Text="Témoignages" NavigateUrl="~/.aspx"  />
                                 <asp:TreeNode Text="Parutions média" NavigateUrl="~/LesParutionsMedias.aspx" />
 
                             </asp:TreeNode>
