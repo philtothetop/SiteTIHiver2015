@@ -121,13 +121,13 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.TextBox txtJourExpiration;
         
         /// <summary>
-        /// Contrôle txtMoisExpiration.
+        /// Contrôle ddlMoisExpiration.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMoisExpiration;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMoisExpiration;
         
         /// <summary>
         /// Contrôle ddlAnneeExpiration.
@@ -157,13 +157,13 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.TextBox txtJourDebut;
         
         /// <summary>
-        /// Contrôle txtMoisDebut.
+        /// Contrôle ddlMoisDebut.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMoisDebut;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMoisDebut;
         
         /// <summary>
         /// Contrôle ddlAnneeDebut.
