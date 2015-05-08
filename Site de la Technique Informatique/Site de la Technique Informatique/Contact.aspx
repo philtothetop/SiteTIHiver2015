@@ -26,7 +26,7 @@ Extrants: --%>
                 <p><i class="fa fa-phone"></i> 
                     <abbr title="TÃ©lÃ©phone">P</abbr>: (450) 372-6614</p>
                 <p><i class="fa fa-envelope-o"></i> 
-                    <abbr title="Email">E</abbr>: <a href="denis@dupaul.ca">denis@dupaul.ca</a>
+                    <abbr title="Email">E</abbr>: <a href="mailto:denis@dupaul.ca">denis@dupaul.ca</a>
                 </p>
                 <p><i class="fa fa-clock-o"></i> 
                     <abbr title="Horaire">H</abbr>: Lundi - Vendredi: 9:00 à  17:00</p>
