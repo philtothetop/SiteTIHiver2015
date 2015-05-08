@@ -6,10 +6,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-   
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-           <ul class="nav navbar-nav navbar-center" style="list-style-type:none;">
+        <div >
+            <div class="col-lg-3">
+           <ul style="list-style-type:none;">
                
                    <li><a href="Admin_Evenement.aspx">Événement</a><br /></li>
                    
@@ -32,12 +32,15 @@
                   <li> <a href="Admin_Vertic.aspx">Vertic</a><br /></li>
                
            </ul>
-        </div>
+    </div>
         
         <div class="col-lg-9">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
         </asp:ContentPlaceHolder>
          </div>
-   
+
+             <br /> <%--Ne pas toucher, c'est un fixe.--%>
+       </div>
+
 </asp:Content>
