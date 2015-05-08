@@ -13,10 +13,6 @@
                 </h1>
             </div>
         </div>
-        <ol class="breadcrumb">
-            <li><a href="EnteteForum.aspx">Retour aux entêtes</a>
-            </li>
-        </ol>
         <div class="row">
             <div class="row row-centered">
                 <asp:MultiView ID="mvAjoutDiscussion" runat="server" ActiveViewIndex="0">
