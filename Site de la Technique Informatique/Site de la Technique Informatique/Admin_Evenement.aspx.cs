@@ -11,11 +11,18 @@ using System.Globalization;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_Evenement : System.Web.UI.Page
+    public partial class Admin_Evenement : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
+
             lblErreur.Text = "";
+            ddlAnneeEventAjouter.DataBind();
+            ddlHeuresAjouter.DataBind();
+            ddlMinutesAjouter.DataBind();
+            ddlMoisEventAjouter.DataBind();
+            ddlMoisEventAjouter.SelectedIndex = 1;
         }
 
         #region GETDATA DES ÉVÉNEMENTS
@@ -43,7 +50,6 @@ namespace Site_de_la_Technique_Informatique
                                                  where even.IDDateEvenementVerTIC == idEvent
                                                  select even).FirstOrDefault();
 
-                //TextBox lblMinuteActivite = (e.Item.FindControl("txtDescEvent") as TextBox);
                 TextBox txtEvent = (lviewEcheancier.Items[0].FindControl("txtDescEvent") as TextBox);
                 TextBox txtJourEvent = (lviewEcheancier.Items[0].FindControl("txtJourEvent") as TextBox);
 

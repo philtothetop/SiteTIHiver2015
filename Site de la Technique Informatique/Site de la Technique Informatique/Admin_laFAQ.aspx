@@ -1,4 +1,7 @@
-﻿<%-- Marie-Philippe Gill --%>
+﻿<%--Cette classe permet aux administrateurs d'ajouter, supprimer ou modifier des questions de la FAQ  
+Écrit par Marie-Philippe Gill, Avril 2015
+Intrants: MasterPage
+Extrants: --%>
 
 <%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_laFAQ.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_laFAQ" %>
 

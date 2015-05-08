@@ -1,4 +1,8 @@
-﻿using Site_de_la_Technique_Informatique.Model;
+﻿// Cette classe permet aux administrateurs d'ajouter, supprimer ou modifier des questions de la FAQ  
+// Écrit par Marie-Philippe Gill, Avril 2015
+// Intrants: MasterPage
+
+using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,6 +17,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
             lblMessage.Text = "";
             lblMessage.Attributes["style"] = "";
         }

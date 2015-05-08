@@ -26,7 +26,7 @@ Extrants: --%>
                 <p><i class="fa fa-phone"></i> 
                     <abbr title="TÃ©lÃ©phone">P</abbr>: (450) 372-6614</p>
                 <p><i class="fa fa-envelope-o"></i> 
-                    <abbr title="Email">E</abbr>: <a href="denis@dupaul.ca">denis@dupaul.ca</a>
+                    <abbr title="Email">E</abbr>: <a href="mailto:denis@dupaul.ca">denis@dupaul.ca</a>
                 </p>
                 <p><i class="fa fa-clock-o"></i> 
                     <abbr title="Horaire">H</abbr>: Lundi - Vendredi: 9:00 à  17:00</p>
@@ -35,10 +35,10 @@ Extrants: --%>
                         <a href="https://www.facebook.com/CegepGranby"><i class="fa fa-facebook-square fa-2x"></i></a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/CegepGranby"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                        <a href="https://www.linkedin.com/company/c-gep-granby-haute-yamaska"><i class="fa fa-linkedin-square fa-2x"></i></a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/company/c-gep-granby-haute-yamaska"><i class="fa fa-twitter-square fa-2x"></i></a>
+                        <a href="https://twitter.com/CegepGranby"><i class="fa fa-twitter-square fa-2x"></i></a>
                     </li>
                     <li>
                         <a href="https://www.youtube.com/user/CegepdeGranby"><i class="fa fa-youtube-square fa-2x"></i></a>
