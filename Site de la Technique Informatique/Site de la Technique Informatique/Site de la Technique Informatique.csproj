@@ -113,7 +113,7 @@
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
-    <Content Include="AjoutProfesseur.aspx" />
+    <Content Include="Admin_InscriptionProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\AdministrateurLesOffresEmploi.css" />
@@ -437,12 +437,12 @@
     <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AjoutProfesseur.aspx.cs">
-      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+    <Compile Include="Admin_InscriptionProfesseur.aspx.cs">
+      <DependentUpon>Admin_InscriptionProfesseur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AjoutProfesseur.aspx.designer.cs">
-      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+    <Compile Include="Admin_InscriptionProfesseur.aspx.designer.cs">
+      <DependentUpon>Admin_InscriptionProfesseur.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\courrielAutomatiser.cs" />
     <Compile Include="Classes\FormaterChaine.cs" />
