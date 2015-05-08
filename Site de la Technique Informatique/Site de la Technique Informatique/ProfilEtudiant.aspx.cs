@@ -32,6 +32,7 @@ namespace Site_de_la_Technique_Informatique
                 try
                 {
                     String strIDUtilisateur = "";
+      
                     dvModifier.Visible = true;//Afficher le div contenant le bouton modifier.
                     if (Request.QueryString["id"] == null)//Vérifier si un queryString EtudiantId est null.
                     {
@@ -58,6 +59,11 @@ namespace Site_de_la_Technique_Informatique
                     if (int.TryParse(strIDUtilisateur, out IDUtilisateur))
                     {
                         etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDUtilisateur == IDUtilisateur && etu.compteActif==1 select etu).FirstOrDefault();
+
+                        if(etudiantCo==null)
+                        {
+                            Response.Redirect("404.aspx",false);
+                        }
                      
                     }
                     else
@@ -82,13 +88,14 @@ namespace Site_de_la_Technique_Informatique
         {
             try
             {
-                if(Request.QueryString["id"]==null)
+                if (Request.QueryString["id"] == null && Request.Cookies["TIUtilisateur"].Value.Equals("Etudiant"))
                 {
                     Response.Redirect("modifProfilEtudiant.aspx",false);
                 }
                 else
                 {
-                    Response.Redirect("modifProfilEtudiant.aspx?id=" + Request.QueryString["id"]);
+                    String id = Request.QueryString["id"];
+                    Response.Redirect("modifProfilEtudiant.aspx?id=" + id,false);
                 }
                 
             }catch(Exception ex)

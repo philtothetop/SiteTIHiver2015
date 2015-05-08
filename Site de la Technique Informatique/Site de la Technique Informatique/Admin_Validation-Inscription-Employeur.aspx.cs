@@ -60,7 +60,7 @@ namespace Site_de_la_Technique_Informatique
                     List<Employeur> employeurList = (from cl in leContext.UtilisateurSet.OfType<Employeur>() where cl.valideCourriel == true && cl.compteActif == false orderby cl.IDEmployeur descending select cl).ToList();
 
 
-                    if (employeurList.Count == 0)
+                    if (employeurList.Count == 0)//Si la liste est vide, cacher le la liste
                     {
 
                         divAucunNouvelleInscription.Visible = true;
@@ -81,7 +81,7 @@ namespace Site_de_la_Technique_Informatique
             }
             
         }
-        //Cette class Efface tous les comptes étudiants sélectionner
+        //Cette class Efface tous les comptes employeur sélectionner
         //Écrit par Cédric Archambault 27 février 2015
         //Intrants:Vide
         //Extrants:Vide
@@ -92,17 +92,17 @@ namespace Site_de_la_Technique_Informatique
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
                     ListView listv = lviewValidationInscription;
-                    foreach (ListViewDataItem item in listv.Items)
+                    foreach (ListViewDataItem item in listv.Items)// Vérifie tous les items de la liste
                     {
                         CheckBox chSelectionner = (CheckBox)item.FindControl("chSelectionner");
                         Label lblId = (Label)item.FindControl("lblId");
-                        if (chSelectionner != null && lblId != null && chSelectionner.Checked)
+                        if (chSelectionner != null && lblId != null && chSelectionner.Checked)//Si le checlbox est coché.
                         {
                             int id = int.Parse(lblId.Text);
                             Employeur employeur = (from cl in leContext.UtilisateurSet.OfType<Employeur>() where cl.IDEmployeur == id select cl).FirstOrDefault();
                             
                             leContext.UtilisateurSet.Remove(employeur);
-                            if (envoie_courriel_confirmationRefuser(employeur) == false)
+                            if (envoie_courriel_confirmationRefuser(employeur) == false)//Si il est impossible d'envoyer le un courriel.
                             {
                                 lblMessage.Text = "Il est impossible d'envoyer les courriels de confirmation du refus, mais les inscription ont été refusé.";
                                 lblMessage.Visible = true;
@@ -172,16 +172,16 @@ namespace Site_de_la_Technique_Informatique
                 {
 
                     ListView listv = lviewValidationInscription;
-                    foreach (ListViewDataItem item in listv.Items)
+                    foreach (ListViewDataItem item in listv.Items)// Vérifie tous les items de la liste
                     {
                         CheckBox chSelectionner = (CheckBox)item.FindControl("chSelectionner");
                         Label lblId = (Label)item.FindControl("lblId");
-                        if (chSelectionner != null && lblId != null && chSelectionner.Checked)
+                        if (chSelectionner != null && lblId != null && chSelectionner.Checked)//Si le checlbox est coché.
                         {
                             int id = int.Parse(lblId.Text);
                             Employeur employeur = (from cl in leContext.UtilisateurSet.OfType<Employeur>() where cl.IDEmployeur == id select cl).FirstOrDefault();
 
-                            if (envoie_courriel_confirmation(employeur) == false)
+                            if (envoie_courriel_confirmation(employeur) == false)//Si il est impossible d'envoyer le un courriel.
                             {
                                 lblMessage.Text = "Impossible de Accepter tous les inscriptions, car il est impossible d'envoyer les courriels de validation.";
                                 lblMessage.Visible = true;
@@ -220,14 +220,14 @@ namespace Site_de_la_Technique_Informatique
                     int iDEmployeur = int.Parse(lnkAccepter.CommandArgument);
                     Employeur employeur = (from cl in leContext.UtilisateurSet.OfType<Employeur>() where cl.IDEmployeur == iDEmployeur select cl).FirstOrDefault();
 
-                    if(envoie_courriel_confirmation(employeur)==false)
+                    if (envoie_courriel_confirmation(employeur) == false)//Si il est impossible d'envoyer le un courriel.
                     {
                         lblMessage.Text = "Impossible de Accepter l'inscription, car il est impossible d'envoyer un courriel de validation.";
                         lblMessage.Visible = true;
                     }else
                     {
                         lblMessage.Visible = false;
-                        employeur.compteActif = false;//Ative le compte.
+                        employeur.compteActif = false;//Active le compte.
                         leContext.SaveChanges();
                         Response.Redirect(Request.RawUrl);
                     }
@@ -283,19 +283,22 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lnkRefuserTousHaut_Click(object sender, EventArgs e)
         {
-            lnkSupprimerTous();
+            lnkSupprimerTous();//Appelle supprimertous
         }
 
         protected void lnkAccepterTousHaut_Click(object sender, EventArgs e)
         {
-            lnkAccepterTous();
+            lnkAccepterTous();//Appelle accepter tous
         }
 
         protected void chSelectionnerTous_CheckedChanged(object sender, EventArgs e)
         {
-            checkTous();
+            checkTous();//Appelle selectionner tous
         }
-
+        //Cette class efface tous les isncription non valider par l'employeur dépensant les dernier 24 heures.
+        //Écrit par Cédric Archambault avril 2015
+        //Intrants:objet et eventargs
+        //Extrants:Aucun
         protected void lnkEffacerInscriptionCourrielNonValider_Click(object sender, EventArgs e)
         {
             try
@@ -354,12 +357,6 @@ namespace Site_de_la_Technique_Informatique
             courrielAutomatiser courriel = new courrielAutomatiser();
 
             return courriel.envoie(employeur.courriel, titre, message);
-             
-
-
-
-      
-
 
         }
 
