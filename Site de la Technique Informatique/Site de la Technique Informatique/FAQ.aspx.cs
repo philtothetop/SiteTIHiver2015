@@ -14,7 +14,7 @@ using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class FAQ : System.Web.UI.Page
+    public partial class FAQ : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,35 +32,11 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    //lblMessage.Text += "ERREUR AVEC LE MEMBRE, " + ex.ToString();
+                    LogErreur("FAQ-SelectFAQ", ex);
                 }
             }
             return listeDesQuestions.AsQueryable();
         }
-
-        //protected void lnkQuestion_Command(object sender, CommandEventArgs e)
-        //{
-
-        //    LinkButton lnkQuestion = ((LinkButton)sender);
-        //    int no = lviewFAQ.SelectedIndex;
-        //}
-
-        //protected void lviewFAQ_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //    string no = lviewFAQ.SelectedIndex.ToString(); ;
-        //    HtmlControl lnkQuestion = (HtmlControl) lviewFAQ.FindControl("lnkQuestion");
-        //    string collapseNo = "collapse" + no;
-        //    lnkQuestion.Attributes.Add("href", no);
-
-        //    HtmlControl divCollapse = (HtmlControl)lviewFAQ.FindControl("collapseOne");
-        //    divCollapse.Attributes.Add("id", no);
-        //}
-
-        //protected void lnkQuestion_ServerClick(object sender, EventArgs e)
-        //{
-            
-        //}
 
     }
 }

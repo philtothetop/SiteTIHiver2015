@@ -55,7 +55,7 @@ namespace Site_de_la_Technique_Informatique
             mail.IsBodyHtml = true;
             mail.Priority = System.Net.Mail.MailPriority.High;
             System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("mariephilippe.gill@gmail.com", "(pap!er)");
+            client.Credentials = new System.Net.NetworkCredential("mariephilippe.gill@gmail.com", "Sarah211");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;

@@ -35,10 +35,10 @@ Extrants: --%>
                         <a href="https://www.facebook.com/CegepGranby"><i class="fa fa-facebook-square fa-2x"></i></a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/CegepGranby"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                        <a href="https://www.linkedin.com/company/c-gep-granby-haute-yamaska"><i class="fa fa-linkedin-square fa-2x"></i></a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/company/c-gep-granby-haute-yamaska"><i class="fa fa-twitter-square fa-2x"></i></a>
+                        <a href="https://twitter.com/CegepGranby"><i class="fa fa-twitter-square fa-2x"></i></a>
                     </li>
                     <li>
                         <a href="https://www.youtube.com/user/CegepdeGranby"><i class="fa fa-youtube-square fa-2x"></i></a>
