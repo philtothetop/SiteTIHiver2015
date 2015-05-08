@@ -114,8 +114,11 @@
                             <a href="recherche.aspx">Recherche</a>
                         </li>
 
-                        <li runat="server" id="lblInscription">
-                            <a href="Inscription-Etudiant.aspx">Inscription</a>
+                        <li runat="server" id="lblInscription" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
+                             <ul class="dropdown-menu">
+                                <li><a href="Inscription-Etudiant.aspx">Étudiants</a> </li>
+                                <li><a href="Inscription-Employeur.aspx">Employeurs</a> </li>                             
+                            </ul>
                         </li>
 
                         <li runat="server" id="lblForum">
@@ -128,7 +131,7 @@
 
 
                         <li runat="server" id="lblAjouterProfesseur">
-                            <a href="AjoutProfesseur.aspx">Ajouter un professeur</a>
+                            <a href="Admin_InscriptionProfesseur.aspx">Inscrire un professeur</a>
                         </li>
 
 
@@ -263,8 +266,8 @@
                         <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                             <h3>Liens rapides </h3>
                             <ul>
-                                <li><a href="InformationsStage.aspx">Stages </a></li>
                                 <li><a href="vertic.aspx">Vertic </a></li>
+                                <li><a href="InformationsStage.aspx">Stages </a></li>                          
                                 <li><a href="Temoignages.aspx">Témoignages </a></li>
 
                             </ul>

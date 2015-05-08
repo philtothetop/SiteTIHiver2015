@@ -3,7 +3,7 @@
 Intrants: MasterPage
 Extrants: --%>
 
-<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="Admin_InscriptionProfesseur.aspx.cs" MasterPageFile="~/Admin.master" Inherits="Site_de_la_Technique_Informatique.AjoutProfesseur" %>
+<%@ Page Title="" Language="C#"  AutoEventWireup="true" CodeBehind="Admin_InscriptionProfesseur.aspx.cs" MasterPageFile="~/Site.Master" Inherits="Site_de_la_Technique_Informatique.AjoutProfesseur" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
