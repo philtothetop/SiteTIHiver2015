@@ -2,7 +2,6 @@
 // Écrit par Philippe Baron, Février 2015
 // Modifier pour pourvoir supprimer un professeur le 5 mai 2015 par Raphael Brouard
 
-
 using Site_de_la_Technique_Informatique.Classes;
 using Site_de_la_Technique_Informatique.Model;
 using System;
@@ -19,8 +18,10 @@ namespace Site_de_la_Technique_Informatique
         #region Page_Events
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, false, false, false, false);
         }
+
+        #endregion
 
         //Envoie le mot de passe
         protected void lnkEnvoyer_Click(object sender, EventArgs e)
@@ -28,52 +29,12 @@ namespace Site_de_la_Technique_Informatique
             try
             {
                 creerProfesseur();
-
-                if (string.IsNullOrEmpty(lblMessages.Text))
-                {
-
-                    divAjoutProf.Visible = false;
-                    divComplete.Visible = true;
-                }
             }
             catch (Exception)
             {
                 throw;
             }
         }
-
-
-        //Retour à l'Accueil
-        protected void lnkRetourAccueil_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Default.aspx");
-        }
-
-        #endregion
-        /*
-         * N'est pas utilisé?
-         * 
-        //Va checher le professeur 
-        public Professeur getProfesseur()
-        {
-            try
-            {
-                using (LeModelTIContainer lecontexte = new LeModelTIContainer())
-                {
-                    List<Professeur> lesProfs = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>() select cl).ToList();
-
-                    Professeur newProf = new Professeur();
-
-                    lesProfs.Add(newProf);
-                    return lesProfs.Last();
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        */
 
         //Créée le professeur selon les informations reçues 
         public void creerProfesseur()
@@ -97,6 +58,9 @@ namespace Site_de_la_Technique_Informatique
                     nouveauProf.nom = txtNom.Text.Trim();
                     nouveauProf.courriel = txtCourriel.Text.Trim();
                     nouveauProf.pathPhotoProfil = "photobase.bmp";
+                    nouveauProf.photoDescription = "";
+                    nouveauProf.temoignage = "";
+                    nouveauProf.dateTemoignage = DateTime.Now;
 
                     lecontexte.UtilisateurSet.Add(nouveauProf);
 
@@ -118,9 +82,13 @@ namespace Site_de_la_Technique_Informatique
                             };
 
                             lecontexte.LogSet.Add(logEntry);
-                            sendPassword(tempPassword, nouveauProf);
                             lecontexte.SaveChanges();
 
+                            divAjoutProf.Visible = false;
+                            divComplete.Visible = true;
+
+                            //Envoyer le mail
+                            sendPassword(tempPassword, nouveauProf);
                         }
                         else
                         {
@@ -150,8 +118,16 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-
+                LogErreur("Dans Admin_AjouterSupprimerProf dans la méthode creerProfesseur", ex);
             }
+        }
+
+
+        private void ResetLesChamps()
+        {
+            txtPrenom.Text = "";
+            txtNom.Text = "";
+            txtCourriel.Text = "";
         }
 
 
@@ -210,6 +186,7 @@ namespace Site_de_la_Technique_Informatique
                 using (LeModelTIContainer modelTI = new LeModelTIContainer())
                 {
                     listProfs = (from cl in modelTI.UtilisateurSet.OfType<Professeur>()
+                                 where cl.compteActif == 1
                                  select cl).ToList();
                 }
             }
@@ -231,14 +208,6 @@ namespace Site_de_la_Technique_Informatique
             return listProfs.AsQueryable();
         }
 
-        /*
-         * 
-         * A VÉRIFIER SI DELETE MARCHE
-         * RENDU ICI CICICICICICIC
-         * 
-         * 
-         * 
-         * */
         protected void btnSupprimerProf_Click(object sender, EventArgs e)
         {
             try
@@ -248,17 +217,19 @@ namespace Site_de_la_Technique_Informatique
                 using (LeModelTIContainer modelTI = new LeModelTIContainer())
                 {
                     //Trouver le prof dans la bd
-                    Utilisateur leProfADelete = new Utilisateur();
+                    Professeur leProfADelete = new Professeur();
                     leProfADelete = null;
-                    leProfADelete = (from cl in modelTI.UtilisateurSet
+                    leProfADelete = (from cl in modelTI.UtilisateurSet.OfType<Professeur>()
                                      where cl.IDUtilisateur == leProfIDUtilisateur
                                      select cl).FirstOrDefault();
 
                     //Si le prof est trouvé
                     if (leProfADelete != null)
                     {
-                        modelTI.UtilisateurSet.Remove(leProfADelete);
+                        //Mettre le prof a non valide (valeur 2 a compte actif)
+                        leProfADelete.compteActif = 2;
                         modelTI.SaveChanges();
+                        lviewLesProfs.DataBind();
                     }
                 }
             }
@@ -273,6 +244,13 @@ namespace Site_de_la_Technique_Informatique
         {
             string leProfIDUtilisateur = ((ImageButton)sender).CommandArgument;
             Response.Redirect("ProfilProfesseur.aspx?id=" + leProfIDUtilisateur);
+        }
+
+        protected void lnkAjouterUnAutreProf_Click(object sender, EventArgs e)
+        {
+            ResetLesChamps();
+            divAjoutProf.Visible = true;
+            divComplete.Visible = false;
         }
     }
 }

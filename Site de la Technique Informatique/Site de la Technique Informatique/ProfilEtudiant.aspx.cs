@@ -16,8 +16,9 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, true, true,false);
+            SavoirSiPossedeAutorizationPourLaPage(false, true, true, true,false);
         }
+
         //Cette classe va chercher l'étudiant
         //Écrit par Cédric Archambault 18 février 2015
         //Intrants: aucun
@@ -25,8 +26,6 @@ namespace Site_de_la_Technique_Informatique
         public Etudiant SelectEtudiant()
         {
             Etudiant etudiantCo = null;
-
-
 
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 try

@@ -20,8 +20,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
-    <script src="/ProjetDeux_2015_2/Js/jquery.easing.min.js"></script>
-    <script src="/ProjetDeux_2015_2/Js/scrolling-nav.js"></script>
+    <script src="/~/Js/jquery.easing.min.js"></script>
+    <script src="/~/Js/scrolling-nav.js"></script>
     <script src="Js/jquery.js"></script>
     <script type="text/javascript"></script>
     <script src="Js/bootstrap.js"></script>
@@ -78,7 +78,7 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="default.aspx">Techniques de l'informatique</a>
+                    <a class="navbar-brand" href="default.aspx" style="font-size:0.9em;">Techniques de l'informatique</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">
@@ -111,7 +111,7 @@
 
 
                         <li runat="server" id="lblRecherche">
-                            <a href="recherche.aspx">Recherche</a>
+                            <a href="recherche.aspx">Membres</a>
                         </li>
 
                         <li runat="server" id="lblInscription" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
@@ -133,6 +133,11 @@
                         <li runat="server" id="lblAjouterProfesseur">
                             <a href="Admin_InscriptionProfesseur.aspx">Inscrire un professeur</a>
                         </li>
+
+                        <li runat="server" id="lblProfilAdmin">
+                            <a href="Admin_InscriptionProfesseur.aspx">Profil administration</a>
+                        </li>
+
 
 
                         <li>
@@ -166,7 +171,7 @@
 
         <!--Fil d'Arianne-->
 
-        <div style="float: left; width: 50%; margin-top: 75px; margin-left:25%" runat="server" id="divSiteMap">
+        <div style="width: 50%; margin-top: 75px; margin-left:25%" runat="server" id="divSiteMap">
             <ol class="breadcrumb">
                 <asp:SiteMapPath ID="siteMapPath" runat="server" PathDirection="RootToCurrent"
                     RenderCurrentNodeAsLink="false" ShowToolTips="true" Style="width: 100%; display: inline-block" Font-Bold="true" Font-Size="14px">

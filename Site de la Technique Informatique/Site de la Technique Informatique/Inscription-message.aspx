@@ -15,6 +15,7 @@
                     <asp:Label ID="lblMessage" runat="server" Text="Un courriel vous sera envoyé contenant un lien pour valider votre courriel." />
                     
                 </p>
+                <a href='<%=Request.ApplicationPath%>' class="btn btn-primary">Retour à l'accueil</a>
             </div>
             <div class="col-lg-3 col-centered"></div>
         </div>

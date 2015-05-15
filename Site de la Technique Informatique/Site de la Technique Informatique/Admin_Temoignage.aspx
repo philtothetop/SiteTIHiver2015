@@ -7,12 +7,6 @@
 
     <h1>Administrateur : Les Témoignages</h1>
 
-    <ol class="breadcrumb">
-                    <li>
-                        <a href="nullFORnow.aspx">Retour au panneau d'administration</a>
-                    </li>
-                </ol>
-
         <asp:Button ID="btnVoirTemoignageNonValide" runat="server" Text="Témoignages non-validés" CssClass="btn btnTemoignageSelectionne" OnClick="VoirTemoignageNonValide_Click" />
         <asp:Button ID="btnVoirTemoignageValide" runat="server" Text="Témoignages validés" CssClass="btn btn-default" OnClick="VoirTemoignageValide_Click" />
         

@@ -48,31 +48,7 @@ namespace Site_de_la_Technique_Informatique
 
         #endregion
 
-        #region Remplissage du ListView lvÉtudiants
-
-        public IQueryable<Etudiant> lviewEtudiants_GetData()
-        {
-            List<Etudiant> listeEtudiants = new List<Etudiant>();
-            try
-            {
-                using (LeModelTIContainer lecontexte = new LeModelTIContainer())
-                {
-                    string PhotoParDefaut = "photobase.bmp";
-                    listeEtudiants = (from etudiants in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Etudiant>() where (etudiants.pathPhotoProfil != PhotoParDefaut) select etudiants).ToList();
-                    if (listeEtudiants != null)
-                    {
-                        Randomize(listeEtudiants);
-                    }
-                }
-            }
-                catch (Exception ex)
-            {
-                LogErreur("QuiSommesNous-lvProfesseurs_GetData", ex);
-            }
-            return listeEtudiants.AsQueryable();
-        }
-
-        #endregion
+       
 
     }
 }
