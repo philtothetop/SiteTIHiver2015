@@ -25,7 +25,9 @@
     <script src="Js/jquery.js"></script>
     <script type="text/javascript"></script>
     <script src="Js/bootstrap.js"></script>
-
+    <link href="­~/../Jquery/Cropper/css/cropper.css" rel="stylesheet" />
+    <link href="­~/../Jquery/Cropper/css/docs.css" rel="stylesheet" />
+    <link href="­~/../Css/Inscription.css" rel="stylesheet" />
 
     <script type="text/javascript">
         function openModal() {
@@ -49,8 +51,6 @@
     <!-- Bootstrap Core JavaScript -->
     <!--   <script src="Js/bootstrap.min.js"></script> -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="../Js/jquery.easing.min.js"></script>
-    <script src="../Js/scrolling-nav.js"></script>
 
 
     <!-- Script to Activate the Carousel -->

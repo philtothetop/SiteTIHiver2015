@@ -23,10 +23,12 @@
     </script>
     <script type="text/javascript">
         function copieImgData() {
+            debugger;
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lvProfesseur_showDataURL_0.src;
         }
     </script>
     <script type="text/javascript">
+        debugger;
         window.transfertDataImg = function (dataURL) {
             $("#ContentPlaceHolder1_lvProfesseur_showDataURL_0").attr("src", dataURL);
         };

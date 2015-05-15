@@ -67,7 +67,7 @@
                    
                </div>
 
-        
+
 
         <asp:ListView ID="lviewEditNews" runat="server" Visible="false"
             ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
@@ -102,7 +102,7 @@
         </asp:ListView>
 
 
-        <asp:Panel class="panel panel-default" runat="server" id="panelAjoutNews" Visible="false">
+    <asp:Panel class="panel panel-default" runat="server" ID="panelAjoutNews" Visible="false">
             <div class="panel-body">
                 <asp:Label runat="server" Text="Titre:"></asp:Label>
                 <asp:TextBox runat="server" ID="txtTitreAjout" Width="350px"></asp:TextBox>

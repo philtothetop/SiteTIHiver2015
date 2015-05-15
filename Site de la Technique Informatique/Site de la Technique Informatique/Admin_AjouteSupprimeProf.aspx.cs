@@ -18,7 +18,7 @@ namespace Site_de_la_Technique_Informatique
         #region Page_Events
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, false, false, false, false);
+            //SavoirSiPossedeAutorizationPourLaPage(true, false, false, false, false);
         }
 
         #endregion

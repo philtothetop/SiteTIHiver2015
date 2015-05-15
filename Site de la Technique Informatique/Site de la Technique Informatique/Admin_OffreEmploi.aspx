@@ -5,7 +5,7 @@
 
 <link href="Css/AdministrateurLesOffresEmploi.css" rel="stylesheet" />
 
-        <h1>Administrateur : Les offres d'emploi</h1>
+        <h1 class="page-header">Offres d'emploi</h1>
 
   
 
