@@ -217,12 +217,26 @@ namespace Site_de_la_Technique_Informatique
                             //Si est un prof
                             if (trouverUtilisateur is Professeur)
                             {
-                                Response.Redirect("ProfilProfesseur.aspx?id=" + trouverUtilisateur.IDUtilisateur);
+                                if (isLocal())
+                                {
+                                    Response.Redirect("~/ProfilProfesseur.aspx?id=" + trouverUtilisateur.IDUtilisateur);
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/../ProfilProfesseur.aspx?id=" + trouverUtilisateur.IDUtilisateur);
+                                }
                             }
                             //Si étudian
                             else if (trouverUtilisateur is Etudiant)
                             {
-                                Response.Redirect("ProfilEtudiant.aspx?id=" + trouverUtilisateur.IDUtilisateur);
+                                if (isLocal())
+                                {
+                                    Response.Redirect("~/ProfilEtudiant.aspx?id=" + trouverUtilisateur.IDUtilisateur);
+                                }
+                                else
+                                {
+                                    Response.Redirect("~/../ProfilEtudiant.aspx?id=" + trouverUtilisateur.IDUtilisateur);
+                                }
                             }
                         }
                     }

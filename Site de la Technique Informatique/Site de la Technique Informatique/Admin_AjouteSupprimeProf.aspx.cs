@@ -243,7 +243,15 @@ namespace Site_de_la_Technique_Informatique
         protected void photoProfil_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         {
             string leProfIDUtilisateur = ((ImageButton)sender).CommandArgument;
-            Response.Redirect("ProfilProfesseur.aspx?id=" + leProfIDUtilisateur);
+            
+            if (isLocal())
+            {
+                Response.Redirect("~/Response.Redirect(ProfilProfesseur.aspx?id=" + leProfIDUtilisateur);
+            }
+            else
+            {
+                Response.Redirect("~/../Response.Redirect(ProfilProfesseur.aspx?id=" + leProfIDUtilisateur);
+            }
         }
 
         protected void lnkAjouterUnAutreProf_Click(object sender, EventArgs e)
