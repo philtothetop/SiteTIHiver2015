@@ -4,7 +4,7 @@
     <script src="js/jquery.js"></script>
     <link rel="stylesheet" href="../Css/Validation-Inscription.css" />
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+  
 
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
