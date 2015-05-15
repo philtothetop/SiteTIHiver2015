@@ -30,9 +30,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField runat="server" ID="ImgExSrc" />
-    <div class="container">
 
         <asp:ScriptManagerProxy ID="smProxy" runat="server" />
+
+    <div class="container">
         <div class="col-lg-3"></div>
         <div class="row row-centered">
             <div class="col-lg-5 col-centered">
