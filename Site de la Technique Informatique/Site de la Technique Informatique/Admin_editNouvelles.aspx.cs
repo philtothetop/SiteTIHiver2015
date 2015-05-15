@@ -17,7 +17,7 @@ namespace Site_de_la_Technique_Informatique
         public int id = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
         }
 
         public IQueryable<Nouvelle> getNouvelles()
