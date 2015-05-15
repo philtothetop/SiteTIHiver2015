@@ -171,6 +171,7 @@
     <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
     <Content Include="Photos\Autres\Accueil.JPG" />
+    <Content Include="Photos\Autres\QuiSommesNous.jpg" />
     <Content Include="Photos\Concepteurs\Cedric.JPG" />
     <Content Include="Photos\Concepteurs\Yannick.JPG" />
     <Content Include="Photos\entete.jpg" />
@@ -195,7 +196,6 @@
     <Content Include="Photos\Profils\photobase.bmp" />
     <Content Include="Photos\Concepteurs\Raphael.JPG" />
     <Content Include="Photos\Concepteurs\Xavier.JPG" />
-    <Content Include="Photos\Autres\quiSommesNous.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
     <Content Include="QuiSommesNous.aspx" />
