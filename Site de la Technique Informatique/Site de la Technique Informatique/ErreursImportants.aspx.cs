@@ -23,6 +23,7 @@ namespace Site_de_la_Technique_Informatique
             if (ex != null)
             {
                 lblErreurs.Text = ex.Message;
+                lblInnerTrace.Text = ex.InnerException.Message;
                 error.Visible = true;
             }
 
