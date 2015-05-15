@@ -26,20 +26,12 @@ namespace Site_de_la_Technique_Informatique
                 lblInnerTrace.Text = ex.InnerException.Message;
                 error.Visible = true;
             }
-
             Server.ClearError();
         }
 
         protected void Redirect_Click(object sender, EventArgs e)
         {
-            //if (isLocal())
-            //{
-                Response.Redirect("~/Default.aspx");
-            //}
-            //else
-            //{
-            //    Response.Redirect("~/../Default.aspx");
-            //}
+           Response.Redirect("~/Default.aspx");
         }
 
     }

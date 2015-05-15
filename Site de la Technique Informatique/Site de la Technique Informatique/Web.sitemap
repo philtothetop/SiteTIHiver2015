@@ -20,13 +20,13 @@
     <siteMapNode title="Offres d'emploi" url="~/listeOffresEmploi.aspx">
       <siteMapNode title="Ajouter une offre" url="~/AjoutOffreEmploi.aspx"/>
       <siteMapNode title="Offre d'emploi" url="~/OffreEmploi.aspx"/>
-   </siteMapNode>
+    </siteMapNode>
     <siteMapNode title="Sections forum" url="~/SectionForum.aspx">
       <siteMapNode title="Mes discussions" url="~/MesDiscussionsForum.aspx"/>
       <siteMapNode title="Entêtes forum" url="~/EnteteForum.aspx">
         <siteMapNode title="Nouvelle discussion" url="~/AjoutDiscussion.aspx"/>
         <siteMapNode title="Discussion" url="~/DiscussionForum.aspx"/>
-     </siteMapNode>
+      </siteMapNode>
     </siteMapNode>
     <siteMapNode title="Accueil administration" url="~/Admin_Default.aspx">
       <siteMapNode title="Photos" url="~/Admin_LesPhotos.aspx">
@@ -42,10 +42,13 @@
       <siteMapNode title="Inscriptions étudiants" url="~/Admin_Validation-Inscription-Etudiant.aspx"/>
       <siteMapNode title="Vertic" url="~/Admin_Vertic.aspx"/>
     </siteMapNode>
-    <siteMapNode title="Modifier mon profil" url="~/ModifierProfesseur.aspx"/>
-    <siteMapNode title="Modifier mon profil" url="~/ProfilEtudiant.aspx"/>
+    <siteMapNode title="Mon profil" url="~/ModifierProfesseur.aspx"/>
+    <siteMapNode title="Mon profil" url="~/ProfilEtudiant.aspx">
+      <siteMapNode title="Modifier mon profil" url="~/modifProfilEtudiant.aspx"/>
+    </siteMapNode>
     <siteMapNode title="Ajout professeur" url="~/AjoutProfesseur.aspx"/>
     <siteMapNode title="Professeurs" url="~/Admin_AjouteSupprimeProf.aspx"/>
     <siteMapNode title="Modifier profil" url="~/Admin_Profil.aspx"/>
+    <siteMapNode title="Écrire un témoignage" url="~/FaireTemoignage.aspx"/>
   </siteMapNode>
 </siteMap>
