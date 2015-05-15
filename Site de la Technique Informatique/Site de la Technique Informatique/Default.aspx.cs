@@ -77,8 +77,6 @@ namespace Site_de_la_Technique_Informatique
                 try
                 {
 
-                    //string yolo = "gerg";
-                    //int moma = Convert.ToInt32(yolo);
 
                     using (LeModelTIContainer leContext = new LeModelTIContainer())
                     {

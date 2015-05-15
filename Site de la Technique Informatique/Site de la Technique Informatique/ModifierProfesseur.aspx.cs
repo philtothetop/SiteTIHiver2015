@@ -155,7 +155,7 @@ namespace Site_de_la_Technique_Informatique
                 string cropFileName = "";
                 string cropFilePath = "";
                 cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Profils/"), cropFileName);
+                cropFilePath = Path.Combine(Server.MapPath("~/../Upload/Photos/Profils/"), cropFileName);
             }
 
             return image;
