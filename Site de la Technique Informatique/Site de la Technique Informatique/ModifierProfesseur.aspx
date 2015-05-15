@@ -258,7 +258,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-centered">
+                                    <div class="col-md-4 col-centered">
                                         <div class="control-group form-group">
                                             <div class="controls">
                                                 <label>Cours</label>
@@ -290,7 +290,7 @@
                             OnItemDataBound="lvModifierCours_ItemDataBound">
 
                             <EmptyDataTemplate>
-                                <p>Vous n'avez aucun cours assignés!</p>
+                                <p>Vous n'avez pas de cours assigné</p>
                             </EmptyDataTemplate>
                             <LayoutTemplate>
                                 <div class="row">
