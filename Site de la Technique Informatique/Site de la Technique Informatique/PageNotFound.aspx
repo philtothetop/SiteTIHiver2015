@@ -17,7 +17,7 @@
             <asp:LinkButton runat="server" CssClass="btn btn-primary" Text="Accueil" OnClick="Redirect_Click" />
             <br />
             <br />
-            <a href="../Default.aspx">
+            <a onclick="Redirect_Click">
                 <img src="Photos/image2.jpg" height="600" width="900" />
                 <br />
                 <br />

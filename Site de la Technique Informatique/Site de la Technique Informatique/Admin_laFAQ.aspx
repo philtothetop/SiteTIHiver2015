@@ -8,6 +8,7 @@ Extrants: --%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+  
 <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
     tinymce.init({
@@ -95,7 +96,6 @@ Extrants: --%>
         </div>
     </div>
 
-
-
+   
 
 </asp:Content>
