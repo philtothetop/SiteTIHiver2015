@@ -34,7 +34,7 @@
                 <EmptyDataTemplate>
                     <div style="text-align: center">
                         <asp:Label ID="lblPasDeMessage" runat="server">
-                         <h4 class="sous-titre">Il n'y a aucune section disponible pour l'instant</h4>
+                         <h4 class="sous-titre">Il n'y a aucune section de disponible pour l'instant</h4>
                         </asp:Label>
                     </div>
                 </EmptyDataTemplate>
