@@ -29,12 +29,6 @@ namespace Site_de_la_Technique_Informatique
             //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
         }
 
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            //Besoin de cela pour mettre le datapager visible ou non si plusieurs logs
-            dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
-        }
-
         //Méthode pour récupérer les logs de la BD
         public IQueryable<Model.Log> GetLesLogs()
         {
@@ -91,6 +85,16 @@ namespace Site_de_la_Technique_Informatique
                 listeDesLogs.Add(logErreur);
 
                 LogErreur("Log.aspx.cs dans la méthode GetLesLogs", ex);
+            }
+
+            //Mettre dataPager visible ou non si Plus que le minimum affiché
+            if (listeDesLogs.Count <= dataPagerDesLogs.PageSize)
+            {
+                dataPagerDesLogs.Visible = false;
+            }
+            else
+            {
+                dataPagerDesLogs.Visible = true;
             }
 
             return listeDesLogs.AsQueryable().SortBy("dateLog").Reverse();
@@ -185,6 +189,46 @@ namespace Site_de_la_Technique_Informatique
             {
                 return "ErreurTypeZero";
             }
+        }
+
+        protected void lnkNoCompte_Click(object sender, EventArgs e)
+        {
+            String argument = Convert.ToString(((LinkButton)sender).CommandArgument);
+
+            //Si id pas null
+            if (argument != null)
+            {
+                //Si id n'est pas administrateur
+                if (!argument.Equals("0"))
+                {
+                    using (LeModelTIContainer modelTI = new LeModelTIContainer())
+                    {
+                        int id = Convert.ToInt32(argument);
+
+                        Utilisateur trouverUtilisateur = new Utilisateur();
+                        trouverUtilisateur = null;
+                        trouverUtilisateur = (from cl in modelTI.UtilisateurSet
+                                              where cl.IDUtilisateur == id
+                                              select cl).FirstOrDefault();
+
+                        //Si utilisateur est trouvé
+                        if (trouverUtilisateur != null)
+                        { 
+                            //Si est un prof
+                            if (trouverUtilisateur is Professeur)
+                            {
+                                Response.Redirect("ProfilProfesseur.aspx?id=" + trouverUtilisateur.IDUtilisateur);
+                            }
+                            //Si étudian
+                            else if (trouverUtilisateur is Etudiant)
+                            {
+                                Response.Redirect("ProfilEtudiant.aspx?id=" + trouverUtilisateur.IDUtilisateur);
+                            }
+                        }
+                    }
+                }
+            }
+
         }
     }
 }

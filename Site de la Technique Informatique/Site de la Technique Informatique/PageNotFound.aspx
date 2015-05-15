@@ -18,7 +18,8 @@
             <img src="Photos/image2.jpg" height="600" width="900" />    
             <br /><br />
         </a>
-            <asp:Button runat="server" Text="Accueil" OnClick="Redirect_Click" />
+        
+        <asp:Button runat="server" Text="Accueil" OnClick="Redirect_Click" />
         
     </div>
     </form>

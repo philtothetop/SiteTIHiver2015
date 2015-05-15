@@ -12,7 +12,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(false, true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(false, true, true, false, false);
 
             txtMessage.Attributes.Add("maxlength", txtMessage.MaxLength.ToString());
 
@@ -26,7 +26,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     int idEnteteForum = Int32.Parse(Session["IDEnteteForum"].ToString());
                     int IDUtilisateur = Int32.Parse(Server.HtmlEncode(Request.Cookies["TIID"].Value));
-
+       
                     Model.Membre membre = (from membres in lecontexte.UtilisateurSet.OfType<Membre>()
                                            where membres.IDUtilisateur == IDUtilisateur
                                            select membres).FirstOrDefault();
@@ -36,17 +36,18 @@ namespace Site_de_la_Technique_Informatique
                                                                      consultations.IDMembre == membre.IDMembre
                                                                      select consultations).FirstOrDefault();
 
-                    if (consultationExistante == null)
-                    {
+                    
+
+                   
 
                         Model.EnteteForum enteteForum = (from entetesForum in lecontexte.EnteteForumSet
                                                          where entetesForum.IDEnteteForum == idEnteteForum
                                                          select entetesForum).FirstOrDefault();
 
-                        lblTitreDiscussion.Text = enteteForum.titreEnteteForum;
+                    if (consultationExistante == null)
+                    {
 
-                        Model.ConsultationForum consultation = new ConsultationForum();
-
+                        Model.ConsultationForum consultation = new ConsultationForum();                     
                         consultation.dateConsulte = DateTime.Now;
                         consultation.EnteteForum = enteteForum;
                         consultation.EnteteForumIDEnteteForum = enteteForum.IDEnteteForum;
@@ -62,6 +63,8 @@ namespace Site_de_la_Technique_Informatique
                         consultationExistante.dateConsulte = DateTime.Now;
                         lecontexte.SaveChanges();
                     }
+
+                    lblTitreDiscussion.Text = enteteForum.titreEnteteForum;
                 }
             }
         }
@@ -73,12 +76,30 @@ namespace Site_de_la_Technique_Informatique
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
 
+                int nbDiscussions;
+
+
+
                 int idEnteteForum = Int32.Parse(Session["IDEnteteForum"].ToString());
                 listeDiscussion = (from discussionsForum in lecontexte.MessageForumSet
                                    where discussionsForum.EnteteForumIDEnteteForum == idEnteteForum
                                    orderby discussionsForum.dateMessage ascending
                                    select discussionsForum).ToList();
+
+                nbDiscussions = listeDiscussion.Count();
+
+                if (nbDiscussions == 1)
+                {
+                    lblNbMessages.Text = nbDiscussions + " message";
+                }
+                else
+                {
+                    lblNbMessages.Text = nbDiscussions + " messages";
+                }
+
+               
             }
+         
             return listeDiscussion.AsQueryable();
         }
 

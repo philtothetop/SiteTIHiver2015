@@ -13,6 +13,24 @@ namespace Site_de_la_Technique_Informatique {
     public partial class Recherche {
         
         /// <summary>
+        /// Contrôle chkbEtudiant.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkbEtudiant;
+        
+        /// <summary>
+        /// Contrôle chkbProfesseur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkbProfesseur;
+        
+        /// <summary>
         /// Contrôle txtNomMembre.
         /// </summary>
         /// <remarks>
@@ -29,24 +47,6 @@ namespace Site_de_la_Technique_Informatique {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRecherche;
-        
-        /// <summary>
-        /// Contrôle rdbEtudiant.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbEtudiant;
-        
-        /// <summary>
-        /// Contrôle rdbProfesseur.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdbProfesseur;
         
         /// <summary>
         /// Contrôle panelResultats.
