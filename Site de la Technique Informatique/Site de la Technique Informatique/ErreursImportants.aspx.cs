@@ -20,11 +20,10 @@ namespace Site_de_la_Technique_Informatique
 
             Exception ex = Server.GetLastError();
 
-
-
-            if (isLocal())
+            if (ex != null)
             {
-
+                lblErreurs.Text = ex.Message;
+                error.Visible = true;
             }
 
             Server.ClearError();
