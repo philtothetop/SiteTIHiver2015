@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                <h1>Administrateur : Les offres d'emploi</h1>
+                <h1>Administrateur: Les offres d'emploi</h1>
             </div>
         </div>
 
@@ -62,15 +62,15 @@
             <br />
 
             <div runat="server" id="divDateExpiration" visible='<%# PasAfficherSiNull(Item,"dateExpiration") %>'>
-                <asp:Label ID="lblDateExpiration" runat="server" Font-Size="14" Text='<%# "Expiration offre : " + Item.dateExpiration %>'></asp:Label>
+                <asp:Label ID="lblDateExpiration" runat="server" Font-Size="14" Text='<%# "Expiration offre: " + Item.dateExpiration %>'></asp:Label>
             <br />
                 </div>
 
-            <asp:Label ID="lblDateDebutOffre" runat="server" Font-Size="14" Text='<%# "Début offre : " + Item.dateDebutOffre %>'></asp:Label>
+            <asp:Label ID="lblDateDebutOffre" runat="server" Font-Size="14" Text='<%# "Début offre: " + Item.dateDebutOffre %>'></asp:Label>
             <br />
             <asp:Label ID="lblSalaire" runat="server" Font-Size="14" Text='<%# Item.salaire + " $/heure" %>'></asp:Label>
             <br />
-            <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14" Text='<%# "No de téléphone : " + Item.noTelephone %>'></asp:Label>
+            <asp:Label ID="lblNoTelephone" runat="server" Font-Size="14" Text='<%# "No de téléphone: " + Item.noTelephone %>'></asp:Label>
 
 
                                     <div runat="server" id="divNoPoste" visible='<%# PasAfficherSiNull(Item,"noPoste") %>'>
@@ -81,15 +81,15 @@
                         
                                     <div runat="server" id="divNoTelecopieur" visible='<%# PasAfficherSiNull(Item,"noTelecopieur") %>'>
 
-            <asp:Label ID="lblNoTelecopieur" runat="server" Font-Size="14" Text='<%# "No de télécopieur : " + Item.noTelecopieur %>'></asp:Label>
+            <asp:Label ID="lblNoTelecopieur" runat="server" Font-Size="14" Text='<%# "No de télécopieur: " + Item.noTelecopieur %>'></asp:Label>
             <br />
 
                                         </div>
 
                         
-            <asp:Label ID="lblCourrielOffre" runat="server" Font-Size="14" Text='<%# "Courriel : " + Item.courrielOffre %>'></asp:Label>
+            <asp:Label ID="lblCourrielOffre" runat="server" Font-Size="14" Text='<%# "Courriel: " + Item.courrielOffre %>'></asp:Label>
             <br />
-            <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14" Text='<%# "Personne resources : " + Item.personneRessource %>'></asp:Label>
+            <asp:Label ID="lblPersonneRessource" runat="server" Font-Size="14" Text='<%# "Personne resources: " + Item.personneRessource %>'></asp:Label>
                         <br />
                                                             <div runat="server" id="divPDF" visible='<%# PasAfficherSiNull(Item,"pathPDFDescription") %>'>
 
