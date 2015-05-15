@@ -4,13 +4,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
+<script type="text/javascript" src="tinymce/plupload-2.1.2/js/plupload.full.min.js"></script>
 <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
     tinymce.init({
         selector: "textarea",
         encoding: "xml",
-        plugins: "image",
+        plugins: ["image link media advlist autolink lists charmap preview hr anchor",
+                "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
+        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
+        language: 'fr_FR',              
     });
 </script>
 <script>
@@ -21,9 +24,6 @@
         document.getElementById('txtContenuNouvelle').value = value;
     }
  </script>
-
-
-    <div>
         <asp:Panel ID="panelNouvelles" runat="server" style="height:450px; overflow-y:scroll">
         <asp:ListView ID="lviewNouvelles" runat="server"     
             ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
@@ -100,5 +100,4 @@
             </div>
             <br />
         </asp:Panel>
-    </div>
 </asp:Content>
