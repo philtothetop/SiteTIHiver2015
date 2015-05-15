@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-md-6 img-portfolio">
                
-                    <img class="img-responsive" src="Photos/Concepteurs/Cedric.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Cedric.jpg" alt=""/>
                
                 <h3>
                     Cédric Archambault
@@ -32,7 +32,7 @@
             </div>
             <div class="col-md-6 img-portfolio">
               
-                    <img class="img-responsive" src="Photos/Concepteurs/Baron.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Baron.jpg" alt=""/>
                
                 <h3>
                     Philippe Baron
@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col-md-6 img-portfolio">
                
-                    <img class="img-responsive" src="Photos/Concepteurs/Bibeau.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Bibeau.jpg" alt=""/>
               
                 <h3>
                     Philippe Bibeau
@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Concepteurs/Raphael.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Raphael.jpg" alt=""/>
                
                 <h3>
                     Raphael Brouard
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Concepteurs/Jacob.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Jacob.jpg" alt=""/>
                 
                 <h3>
                     Jacob Fontaine
@@ -78,7 +78,7 @@
             </div>
             <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Concepteurs/Marie.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Marie.jpg" alt=""/>
                
                 <h3>
                     Marie-Philippe Gill
@@ -87,7 +87,7 @@
             </div>
              <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Concepteurs/Karl.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Karl.jpg" alt=""/>
                 
                 <h3>
                     Karl Gosselin
@@ -96,7 +96,7 @@
             </div>
              <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Concepteurs/Yannick.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Yannick.jpg" alt=""/>
                
                 <h3>
                     Yannick Huard
@@ -105,7 +105,7 @@
             </div>
              <div class="col-md-6 img-portfolio">
                
-                    <img class="img-responsive" src="Photos/Concepteurs/Xavier.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Xavier.jpg" alt=""/>
                 
                 <h3>
                     Xavier Poutré
@@ -114,7 +114,7 @@
             </div>
              <div class="col-md-6 img-portfolio">
                 
-                    <img class="img-responsive" src="Photos/Concepteurs/Francis.jpg" alt=""/>
+                    <img class="img-responsive" src="~/Upload/Photos/Concepteurs/Francis.jpg" alt=""/>
                
                 <h3>
                     Francis Trépanier
