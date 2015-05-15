@@ -18,7 +18,7 @@
                                 <div class="col-md-12">
                                 <div class="col-md-4">
                 
-                                    <h1>Ajouter un Professeur</h1>
+                                    <h1>Ajouter un professeur</h1>
                                     <br />
                 
                                     <fieldset>
@@ -82,7 +82,7 @@
                 <asp:View ID="viewSupprimerProf" runat="server">
                     <asp:Button ID="btnAllezAjouterProf" runat="server" OnClick="btnAllezAjouterProf_Click" CssClass="btn btn-default" Text="Ajouter un professeur" />
 
-                    <h1>Supprimer un Professeur</h1>
+                    <h1>Supprimer un professeur</h1>
                     <br />
 
 

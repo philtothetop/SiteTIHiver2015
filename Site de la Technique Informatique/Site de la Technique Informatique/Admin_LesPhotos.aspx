@@ -85,7 +85,7 @@
 
                     
         <div style="text-align:left; width:100%;">
-            <asp:Label ID="lblDescription" runat="server" Text="Decription de la photo :" style="margin-left:15%;"></asp:Label>
+            <asp:Label ID="lblDescription" runat="server" Text="Decription de la photo:" style="margin-left:15%;"></asp:Label>
             <br />
             <div style="text-align:center; width:100%;">
                 <asp:TextBox ID="txtbDescriptionPhotoAAjouter" runat="server" TextMode="MultiLine" style="max-width:70%; min-width:70%; text-align:left; min-height:100px; max-height:500px;"></asp:TextBox>
@@ -175,7 +175,7 @@
         <br />
         <br />
         <div style="text-align:left; width:100%;">
-            <asp:Label ID="lblModifierDescription" runat="server" Text="Decription de la photo :" style="margin-left:15%;"></asp:Label>
+            <asp:Label ID="lblModifierDescription" runat="server" Text="Decription de la photo:" style="margin-left:15%;"></asp:Label>
             <br />
             <div style="text-align:center; width:100%;">
                 <asp:TextBox ID="txtbModifierPhotoDescription" runat="server" TextMode="MultiLine" style="max-width:70%; min-width:70%; text-align:left; min-height:100px; max-height:500px;"></asp:TextBox>

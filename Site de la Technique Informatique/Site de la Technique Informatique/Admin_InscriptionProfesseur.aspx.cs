@@ -110,7 +110,7 @@ namespace Site_de_la_Technique_Informatique
                             Model.Log logEntry = new Model.Log
                             {
                                 dateLog = DateTime.Now,
-                                actionLog = nouveauProf.prenom + " " + nouveauProf.nom + " a été ajouté à la table des professeurs",
+                                actionLog = nouveauProf.prenom + " " + nouveauProf.nom + " a été ajouté à la table des professeurs.",
                                 typeLog = 3
                             };
 
@@ -157,9 +157,9 @@ namespace Site_de_la_Technique_Informatique
         private void sendPassword(string tempPassword, Professeur nouveauProf)
         {
 
-            String titre = "Inscription Professeur TI Cegep de Granby";
+            String titre = "Inscription Professeur TI Cégep de Granby";
             String message = "Bonjour, <br/>" +
-                 "Un administrateur vous a ajouté en tant qu'Utilisateur Professeur sur le site de la technique informatique du Cégep de Granby." + " Vous pouvez dès maintenant vous connecter sur le site à l'aide des informations de connexion suivantes:<br/> <br/>" +
+                 "Un administrateur vous a ajouté en tant qu'utilisateur professeur sur le site de la technique informatique du Cégep de Granby." + " Vous pouvez dès maintenant vous connecter sur le site à l'aide des informations de connexion suivantes:<br/> <br/>" +
                 "Courriel: " + nouveauProf.courriel + "<br/>" +
             "Mot de Passe: " + tempPassword + "<br/> <br/>" +
             "Veuillez S.V.P. changer votre mot de passe lors de votre première connexion. <br/>" +
