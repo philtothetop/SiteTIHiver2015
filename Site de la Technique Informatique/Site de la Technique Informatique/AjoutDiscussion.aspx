@@ -37,7 +37,7 @@
             <div class="row row-centered">
                 <asp:MultiView ID="mvAjoutDiscussion" runat="server" ActiveViewIndex="0">
                     <asp:View runat="server" ID="viewAjout">
-                        <div class="col-lg-5 col-centered">
+                        <div class="col-centered">
                             <asp:Label ID="lblErreur" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                             <br />
                             <br />
@@ -48,13 +48,10 @@
                                     <asp:Label ID="lblTitreDiscussion" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                                 </div>
                             </div>
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                    <label>*Message:</label>
-                                    <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" placeholder="Message" Width="600px" Style="max-height: 150px; min-height: 150px; min-width: 600px; max-width: 600px" MaxLength="2000"></asp:TextBox>
-                                    <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
-                                </div>
-                            </div>
+                            <label>*Message:</label>
+                            <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" placeholder="Message" Width="600px" Style="max-height: 150px; min-height: 150px; min-width: 600px; max-width: 600px" MaxLength="2000"></asp:TextBox>
+                            <br />
+                            <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                             <asp:LinkButton ID="lnkAjouter" Text="Valider" runat="server" CssClass="btn btn-primary" OnClick="lnkAjouter_Click" />
                             <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-danger" PostBackUrl="~/EnteteForum.aspx" />
                             <br />

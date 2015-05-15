@@ -43,7 +43,7 @@ manière par laquelle l’utilisateur accède au site et utilise ses services.
 
 Toute connexion au site est subordonnée au respect des présentes conditions.
 
-Pour l’utilisateur, le simple accès au site de l’EDITEUR à l’adresse URL suivante (URL du site)  
+Pour l’utilisateur, le simple accès au site de l’EDITEUR à l’adresse URL suivante http://sqlinfo.cegepgranby.qc.ca/ProjetDeux_2015_1/  
 
 implique l’acceptation de l’ensemble des conditions décrites ci-après
                 </p>
@@ -79,14 +79,10 @@ implique l’acceptation de l’ensemble des conditions décrites ci-après
                 <h2>Droit applicable</h2>
                 <p>Tant le présent site que les modalités et conditions de son utilisation sont régis par le droit canadien, quel que soit le lieu d’utilisation. En cas de contestation éventuelle, et après l’échec de toute tentative de recherche d’une solution amiable, les tribunaux canadiens seront seuls compétents pour connaître de ce litige.</p>
 
-                <h2>DROITISSIMO.COM VOUS INFORME</h2>
-                <p>DROITISSIMO.COM est titulaire des droits d'auteur relatifs au présent modèle des conditions générales d'utilisation (CGU).</p>
-                <p>Toutefois, si vous avez un blog ou un site internet et que vous êtes à la recherche d'un modèle des CGU, vous pouvez être autorisé à reproduire gratuitement notre modèle dans les conditions suivantes :</p>
-                <p>Vous mentionnez dans vos CGU le nom de notre site en tant que titulaire des droits d'auteur du modèle en y insérant un lien hypertexte pointant vers l'url du modèle (<a href="http://www.droitissimo.com/contrat/conditions-generales-dutilisation-cgu-dun-site-internet">http://www.droitissimo.com/contrat/conditions-generales-dutilisation-cgu-dun-site-internet</a>) et un autre lien hypertexte pointant vers la page d'accueil de notre site (<a href="http://www.droitissimo.com/">http://www.droitissimo.com/</a>). </p>
 
-                <h2>MODELE DE MENTION ET DE LIEN PROPOSE A TITRE D'EXEMPLE</h2>
-                <p>" Les présentes conditions générales (CGU) sont une reproduction du Modèle de CGU (conditions générales d'utilisation) d'un site Internet, dont le titulaire des droits d'auteur est DROITISSIMO.COM, site internet d'information juridique grand public. "</p>
-                <p>Cette mention et ces liens hypertextes devront être conservés aussi longtemps que vous utiliserez notre modèle des CGU.</p>
+
+                <p>Les présentes conditions générales (CGU) sont une reproduction du Modèle de CGU (conditions générales d'utilisation) d'un site Internet, dont le titulaire des droits d'auteur est DROITISSIMO.COM, site internet d'information juridique grand public.</p>
+
 
             </div>
             <div class="col-md-2"></div>
