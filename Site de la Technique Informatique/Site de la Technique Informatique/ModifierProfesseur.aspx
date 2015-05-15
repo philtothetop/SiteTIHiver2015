@@ -11,6 +11,7 @@
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
@@ -37,20 +38,23 @@
             $('#maPhotoProfile').modal('close');
         };
         function closeDivs(value) {
-
+           
             document.getElementById('<%= hidTab.ClientID%>').value = value;
             document.getElementById("ContentPlaceHolder1_divSuccess").style.visibility = "hidden";
             document.getElementById("ContentPlaceHolder1_divWarning").style.visibility = "hidden";
 
         };
         function keepTab() {
+            
             document.getElementById("aDelete").click();
+            
         };
 
         $(document).ready(function () {
-
-            var tab = document.getElementById('<%= hidTab.ClientID%>').value;
-            $('#myTab a[href="#' + tab + '"]').tab('show');
+           
+            var tabToShow = document.getElementById('<%= hidTab.ClientID%>').value;
+            $('#myTab a[href="#' + tabToShow + '"]').tab('show');
+           
         });
 
     </script>
@@ -259,7 +263,8 @@
                                         <div class="control-group form-group">
                                             <div class="controls">
                                                 <label>Cours</label>
-                                                <asp:DropDownList ID="ddlCours" CssClass="form-control" runat="server" SelectMethod="getAllCours" DataTextField="nomCours" DataValueField="IDCours"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlCours" CssClass="form-control" runat="server" SelectMethod="getAllCours" DataTextField="nomCours" DataValueField="IDCours" AutoPostBack="true"></asp:DropDownList>
+                                            <asp:HiddenField ID="hidSelectedCours" runat="server" />
                                             </div>
                                         </div>
                                     </div>
@@ -305,6 +310,7 @@
 
 
                             <ItemTemplate>
+                                <asp:HiddenField ID="hidID" runat="server" Value='<%#BindItem.IDCours %>' />
                                 <div class="row row-centered">
 
                                     <div class="col-md-2 col-centered form-group form">

@@ -90,15 +90,12 @@
         </div>
                             <div id="divPourOffrePasValide" runat="server" visible='<%# VisibiliteBoutonValidation(true) %>' style="clear:both;">
 
-                            <div style="float:left; padding-left:35px">
+                            <div style="float:left; padding-left:15px">
+                                <br />
                                 <asp:Button ID="btnAccepterOffre" runat="server" Text="Accepter" CssClass="btn btn-success" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="AccepterOffreEmploi_Click" />
+                                <asp:Button ID="btnRefuserOffre" runat="server" Text="Refuser" CssClass="btn btn-danger" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="SupprimerOffreEmploi_Click"/>
 
                             </div>
-                            <div style="float:right; padding-right:35px">
-
-                            <asp:Button ID="btnRefuserOffre" runat="server" Text="Refuser" CssClass="btn btn-danger" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="SupprimerOffreEmploi_Click"/>
-
-
                             </div>
                                 </div>
 

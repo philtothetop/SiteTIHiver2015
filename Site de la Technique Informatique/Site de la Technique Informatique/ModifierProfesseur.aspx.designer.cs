@@ -130,6 +130,15 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.DropDownList ddlCours;
         
         /// <summary>
+        /// Contrôle hidSelectedCours.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidSelectedCours;
+        
+        /// <summary>
         /// Contrôle btnModif.
         /// </summary>
         /// <remarks>
