@@ -267,7 +267,7 @@ namespace Site_de_la_Technique_Informatique
                             String imageProfilChemin = Path.Combine(Server.MapPath("~/Upload/Photos/Profils/"), imageNom);
                             if (!etudiantAUpdaterCopie.pathPhotoProfil.Equals("photobase.bmp"))
                             {
-                                String AdressePhoto = Server.MapPath("/Upload/Photos/Profils/" + etudiantAUpdaterCopie.pathPhotoProfil);
+                                String AdressePhoto = Server.MapPath("~//Upload/Photos/Profils/" + etudiantAUpdaterCopie.pathPhotoProfil);
                                 File.Delete(AdressePhoto);//Efface l'ancienne photo.
                             }
                             imageProfil.Save(imageProfilChemin);

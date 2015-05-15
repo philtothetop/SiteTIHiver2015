@@ -20,6 +20,13 @@ namespace Site_de_la_Technique_Informatique
 
             Exception ex = Server.GetLastError();
 
+
+
+            if (isLocal())
+            {
+
+            }
+
             Server.ClearError();
         }
 
