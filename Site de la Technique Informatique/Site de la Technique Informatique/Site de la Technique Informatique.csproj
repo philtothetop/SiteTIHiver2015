@@ -199,7 +199,6 @@
     <Content Include="Photos\Autres\quiSommesNous.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
-    <Content Include="QuePourTest.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
     <Content Include="SectionForum.aspx" />
@@ -725,13 +724,6 @@
       <DependentUpon>ProfilEtudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuePourTest.aspx.cs">
-      <DependentUpon>QuePourTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="QuePourTest.aspx.designer.cs">
-      <DependentUpon>QuePourTest.aspx</DependentUpon>
-    </Compile>
     <Compile Include="QuiSommesNous.aspx.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
