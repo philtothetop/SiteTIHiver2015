@@ -17,21 +17,13 @@
                 <div id="divLesExcuses" class="row">
                     <h3>humm... c'est embarrassant...</h3>
                     <label>
-                        Nous sommes désolés, il semblerait que l'une de vos manoeuvres a fait s'écrouler la page où vous étiez.<br />
+                        Nous sommes désolés,<br />    il semblerait que l'une de vos manoeuvres a fait s'écrouler la page où vous étiez.<br />
                         Nous tenons ce problème très à coeur et en cas de problème persistant, veuillez contacter le Cégep de Granby
                         - Département de techniques informatique.
                     </label>
                     <br />
                     <br />
                     <br />
-
-                    <div id="error" runat="server" visible="false">
-                        <asp:Label runat="server" ID="lblErreurs" />
-                        <br />
-                        <asp:Label runat="server" ID="lblInnerTrace" />
-                        <br />
-                        <asp:Label runat="server" ID="lblStackTrace" />
-                    </div>
 
                     <div style="text-align: center;">
                         <asp:LinkButton runat="server" CssClass="btn btn-primary" Text="Retour à l'accueil" OnClick="Redirect_Click" />

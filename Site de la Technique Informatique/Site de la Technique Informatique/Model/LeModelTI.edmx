@@ -836,7 +836,7 @@
           </Key>
           <Property Name="IDFAQ" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="texteQuestion" Type="String" Nullable="false" MaxLength="150" />
-          <Property Name="texteReponse" Type="String" Nullable="false" MaxLength="800" />
+          <Property Name="texteReponse" Type="String" Nullable="false" />
           <NavigationProperty Name="Professeur" Relationship="LeModelTI.ProfesseurFAQ" FromRole="FAQ" ToRole="Professeur" />
           <Property Name="ProfesseurIDUtilisateur" Type="Int32" Nullable="false" />
         </EntityType>
@@ -846,7 +846,7 @@
           </Key>
           <Property Name="IDNouvelle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="titreNouvelle" Type="String" Nullable="false" MaxLength="250" />
-          <Property Name="texteNouvelle" Type="String" Nullable="false" MaxLength="Max" />
+          <Property Name="texteNouvelle" Type="String" Nullable="false" />
           <Property Name="pathPhotoNouvelle" Type="String" Nullable="true" MaxLength="200" />
           <Property Name="dateNouvelle" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Professeur" Relationship="LeModelTI.ProfesseurNouvelle" FromRole="Nouvelle" ToRole="Professeur" />
@@ -880,7 +880,7 @@
             <PropertyRef Name="IDMessageForum" />
           </Key>
           <Property Name="IDMessageForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="texteMessage" Type="String" Nullable="false" MaxLength="2000" />
+          <Property Name="texteMessage" Type="String" Nullable="false" />
           <Property Name="dateMessage" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="EnteteForum" Relationship="LeModelTI.EnteteForumMessageForum" FromRole="MessageForum" ToRole="EnteteForum" />
           <Property Name="EnteteForumIDEnteteForum" Type="Int32" Nullable="false" />

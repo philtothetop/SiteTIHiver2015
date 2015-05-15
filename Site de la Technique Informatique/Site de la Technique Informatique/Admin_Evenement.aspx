@@ -13,7 +13,7 @@
         <asp:Label ID="lblErreur" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
         <div class="row col-lg-12" style="margin-bottom: 40px;">
             <div class="row col-lg-12">
-                <h2>Événements</h2>
+               <h1 class="page-header">Événements</h1>
             </div>
             <div class="row well col-lg-12 col-md-12" style="height: 200px; margin-bottom: 50px;">
                 <div class="col-lg-5 col-md-5">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" OnClick="btnAjouter_Click" />
+                    <asp:Button ID="btnAjouter" CssClass="btn btn-primary" runat="server" Text="Ajouter" OnClick="btnAjouter_Click" />
                 </div>
             </div>
 
@@ -130,8 +130,8 @@
 
                             <div class="col-lg-3" style="margin-top: 30px;">
 
-                                <asp:Button ID="btnModifier" runat="server" Text="Modifier" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="UpdateEvent" />
-                                <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" Style="margin-left: 20px; margin-top: 45px;" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="btnSupprimer_Click" />
+                                <asp:Button ID="btnModifier" runat="server" Text="Modifier" CssClass="btn btn-primary" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="UpdateEvent" />
+                                <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-primary" Style="margin-left: 20px; margin-top: 45px;" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="btnSupprimer_Click" />
 
                             </div>
 

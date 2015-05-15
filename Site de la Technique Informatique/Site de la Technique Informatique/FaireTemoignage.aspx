@@ -40,7 +40,7 @@
                     <asp:TextBox ID="txtbLeTemoignageDuConnecte" runat="server" TextMode="MultiLine" style="min-width:80%; max-width:80%; min-height:200px; max-height:400px;"></asp:TextBox>
                 <br />
                     </div>
-                 <asp:Button ID="btnFaireUnTemoignage" runat="server" Text="Envoyer mon témoignage" OnClick="EnvoyerTemoignage_Click" CssClass="btn-default" />
+                 <asp:Button ID="btnFaireUnTemoignage" runat="server" Text="Envoyer mon témoignage" OnClick="EnvoyerTemoignage_Click" CssClass="btn btn-primary" />
             </div>
         </div>
 

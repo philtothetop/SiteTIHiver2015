@@ -66,7 +66,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur GetUtilisateurEtudiant : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
+                throw new Exception("Erreur GetUtilisateurEtudiant: " + ex.ToString() + " Inner exception de l'erreur: " + logEx.InnerException + " Essai d'envoi à: ");
             }
          
         }
@@ -259,7 +259,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur Condition CheckedChanged : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
+                throw new Exception("Erreur Condition CheckedChanged: " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
         //Cette class permet des/active le bouton accepter par le link  Accepter
@@ -279,7 +279,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur Accepter Click : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
+                throw new Exception("Erreur Accepter Click: " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
         //Cette class permet des/active le bouton accepter
@@ -312,8 +312,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
             String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority + "/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
-            String titre = "Inscription TI Cegep de Granby";
-            String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Merci de votre inscription sur le site de la technique informatique du Cégep de Granby, Cliquez sur le lien ci-dessous pour valider votre compte<br>"+"<a href=\"" + hyperLien + "\">cliquez ici.</a>";
+            String titre = "Inscription TI Cégep de Granby";
+            String message = "Cher/Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Merci de votre inscription sur le site de techniques informatique du Cégep de Granby, cliquez sur le lien ci-dessous pour valider votre compte<br>"+"<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
             courrielAutomatiser courriel = new courrielAutomatiser();
 

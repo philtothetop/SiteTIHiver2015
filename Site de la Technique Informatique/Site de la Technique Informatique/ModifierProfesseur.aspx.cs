@@ -113,13 +113,8 @@ namespace Site_de_la_Technique_Informatique
                     String imgData = ImgExSrc.Value;
                     if (imgData != "" && imgData.Length > 21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                     {
-                        System.Drawing.Image imageProfil = LoadImage(imgData);
-                        imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
-                        string something = profAUpdater.dateInscription.ToShortDateString().Replace("/", "");
-                        String imageNom = (profAUpdater.prenom +  something) + "_125.jpg";
-                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Upload/Photos/Profils/"), imageNom);
-                        imageProfil.Save(imageProfilChemin);
-                        profAUpdater.pathPhotoProfil = imageNom;
+                        System.Drawing.Image imageProfil = LoadImage(imgData, profAUpdater);
+                       
                     }
 
 
@@ -139,7 +134,7 @@ namespace Site_de_la_Technique_Informatique
 
 
 
-        public System.Drawing.Image LoadImage(String data)
+        public System.Drawing.Image LoadImage(String data, Professeur profAUpdater)
         {
             try { 
             //get a temp image from bytes, instead of loading from disk
@@ -154,19 +149,26 @@ namespace Site_de_la_Technique_Informatique
                 image = System.Drawing.Image.FromStream(ms);
                 string cropFileName = "";
                 string cropFilePath = "";
-                cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/../Upload/Photos/Profils/"), cropFileName);
+                cropFileName = "crop_" + "testImg.jpg";
+                cropFilePath = Path.Combine(Server.MapPath(Request.ApplicationPath + "/Upload/Photos/Profils/"), cropFileName);
+                image = (System.Drawing.Image)new Bitmap(image, new Size(125, 125)); //prevention contre injection de trop grande image.
+                
+                string something = profAUpdater.dateInscription.ToShortDateString().Replace("/", "");
+                String imageNom = (profAUpdater.prenom + something) + "_125.jpg";
+                String imageProfilChemin = (Server.MapPath("..//Upload//" + imageNom));
+                image.Save(imageProfilChemin);
+                profAUpdater.pathPhotoProfil = imageNom;
+                    
             }
 
             return image;
             }
             catch (Exception ex)
             {
-                throw new Exception("Error in loadImage",ex);
+                throw new Exception(ex.Message + ex.StackTrace,ex);
             }
         }
         #endregion
-
 
         #region Modifier_Password
 
@@ -278,8 +280,6 @@ namespace Site_de_la_Technique_Informatique
 
         #endregion
 
-
-
         #region Modifier_Cours
         public IQueryable<Cours> lvModifierCours_GetData()
         {
@@ -297,7 +297,6 @@ namespace Site_de_la_Technique_Informatique
                     int selectedCours = int.Parse(ddlCours.SelectedValue);
                     newCours = ((from cours in lecontexte.CoursSet.OfType<Cours>() where cours.IDCours == selectedCours select cours).ToList());
                     }
-               
 
                 if ((string)ViewState["mode"] + "" == "ajoute")  // SEULEMENT UN MEDIA «VIDE»
                 {
@@ -515,12 +514,5 @@ namespace Site_de_la_Technique_Informatique
                 btnModif.Enabled = false;
             }
         }
-
-       
-
-        
-
-
-
     }
 }
