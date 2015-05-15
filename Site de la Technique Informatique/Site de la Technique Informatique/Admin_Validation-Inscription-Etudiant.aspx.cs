@@ -102,7 +102,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         {
                             int id = int.Parse(lblId.Text);
                             Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
-                            File.Delete("~Photos/Profils/" + etudiant.pathPhotoProfil);
+                            File.Delete("~Upload/Photos/Profils/" + etudiant.pathPhotoProfil);
                             leContext.UtilisateurSet.Remove(etudiant);
                             if (envoie_courriel_confirmationRefuser(etudiant) == false)
                             {
@@ -140,7 +140,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     int idEtudiant = int.Parse(lnkAccepter.CommandArgument);
                     Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == idEtudiant select cl).FirstOrDefault();
                     leContext.UtilisateurSet.Remove(etudiant);
-                    File.Delete("~Photos/Profils/" + etudiant.pathPhotoProfil);
+                    File.Delete("~Upload/Photos/Profils/" + etudiant.pathPhotoProfil);
 
                     if (envoie_courriel_confirmationRefuser(etudiant) == false)
                     {

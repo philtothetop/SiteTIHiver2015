@@ -42,7 +42,7 @@
                                 <div class="modif-photo">
                                     <div class="img-thumbnail img-photo preview-photo">
                                         <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#"Photos/Profils/"+Eval("pathPhotoProfil") %>' Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#"Upload/Photos/Profils/"+Eval("pathPhotoProfil") %>' Width="125" Height="125" />
                                     </div>
                                 </div>
 
