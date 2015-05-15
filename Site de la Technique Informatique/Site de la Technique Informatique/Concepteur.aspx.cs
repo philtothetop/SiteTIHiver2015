@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Concepteur : System.Web.UI.Page
+    public partial class Concepteur : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {

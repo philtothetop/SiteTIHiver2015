@@ -36,12 +36,13 @@ namespace Site_de_la_Technique_Informatique
                     lblAdmin.Visible = false;
                     lblNouvelles.Visible = true;
                     lblSouvenir.Visible = true;
-                    lblRecherche.Visible = true;
+                    lblRecherche.Visible = false;
                     lblInformation.Visible = true;
                     lblProfilEtudiant.Visible = false;
                     lblProfilProf.Visible = false;
                     lblAjouterProfesseur.Visible = false;
                     lblQuiSommesNous.Visible = true;
+                    lblProfilAdmin.Visible = false;
                 }
                 if (Server.HtmlEncode(Request.Cookies["TIUtilisateur"].Value).Equals("Etudiant"))
                 {
@@ -60,7 +61,7 @@ namespace Site_de_la_Technique_Informatique
                     lblProfilProf.Visible = false;
                     lblAjouterProfesseur.Visible = false;
                     lblQuiSommesNous.Visible = false;
-
+                    lblProfilAdmin.Visible = false;
 
                     if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                     {
@@ -87,6 +88,7 @@ namespace Site_de_la_Technique_Informatique
                     lblProfilProf.Visible = true;
                     lblAjouterProfesseur.Visible = false;
                     lblQuiSommesNous.Visible = false;
+                    lblProfilAdmin.Visible = false;
 
                     if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                     {
@@ -114,6 +116,7 @@ namespace Site_de_la_Technique_Informatique
                     lblProfilProf.Visible = false;
                     lblAjouterProfesseur.Visible = false;
                     lblQuiSommesNous.Visible = false;
+                    lblProfilAdmin.Visible = false;
 
                     if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                     {
@@ -142,6 +145,7 @@ namespace Site_de_la_Technique_Informatique
                     lblProfilProf.Visible = false;
                     lblAjouterProfesseur.Visible = true;
                     lblQuiSommesNous.Visible = false;
+                    lblProfilAdmin.Visible = true;
 
                     if (Request.Cookies["TINom"] == null) //si le nom est null, ce qui ne peut pas arriver mais on fait ici plaisir à Raph
                     {
@@ -163,12 +167,13 @@ namespace Site_de_la_Technique_Informatique
                 lblForum.Visible = false;
                 lblAdmin.Visible = false;
                 lblSouvenir.Visible = true;
-                lblRecherche.Visible = true;
+                lblRecherche.Visible = false;
                 lblInformation.Visible = true;
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = false;
                 lblAjouterProfesseur.Visible = false;
                 lblQuiSommesNous.Visible = true;
+                lblProfilAdmin.Visible = false;
             }
         }
 
