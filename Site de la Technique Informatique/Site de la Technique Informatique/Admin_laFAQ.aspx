@@ -51,7 +51,7 @@ Extrants: --%>
         <div class="col-lg-offset-6 col-lg-1">
         </div>
         <div class="col-lg-2">
-            <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" CssClass="btn btn-success" OnClick="btnAjouter_Click" />
+            <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" CssClass="btn btn-primary" OnClick="btnAjouter_Click" />
         </div>
     </div>
 
