@@ -105,7 +105,7 @@
                         <div style="float:left; width:50%;">
                             <div style="border:black solid 1px; min-height:75px;">
                             <div style="clear:both; width:75px; float:left;">
-                                 <asp:ImageButton ID="photoProfil" runat="server" Width="75px" Height="75px" ImageUrl='<%# Item.pathPhotoProfil %>' CommandArgument='<%# Item.IDUtilisateur %>' OnClick="photoProfil_Click"></asp:ImageButton>
+                                 <asp:ImageButton ID="photoProfil" runat="server" Width="75px" Height="75px" ImageUrl='<%# isLocal() ? "~/../Upload/Photos/Profils/" + Item.pathPhotoProfil : "~/Upload/Photos/Profils/" + Item.pathPhotoProfil %>' CommandArgument='<%# Item.IDUtilisateur %>' OnClick="photoProfil_Click"></asp:ImageButton>
 
                             </div>
                             <div style="width:100%;">
