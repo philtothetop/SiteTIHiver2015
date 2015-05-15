@@ -17,6 +17,11 @@ namespace Site_de_la_Technique_Informatique
 {
     public class ErrorHandling : System.Web.UI.Page
     {
+        protected bool isLocal()
+        {
+            return HttpContext.Current.Request.IsLocal;
+        }
+
         static Random rng = new Random();
 
         #region Error Handling
@@ -183,12 +188,26 @@ namespace Site_de_la_Technique_Informatique
                 //Rediriger si pas les droits
                 if (doitRedirigerLaPersonne == true)
                 {
-                    Response.Redirect("Default.aspx");
+                    if (isLocal())
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/../Default.aspx");
+                    }
                 }
             }
             catch
             {
-                Response.Redirect("Default.aspx");
+                if (isLocal())
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/../Default.aspx");
+                }
             }
         }
         

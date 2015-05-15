@@ -115,9 +115,9 @@ namespace Site_de_la_Technique_Informatique
                     {
                         System.Drawing.Image imageProfil = LoadImage(imgData);
                         imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
-
-                        String imageNom = (profAUpdater.prenom + profAUpdater.dateInscription.ToString()).GetHashCode() + "_125.jpg";
-                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
+                        string something = profAUpdater.dateInscription.ToShortDateString().Replace("/", "");
+                        String imageNom = (profAUpdater.prenom +  something) + "_125.jpg";
+                        String imageProfilChemin = Path.Combine(Server.MapPath(Request.ApplicationPath + "/Upload/Photos/Profils/"), imageNom);
                         imageProfil.Save(imageProfilChemin);
                         profAUpdater.pathPhotoProfil = imageNom;
                     }
@@ -141,6 +141,7 @@ namespace Site_de_la_Technique_Informatique
 
         public System.Drawing.Image LoadImage(String data)
         {
+            try { 
             //get a temp image from bytes, instead of loading from disk
             //data:image/gif;base64,
             //this image is a single pixel (black)
@@ -153,11 +154,17 @@ namespace Site_de_la_Technique_Informatique
                 image = System.Drawing.Image.FromStream(ms);
                 string cropFileName = "";
                 string cropFilePath = "";
-                cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Profils/"), cropFileName);
+                cropFileName = "crop_" + "testImg.jpg";
+                cropFilePath = Path.Combine(Server.MapPath(Request.ApplicationPath + "/Upload/Photos/Profils/"), cropFileName);
+                image.Save(cropFilePath);
             }
 
             return image;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error in loadImage",ex);
+            }
         }
         #endregion
 

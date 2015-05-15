@@ -5,6 +5,26 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript" src="tinymce/plupload-2.1.2/js/plupload.full.min.js"></script>
+    <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            encoding: "xml",
+            plugins: ["image link media advlist autolink lists charmap preview hr anchor",
+                    "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
+            toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
+            language: 'fr_FR',
+        });
+    </script>
+    <script>
+        function Encode() {
+            var value = (document.getElementById('TextBox1').value);
+            value = value.replace('<', "&lt;");
+            value = value.replace('>', "&gt;");
+            document.getElementById('txtMessage').value = value;
+        }
+    </script>
     <div class="container">
 
         <div class="row">
@@ -17,7 +37,7 @@
             <div class="row row-centered">
                 <asp:MultiView ID="mvAjoutDiscussion" runat="server" ActiveViewIndex="0">
                     <asp:View runat="server" ID="viewAjout">
-                        <div class="col-lg-5 col-centered">
+                        <div class="col-centered">
                             <asp:Label ID="lblErreur" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                             <br />
                             <br />
@@ -28,15 +48,12 @@
                                     <asp:Label ID="lblTitreDiscussion" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                                 </div>
                             </div>
-                            <div class="control-group form-group">
-                                <div class="controls">
-                                    <label>*Message:</label>
-                                    <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" placeholder="Message" Style="max-height: 150px; min-height: 150px; min-width: 600px; max-width: 600px" MaxLength="2000"></asp:TextBox>
-                                    <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
-                                </div>
-                            </div>
-                             <asp:LinkButton ID="lnkAjouter" Text="Valider" runat="server" CssClass="btn btn-primary" OnClick="lnkAjouter_Click" />
-                            <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-danger" PostBackUrl="~/EnteteForum.aspx" />                          
+                            <label>*Message:</label>
+                            <asp:TextBox ID="txtMessage" runat="server" TextMode="MultiLine" placeholder="Message" Width="600px" Style="max-height: 150px; min-height: 150px; min-width: 600px; max-width: 600px" MaxLength="2000"></asp:TextBox>
+                            <br />
+                            <asp:Label ID="lblMessage" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
+                            <asp:LinkButton ID="lnkAjouter" Text="Valider" runat="server" CssClass="btn btn-primary" OnClick="lnkAjouter_Click" />
+                            <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-danger" PostBackUrl="~/EnteteForum.aspx" />
                             <br />
                             <br />
                         </div>
@@ -44,7 +61,7 @@
                     <asp:View runat="server" ID="viewFin">
                         <div style="text-align: center">
                             <h4>Votre discussion a été créée avec succès</h4>
-                            <asp:LinkButton ID="lnkRetour" Text="Voir ma discussion" runat="server" CssClass="btn btn-primary" onclick="lnkRetour_Click" />
+                            <asp:LinkButton ID="lnkRetour" Text="Voir ma discussion" runat="server" CssClass="btn btn-primary" OnClick="lnkRetour_Click" />
                         </div>
                     </asp:View>
                 </asp:MultiView>

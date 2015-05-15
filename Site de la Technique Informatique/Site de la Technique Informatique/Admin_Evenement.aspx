@@ -13,7 +13,7 @@
         <asp:Label ID="lblErreur" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
         <div class="row col-lg-12" style="margin-bottom: 40px;">
             <div class="row col-lg-12">
-                <h2>Événements</h2>
+               <h1 class="page-header">Événements</h1>
             </div>
             <div class="row well col-lg-12 col-md-12" style="height: 200px; margin-bottom: 50px;">
                 <div class="col-lg-5 col-md-5">
@@ -24,7 +24,7 @@
                     <h4>Date:</h4>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Date de l'événement :</label>
+                            <label>Date de l'événement:</label>
                             <div class="row">
                                 <div class="col-lg-3 col-md-3">
                                     <asp:TextBox runat="server" ID="txtJourEventAjouter" Style="text-align: center;"
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div style="margin-top: 10px;"></div>
-                            <label>Heure de l'événement :</label>
+                            <label>Heure de l'événement:</label>
                             <div></div>
                             <div class="col-lg-3 col-md-3" style="margin-left: -15px;">
                                 <asp:DropDownList runat="server" ID="ddlHeuresAjouter" Width="80" CssClass="form-control"
@@ -111,7 +111,7 @@
                                             </div>
                                         </div>
                                         <div style="margin-top: 10px;"></div>
-                                        <label>Heure de l'événement :</label>
+                                        <label>Heure de l'événement:</label>
                                         <div></div>
                                         <div class="col-lg-3 col-md-4" style="margin-left: -15px;">
                                             <asp:DropDownList runat="server" ID="ddlHeures" Width="80" CssClass="form-control"

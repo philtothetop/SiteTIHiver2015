@@ -4,7 +4,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="Css/Inscription.css" 
+    <link rel="stylesheet" href="Css/Inscription.css" /> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -13,9 +13,9 @@
     <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, image cropping, web development">
     <meta name="author" content="Fengyuan Chen">
     <title>Cropper</title>
-    <link href="Cropper2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="Cropper2/css/cropper.css" rel="stylesheet">
-    <link href="Cropper2/css/docs.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/cropper.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -118,7 +118,7 @@
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
 <script src="JS/bootstrap.js"></script>
 
- <h1>Administrateur : Les Photos</h1>
+<h1 class="page-header">Photos</h1>
     
     <asp:MultiView ID="mviewLesPhotos" runat="server" ActiveViewIndex="0">
 
@@ -195,7 +195,7 @@
 
                     
         <div style="text-align:left; width:100%;">
-            <asp:Label ID="lblDescription" runat="server" Text="Decription de la photo :" style="margin-left:15%;"></asp:Label>
+            <asp:Label ID="lblDescription" runat="server" Text="Decription de la photo:" style="margin-left:15%;"></asp:Label>
             <br />
             <div style="text-align:center; width:100%;">
                 <asp:TextBox ID="txtbDescriptionPhotoAAjouter" runat="server" TextMode="MultiLine" style="max-width:70%; min-width:70%; text-align:left; min-height:100px; max-height:500px;"></asp:TextBox>
@@ -244,7 +244,7 @@
         <br />
         <br />
         <div style="text-align:left; width:100%;">
-            <asp:Label ID="lblModifierDescription" runat="server" Text="Decription de la photo :" style="margin-left:15%;"></asp:Label>
+            <asp:Label ID="lblModifierDescription" runat="server" Text="Decription de la photo:" style="margin-left:15%;"></asp:Label>
             <br />
             <div style="text-align:center; width:100%;">
                 <asp:TextBox ID="txtbModifierPhotoDescription" runat="server" TextMode="MultiLine" style="max-width:70%; min-width:70%; text-align:left; min-height:100px; max-height:500px;"></asp:TextBox>

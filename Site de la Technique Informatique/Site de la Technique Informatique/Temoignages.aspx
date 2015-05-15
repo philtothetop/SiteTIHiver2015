@@ -15,7 +15,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12" style="background-color: #f5f5f5; border-radius:40px; padding-top:30px; padding-bottom:30px; padding-right:40px;">
+            <div class="col-lg-12" style="padding-right:40px;">
 
                 <asp:ListView ID="lviewTemoignages" runat="server"
                 ItemType="Site_de_la_Technique_Informatique.Model.Membre"
@@ -26,7 +26,7 @@
                 </EmptyDataTemplate>
 
                 <ItemTemplate>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:inline; padding:10px; background-color: #eaeaea; text-align:center; border-radius:40px; padding-bottom:30px; margin:10px;">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:inline; padding:10px; background-color: #eaeaea; text-align:center; border-radius:10px; padding-bottom:30px; margin:10px;">
                             <div style="clear:both; text-align:center; border-bottom:solid 2px black; margin-bottom:20px;">
                                 <asp:Label runat="server" Text='<%# Item.prenom + " "  +Item.nom %>' style="font-size:x-large;" />
                             </div>
@@ -42,7 +42,7 @@
                 </ItemTemplate>
 
                 <AlternatingItemTemplate>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:inline; padding:10px; background-color: #eaeaea; text-align:center; border-radius:40px; padding-bottom:30px; margin:10px;">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:inline; padding:10px; background-color: #eaeaea; text-align:center; border-radius:10px; padding-bottom:30px; margin:10px;">
                         <div style="clear:both; text-align:center; border-bottom:solid 2px black; margin-bottom:20px;">
                             <asp:Label runat="server" Text='<%# Item.prenom + " "  +Item.nom %>' style="font-size:x-large;" />
                         </div>

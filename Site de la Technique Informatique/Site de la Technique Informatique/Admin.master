@@ -9,39 +9,43 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <script src="Js/bootstrap.js"></script>
-    <div style="clear:both;">
-
-    </div>
-
-        <div class="row">
+    
+    <div class="row">
+       
             <div class="col-lg-3">
            <ul style="list-style-type:none;">
                
-                   <li><a href="Admin_Evenement.aspx">Événement</a><br /></li>
+                   <li><a href="Admin_Evenement.aspx">Événements</a><br /></li>
                    
                    <li><a href="Admin_laFAQ.aspx">FAQ</a><br /></li>
                  
                    <li><a href="Admin_LesPhotos.aspx">Photos</a><br /></li>
 
-               <li><a href="Admin_Media.aspx">Médias</a><br /></li>
+                   <li><a href="Admin_Media.aspx">Médias</a><br /></li>
                  
                    <li><a href="Admin_OffreEmploi.aspx">Offres d'emploi</a><br /></li>
                   
-                   <li><a href="Admin_Temoignage.aspx">Témoignage</a><br /></li>
-                              
-                  <li> <a href="Admin_Validation-Inscription-Etudiant.aspx">Valider inscription étudiants</a><br /></li>
+                   <li><a href="Admin_Temoignage.aspx">Témoignages</a><br /></li>
 
-                  <li> <a href="Admin_Validation-Inscription-Employeur.aspx">Valider inscription employeurs</a><br /></li>                 
+                <li><a href="Admin_editNouvelles.aspx">Gérer les nouvelles</a><br /></li>
+                              
+                  <li> <a href="Admin_Validation-Inscription-Etudiant.aspx">Valider inscriptions étudiants</a><br /></li>
+
+                  <li> <a href="Admin_Validation-Inscription-Employeur.aspx">Valider inscriptions employeurs</a><br /></li>                 
                   
                   <li> <a href="Admin_Vertic.aspx">Vertic</a><br /></li>
                
            </ul>
     </div>
         
+    <br/>
+
         <div class="col-lg-9">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
         </asp:ContentPlaceHolder>
-         </div>
-       </div>
+         </div>       
+
+        </div>
+      
 </asp:Content>

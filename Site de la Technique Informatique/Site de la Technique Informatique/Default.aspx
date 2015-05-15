@@ -9,7 +9,7 @@
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Bienvenue sur le site de la technique en informatique de gestion du Cégep de Granby
+                <h1 class="page-header">Bienvenue sur le site de techniques en informatique de gestion du Cégep de Granby
                 </h1>
             </div>
                 
@@ -26,7 +26,7 @@
                     <div class="item active">
                         <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                             <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                            <img src="~\Photos\logo\Logo_Informatique.jpg" height="400" width="500" />
+                            <img src="~/Upload/Photos/logo/Logo_Informatique.jpg" height="400" width="500" />
                         </div>
                         <div class="carousel-caption"></div>
                     </div>
@@ -40,7 +40,7 @@
                             <div class="item">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                                     <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# "~/" + Item.pathPhoto %>' Style="vertical-align: middle;" />
+                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# isLocal() ? "~/Upload/Photos/" + Item.pathPhoto : "~/../Upload/Photos/" + Item.pathPhoto %>' Style="vertical-align: middle;" />
                                 </div>
 
                                 <div class="carousel-caption">

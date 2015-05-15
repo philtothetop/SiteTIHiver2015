@@ -8,33 +8,6 @@ Extrants: --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%--<script type="text/javascript">
-        var count = 15;
-        var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
-        function timer(myImage) {
-            count = count - 1;
-            if (count <= 0) {
-                clearInterval(counter);
-                $('#toastModal').modal();                      // initialized with defaults
-                $('#toastModal').modal({ keyboard: false });   // initialized with no keyboard
-                $('#toastModal').modal('show');                // initializes and invokes show immediately
-                return;
-            }
-        }
-
-        function reset() {
-            count = 15;
-            counter = setInterval(timer, 1000);
-        }
-
-
-        function EasterEgg(myImage) {
-            if (myImage.title == "Karl.JPG") {
-                timer(myImage);
-            }
-        }
-    </script>--%>
-
     <!-- Header container -->
     <div class="container">
 
@@ -73,7 +46,7 @@ Extrants: --%>
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/Autres/quiSommesNous.jpg" alt="" />
+                <img src="Photos/Autres/QuiSommesNous.jpg" />
             </div>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>
@@ -142,46 +115,8 @@ Extrants: --%>
         </div>
         <!-- /.row -->
 
-        <!-- Élèves -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Nos Étudiants</h2>
-            </div>
-
-            <asp:ListView ID="lvEtudiants" runat="server"
-                ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
-                SelectMethod="lviewEtudiants_GetData"
-                GroupItemCount="6">
-
-                <EmptyDataTemplate>
-                    Aucune information disponible pour le moment.
-                </EmptyDataTemplate>
-
-                <ItemTemplate>
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <asp:Image runat="server" class="img-responsive customer-img" ToolTip='<%# Eval("prenom") != null && Eval("nom") != null ? Eval("prenom") + " " + Eval("nom") : "Étudiant" %>' ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' /> <%--onMouseOver="EasterEgg(this);" onMouseOut="reset();"--%>
-                    </div>
-                </ItemTemplate>
-
-                <LayoutTemplate>
-                    <asp:PlaceHolder ID="groupPlaceHolder" runat="server"></asp:PlaceHolder>
-                </LayoutTemplate>
-                <GroupTemplate>
-                    <div class="row">
-                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                    </div>
-                </GroupTemplate>
-                <GroupSeparatorTemplate>
-                    <div class="row">&nbsp;</div>
-                </GroupSeparatorTemplate>
-
-            </asp:ListView>
-
-        </div>
-        <!-- /.row -->
-
-        <hr />
-
+       
+        <!-- /.row -->      
     </div>
 
 
