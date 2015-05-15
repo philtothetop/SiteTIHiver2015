@@ -189,7 +189,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
 
                             String imageNom = (etudiantACreerCopie.prenom + etudiantACreerCopie.dateInscription.ToString()).GetHashCode() + "_125.jpg";
-                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Upload/Photos/Profils/"), imageNom);
+                            String imageProfilChemin = Path.Combine(Server.MapPath("~/ProjetDeux_2015_1/Upload/Photos/Profils/"), imageNom);
                             imageProfil.Save(imageProfilChemin);
                             etudiantACreerCopie.pathPhotoProfil = imageNom;
                         }
@@ -311,7 +311,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             hash hash = new hash();
 
             String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
-            String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority +Request.ApplicationPath+ "/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
+            String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority+"ProjetDeux_2015_1/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
             String titre = "Inscription TI Cegep de Granby";
             String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Merci de votre inscription sur le site de la technique informatique du Cégep de Granby, Cliquez sur le lien ci-dessous pour valider votre compte<br>"+"<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
@@ -340,7 +340,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 string cropFileName = "";
                 string cropFilePath = "";
                 cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Profils/"), cropFileName);
+                cropFilePath = Path.Combine(Server.MapPath("~/Upload/Photos/Profils/"), cropFileName);
             }
 
             return image;

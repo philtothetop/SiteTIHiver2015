@@ -351,6 +351,43 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
+        protected void btnDesactiver_Click(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                using (LeModelTIContainer leContext = new LeModelTIContainer())
+                {
+                    int idEtudiant = -1;
+                    Etudiant etudiantCo;
+
+                    if (Request.Cookies["TIUtilisateur"].Value.Equals("Etudiant"))
+                    {
+                        idEtudiant = int.Parse(e.CommandArgument.ToString()) ;
+
+                    }else if (Request.QueryString["id"] != null)
+                    {
+
+                        idEtudiant = int.Parse(Request.QueryString["id"].ToString());
+                    }
+                    if (idEtudiant != -1)
+                    {
+                        etudiantCo = (from etu in leContext.UtilisateurSet.OfType<Etudiant>() where etu.IDEtudiant == idEtudiant select etu).FirstOrDefault();
+                        etudiantCo.compteActif = 2;
+                        leContext.SaveChanges();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Exception logEx = ex;
+                throw new Exception("Erreur lvModifProfilEtudiant_Desactiver : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
+            }
+           
+        }
+
 
 
 

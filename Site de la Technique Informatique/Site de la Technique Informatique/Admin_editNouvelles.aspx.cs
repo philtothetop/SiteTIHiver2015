@@ -8,6 +8,7 @@ using Site_de_la_Technique_Informatique.Model;
 using System.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Validation;
+using System.Web.Services;
 
 namespace Site_de_la_Technique_Informatique
 {

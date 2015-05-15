@@ -100,6 +100,7 @@
                                 <li><a href="Vertic.aspx">Vertic</a> </li>
                                 <li><a href="InformationsStage.aspx">Stages</a> </li>
                                 <li><a href="Temoignages.aspx">Témoignages</a> </li>
+                                 <li><a href="LesParutionsMedias.aspx">Parutions média</a> </li>
 
                             </ul>
                         </li>
@@ -265,7 +266,7 @@
                             <ul>
                                 <li><a href="contact.aspx">Contactez-nous </a></li>
                                 <li><a href="concepteur.aspx">Concepteurs </a></li>
-                                <li><a href="LesParutionsMedias.aspx">Parutions média </a></li>
+                                
 
                             </ul>
                         </div>
@@ -275,6 +276,7 @@
                                 <li><a href="vertic.aspx">Vertic </a></li>
                                 <li><a href="InformationsStage.aspx">Stages </a></li>                          
                                 <li><a href="Temoignages.aspx">Témoignages </a></li>
+                                <li><a href="LesParutionsMedias.aspx">Parutions média </a></li>
 
                             </ul>
                         </div>

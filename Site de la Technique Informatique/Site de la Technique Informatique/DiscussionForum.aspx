@@ -4,6 +4,26 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script type="text/javascript" src="tinymce/plupload-2.1.2/js/plupload.full.min.js"></script>
+<script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        encoding: "xml",
+        plugins: ["image link media advlist autolink lists charmap preview hr anchor",
+                "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
+        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
+        language: 'fr_FR',              
+    });
+</script>
+<script>
+    function Encode() {
+        var value = (document.getElementById('TextBox1').value);
+        value = value.replace('<', "&lt;");
+        value = value.replace('>', "&gt;");
+        document.getElementById('txtMessage').value = value;
+    }
+ </script>
     <div class="container">
 
         <div class="row">
@@ -28,7 +48,7 @@
                         </div>
                         <div class="col-lg-7">
                             <br />
-                            <asp:Label ID="message" Text='<%# Eval("texteMessage").ToString()%>' Font-Size="12" runat="server"></asp:Label>
+                            <asp:Label ID="message" Text='<%# Server.HtmlDecode(Eval("texteMessage").ToString())%>' Font-Size="12" runat="server"></asp:Label>
                         </div>
                     </div>
                 </ItemTemplate>
