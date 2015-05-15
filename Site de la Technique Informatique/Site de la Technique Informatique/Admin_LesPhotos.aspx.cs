@@ -106,65 +106,57 @@ namespace Site_de_la_Technique_Informatique
                                 String imgData = ImgExSrc.Value;
                                 if (imgData != "" && imgData.Length>21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                                 {
-                                    //if (Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpg" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".png" || Path.GetExtension(fuplPhoto.PostedFile.FileName.ToLower()) == ".jpeg")
-                                    //{
-                                        try
+                                    try
+                                    {
+                                        //System.Drawing.Image imageAAjouter = System.Drawing.Image.FromStream(fuplPhoto.PostedFile.InputStream);
+                                        System.Drawing.Image imageAAjouter = LoadImage(imgData);
+
+                                        //Grosseur max est de 1000 px et minimum 120 px
+                                        imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
+
+                                        String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
+                                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlTypeDImage.Text + "/" + imageNom);
+                                        imageAAjouter.Save(imageProfilChemin);
+
+                                        //Sauvegarder image pour utiliser avec la bd
+                                        Model.Photos laPhotoBD = new Model.Photos();
+                                        laPhotoBD.pathPhoto = imageNom;
+                                        laPhotoBD.typePhoto = ddlTypeDImage.SelectedItem.Text;
+
+                                        TextBox txtbDescriptionPhotoAAjouter = (TextBox)lviewPhoto.Items[0].FindControl("txtbDescriptionPhotoAAjouter");
+
+                                        if (txtbDescriptionPhotoAAjouter.Text != null)
                                         {
-                                            //System.Drawing.Image imageAAjouter = System.Drawing.Image.FromStream(fuplPhoto.PostedFile.InputStream);
-                                            System.Drawing.Image imageAAjouter = LoadImage(imgData);
-
-                                            //Grosseur max est de 1000 px et minimum 120 px
-                                            imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
-
-                                            String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
-                                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlTypeDImage.Text + "/" + imageNom);
-                                            imageAAjouter.Save(imageProfilChemin);
-
-                                            //Sauvegarder image pour utiliser avec la bd
-                                            Model.Photos laPhotoBD = new Model.Photos();
-                                            laPhotoBD.pathPhoto = imageNom;
-                                            laPhotoBD.typePhoto = ddlTypeDImage.SelectedItem.Text;
-
-                                            TextBox txtbDescriptionPhotoAAjouter = (TextBox)lviewPhoto.Items[0].FindControl("txtbDescriptionPhotoAAjouter");
-
-                                            if (txtbDescriptionPhotoAAjouter.Text != null)
-                                            {
-                                                laPhotoBD.descriptionPhoto = txtbDescriptionPhotoAAjouter.Text;
-                                            }
-                                            else
-                                            {
-                                                laPhotoBD.descriptionPhoto = "";
-                                            }
-
-                                            //Faire un log pour l'action
-                                            Model.Log logPhoto = new Model.Log();
-                                            logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vient d'ajouter une photo sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
-                                            logPhoto.dateLog = DateTime.Now;
-                                            logPhoto.typeLog = 0;
-                                            logPhoto.Utilisateur = leProfCo;
-
-                                            modelTI.PhotosSet.Add(laPhotoBD);
-                                            modelTI.LogSet.Add(logPhoto);
-                                            modelTI.SaveChanges();
-
-                                            //Indiquer que cela a marché
-                                            divReussiAjouterImage.Visible = true;
-                                            divPasReussiAjouterImage.Visible = false;
-                                            divPourAjouterUnePhoto.Visible = false;
-
-                                            //lblEchecImage.Text = "";
+                                            laPhotoBD.descriptionPhoto = txtbDescriptionPhotoAAjouter.Text;
                                         }
-                                        catch (Exception ex)
+                                        else
                                         {
-                                            divPasReussiAjouterImage.Visible = true;
-                                            lblPasReussi.Text = "Nous avons eu un problème pour téléverser l'image.";
+                                            laPhotoBD.descriptionPhoto = "";
                                         }
-                                    //}
-                                    //else
-                                    //{
-                                    //    divPasReussiAjouterImage.Visible = true;
-                                    //    lblPasReussi.Text = "Mauvais format de l'image.";
-                                    //}
+
+                                        //Faire un log pour l'action
+                                        Model.Log logPhoto = new Model.Log();
+                                        logPhoto.actionLog = leProfCo.prenom + " " + leProfCo.nom + " vient d'ajouter une photo sur le serveur pour : " + ddlTypeDImage.SelectedValue.ToString() + ".";
+                                        logPhoto.dateLog = DateTime.Now;
+                                        logPhoto.typeLog = 0;
+                                        logPhoto.Utilisateur = leProfCo;
+
+                                        modelTI.PhotosSet.Add(laPhotoBD);
+                                        modelTI.LogSet.Add(logPhoto);
+                                        modelTI.SaveChanges();
+
+                                        //Indiquer que cela a marché
+                                        divReussiAjouterImage.Visible = true;
+                                        divPasReussiAjouterImage.Visible = false;
+                                        divPourAjouterUnePhoto.Visible = false;
+
+                                        //lblEchecImage.Text = "";
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        divPasReussiAjouterImage.Visible = true;
+                                        lblPasReussi.Text = "Nous avons eu un problème pour téléverser l'image.";
+                                    }
                                 }
                                 else
                                 {
@@ -279,6 +271,16 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 LogErreur("Admin_LesPhotos.aspx.cs dans la méthode GetLesPhotos", ex);
+            }
+
+            //Mettre dataPager visible ou non si Plus que le minimum affiché
+            if (listeDesPhotos.Count <= dataPagerPhotosSouvenirs.PageSize)
+            {
+                dataPagerPhotosSouvenirs.Visible = false;
+            }
+            else
+            {
+                dataPagerPhotosSouvenirs.Visible = true;
             }
 
             return listeDesPhotos.AsQueryable();

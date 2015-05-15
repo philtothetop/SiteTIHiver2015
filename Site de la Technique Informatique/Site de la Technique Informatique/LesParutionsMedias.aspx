@@ -48,7 +48,7 @@
                                 <div style="word-break:break-all; clear:both;">
                                     <asp:Label ID="lblDescription" runat="server" Text='<%# Item.descriptionParution %>'></asp:Label>
                                 </div>
-                                <asp:LinkButton ID="lnkVoirPDF" runat="server" CommandArgument='<%# Item.pathFichierPDF %>' OnClick="lnkPDF_Click">Voir l'article au complet</asp:LinkButton>
+                                <asp:LinkButton ID="lnkVoirPDF" runat="server" CommandArgument='<%# Item.pathFichierPDF %>' OnClick="lnkPDF_Click">Consulter l'article</asp:LinkButton>
                             </div>
                             
                         </ItemTemplate>
