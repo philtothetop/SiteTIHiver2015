@@ -9,10 +9,7 @@
     <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, image cropping, web development" />
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
-    <link href="­~/../css/bootstrap.min.css" rel="stylesheet" />
-    <link href="­~/../css/cropper.css" rel="stylesheet" />
-    <link href="­~/../css/docs.css" rel="stylesheet" />
-    <link href="­~/../Css/Inscription.css" rel="stylesheet" />
+ 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
