@@ -95,7 +95,7 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté d'aller chercher le message. " + ex.InnerException;
+                lblMessage.Text += "Une erreur est survenue lorsque nous avons tenté d'aller chercher le message. " + ex.InnerException;
             }
         }
 
@@ -223,7 +223,7 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 lblMessage.Attributes["style"] = "color:red;";
-                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de modifer la question de la FAQ : " + ex.InnerException;
+                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de modifer la question de la FAQ: " + ex.InnerException;
             }
         }
 
@@ -248,7 +248,7 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 lblMessage.Attributes["style"] = "color:red;";
-                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de supprimer une question de la FAQ : " + ex.InnerException;
+                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de supprimer une question de la FAQ: " + ex.InnerException;
             }
         }
 
