@@ -17,6 +17,11 @@ namespace Site_de_la_Technique_Informatique
 {
     public class ErrorHandling : System.Web.UI.Page
     {
+        protected bool isLocal()
+        {
+            return HttpContext.Current.Request.IsLocal;
+        }
+
         static Random rng = new Random();
 
         #region Error Handling
