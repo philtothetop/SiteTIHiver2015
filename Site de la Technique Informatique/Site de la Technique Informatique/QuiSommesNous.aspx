@@ -8,33 +8,6 @@ Extrants: --%>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%--<script type="text/javascript">
-        var count = 15;
-        var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
-        function timer(myImage) {
-            count = count - 1;
-            if (count <= 0) {
-                clearInterval(counter);
-                $('#toastModal').modal();                      // initialized with defaults
-                $('#toastModal').modal({ keyboard: false });   // initialized with no keyboard
-                $('#toastModal').modal('show');                // initializes and invokes show immediately
-                return;
-            }
-        }
-
-        function reset() {
-            count = 15;
-            counter = setInterval(timer, 1000);
-        }
-
-
-        function EasterEgg(myImage) {
-            if (myImage.title == "Karl.JPG") {
-                timer(myImage);
-            }
-        }
-    </script>--%>
-
     <!-- Header container -->
     <div class="container">
 
@@ -73,7 +46,7 @@ Extrants: --%>
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/Autres/quiSommesNous.jpg" alt="" />
+                <img src="Photos/Autres/QuiSommesNous.jpg" />
             </div>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>
