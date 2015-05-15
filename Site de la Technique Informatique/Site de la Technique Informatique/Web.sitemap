@@ -41,11 +41,11 @@
       <siteMapNode title="Inscriptions employeurs" url="~/Admin_Validation-Inscription-Employeur.aspx"/>
       <siteMapNode title="Inscriptions étudiants" url="~/Admin_Validation-Inscription-Etudiant.aspx"/>
       <siteMapNode title="Vertic" url="~/Admin_Vertic.aspx"/>
-      <siteMapNode title="Professeurs" url="~/Admin_AjouteSupprimeProf.aspx"/>
-      <siteMapNode title="Profils" url="~/Admin_Profil.aspx"/>
     </siteMapNode>
     <siteMapNode title="Modifier mon profil" url="~/ModifierProfesseur.aspx"/>
     <siteMapNode title="Modifier mon profil" url="~/ProfilEtudiant.aspx"/>
     <siteMapNode title="Ajout professeur" url="~/AjoutProfesseur.aspx"/>
+    <siteMapNode title="Professeurs" url="~/Admin_AjouteSupprimeProf.aspx"/>
+    <siteMapNode title="Modifier profil" url="~/Admin_Profil.aspx"/>
   </siteMapNode>
 </siteMap>

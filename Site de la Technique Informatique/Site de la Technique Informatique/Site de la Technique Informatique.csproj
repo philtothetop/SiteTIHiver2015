@@ -107,7 +107,6 @@
     <Content Include="Admin_Media.aspx" />
     <Content Include="Admin_Profil.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
-    <Content Include="Admin_SupprimerPhoto.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
     <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
@@ -401,13 +400,6 @@
     </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.designer.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_SupprimerPhoto.aspx.cs">
-      <DependentUpon>Admin_SupprimerPhoto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_SupprimerPhoto.aspx.designer.cs">
-      <DependentUpon>Admin_SupprimerPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Temoignage.aspx.cs">
       <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
@@ -822,6 +814,7 @@
     <Folder Include="Photos\Souvenir\Projets\" />
     <Folder Include="Photos\Souvenir\Étudiants\" />
     <Folder Include="tinymce\Upload\CV\" />
+    <Folder Include="Upload\CV\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

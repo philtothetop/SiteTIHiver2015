@@ -95,13 +95,16 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté d'aller chercher le message. " + ex.InnerException;
+                lblMessage.Text += "Une erreur est survenue lorsque nous avons tenté d'aller chercher le message. " + ex.InnerException;
             }
         }
 
         protected void btnAjouter_Click(object sender, EventArgs e)
         {
             // Sert à ajouter une question à la FAQ 
+
+            txtAjouterQuestion.BorderColor = Color.LightGray;
+            txtAjouterReponse.BorderColor = Color.LightGray;
 
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
@@ -170,6 +173,7 @@ namespace Site_de_la_Technique_Informatique
         {
             // Sert à modifier une question de la FAQ
 
+            
             try
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
@@ -178,6 +182,9 @@ namespace Site_de_la_Technique_Informatique
                     Model.FAQ questionAMod = (from question in lecontexte.FAQSet where question.IDFAQ == ID select question).FirstOrDefault();
                     TextBox txtQuestion = lviewModifFAQ.Items[0].FindControl("txtQuestion") as TextBox;
                     TextBox txtReponse = lviewModifFAQ.Items[0].FindControl("txtReponse") as TextBox;
+
+                    txtQuestion.BorderColor = Color.LightGray;
+                    txtReponse.BorderColor = Color.LightGray;
 
                     if (txtQuestion.ToString().Length > 150)
                     {
@@ -216,7 +223,7 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 lblMessage.Attributes["style"] = "color:red;";
-                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de modifer la question de la FAQ : " + ex.InnerException;
+                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de modifer la question de la FAQ: " + ex.InnerException;
             }
         }
 
@@ -241,7 +248,7 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 lblMessage.Attributes["style"] = "color:red;";
-                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de supprimer une question de la FAQ : " + ex.InnerException;
+                lblMessage.Text += "Une erreur est survenue lorsque l'on a tenté de supprimer une question de la FAQ: " + ex.InnerException;
             }
         }
 

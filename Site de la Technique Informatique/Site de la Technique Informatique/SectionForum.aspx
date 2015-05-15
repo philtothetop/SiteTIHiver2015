@@ -20,14 +20,12 @@
         <div class="row">
             <asp:ListView ID="lviewSectionsForum" runat="server" SelectMethod="getSectionsForum">
                 <ItemTemplate>
-                    <asp:LinkButton ID="lnkSection" CssClass="couleurGris" CommandArgument='<%# Eval("IDSectionForum").ToString()%>' OnClick="lnkSection_Click" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 60%; border-radius: 5px; text-decoration: none; color: black;">
+                    <asp:LinkButton ID="lnkSection" CssClass="couleurGris" CommandArgument='<%# Eval("IDSectionForum").ToString()%>' OnClick="lnkSection_Click" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 60%; border-radius: 5px; text-decoration: none; color: black; margin-top:5px">
                         <div class="col-lg-offset-1">
                             <asp:Label ID="lblTitreSection" Text='<%# Eval("titreSection").ToString()%>' Font-Size="14" runat="server"></asp:Label>
                             <br />
                             <asp:Label ID="lblDescriptionSection" Text='<%# Eval("descriptionSection").ToString()%>' Font-Size="12" runat="server"></asp:Label>
                         </div>
-                        <br />
-                        <br />
                     </asp:LinkButton>
                 </ItemTemplate>
                 <LayoutTemplate>

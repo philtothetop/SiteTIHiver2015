@@ -216,7 +216,8 @@ Extrants: --%>
                         </div>
                         <div class="row"></div>
                         <div class="col-lg-offset-8 col-lg-8 ">
-                            <%--<asp:Button ID="btnDesactiver" runat="server" Text="Supprimer" CssClass="btn btn-primary" CommandName="Delete" />--%>
+                            <asp:Label ID="lblid" runat="server" Text='<%=#Eval("IDEtudiant")%>'/>
+                            <asp:Button ID="btnDesactiver" runat="server" Text="Supprimer" CssClass="btn btn-primary" CommandName="Delete" />
                             <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" OnClientClick="copieImgData()" />
                         </div>
                     </ItemTemplate>
