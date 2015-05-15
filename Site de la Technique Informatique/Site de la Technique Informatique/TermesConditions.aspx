@@ -43,7 +43,7 @@ manière par laquelle l’utilisateur accède au site et utilise ses services.
 
 Toute connexion au site est subordonnée au respect des présentes conditions.
 
-Pour l’utilisateur, le simple accès au site de l’EDITEUR à l’adresse URL suivante (URL du site)  
+Pour l’utilisateur, le simple accès au site de l’EDITEUR à l’adresse URL suivante http://sqlinfo.cegepgranby.qc.ca/ProjetDeux_2015_1/  
 
 implique l’acceptation de l’ensemble des conditions décrites ci-après
                 </p>
