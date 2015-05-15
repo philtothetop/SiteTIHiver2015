@@ -22,6 +22,7 @@ namespace Site_de_la_Technique_Informatique
     public partial class ModifierProfesseur : ErrorHandling
     {
         public Professeur currentProf;
+        
 
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
@@ -33,16 +34,22 @@ namespace Site_de_la_Technique_Informatique
             lblCoursErreurs.Visible = false;
             ddlCours.Enabled = ddlCours.Items.Count > 0 ? true : false;
             btnModif.Enabled = ddlCours.Enabled;
-
+            
+            if (ddlCours.Items.Count > 0)
+            {
+                ddlCours.Enabled = true;
+                btnModif.Enabled = true;
+            }
             if (!Page.IsPostBack)
             {
 
-
+                ddlCours.DataBind();
                 divSuccess.Attributes["style"] = "visibility:hidden";
                 divWarning.Attributes["style"] = "visibility:hidden";
             }
-
-
+           
+            
+                
         }
 
         #endregion
@@ -278,10 +285,13 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
+                    
                     nbCours = ((from cours in lecontexte.CoursSet.OfType<Cours>() select cours).ToList());  //génère une liste des membres pour en avoir un nombre de membres et générer le bon ID Utilisateur
-                    newCours = ((from cours in lecontexte.CoursSet.OfType<Cours>() where cours.IDCours == nbCours.Count select cours).ToList());
-
-                }
+                    if (!string.IsNullOrEmpty(ddlCours.SelectedValue)) { 
+                    int selectedCours = int.Parse(ddlCours.SelectedValue);
+                    newCours = ((from cours in lecontexte.CoursSet.OfType<Cours>() where cours.IDCours == selectedCours select cours).ToList());
+                    }
+               
 
                 if ((string)ViewState["mode"] + "" == "ajoute")  // SEULEMENT UN MEDIA «VIDE»
                 {
@@ -295,12 +305,16 @@ namespace Site_de_la_Technique_Informatique
                     coursVide.Professeur.Add(currentProf);
                     newCours.Add(coursVide);
                 }
+                else
+                {
 
+                }
 
+                }
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "ERREUR AVEC LE MÉDIA, " + ex.ToString();
+                lblMessage.Text += "ERREUR AVEC LE COURS, " + ex.ToString();
             }
             return newCours.AsQueryable();
         }
@@ -335,6 +349,7 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
+                
                 Cours leCoursAUpdaterCopie = new Cours();
                 if ((string)ViewState["mode"] == "édite")
                 {
@@ -343,7 +358,8 @@ namespace Site_de_la_Technique_Informatique
                 else
                 { leCoursAUpdaterCopie = leCoursAUpdater;
                 leCoursAUpdaterCopie.noSessionCours = short.Parse(ddlSession.SelectedValue);
-                leCoursAUpdaterCopie.Professeur.Add(currentProf);
+                leCoursAUpdaterCopie.Professeur = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDProfesseur == currentProf.IDProfesseur).ToList();
+                
                 
                 }
 
@@ -372,6 +388,7 @@ namespace Site_de_la_Technique_Informatique
                         if ((string)ViewState["mode"] == "ajoute")
                         {
                             lecontexte.Set<Cours>().Add(leCoursAUpdaterCopie);
+                            
                         }
 
                         lecontexte.SaveChanges();
@@ -387,11 +404,16 @@ namespace Site_de_la_Technique_Informatique
                             {
                                 lblCoursErreurs.Text += "- Property: \"{0}\", Error: \"{1}\"" +
                                     ve.PropertyName + ve.ErrorMessage;
+                                lblCoursErreurs.Visible = true;
                             }
                         }
                     }
                     ViewState["mode"] = "édite";
                     ddlCours.DataBind();
+                    ddlCours.Enabled = true;
+                    btnModif.Enabled = true;
+                    lvModifierCours.Visible = false;
+
                 }
             }
         }
@@ -402,13 +424,17 @@ namespace Site_de_la_Technique_Informatique
                 try
                 {
                     Cours cours = (lecontexte.Set<Cours>().SingleOrDefault(x => x.IDCours == coursASupprimer.IDCours));
-
+                    Professeur leProf = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDProfesseur == currentProf.IDProfesseur).FirstOrDefault();
+                    leProf.Cours.Remove(cours);
                     lecontexte.CoursSet.Remove(cours);
-
                     lecontexte.SaveChanges();
                     lvModifierCours.DataBind();
-                    ddlCours.DataBind();
                     lvModifierCours.Visible = false;
+                    ddlCours.DataBind();
+                    if (ddlCours.Items.Count < 1) { 
+                    ddlCours.Enabled = false;
+                    btnModif.Enabled = false;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -420,8 +446,10 @@ namespace Site_de_la_Technique_Informatique
 
         protected void btnModif_Click(object sender, EventArgs e)
         {
+          
             lvModifierCours.DataBind();
             lvModifierCours.Visible = true;
+            ViewState["mode"] ="édite";
         }
 
         protected void btnAjout_Click(object sender, EventArgs e)
@@ -448,8 +476,10 @@ namespace Site_de_la_Technique_Informatique
                 {
                     if (e.Item.ItemType == ListViewItemType.DataItem)
                     {
-                        Cours currentCours = (Cours)e.Item.DataItem;                    
-                        Cours leCours = (lecontexte.Set<Cours>().SingleOrDefault(cours => cours.IDCours == currentCours.IDCours));
+                        int currentCours = int.Parse(ddlCours.SelectedValue);
+
+                                     
+                        Cours leCours = (lecontexte.Set<Cours>().SingleOrDefault(cours => cours.IDCours == currentCours));
                                                 
                     }
                 }
@@ -464,6 +494,7 @@ namespace Site_de_la_Technique_Informatique
         protected void ddlSession_SelectedIndexChanged(object sender, EventArgs e)
         {
             ddlCours.DataBind();
+            lvModifierCours.Visible = false;
             if (ddlCours.Items.Count > 0)
             {
                 ddlCours.Enabled = true;
@@ -478,6 +509,10 @@ namespace Site_de_la_Technique_Informatique
                 btnModif.Enabled = false;
             }
         }
+
+       
+
+        
 
 
 

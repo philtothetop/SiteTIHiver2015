@@ -9,10 +9,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Recherche
-                   
-                </h1>
-               
+                <h1 class="page-header">Recherche de Membres</h1>
             </div>
         </div>
         <!-- /.row -->
@@ -22,23 +19,23 @@
             <div class="col-lg-12">
 
                 <div class="well">
+                    <asp:Panel runat="server" DefaultButton="btnRecherche">
+                    <div style="padding-top: 5px;">
+                        <asp:CheckBox id="chkbEtudiant" runat="server" Text="Étudiant" Checked="true" />
+                        <br />
+                        <asp:CheckBox id="chkbProfesseur" runat="server" Text="Professeur" Checked="true" />
+                    </div>
 
                     <div>
                         <div>
-                            <asp:TextBox runat="server" ID="txtNomMembre"></asp:TextBox>
-                        </div>
-
-                        <div>
+                            <asp:TextBox runat="server" ID="txtNomMembre" placeholder="Entrez un nom/prénom" Width="200"></asp:TextBox>
                             <asp:Button runat="server" ID="btnRecherche" class="btn btn-default" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
-                            
+
                         </div>
                     </div>
 
-
-                    <div style="padding-top: 5px;">
-                        <asp:RadioButton ID="rdbEtudiant" Text="Étudiant" runat="server" GroupName="rdbChoix" Checked="true" />
-                        <asp:RadioButton ID="rdbProfesseur" Text="Professeur" runat="server" GroupName="rdbChoix" />
-                    </div>
+                        </asp:Panel>
+                    
 
                 </div>
                 </div>
@@ -47,7 +44,7 @@
 
             <br />
         
-            <asp:Panel ID="panelResultats" runat="server" Visible="false">
+            <asp:Panel ID="panelResultats" runat="server" DefaultButton="">
 
                 <div class="col-lg-12">
                 <asp:ListView runat="server"
@@ -66,7 +63,7 @@
                     <ItemTemplate>
                        
                         <div class="col-lg-6" style="float:left;">
-                        <asp:LinkButton ID="lnkMembre" CssClass="couleurGris" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="border-radius: 5px; text-align:center; width:100%;">
+                        <asp:LinkButton ID="lnkMembre" CssClass="couleurGris" Text="" runat="server" OnClick="lnkMembre_Click" CommandArgument='<%# Item.IDUtilisateur %>' BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="border-radius: 5px; text-align:center; width:100%;">
                           
                                     <div class="col-lg-2" style="text-align: left;">
                                         <asp:Image ID="photoProfil" runat="server" Width="75px" Height="75px" ImageUrl='<%# Item.pathPhotoProfil %>'></asp:Image>
