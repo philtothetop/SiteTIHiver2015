@@ -115,8 +115,6 @@
 
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
-<script src="JS/bootstrap.js"></script>
-
 <h1 class="page-header">Photos</h1>
     
     <asp:MultiView ID="mviewLesPhotos" runat="server" ActiveViewIndex="0">
