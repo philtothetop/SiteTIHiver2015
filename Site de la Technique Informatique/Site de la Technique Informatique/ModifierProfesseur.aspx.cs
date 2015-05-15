@@ -27,7 +27,7 @@ namespace Site_de_la_Technique_Informatique
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false,false);
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
 
@@ -494,6 +494,8 @@ namespace Site_de_la_Technique_Informatique
         protected void ddlSession_SelectedIndexChanged(object sender, EventArgs e)
         {
             ddlCours.DataBind();
+            ClientScriptManager cs = Page.ClientScript;
+            cs.RegisterStartupScript(this.GetType(), "changeTabs","debugger; var tabToShow = document.getElementById('<%= hidTab.ClientID%>').value; $(#myTab a[href=# cours]).tab('show');");
             lvModifierCours.Visible = false;
             if (ddlCours.Items.Count > 0)
             {

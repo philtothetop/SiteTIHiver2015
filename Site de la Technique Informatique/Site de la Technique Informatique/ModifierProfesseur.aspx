@@ -11,7 +11,6 @@
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="Js/bootstrap.min.js"></script>
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
@@ -67,8 +66,8 @@
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:HiddenField runat="server" ID="hidTab" Value="informations" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
-
-    <div class="container">
+    <br />
+    <div class="container" style="margin-top:80px;">
         <ul class="nav nav-tabs" id="myTab">
             <li role="presentation" class="active"><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs('informations')">Informations générales</a></li>
             <li role="presentation"><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('cours') ">Mes Cours</a></li>
