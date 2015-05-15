@@ -10,28 +10,36 @@ using Site_de_la_Technique_Informatique.Model;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Vertic : System.Web.UI.Page
+    public partial class Vertic : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
-        {        
-            HtmlControl body = Master.FindControl("pageBody") as HtmlControl;
-            body.Attributes.Add("data-spy", "scroll");
-            body.Attributes.Add("data-target", ".scrolltarget");
-            body.Attributes.Add("data-offset", "20");
-            body.Attributes.Add("style", "position:relative; overflow:auto;");
+        {
+            try
+            {
 
-            string caract = getCaracteristiquePortable();
-            txtCaractPortatif.Text = caract;
-            string autres = getAutresPortable();
-            txtAutres.Text = autres;
-            string licences = getLicences();
-            txtLogicielLicenses.Text = licences;
-            string libres = getLibres();
-            txtLogicielLibres.Text = libres;
+                HtmlControl body = Master.FindControl("pageBody") as HtmlControl;
+                body.Attributes.Add("data-spy", "scroll");
+                body.Attributes.Add("data-target", ".scrolltarget");
+                body.Attributes.Add("data-offset", "20");
+                body.Attributes.Add("style", "position:relative; overflow:auto;");
+
+                string caract = getCaracteristiquePortable();
+                txtCaractPortatif.Text = caract;
+                string autres = getAutresPortable();
+                txtAutres.Text = autres;
+                string licences = getLicences();
+                txtLogicielLicenses.Text = licences;
+                string libres = getLibres();
+                txtLogicielLibres.Text = libres;
+            }
+            catch (Exception ex)
+            {
+                LogErreur("Vertic-Page_Load", ex);
+            }
         }
 
         public String getCaracteristiquePortable()
-        {
+        {           
             string caracteristiquePortable = "";
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
@@ -39,6 +47,7 @@ namespace Site_de_la_Technique_Informatique
                 caracteristiquePortable = (from description in lecontexte.VerTICSet select description.caractéristiquesPortable).FirstOrDefault();
             }
             return caracteristiquePortable;
+
         }
         public String getAutresPortable()
         {

@@ -11,7 +11,7 @@ using System.Data.Entity.Validation;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class temp_editNouvelles : System.Web.UI.Page
+    public partial class temp_editNouvelles : ErrorHandling
     {
         public int id = 1;
         protected void Page_Load(object sender, EventArgs e)

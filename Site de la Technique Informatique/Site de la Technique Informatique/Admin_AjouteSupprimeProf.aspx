@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_AjouteSupprimeProf.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_AjouteSupprimeProf" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Admin_AjouteSupprimeProf.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_AjouteSupprimeProf" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -71,7 +71,7 @@
                             <div class="row" runat="server" id="divComplete" visible ="false">
                                 <div class="col-md-12">
                                     <h2>Le professeur a été ajouté.</h2>
-                                    <asp:LinkButton ID="lnkRetourAccueil" runat="server" CssClass="btn btn-default" Text="Accueil" OnClick="lnkRetourAccueil_Click" />
+                                    <asp:LinkButton ID="lnkAjouterUnAutreProf" runat="server" CssClass="btn btn-default" Text="Ajouter un autre professeur" OnClick="lnkAjouterUnAutreProf_Click" />
                                 </div>
                             </div>
                 
@@ -84,12 +84,6 @@
 
                     <h1>Supprimer un Professeur</h1>
                     <br />
-
-
-
-
-
-
 
 
                 <asp:ListView runat="server"
