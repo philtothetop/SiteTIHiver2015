@@ -24,7 +24,7 @@
     <script src="/ProjetDeux_2015_2/Js/scrolling-nav.js"></script>
     <script src="Js/jquery.js"></script>
     <script type="text/javascript"></script>
-   
+    <script src="Js/bootstrap.js"></script>
 
 
     <script type="text/javascript">
@@ -316,7 +316,4 @@
 
     </form>
 </body>
-
-     <script src="Js/bootstrap.js"></script>
-
 </html>
