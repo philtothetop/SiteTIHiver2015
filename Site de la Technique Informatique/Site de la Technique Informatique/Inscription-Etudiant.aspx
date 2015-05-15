@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inscription-Etudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Inscription" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="../Css/Inscription.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -10,10 +9,10 @@
     <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, image cropping, web development" />
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
-    <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="Cropper/css/cropper.css" rel="stylesheet" />
-    <link href="Cropper/css/docs.css" rel="stylesheet" />
-    <link href="../Css/Inscription.css" rel="stylesheet" />
+    <link href="­~/../css/bootstrap.min.css" rel="stylesheet" />
+    <link href="­~/../css/cropper.css" rel="stylesheet" />
+    <link href="­~/../css/docs.css" rel="stylesheet" />
+    <link href="­~/../Css/Inscription.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

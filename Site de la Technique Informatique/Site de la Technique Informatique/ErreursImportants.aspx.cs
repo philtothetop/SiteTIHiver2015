@@ -23,6 +23,7 @@ namespace Site_de_la_Technique_Informatique
             if (ex != null)
             {
                 lblErreurs.Text = ex.Message;
+                lblInnerTrace.Text = ex.InnerException.Message;
                 error.Visible = true;
             }
 
@@ -31,14 +32,14 @@ namespace Site_de_la_Technique_Informatique
 
         protected void Redirect_Click(object sender, EventArgs e)
         {
-            if (isLocal())
-            {
+            //if (isLocal())
+            //{
                 Response.Redirect("~/Default.aspx");
-            }
-            else
-            {
-                Response.Redirect("~/../Default.aspx");
-            }
+            //}
+            //else
+            //{
+            //    Response.Redirect("~/../Default.aspx");
+            //}
         }
 
     }
