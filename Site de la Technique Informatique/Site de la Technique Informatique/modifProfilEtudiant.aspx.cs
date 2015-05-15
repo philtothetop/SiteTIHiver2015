@@ -336,6 +336,8 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
+                    
+
                     Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
                     etudiant.compteActif = 2;
                     leContext.SaveChanges();
@@ -348,6 +350,8 @@ namespace Site_de_la_Technique_Informatique
                 throw new Exception("Erreur lvModifProfilEtudiant_DeleteItem : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
+
+
 
 
     }

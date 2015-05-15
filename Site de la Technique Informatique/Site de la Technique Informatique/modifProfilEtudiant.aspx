@@ -119,7 +119,7 @@ Extrants: --%>
                                 <div class="modif-photo">
                                     <div class="img-thumbnail img-photo preview-photo">
                                         <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#"Upload/Photos/Profils/"+Eval("pathPhotoProfil") %>' Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#"~/../Upload/Photos/Profils/"+Eval("pathPhotoProfil") %>' Width="125" Height="125" />
                                     </div>
                                     <div class="div-btnChangerPhoto">
                                         <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
@@ -216,7 +216,7 @@ Extrants: --%>
                         </div>
                         <div class="row"></div>
                         <div class="col-lg-offset-8 col-lg-8 ">
-                            <asp:Button ID="btnDesactiver" runat="server" Text="Supprimer" CssClass="btn btn-primary" CommandName="Delete" />
+                            <%--<asp:Button ID="btnDesactiver" runat="server" Text="Supprimer" CssClass="btn btn-primary" CommandName="Delete" />--%>
                             <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" OnClientClick="copieImgData()" />
                         </div>
                     </ItemTemplate>

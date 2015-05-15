@@ -15,6 +15,8 @@
     <siteMapNode title="Membres" url="~/recherche.aspx"/>
     <siteMapNode title="Inscription étudiant" url="~/Inscription-Etudiant.aspx"/>
     <siteMapNode title="Inscription employeur" url="~/Inscription-Employeur.aspx"/>
+    <siteMapNode title="Inscription" url="~/Inscription-message.aspx"/>
+    <siteMapNode title="Inscription" url="~/Inscription-valide.aspx"/>
     <siteMapNode title="Offres d'emploi" url="~/listeOffresEmploi.aspx">
       <siteMapNode title="Ajouter une offre" url="~/AjoutOffreEmploi.aspx"/>
       <siteMapNode title="Offre d'emploi" url="~/OffreEmploi.aspx"/>
@@ -39,6 +41,8 @@
       <siteMapNode title="Inscriptions employeurs" url="~/Admin_Validation-Inscription-Employeur.aspx"/>
       <siteMapNode title="Inscriptions étudiants" url="~/Admin_Validation-Inscription-Etudiant.aspx"/>
       <siteMapNode title="Vertic" url="~/Admin_Vertic.aspx"/>
+      <siteMapNode title="Professeurs" url="~/Admin_AjouteSupprimeProf.aspx"/>
+      <siteMapNode title="Profils" url="~/Admin_Profil.aspx"/>
     </siteMapNode>
     <siteMapNode title="Modifier mon profil" url="~/ModifierProfesseur.aspx"/>
     <siteMapNode title="Modifier mon profil" url="~/ProfilEtudiant.aspx"/>
