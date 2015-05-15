@@ -8,8 +8,8 @@
 
     <h1 class="page-header">Témoignages</h1>
 
-    <asp:Button ID="btnVoirTemoignageNonValide" runat="server" Text="Témoignages non-validés" CssClass="btn btnTemoignageSelectionne" OnClick="VoirTemoignageNonValide_Click" />
-    <asp:Button ID="btnVoirTemoignageValide" runat="server" Text="Témoignages validés" CssClass="btn btn-default" OnClick="VoirTemoignageValide_Click" />
+    <asp:Button ID="btnVoirTemoignageNonValide" runat="server" Text="Témoignages non-validés" CssClass="btn btn-primary" OnClick="VoirTemoignageNonValide_Click" />
+    <asp:Button ID="btnVoirTemoignageValide" runat="server" Text="Témoignages validés" CssClass="btn btn-primary" OnClick="VoirTemoignageValide_Click" />
 
 
     <asp:ListView ID="lviewTemoignage" runat="server"
@@ -29,7 +29,7 @@
                 <br />
                 <br />
                 <div id="divPourAccepterTemoignage" runat="server" visible='<%# savoirSiEstUnEtudiant(Item) %>' style="float: left;">
-                    <asp:Button ID="btnAccepterTemoignage" runat="server" Text="Accepter" CssClass="btn btn-success" CommandArgument='<%# Item.IDMembre %>' OnClick="AccepterTemoignage_Click" />
+                    <asp:Button ID="btnAccepterTemoignage" runat="server" Text="Accepter" CssClass="btn btn-primary" CommandArgument='<%# Item.IDMembre %>' OnClick="AccepterTemoignage_Click" />
 
                 </div>
                 <div style="float: right;">

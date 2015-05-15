@@ -10,7 +10,7 @@
 
     <%--lien du favicon a la racine--%>
 
-    <link rel="icon" href="toast.gif" type="image/gif" />
+    <link rel="icon" href="logoCegep.png" type="image/png" />
     <link href="Css/bootstrap.min.css" rel="stylesheet" />
     <link href="Css/modern-business.css" rel="stylesheet" />
     <link href="Css/customStyleSheet.css" rel="stylesheet" />
@@ -132,7 +132,7 @@
 
 
                         <li runat="server" id="lblAjouterProfesseur" >
-                            <a href="Admin_AjouteSupprimeProf.aspx">Inscrire un professeur</a>
+                            <a href="Admin_AjouteSupprimeProf.aspx">Inscrire ou supprimer un professeur</a>
                         </li>
 
                         <li runat="server" id="lblProfilAdmin">

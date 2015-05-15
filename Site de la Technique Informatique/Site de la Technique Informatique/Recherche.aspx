@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Recherche de membres" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Recherche.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Recherche" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Recherche.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Recherche" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 
@@ -29,7 +29,7 @@
                     <div>
                         <div>
                             <asp:TextBox runat="server" ID="txtNomMembre" placeholder="Entrez un nom/prénom" Width="200"></asp:TextBox>
-                            <asp:Button runat="server" ID="btnRecherche" class="btn btn-default" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
+                            <asp:Button runat="server" ID="btnRecherche" class="btn btn-primary" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
 
                         </div>
                     </div>

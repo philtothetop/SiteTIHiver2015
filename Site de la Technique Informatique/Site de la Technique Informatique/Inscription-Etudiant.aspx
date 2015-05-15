@@ -190,8 +190,8 @@
                                     </div>
 
                                 </div>
-                                <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-default" OnClientClick="goBack()" />
-                                <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
+                                <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-danger" OnClientClick="goBack()" />
+                                <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-primary" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 
                                 <!-- Modal Termes et conditions-->
                                 <div class="modal fade" id="mesConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

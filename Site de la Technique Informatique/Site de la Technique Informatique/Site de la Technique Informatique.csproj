@@ -187,7 +187,7 @@
     <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
     <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
     <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
-    <Content Include="Photos\logoCegep.png" />
+    <Content Include="logoCegep.png" />
     <Content Include="Photos\Concepteurs\Baron.JPG" />
     <Content Include="Photos\Concepteurs\Bibeau.JPG" />
     <Content Include="Photos\Concepteurs\Jacob.JPG" />
@@ -357,6 +357,11 @@
     <Content Include="tinymce\js\tinymce\plugins\justboil.me\config.php" />
     <Content Include="tinymce\js\tinymce\plugins\justboil.me\is_allowed.php" />
     <Content Include="tinymce\js\tinymce\plugins\justboil.me\readme" />
+    <Content Include="Upload\Media\AnalysePreliminaire.pdf" />
+    <Content Include="Upload\Media\Exemple product Backlog.pdf" />
+    <Content Include="Upload\Media\Les tests en SCRUM.pdf" />
+    <Content Include="Upload\Media\plan420616H15.pdf" />
+    <Content Include="Upload\Cours\grilles_informatique.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
