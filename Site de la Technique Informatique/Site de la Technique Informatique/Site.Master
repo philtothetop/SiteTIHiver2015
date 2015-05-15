@@ -132,7 +132,7 @@
 
 
                         <li runat="server" id="lblAjouterProfesseur" >
-                            <a href="Admin_AjouteSupprimeProf.aspx">Inscrire un professeur</a>
+                            <a href="Admin_AjouteSupprimeProf.aspx">Inscrire ou supprimer un professeur</a>
                         </li>
 
                         <li runat="server" id="lblProfilAdmin">
