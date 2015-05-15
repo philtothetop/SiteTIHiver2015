@@ -27,7 +27,7 @@ namespace Site_de_la_Technique_Informatique
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false,false);
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
 
