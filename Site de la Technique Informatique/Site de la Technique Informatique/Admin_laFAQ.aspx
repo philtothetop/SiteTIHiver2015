@@ -8,6 +8,7 @@ Extrants: --%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+  
 <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
     tinymce.init({
@@ -24,8 +25,7 @@ Extrants: --%>
     <div class="row">
         <div class="col-lg-8">
             <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-            <h1>Gérer la FAQ</h1>
-            <p>Sur cette page, vous pouvez modifier, ajouter ou supprimer des questions de la Foire aux questions.</p>
+            <h1 class="page-header">FAQ</h1>
         </div>
     </div>
     <%-- Ajouter une question --%>
@@ -95,7 +95,6 @@ Extrants: --%>
         </div>
     </div>
 
-
-
+   
 
 </asp:Content>

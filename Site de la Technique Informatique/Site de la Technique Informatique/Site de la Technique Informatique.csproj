@@ -198,6 +198,7 @@
     <Content Include="Photos\Concepteurs\Xavier.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
+    <Content Include="ProfilProfesseur.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
     <Content Include="SectionForum.aspx" />
@@ -831,6 +832,13 @@
     </Compile>
     <Compile Include="ProfilEtudiant.aspx.designer.cs">
       <DependentUpon>ProfilEtudiant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilProfesseur.aspx.cs">
+      <DependentUpon>ProfilProfesseur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfilProfesseur.aspx.designer.cs">
+      <DependentUpon>ProfilProfesseur.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuiSommesNous.aspx.cs">

@@ -30,17 +30,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField runat="server" ID="ImgExSrc" />
-
-        <asp:ScriptManagerProxy ID="smProxy" runat="server" />
+    <asp:ScriptManagerProxy ID="smProxy" runat="server" />
 
     <div class="container">
         <div class="col-lg-3"></div>
         <div class="row row-centered">
             <div class="col-lg-5 col-centered">
-                <h1>Inscription Employeur</h1>
+                <h1>Inscription d'un employeur</h1>
             </div>
-
         </div>
+
         <div class="col-lg-3"></div>
         <asp:ListView ID="lviewFormulaireInscriptionEmployeur" runat="server"
             ItemType="Site_de_la_Technique_Informatique.Model.Employeur"
