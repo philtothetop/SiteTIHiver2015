@@ -79,7 +79,7 @@ Extrants: --%>
         };
     </script>
     <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField runat="server" ID="ImgExSrc" />
@@ -134,7 +134,7 @@ Extrants: --%>
                                                 <h4 class="modal-title" id="myModalLabelProfile">Photo profil</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <iframe src="../Jquery/Cropper/Cropper.aspx" width="570" height="625" scrolling="no" frameborder="0"></iframe>
+                                                <iframe src='<%=".."+Request.ApplicationPath +"/Jquery/Cropper/Cropper.aspx"%>' width="570" height="625" scrolling="no" frameborder="0"></iframe>
 
                                             </div>
                                         </div>

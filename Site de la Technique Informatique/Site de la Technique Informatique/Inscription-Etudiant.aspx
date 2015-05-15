@@ -20,7 +20,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>-->
     <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
         function openModal() {
             $('#maPhotoProfile').modal('show');
@@ -105,7 +104,7 @@
                                 <div class="modif-photo">
                                     <div class="img-thumbnail img-photo preview-photo">
                                         <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl="Photos/Profils/photobase.bmp" Width="125" Height="125" />
                                     </div>
                                     <div class="div-btnChangerPhoto">
                                         <a href="#maPhotoProfile" class="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" data-backdrop="static" data-keyboard="false">Changer la photo du profil</a>
