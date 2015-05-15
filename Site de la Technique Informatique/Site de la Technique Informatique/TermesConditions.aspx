@@ -9,7 +9,7 @@
 
     <%--lien du favicon a la racine--%>
 
-    <link rel="icon" href="toast.gif" type="image/gif" />
+    <link rel="icon" href="logoCegep.png" type="image/png" />
     <link href="Css/bootstrap.min.css" rel="stylesheet" />
     <link href="Css/modern-business.css" rel="stylesheet" />
     <link href="Css/customStyleSheet.css" rel="stylesheet" />
