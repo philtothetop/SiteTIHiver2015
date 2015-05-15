@@ -142,46 +142,8 @@ Extrants: --%>
         </div>
         <!-- /.row -->
 
-        <!-- Élèves -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Nos Étudiants</h2>
-            </div>
-
-            <asp:ListView ID="lvEtudiants" runat="server"
-                ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
-                SelectMethod="lviewEtudiants_GetData"
-                GroupItemCount="6">
-
-                <EmptyDataTemplate>
-                    Aucune information disponible pour le moment.
-                </EmptyDataTemplate>
-
-                <ItemTemplate>
-                    <div class="col-md-2 col-sm-4 col-xs-6">
-                        <asp:Image runat="server" class="img-responsive customer-img" ToolTip='<%# Eval("prenom") != null && Eval("nom") != null ? Eval("prenom") + " " + Eval("nom") : "Étudiant" %>' ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' /> <%--onMouseOver="EasterEgg(this);" onMouseOut="reset();"--%>
-                    </div>
-                </ItemTemplate>
-
-                <LayoutTemplate>
-                    <asp:PlaceHolder ID="groupPlaceHolder" runat="server"></asp:PlaceHolder>
-                </LayoutTemplate>
-                <GroupTemplate>
-                    <div class="row">
-                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                    </div>
-                </GroupTemplate>
-                <GroupSeparatorTemplate>
-                    <div class="row">&nbsp;</div>
-                </GroupSeparatorTemplate>
-
-            </asp:ListView>
-
-        </div>
-        <!-- /.row -->
-
-        <hr />
-
+       
+        <!-- /.row -->      
     </div>
 
 
