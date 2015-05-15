@@ -1,4 +1,4 @@
-﻿<%@ Page MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Admin_editNouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.temp_editNouvelles" %>
+﻿<%@ Page MasterPageFile="~/Admin.master" Language="C#" AutoEventWireup="true" CodeBehind="Admin_editNouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.temp_editNouvelles" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
@@ -36,13 +36,26 @@
                     <br />
                 </div>
             </LayoutTemplate>
+            
             <ItemTemplate>
-                <div class="panel-body">
-                    <asp:LinkButton runat="server" ID="lnkEditNews" OnCommand="lnkEditNews_Command" CommandArgument="<%# Item.IDNouvelle %>"><%# Item.titreNouvelle %></asp:LinkButton>
-                </div>
-            </ItemTemplate>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%# Item.IDNouvelle %>"><%# Item.titreNouvelle %></a>
+                                </h4>
+                            </div>
+                            <div id="collapse<%# Item.IDNouvelle %>" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <asp:LinkButton runat="server" ID="lnkEditNews" OnCommand="lnkEditNews_Command" CommandArgument="<%# Item.IDNouvelle %>"> Modifier ou supprimer</asp:LinkButton>
+                                </div>
+                            </div>
+                        </div>                        
+                    </ItemTemplate>
         </asp:ListView>             
             </asp:Panel>
+
+
+
           <div style="margin-left: auto; margin-right: auto; width: 250px;">
                         <asp:Button ID="btnNewNouvelle" runat="server" Text="Ajouter une nouvelle" OnClick="btnNewNouvelle_Click" />                   
                    

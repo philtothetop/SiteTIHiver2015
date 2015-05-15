@@ -9,11 +9,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <script src="Js/bootstrap.js"></script>
-    <div style="clear:both;">
-
-    </div>
-
-        <div class="row">
+    
+    <div class="row">
+       
             <div class="col-lg-3">
            <ul style="list-style-type:none;">
                
@@ -40,10 +38,14 @@
            </ul>
     </div>
         
+    <br/>
+
         <div class="col-lg-9">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
         </asp:ContentPlaceHolder>
-         </div>
-       </div>
+         </div>       
+
+        </div>
+      
 </asp:Content>
