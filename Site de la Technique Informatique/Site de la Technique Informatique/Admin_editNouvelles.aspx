@@ -29,6 +29,11 @@
                 </div>
 
             <br />
+                <div>
+                        <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Ajouter une nouvelle" OnClick="btnNewNouvelle_Click" />                   
+                    <br />
+                          <br />
+               </div>
 
         <asp:ListView ID="lviewNouvelles" runat="server"     
             ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
@@ -51,6 +56,8 @@
                             </div>
                             <div id="collapse<%# Item.IDNouvelle %>" class="panel-collapse collapse">
                                 <div class="panel-body">
+                                    <asp:LinkButton runat="server" ID="LinkButton1" OnCommand="lnkEditNews_Command" CommandArgument="<%# Item.IDNouvelle %>"> Modifier ou supprimer</asp:LinkButton>
+                                    <asp:Literal runat="server" Text="<%# Server.HtmlDecode(Item.texteNouvelle) %>"></asp:Literal>
                                     <asp:LinkButton runat="server" ID="lnkEditNews" OnCommand="lnkEditNews_Command" CommandArgument="<%# Item.IDNouvelle %>"> Modifier ou supprimer</asp:LinkButton>
                                 </div>
                             </div>
