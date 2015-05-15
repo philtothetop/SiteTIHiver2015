@@ -24,13 +24,13 @@
                             </div>
                             <div style="float: left; margin-left: -60px; margin-top: -3px;">
                                 <asp:Label ID="lblNomPDF" runat="server" Text="" with="800" />
-                                <asp:LinkButton ID="lnkRetirerPDF" Text="Retirer" runat="server" CssClass="btn btn-default" OnClick="lnkRetirerPDF_Click" Visible="false" />
+                                <asp:LinkButton ID="lnkRetirerPDF" Text="Retirer" runat="server" CssClass="btn btn-primary" OnClick="lnkRetirerPDF_Click" Visible="false" />
                             </div>
                         </div>
                         <asp:Label ID="lblPDF" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                     </div>
                 </div>
-                <div class="row row-centered">
+                <div class="row ">
                     <div class="col-lg-5 col-centered">
                         <div class="control-group form-group">
                             <div class="controls">
@@ -55,7 +55,7 @@
                                         <asp:TextBox runat="server" ID="txtJourExpiration" placeholder="Jour" MaxLength="2" Width="60" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="col-lg-2" style="margin-left: -15px;">
-                                     <asp:DropDownList ID="ddlMoisExpiration" runat="Server" Width="130" CssClass="form-control">
+                                        <asp:DropDownList ID="ddlMoisExpiration" runat="Server" Width="130" CssClass="form-control">
                                             <asp:ListItem Text="" Value="0"></asp:ListItem>
                                             <asp:ListItem Text="Janvier" Value="01"></asp:ListItem>
                                             <asp:ListItem Text="Février" Value="02"></asp:ListItem>
@@ -104,7 +104,7 @@
                                             <asp:ListItem Text="Décembre" Value="12"></asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
-                                    <div class="col-lg-3" style="margin-left:55px;">
+                                    <div class="col-lg-3" style="margin-left: 55px;">
                                         <asp:DropDownList runat="server" ID="ddlAnneeDebut" Width="100" CssClass="form-control">
                                             <asp:ListItem Text="Année" Value="" />
                                         </asp:DropDownList>
@@ -182,8 +182,8 @@
                                 <asp:Label ID="lblRessource" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
                             </div>
                         </div>
-                        <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-default" PostBackUrl="~/ListeOffresEmploi.aspx"/>
-                        <asp:LinkButton ID="lnkAjouter" Text="Valider" runat="server" CssClass="btn btn-default" OnClick="lnkAjouter_Click" />
+                        <asp:LinkButton ID="lnkAnnuler" Text="Annuler" runat="server" CssClass="btn btn-danger" PostBackUrl="~/ListeOffresEmploi.aspx" />
+                        <asp:LinkButton ID="lnkAjouter" Text="Valider" runat="server" CssClass="btn btn-primary" OnClick="lnkAjouter_Click" />
                         <br />
                         <br />
                     </div>
@@ -192,7 +192,7 @@
             <asp:View runat="server" ID="viewFin">
                 <div style="text-align: center">
                     <h4>Votre offre d'emploi a été ajoutée/modifiée avec succès, elle doit toutefois être acceptée par un administrateur avant d'être affichée</h4>
-                    <asp:LinkButton ID="lnkRetour" Text="Ok" runat="server" CssClass="btn btn-default" PostBackUrl="~/ListeOffresEmploi.aspx"/>
+                    <asp:LinkButton ID="lnkRetour" Text="Ok" runat="server" CssClass="btn btn-primary" PostBackUrl="~/ListeOffresEmploi.aspx" />
                 </div>
             </asp:View>
         </asp:MultiView>

@@ -29,7 +29,7 @@
                     <div>
                         <div>
                             <asp:TextBox runat="server" ID="txtNomMembre" placeholder="Entrez un nom/prénom" Width="200"></asp:TextBox>
-                            <asp:Button runat="server" ID="btnRecherche" class="btn btn-default" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
+                            <asp:Button runat="server" ID="btnRecherche" class="btn btn-primary" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
 
                         </div>
                     </div>

@@ -77,7 +77,7 @@ Extrants: --%>
                             <asp:TextBox ID="txtMessage" runat="server" class="form-control" TextMode="MultiLine" Height="200px"></asp:TextBox>
                          </div>
                     </div>
-                <asp:Button ID="btnEnvoyer" runat="server" Text="Envoyer" OnClick="btnEnvoyer_Click" />
+                <asp:Button ID="btnEnvoyer" runat="server" Text="Envoyer" CssClass="btn btn-primary" OnClick="btnEnvoyer_Click" />
                 </div>
             </div>
 
