@@ -104,7 +104,7 @@
 
                                     </div>
 
-                                    <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-default" OnClientClick="goBack()" />
+                                    <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-danger" OnClientClick="goBack()" />
                                     <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 
 

@@ -90,7 +90,7 @@
                 </asp:ListView>
                                         <div class="col-lg-offset-8 col-lg-8 " id="dvModifier" runat="server">
                     <asp:LinkButton ID="lnkModifier" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="lnkModifier_Click" CommandArgument='<%#Eval("IDEtudiant")%>' />
-                     <asp:LinkButton ID="lnkFaireTemoignage" runat="server" Text="Faire un témoignage" CssClass="btn btn-primary" OnClick="lnkFaireTemoignage_Click"  />
+                     <asp:LinkButton ID="lnkFaireTemoignage" runat="server" Text="Faire un témoignage" CssClass="btn btn-info" OnClick="lnkFaireTemoignage_Click"  />
                 </div> 
             </div>
         </div>
