@@ -278,7 +278,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
             String hashCourriel = employeur.dateInscription.GetHashCode().ToString();
             String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority + "/Inscription-valide.aspx?type=emp&id=" + employeur.courriel + "&code=" + hashCourriel;
-            String titre = "Inscription TI Cegep de Granby";
+            String titre = "Inscription TI Cégep de Granby";
             String message= "Cher/chère " + employeur.nomEmployeur + ",<br/><br/>Merci de votre inscription sur le site de la technique informatique du Cégep de Granby, Cliquez sur le lien ci-dessous pour valider votre compte<br><a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
             courrielAutomatiser courriel = new courrielAutomatiser();

@@ -293,7 +293,7 @@
                             OnItemDataBound="lvModifierCours_ItemDataBound">
 
                             <EmptyDataTemplate>
-                                <p>Vous n'avez pas de cours assigné</p>
+                                <p>Vous n'avez pas de cours assignés</p>
                             </EmptyDataTemplate>
                             <LayoutTemplate>
                                 <div class="row">
@@ -356,7 +356,7 @@
             <div role="tabpanel" class="tab-pane fade" id="delete">
                 <div class="row-centered">
                     <div class="col-md-8 col-centered" style="text-align: center">
-                        <h3>déjà tanné d'être ici? :'(</h3>
+                        <h3>Déjà fatigué d'être ici? :'(</h3>
                         <p>Si vous désactivez votre profil, vous ne pourrez plus vous connecter. Êtes-vous certain de vouloir désactiver votre compte?</p>
                     </div>
                 </div>

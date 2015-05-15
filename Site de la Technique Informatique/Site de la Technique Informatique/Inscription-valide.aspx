@@ -10,7 +10,7 @@
             <div class="col-lg-6 col-centered">
                 <h1>Inscription : validation du courriel</h1>
                 <p>
-                Votre courriel a été validé. Atendez que l'administrateur accepte votre inscription. Il vous contactera par courriel.
+                Votre courriel a été validé. Veuillez attendre que l'administrateur accepte votre inscription. Il vous contactera par courriel.
                     </p>
                 <a href='<%=Request.ApplicationPath%>' class="btn btn-primary">Retour à l'accueil</a>
             </div>

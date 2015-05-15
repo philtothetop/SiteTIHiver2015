@@ -8,7 +8,7 @@
     <!-- Custom CSS -->
 
     <!-- Content Row -->
-    <div class="row" style="margin-top: 50px;">
+    <div class="row">
         <!-- Sidebar Column -->
         <div class="col-lg-3 scrolltarget" style="margin-left: 150px;">
             <div style="width: 285px; position: fixed; overflow: hidden; padding: 3px;">
