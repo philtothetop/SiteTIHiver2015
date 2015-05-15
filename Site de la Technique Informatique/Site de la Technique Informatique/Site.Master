@@ -24,7 +24,7 @@
     <script src="/ProjetDeux_2015_2/Js/scrolling-nav.js"></script>
     <script src="Js/jquery.js"></script>
     <script type="text/javascript"></script>
-   
+    <script src="Js/bootstrap.js"></script>
 
 
     <script type="text/javascript">
@@ -111,7 +111,7 @@
 
 
                         <li runat="server" id="lblRecherche">
-                            <a href="recherche.aspx">Recherche</a>
+                            <a href="recherche.aspx">Membres</a>
                         </li>
 
                         <li runat="server" id="lblInscription" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
@@ -133,6 +133,11 @@
                         <li runat="server" id="lblAjouterProfesseur">
                             <a href="Admin_InscriptionProfesseur.aspx">Inscrire un professeur</a>
                         </li>
+
+                        <li runat="server" id="lblProfilAdmin">
+                            <a href="Admin_InscriptionProfesseur.aspx">Profil administration</a>
+                        </li>
+
 
 
                         <li>
@@ -316,7 +321,4 @@
 
     </form>
 </body>
-
-     <script src="Js/bootstrap.js"></script>
-
 </html>
