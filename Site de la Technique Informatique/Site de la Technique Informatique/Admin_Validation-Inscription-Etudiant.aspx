@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script src="js/jquery.js"></script>
-    <link rel="stylesheet" href="../Css/Validation-Inscription.css" />
+    <link rel="stylesheet" href="­~/../Css/Validation-Inscription.css" />
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
