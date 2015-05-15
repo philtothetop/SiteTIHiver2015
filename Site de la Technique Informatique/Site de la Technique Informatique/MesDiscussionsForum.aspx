@@ -18,14 +18,13 @@
         <div class="row">
             <asp:ListView ID="lviewMesDiscussions" runat="server" SelectMethod="getEntetesForum" DataKeyNames="MembreIDUtilisateur, dateEnteteForum, IDEnteteForum" OnItemDataBound="lviewMesDiscussions_ItemDataBound">
                 <ItemTemplate>
-                    <asp:LinkButton ID="lnkEntete" CssClass="couleurGris" CommandArgument='<%# Eval("IDEnteteForum").ToString()%>' OnClick="lnkEntete_Click" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 60%; border-radius: 5px; text-decoration: none; color: black;">
+                    <asp:LinkButton ID="lnkEntete" CssClass="couleurGris" CommandArgument='<%# Eval("IDEnteteForum").ToString()%>' OnClick="lnkEntete_Click" Text="" runat="server" BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="width: 60%; border-radius: 5px; text-decoration: none; color: black;margin-top:5px">
                         <div class="col-lg-offset-1">
                             <asp:Label ID="lblTitreEntete" Text='<%# Eval("titreEnteteForum").ToString()%>' Font-Size="14" runat="server"></asp:Label>
                             <br />
                             <asp:Label ID="lblNom" Font-Size="12" runat="server"></asp:Label>
                             <asp:Label ID="lblDateForum" Font-Size="12" runat="server" Style="float: right; margin-right: 20px"></asp:Label>
                         </div>
-                        <br />
                     </asp:LinkButton>
                 </ItemTemplate>
                 <LayoutTemplate>
