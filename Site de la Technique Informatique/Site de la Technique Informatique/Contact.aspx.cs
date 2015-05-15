@@ -47,7 +47,9 @@ namespace Site_de_la_Technique_Informatique
 
             // Corps du message : contient ce que la personne a écrit dans le module seulement
             string myStr = txtMessage.Text;
+            myStr += "<br /><br />Le courriel pour répondre à ce message est le suivant: " + txtCourriel.Text.Trim();
             mail.Body = myStr;
+
 
 
 
