@@ -37,7 +37,7 @@ namespace Site_de_la_Technique_Informatique
             if (exc is HttpUnhandledException)
             {
                 // Pass the error on to the error page.
-                Server.Transfer("~/ErreursImportants.aspx?handler=Application_Error%20-%20Global.asax", true);
+                Server.Transfer("~/../ErreursImportants.aspx?handler=Application_Error%20-%20Global.asax", true);
             }
         }
 

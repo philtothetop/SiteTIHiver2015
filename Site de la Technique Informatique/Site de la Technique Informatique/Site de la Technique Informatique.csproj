@@ -198,7 +198,6 @@
     <Content Include="Photos\Autres\quiSommesNous.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
-    <Content Include="QuePourTest.aspx" />
     <Content Include="QuiSommesNous.aspx" />
     <Content Include="Recherche.aspx" />
     <Content Include="SectionForum.aspx" />
@@ -235,11 +234,11 @@
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="Upload\Media\Exemple product Backlog.pdf" />
-    <Content Include="Upload\Media\plan420616H15.pdf" />
-    <Content Include="Upload\Media\AnalysePreliminaire.pdf" />
-    <Content Include="Upload\Media\Les tests en SCRUM.pdf" />
-    <Content Include="Upload\Cours\grilles_informatique.pdf" />
+    <Content Include="tinymce\Upload\Media\Exemple product Backlog.pdf" />
+    <Content Include="tinymce\Upload\Media\plan420616H15.pdf" />
+    <Content Include="tinymce\Upload\Media\AnalysePreliminaire.pdf" />
+    <Content Include="tinymce\Upload\Media\Les tests en SCRUM.pdf" />
+    <Content Include="tinymce\Upload\Cours\grilles_informatique.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -717,13 +716,6 @@
       <DependentUpon>ProfilEtudiant.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuePourTest.aspx.cs">
-      <DependentUpon>QuePourTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="QuePourTest.aspx.designer.cs">
-      <DependentUpon>QuePourTest.aspx</DependentUpon>
-    </Compile>
     <Compile Include="QuiSommesNous.aspx.cs">
       <DependentUpon>QuiSommesNous.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -821,7 +813,7 @@
     <Folder Include="Photos\Souvenir\Professeurs\" />
     <Folder Include="Photos\Souvenir\Projets\" />
     <Folder Include="Photos\Souvenir\Étudiants\" />
-    <Folder Include="Upload\CV\" />
+    <Folder Include="tinymce\Upload\CV\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

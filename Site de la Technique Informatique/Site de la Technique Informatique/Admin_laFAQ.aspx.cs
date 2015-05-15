@@ -66,6 +66,7 @@ namespace Site_de_la_Technique_Informatique
                 }
             }
             return questionAModifier;
+           
         }
 
         protected void ddlQuestionsFAQ_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,7 +84,7 @@ namespace Site_de_la_Technique_Informatique
                     {
                         Model.FAQ laFaq = (lecontexte.FAQSet.SingleOrDefault(m => m.IDFAQ == selectedValue));
                         txtQuestion.Text = laFaq.texteQuestion;
-                        txtReponse.Text = laFaq.texteReponse;
+                        txtReponse.Text = Server.HtmlDecode(laFaq.texteReponse);
                     }
                     else
                     {

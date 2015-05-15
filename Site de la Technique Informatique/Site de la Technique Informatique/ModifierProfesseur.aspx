@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModifierProfesseur.aspx.cs" Inherits="Site_de_la_Technique_Informatique.ModifierProfesseur" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="../Css/Inscription.css" />
+    <link rel="stylesheet" href="~/../Css/Inscription.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -15,8 +15,6 @@
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="../Css/Inscription.css" />
 
     <script type="text/javascript">
         function openModal() {
@@ -35,7 +33,9 @@
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
-            $('#maPhotoProfile').modal('close');
+            $('#maPhotoProfile').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         };
         function closeDivs(value) {
            
@@ -82,7 +82,7 @@
         <div class="tab-content">
 
             <div class="row">
-                <div class="col-md-3 col-md-offset-8" style="position: absolute">
+                <div class="col-md-3 col-md-offset-7" style="position: absolute">
                     <div class="alert alert-success" runat="server" id="divSuccess">
                         <p>Les modifications ont été effectuées.</p>
                     </div>
@@ -143,7 +143,7 @@
                                     <div class="col-md-5 col-centered">
                                         <div class="img-thumbnail img-photo preview-photo">
 
-                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' Width="125" Height="125" />
+                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "~/../Upload/Photos/Profils/{0}") %>' Width="125" Height="125" />
                                         </div>
                                         <div class="div-btnChangerPhoto">
                                             <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />

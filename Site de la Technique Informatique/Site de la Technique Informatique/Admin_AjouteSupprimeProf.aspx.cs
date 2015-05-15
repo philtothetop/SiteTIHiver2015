@@ -2,7 +2,6 @@
 // Écrit par Philippe Baron, Février 2015
 // Modifier pour pourvoir supprimer un professeur le 5 mai 2015 par Raphael Brouard
 
-
 using Site_de_la_Technique_Informatique.Classes;
 using Site_de_la_Technique_Informatique.Model;
 using System;
