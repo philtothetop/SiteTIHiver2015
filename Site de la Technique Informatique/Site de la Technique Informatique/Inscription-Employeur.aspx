@@ -107,25 +107,6 @@
                                     <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-default" OnClientClick="goBack()" />
                                     <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 
-                                    <!-- Modal Termes et conditions-->
-                                    <div class="modal fade" id="mesConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">Termes et conditions</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    bla bla bla...
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                    <asp:LinkButton ID="lnkAcccepter" runat="server" CssClass="btn btn-primary" Text="Accepter" OnClick="lnkAcccepter_Click" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Fin Termes et condition-->
 
 
                                 </ContentTemplate>
