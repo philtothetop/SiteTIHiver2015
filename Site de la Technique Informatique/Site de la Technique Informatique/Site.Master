@@ -78,24 +78,24 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="default.aspx" style="font-size:0.9em;">Techniques de l'informatique</a>
+                    <a class="navbar-brand" href="default.aspx" >Techniques de l'informatique</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li runat="server" id="lblQuiSommesNous">
+                        <li runat="server" id="lblQuiSommesNous" style="font-size:0.9em;">
                             <a href="QuiSommesNous.aspx">Qui sommes-nous</a>
                         </li>
 
-                        <li runat="server" id="lblNouvelles">
+                        <li runat="server" id="lblNouvelles" style="font-size:0.9em;">
                             <a href="Nouvelles.aspx">Nouvelles</a>
                         </li>
-                        <li class="dropdown" runat="server" id="lblSouvenir">
+                        <li class="dropdown" runat="server" id="lblSouvenir" style="font-size:0.9em;">
                             <a href="Souvenirs.aspx">Souvenirs</a>
                         </li>
 
-                        <li runat="server" id="lblInformation" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
+                        <li runat="server" id="lblInformation" class="dropdown" style="font-size:0.9em;"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Informations<b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="Vertic.aspx">Vertic</a> </li>
                                 <li><a href="InformationsStage.aspx">Stages</a> </li>
@@ -104,48 +104,48 @@
                             </ul>
                         </li>
 
-                        <li runat="server" id="lblOffresEmploi">
+                        <li runat="server" id="lblOffresEmploi" style="font-size:0.9em;">
                             <a href="listeOffresEmploi.aspx">Offres d'emploi</a>
                         </li>
 
 
 
-                        <li runat="server" id="lblRecherche">
+                        <li runat="server" id="lblRecherche" style="font-size:0.9em;">
                             <a href="recherche.aspx">Membres</a>
                         </li>
 
-                        <li runat="server" id="lblInscription" class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
+                        <li runat="server" id="lblInscription" class="dropdown" style="font-size:0.9em;"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Inscription<b class="caret"></b></a>
                              <ul class="dropdown-menu">
                                 <li><a href="Inscription-Etudiant.aspx">Étudiants</a> </li>
                                 <li><a href="Inscription-Employeur.aspx">Employeurs</a> </li>                             
                             </ul>
                         </li>
 
-                        <li runat="server" id="lblForum">
+                        <li runat="server" id="lblForum" style="font-size:0.9em;">
                             <a href="SectionForum.aspx">Forum</a>
                         </li>
 
-                        <li runat="server" id="lblAdmin">
+                        <li runat="server" id="lblAdmin" style="font-size:0.9em;">
                             <a href="Admin_Default.aspx">Administration</a>
                         </li>
 
 
-                        <li runat="server" id="lblAjouterProfesseur">
-                            <a href="Admin_InscriptionProfesseur.aspx">Inscrire un professeur</a>
+                        <li runat="server" id="lblAjouterProfesseur" style="font-size:0.9em;">
+                            <a href="Admin_AjouteSupprimeProf.aspx">Inscrire un professeur</a>
                         </li>
 
-                        <li runat="server" id="lblProfilAdmin">
-                            <a href="Admin_InscriptionProfesseur.aspx">Profil administration</a>
+                        <li runat="server" id="lblProfilAdmin" style="font-size:0.9em;">
+                            <a href="Admin_Profil.aspx">Profil administration</a>
                         </li>
 
 
 
-                        <li>
+                        <li style="font-size:0.9em;">
                             <a id="lblConnexion" href="#myModal" role="button" runat="server" data-toggle="modal" data-target="#myModal" data-backdrop="static" data-keyboard="false">Connexion</a>
 
                         </li>
 
-                        <li class="dropdown" runat="server" id="liConnexion">
+                        <li class="dropdown" runat="server" id="liConnexion" style="font-size:0.9em;">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <asp:Label ID="lblEnLigne" runat="server" Text="" Visible="false" /><b class="caret"></b></a>
 
