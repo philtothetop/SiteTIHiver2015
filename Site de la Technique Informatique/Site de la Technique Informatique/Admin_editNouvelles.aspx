@@ -1,4 +1,4 @@
-﻿<%@ Page MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="temp-editNouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.temp_editNouvelles" %>
+﻿<%@ Page MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true" CodeBehind="Admin_editNouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.temp_editNouvelles" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
