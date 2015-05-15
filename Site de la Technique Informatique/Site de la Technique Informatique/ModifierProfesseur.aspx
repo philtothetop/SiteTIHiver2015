@@ -11,7 +11,7 @@
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
 
-    <script src="Js/bootstrap.min.js"></script>
+   
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
@@ -35,7 +35,9 @@
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
-            $('#maPhotoProfile').modal('close');
+            $('#maPhotoProfile').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         };
         function closeDivs(value) {
            
