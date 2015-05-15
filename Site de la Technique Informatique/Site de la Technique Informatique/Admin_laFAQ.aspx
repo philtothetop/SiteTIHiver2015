@@ -8,17 +8,17 @@ Extrants: --%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
-<script type="text/javascript">
-    tinymce.init({
-        selector: "textarea",
-        encoding: "xml",
-        plugins: ["image link media advlist autolink lists charmap preview hr anchor",
-                "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
-        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
-        language: 'fr_FR',
-    });
-</script>
+    <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            encoding: "xml",
+            plugins: ["image link media advlist autolink lists charmap preview hr anchor",
+                    "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
+            toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
+            language: 'fr_FR',
+        });
+    </script>
 
 
     <div class="row">
@@ -31,7 +31,7 @@ Extrants: --%>
     <%-- Ajouter une question --%>
     <div class="row">
         <div class="col-lg-8">
-            <h3>Ajouter une question</h3>
+            <h1 class="page-header">FAQ</h1>
         </div>
     </div>
     <div class="row">
