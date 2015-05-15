@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Admin.master" CodeBehind="Admin_Profil.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_motDePasse" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Admin_Profil.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_motDePasse" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     
