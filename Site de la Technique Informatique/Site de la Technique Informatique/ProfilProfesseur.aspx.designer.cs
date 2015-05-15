@@ -10,96 +10,96 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class temp_editNouvelles {
+    public partial class ProfilProfesseur {
         
         /// <summary>
-        /// Contrôle panelNouvelles.
+        /// Contrôle divPasTrouveProf.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelNouvelles;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPasTrouveProf;
         
         /// <summary>
-        /// Contrôle msgError.
+        /// Contrôle divTrouverProf.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label msgError;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTrouverProf;
         
         /// <summary>
-        /// Contrôle lviewNouvelles.
+        /// Contrôle lnkInformations.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewNouvelles;
+        protected global::System.Web.UI.WebControls.LinkButton lnkInformations;
         
         /// <summary>
-        /// Contrôle btnNewNouvelle.
+        /// Contrôle lnkCours.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewNouvelle;
+        protected global::System.Web.UI.WebControls.LinkButton lnkCours;
         
         /// <summary>
-        /// Contrôle lviewEditNews.
+        /// Contrôle mltvProfesseur.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEditNews;
+        protected global::System.Web.UI.WebControls.MultiView mltvProfesseur;
         
         /// <summary>
-        /// Contrôle panelAjoutNews.
+        /// Contrôle vInformations.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelAjoutNews;
+        protected global::System.Web.UI.WebControls.View vInformations;
         
         /// <summary>
-        /// Contrôle txtTitreAjout.
+        /// Contrôle lvProfesseur.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitreAjout;
+        protected global::System.Web.UI.WebControls.ListView lvProfesseur;
         
         /// <summary>
-        /// Contrôle txtNouvelleAjout.
+        /// Contrôle vCours.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNouvelleAjout;
+        protected global::System.Web.UI.WebControls.View vCours;
         
         /// <summary>
-        /// Contrôle btnAjouter.
+        /// Contrôle ddlSession.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAjouter;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSession;
         
         /// <summary>
-        /// Contrôle btnAnnuler.
+        /// Contrôle lvCours.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnnuler;
+        protected global::System.Web.UI.WebControls.ListView lvCours;
     }
 }

@@ -14,8 +14,6 @@
     <meta name="author" content="Fengyuan Chen">
     <title>Cropper</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/cropper.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -292,7 +290,7 @@
                         <ItemTemplate>
                             <div style="width:50%; float:left;">
                                 <div style="width:97%;padding-left:3%;">
-                                <asp:Image ID="imgLaPhoto" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="max-width:100%; max-height:100%;" />
+                                <asp:Image ID="imgLaPhoto" runat="server" ImageUrl='<%# "~/Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="max-width:100%; max-height:100%;" />
                              </div>
                                 <div style="width:97%;padding-left:3%; clear:both;">
                                     <asp:TextBox ID="txtbDescriptionVoir" runat="server" TextMode="MultiLine" Text='<%# Item.descriptionPhoto %>' style="width:100%; max-width:100%; min-height:100px;" Enabled="false"></asp:TextBox>

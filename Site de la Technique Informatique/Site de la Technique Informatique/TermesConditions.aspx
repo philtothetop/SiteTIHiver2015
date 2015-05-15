@@ -35,7 +35,7 @@
                 <p>
                     Le présent document a pour objet de définir les modalités et conditions dans lesquelles d’une 
 
-part,  le département d'informatique du Cégep de Granby, ci-après dénommé l’EDITEUR, met à 
+part, le département d'informatique du Cégep de Granby, ci-après nommé l’EDITEUR, met à 
 
 la disposition de ses utilisateurs le site, et les services disponibles sur le site et d’autre part, la 
 

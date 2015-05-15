@@ -170,7 +170,6 @@ namespace Site_de_la_Technique_Informatique
         }
         #endregion
 
-
         #region Modifier_Password
 
         protected void lnkSaveNewPassword_Click(object sender, EventArgs e)
@@ -281,8 +280,6 @@ namespace Site_de_la_Technique_Informatique
 
         #endregion
 
-
-
         #region Modifier_Cours
         public IQueryable<Cours> lvModifierCours_GetData()
         {
@@ -300,7 +297,6 @@ namespace Site_de_la_Technique_Informatique
                     int selectedCours = int.Parse(ddlCours.SelectedValue);
                     newCours = ((from cours in lecontexte.CoursSet.OfType<Cours>() where cours.IDCours == selectedCours select cours).ToList());
                     }
-               
 
                 if ((string)ViewState["mode"] + "" == "ajoute")  // SEULEMENT UN MEDIA «VIDE»
                 {
@@ -518,12 +514,5 @@ namespace Site_de_la_Technique_Informatique
                 btnModif.Enabled = false;
             }
         }
-
-       
-
-        
-
-
-
     }
 }

@@ -30,6 +30,12 @@ namespace Site_de_la_Technique_Informatique
                 {
                     string textRecherche = txtNomMembre.Text.ToLower().Replace(" ","");
 
+                   if(textRecherche.Equals("minecraft"))
+                   {     
+                        //Francis's Easter Egg
+                        Response.Redirect("https://www.youtube.com/watch?v=I-sH53vXP2A");
+                   }
+
                     //Si les 2 checks box son coché ou aucun des deux
                     if ((chkbEtudiant.Checked == true && chkbProfesseur.Checked == true)
                          || (chkbEtudiant.Checked == false && chkbProfesseur.Checked == false))
