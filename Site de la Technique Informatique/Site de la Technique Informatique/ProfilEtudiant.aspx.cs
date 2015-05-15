@@ -18,6 +18,7 @@ namespace Site_de_la_Technique_Informatique
         {
             SavoirSiPossedeAutorizationPourLaPage(true, true, true, true,false);
         }
+
         //Cette classe va chercher l'étudiant
         //Écrit par Cédric Archambault 18 février 2015
         //Intrants: aucun

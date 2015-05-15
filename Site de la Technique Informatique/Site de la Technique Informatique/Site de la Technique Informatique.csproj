@@ -101,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin_AjouteSupprimeProf.aspx" />
-    <Content Include="Admin_AjoutPhoto.aspx" />
     <Content Include="Admin_Default.aspx" />
     <Content Include="Admin_laFAQ.aspx" />
     <Content Include="Admin_LesPhotos.aspx" />
@@ -354,13 +353,6 @@
     </Compile>
     <Compile Include="Admin_AjouteSupprimeProf.aspx.designer.cs">
       <DependentUpon>Admin_AjouteSupprimeProf.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_AjoutPhoto.aspx.cs">
-      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_AjoutPhoto.aspx.designer.cs">
-      <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Default.aspx.cs">
       <DependentUpon>Admin_Default.aspx</DependentUpon>
