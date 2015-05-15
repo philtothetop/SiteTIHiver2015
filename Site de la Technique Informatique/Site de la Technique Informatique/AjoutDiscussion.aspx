@@ -22,7 +22,7 @@
         var value = (document.getElementById('TextBox1').value);
         value = value.replace('<', "&lt;");
         value = value.replace('>', "&gt;");
-        document.getElementById('txtContenuNouvelle').value = value;
+        document.getElementById('txtMessage').value = value;
     }
  </script>
     <div class="container">
