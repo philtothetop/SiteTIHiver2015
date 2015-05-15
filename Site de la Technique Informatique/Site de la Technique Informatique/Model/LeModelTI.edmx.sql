@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/17/2015 11:21:17
+-- Date Created: 05/15/2015 08:15:53
 -- Generated from EDMX file: C:\Users\Raphael Brouard\Source\Repos\SiteTIHiver2015\Site de la Technique Informatique\Site de la Technique Informatique\Model\LeModelTI.edmx
 -- --------------------------------------------------
 
@@ -300,7 +300,7 @@ GO
 -- Creating table 'EnteteForumSet'
 CREATE TABLE [dbo].[EnteteForumSet] (
     [IDEnteteForum] int IDENTITY(1,1) NOT NULL,
-    [titreEnteteForum] nvarchar(30)  NOT NULL,
+    [titreEnteteForum] nvarchar(150)  NOT NULL,
     [dateEnteteForum] datetime  NOT NULL,
     [SectionForumIDSectionForum] int  NOT NULL,
     [MembreIDUtilisateur] int  NOT NULL
@@ -322,7 +322,7 @@ CREATE TABLE [dbo].[PhotosSet] (
     [IDPhotos] int IDENTITY(1,1) NOT NULL,
     [pathPhoto] nvarchar(200)  NOT NULL,
     [typePhoto] nvarchar(20)  NOT NULL,
-    [descriptionPhoto] nvarchar(max)  NULL
+    [descriptionPhoto] nvarchar(1500)  NULL
 );
 GO
 
