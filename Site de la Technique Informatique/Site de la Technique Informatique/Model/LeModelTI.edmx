@@ -257,7 +257,7 @@
       <PropertyRef Name="IDEnteteForum" />
     </Key>
     <Property Name="IDEnteteForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="titreEnteteForum" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="titreEnteteForum" Type="nvarchar" Nullable="false" MaxLength="150" />
     <Property Name="dateEnteteForum" Type="datetime" Nullable="false" />
     <Property Name="SectionForumIDSectionForum" Type="int" Nullable="false" />
     <Property Name="MembreIDUtilisateur" Type="int" Nullable="false" />
@@ -279,7 +279,7 @@
     <Property Name="IDPhotos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="pathPhoto" Type="nvarchar" Nullable="false" MaxLength="200" />
     <Property Name="typePhoto" Type="nvarchar" Nullable="false" MaxLength="20" />
-    <Property Name="descriptionPhoto" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="descriptionPhoto" Type="nvarchar" Nullable="true" MaxLength="1500" />
   </EntityType>
   <EntityType Name="UtilisateurSet_Employeur">
     <Key>
@@ -866,7 +866,7 @@
             <PropertyRef Name="IDEnteteForum" />
           </Key>
           <Property Name="IDEnteteForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="titreEnteteForum" Type="String" Nullable="false" MaxLength="30" />
+          <Property Name="titreEnteteForum" Type="String" Nullable="false" MaxLength="150" />
           <Property Name="dateEnteteForum" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="SectionForum" Relationship="LeModelTI.SectionForumEnteteForum" FromRole="EnteteForum" ToRole="SectionForum" />
           <Property Name="SectionForumIDSectionForum" Type="Int32" Nullable="false" />

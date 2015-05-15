@@ -11,11 +11,6 @@
 
  <h1>Administrateur : Ajouter une photo</h1>
 
-        <ol class="breadcrumb">
-                    <li>
-                        <a href="nullFORnow.aspx">Retour au panneau d'administration</a>
-                    </li>
-                </ol>
 
     <div id="divReussiAjouterImage" runat="server" visible="false">
         <asp:Label ID="lblReussi" runat="server" Text="L'image a bien été ajouté."></asp:Label>

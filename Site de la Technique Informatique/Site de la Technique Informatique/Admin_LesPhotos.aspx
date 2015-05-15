@@ -13,21 +13,25 @@
     <asp:MultiView ID="mviewLesPhotos" runat="server" ActiveViewIndex="0">
 
         <asp:View ID="viewMenu" runat="server">
-
-            <asp:Button ID="btnAjouterUnePhoto" runat="server" Text="Ajouter une photo" OnClick="btnAjouterUnePhoto_Click" />
-            <br />
-            <asp:Button ID="btnAccueilVoirLesPhotos" runat="server" Text="Voir les photos" OnClick="btnVoirLesPhotos_Click" />
+            <asp:Button ID="btnAccueilVoirLesPhotos" runat="server" Text="Voir/Modifier les photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-default" />
+            <asp:Button ID="btnAjouterUnePhoto" runat="server" Text="Ajouter une photo" OnClick="btnAjouterUnePhoto_Click" CssClass="btn btn-default" />
             <br />
 
         </asp:View>
 
         <asp:View ID="viewAjouterPhoto" runat="server">
 
+            <div style="text-align:left">
+            <asp:Button ID="btnAllezVoirLesPhotos" runat="server" Text="Voir les photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-default" />
+            </div>
+
             <div id="divReussiAjouterImage" runat="server" visible="false" style="text-align:center; width:100%;">
+
+                
+
         <asp:Label ID="lblReussi" runat="server" Text="L'image a bien été ajouté."></asp:Label>
         <br />
-        <asp:Button ID="btnAjouterAutreImage" runat="server" Text="Ajouter une autre photo" OnClick="btnajouterAutreImage_Click"/>
-                <asp:Button ID="btnVoirLesPhotos" runat="server" Text="Voir les photos" OnClick="btnVoirLesPhotos_Click"/>
+        <asp:Button ID="btnAjouterAutreImage" runat="server" Text="Ajouter une autre photo" OnClick="btnajouterAutreImage_Click" CssClass="btn btn-default"/>
     </div>
 
     <div id="divPasReussiAjouterImage" runat="server" visible="false" style="text-align:center; width:100%; color:red;">
@@ -89,7 +93,7 @@
 
         </div>
                 <div style="clear:both; float:none; padding:0px; margin:0px;">
-                <asp:Button ID="btnSauvegarderImage" Text="Sauvegarder" runat="server" OnClientClick="copieImgData()" OnClick="btnUpdate_Click" />
+                <asp:Button ID="btnSauvegarderImage" Text="Sauvegarder" runat="server" OnClientClick="copieImgData()" OnClick="btnUpdate_Click" CssClass="btn btn-primary" />
             </div>
                     </div>
             </ItemTemplate>
@@ -137,19 +141,18 @@
          </div>
 
         </div>--%>
-
-            <br />
-            <asp:Button ID="btnAllezVoirLesPhotos" runat="server" Text="Voir les photos" OnClick="btnVoirLesPhotos_Click" />
-            <br />
             
         </asp:View>
 
         <asp:View ID="viewModifierPhoto" runat="server">
-
+            
+            <div style="text-align:left">
+            <asp:Button ID="btnModifierRetourAuPhoto" runat="server" Text="Retour aux photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-default" />
+            </div>
 
 
             <div id="divModifierPhotoReussi" runat="server" visible="false" style="text-align:center; width:100%;">
-        <asp:Label ID="lblModifierPhotoReussi" runat="server" Text="L'image a bien été ajouté."></asp:Label>
+        <asp:Label ID="lblModifierPhotoReussi" runat="server" Text="L'image a bien été modifié."></asp:Label>
     </div>
 
     <div id="divModifierPhotoPasReussi" runat="server" visible="false" style="text-align:center; width:100%; color:red;">
@@ -180,21 +183,20 @@
 
         </div>
         <br />
-        <asp:Button ID="btnUpdaterModifierPhoto" runat="server" CssClass="btn btn-default"  Text="Modifier cette photo" OnClick="btnUpdaterModifierPhoto_Click" />
+        <asp:Button ID="btnUpdaterModifierPhoto" runat="server" CssClass="btn btn-primary"  Text="Modifier cette photo" OnClick="btnUpdaterModifierPhoto_Click" />
             <br />
         
          </div>
 
         </div>
-
-            <br />
-            <asp:Button ID="btnModifierRetourAuPhoto" runat="server" Text="Retour aux photos" OnClick="btnVoirLesPhotos_Click" />
-            <br />
             <asp:HiddenField ID="hfieldIDItemAModifier" runat="server" Value="" />
         </asp:View>
 
         <asp:View ID="viewSupprimerPhoto" runat="server">
             <div id="divSupprimerPhotos" runat="server" style="text-align:center; width:100%; clear:both;">
+                            <div style="text-align:left">
+                <asp:Button ID="btnAllezAjouterUnePhoto" runat="server" Text="Ajouter une photo" OnClick="btnAjouterUnePhoto_Click" CssClass="btn btn-default" />
+</div>
             Type d'image : <asp:DropDownList ID="ddlTypePhotoSupprimer" runat="server" OnSelectedIndexChanged="ddlTypePhotoSupprimer_IndexChange" AutoPostBack="true">
         </asp:DropDownList>
 
@@ -229,11 +231,11 @@
                                 <div style="clear:both">
 
                                     <div style="float:left; text-align:left; width:50%; padding-left:15px;">
-                                        <asp:Button ID="btnModifierLaPhoto" runat="server" Text="Modifier" CommandArgument='<%# Item.IDPhotos %>' OnClick="btnModifierLaPhoto_Click" />
+                                        <asp:Button ID="btnModifierLaPhoto" runat="server" Text="Modifier" CommandArgument='<%# Item.IDPhotos %>' OnClick="btnModifierLaPhoto_Click" CssClass="btn btn-primary" />
                                     </div>
 
                                     <div style="float:right;text-align:right; width:50%; padding-right:15px;">
-                                         <asp:Button ID="btnSupprimerLaPhoto" runat="server" Text="Supprimer" CommandArgument='<%# Item.IDPhotos %>' OnClick="btnSupprimerLaPhoto_Click" />
+                                         <asp:Button ID="btnSupprimerLaPhoto" runat="server" Text="Supprimer" CommandArgument='<%# Item.IDPhotos %>' OnClick="btnSupprimerLaPhoto_Click" CssClass="btn btn-danger" />
                                     </div>
 
                                 </div>
@@ -262,8 +264,6 @@
                             </Fields>
                         </asp:DataPager>
                 </div>
-                <br />
-            <asp:Button ID="btnAllezAjouterUnePhoto" runat="server" Text="Ajouter une photo" OnClick="btnAjouterUnePhoto_Click" />
             </div>
         </asp:View>
 
