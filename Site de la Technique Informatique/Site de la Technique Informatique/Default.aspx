@@ -26,7 +26,7 @@
                     <div class="item active">
                         <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                             <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                            <img src="~/Upload/Photos/logo/Logo_Informatique.jpg" height="400" width="500" />
+                            <asp:Image runat="server" ImageUrl='<%# isLocal() ? "~/Upload/Photos/logo/Logo_Informatique.jpg" : "~/../Upload/Photos/logo/Logo_Informatique.jpg"  %>' height="400" width="500" />
                         </div>
                         <div class="carousel-caption"></div>
                     </div>
