@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" OnClick="btnAjouter_Click" />
+                    <asp:Button ID="btnAjouter" CssClass="btn btn-primary" runat="server" Text="Ajouter" OnClick="btnAjouter_Click" />
                 </div>
             </div>
 
@@ -130,8 +130,8 @@
 
                             <div class="col-lg-3" style="margin-top: 30px;">
 
-                                <asp:Button ID="btnModifier" runat="server" Text="Modifier" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="UpdateEvent" />
-                                <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" Style="margin-left: 20px; margin-top: 45px;" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="btnSupprimer_Click" />
+                                <asp:Button ID="btnModifier" runat="server" Text="Modifier" CssClass="btn btn-primary" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="UpdateEvent" />
+                                <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-primary" Style="margin-left: 20px; margin-top: 45px;" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="btnSupprimer_Click" />
 
                             </div>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LesParutionsMedias.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="Site_de_la_Technique_Informatique.LesParutionsMedias" %>
+﻿<%@ Page Title="Parutions média" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="LesParutionsMedias.aspx.cs" MaintainScrollPositionOnPostback="true" Inherits="Site_de_la_Technique_Informatique.LesParutionsMedias" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -8,8 +8,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Les parutions médias
-                </h1>
+                <h1 class="page-header">Les parutions médias</h1>
                 
             </div>
         </div>
