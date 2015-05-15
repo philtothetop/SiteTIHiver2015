@@ -16,8 +16,6 @@
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="../Css/Inscription.css" />
-
     <script type="text/javascript">
         function openModal() {
             $('#myModal').modal('show');
@@ -35,7 +33,9 @@
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
-            $('#maPhotoProfile').modal('close');
+            $('#maPhotoProfile').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         };
         function closeDivs(value) {
            
