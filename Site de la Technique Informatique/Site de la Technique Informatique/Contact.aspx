@@ -6,6 +6,7 @@ Extrants: --%>
 
 <%@ Page Title="Contactez-nous" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Contact" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <link href="Css/bootstrap.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
