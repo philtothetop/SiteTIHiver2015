@@ -100,6 +100,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin_AjouteSupprimeProf.aspx" />
     <Content Include="Admin_AjoutPhoto.aspx" />
     <Content Include="Admin_Default.aspx" />
     <Content Include="Admin_laFAQ.aspx" />
@@ -107,7 +108,6 @@
     <Content Include="Admin_Media.aspx" />
     <Content Include="Admin_Profil.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
-    <Content Include="Admin_SupprimerPhoto.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
     <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
@@ -347,6 +347,13 @@
     <Compile Include="Admin.master.designer.cs">
       <DependentUpon>Admin.master</DependentUpon>
     </Compile>
+    <Compile Include="Admin_AjouteSupprimeProf.aspx.cs">
+      <DependentUpon>Admin_AjouteSupprimeProf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_AjouteSupprimeProf.aspx.designer.cs">
+      <DependentUpon>Admin_AjouteSupprimeProf.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_AjoutPhoto.aspx.cs">
       <DependentUpon>Admin_AjoutPhoto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -402,13 +409,6 @@
     </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.designer.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_SupprimerPhoto.aspx.cs">
-      <DependentUpon>Admin_SupprimerPhoto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_SupprimerPhoto.aspx.designer.cs">
-      <DependentUpon>Admin_SupprimerPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Temoignage.aspx.cs">
       <DependentUpon>Admin_Temoignage.aspx</DependentUpon>

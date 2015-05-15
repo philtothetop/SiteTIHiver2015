@@ -38,12 +38,6 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            //Pour afficher ou non le datapager si besoin
-            //dataPagerDesSouvenirs.Visible = (dataPagerDesSouvenirs.PageSize < dataPagerDesSouvenirs.TotalRowCount);
-        }
-
 
         //Méthode pour récupérer les photos dans la BD
         public IQueryable<Model.Photos> GetLesPhotos()
@@ -75,6 +69,16 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 LogErreur("Souvenirs.aspx.cs dans la méthode GetLesPhotos", ex);
+            }
+
+            //Mettre dataPager visible ou non si Plus que le minimum affiché
+            if (listeDesPhotos.Count <= dataPagerDesSouvenirs.PageSize)
+            {
+                dataPagerDesSouvenirs.Visible = false;
+            }
+            else
+            {
+                dataPagerDesSouvenirs.Visible = true;
             }
 
             return listeDesPhotos.AsQueryable();

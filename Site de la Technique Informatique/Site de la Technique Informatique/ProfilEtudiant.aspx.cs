@@ -39,7 +39,6 @@ namespace Site_de_la_Technique_Informatique
                         if (Request.Cookies["TIUtilisateur"].Value.Equals("Etudiant"))//Vérifier si l'utilisateur est un étudiant
                         {
                             strIDUtilisateur = Request.Cookies["TIID"].Value;//Va chercher l'id
-                            
                         }
                     }
                     else

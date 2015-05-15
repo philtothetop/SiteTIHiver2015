@@ -11,6 +11,7 @@
                 <h1 class="page-header">
                     <asp:Label ID="lblTitreDiscussion" runat="server" Font-Size="20"></asp:Label>
                 </h1>
+                <asp:Label ID="lblNbMessages" Font-Size="12" runat="server" Font-Bold="true"></asp:Label>
             </div>
         </div>
         <div class="row">

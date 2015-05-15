@@ -55,8 +55,7 @@
                                             <asp:Label ID="lblNoLog" runat="server" Text='<%# Item.IDLog %>'></asp:Label>
                                             </div>
                              <div class="col-lg-2">
-
-                                            <asp:LinkButton ID="lnkNoCompte" runat="server" Enabled='<%# SavoirSiLienEnable(Item) %>' CssClass='<%# SavoirCSSPourLien(Item) %>'>
+                                            <asp:LinkButton ID="lnkNoCompte" runat="server" Enabled='<%# SavoirSiLienEnable(Item) %>' CssClass='<%# SavoirCSSPourLien(Item) %>' OnClick="lnkNoCompte_Click" CommandArgument='<%# LeIdDuCompte(Item) %>'>
                                                 <asp:Label ID="lblNoCompte" runat="server"  Text='<%# LeIdDuCompte(Item) %>'></asp:Label>
                                             </asp:LinkButton>
                                             

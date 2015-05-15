@@ -15,9 +15,11 @@
         <h1 style="margin-top:100px;">Vous êtes arrivés sur le fameux NOT FOUND 404</h1>
         
         <a href="../Default.aspx">
-            <img src="Photos/image2.jpg" height="600" width="900" /><br /><br />
+            <img src="Photos/image2.jpg" height="600" width="900" />    
+            <br /><br />
         </a>
-        <a href="../Default.aspx">Accueil</a>
+        
+        <asp:Button runat="server" Text="Accueil" OnClick="Redirect_Click" />
         
     </div>
     </form>
