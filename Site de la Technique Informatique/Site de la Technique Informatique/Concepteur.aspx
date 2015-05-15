@@ -51,7 +51,7 @@
                 <h3>
                     Philippe Bibeau
                 </h3>
-                <p>Le grand concepteur de meme.</p>
+                <p>Le grand photoshop master spécialisé en "meme".</p>
             </div>
             <div class="col-md-6 img-portfolio">
                 
