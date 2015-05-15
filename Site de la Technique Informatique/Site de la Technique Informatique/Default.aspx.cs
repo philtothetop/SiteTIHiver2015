@@ -19,8 +19,8 @@ namespace Site_de_la_Technique_Informatique
         {
             int i = 0;
 
-            SiteMapPath sitemap = (SiteMapPath)Master.FindControl("siteMapPath");
-            sitemap.Visible = false;
+            Control divSiteMap = (Control)Master.FindControl("divSiteMap");
+            divSiteMap.Visible = false;
 
             foreach (ListViewItem lvi in lviewAlbumPhoto.Items)
             {
