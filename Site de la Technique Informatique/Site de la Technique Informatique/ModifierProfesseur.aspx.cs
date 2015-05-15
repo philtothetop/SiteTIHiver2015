@@ -27,7 +27,7 @@ namespace Site_de_la_Technique_Informatique
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false,false);
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
 
@@ -117,7 +117,7 @@ namespace Site_de_la_Technique_Informatique
                         imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
 
                         String imageNom = (profAUpdater.prenom + profAUpdater.dateInscription.ToString()).GetHashCode() + "_125.jpg";
-                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
+                        String imageProfilChemin = Path.Combine(Server.MapPath("/~/Upload/Photos/Profils/"), imageNom);
                         imageProfil.Save(imageProfilChemin);
                         profAUpdater.pathPhotoProfil = imageNom;
                     }

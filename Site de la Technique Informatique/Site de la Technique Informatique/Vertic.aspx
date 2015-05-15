@@ -30,7 +30,7 @@
             <!-- Content Column -->
 
             <!-- Projet Section -->
-            <section id="projet" class="projet-section">
+            <section id="projet" class="projet-section" style="padding-left:20px;padding-right:10px;">
                 <div class="row">
                  <h1 style="margin-top:32px; font-size:2.8em">Informations générales sur VERTIC</h1>
                     <div class="col-lg-12">
@@ -52,7 +52,7 @@
             </section>
 
             <!-- About Section -->
-            <section id="portable" class="portable-section">
+            <section id="portable" class="portable-section" style="padding-left:20px;padding-right:10px;">
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -95,7 +95,7 @@
 
 
 
-            <section id="echeancier" class="echeancier-section">
+            <section id="echeancier" class="echeancier-section" style="padding-left:20px;padding-right:10px;">
                 <div>
                     <div>
                         <h3>Les dates à retenir</h3>
@@ -148,7 +148,7 @@
             </section>
 
             <!-- Logiciel Section -->
-            <section id="logiciel" class="logiciel-section">
+            <section id="logiciel" class="logiciel-section" style="padding-left:20px;padding-right:10px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Configuration logicielle</h3>
@@ -171,7 +171,7 @@
                 </div>
             </section>
 
-            <section id="garantie" class="garantie-section">
+            <section id="garantie" class="garantie-section" style="padding-left:20px;padding-right:10px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Garantie et assurance</h3>
@@ -183,7 +183,7 @@
                 </div>
             </section>
 
-            <section id="financement" class="financement-section">
+            <section id="financement" class="financement-section" style="padding-left:20px;padding-right:10px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Financement</h3>
@@ -291,7 +291,7 @@
 
             </section>
 
-            <section id="accueil" class="accueil-section">
+            <section id="accueil" class="accueil-section" style="padding-left:20px;padding-right:10px;">
                 <div id="row">
                     <h3>Accueil et VerTICamp</h3>
 

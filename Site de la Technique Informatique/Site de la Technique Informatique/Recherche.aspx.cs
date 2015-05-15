@@ -17,7 +17,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SavoirSiPossedeAutorizationPourLaPage(false, true, true, true, false);
         }
 
         public IQueryable<Site_de_la_Technique_Informatique.Model.Membre> lviewRecherche_GetData()
@@ -29,7 +29,6 @@ namespace Site_de_la_Technique_Informatique
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
                     string textRecherche = txtNomMembre.Text.ToLower().Replace(" ","");
-                    //List<string> result = textRecherche.Split(' ').ToList();
 
                     //Si les 2 checks box son coché ou aucun des deux
                     if ((chkbEtudiant.Checked == true && chkbProfesseur.Checked == true)
@@ -37,7 +36,8 @@ namespace Site_de_la_Technique_Informatique
                     {
                         listeMembre = (from cl in lecontexte.UtilisateurSet.OfType<Model.Membre>()
                                        where (cl.nom.ToLower() + cl.prenom.ToLower()).Contains(textRecherche) ||
-                                             (cl.prenom.ToLower() + cl.nom.ToLower()).Contains(textRecherche)
+                                             (cl.prenom.ToLower() + cl.nom.ToLower()).Contains(textRecherche) &&
+                                              cl.compteActif == 1
                                        select cl).ToList();
                     }
                     //Si que etudiants
@@ -45,7 +45,8 @@ namespace Site_de_la_Technique_Informatique
                     {
                         listeMembre = (from cl in lecontexte.UtilisateurSet.OfType<Model.Membre>()
                                        where cl is Model.Etudiant && ((cl.nom.ToLower() + cl.prenom.ToLower()).Contains(textRecherche) ||
-                                                                     (cl.prenom.ToLower() + cl.nom.ToLower()).Contains(textRecherche))
+                                                                     (cl.prenom.ToLower() + cl.nom.ToLower()).Contains(textRecherche)) &&
+                                                                      cl.compteActif == 1
                                        select cl).ToList();
                     }
                     //Si prof
@@ -53,7 +54,8 @@ namespace Site_de_la_Technique_Informatique
                     {
                         listeMembre = (from cl in lecontexte.UtilisateurSet.OfType<Model.Membre>()
                                        where cl is Model.Professeur && ((cl.nom.ToLower() + cl.prenom.ToLower()).Contains(textRecherche) ||
-                                                                       (cl.prenom.ToLower() + cl.nom.ToLower()).Contains(textRecherche))
+                                                                       (cl.prenom.ToLower() + cl.nom.ToLower()).Contains(textRecherche)) &&
+                                                                        cl.compteActif == 1
                                        select cl).ToList();
                     }
                 }

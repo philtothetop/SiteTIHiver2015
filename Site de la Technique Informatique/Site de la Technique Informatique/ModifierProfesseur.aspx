@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModifierProfesseur.aspx.cs" Inherits="Site_de_la_Technique_Informatique.ModifierProfesseur" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="../Css/Inscription.css" />
+    <link rel="stylesheet" href="~/../Css/Inscription.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
@@ -10,13 +10,11 @@
     <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, image cropping, web development" />
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="Js/bootstrap.min.js"></script>
+
+    
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
-
-    <link rel="stylesheet" href="../Css/Inscription.css" />
 
     <script type="text/javascript">
         function openModal() {
@@ -35,7 +33,9 @@
     </script>
     <script type="text/javascript">
         window.closeModal = function () {
-            $('#maPhotoProfile').modal('close');
+            $('#maPhotoProfile').modal('hide');
+            $('body').removeClass('modal-open');
+            $('.modal-backdrop').remove();
         };
         function closeDivs(value) {
            
@@ -67,8 +67,8 @@
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:HiddenField runat="server" ID="hidTab" Value="informations" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
-
-    <div class="container">
+    <br />
+    <div class="container" style="margin-top:80px;">
         <ul class="nav nav-tabs" id="myTab">
             <li role="presentation" class="active"><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs('informations')">Informations générales</a></li>
             <li role="presentation"><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('cours') ">Mes Cours</a></li>
@@ -82,7 +82,7 @@
         <div class="tab-content">
 
             <div class="row">
-                <div class="col-md-3 col-md-offset-8" style="position: absolute">
+                <div class="col-md-3 col-md-offset-7" style="position: absolute">
                     <div class="alert alert-success" runat="server" id="divSuccess">
                         <p>Les modifications ont été effectuées.</p>
                     </div>
@@ -143,7 +143,7 @@
                                     <div class="col-md-5 col-centered">
                                         <div class="img-thumbnail img-photo preview-photo">
 
-                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' Width="125" Height="125" />
+                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "~/../Upload/Photos/Profils/{0}") %>' Width="125" Height="125" />
                                         </div>
                                         <div class="div-btnChangerPhoto">
                                             <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
@@ -259,7 +259,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-centered">
+                                    <div class="col-md-4 col-centered">
                                         <div class="control-group form-group">
                                             <div class="controls">
                                                 <label>Cours</label>
@@ -291,7 +291,7 @@
                             OnItemDataBound="lvModifierCours_ItemDataBound">
 
                             <EmptyDataTemplate>
-                                <p>Vous n'avez aucun cours assignés!</p>
+                                <p>Vous n'avez pas de cours assigné</p>
                             </EmptyDataTemplate>
                             <LayoutTemplate>
                                 <div class="row">
