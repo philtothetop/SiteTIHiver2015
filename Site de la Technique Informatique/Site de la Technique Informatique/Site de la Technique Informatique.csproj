@@ -369,7 +369,7 @@
     <Content Include="Global.asax" />
     <Content Include="InformationsStage.aspx" />
     <Content Include="Temoignages.aspx" />
-    <Content Include="temp-editNouvelles.aspx" />
+    <Content Include="Admin_editNouvelles.aspx" />
     <Content Include="tinymce\changelog.txt" />
     <Content Include="tinymce\js\tinymce\license.txt" />
     <Content Include="tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
@@ -882,12 +882,12 @@
     <Compile Include="Temoignages.aspx.designer.cs">
       <DependentUpon>Temoignages.aspx</DependentUpon>
     </Compile>
-    <Compile Include="temp-editNouvelles.aspx.cs">
-      <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
+    <Compile Include="Admin_editNouvelles.aspx.cs">
+      <DependentUpon>Admin_editNouvelles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="temp-editNouvelles.aspx.designer.cs">
-      <DependentUpon>temp-editNouvelles.aspx</DependentUpon>
+    <Compile Include="Admin_editNouvelles.aspx.designer.cs">
+      <DependentUpon>Admin_editNouvelles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Validation-Inscription-Etudiant.aspx.cs">
       <DependentUpon>Admin_Validation-Inscription-Etudiant.aspx</DependentUpon>
