@@ -107,7 +107,6 @@
     <Content Include="Admin_Media.aspx" />
     <Content Include="Admin_Profil.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
-    <Content Include="Admin_SupprimerPhoto.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
     <Content Include="Admin_Validation-Inscription-Employeur.aspx" />
@@ -228,7 +227,68 @@
     <None Include="Properties\PublishProfiles\test.pubxml" />
     <Content Include="Souvenirs.aspx" />
     <Content Include="TermesConditions.aspx" />
+    <Content Include="tinymce\js\tinymce\langs\fr_FR.js" />
     <Content Include="tinymce\js\tinymce\langs\readme.md" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\.gitattributes" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\.gitignore" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\controllers\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\errors\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\helpers\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\english\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\french\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\russian\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\views\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\helpers\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\language\english\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\language\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\libraries\index.html" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\css\dialog-v4.css" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\css\dialog.css" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\dialog-v4.htm" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\dialog.htm" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\editor_plugin.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\editor_plugin_src.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\img\jbimages-bw.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\img\spinner.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\js\dialog-v4.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\js\dialog.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\langs\en.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\langs\en_dlg.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\langs\fr.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\langs\fr_dlg.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\langs\ru.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\langs\ru_dlg.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\plugin.js" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\angel.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\confused.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\cry.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\devil.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\frown.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\gasp.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\glasses.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\grin.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\grumpy.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\heart.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\kiki.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\kiss.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\pacman.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\penguin.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\putnam.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\robot.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\shark.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\smile.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\squint.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\sunglasses.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\tongue.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\unsure.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\img\upset.png" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\plugin.js" />
+    <Content Include="tinymce\js\tinymce\plugins\smileys\plugin.min.js" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
@@ -240,6 +300,62 @@
     <Content Include="tinymce\Upload\Media\AnalysePreliminaire.pdf" />
     <Content Include="tinymce\Upload\Media\Les tests en SCRUM.pdf" />
     <Content Include="tinymce\Upload\Cours\grilles_informatique.pdf" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\.htaccess" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\autoload.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\config.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\constants.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\database.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\doctypes.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\foreign_chars.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\hooks.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\migration.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\mimes.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\profiler.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\routes.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\smileys.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\uploader_settings.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\config\user_agents.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\controllers\uploader.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\errors\error_404.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\errors\error_db.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\errors\error_general.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\errors\error_php.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\helpers\jbimages_helper.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\english\jbstrings_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\french\imglib_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\french\jbstrings_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\french\upload_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\russian\imglib_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\russian\jbstrings_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\language\russian\upload_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\views\ajax_upload_result.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\application\views\blank.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\index.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\.htaccess" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Benchmark.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\CodeIgniter.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Common.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Config.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Controller.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Exceptions.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Hooks.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Input.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Loader.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Model.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Output.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Router.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Security.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\URI.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\core\Utf8.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\helpers\language_helper.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\language\english\imglib_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\language\english\upload_lang.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\libraries\Image_lib.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\ci\system\libraries\Upload.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\config.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\is_allowed.php" />
+    <Content Include="tinymce\js\tinymce\plugins\justboil.me\readme" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -401,13 +517,6 @@
     </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.designer.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_SupprimerPhoto.aspx.cs">
-      <DependentUpon>Admin_SupprimerPhoto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_SupprimerPhoto.aspx.designer.cs">
-      <DependentUpon>Admin_SupprimerPhoto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Temoignage.aspx.cs">
       <DependentUpon>Admin_Temoignage.aspx</DependentUpon>
@@ -822,6 +931,7 @@
     <Folder Include="Photos\Souvenir\Projets\" />
     <Folder Include="Photos\Souvenir\Étudiants\" />
     <Folder Include="tinymce\Upload\CV\" />
+    <Folder Include="Upload\CV\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

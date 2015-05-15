@@ -24,7 +24,7 @@
                     <h4>Date:</h4>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Date de l'événement :</label>
+                            <label>Date de l'événement:</label>
                             <div class="row">
                                 <div class="col-lg-3 col-md-3">
                                     <asp:TextBox runat="server" ID="txtJourEventAjouter" Style="text-align: center;"
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div style="margin-top: 10px;"></div>
-                            <label>Heure de l'événement :</label>
+                            <label>Heure de l'événement:</label>
                             <div></div>
                             <div class="col-lg-3 col-md-3" style="margin-left: -15px;">
                                 <asp:DropDownList runat="server" ID="ddlHeuresAjouter" Width="80" CssClass="form-control"
@@ -111,7 +111,7 @@
                                             </div>
                                         </div>
                                         <div style="margin-top: 10px;"></div>
-                                        <label>Heure de l'événement :</label>
+                                        <label>Heure de l'événement:</label>
                                         <div></div>
                                         <div class="col-lg-3 col-md-4" style="margin-left: -15px;">
                                             <asp:DropDownList runat="server" ID="ddlHeures" Width="80" CssClass="form-control"
