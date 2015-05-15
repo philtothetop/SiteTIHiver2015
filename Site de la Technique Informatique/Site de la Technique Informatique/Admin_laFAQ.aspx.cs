@@ -103,6 +103,9 @@ namespace Site_de_la_Technique_Informatique
         {
             // Sert à ajouter une question à la FAQ 
 
+            txtAjouterQuestion.BorderColor = Color.LightGray;
+            txtAjouterReponse.BorderColor = Color.LightGray;
+
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
                 try
@@ -170,6 +173,7 @@ namespace Site_de_la_Technique_Informatique
         {
             // Sert à modifier une question de la FAQ
 
+            
             try
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
@@ -178,6 +182,9 @@ namespace Site_de_la_Technique_Informatique
                     Model.FAQ questionAMod = (from question in lecontexte.FAQSet where question.IDFAQ == ID select question).FirstOrDefault();
                     TextBox txtQuestion = lviewModifFAQ.Items[0].FindControl("txtQuestion") as TextBox;
                     TextBox txtReponse = lviewModifFAQ.Items[0].FindControl("txtReponse") as TextBox;
+
+                    txtQuestion.BorderColor = Color.LightGray;
+                    txtReponse.BorderColor = Color.LightGray;
 
                     if (txtQuestion.ToString().Length > 150)
                     {
