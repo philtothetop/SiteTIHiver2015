@@ -25,8 +25,7 @@ Extrants: --%>
     <div class="row">
         <div class="col-lg-8">
             <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-            <h1>Gérer la FAQ</h1>
-            <p>Sur cette page, vous pouvez modifier, ajouter ou supprimer des questions de la Foire aux questions.</p>
+            <h1 class="page-header">FAQ</h1>
         </div>
     </div>
     <%-- Ajouter une question --%>
