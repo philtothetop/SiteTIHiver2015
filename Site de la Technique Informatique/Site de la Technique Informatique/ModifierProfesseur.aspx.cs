@@ -117,7 +117,7 @@ namespace Site_de_la_Technique_Informatique
                         imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
                         string something = profAUpdater.dateInscription.ToShortDateString().Replace("/", "");
                         String imageNom = (profAUpdater.prenom +  something) + "_125.jpg";
-                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Upload/Photos/Profils/"), imageNom);
+                        String imageProfilChemin = Path.Combine(Server.MapPath(Request.ApplicationPath + "/Upload/Photos/Profils/"), imageNom);
                         imageProfil.Save(imageProfilChemin);
                         profAUpdater.pathPhotoProfil = imageNom;
                     }
@@ -154,8 +154,9 @@ namespace Site_de_la_Technique_Informatique
                 image = System.Drawing.Image.FromStream(ms);
                 string cropFileName = "";
                 string cropFilePath = "";
-                cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/../Upload/Photos/Profils/"), cropFileName);
+                cropFileName = "crop_" + "testImg.jpg";
+                cropFilePath = Path.Combine(Server.MapPath(Request.ApplicationPath + "/Upload/Photos/Profils/"), cropFileName);
+                image.Save(cropFilePath);
             }
 
             return image;
@@ -166,7 +167,6 @@ namespace Site_de_la_Technique_Informatique
             }
         }
         #endregion
-
 
         #region Modifier_Password
 
@@ -278,8 +278,6 @@ namespace Site_de_la_Technique_Informatique
 
         #endregion
 
-
-
         #region Modifier_Cours
         public IQueryable<Cours> lvModifierCours_GetData()
         {
@@ -297,7 +295,6 @@ namespace Site_de_la_Technique_Informatique
                     int selectedCours = int.Parse(ddlCours.SelectedValue);
                     newCours = ((from cours in lecontexte.CoursSet.OfType<Cours>() where cours.IDCours == selectedCours select cours).ToList());
                     }
-               
 
                 if ((string)ViewState["mode"] + "" == "ajoute")  // SEULEMENT UN MEDIA «VIDE»
                 {
@@ -515,12 +512,5 @@ namespace Site_de_la_Technique_Informatique
                 btnModif.Enabled = false;
             }
         }
-
-       
-
-        
-
-
-
     }
 }

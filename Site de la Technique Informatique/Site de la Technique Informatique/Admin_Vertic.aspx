@@ -7,6 +7,7 @@
     <asp:MultiView ID="mvAdmin_Vertic" runat="server" ActiveViewIndex="0">
         <asp:View runat="server" ID="viewDefault">
             <div class="row">
+                <h1 class="page-header">Vertic</h1>
                 <div class="col-lg-9">
                     <asp:Label ID="lblConfirmation" runat="server"></asp:Label>
                     <section id="portable">

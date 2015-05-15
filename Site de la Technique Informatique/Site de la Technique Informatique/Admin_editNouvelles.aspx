@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<script type="text/javascript" src="tinymce/plupload-2.1.2/js/plupload.full.min.js"></script>
 <script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
     tinymce.init({
@@ -24,7 +23,13 @@
         document.getElementById('txtContenuNouvelle').value = value;
     }
  </script>
-        <asp:Panel ID="panelNouvelles" runat="server" style="height:450px; overflow-y:scroll">
+        <asp:Panel ID="panelNouvelles" runat="server">
+            <div>
+             <asp:Label id="msgError" runat="server" style="text-align:center;" ForeColor="Red" Font-Bold="true" Visible="false">Message d'erreur</asp:Label>
+                </div>
+
+            <br />
+
         <asp:ListView ID="lviewNouvelles" runat="server"     
             ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
             SelectMethod="getNouvelles">
@@ -56,12 +61,12 @@
 
 
 
-          <div style="margin-left: auto; margin-right: auto; width: 250px;">
-                        <asp:Button ID="btnNewNouvelle" runat="server" Text="Ajouter une nouvelle" OnClick="btnNewNouvelle_Click" />                   
+          <div>
+                        <asp:Button ID="btnNewNouvelle" CssClass="btn btn-primary" runat="server" Text="Ajouter une nouvelle" OnClick="btnNewNouvelle_Click" />                   
                    
                </div>
 
-         <asp:Label id="msgError" runat="server" style="text-align:center;" ForeColor="Red" Font-Bold="true" Visible="false">Message d'erreur</asp:Label>
+
 
         <asp:ListView ID="lviewEditNews" runat="server" Visible="false"
             ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
@@ -88,15 +93,15 @@
                   </div>
                 </div>
                  <div>
-                        <asp:Button ID="btnModifier" runat="server" Text="Modifier" CommandName="Update" />
-                        <asp:Button ID="btnAnnuler" runat="server" Text="Annuler" OnClick="btnAnnuler_Click" />
-                        <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" OnClick="btnSupprimer_Click" />
+                        <asp:Button ID="btnModifier" CssClass="btn btn-primary" runat="server" Text="Modifier" CommandName="Update" />
+                        <asp:Button ID="btnAnnuler" CssClass="btn btn-primary" runat="server" Text="Annuler" OnClick="btnAnnuler_Click" />
+                        <asp:Button ID="btnSupprimer" CssClass="btn btn-danger" runat="server" Text="Supprimer" OnClick="btnSupprimer_Click" />
                     </div>
             </ItemTemplate>
         </asp:ListView>
 
 
-        <asp:Panel class="panel panel-default" runat="server" id="panelAjoutNews" Visible="false">
+    <asp:Panel class="panel panel-default" runat="server" ID="panelAjoutNews" Visible="false">
             <div class="panel-body">
                 <asp:Label runat="server" Text="Titre:"></asp:Label>
                 <asp:TextBox runat="server" ID="txtTitreAjout" Width="350px"></asp:TextBox>
@@ -108,8 +113,8 @@
                 </div>
             </div>
             <div>
-                <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" OnClick="btnAjouter_Click" />
-                <asp:Button ID="btnAnnuler" runat="server" Text="Annuler" OnClick="btnAnnuler_Click" />
+                <asp:Button ID="btnAjouter" CssClass="btn btn-primary" runat="server" Text="Ajouter" OnClick="btnAjouter_Click" />
+                <asp:Button ID="btnAnnuler" CssClass="btn btn-primary"  runat="server" Text="Annuler" OnClick="btnAnnuler_Click" />
             </div>
             <br />
         </asp:Panel>

@@ -45,7 +45,7 @@
                             <div class="col-md-6 img-portfolio">
                                 <div>
                                     <div style="text-align:center;">
-                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' Height='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, true) %>' Width='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, false) %>' style="max-width:500px; max-height:500px;" />
+                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/../Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' Height='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, true) %>' Width='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, false) %>' style="max-width:500px; max-height:500px;" />
 
                                     </div>                             
                                 </div>                           

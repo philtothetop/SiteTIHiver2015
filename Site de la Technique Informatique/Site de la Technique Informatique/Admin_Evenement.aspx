@@ -13,7 +13,7 @@
         <asp:Label ID="lblErreur" runat="server" Text="" ForeColor="Red" Font-Bold="true" />
         <div class="row col-lg-12" style="margin-bottom: 40px;">
             <div class="row col-lg-12">
-                <h2>Événements</h2>
+               <h1 class="page-header">Événements</h1>
             </div>
             <div class="row well col-lg-12 col-md-12" style="height: 200px; margin-bottom: 50px;">
                 <div class="col-lg-5 col-md-5">

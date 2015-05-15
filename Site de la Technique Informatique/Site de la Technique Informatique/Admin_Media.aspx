@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h3>Ajout Médias</h3>
+   <h1 class="page-header">Médias</h1>
     <div>
         <div class="row">
             <div class="col-lg-2">
