@@ -21,6 +21,7 @@ namespace Site_de_la_Technique_Informatique
             }
 
             txtMessage.Attributes.Add("maxlength", txtMessage.MaxLength.ToString());
+            txtMessage.Text = Server.HtmlDecode(txtMessage.Text);
 
         }
 
