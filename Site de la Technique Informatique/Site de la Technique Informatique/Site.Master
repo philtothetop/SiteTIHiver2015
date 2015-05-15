@@ -78,7 +78,7 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="default.aspx">Techniques de l'informatique</a>
+                    <a class="navbar-brand" href="default.aspx" style="font-size:0.9em;">Techniques de l'informatique</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">
@@ -166,7 +166,7 @@
 
         <!--Fil d'Arianne-->
 
-        <div style="float: left; width: 50%; margin-top: 75px; margin-left:25%" runat="server" id="divSiteMap">
+        <div style="width: 50%; margin-top: 75px; margin-left:25%" runat="server" id="divSiteMap">
             <ol class="breadcrumb">
                 <asp:SiteMapPath ID="siteMapPath" runat="server" PathDirection="RootToCurrent"
                     RenderCurrentNodeAsLink="false" ShowToolTips="true" Style="width: 100%; display: inline-block" Font-Bold="true" Font-Size="14px">
