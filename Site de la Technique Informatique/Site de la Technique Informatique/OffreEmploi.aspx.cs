@@ -38,25 +38,25 @@ namespace Site_de_la_Technique_Informatique
 
                 if (offreEmploi.dateExpiration == null)
                 {
-                    lblDateExpiration.Text = "Expiration de l'offre : Non définie";
+                    lblDateExpiration.Text = "Expiration de l'offre: Non définie";
                 }
                 else
                 {
-                    lblDateExpiration.Text = "Expiration de l'offre : " + offreEmploi.dateExpiration.ToString();
+                    lblDateExpiration.Text = "Expiration de l'offre: " + offreEmploi.dateExpiration.ToString();
                 }
 
-                lblDateDebutOffre.Text = "Début de l'offre : " + offreEmploi.dateDebutOffre.ToString("dd/MM/yyyy");
+                lblDateDebutOffre.Text = "Début de l'offre: " + offreEmploi.dateDebutOffre.ToString("dd/MM/yyyy");
                 lblSalaire.Text = offreEmploi.salaire + " $/heure";
-                lblNoTelephone.Text = "No de téléphone : " + offreEmploi.noTelephone;
+                lblNoTelephone.Text = "No de téléphone: " + offreEmploi.noTelephone;
 
                 if (offreEmploi.noPoste != null)
                 {
                     lblNoPoste.Text = "  Ext: (" + offreEmploi.noPoste + ")";
                 }
 
-                lblNoTelecopieur.Text = "No de télécopieur : " + offreEmploi.noTelecopieur;
-                lblCourrielOffre.Text = "Courriel : " + offreEmploi.courrielOffre;
-                lblPersonneRessource.Text = "Personne ressources : " + offreEmploi.personneRessource;
+                lblNoTelecopieur.Text = "No de télécopieur: " + offreEmploi.noTelecopieur;
+                lblCourrielOffre.Text = "Courriel: " + offreEmploi.courrielOffre;
+                lblPersonneRessource.Text = "Personne ressource: " + offreEmploi.personneRessource;
 
                 if (offreEmploi.pathPDFDescription == "" || offreEmploi.pathPDFDescription == null)
                 {
