@@ -116,7 +116,7 @@ namespace Site_de_la_Technique_Informatique
                                         imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
 
                                         String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
-                                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlTypeDImage.Text + "/" + imageNom);
+                                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Upload/Photos/Souvenir/"), ddlTypeDImage.Text + "/" + imageNom);
                                         imageAAjouter.Save(imageProfilChemin);
 
                                         //Sauvegarder image pour utiliser avec la bd

@@ -23,10 +23,12 @@
     </script>
     <script type="text/javascript">
         function copieImgData() {
+            debugger;
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lvProfesseur_showDataURL_0.src;
         }
     </script>
     <script type="text/javascript">
+        debugger;
         window.transfertDataImg = function (dataURL) {
             $("#ContentPlaceHolder1_lvProfesseur_showDataURL_0").attr("src", dataURL);
         };
@@ -143,7 +145,7 @@
                                     <div class="col-md-5 col-centered">
                                         <div class="img-thumbnail img-photo preview-photo">
 
-                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "../Upload/Photos/Profils/{0}") %>' Width="125" Height="125" />
+                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", Request.ApplicationPath + "/Upload/Photos/Profils/{0}") %>' Width="125" Height="125" />
                                         </div>
                                         <div class="div-btnChangerPhoto">
                                             <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />

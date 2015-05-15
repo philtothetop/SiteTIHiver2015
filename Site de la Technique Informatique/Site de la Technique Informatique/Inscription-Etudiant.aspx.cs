@@ -196,7 +196,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                                  String imageProfilChemin = null;
                                 if (isLocal())
                                 {
-                                    Path.Combine(Server.MapPath("~/Upload/Photos/Profils/"), imageNom);
+                                    imageProfilChemin = Path.Combine(Server.MapPath("~/Upload/Photos/Profils/"), imageNom);
                                 }
                                 else
                                 {
@@ -332,7 +332,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             hash hash = new hash();
 
             String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
-            String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority + "ProjetDeux_2015_1/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
+            String hyperLien = "http://sqlinfo.cegepgranby.qc.ca/projetdeux_2015_1/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
             String titre = "Inscription TI Cegep de Granby";
             String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Merci de votre inscription sur le site de la technique informatique du Cégep de Granby, Cliquez sur le lien ci-dessous pour valider votre compte<br>" + "<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
