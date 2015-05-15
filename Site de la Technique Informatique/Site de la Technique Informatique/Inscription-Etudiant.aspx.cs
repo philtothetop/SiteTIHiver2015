@@ -38,7 +38,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
         public List<String> panneauxEnErreur = new List<string>();
 
         //Url de la photo du profil
-
+     
         #endregion
         protected void Page_Load()
         {
@@ -66,9 +66,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur GetUtilisateurEtudiant : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
+                throw new Exception("Erreur GetUtilisateurEtudiant: " + ex.ToString() + " Inner exception de l'erreur: " + logEx.InnerException + " Essai d'envoi à: ");
             }
-
+         
         }
         //Cette class permet de valider l'utilisateur qui est a l'écran et sauvegarder dans la BD
         //Écrit par Cédric Archambault 17 février 2015
@@ -143,7 +143,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     }
                     //Vérifier si le courriel existe.
                     Utilisateur utilisateurExistant = (from cl in leContext.UtilisateurSet where cl.courriel.Equals(etudiantACreerCopie.courriel) select cl).FirstOrDefault();
-                    if (utilisateurExistant != null)
+                    if(utilisateurExistant!=null)
                     {
                         ValidationResult vald = new ValidationResult("Un membre ayant se courriel existe déjà.", new[] { "Courriel" });
                         isValid = false;
@@ -166,7 +166,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         lblMessage.Text = "";
                         foreach (var ValdationResult in resultatsValidation)
                         {
-
+                            
                             lblMessage.Text += ValdationResult.ErrorMessage + "<br/>";
                             String input = ValdationResult.MemberNames.FirstOrDefault();
                             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
@@ -183,36 +183,15 @@ namespace Site_de_la_Technique_Informatique.Inscription
                     {
                         //Sauvegarder image du profil
                         String imgData = ImgExSrc.Value;
-                        if (imgData != "" && imgData.Length > 21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
+                        if (imgData != "" && imgData.Length>21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                         {
                             System.Drawing.Image imageProfil = LoadImage(imgData);
                             imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
 
-                            //try
-                            //{
-
-
-                                String imageNom = (etudiantACreerCopie.prenom + etudiantACreerCopie.dateInscription.ToString()).GetHashCode() + "_125.jpg";
-                                 String imageProfilChemin = null;
-                                if (isLocal())
-                                {
-                                    imageProfilChemin = Path.Combine(Server.MapPath("~/Upload/Photos/Profils/"), imageNom);
-                                }
-                                else
-                                {
-                                    imageProfilChemin = Path.Combine(Server.MapPath("~/../Upload/Photos/Profils/"), imageNom);
-                                }
-
-                                
-                                imageProfil.Save(imageProfilChemin);
-                                etudiantACreerCopie.pathPhotoProfil = imageNom;
-                            //}
-                            //catch(Exception ex)
-                            //{
-                            //    Response.Redirect("FAQ.aspx",false);
-                            //    etudiantACreerCopie.pathPhotoProfil = "photobase.bmp";
-                            //}
-
+                            String imageNom = (etudiantACreerCopie.prenom + etudiantACreerCopie.dateInscription.ToString()).GetHashCode() + "_125.jpg";
+                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
+                            imageProfil.Save(imageProfilChemin);
+                            etudiantACreerCopie.pathPhotoProfil = imageNom;
                         }
                         else// sion photo par défault
                         {
@@ -280,7 +259,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur Condition CheckedChanged : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
+                throw new Exception("Erreur Condition CheckedChanged: " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
         //Cette class permet des/active le bouton accepter par le link  Accepter
@@ -300,7 +279,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
             catch (Exception ex)
             {
                 Exception logEx = ex;
-                throw new Exception("Erreur Accepter Click : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
+                throw new Exception("Erreur Accepter Click: " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "Essai d'envoi à : ");
             }
         }
         //Cette class permet des/active le bouton accepter
@@ -332,13 +311,13 @@ namespace Site_de_la_Technique_Informatique.Inscription
             hash hash = new hash();
 
             String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
-            String hyperLien = "http://sqlinfo.cegepgranby.qc.ca/projetdeux_2015_1/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
-            String titre = "Inscription TI Cegep de Granby";
-            String message = "Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Merci de votre inscription sur le site de la technique informatique du Cégep de Granby, Cliquez sur le lien ci-dessous pour valider votre compte<br>" + "<a href=\"" + hyperLien + "\">cliquez ici.</a>";
+            String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority + "/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
+            String titre = "Inscription TI Cégep de Granby";
+            String message = "Cher/Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Merci de votre inscription sur le site de techniques informatique du Cégep de Granby, cliquez sur le lien ci-dessous pour valider votre compte<br>"+"<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
             courrielAutomatiser courriel = new courrielAutomatiser();
 
-            return courriel.envoie(etudiant.courriel, titre, message);
+            return courriel.envoie(etudiant.courriel,titre,message);
 
         }
 
@@ -361,13 +340,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 string cropFileName = "";
                 string cropFilePath = "";
                 cropFileName = "crop_" + "testImg";
-                try { 
-                cropFilePath = Path.Combine(Server.MapPath(".." + Request.ApplicationPath + "/Upload/Photos/Profils/"), cropFileName);
-                }
-                catch (Exception ex)
-                {
-                    Response.Redirect("Contact.aspx", false);
-                }
+                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Profils/"), cropFileName);
             }
 
             return image;

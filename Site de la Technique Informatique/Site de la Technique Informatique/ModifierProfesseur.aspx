@@ -11,7 +11,7 @@
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
 
-   
+    
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
@@ -69,8 +69,8 @@
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:HiddenField runat="server" ID="hidTab" Value="informations" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
-
-    <div class="container">
+    <br />
+    <div class="container" style="margin-top:80px;">
         <ul class="nav nav-tabs" id="myTab">
             <li role="presentation" class="active"><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs('informations')">Informations générales</a></li>
             <li role="presentation"><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('cours') ">Mes Cours</a></li>
@@ -261,7 +261,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-centered">
+                                    <div class="col-md-4 col-centered">
                                         <div class="control-group form-group">
                                             <div class="controls">
                                                 <label>Cours</label>
@@ -293,7 +293,7 @@
                             OnItemDataBound="lvModifierCours_ItemDataBound">
 
                             <EmptyDataTemplate>
-                                <p>Vous n'avez aucun cours assignés!</p>
+                                <p>Vous n'avez pas de cours assignés</p>
                             </EmptyDataTemplate>
                             <LayoutTemplate>
                                 <div class="row">
@@ -356,7 +356,7 @@
             <div role="tabpanel" class="tab-pane fade" id="delete">
                 <div class="row-centered">
                     <div class="col-md-8 col-centered" style="text-align: center">
-                        <h3>déjà tanné d'être ici? :'(</h3>
+                        <h3>Déjà fatigué d'être ici? :'(</h3>
                         <p>Si vous désactivez votre profil, vous ne pourrez plus vous connecter. Êtes-vous certain de vouloir désactiver votre compte?</p>
                     </div>
                 </div>

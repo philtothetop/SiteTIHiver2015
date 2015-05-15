@@ -124,7 +124,7 @@ namespace Site_de_la_Technique_Informatique
                                                                   where etetesForum.dateEnteteForum.CompareTo(dateAjout) == 1
                                                                   select etetesForum).FirstOrDefault();
 
-                        ViewState["IDEnteteForum"] = enteteForumRecherche.IDEnteteForum;
+                        ViewState["IDEnteteForum"] = enteteForum.IDEnteteForum.ToString();
 
                         messageForum.EnteteForumIDEnteteForum = Int32.Parse(ViewState["IDEnteteForum"].ToString());
                         messageForum.EnteteForum = enteteForumRecherche;
