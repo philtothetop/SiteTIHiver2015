@@ -32,7 +32,6 @@ namespace Site_de_la_Technique_Informatique
                                select offresEmploi).FirstOrDefault();
 
                 lblTitreOffre.Text = offreEmploi.titreOffre;
-                lblTitreOffre2.Text = offreEmploi.titreOffre;
                 lblAdresseVille.Text = offreEmploi.adresseTravail + ", " + offreEmploi.Ville.nomVille;
                 lblNbHeureSemaine.Text = offreEmploi.nbHeureSemaine + " heures par semaine";
                 lblDescriptionOffre.Text = offreEmploi.descriptionOffre;

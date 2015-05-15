@@ -65,11 +65,7 @@ Extrants: --%>
                 <h1 class="page-header">Qui sommes-nous?
                     
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="Default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Qui sommes-nous?</li>
-                </ol>
+               
             </div>
         </div>
         <!-- /.row -->
@@ -132,7 +128,8 @@ Extrants: --%>
                                     <li><i class="glyphicon glyphicon-envelope"></i>
                                     </li>
                                     <li>
-                                        <asp:Label ID="lblEmail" runat="server" Text='<%# BindItem.courriel %>'></asp:Label></li>
+                                        <asp:HyperLink ID="email" runat="server" NavigateUrl='<%# Eval("courriel","mailto:{0}") %>'><asp:Label ID="lblEmail" runat="server" Text='<%# BindItem.courriel %>'></asp:Label></asp:HyperLink>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

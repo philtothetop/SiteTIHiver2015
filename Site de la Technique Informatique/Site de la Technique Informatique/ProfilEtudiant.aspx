@@ -22,11 +22,10 @@
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
                     </LayoutTemplate>
                     <EmptyDataTemplate>
-                        <table class="emptyTable" cellpadding="5" cellspacing="5">
+                        <table class="emptyTable">
                             <tr>
-                                <td>Lol
-                                </td>
-                                <td>No records available.
+                               
+                                <td>Cet étudiant n'existe pas.
                                 </td>
                             </tr>
                         </table>
@@ -89,9 +88,10 @@
 
                     </ItemTemplate>
                 </asp:ListView>
-                <div class="col-lg-offset-8 col-lg-8 " id="dvModifier" runat="server">
+                                        <div class="col-lg-offset-8 col-lg-8 " id="dvModifier" runat="server">
                     <asp:LinkButton ID="lnkModifier" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="lnkModifier_Click" CommandArgument='<%#Eval("IDEtudiant")%>' />
-                </div>
+                     <asp:LinkButton ID="lnkFaireTemoignage" runat="server" Text="Faire un témoignage" CssClass="btn btn-primary" OnClick="lnkFaireTemoignage_Click"  />
+                </div> 
             </div>
         </div>
         <div class="col-lg-1"></div>

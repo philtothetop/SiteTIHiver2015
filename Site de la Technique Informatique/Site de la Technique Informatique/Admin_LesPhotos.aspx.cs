@@ -21,6 +21,7 @@ namespace Site_de_la_Technique_Informatique
         {
             if (Page.IsPostBack == false)
             {
+                SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
                 //Set les drops downs listes (modifier/Ajouter)
                 Dictionary<string, string> listeDesElements = listeStaticSouvenirs(false); 
 

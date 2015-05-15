@@ -12,7 +12,7 @@ using Site_de_la_Technique_Informatique.Model;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Contact : System.Web.UI.Page
+    public partial class Contact : ErrorHandling 
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace Site_de_la_Technique_Informatique
             mail.IsBodyHtml = true;
             mail.Priority = System.Net.Mail.MailPriority.High;
             System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
-            client.Credentials = new System.Net.NetworkCredential("mariephilippe.gill@gmail.com", "(pap!er)");
+            client.Credentials = new System.Net.NetworkCredential("sitewebti@gmail.com", "site1web!ti?");
             client.Port = 587;
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;

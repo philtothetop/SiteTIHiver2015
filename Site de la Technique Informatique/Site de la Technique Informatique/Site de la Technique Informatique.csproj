@@ -106,6 +106,7 @@
     <Content Include="Admin_laFAQ.aspx" />
     <Content Include="Admin_LesPhotos.aspx" />
     <Content Include="Admin_Media.aspx" />
+    <Content Include="Admin_Profil.aspx" />
     <Content Include="Admin_OffreEmploi.aspx" />
     <Content Include="Admin_Temoignage.aspx" />
     <Content Include="Admin_Evenement.aspx" />
@@ -113,7 +114,7 @@
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
-    <Content Include="AjoutProfesseur.aspx" />
+    <Content Include="Admin_InscriptionProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\AdministrateurLesOffresEmploi.css" />
@@ -189,7 +190,6 @@
     <Content Include="Photos\logoCegep.png" />
     <Content Include="Photos\Concepteurs\Baron.JPG" />
     <Content Include="Photos\Concepteurs\Bibeau.JPG" />
-    <Content Include="Photos\Concepteurs\Francis.JPG" />
     <Content Include="Photos\Concepteurs\Jacob.JPG" />
     <Content Include="Photos\Concepteurs\Karl.JPG" />
     <Content Include="Photos\Concepteurs\Marie.JPG" />
@@ -247,6 +247,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\Global.css" />
@@ -331,7 +332,6 @@
     <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="toast.gif" />
-    <Content Include="Temoignage.aspx" />
     <Content Include="Admin_Validation-Inscription-Etudiant.aspx" />
     <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
@@ -396,6 +396,13 @@
     <Compile Include="Admin_Media.aspx.designer.cs">
       <DependentUpon>Admin_Media.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_Profil.aspx.cs">
+      <DependentUpon>Admin_Profil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Profil.aspx.designer.cs">
+      <DependentUpon>Admin_Profil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_OffreEmploi.aspx.cs">
       <DependentUpon>Admin_OffreEmploi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -438,12 +445,12 @@
     <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AjoutProfesseur.aspx.cs">
-      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+    <Compile Include="Admin_InscriptionProfesseur.aspx.cs">
+      <DependentUpon>Admin_InscriptionProfesseur.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AjoutProfesseur.aspx.designer.cs">
-      <DependentUpon>AjoutProfesseur.aspx</DependentUpon>
+    <Compile Include="Admin_InscriptionProfesseur.aspx.designer.cs">
+      <DependentUpon>Admin_InscriptionProfesseur.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\courrielAutomatiser.cs" />
     <Compile Include="Classes\FormaterChaine.cs" />
@@ -766,13 +773,6 @@
     </Compile>
     <Compile Include="Souvenirs.aspx.designer.cs">
       <DependentUpon>Souvenirs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Temoignage.aspx.cs">
-      <DependentUpon>Temoignage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Temoignage.aspx.designer.cs">
-      <DependentUpon>Temoignage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Temoignages.aspx.cs">
       <DependentUpon>Temoignages.aspx</DependentUpon>

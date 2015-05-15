@@ -11,12 +11,13 @@
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="Js/bootstrap.min.js"></script>
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
-    
+
     <link rel="stylesheet" href="../Css/Inscription.css" />
-    
+
     <script type="text/javascript">
         function openModal() {
             $('#myModal').modal('show');
@@ -36,29 +37,42 @@
         window.closeModal = function () {
             $('#maPhotoProfile').modal('close');
         };
-       function closeDivs() {
+        function closeDivs(value) {
+           
+            document.getElementById('<%= hidTab.ClientID%>').value = value;
             document.getElementById("ContentPlaceHolder1_divSuccess").style.visibility = "hidden";
             document.getElementById("ContentPlaceHolder1_divWarning").style.visibility = "hidden";
-       };
-       function keepTab() {
-           document.getElementById("aDelete").click();
-       };
-       
+
+        };
+        function keepTab() {
+            
+            document.getElementById("aDelete").click();
+            
+        };
+
+        $(document).ready(function () {
+           
+            var tabToShow = document.getElementById('<%= hidTab.ClientID%>').value;
+            $('#myTab a[href="#' + tabToShow + '"]').tab('show');
+           
+        });
+
     </script>
     <!-- jQuery -->
-    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
     <asp:HiddenField runat="server" ID="ImgExSrc" />
+    <asp:HiddenField runat="server" ID="hidTab" Value="informations" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
 
     <div class="container">
-        <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs()">Informations générales</a></li>
-            <li role="presentation" class="" ><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs()">Mes Cours</a></li>
-            <li role="presentation" class=""><a href="#delete" id="aDelete" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs()">Supprimer mon profil</a></li>
+        <ul class="nav nav-tabs" id="myTab">
+            <li role="presentation" class="active"><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs('informations')">Informations générales</a></li>
+            <li role="presentation"><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('cours') ">Mes Cours</a></li>
+            <li role="presentation"><a href="#delete" id="aDelete" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('delete'); ">Supprimer mon profil</a></li>
         </ul>
 
         <div class="row row-centered">
@@ -68,19 +82,20 @@
         <div class="tab-content">
 
             <div class="row">
-                <div class="col-md-3 col-md-offset-8" style="position:absolute">
-                <div class="alert alert-success" runat="server" id="divSuccess"  >
-                    <p>Les modifications ont été effectuées.</p>
-                </div>
+                <div class="col-md-3 col-md-offset-8" style="position: absolute">
+                    <div class="alert alert-success" runat="server" id="divSuccess">
+                        <p>Les modifications ont été effectuées.</p>
                     </div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-3 col-md-offset-8" style="position:absolute; ">
-                <div class="alert alert-warning" runat="server" id="divWarning"  >
-                    <p>Veuillez porter attention à ces champs:</p><br/>
-                    <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-                </div>
+                <div class="col-md-3 col-md-offset-8" style="position: absolute;">
+                    <div class="alert alert-warning" runat="server" id="divWarning">
+                        <p>Veuillez porter attention à ces champs:</p>
+                        <br />
+                        <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                     </div>
+                </div>
             </div>
 
             <div role="tabpanel" class="tab-pane fade in active" id="informations">
@@ -218,11 +233,121 @@
                     </div>
                 </div>
 
-                
-
             </div>
             <div role="tabpanel" class="tab-pane fade" id="cours">
-                <p>test2</p>
+                <div class="row row-centered">
+                    <div class="col-md-10 col-centered">
+                        <div class="row row-centered">
+
+                            <h3>Mes Cours</h3>
+                            <div>
+                                <div class="row row-centered">
+
+                                    <div class="col-md-3 col-centered">
+                                        <div class="control-group form-group">
+                                            <div class="controls">
+                                                <label>Session</label>
+                                                <asp:DropDownList ID="ddlSession" CssClass="form-control" runat="server"
+                                                    OnSelectedIndexChanged="ddlSession_SelectedIndexChanged" AutoPostBack="true">
+                                                    <asp:ListItem Text="Session 1" Value="1"></asp:ListItem>
+                                                    <asp:ListItem Text="Session 2" Value="2"></asp:ListItem>
+                                                    <asp:ListItem Text="Session 3" Value="3"></asp:ListItem>
+                                                    <asp:ListItem Text="Session 4" Value="4"></asp:ListItem>
+                                                    <asp:ListItem Text="Session 5" Value="5"></asp:ListItem>
+                                                    <asp:ListItem Text="Session 6" Value="6"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-centered">
+                                        <div class="control-group form-group">
+                                            <div class="controls">
+                                                <label>Cours</label>
+                                                <asp:DropDownList ID="ddlCours" CssClass="form-control" runat="server" SelectMethod="getAllCours" DataTextField="nomCours" DataValueField="IDCours" AutoPostBack="true"></asp:DropDownList>
+                                            <asp:HiddenField ID="hidSelectedCours" runat="server" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-1 col-centered">
+                                        <asp:Button ID="btnModif" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="btnModif_Click" />
+                                    </div>
+                                    <div class="col-md-1 col-centered">
+                                        <asp:Button ID="btnAjout" runat="server" Text="Ajouter" CssClass="btn btn-primary" OnClick="btnAjout_Click" />
+                                    </div>
+                                </div>
+                                <div class="row row-centered">
+                                    <asp:Label ID="lblNoClass" runat="server" Text="Vous n'avez pas de cours lors de cette session" Visible="false" />
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <asp:ListView ID="lvModifierCours" runat="server"
+                            SelectMethod="lvModifierCours_GetData"
+                            ItemType="Site_de_la_Technique_Informatique.Model.Cours"
+                            Visible="false"
+                            UpdateMethod="updateCours"
+                            DeleteMethod="deleteCours"
+                            OnItemDataBound="lvModifierCours_ItemDataBound">
+
+                            <EmptyDataTemplate>
+                                <p>Vous n'avez aucun cours assignés!</p>
+                            </EmptyDataTemplate>
+                            <LayoutTemplate>
+                                <div class="row">
+                                    <div class="col-lg-9"></div>
+                                    <div class="col-lg-3">
+                                        <asp:DataPager ID="datapagerCours" runat="server"
+                                            PagedControlID="lvModifierCours" PageSize="1">
+                                        </asp:DataPager>
+                                    </div>
+                                </div>
+
+                                <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
+
+                             
+                            </LayoutTemplate>
+
+
+                            <ItemTemplate>
+                                <asp:HiddenField ID="hidID" runat="server" Value='<%#BindItem.IDCours %>' />
+                                <div class="row row-centered">
+
+                                    <div class="col-md-2 col-centered form-group form">
+
+                                        <label>No. de cours</label>
+                                        <asp:TextBox ID="txtNoCours" runat="server" CssClass="form-control" Text='<%#BindItem.noCours %>' />
+
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-1 col-centered form-group form">
+                                        <label>Nom du cours</label>
+                                        <asp:TextBox ID="txtNomCours" CssClass="form-control" runat="server" Text='<%#BindItem.nomCours %>' />
+                                    </div>
+                                    <div class="col-md-7 col-centered form-group form">
+                                        <label>Description</label>
+                                        <asp:TextBox ID="txtDescriptionCours" CssClass="form-control" runat="server" TextMode="MultiLine"   Text='<%#BindItem.descriptionCours %>' style="resize:none;height:200px;" />
+                                    </div>
+                                        <div class="row row-centered">
+                                            <div class="col-md-6 col-centered">
+                    <div class="col-md-1 col-md-offset-7">
+                        <asp:LinkButton ID="lnkSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" />
+                    </div>
+                    <div class="col-md-1 col-md-offset-2">
+                       <asp:LinkButton ID="lnkSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-danger" CommandName="Delete" />
+                    </div>
+                                                </div>
+                                         
+                </div>
+                                     
+                                </div>
+
+
+                            </ItemTemplate>
+
+                        </asp:ListView>
+                           <asp:Label ID="lblCoursErreurs" runat="server" Visible ="false" />
+                    </div>
+                </div>
 
 
             </div>
@@ -259,11 +384,11 @@
                                 <asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
                         </div>
                         <div class="modal-body">
-                          
+
 
                             <div class="container-fluid">
-                                  <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
-                                <div class="row" style="margin-top:5px;">
+                                <asp:Label ID="lblModalBody" runat="server" Text=""></asp:Label>
+                                <div class="row" style="margin-top: 5px;">
                                     <div class="col-md-6 ">
                                         <div class="control-group form-group">
                                             <div class="controls">
@@ -272,19 +397,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    </div>
+                                </div>
                                 <div class="row">
-                                    <div class="col-md-push-8 col-md-1" >
-                                        <asp:LinkButton ID="lnkDeletePass" runat="server" Text="Désactiver mon Compte" CssClass="btn btn-danger" OnClick="lnkDeletePass_Click"  ></asp:LinkButton>
+                                    <div class="col-md-push-8 col-md-1">
+                                        <asp:LinkButton ID="lnkDeletePass" runat="server" Text="Désactiver mon Compte" CssClass="btn btn-danger" OnClick="lnkDeletePass_Click"></asp:LinkButton>
                                     </div>
                                 </div>
-                                            
-                                        
-                                    </div>
-                                </div>
-                            
 
-                        
+
+                            </div>
+                        </div>
+
+
+
                         <div class="modal-footer">
                             <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Annuler</button>
                         </div>

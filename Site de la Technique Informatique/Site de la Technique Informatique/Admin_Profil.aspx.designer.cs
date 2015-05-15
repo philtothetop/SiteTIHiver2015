@@ -10,51 +10,33 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class Temoignage {
+    public partial class Admin_motDePasse {
         
         /// <summary>
-        /// Contrôle divSuccesEnvoiTemoignage.
+        /// Contrôle ImgExSrc.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSuccesEnvoiTemoignage;
+        protected global::System.Web.UI.WebControls.HiddenField ImgExSrc;
         
         /// <summary>
-        /// Contrôle divErreurEnvoiTemoignage.
+        /// Contrôle smProxy.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divErreurEnvoiTemoignage;
+        protected global::System.Web.UI.ScriptManagerProxy smProxy;
         
         /// <summary>
-        /// Contrôle lblErreurTemoignage.
+        /// Contrôle lvModifProfilAdmin.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErreurTemoignage;
-        
-        /// <summary>
-        /// Contrôle txtbLeTemoignageDuConnecte.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtbLeTemoignageDuConnecte;
-        
-        /// <summary>
-        /// Contrôle btnFaireUnTemoignage.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFaireUnTemoignage;
+        protected global::System.Web.UI.WebControls.ListView lvModifProfilAdmin;
     }
 }

@@ -14,14 +14,10 @@
                     </h1>
                 </div>
                 <div style="margin-top: 45px;">
-                    <asp:LinkButton ID="lnkNouvelleDiscusison" Text="Nouvelle discussion" runat="server" CssClass="btn btn-default" OnClick="lnkNouvelleDiscusison_Click" />
+                    <asp:LinkButton ID="lnkNouvelleDiscusison" Text="Nouvelle discussion" runat="server" CssClass="btn btn-primary" OnClick="lnkNouvelleDiscusison_Click" />
                 </div>
             </div>
         </div>
-        <ol class="breadcrumb">
-            <li><a href="SectionForum.aspx">Retour aux sections</a>
-            </li>
-        </ol>
         <div class="row">
             <asp:ListView ID="lviewEntete" runat="server" SelectMethod="getEntetesForum" DataKeyNames="MembreIDUtilisateur, dateEnteteForum,IDEnteteForum" OnItemDataBound="lviewEntete_ItemDataBound">
                 <ItemTemplate>

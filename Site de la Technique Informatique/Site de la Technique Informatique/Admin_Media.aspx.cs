@@ -1,4 +1,7 @@
-﻿using Site_de_la_Technique_Informatique.Model;
+﻿// Cette page permet d'ajouter, modifier ou supprimer un article de journal
+// Écrit par Xavier Philippe Bibeau, Mars-Avril 2015
+
+using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,10 +14,11 @@ using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
 {
-    public partial class Admin_Media : System.Web.UI.Page
+    public partial class Admin_Media : ErrorHandling
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
 
         }
 

@@ -10,11 +10,7 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Les parutions médias
                 </h1>
-                <ol class="breadcrumb">
-                    <li><a href="Default.aspx">Accueil</a>
-                    </li>
-                    <li class="active">Les Parutions Médias</li>
-                </ol>
+                
             </div>
         </div>
         <!-- /.row -->
