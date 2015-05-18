@@ -153,6 +153,7 @@
                             <ul class="dropdown-menu">
                                 <li runat="server" id="lblProfilEtudiant"><a href="ProfilEtudiant.aspx">Profil</a> </li>
                                 <li runat="server" id="lblProfilProf"><a href="ModifierProfesseur.aspx">Profil</a> </li>
+                                <li runat="server" id="lblProfilEmployeur"><a href="modifProfilEmployeur.aspx">Profil</a> </li>
                                 <li>
                                     <asp:LinkButton ID="lnkbtnDeconnexion" runat="server" Text="Déconnexion" OnClick="lnkbtnDeconnexion_Click" />
                                 </li>
