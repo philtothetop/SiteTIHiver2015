@@ -213,7 +213,7 @@
                                         <div class="col-lg-3">
                                             <asp:Label ID="lblPassword" runat="server" Text="Mot de passe :" />
                                         </div>
-                                        <div class="col-lg-5">
+                                        <div class="col-lg-7">
                                             <asp:TextBox ID="txtPassword" runat="server" TextMode="password" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
