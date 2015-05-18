@@ -9,7 +9,7 @@
 
     <%--lien du favicon a la racine--%>
 
-    <link rel="icon" href="toast.gif" type="image/gif" />
+    <link rel="icon" href="logoCegep.png" type="image/png" />
     <link href="Css/bootstrap.min.css" rel="stylesheet" />
     <link href="Css/modern-business.css" rel="stylesheet" />
     <link href="Css/customStyleSheet.css" rel="stylesheet" />
@@ -35,7 +35,7 @@
                 <p>
                     Le présent document a pour objet de définir les modalités et conditions dans lesquelles d’une 
 
-part,  le département d'informatique du Cégep de Granby, ci-après dénommé l’EDITEUR, met à 
+part, le département d'informatique du Cégep de Granby, ci-après nommé l’EDITEUR, met à 
 
 la disposition de ses utilisateurs le site, et les services disponibles sur le site et d’autre part, la 
 

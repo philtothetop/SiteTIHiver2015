@@ -8,7 +8,7 @@
     <!-- Custom CSS -->
 
     <!-- Content Row -->
-    <div class="row" style="margin-top: 50px;">
+    <div class="row">
         <!-- Sidebar Column -->
         <div class="col-lg-3 scrolltarget" style="margin-left: 150px;">
             <div style="width: 285px; position: fixed; overflow: hidden; padding: 3px;">
@@ -165,7 +165,7 @@
 
                           </asp:TextBox>
                         </div>
-                        <p>Les logiciels avec licences, sauf exception, vous appartiennent. Il se peut, en cours d'utilisation, que nous ayons besoin de nouveaux logiciels.  Le département d'informatique tentera toujours d'utiliser des outils logiciels qui pourront être offerts gratuitement à ses étudiants. Cependant, rien n'est garanti. Vous comprendrez que si un nouvel outil devient le standard demain et qu'il nous est impossible de négocier une entente, des frais d'utilisation pourraient être ajoutés.</p>
+                        <p>Les logiciels avec licences, sauf exception, vous appartiennent. Il se peut, en cours d'utilisation, que nous ayons besoin de nouveaux logiciels. Le département d'informatique tentera toujours d'utiliser des outils logiciels qui pourront être offerts gratuitement à ses étudiants. Cependant, rien n'est garanti. Vous comprendrez que si un nouvel outil devient le standard demain et qu'il nous est impossible de négocier une entente, des frais d'utilisation pourraient être ajoutés.</p>
 
                     </div>
                 </div>
@@ -317,7 +317,7 @@
                     <p>Notez que les informations offertes lors du VerTICamp sont difficilement remplaçables par de la documentation papier. Il y va de votre meilleur intérêt d'y assister. Des renseignements supplémentaires sur cette journée, incluant l'horaire et le programme complet des activités, seront publiés sur le site Web vers le début du mois d'août. Nous vous demandons de faire l'impossible pour vous présenter au «VerTICamp». L'information qui y est véhiculée vous évitera de nombreux tracas. Nous vous demandons de nous prévenir si vous prévoyez être absent pour des raisons jugées exceptionnelles. Vous pouvez nous rejoindre par téléphone ou par courriel : </p>
 
                     <p>
-                        Courriel: MDesAulniers
+                        Courriel: MDesAulniers@cegepgranby.qc.ca
                
                         <br />
                         Téléphone: (450) 372-6614 poste 1164
