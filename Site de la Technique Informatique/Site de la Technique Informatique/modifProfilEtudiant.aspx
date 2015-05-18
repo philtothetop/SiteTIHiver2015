@@ -61,6 +61,7 @@ Extrants: --%>
 
     <script type="text/javascript">
         function copieImgData()
+        {
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lvModifProfilEtudiant_showDataURL_0.src;
         }
     </script>

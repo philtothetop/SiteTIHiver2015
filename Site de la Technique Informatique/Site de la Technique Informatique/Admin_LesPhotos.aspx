@@ -1,21 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_LesPhotos.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_LesPhotos" MaintainScrollPositionOnPostback="true" %>
 
-
-
-
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="Css/Inscription.css" /> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A basic example of Cropper.">
-    <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, image cropping, web development">
-    <meta name="author" content="Fengyuan Chen">
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A basic example of Cropper." />
+    <meta name="keywords" content="HTML, CSS, JS, JavaScript, jQuery, image cropping, web development" />
+    <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/cropper.css" rel="stylesheet">
-    <link href="css/docs.css" rel="stylesheet">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

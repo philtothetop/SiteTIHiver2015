@@ -940,6 +940,7 @@
     <Folder Include="Photos\Souvenir\Étudiants\" />
     <Folder Include="tinymce\Upload\CV\" />
     <Folder Include="Upload\CV\" />
+    <Folder Include="Upload\Photos\Souvenir\Projets\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

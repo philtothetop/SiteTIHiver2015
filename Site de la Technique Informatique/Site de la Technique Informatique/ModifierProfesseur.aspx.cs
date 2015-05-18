@@ -151,11 +151,13 @@ namespace Site_de_la_Technique_Informatique
             System.Drawing.Image image;
             using (MemoryStream ms = new MemoryStream(bytes))
             {
+                
                 image = System.Drawing.Image.FromStream(ms);
                 string cropFileName = "";
                 string cropFilePath = "";
                 cropFileName = "crop_" + "testImg.jpg";
                 cropFilePath = Path.Combine(Server.MapPath(Request.ApplicationPath + "/Upload/Photos/Profils/"), cropFileName);
+
                 image.Save(cropFilePath);
             }
 

@@ -15,13 +15,11 @@ namespace Site_de_la_Technique_Informatique
 {
     public partial class Admin_AjouteSupprimeProf : ErrorHandling
     {
-        #region Page_Events
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, false, false, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(true, false, false, false, false);
         }
-
-        #endregion
 
         //Envoie le mot de passe
         protected void lnkEnvoyer_Click(object sender, EventArgs e)
@@ -173,7 +171,6 @@ namespace Site_de_la_Technique_Informatique
         {
             mViewAjoutSupprime.ActiveViewIndex = 0;
         }
-
 
         //Récupérer tout les professeurs
         public IQueryable<Site_de_la_Technique_Informatique.Model.Professeur> GetLesProfs()
