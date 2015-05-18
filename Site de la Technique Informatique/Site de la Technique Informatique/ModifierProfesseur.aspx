@@ -11,7 +11,6 @@
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
 
-    
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
