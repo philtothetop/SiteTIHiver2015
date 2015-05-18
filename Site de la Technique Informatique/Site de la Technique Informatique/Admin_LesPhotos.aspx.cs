@@ -417,7 +417,7 @@ namespace Site_de_la_Technique_Informatique
                             if (!laPhotoATrouver.typePhoto.Equals(ddlModifierPhoto.SelectedValue))
                             {
                                 String lePath = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
-                                String lePathAAllez = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlModifierPhoto.SelectedValue + "/" + laPhotoATrouver.pathPhoto);
+                                String lePathAAllez = Path.Combine("~/../Upload/Photos/Souvenir/" + ddlModifierPhoto.SelectedValue + "/" + laPhotoATrouver.pathPhoto);
 
                                 //Changer lemplacement de la photo
                                 if (File.Exists(@lePath))

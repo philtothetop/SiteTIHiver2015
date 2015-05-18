@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Page Not Found</title>
     <%--lien du favicon a la racine--%>
-    <link rel="icon" href="toast.gif" type="image/gif" />
+    <link rel="icon" href="logoCegep.png" type="image/png" />
     <link href="Css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>

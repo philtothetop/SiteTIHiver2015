@@ -5,6 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="Css/Inscription.css" /> 
+   
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
@@ -114,15 +115,13 @@
 
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
-<script src="JS/bootstrap.js"></script>
-
 <h1 class="page-header">Photos</h1>
     
     <asp:MultiView ID="mviewLesPhotos" runat="server" ActiveViewIndex="0">
 
         <asp:View ID="viewMenu" runat="server">
-            <asp:Button ID="btnAccueilVoirLesPhotos" runat="server" Text="Voir/Modifier les photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-default" />
-            <asp:Button ID="btnAjouterUnePhoto" runat="server" Text="Ajouter une photo" OnClick="btnAjouterUnePhoto_Click" CssClass="btn btn-default" />
+            <asp:Button ID="btnAccueilVoirLesPhotos" runat="server" Text="Voir/Modifier les photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-primary" />
+            <asp:Button ID="btnAjouterUnePhoto" runat="server" Text="Ajouter une photo" OnClick="btnAjouterUnePhoto_Click" CssClass="btn btn-primary" />
             <br />
 
         </asp:View>
@@ -130,7 +129,7 @@
         <asp:View ID="viewAjouterPhoto" runat="server">
 
             <div style="text-align:left">
-            <asp:Button ID="btnAllezVoirLesPhotos" runat="server" Text="Voir les photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-default" />
+            <asp:Button ID="btnAllezVoirLesPhotos" runat="server" Text="Voir les photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-primary" />
             </div>
 
             <div id="divReussiAjouterImage" runat="server" visible="false" style="text-align:center; width:100%;">
@@ -139,7 +138,7 @@
 
         <asp:Label ID="lblReussi" runat="server" Text="L'image a bien été ajouté."></asp:Label>
         <br />
-        <asp:Button ID="btnAjouterAutreImage" runat="server" Text="Ajouter une autre photo" OnClick="btnajouterAutreImage_Click" CssClass="btn btn-default"/>
+        <asp:Button ID="btnAjouterAutreImage" runat="server" Text="Ajouter une autre photo" OnClick="btnajouterAutreImage_Click" CssClass="btn btn-primary"/>
     </div>
 
     <div id="divPasReussiAjouterImage" runat="server" visible="false" style="text-align:center; width:100%; color:red;">
@@ -214,7 +213,7 @@
         <asp:View ID="viewModifierPhoto" runat="server">
             
             <div style="text-align:left">
-            <asp:Button ID="btnModifierRetourAuPhoto" runat="server" Text="Retour aux photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-default" />
+            <asp:Button ID="btnModifierRetourAuPhoto" runat="server" Text="Retour aux photos" OnClick="btnVoirLesPhotos_Click" CssClass="btn btn-primary" />
             </div>
 
 
@@ -262,7 +261,7 @@
         <asp:View ID="viewSupprimerPhoto" runat="server">
             <div id="divSupprimerPhotos" runat="server" style="text-align:center; width:100%; clear:both;">
                             <div style="text-align:left">
-                <asp:Button ID="btnAllezAjouterUnePhoto" runat="server" Text="Ajouter une photo" OnClick="btnAjouterUnePhoto_Click" CssClass="btn btn-default" />
+                <asp:Button ID="btnAllezAjouterUnePhoto" runat="server" Text="Ajouter une photo" OnClick="btnAjouterUnePhoto_Click" CssClass="btn btn-primary" />
 </div>
             Type d'image : <asp:DropDownList ID="ddlTypePhotoSupprimer" runat="server" OnSelectedIndexChanged="ddlTypePhotoSupprimer_IndexChange" AutoPostBack="true">
         </asp:DropDownList>

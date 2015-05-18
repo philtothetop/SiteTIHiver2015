@@ -9,10 +9,10 @@
     tinymce.init({
         selector: "textarea",
         encoding: "xml",
-        plugins: ["image link media advlist autolink lists charmap preview hr anchor",
-                "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
-        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
-        language: 'fr_FR',              
+        plugins: ["image link media advlist autolink lists charmap emoticons preview hr anchor",
+                "pagebreak code charmap nonbreaking table contextmenu directionality paste textcolor searchreplace"],
+        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | charmap emoticons | bullist numlist outdent indent | link image media",
+        language: 'fr_FR',
     });
 </script>
 <script>
@@ -29,6 +29,11 @@
                 </div>
 
             <br />
+                <div>
+                        <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Ajouter une nouvelle" OnClick="btnNewNouvelle_Click" />                   
+                    <br />
+                          <br />
+               </div>
 
         <asp:ListView ID="lviewNouvelles" runat="server"     
             ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
@@ -51,6 +56,8 @@
                             </div>
                             <div id="collapse<%# Item.IDNouvelle %>" class="panel-collapse collapse">
                                 <div class="panel-body">
+                                    <asp:LinkButton runat="server" ID="LinkButton1" OnCommand="lnkEditNews_Command" CommandArgument="<%# Item.IDNouvelle %>"> Modifier ou supprimer</asp:LinkButton>
+                                    <asp:Literal runat="server" Text="<%# Server.HtmlDecode(Item.texteNouvelle) %>"></asp:Literal>
                                     <asp:LinkButton runat="server" ID="lnkEditNews" OnCommand="lnkEditNews_Command" CommandArgument="<%# Item.IDNouvelle %>"> Modifier ou supprimer</asp:LinkButton>
                                 </div>
                             </div>

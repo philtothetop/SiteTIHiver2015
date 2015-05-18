@@ -9,8 +9,8 @@
 
   
 
-        <asp:Button ID="btnVoirOffreEmploiNonValide" runat="server" Text="Offres d'emploi non-validés" CssClass="btn btnOffreEmploiSelectionne" OnClick="VoirOffreNonValide_Click" />
-        <asp:Button ID="btnVoirOffreEmploiValide" runat="server" Text="Offres d'emploi validés" CssClass="btn btn-default" OnClick="VoirOffreValide_Click" />
+        <asp:Button ID="btnVoirOffreEmploiNonValide" runat="server" Text="Offres d'emploi non-validés" CssClass="btn btn-primary" OnClick="VoirOffreNonValide_Click" />
+        <asp:Button ID="btnVoirOffreEmploiValide" runat="server" Text="Offres d'emploi validés" CssClass="btn btn-primary" OnClick="VoirOffreValide_Click" />
         
 
                 <asp:ListView ID="lviewOffresDEmploi" runat="server"
@@ -92,7 +92,7 @@
 
                             <div style="float:left; padding-left:15px">
                                 <br />
-                                <asp:Button ID="btnAccepterOffre" runat="server" Text="Accepter" CssClass="btn btn-success" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="AccepterOffreEmploi_Click" />
+                                <asp:Button ID="btnAccepterOffre" runat="server" Text="Accepter" CssClass="btn btn-primary" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="AccepterOffreEmploi_Click" />
                                 <asp:Button ID="btnRefuserOffre" runat="server" Text="Refuser" CssClass="btn btn-danger" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="SupprimerOffreEmploi_Click"/>
 
                             </div>
