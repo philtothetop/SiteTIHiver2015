@@ -113,7 +113,6 @@
     <Content Include="Admin_Vertic.aspx" />
     <Content Include="AjoutDiscussion.aspx" />
     <Content Include="AjoutOffreEmploi.aspx" />
-    <Content Include="Admin_InscriptionProfesseur.aspx" />
     <Content Include="Concepteur.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Css\AdministrateurLesOffresEmploi.css" />
@@ -165,7 +164,6 @@
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
     <Content Include="ModifierProfesseur.aspx" />
-    <Content Include="modifProfilEmployeur.aspx" />
     <Content Include="modifProfilEtudiant.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
@@ -560,13 +558,6 @@
     <Compile Include="AjoutOffreEmploi.aspx.designer.cs">
       <DependentUpon>AjoutOffreEmploi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_InscriptionProfesseur.aspx.cs">
-      <DependentUpon>Admin_InscriptionProfesseur.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_InscriptionProfesseur.aspx.designer.cs">
-      <DependentUpon>Admin_InscriptionProfesseur.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Classes\courrielAutomatiser.cs" />
     <Compile Include="Classes\FormaterChaine.cs" />
     <Compile Include="Classes\hash.cs" />
@@ -794,13 +785,6 @@
     <Compile Include="ModifierProfesseur.aspx.designer.cs">
       <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
     </Compile>
-    <Compile Include="modifProfilEmployeur.aspx.cs">
-      <DependentUpon>modifProfilEmployeur.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modifProfilEmployeur.aspx.designer.cs">
-      <DependentUpon>modifProfilEmployeur.aspx</DependentUpon>
-    </Compile>
     <Compile Include="modifProfilEtudiant.aspx.cs">
       <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -947,6 +931,7 @@
     <Folder Include="obj\Debug\TempPE\" />
     <Folder Include="tinymce\Upload\CV\" />
     <Folder Include="Upload\CV\" />
+    <Folder Include="Upload\PDFOffreEmploi\" />
     <Folder Include="Upload\Photos\Cégep\" />
     <Folder Include="Upload\Photos\Souvenir\Autre\" />
     <Folder Include="Upload\Photos\Souvenir\Cégep\" />

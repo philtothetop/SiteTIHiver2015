@@ -23,8 +23,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
-
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
         //Cette classe cherche la liste des étudiant inscription dont leur courriel n'a pas été validé depuis plus de 24 h.
         //Écrit par Cédric Archambault 17 avril 2015

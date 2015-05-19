@@ -42,8 +42,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
         #endregion
         protected void Page_Load()
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, true);
+            SavoirSiPossedeAutorizationPourLaPage(false, false, false, false, true);
         }
+
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
         //Écrit par Cédric Archambault 17 février 2015
         //Intrants: aucun

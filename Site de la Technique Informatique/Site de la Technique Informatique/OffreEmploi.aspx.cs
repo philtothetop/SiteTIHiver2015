@@ -13,13 +13,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (Session["IDOffreEmploi"] == null)
-            {
-                Response.Redirect("ListeOffresEmploi.aspx");
-            }
-
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, true, true);
+            SavoirSiPossedeAutorizationPourLaPage(false, true, true, true, false);
 
             Model.OffreEmploi offreEmploi;
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
@@ -65,7 +59,7 @@ namespace Site_de_la_Technique_Informatique
                 else
                 {
                     lnkPDF.Visible = true;
-                    ViewState["pathPDF"] = "Upload\\" + offreEmploi.pathPDFDescription;
+                    ViewState["pathPDF"] = "Upload\\PDFOffreEmploi\\" + offreEmploi.pathPDFDescription;
                 }
 
                 if (offreEmploi.noPoste == "" || offreEmploi.noPoste == null)
@@ -113,7 +107,7 @@ namespace Site_de_la_Technique_Informatique
 
                 if (offreEmploi.pathPDFDescription != "" || offreEmploi.pathPDFDescription != null)
                 {
-                    string Path = Server.MapPath("Upload\\" + offreEmploi.pathPDFDescription);
+                    string Path = Server.MapPath("Upload\\PDFOffreEmploi\\" + offreEmploi.pathPDFDescription);
 
                     if (System.IO.File.Exists(Path))
                     {

@@ -18,23 +18,14 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
-        }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
-            if (Page.IsPostBack == false)
-            {
-                dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
-            }
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
 
         //Méthode pour downloader le PDF de l'offre d'emploi
         protected void lnkPDF_Click(object sender, EventArgs e)
         {
             String argument = Convert.ToString(((Button)sender).CommandArgument);
-            string FilePath = Server.MapPath(argument);
+            string FilePath = Server.MapPath("~//Upload//PDFOffreEmploi//" + argument);
 
             WebClient User = new WebClient();
             Byte[] FileBuffer = User.DownloadData(FilePath);
@@ -151,14 +142,24 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                //A AJOUTER UN LOG DANS LA ROUTINE DERREUR? ATTENDRE ROUTINE DERREUR FINI?
+                LogErreur("ValiderLesOffresEmplois dans la méthode GetLesOffresEmploi", ex);
+            }
+
+            //Datapager visible ou non
+            if (listeDesOffresEmploi.Count > dataPagerDesLogs.PageSize)
+            {
+                dataPagerDesLogs.Visible = true;
+            }
+            else
+            {
+                dataPagerDesLogs.Visible = false;
             }
 
             return listeDesOffresEmploi.AsQueryable();
         }
 
         //Pas afficher les champs vides
-        public bool PasAfficherSiNull(Model.OffreEmploi trouverOffre, string valeurAChecker)//int idOffre, string valeurAChecker)
+        public bool PasAfficherSiNull(Model.OffreEmploi trouverOffre, string valeurAChecker)
         {
             if (trouverOffre != null)
             {

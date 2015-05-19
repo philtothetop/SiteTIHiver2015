@@ -17,16 +17,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
-        }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            if (Page.IsPostBack == false)
-            {
-                //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
-                dataPagerDesTemoignages.Visible = (dataPagerDesTemoignages.PageSize < dataPagerDesTemoignages.TotalRowCount);
-            }
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
 
         //Méthode pour récupérer les témoignages de la BD
@@ -82,6 +73,16 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 LogErreur("Admin_Temoignage.aspx.cs dans la méthode GetLesTemoignagesEtudiants", ex);
+            }
+
+            //Datapager visible ou pas
+            if(listeDesTemoignages.Count > dataPagerDesTemoignages.PageSize)
+            {
+                dataPagerDesTemoignages.Visible = true;
+            }
+            else
+            {
+                dataPagerDesTemoignages.Visible = false;
             }
 
             return listeDesTemoignages.AsQueryable();

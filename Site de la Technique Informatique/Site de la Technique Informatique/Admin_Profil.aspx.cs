@@ -35,8 +35,6 @@ namespace Site_de_la_Technique_Informatique
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-
-
                 try
                 {
 

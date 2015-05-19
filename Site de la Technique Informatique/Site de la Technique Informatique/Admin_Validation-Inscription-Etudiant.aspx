@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription-Etudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Validation_Inscription" MasterPageFile="~/Admin.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription-Etudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Validation_Inscription" MasterPageFile="~/Admin.master" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script src="js/jquery.js"></script>
@@ -81,7 +81,7 @@
                                     <asp:CheckBox ID="chSelectionner" runat="server" CssClass="vcenter chk" />
                                     <span class="col-md-1 vcenter">
 
-                                        <asp:Image ID="imgPhotoProfil" runat="server" ImageUrl='<%#"../Photos/Profils/"+Eval("pathPhotoProfil")%>' CssClass="img-thumbnail" /></span>
+                                        <asp:Image ID="imgPhotoProfil" runat="server" ImageUrl='<%#  isLocal() ? "~/Upload/Photos/Profils/"+Eval("pathPhotoProfil") : "~/../Upload/Photos/Profils/"+Eval("pathPhotoProfil") %>' CssClass="img-thumbnail" /></span>
                                     <asp:Label ID="lblPrenom" runat="server" Text='<%#Eval("prenom")+" "+Eval("nom") %>' CssClass="col-md-3 vcenter" />
                                     <asp:Label ID="lvlCourriel" runat="server" Text='<%#Eval("courriel") %>' CssClass="col-md-3 vcenter" />
                                     <asp:Label ID="lblDateInscription" runat="server" Text='<%#Eval("dateInscription") %>' CssClass="col-md-2 vcenter" />

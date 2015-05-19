@@ -18,7 +18,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace Site_de_la_Technique_Informatique
         protected void lnkPDF_Click(object sender, EventArgs e)
         {
             String argument = Convert.ToString(((Button)sender).CommandArgument);
-            string FilePath = Server.MapPath(argument);
+            string FilePath = Server.MapPath("~//Upload//PDFOffreEmploi//" + argument);
 
             WebClient User = new WebClient();
             Byte[] FileBuffer = User.DownloadData(FilePath);

@@ -90,9 +90,6 @@
             $("#ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_showDataURL_0").attr("width", width);
             $("#ContentPlaceHolder1_ContentPlaceHolder1_lviewPhoto_showDataURL_0").attr("height", height);
 
-
-
-
         };
     </script>
     <script type="text/javascript">
@@ -286,7 +283,7 @@
                         <ItemTemplate>
                             <div style="width:50%; float:left;">
                                 <div style="width:97%;padding-left:3%;">
-                                <asp:Image ID="imgLaPhoto" runat="server" ImageUrl='<%# "~/Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="max-width:100%; max-height:100%;" />
+                                <asp:Image ID="imgLaPhoto" runat="server" ImageUrl='<%# isLocal() ? "~/Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto : "~/../Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' style="max-width:100%; max-height:100%;" />
                              </div>
                                 <div style="width:97%;padding-left:3%; clear:both;">
                                     <asp:TextBox ID="txtbDescriptionVoir" runat="server" TextMode="MultiLine" Text='<%# Item.descriptionPhoto %>' style="width:100%; max-width:100%; min-height:100px;" Enabled="false"></asp:TextBox>

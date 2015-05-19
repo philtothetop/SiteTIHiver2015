@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="125" Width="125" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                            <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="125" Width="125" ImageUrl='<%# (isLocal() ? "~/Upload/" : "~/../Upload/") + "Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
                         </div>
                         
                     </div>

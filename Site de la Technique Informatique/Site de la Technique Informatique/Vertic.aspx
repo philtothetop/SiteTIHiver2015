@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vertic.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Vertic" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Vertic.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Vertic" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
@@ -12,7 +12,7 @@
         <!-- Sidebar Column -->
         <div class="col-lg-3 scrolltarget" style="margin-left: 150px;">
             <div style="width: 285px; position: fixed; overflow: hidden; padding: 3px;">
-                <asp:Image runat="server" ID="logoCegep" ImageUrl="~/Photos/logo/Logo_InformatiqueCouleur_FondTransparent.png" Width="370" Height="208" Style="margin-right: 51%; margin-left: -16%; margin-bottom: -10%;" />
+                <asp:Image runat="server" ID="logoCegep" ImageUrl='<%# isLocal() ? "~/Upload/Photos/logo/Logo_InformatiqueCouleur_FondTransparent.png" : "~/../Upload/Photos/logo/Logo_InformatiqueCouleur_FondTransparent.png" %>' Width="370" Height="208" Style="margin-right: 51%; margin-left: -16%; margin-bottom: -10%;" />
 
                 <ul class="nav nav-pills nav-stacked pills" role="tablist">
                     <li role="presentation" class="active"><a href="#projet" class="list-group-item page-scroll">Projet VerTIC</a></li>
