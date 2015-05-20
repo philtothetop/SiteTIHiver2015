@@ -227,7 +227,7 @@ namespace Site_de_la_Technique_Informatique
                             String AdresseCV = "";
                             if (etudiantAUpdaterCopie.pathCV != "")
                             {
-                                AdresseCV = Server.MapPath("/Upload/CV/" + etudiantAUpdaterCopie.pathCV);
+                                AdresseCV = Server.MapPath("//Upload//CV//" + etudiantAUpdaterCopie.pathCV);
                                 File.Delete(AdresseCV);//Efface l'ancien CV.
                             }
                             //Ajouter path CV et saugarder.
@@ -235,7 +235,7 @@ namespace Site_de_la_Technique_Informatique
                             String date = DateTime.Now.ToString("dd MM yyyy");
                             date.Replace("/", "-");
                             String CVNom = etudiantAUpdaterCopie.prenom + "_" + etudiantAUpdaterCopie.nom + "_CV_" + date + "." + extension;
-                            AdresseCV = Server.MapPath("/Upload/CV/" + CVNom);
+                            AdresseCV = Server.MapPath("//Upload//CV//" + CVNom);
                             etudiantAUpdaterCopie.pathCV = CVNom;
                             fupCV.SaveAs(AdresseCV);
                         }
