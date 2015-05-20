@@ -21,15 +21,6 @@ namespace Site_de_la_Technique_Informatique
 
         }
 
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            if (Page.IsPostBack == false)
-            {
-                //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs parutions médias
-                dataPagerDesParutions.Visible = (dataPagerDesParutions.PageSize < dataPagerDesParutions.TotalRowCount);
-            }
-        }
-
         //Méthode pour récupérer les parutions mdias de la BD
         public IQueryable<Model.ParutionMedia> GetLesParutionsMedias()
         {
@@ -53,6 +44,16 @@ namespace Site_de_la_Technique_Informatique
                 LogErreur("LesParutionsMedias.aspx.cs dans la méthode GetLesParutionsMedias", ex);
             }
 
+            //Datapager visible juste si besoin
+            if (listeParutionMedias.Count > dataPagerDesParutions.PageSize)
+            {
+                dataPagerDesParutions.Visible = true;
+            }
+            else
+            {
+                dataPagerDesParutions.Visible = false;
+            }
+
             return listeParutionMedias.AsQueryable().Reverse();
         }
 
@@ -62,7 +63,7 @@ namespace Site_de_la_Technique_Informatique
             try
             {
                 String argument = Convert.ToString(((LinkButton)sender).CommandArgument);
-                string FilePath = Server.MapPath("Upload/Media/" + argument);
+                string FilePath = Server.MapPath("~/Upload/Media/" + argument);
 
                 WebClient User = new WebClient();
                 Byte[] FileBuffer = User.DownloadData(FilePath);

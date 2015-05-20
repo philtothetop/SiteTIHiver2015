@@ -18,8 +18,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
-
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
 
         //FileUpload
@@ -39,13 +38,13 @@ namespace Site_de_la_Technique_Informatique
                             string dossier = "Media";
 
                             // Si le dossier media n'existe pas, on le crée
-                            if (!System.IO.Directory.Exists(Server.MapPath("Upload\\" + dossier + "\\")))
+                            if (!System.IO.Directory.Exists(Server.MapPath("~\\Upload\\" + dossier + "\\")))
                             {
-                                System.IO.Directory.CreateDirectory(Server.MapPath("Upload\\" + dossier + "\\"));
+                                System.IO.Directory.CreateDirectory(Server.MapPath("~\\Upload\\" + dossier + "\\"));
                             }
 
                             // Enregistre la photo à sa place 
-                            fuNewArticle.SaveAs(Server.MapPath("Upload\\" + dossier + "\\" + fuNewArticle.FileName));
+                            fuNewArticle.SaveAs(Server.MapPath("~\\Upload\\" + dossier + "\\" + fuNewArticle.FileName));
 
                             // ajoute le chemin de la photo de profil dans la base de données
 

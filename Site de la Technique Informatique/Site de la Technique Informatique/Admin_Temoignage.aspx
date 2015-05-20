@@ -29,7 +29,7 @@
                 <br />
                 <br />
                 <div id="divPourAccepterTemoignage" runat="server" visible='<%# savoirSiEstUnEtudiant(Item) %>' style="float: left;">
-                    <asp:Button ID="btnAccepterTemoignage" runat="server" Text="Accepter" CssClass="btn btn-success" CommandArgument='<%# Item.IDMembre %>' OnClick="AccepterTemoignage_Click" />
+                    <asp:Button ID="btnAccepterTemoignage" runat="server" Text="Accepter" CssClass="btn btn-primary" CommandArgument='<%# Item.IDMembre %>' OnClick="AccepterTemoignage_Click" />
 
                 </div>
                 <div style="float: right;">

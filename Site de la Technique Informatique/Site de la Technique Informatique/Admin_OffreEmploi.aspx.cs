@@ -18,23 +18,14 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
-        }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            if (Page.IsPostBack == false)
-            {
-                //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
-                dataPagerDesOffresEmplois.Visible = (dataPagerDesOffresEmplois.PageSize < dataPagerDesOffresEmplois.TotalRowCount);
-            }
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
 
         //Méthode pour downloader le PDF de l'offre d'emploi
         protected void lnkPDF_Click(object sender, EventArgs e)
         {
             String argument = Convert.ToString(((Button)sender).CommandArgument);
-            string FilePath = Server.MapPath(argument);
+            string FilePath = Server.MapPath("~//Upload//PDFOffreEmploi//" + argument);
 
             WebClient User = new WebClient();
             Byte[] FileBuffer = User.DownloadData(FilePath);
@@ -241,6 +232,16 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 LogErreur("Admin_OffreEmploi.aspx.cs dans la méthode GetLesOffresDEmploi", ex);
+            }
+
+            //Datapager visible juste si besoin
+            if (listeDesOffresEmploi.Count > dataPagerDesOffresEmplois.PageSize)
+            {
+                dataPagerDesOffresEmplois.Visible = true;
+            }
+            else
+            {
+                dataPagerDesOffresEmplois.Visible = false;
             }
 
             return listeDesOffresEmploi.AsQueryable();

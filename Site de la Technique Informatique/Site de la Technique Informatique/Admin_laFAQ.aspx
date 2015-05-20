@@ -14,9 +14,9 @@ Extrants: --%>
     tinymce.init({
         selector: "textarea",
         encoding: "xml",
-        plugins: ["image link media advlist autolink lists charmap preview hr anchor",
+        plugins: ["image link media advlist autolink charmap emoticons lists charmap preview hr anchor",
                 "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
-        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
+        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | charmap emoticons | bullist numlist outdent indent | link image media",
         language: 'fr_FR',
     });
 </script>
@@ -51,7 +51,7 @@ Extrants: --%>
         <div class="col-lg-offset-6 col-lg-1">
         </div>
         <div class="col-lg-2">
-            <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" CssClass="btn btn-success" OnClick="btnAjouter_Click" />
+            <asp:Button ID="btnAjouter" runat="server" Text="Ajouter" CssClass="btn btn-primary" OnClick="btnAjouter_Click" />
         </div>
     </div>
 

@@ -11,7 +11,6 @@
     <meta name="author" content="Fengyuan Chen" />
     <title>Cropper</title>
 
-    
     <link href="Cropper/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Cropper/css/cropper.css" rel="stylesheet" />
     <link href="Cropper/css/docs.css" rel="stylesheet" />
@@ -56,6 +55,10 @@
            
             var tabToShow = document.getElementById('<%= hidTab.ClientID%>').value;
             $('#myTab a[href="#' + tabToShow + '"]').tab('show');
+            if (tabToShow != 'informations') {
+                document.getElementById("ContentPlaceHolder1_divSuccess").style.visibility = "hidden";
+                document.getElementById("ContentPlaceHolder1_divWarning").style.visibility = "hidden";
+            }
            
         });
 
@@ -145,7 +148,7 @@
                                     <div class="col-md-5 col-centered">
                                         <div class="img-thumbnail img-photo preview-photo">
 
-                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", Request.ApplicationPath + "/Upload/Photos/Profils/{0}") %>' Width="125" Height="125" />
+                                            <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "~//Upload//Photos//Profils//{0}")%>' Width="125" Height="125" />
                                         </div>
                                         <div class="div-btnChangerPhoto">
                                             <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />

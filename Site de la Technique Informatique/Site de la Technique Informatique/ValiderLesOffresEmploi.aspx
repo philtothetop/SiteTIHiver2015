@@ -15,19 +15,13 @@
             </div>
         </div>
 
-        <ol class="breadcrumb">
-                    <li><a href="nullFORnow.aspx">Retour au panneau d'administration</a>
-                    </li>
-                </ol>
-
         <asp:Button ID="btnVoirOffreEmploiNonValide" runat="server" Text="Offres d'emploi non-validés" CssClass="btn btnOffreEmploiSelectionne" OnClick="VoirOffreNonValide_Click" />
         <asp:Button ID="btnVoirOffreEmploiValide" runat="server" Text="Offres d'emploi validés" CssClass="btn btn-default" OnClick="VoirOffreValide_Click" />
         
 
                 <asp:ListView ID="lviewOffresDEmploi" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.OffreEmploi"
-                        SelectMethod="GetLesOffresDEmploi"
-                         OnItemDataBound="lviewOffresDEmploiDataBound">
+                        SelectMethod="GetLesOffresDEmploi">
 
                         <LayoutTemplate>
                             <div>
@@ -93,7 +87,7 @@
                         <br />
                                                             <div runat="server" id="divPDF" visible='<%# PasAfficherSiNull(Item,"pathPDFDescription") %>'>
 
-            <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" CommandArgument='<%# Item.pathPDFDescription %>' OnClick="lnkPDF_Click"></asp:LinkButton>
+            <asp:LinkButton ID="lnkPDF" Text="Version PDF" runat="server" CommandArgument='<%# Item.pathPDFDescription %>' Visible='<%# VisiblePDF(Item.pathPDFDescription) %>' OnClick="lnkPDF_Click"></asp:LinkButton>
                         <br />
 
                                                                 </div>

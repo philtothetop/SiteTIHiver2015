@@ -40,6 +40,7 @@ namespace Site_de_la_Technique_Informatique
                     lblInformation.Visible = true;
                     lblProfilEtudiant.Visible = false;
                     lblProfilProf.Visible = false;
+                    lblProfilEmployeur.Visible = false;
                     lblAjouterProfesseur.Visible = false;
                     lblQuiSommesNous.Visible = true;
                     lblProfilAdmin.Visible = false;
@@ -59,6 +60,7 @@ namespace Site_de_la_Technique_Informatique
                     lblInformation.Visible = true;
                     lblProfilEtudiant.Visible = true;
                     lblProfilProf.Visible = false;
+                    lblProfilEmployeur.Visible = false;
                     lblAjouterProfesseur.Visible = false;
                     lblQuiSommesNous.Visible = false;
                     lblProfilAdmin.Visible = false;
@@ -86,6 +88,7 @@ namespace Site_de_la_Technique_Informatique
                     lblInformation.Visible = true;
                     lblProfilEtudiant.Visible = false;
                     lblProfilProf.Visible = true;
+                    lblProfilEmployeur.Visible = false;
                     lblAjouterProfesseur.Visible = false;
                     lblQuiSommesNous.Visible = false;
                     lblProfilAdmin.Visible = false;
@@ -114,6 +117,7 @@ namespace Site_de_la_Technique_Informatique
                     lblInformation.Visible = true;
                     lblProfilEtudiant.Visible = false;
                     lblProfilProf.Visible = false;
+                    lblProfilEmployeur.Visible = true;
                     lblAjouterProfesseur.Visible = false;
                     lblQuiSommesNous.Visible = false;
                     lblProfilAdmin.Visible = false;
@@ -143,6 +147,7 @@ namespace Site_de_la_Technique_Informatique
                     lblInformation.Visible = false;
                     lblProfilEtudiant.Visible = false;
                     lblProfilProf.Visible = false;
+                    lblProfilEmployeur.Visible = false;
                     lblAjouterProfesseur.Visible = true;
                     lblQuiSommesNous.Visible = false;
                     lblProfilAdmin.Visible = true;
@@ -171,6 +176,7 @@ namespace Site_de_la_Technique_Informatique
                 lblInformation.Visible = true;
                 lblProfilEtudiant.Visible = false;
                 lblProfilProf.Visible = false;
+                lblProfilEmployeur.Visible = false;
                 lblAjouterProfesseur.Visible = false;
                 lblQuiSommesNous.Visible = true;
                 lblProfilAdmin.Visible = false;

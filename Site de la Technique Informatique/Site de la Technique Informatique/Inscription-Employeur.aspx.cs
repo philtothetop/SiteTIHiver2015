@@ -21,7 +21,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, true);
+            SavoirSiPossedeAutorizationPourLaPage(false, false, false, false, true);
         }
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
         //Écrit par Cédric Archambault 17 février 2015
@@ -139,21 +139,25 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             if (ValidationResult.MemberNames.FirstOrDefault().Equals("nom"))
                             {
                                 lblnom.Text = ValidationResult.ErrorMessage;
+                                lblnom.ForeColor = Color.Red;
                                 txtNom.CssClass = "form-control hash-error";
                             }
                             if (ValidationResult.MemberNames.FirstOrDefault().Equals("courriel"))
                             {
                                 lblCourriel.Text = ValidationResult.ErrorMessage;
+                                lblCourriel.ForeColor = Color.Red;
                                 txtCourriel.CssClass = "form-control hash-error";
                             }
                             if (ValidationResult.MemberNames.FirstOrDefault().Equals("motDePasse"))
                             {
                                 lblMotDePasse.Text = ValidationResult.ErrorMessage;
+                                lblMotDePasse.ForeColor = Color.Red;
                                 txtMotDePasse.CssClass = "form-control hash-error";
                             }
                             if (ValidationResult.MemberNames.FirstOrDefault().Equals("ConfirmationMotDePasse"))
                             {
                                 lblConfirmationMotDePasse.Text = ValidationResult.ErrorMessage;
+                                lblConfirmationMotDePasse.ForeColor = Color.Red;
                                 txtConfirmationMotDePasse.CssClass = "form-control hash-error";
                             }
 
@@ -277,8 +281,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
             hash hash = new hash();
 
             String hashCourriel = employeur.dateInscription.GetHashCode().ToString();
-            String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority + "/Inscription-valide.aspx?type=emp&id=" + employeur.courriel + "&code=" + hashCourriel;
-            String titre = "Inscription TI Cégep de Granby";
+            String hyperLien = "http://sqlinfo.cegepgranby.qc.ca/projetdeux_2015_1/Inscription-valide.aspx?type=emp&id=" + employeur.courriel + "&code=" + hashCourriel;
+            String titre = "Inscription TI Cegep de Granby";
             String message= "Cher/chère " + employeur.nomEmployeur + ",<br/><br/>Merci de votre inscription sur le site de la technique informatique du Cégep de Granby, Cliquez sur le lien ci-dessous pour valider votre compte<br><a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
             courrielAutomatiser courriel = new courrielAutomatiser();

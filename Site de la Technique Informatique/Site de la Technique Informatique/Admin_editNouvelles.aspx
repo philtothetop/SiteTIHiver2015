@@ -1,4 +1,4 @@
-﻿<%@ Page MasterPageFile="~/Admin.master" Language="C#" AutoEventWireup="true" CodeBehind="Admin_editNouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.temp_editNouvelles" %>
+﻿<%@ Page MasterPageFile="~/Admin.master" Language="C#" AutoEventWireup="true" CodeBehind="Admin_editNouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.temp_editNouvelles" MaintainScrollPositionOnPostback="true" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
@@ -9,10 +9,10 @@
     tinymce.init({
         selector: "textarea",
         encoding: "xml",
-        plugins: ["image link media advlist autolink lists charmap preview hr anchor",
-                "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
-        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
-        language: 'fr_FR',              
+        plugins: ["image link media advlist autolink lists charmap emoticons preview hr anchor",
+                "pagebreak code charmap nonbreaking table contextmenu directionality paste textcolor searchreplace"],
+        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | charmap emoticons | bullist numlist outdent indent | link image media",
+        language: 'fr_FR',
     });
 </script>
 <script>

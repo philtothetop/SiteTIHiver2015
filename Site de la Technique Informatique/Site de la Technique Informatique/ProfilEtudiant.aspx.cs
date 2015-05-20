@@ -107,5 +107,25 @@ namespace Site_de_la_Technique_Informatique
         {
             Response.Redirect("FaireTemoignage.aspx");
         }
+
+        //Savoir si mettre le CV visible ou non si possède un
+        protected bool VisibleSiCV(string pathCV)
+        {
+            if(pathCV != null)
+            {
+                if(!pathCV.Equals(""))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

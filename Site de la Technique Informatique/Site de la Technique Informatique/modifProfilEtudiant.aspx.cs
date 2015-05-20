@@ -36,7 +36,7 @@ namespace Site_de_la_Technique_Informatique
         #region Évènements de la page
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, false, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(false, false, true, false, false);
         }
         #endregion
 
@@ -227,7 +227,7 @@ namespace Site_de_la_Technique_Informatique
                             String AdresseCV = "";
                             if (etudiantAUpdaterCopie.pathCV != "")
                             {
-                                AdresseCV = Server.MapPath("//Upload//CV//" + etudiantAUpdaterCopie.pathCV);
+                                AdresseCV = Server.MapPath("~//Upload//CV//" + etudiantAUpdaterCopie.pathCV);
                                 File.Delete(AdresseCV);//Efface l'ancien CV.
                             }
                             //Ajouter path CV et saugarder.
@@ -235,7 +235,7 @@ namespace Site_de_la_Technique_Informatique
                             String date = DateTime.Now.ToString("dd MM yyyy");
                             date.Replace("/", "-");
                             String CVNom = etudiantAUpdaterCopie.prenom + "_" + etudiantAUpdaterCopie.nom + "_CV_" + date + "." + extension;
-                            AdresseCV = Server.MapPath("//Upload//CV//" + CVNom);
+                            AdresseCV = Server.MapPath("~//Upload//CV//" + CVNom);
                             etudiantAUpdaterCopie.pathCV = CVNom;
                             fupCV.SaveAs(AdresseCV);
                         }
@@ -264,10 +264,10 @@ namespace Site_de_la_Technique_Informatique
                             imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
 
                             String imageNom = (etudiantAUpdaterCopie.prenom + etudiantAUpdaterCopie.dateInscription.ToString()).GetHashCode() + "_125.jpg";
-                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
+                            String imageProfilChemin = Path.Combine(Server.MapPath("~//Upload//Photos//Profils//"), imageNom);
                             if (!etudiantAUpdaterCopie.pathPhotoProfil.Equals("photobase.bmp"))
                             {
-                                String AdressePhoto = Server.MapPath("/Photos/Profils/" + etudiantAUpdaterCopie.pathPhotoProfil);
+                                String AdressePhoto = Server.MapPath("~//Upload//Photos//Profils//" + etudiantAUpdaterCopie.pathPhotoProfil);
                                 File.Delete(AdressePhoto);//Efface l'ancienne photo.
                             }
                             imageProfil.Save(imageProfilChemin);
@@ -323,7 +323,7 @@ namespace Site_de_la_Technique_Informatique
                 string cropFileName = "";
                 string cropFilePath = "";
                 cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Profils/"), cropFileName);
+                cropFilePath = Path.Combine(Server.MapPath("~//Upload//Photos//Profils//"), cropFileName);
             }
 
             return image;
@@ -336,6 +336,8 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
+                    
+
                     Etudiant etudiant = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.IDEtudiant == id select cl).FirstOrDefault();
                     etudiant.compteActif = 2;
                     leContext.SaveChanges();
@@ -348,6 +350,45 @@ namespace Site_de_la_Technique_Informatique
                 throw new Exception("Erreur lvModifProfilEtudiant_DeleteItem : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
         }
+
+        protected void btnDesactiver_Click(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                using (LeModelTIContainer leContext = new LeModelTIContainer())
+                {
+                    int idEtudiant = -1;
+                    Etudiant etudiantCo;
+
+                    if (Request.Cookies["TIUtilisateur"].Value.Equals("Etudiant"))
+                    {
+                        idEtudiant = int.Parse(e.CommandArgument.ToString()) ;
+
+                    }else if (Request.QueryString["id"] != null)
+                    {
+
+                        idEtudiant = int.Parse(Request.QueryString["id"].ToString());
+                    }
+                    if (idEtudiant != -1)
+                    {
+                        etudiantCo = (from etu in leContext.UtilisateurSet.OfType<Etudiant>() where etu.IDEtudiant == idEtudiant select etu).FirstOrDefault();
+                        etudiantCo.compteActif = 2;
+                        leContext.SaveChanges();
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Exception logEx = ex;
+                throw new Exception("Erreur lvModifProfilEtudiant_Desactiver : " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
+            }
+           
+        }
+
+
 
 
     }

@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription-Etudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Validation_Inscription" MasterPageFile="~/Admin.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription-Etudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Inscription.Validation_Inscription" MasterPageFile="~/Admin.master" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script src="js/jquery.js"></script>
-    <link rel="stylesheet" href="../Css/Validation-Inscription.css" />
+    <link rel="stylesheet" href="­~/../Css/Validation-Inscription.css" />
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+  
 
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -51,7 +51,7 @@
                                     <span class="col-md-2 vcenter">Date inscription</span>
 
                                     <asp:LinkButton ID="lnkAccepterTousHaut" Text="Accepter tous" runat="server" CssClass="btn btn-primary" OnClick="lnkAccepterTousHaut_Click" />&nbsp;
-                        <asp:LinkButton ID="lnkRefuserTousHaut" Text="Supprimer tous" runat="server" CssClass="btn btn-warning" OnClick="lnkRefuserTousHaut_Click" />
+                        <asp:LinkButton ID="lnkRefuserTousHaut" Text="Supprimer tous" runat="server" CssClass="btn btn-danger" OnClick="lnkRefuserTousHaut_Click" />
                                 </div>
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
 
@@ -62,7 +62,7 @@
                                     <span class="col-md-3 vcenter"></span>
                                     <span class="col-md-2 vcenter"></span>
                                     <asp:LinkButton ID="LinkButton1" Text="Accepter tous" runat="server" CssClass="btn btn-primary" />&nbsp;
-                        <asp:LinkButton ID="LinkButton2" Text="Supprimer tous" runat="server" CssClass="btn btn-warning" />
+                        <asp:LinkButton ID="LinkButton2" Text="Supprimer tous" runat="server" CssClass="btn btn-danger" />
                                 </div>
                                 <div class="col-lg-11">
                                     <asp:DataPager ID="dpLview2" runat="server" PagedControlID="lviewValidationInscription" PageSize="10">
@@ -81,7 +81,7 @@
                                     <asp:CheckBox ID="chSelectionner" runat="server" CssClass="vcenter chk" />
                                     <span class="col-md-1 vcenter">
 
-                                        <asp:Image ID="imgPhotoProfil" runat="server" ImageUrl='<%#"../Photos/Profils/"+Eval("pathPhotoProfil")%>' CssClass="img-thumbnail" /></span>
+                                        <asp:Image ID="imgPhotoProfil" runat="server" ImageUrl='<%#  isLocal() ? "~/Upload/Photos/Profils/"+Eval("pathPhotoProfil") : "~/../Upload/Photos/Profils/"+Eval("pathPhotoProfil") %>' CssClass="img-thumbnail" /></span>
                                     <asp:Label ID="lblPrenom" runat="server" Text='<%#Eval("prenom")+" "+Eval("nom") %>' CssClass="col-md-3 vcenter" />
                                     <asp:Label ID="lvlCourriel" runat="server" Text='<%#Eval("courriel") %>' CssClass="col-md-3 vcenter" />
                                     <asp:Label ID="lblDateInscription" runat="server" Text='<%#Eval("dateInscription") %>' CssClass="col-md-2 vcenter" />

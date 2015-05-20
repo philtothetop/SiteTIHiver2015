@@ -8,7 +8,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <script src="Js/bootstrap.js"></script>
 
     <div class="row">
 
@@ -43,6 +42,9 @@
                 </li>
 
                 <li><a style="color:GrayText" href="Admin_Vertic.aspx">Vertic</a><br />
+                </li>
+
+                <li><a style="color:GrayText" href="Log.aspx">Les logs</a><br />
                 </li>
 
             </ul>

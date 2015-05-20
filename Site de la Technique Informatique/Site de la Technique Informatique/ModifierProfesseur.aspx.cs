@@ -27,7 +27,7 @@ namespace Site_de_la_Technique_Informatique
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false,false);
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
 
@@ -154,8 +154,9 @@ namespace Site_de_la_Technique_Informatique
                 image = (System.Drawing.Image)new Bitmap(image, new Size(125, 125)); //prevention contre injection de trop grande image.
                 
                 string something = profAUpdater.dateInscription.ToShortDateString().Replace("/", "");
+                something = something.Replace("-", "");
                 String imageNom = (profAUpdater.prenom + something) + "_125.jpg";
-                String imageProfilChemin = (Server.MapPath("..//Upload//" + imageNom));
+                String imageProfilChemin = (Server.MapPath("~//Upload//Photos//Profils//" + imageNom));
                 image.Save(imageProfilChemin);
                 profAUpdater.pathPhotoProfil = imageNom;
                     
@@ -253,8 +254,6 @@ namespace Site_de_la_Technique_Informatique
                     Professeur profADesactiver = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).FirstOrDefault();
                     if (inputPwd.Equals(profADesactiver.hashMotDePasse))
                     {
-
-
 
                         profADesactiver.compteActif = 0;
 
@@ -395,6 +394,14 @@ namespace Site_de_la_Technique_Informatique
                             lecontexte.Set<Cours>().Add(leCoursAUpdaterCopie);
                             
                         }
+                        Model.Log logEntry = new Model.Log
+                        {
+                            dateLog = DateTime.Now,
+                            actionLog = currentProf.prenom + " " + currentProf.nom + " a modifié un cours: " + leCoursAUpdaterCopie.noCours ,
+                            typeLog = 0
+                        };
+
+                        lecontexte.LogSet.Add(logEntry);
 
                         lecontexte.SaveChanges();
                     }
@@ -418,6 +425,7 @@ namespace Site_de_la_Technique_Informatique
                     ddlCours.Enabled = true;
                     btnModif.Enabled = true;
                     lvModifierCours.Visible = false;
+
 
                 }
             }

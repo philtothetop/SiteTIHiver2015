@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Recherche de membres" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Recherche.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Recherche" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Recherche.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Recherche" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 
@@ -29,7 +29,7 @@
                     <div>
                         <div>
                             <asp:TextBox runat="server" ID="txtNomMembre" placeholder="Entrez un nom/prénom" Width="200"></asp:TextBox>
-                            <asp:Button runat="server" ID="btnRecherche" class="btn btn-default" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
+                            <asp:Button runat="server" ID="btnRecherche" class="btn btn-primary" Text="Rechercher" OnClick="btnRecherche_Click"></asp:Button>
 
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                         <asp:LinkButton ID="lnkMembre" CssClass="couleurGris" Text="" runat="server" OnClick="lnkMembre_Click" CommandArgument='<%# Item.IDUtilisateur %>' BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="border-radius: 5px; text-align:center; width:100%;">
                           
                                     <div class="col-lg-2" style="text-align: left;">
-                                        <img src='<%# "~/../Upload/Photos/Profils/" +Item.pathPhotoProfil %>' width="75" height="75" />
+                                        <img src='<%# "~/../Upload/Photos/Profils/" + Item.pathPhotoProfil %>' width="75" height="75" />
                                     </div>
 
                                     <div class="col-lg-10" style="text-align: left; color: black;">

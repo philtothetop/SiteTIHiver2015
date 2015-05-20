@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Admin_AjouteSupprimeProf.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_AjouteSupprimeProf" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeBehind="Admin_AjouteSupprimeProf.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_AjouteSupprimeProf" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -12,7 +12,7 @@
 
                 <asp:View ID="viewAjouterProf" runat="server">
                     
-                    <asp:Button ID="btnAllezSupprimerProf" runat="server" OnClick="btnAllezSupprimerProf_Click" CssClass="btn btn-default" Text="Supprimer un professeur" />
+                    <asp:Button ID="btnAllezSupprimerProf" runat="server" OnClick="btnAllezSupprimerProf_Click" CssClass="btn btn-primary" Text="Supprimer un professeur" />
                     
                     <div class="row" id="divAjoutProf" runat="server">
                                 <div class="col-md-12">
@@ -71,7 +71,7 @@
                             <div class="row" runat="server" id="divComplete" visible ="false">
                                 <div class="col-md-12">
                                     <h2>Le professeur a été ajouté.</h2>
-                                    <asp:LinkButton ID="lnkAjouterUnAutreProf" runat="server" CssClass="btn btn-default" Text="Ajouter un autre professeur" OnClick="lnkAjouterUnAutreProf_Click" />
+                                    <asp:LinkButton ID="lnkAjouterUnAutreProf" runat="server" CssClass="btn btn-primary" Text="Ajouter un autre professeur" OnClick="lnkAjouterUnAutreProf_Click" />
                                 </div>
                             </div>
                 
@@ -80,7 +80,7 @@
 
 
                 <asp:View ID="viewSupprimerProf" runat="server">
-                    <asp:Button ID="btnAllezAjouterProf" runat="server" OnClick="btnAllezAjouterProf_Click" CssClass="btn btn-default" Text="Ajouter un professeur" />
+                    <asp:Button ID="btnAllezAjouterProf" runat="server" OnClick="btnAllezAjouterProf_Click" CssClass="btn btn-primary" Text="Ajouter un professeur" />
 
                     <h1>Supprimer un professeur</h1>
                     <br />
@@ -105,7 +105,7 @@
                         <div style="float:left; width:50%;">
                             <div style="border:black solid 1px; min-height:75px;">
                             <div style="clear:both; width:75px; float:left;">
-                                 <asp:ImageButton ID="photoProfil" runat="server" Width="75px" Height="75px" ImageUrl='<%# isLocal() ? "~/../Upload/Photos/Profils/" + Item.pathPhotoProfil : "~/Upload/Photos/Profils/" + Item.pathPhotoProfil %>' CommandArgument='<%# Item.IDUtilisateur %>' OnClick="photoProfil_Click"></asp:ImageButton>
+                                 <asp:ImageButton ID="photoProfil" runat="server" Width="73px" Height="73px" ImageUrl='<%# "~/Upload/Photos/Profils/" + Item.pathPhotoProfil %>' Enabled="false"></asp:ImageButton>
 
                             </div>
                             <div style="width:100%;">
@@ -117,7 +117,7 @@
                                 </div>
                             </div>
                              <div style="clear:both; float:left;">
-                                  <asp:Button ID="btnSupprimerProf" runat="server" Text="Supprimer" CssClass="btn-danger" CommandArgument='<%# Item.IDUtilisateur %>' OnClick="btnSupprimerProf_Click" />
+                                  <asp:Button ID="btnSupprimerProf" runat="server" Text="Supprimer" CssClass="btn btn-danger" CommandArgument='<%# Item.IDUtilisateur %>' OnClick="btnSupprimerProf_Click" />
                                 
                                  </div>
                             </div>
@@ -145,7 +145,7 @@
                     </EmptyDataTemplate>
 
                 </asp:ListView>
-                 <div style="text-align:center; width:100%;">
+                 <div style="text-align:center; width:100%; clear:both;">
             <asp:DataPager ID="dataPagerProfs" runat="server" PagedControlID="lviewLesProfs"
                             PageSize="10">
                             <Fields>

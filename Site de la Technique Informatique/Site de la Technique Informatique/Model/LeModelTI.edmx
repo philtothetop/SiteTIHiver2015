@@ -230,7 +230,7 @@
     </Key>
     <Property Name="IDFAQ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="texteQuestion" Type="nvarchar" Nullable="false" MaxLength="150" />
-    <Property Name="texteReponse" Type="nvarchar" Nullable="false" MaxLength="800" />
+    <Property Name="texteReponse" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProfesseurIDUtilisateur" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="NouvelleSet">
@@ -267,7 +267,7 @@
       <PropertyRef Name="IDMessageForum" />
     </Key>
     <Property Name="IDMessageForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="texteMessage" Type="nvarchar" Nullable="false" MaxLength="2000" />
+    <Property Name="texteMessage" Type="nvarchar(max)" Nullable="false" />
     <Property Name="dateMessage" Type="datetime" Nullable="false" />
     <Property Name="EnteteForumIDEnteteForum" Type="int" Nullable="false" />
     <Property Name="MembreIDUtilisateur" Type="int" Nullable="false" />

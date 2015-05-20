@@ -100,7 +100,7 @@
                                 <div class="modif-photo">
                                     <div class="img-thumbnail img-photo preview-photo">
                                         <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl="Photos/Profils/photobase.bmp" Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" src="~/../Upload/Photos/Profils/photobase.bmp" Width="125" Height="125" />
                                     </div>
                                     <div class="div-btnChangerPhoto">
                                         <a href="#maPhotoProfile" class="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" data-backdrop="static" data-keyboard="false">Changer la photo du profil</a>
@@ -186,33 +186,13 @@
                                     <div class="controls">
                                         <asp:CheckBox ID="cbCondition" runat="server" OnCheckedChanged="cbCondition_CheckedChanged" AutoPostBack="true" />
                                         <a href="TermesConditions.aspx" target="_blank">Termes et conditions</a>
-                                        <%--<asp:LinkButton ID="lnkConditions" runat="server" Text="Termes et conditions" data-toggle="modal" data-target="#mesConditions" />--%>
                                     </div>
 
                                 </div>
-                                <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-default" OnClientClick="goBack()" />
+                                <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-danger" OnClientClick="goBack()" />
                                 <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 
-                                <!-- Modal Termes et conditions-->
-                                <div class="modal fade" id="mesConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel">Termes et conditions</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                bla bla bla...
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                <asp:LinkButton ID="lnkAcccepter" runat="server" CssClass="btn btn-primary" Text="Accepter" OnClick="lnkAcccepter_Click" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Fin Termes et condition-->
-
+                              
 
                             </ContentTemplate>
                             <Triggers>

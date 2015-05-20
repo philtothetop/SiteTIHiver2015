@@ -26,11 +26,10 @@
                     <div class="item active">
                         <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                             <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                            <asp:Image runat="server" ImageUrl='<%# isLocal() ? "~/Upload/Photos/logo/Logo_Informatique.jpg" : "~/../Upload/Photos/logo/Logo_Informatique.jpg"  %>' height="400" width="500" />
+                            <asp:Image runat="server" ImageUrl="~/Upload/Photos/logo/Logo_Informatique.jpg" height="400" width="500" />
                         </div>
                         <div class="carousel-caption"></div>
                     </div>
-
                     <asp:ListView ID="lviewAlbumPhoto" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.Photos"
                         SelectMethod="lviewAlbumPhoto_GetData">
@@ -40,13 +39,12 @@
                             <div class="item">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                                     <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# isLocal() ? "~/Upload/Photos/" + Item.pathPhoto : "~/../Upload/Photos/" + Item.pathPhoto %>' Style="vertical-align: middle;" />
+                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# "~/Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto /*isLocal("Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto)*/ %>' Style="vertical-align: middle;" />
                                 </div>
 
                                 <div class="carousel-caption">
                                 </div>
                             </div>
-
                         </ItemTemplate>
 
                         <LayoutTemplate>
@@ -92,7 +90,7 @@
                 <p>Cette technique ne concerne en rien la programmation de jeux vidéo, prendre note qu'il faut s'appliquer et travailler fort pour réussir les cours.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/Autres/Accueil.jpg" alt="" />
+                <img class="img-responsive" src='<%# isLocal("Upload/Photos/Autres/Accueil.jpg") %>' alt="" />
             </div>
         </div>
         <!-- /.row -->
