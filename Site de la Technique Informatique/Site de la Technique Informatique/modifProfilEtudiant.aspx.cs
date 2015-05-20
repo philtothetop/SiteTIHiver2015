@@ -36,7 +36,7 @@ namespace Site_de_la_Technique_Informatique
         #region Évènements de la page
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(false, false, true, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(false, true, true, false, false);
         }
         #endregion
 
@@ -52,7 +52,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     String strIDUtilisateur = "";
 
-                    if (Request.Cookies["TIUtilisateur"].Value.Equals("Admin"))//Si c'est un Admin
+                    if (Request.Cookies["TIUtilisateur"].Value.Equals("Professeur"))//Si c'est un Admin
                     {
                         //Si le query etudiantId exist
                         if (Request.QueryString["id"] != null)

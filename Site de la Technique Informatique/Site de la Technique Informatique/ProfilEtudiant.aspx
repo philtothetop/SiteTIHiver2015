@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProfilEtudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.ProfilEtudiant" MasterPageFile="~/Site.Master" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProfilEtudiant.aspx.cs" Inherits="Site_de_la_Technique_Informatique.ProfilEtudiant" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../Css/ProfilEtudiant.css" rel="stylesheet" />

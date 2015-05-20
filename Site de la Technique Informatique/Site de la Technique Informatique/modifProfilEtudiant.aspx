@@ -101,9 +101,9 @@ Extrants: --%>
                     <EmptyDataTemplate>
                         <table class="emptyTable">
                             <tr>
-                                <td>Lol
+                                <td>
                                 </td>
-                                <td>Cet étudiant n'existe pas.
+                                <td> étudiant n'existe pas.
                                 </td>
                             </tr>
                         </table>

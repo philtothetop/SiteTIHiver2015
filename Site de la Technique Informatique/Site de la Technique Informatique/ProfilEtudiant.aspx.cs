@@ -43,8 +43,8 @@ namespace Site_de_la_Technique_Informatique
                     else
                     {
                         strIDUtilisateur = Request.QueryString["id"].ToString();//Va chercher la valleur du query String.
-                        
-                        if (Request.Cookies["TIUtilisateur"].Value.Equals("Admin"))
+
+                        if (Request.Cookies["TIUtilisateur"].Value.Equals("Professeur"))
                         {
                             dvModifier.Visible = true;//Afficher le div contenant le bouton modifier.
                         }
