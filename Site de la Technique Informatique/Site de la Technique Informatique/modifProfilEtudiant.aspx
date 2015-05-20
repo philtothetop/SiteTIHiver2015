@@ -120,7 +120,7 @@ Extrants: --%>
                                 <div class="modif-photo">
                                     <div class="img-thumbnail img-photo preview-photo">
                                         <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#"~/Upload/Photos/Profils/"+Eval("pathPhotoProfil") %>' Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "~//Upload//Photos//Profils//{0}")%>' Width="125" Height="125" />
                                     </div>
                                     <div class="div-btnChangerPhoto">
                                         <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />

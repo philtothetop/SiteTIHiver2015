@@ -161,7 +161,7 @@
                 <div>
                     Prévisualisation
                     <div id="divDeLImage" style="clear:both; max-height:500px; margin:0px; padding:0px;">
-                        <asp:Image ID="showDataURL" runat="server" ImageUrl="../Photos/Profils/photobase.bmp" style="min-width:120px;min-height:120px; max-width:500px; max-height:500px" />
+                        <asp:Image ID="showDataURL" runat="server" ImageUrl="~/Photos/Profils/photobase.bmp" style="min-width:120px;min-height:120px; max-width:500px; max-height:500px" />
                     </div>
 
                     <div style="clear:both;">
