@@ -79,6 +79,7 @@ Extrants: --%>
             $('.modal-backdrop').remove();
         };
     </script>
+
     <!-- jQuery -->
 
 </asp:Content>
@@ -217,7 +218,7 @@ Extrants: --%>
                         <div class="row"></div>
                         <div class="col-lg-offset-8 col-lg-8 ">
                            
-                           
+                           <asp:Button ID="btnAnnuler" runat="server" Text="Annuler" CssClass="btn btn-danger" OnClick="btnAnnuler_Click" />
                             <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" OnClientClick="copieImgData()" />
                         </div>
                     </ItemTemplate>
