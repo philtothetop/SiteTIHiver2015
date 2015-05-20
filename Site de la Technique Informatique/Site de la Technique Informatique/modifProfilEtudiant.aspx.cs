@@ -388,6 +388,17 @@ namespace Site_de_la_Technique_Informatique
            
         }
 
+        protected void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            if (Request.QueryString["id"] != null)
+            {
+                Response.Redirect("ProfilEtudiant.aspx?id=" + Request.QueryString["id"], false);
+            }else{
+                Response.Redirect("ProfilEtudiant.aspx", false);
+            }
+        }
+
+
 
 
 

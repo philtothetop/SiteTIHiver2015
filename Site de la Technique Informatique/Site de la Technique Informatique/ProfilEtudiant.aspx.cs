@@ -52,6 +52,7 @@ namespace Site_de_la_Technique_Informatique
                         {
                             dvModifier.Visible = false;//Chache le div contant modifier.
                         }
+
                     }
                     int IDUtilisateur = 0;
                     if (int.TryParse(strIDUtilisateur, out IDUtilisateur))
@@ -62,7 +63,12 @@ namespace Site_de_la_Technique_Informatique
                         {
                             Response.Redirect("404.aspx",false);
                         }
-                     
+                                            
+                        strIDUtilisateur = Request.QueryString["id"].ToString();//Va chercher la valleur du query String.
+                        if(int.Parse(strIDUtilisateur)==etudiantCo.IDUtilisateur)
+                        {
+                            dvModifier.Visible = true;//Afficher le div contenant le bouton modifier.
+                        }
                     }
                     else
                     {
