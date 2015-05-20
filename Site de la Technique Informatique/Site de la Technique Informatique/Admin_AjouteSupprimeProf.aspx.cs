@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace Site_de_la_Technique_Informatique
@@ -233,21 +234,6 @@ namespace Site_de_la_Technique_Informatique
             catch (Exception ex)
             {
                 LogErreur("Admin_AjouteSupprimeProf.aspx.cs dans la fonction btnSupprimerProf_Click", ex);
-            }
-        }
-
-        //Si click sur photo profil por pour allez a son profil
-        protected void photoProfil_Click(object sender, System.Web.UI.ImageClickEventArgs e)
-        {
-            string leProfIDUtilisateur = ((ImageButton)sender).CommandArgument;
-            
-            if (isLocal())
-            {
-                Response.Redirect("~/Response.Redirect(ProfilProfesseur.aspx?id=" + leProfIDUtilisateur);
-            }
-            else
-            {
-                Response.Redirect("~/../Response.Redirect(ProfilProfesseur.aspx?id=" + leProfIDUtilisateur);
             }
         }
 

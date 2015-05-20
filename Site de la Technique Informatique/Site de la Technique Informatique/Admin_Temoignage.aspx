@@ -8,8 +8,8 @@
 
     <h1 class="page-header">Témoignages</h1>
 
-    <asp:Button ID="btnVoirTemoignageNonValide" runat="server" Text="Témoignages non-validés" CssClass="btn btn-primary" OnClick="VoirTemoignageNonValide_Click" />
-    <asp:Button ID="btnVoirTemoignageValide" runat="server" Text="Témoignages validés" CssClass="btn btn-primary" OnClick="VoirTemoignageValide_Click" />
+    <asp:Button ID="btnVoirTemoignageNonValide" runat="server" Text="Témoignages non-validés" CssClass="btn btnTemoignageSelectionne" OnClick="VoirTemoignageNonValide_Click" />
+    <asp:Button ID="btnVoirTemoignageValide" runat="server" Text="Témoignages validés" CssClass="btn btn-default" OnClick="VoirTemoignageValide_Click" />
 
 
     <asp:ListView ID="lviewTemoignage" runat="server"

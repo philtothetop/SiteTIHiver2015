@@ -43,6 +43,17 @@ namespace Site_de_la_Technique_Informatique
                     dataPager.Visible = false;
                 }
             }
+
+            //Datapager visible juste si besoin
+            if (listeOffresEmploi.Count > dataPager.PageSize)
+            {
+                dataPager.Visible = true;
+            }
+            else
+            {
+                dataPager.Visible = false;
+            }
+
             return listeOffresEmploi.AsQueryable();
         }
 

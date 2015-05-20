@@ -186,7 +186,6 @@
                                     <div class="controls">
                                         <asp:CheckBox ID="cbCondition" runat="server" OnCheckedChanged="cbCondition_CheckedChanged" AutoPostBack="true" />
                                         <a href="TermesConditions.aspx" target="_blank">Termes et conditions</a>
-                                        <%--<asp:LinkButton ID="lnkConditions" runat="server" Text="Termes et conditions" data-toggle="modal" data-target="#mesConditions" />--%>
                                     </div>
 
                                 </div>

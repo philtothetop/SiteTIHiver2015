@@ -173,7 +173,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
                             idsEnErreur.Add(input);
                             msgsEnErreur.Add(ValdationResult.ErrorMessage);
-
+                            lblMessage.ForeColor = Color.Red;
 
 
                         }
@@ -237,6 +237,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         // raise a new exception nesting
                         // the current instance as InnerException
                         raise = new InvalidOperationException(message, raise);
+
+                        Label lblMessage = (Label)lviewFormulaireInscription.Items[0].FindControl("lblMessage");
+                        lblMessage.Text = message;
+                        lblMessage.ForeColor = Color.Red;
                     }
                 }
                 throw raise;

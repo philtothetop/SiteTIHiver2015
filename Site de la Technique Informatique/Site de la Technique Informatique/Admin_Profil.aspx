@@ -11,8 +11,17 @@
         <div class="col-lg-6 col-centered">
 
             <div class="container-fluid">
+                <div class="row row-centered">
+                            <div class="col-lg-9 col-centered">
+                                <h1>Modification du profil Admin</h1>
+                            </div>
+                        </div>
+                <div style="clear:both;">
+                            <br />
+                                <asp:Label ID="lblMessageAAfficher" runat="server" Text="" Visible="true"></asp:Label>
+                        </div>
                 <asp:ListView ID="lvModifProfilAdmin" runat="server"
-                    ItemType="Site_de_la_Technique_Informatique.Model.Utilisateur"
+                    ItemType="Site_de_la_Technique_Informatique.Model.Admin"
                     SelectMethod="SelectAdmin"
                     UpdateMethod="UpdateAdmin">
                     <LayoutTemplate>
@@ -20,12 +29,6 @@
                     </LayoutTemplate>
                     
                     <ItemTemplate>
-                        <div class="row row-centered">
-                            <div class="col-lg-9 col-centered">
-                                <h1>Modification du profil Admin</h1>
-                            </div>
-                        </div>
-
                         <div class="row">
                             <div class="col-lg-8">
                                 <h4>Changer votre mot de passe</h4>
@@ -52,15 +55,11 @@
                                 <asp:Label ID="lblConfirmationNouveauMotDePasse" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
+                        
                         <div class="row"></div>
                         <div class="col-lg-offset-8 col-lg-8 ">
                             
-                            <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" OnClientClick="copieImgData()" />
+                            <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" />
                         </div>
                     </ItemTemplate>
                 </asp:ListView>

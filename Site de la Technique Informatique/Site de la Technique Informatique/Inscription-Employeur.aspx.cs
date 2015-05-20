@@ -139,21 +139,25 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             if (ValidationResult.MemberNames.FirstOrDefault().Equals("nom"))
                             {
                                 lblnom.Text = ValidationResult.ErrorMessage;
+                                lblnom.ForeColor = Color.Red;
                                 txtNom.CssClass = "form-control hash-error";
                             }
                             if (ValidationResult.MemberNames.FirstOrDefault().Equals("courriel"))
                             {
                                 lblCourriel.Text = ValidationResult.ErrorMessage;
+                                lblCourriel.ForeColor = Color.Red;
                                 txtCourriel.CssClass = "form-control hash-error";
                             }
                             if (ValidationResult.MemberNames.FirstOrDefault().Equals("motDePasse"))
                             {
                                 lblMotDePasse.Text = ValidationResult.ErrorMessage;
+                                lblMotDePasse.ForeColor = Color.Red;
                                 txtMotDePasse.CssClass = "form-control hash-error";
                             }
                             if (ValidationResult.MemberNames.FirstOrDefault().Equals("ConfirmationMotDePasse"))
                             {
                                 lblConfirmationMotDePasse.Text = ValidationResult.ErrorMessage;
+                                lblConfirmationMotDePasse.ForeColor = Color.Red;
                                 txtConfirmationMotDePasse.CssClass = "form-control hash-error";
                             }
 

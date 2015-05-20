@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Validation;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -31,14 +32,13 @@ namespace Site_de_la_Technique_Informatique
             SavoirSiPossedeAutorizationPourLaPage(true, false, false, false, false);
         }
 
-        public Utilisateur SelectAdmin()
+        public Model.Admin SelectAdmin()
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
                 try
                 {
-
-                    Utilisateur admin = (from etu in lecontexte.UtilisateurSet where etu.IDUtilisateur == 1 select etu).FirstOrDefault();
+                    Model.Admin admin = (from etu in lecontexte.UtilisateurSet.OfType<Model.Admin>() select etu).FirstOrDefault();
                     return admin;
                 }
                 catch (Exception ex)
@@ -49,17 +49,15 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        public void UpdateAdmin(Utilisateur admin)
+        public void UpdateAdmin(Admin admin)
         {
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
             {
-                
-                TextBox txtCourriel = (TextBox)lvModifProfilAdmin.Items[0].FindControl("txtCourriel");
                 TextBox txtMotDePasse = (TextBox)lvModifProfilAdmin.Items[0].FindControl("txtMotDePasse");
                 TextBox txtNouveauMotDePasse = (TextBox)lvModifProfilAdmin.Items[0].FindControl("txtNouveauMotDePasse");
                 TextBox txtConfirmationNouveauMotDePasse = (TextBox)lvModifProfilAdmin.Items[0].FindControl("txtConfirmationNouveauMotDePasse");
 
-                Utilisateur adminAUpdaterCopie = (from etu in lecontexte.UtilisateurSet where etu.IDUtilisateur == 1 select etu).FirstOrDefault();
+                Model.Admin adminAUpdaterCopie = (from etu in lecontexte.UtilisateurSet.OfType<Model.Admin>() select etu).FirstOrDefault();
 
                 //Validation
 
@@ -90,7 +88,7 @@ namespace Site_de_la_Technique_Informatique
                         resultatsValidation.Add(vald);
                     }
                     //Comparer les mots de passe
-                    if (txtNouveauMotDePasse.Text != txtConfirmationNouveauMotDePasse.Text)
+                    if (!txtNouveauMotDePasse.Text.Equals(txtConfirmationNouveauMotDePasse.Text))
                     {
 
                         ValidationResult vald = new ValidationResult("Les mots de passes ne correspondent pas.", new[] { "NouveauMotDePasse" });
@@ -98,11 +96,9 @@ namespace Site_de_la_Technique_Informatique
                         resultatsValidation.Add(vald);
                     }
 
-                    Label lblMessage = (Label)lvModifProfilAdmin.Items[0].FindControl("lblMessage");
-
                     if (!isValid) // NON VALIDE
                     {
-                        lblMessage.Text = "";
+                        lblMessageAAfficher.Text = "";
                         foreach (var ValidationResult in resultatsValidation)
                         {
 
@@ -111,8 +107,8 @@ namespace Site_de_la_Technique_Informatique
 
                             idsEnErreur.Add(input);
                             msgsEnErreur.Add(ValidationResult.ErrorMessage);
-                            lblMessage.Text += ValidationResult.ErrorMessage + "<br/>";
-
+                            lblMessageAAfficher.Text += ValidationResult.ErrorMessage + "<br/>";
+                            lblMessageAAfficher.ForeColor = Color.Red;
                         }
 
                         idsEnErreurTab = JsonConvert.SerializeObject(idsEnErreur);
@@ -129,7 +125,11 @@ namespace Site_de_la_Technique_Informatique
                                 adminAUpdaterCopie.hashMotDePasse = hash2.GetSHA256Hash(txtNouveauMotDePasse.Text);
 
                                 lecontexte.SaveChanges();
-                                Response.Redirect("Admin_Default.aspx", false);
+                                lblMessageAAfficher.Text = "Mot de passe modifié avec succes";
+                                lblMessageAAfficher.ForeColor = Color.Green;
+                                txtConfirmationNouveauMotDePasse.Text = "";
+                                txtMotDePasse.Text = "";
+                                txtNouveauMotDePasse.Text = "";
                             }
 
                         }
@@ -139,9 +139,10 @@ namespace Site_de_la_Technique_Informatique
                             {
                                 foreach (DbValidationError lerror in failure.ValidationErrors)
                                 {
-                                    lblMessage.Text += string.Format("{0} : {1}", lerror.PropertyName, lerror.ErrorMessage);
+                                    lblMessageAAfficher.Text += string.Format("{0} : {1}", lerror.PropertyName, lerror.ErrorMessage);
                                 }
                             }
+                            lblMessageAAfficher.ForeColor = Color.Red;
                         }
                         catch (Exception ex)
                         {

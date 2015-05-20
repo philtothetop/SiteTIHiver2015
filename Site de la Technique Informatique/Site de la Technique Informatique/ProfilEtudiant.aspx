@@ -51,36 +51,39 @@
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
-                                <label>Prénom:</label><br />
+                                <label>Prénom:</label>
+                                <br />
                                 <asp:Label ID="lblPrenom" runat="server" placeholder="Prénom" Text='<%#Eval("prenom") %>' />
 
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
-                                <label>Nom:</label><br />
+                                <label>Nom:</label>
+                                <br />
                                 <asp:Label ID="lbltNom" runat="server" placeholder="Nom" Text='<%#Eval("nom") %>' />
 
                             </div>
                         </div>
                         <div class="control-group form-group">
                             <div class="controls">
-                                <label>Date de naissance:</label><br />
-
+                                <label>Date de naissance:</label>
+                                <br />
                                 <asp:Label ID="lblDateNaissance" runat="server" Text='<%#Convert.ToDateTime(Eval("dateNaissance")).ToShortDateString() %>' />
 
                             </div>
                         </div>
-                        <div class="control-group form-group" id="dvCourriel">
+                        <div class="control-group form-group">
                             <div class="controls">
                                 <label>Courriel:</label>
-                                <asp:Label ID="lblCourriel" runat="server" placeholder="courriel@exemple.qc.ca" Text='<%#Eval("courriel")%>' />
-                               
+                                <br />
+                                <asp:Label ID="lblCourriel" runat="server" Text='<%#Eval("courriel")%>' />
                             </div>
                         </div>
                         <div class="control-group form-group cv" id="dvCV">
-                            <div class="controls">
+                            <div id="cvDiv" runat="server" visible='<%# VisibleSiCV(Item.pathCV) %>' class="controls">
                                 <label>CV:</label>
+                                <br />
                                 <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
                             </div>
                         </div>

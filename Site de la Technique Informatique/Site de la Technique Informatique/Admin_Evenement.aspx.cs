@@ -16,13 +16,19 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_Load(object sender, EventArgs e)
         {
             SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
-
+            
             lblErreur.Text = "";
-            ddlAnneeEventAjouter.DataBind();
-            ddlHeuresAjouter.DataBind();
-            ddlMinutesAjouter.DataBind();
-            ddlMoisEventAjouter.DataBind();
-            ddlMoisEventAjouter.SelectedIndex = 1;
+            lblErreur.ForeColor = Color.Red;
+
+            //Bind cela que a la premiere ouverture de la page
+            if (Page.IsPostBack == false)
+            {
+                ddlAnneeEventAjouter.DataBind();
+                ddlHeuresAjouter.DataBind();
+                ddlMinutesAjouter.DataBind();
+                ddlMoisEventAjouter.DataBind();
+                ddlMoisEventAjouter.SelectedIndex = 1;
+            }
         }
 
         #region GETDATA DES ÉVÉNEMENTS
@@ -50,14 +56,21 @@ namespace Site_de_la_Technique_Informatique
                                                  where even.IDDateEvenementVerTIC == idEvent
                                                  select even).FirstOrDefault();
 
-                TextBox txtEvent = (lviewEcheancier.Items[0].FindControl("txtDescEvent") as TextBox);
-                TextBox txtJourEvent = (lviewEcheancier.Items[0].FindControl("txtJourEvent") as TextBox);
+                //Liste des événements pour trouver l'index (Patch pour le moment, devrais avoir meilleur moyen a faire pour plus tard)
+                List<DateEvenementVerTIC> listeEvenements = new List<DateEvenementVerTIC>();
+                listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet where cl.dateDescription >= DateTime.Now select cl).ToList();
 
-                DropDownList ddlMoisEvent = (lviewEcheancier.Items[0].FindControl("ddlMoisEvent") as DropDownList);
-                DropDownList ddlAnneeEvent = (lviewEcheancier.Items[0].FindControl("ddlAnneeEvent") as DropDownList);
+                //Trouver index des controls a modifier
+                int indexItemAModifier = listeEvenements.IndexOf(eventTest);
 
-                DropDownList ddlHeures = (lviewEcheancier.Items[0].FindControl("ddlHeures") as DropDownList);
-                DropDownList ddlMinutes = (lviewEcheancier.Items[0].FindControl("ddlMinutes") as DropDownList);
+                TextBox txtEvent = (lviewEcheancier.Items[indexItemAModifier].FindControl("txtDescEvent") as TextBox);
+                TextBox txtJourEvent = (lviewEcheancier.Items[indexItemAModifier].FindControl("txtJourEvent") as TextBox);
+
+                DropDownList ddlMoisEvent = (lviewEcheancier.Items[indexItemAModifier].FindControl("ddlMoisEvent") as DropDownList);
+                DropDownList ddlAnneeEvent = (lviewEcheancier.Items[indexItemAModifier].FindControl("ddlAnneeEvent") as DropDownList);
+
+                DropDownList ddlHeures = (lviewEcheancier.Items[indexItemAModifier].FindControl("ddlHeures") as DropDownList);
+                DropDownList ddlMinutes = (lviewEcheancier.Items[indexItemAModifier].FindControl("ddlMinutes") as DropDownList);
                 try
                 {
                     DateTime date = new DateTime(Int32.Parse(ddlAnneeEvent.Text), Int32.Parse(ddlMoisEvent.Text), Int32.Parse(txtJourEvent.Text), Int32.Parse(ddlHeures.Text), Int32.Parse(ddlMinutes.Text), 0);
@@ -90,10 +103,27 @@ namespace Site_de_la_Technique_Informatique
                     return;
                 }
 
-                eventTest.evenement = txtEvent.Text;
+                //Ajouter un minimum de 5 caracter pour un évenement
+                if (txtEvent.Text.Count() < 5)
+                {
+                    lblErreur.Text = "Doit contenir une description de au moin 5 caractères.";
+                    txtEvent.BorderColor = Color.Red;
+                    return;
+                }
 
+                eventTest.evenement = txtEvent.Text;
                 lecontexte.SaveChanges();
-                Response.Redirect("~/Admin_Evenement.aspx");
+
+                lblErreur.Text = "La modification a réussi.";
+                lblErreur.ForeColor = Color.Green;
+
+                Color initialBorderColor = System.Drawing.ColorTranslator.FromHtml("#ccc");
+                ddlAnneeEvent.BorderColor = initialBorderColor;
+                ddlMoisEvent.BorderColor = initialBorderColor;
+                txtJourEvent.BorderColor = initialBorderColor;
+                txtEvent.BorderColor = initialBorderColor;
+
+                lviewEcheancier.DataBind();
             }
         }
 
@@ -136,12 +166,29 @@ namespace Site_de_la_Technique_Informatique
                     return;
                 }
 
+                //Ajouter un minimum de 5 caracter pour un évenement
+                if (txtAjoutEvenement.Text.Count() < 5)
+                {
+                    lblErreur.Text = "Doit contenir une description de au moin 5 caractères.";
+                    txtAjoutEvenement.BorderColor = Color.Red;
+                    return;
+                }
+
                 eventAjouter.evenement = txtAjoutEvenement.Text;
                 listeEvenements = (from cl in lecontexte.DateEvenementVerTICSet select cl).ToList();
                 listeEvenements.Add(eventAjouter);
                 lecontexte.DateEvenementVerTICSet.Add(eventAjouter);
                 lecontexte.SaveChanges();
-                Response.Redirect("~/Admin_Evenement.aspx");
+
+                Color initialBorderColor = System.Drawing.ColorTranslator.FromHtml("#ccc");
+                ddlAnneeEventAjouter.BorderColor = initialBorderColor;
+                ddlMoisEventAjouter.BorderColor = initialBorderColor;
+                txtJourEventAjouter.BorderColor = initialBorderColor;
+                txtAjoutEvenement.BorderColor = initialBorderColor;
+
+                lblErreur.Text = "L'événement a été ajouté.";
+                lblErreur.ForeColor = Color.Green;
+                lviewEcheancier.DataBind();
             }
         }
 
@@ -157,7 +204,11 @@ namespace Site_de_la_Technique_Informatique
                                                      select even).FirstOrDefault();
                     lecontexte.DateEvenementVerTICSet.Remove(eventTest);
                     lecontexte.SaveChanges();
-                    Response.Redirect("~/Admin_Evenement.aspx");
+
+                    lblErreur.Text = "L'événement a été supprimé.";
+                    lblErreur.ForeColor = Color.Green;
+
+                    lviewEcheancier.DataBind();
                 }
         }
 

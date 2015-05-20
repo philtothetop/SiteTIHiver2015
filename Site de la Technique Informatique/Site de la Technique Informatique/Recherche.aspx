@@ -66,7 +66,7 @@
                         <asp:LinkButton ID="lnkMembre" CssClass="couleurGris" Text="" runat="server" OnClick="lnkMembre_Click" CommandArgument='<%# Item.IDUtilisateur %>' BorderStyle="Solid" BorderColor="black" BorderWidth="1" Style="border-radius: 5px; text-align:center; width:100%;">
                           
                                     <div class="col-lg-2" style="text-align: left;">
-                                        <img src='<%# "~/../Upload/Photos/Profils/" +Item.pathPhotoProfil %>' width="75" height="75" />
+                                        <img src='<%# "~/../Upload/Photos/Profils/" + Item.pathPhotoProfil %>' width="75" height="75" />
                                     </div>
 
                                     <div class="col-lg-10" style="text-align: left; color: black;">

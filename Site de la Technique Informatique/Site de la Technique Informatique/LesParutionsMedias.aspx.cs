@@ -44,6 +44,7 @@ namespace Site_de_la_Technique_Informatique
                 LogErreur("LesParutionsMedias.aspx.cs dans la méthode GetLesParutionsMedias", ex);
             }
 
+            //Datapager visible juste si besoin
             if (listeParutionMedias.Count > dataPagerDesParutions.PageSize)
             {
                 dataPagerDesParutions.Visible = true;

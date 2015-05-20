@@ -44,6 +44,9 @@
                 <li><a style="color:GrayText" href="Admin_Vertic.aspx">Vertic</a><br />
                 </li>
 
+                <li><a style="color:GrayText" href="Log.aspx">Les logs</a><br />
+                </li>
+
             </ul>
         </div>
 

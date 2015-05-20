@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using System.Net;
+using System.IO;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -82,14 +83,25 @@ namespace Site_de_la_Technique_Informatique
 
         protected void lnkPDF_Click(object sender, EventArgs e)
         {
-            string FilePath = Server.MapPath(ViewState["pathPDF"].ToString());
-            WebClient User = new WebClient();
-            Byte[] FileBuffer = User.DownloadData(FilePath);
-            if (FileBuffer != null)
+            try
             {
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-length", FileBuffer.Length.ToString());
-                Response.BinaryWrite(FileBuffer);
+                string FilePath = Server.MapPath("~//Upload//PDFOffreEmploi//" + ViewState["pathPDF"].ToString());
+
+                if (File.Exists(FilePath))
+                {
+                    WebClient User = new WebClient();
+                    Byte[] FileBuffer = User.DownloadData(FilePath);
+                    if (FileBuffer != null)
+                    {
+                        Response.ContentType = "application/pdf";
+                        Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                        Response.BinaryWrite(FileBuffer);
+                    }
+                }
+            }
+            catch
+            {
+                //Si problem
             }
         }
 
