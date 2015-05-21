@@ -85,14 +85,14 @@
                             <div id="cvDiv" runat="server" visible='<%# VisibleSiCV(Item.pathCV) %>' class="controls">
                                 <label>CV:</label>
                                 <br />
-                                <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
+                                <asp:LinkButton ID="lnkCV" runat="server" OnClick="lnkPDF_Click" CommandArgument='<%# Item.pathCV %>' Text='<%#Eval("pathCV")%>' /><br />
                             </div>
                         </div>
 
 
                     </ItemTemplate>
                 </asp:ListView>
-                                        <div class="col-lg-offset-8 col-lg-8 " id="dvModifier" runat="server">
+                                        <div class="col-lg-offset-8 col-lg-8 " id="dvModifier" visible="false" runat="server">
                     <asp:LinkButton ID="lnkModifier" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="lnkModifier_Click" CommandArgument='<%#Eval("IDEtudiant")%>' />
                      <asp:LinkButton ID="lnkFaireTemoignage" runat="server" Text="Faire un témoignage" CssClass="btn btn-info" OnClick="lnkFaireTemoignage_Click"  />
                 </div> 

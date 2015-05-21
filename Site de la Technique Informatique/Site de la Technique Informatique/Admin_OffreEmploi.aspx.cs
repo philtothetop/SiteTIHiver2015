@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using System.Net;
+using System.IO;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -24,16 +25,19 @@ namespace Site_de_la_Technique_Informatique
         //Méthode pour downloader le PDF de l'offre d'emploi
         protected void lnkPDF_Click(object sender, EventArgs e)
         {
-            String argument = Convert.ToString(((Button)sender).CommandArgument);
+            String argument = Convert.ToString(((LinkButton)sender).CommandArgument);
             string FilePath = Server.MapPath("~//Upload//PDFOffreEmploi//" + argument);
 
-            WebClient User = new WebClient();
-            Byte[] FileBuffer = User.DownloadData(FilePath);
-            if (FileBuffer != null)
+            if (File.Exists(FilePath))
             {
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-length", FileBuffer.Length.ToString());
-                Response.BinaryWrite(FileBuffer);
+                WebClient User = new WebClient();
+                Byte[] FileBuffer = User.DownloadData(FilePath);
+                if (FileBuffer != null)
+                {
+                    Response.ContentType = "application/pdf";
+                    Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                    Response.BinaryWrite(FileBuffer);
+                }
             }
         }
 

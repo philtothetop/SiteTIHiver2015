@@ -60,7 +60,7 @@ namespace Site_de_la_Technique_Informatique
                 else
                 {
                     lnkPDF.Visible = true;
-                    ViewState["pathPDF"] = "Upload\\PDFOffreEmploi\\" + offreEmploi.pathPDFDescription;
+                    ViewState["pathPDF"] = offreEmploi.pathPDFDescription;
                 }
 
                 if (offreEmploi.noPoste == "" || offreEmploi.noPoste == null)

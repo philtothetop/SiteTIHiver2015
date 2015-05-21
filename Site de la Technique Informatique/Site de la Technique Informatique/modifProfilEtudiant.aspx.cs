@@ -66,8 +66,8 @@ namespace Site_de_la_Technique_Informatique
                             else //Retourne un etudiant null et affiche un message.
                             {
                                 etudiantCo = null;
-                                Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
                                 lblMessage.Text += "L'id de l'étudiant n'existe pas.";
+                                lblMessage.ForeColor = Color.Red;
                             }
                         }
                     }
@@ -84,8 +84,8 @@ namespace Site_de_la_Technique_Informatique
                 catch (Exception ex)
                 {
                     LogErreur("modifProfilEtudiant-erreur-SelectEtudiant", ex);
-                    Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
                     lblMessage.Text += "ERREUR AVEC LE MEMBRE, " + ex.ToString();
+                    lblMessage.ForeColor = Color.Red;
                 }
             return etudiantCo;
         }
@@ -191,7 +191,6 @@ namespace Site_de_la_Technique_Informatique
                     }
                 }
 
-                Label lblMessage = (Label)lvModifProfilEtudiant.Items[0].FindControl("lblMessage");
 
                 if (!isValid) // NON VALIDE
                 {
@@ -205,6 +204,7 @@ namespace Site_de_la_Technique_Informatique
                         idsEnErreur.Add(input);
                         msgsEnErreur.Add(ValidationResult.ErrorMessage);
                         lblMessage.Text += ValidationResult.ErrorMessage + "<br/>";
+                        lblMessage.ForeColor = Color.Red;
 
                     }
 
@@ -243,6 +243,7 @@ namespace Site_de_la_Technique_Informatique
                         {
                             etudiantAUpdaterCopie.pathCV = "";
                             lblMessage.Text = "Erreur de la sauvegarde du CV.";
+                            lblMessage.ForeColor = Color.Red;
                             LogErreur("ModifProfilEtudiant-SauvegardeCV", ex);
                         }
 
@@ -275,13 +276,18 @@ namespace Site_de_la_Technique_Informatique
                             etudiantAUpdaterCopie.pathPhotoProfil = imageNom;
                         }
                         lecontexte.SaveChanges();
-                        if (Request.QueryString["id"] != null)
-                        {
-                            String id = Request.QueryString["id"];
-                            Response.Redirect("ProfilEtudiant.aspx?id="+id, false);
-                        }else{
-                        Response.Redirect("ProfilEtudiant.aspx", false);
-                            }
+
+                        //Reset les couleurs bordure des textbox
+                        Color initialBorderColor = System.Drawing.ColorTranslator.FromHtml("#ccc");
+
+                        txtCourriel.BorderColor = initialBorderColor;
+                        txtMotDePasse.BorderColor = initialBorderColor;
+                        txtNouveauMotDePasse.BorderColor = initialBorderColor;
+                        txtConfirmationNouveauMotDePasse.BorderColor = initialBorderColor;
+
+                        //Montrer que sa marché
+                        lblMessage.Text = "Les modifications ont étées sauvegardé";
+                        lblMessage.ForeColor = Color.Green;
                     }
                     catch (DbEntityValidationException ex) // D'AUTRES ERREURS PEUVENT SURVENIR QUI N'ONT PAS ÉTÉ PRÉVUE VIA DATAANNOTATIONS.
                     {
@@ -290,6 +296,7 @@ namespace Site_de_la_Technique_Informatique
                             foreach (DbValidationError lerror in failure.ValidationErrors)
                             {
                                 lblMessage.Text += string.Format("{0} : {1}", lerror.PropertyName, lerror.ErrorMessage);
+                                lblMessage.ForeColor = Color.Red;
                             }
                         }
                     }
