@@ -68,6 +68,7 @@ namespace Site_de_la_Technique_Informatique
                                 EmployeurCo = null;
                                 Label lblMessage = (Label)lvModifProfilEmployeur.Items[0].FindControl("lblMessage");
                                 lblMessage.Text += "L'id de l'entreprise n'existe pas.";
+                                lblMessage.ForeColor = Color.Red;
                             }
                         }
                     }
@@ -86,6 +87,7 @@ namespace Site_de_la_Technique_Informatique
                     LogErreur("modifProfilEmployeur-erreur-SelectEmployeur", ex);
                     Label lblMessage = (Label)lvModifProfilEmployeur.Items[0].FindControl("lblMessage");
                     lblMessage.Text += "ERREUR AVEC LE MEMBRE, " + ex.ToString();
+                    lblMessage.ForeColor = Color.Red;
                 }
             return EmployeurCo;
         }
@@ -189,7 +191,6 @@ namespace Site_de_la_Technique_Informatique
                 }
                
 
-                Label lblMessage = (Label)lvModifProfilEmployeur.Items[0].FindControl("lblMessage");
 
                 if (!isValid) // NON VALIDE
                 {
@@ -203,6 +204,7 @@ namespace Site_de_la_Technique_Informatique
                         idsEnErreur.Add(input);
                         msgsEnErreur.Add(ValidationResult.ErrorMessage);
                         lblMessage.Text += ValidationResult.ErrorMessage + "<br/>";
+                        lblMessage.ForeColor = Color.Red;
 
                     }
 
@@ -229,9 +231,17 @@ namespace Site_de_la_Technique_Informatique
                         }
                         
                         lecontexte.SaveChanges();
+                        lblMessage.Text = "Modification sauvegardé avec succès";
+                        lblMessage.ForeColor = Color.Green;
 
-                        Response.Redirect("~", false);
-                         
+                        //Reset la couleur des case avec erreurs
+                        Color initialBorderColor = System.Drawing.ColorTranslator.FromHtml("#ccc");
+                        txtMotDePasse.BorderColor = initialBorderColor;
+                        txtNouveauMotDePasse.BorderColor = initialBorderColor;
+                        txtConfirmationNouveauMotDePasse.BorderColor = initialBorderColor;
+                        txtCourriel.BorderColor = initialBorderColor;
+                        txtNom.BorderColor = initialBorderColor;
+
                     }
                     catch (DbEntityValidationException ex) // D'AUTRES ERREURS PEUVENT SURVENIR QUI N'ONT PAS ÉTÉ PRÉVUE VIA DATAANNOTATIONS.
                     {
@@ -240,6 +250,7 @@ namespace Site_de_la_Technique_Informatique
                             foreach (DbValidationError lerror in failure.ValidationErrors)
                             {
                                 lblMessage.Text += string.Format("{0} : {1}", lerror.PropertyName, lerror.ErrorMessage);
+                                lblMessage.ForeColor = Color.Red;
                             }
                         }
                     }

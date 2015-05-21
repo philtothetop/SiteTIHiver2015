@@ -537,5 +537,10 @@ namespace Site_de_la_Technique_Informatique
                 btnModif.Enabled = false;
             }
         }
+
+        protected void lnkFaireTemoignage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FaireTemoignage.aspx");
+        }
     }
 }

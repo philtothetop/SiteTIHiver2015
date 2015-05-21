@@ -60,7 +60,7 @@ Extrants: --%>
     </script>
 
     <script type="text/javascript">
-        function copieImgData()
+        function copieImgData() {
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lvModifProfilEtudiant_showDataURL_0.src;
         }
     </script>
@@ -89,6 +89,13 @@ Extrants: --%>
         <div class="col-lg-6 col-centered">
 
             <div class="container-fluid">
+
+                <div class="control-group form-group">
+                            <div class="controls">
+                                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+                            </div>
+                        </div>
+
                 <asp:ListView ID="lvModifProfilEmployeur" runat="server"
                     ItemType="Site_de_la_Technique_Informatique.Model.Employeur"
                     SelectMethod="SelectEmployeur"
@@ -101,7 +108,7 @@ Extrants: --%>
                             <tr>
                                 <td>Lol
                                 </td>
-                                <td>Cet étudiant n'existe pas.
+                                <td>Cet employeur n'existe pas.
                                 </td>
                             </tr>
                         </table>
@@ -155,15 +162,8 @@ Extrants: --%>
                                 <asp:Label ID="lblConfirmationNouveauMotDePasse" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
                         <div class="row"></div>
                         <div class="col-lg-offset-8 col-lg-8 ">
-                           
-                           
                             <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" OnClientClick="copieImgData()" />
                         </div>
                     </ItemTemplate>

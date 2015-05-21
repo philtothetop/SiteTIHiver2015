@@ -51,5 +51,6 @@
     <siteMapNode title="Professeurs" url="~/Admin_AjouteSupprimeProf.aspx"/>
     <siteMapNode title="Modifier profil" url="~/Admin_Profil.aspx"/>
     <siteMapNode title="Écrire un témoignage" url="~/FaireTemoignage.aspx"/>
+    <siteMapNode title="Modifier mon profil" url="~/modifProfilEmployeur.aspx"/>
   </siteMapNode>
 </siteMap>

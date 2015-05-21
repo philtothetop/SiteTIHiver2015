@@ -188,7 +188,7 @@
                             </div>
                             <div class="row row-centered" style="margin-bottom: 20px;">
                                 <div class="col-md-1 col-md-push-2 col-centered">
-                                    <asp:LinkButton ID="lnkSauvegarderModifs" Text="Sauvegarder" runat="server" CssClass="btn btn-default" Style="float: right;" CommandName="Update" OnClientClick="copieImgData()" />
+                                        <asp:LinkButton ID="lnkSauvegarderModifs" Text="Sauvegarder" runat="server" CssClass="btn btn-default" Style="float: right;" CommandName="Update" OnClientClick="copieImgData()" />
                                 </div>
                             </div>
 
@@ -232,8 +232,13 @@
                     </div>
 
                     <div class="row row-centered" style="margin-bottom: 20px;">
-                        <div class="col-md-1 col-md-push-2 col-centered">
-                            <asp:LinkButton ID="lnkSaveNewPassword" runat="server" CssClass="btn btn-default" Style="float: right;" Text="Sauvegarder" OnClick="lnkSaveNewPassword_Click"></asp:LinkButton>
+                        <div class="col-md-5 col-centered">
+                            <div style="float:left;">
+                                <asp:LinkButton ID="lnkFaireTemoignage" runat="server" Text="Faire un témoignage" CssClass="btn btn-info" OnClick="lnkFaireTemoignage_Click" />
+                            </div>
+                            <div style="float:right;">
+                                <asp:LinkButton ID="lnkSaveNewPassword" runat="server" CssClass="btn btn-default" Text="Sauvegarder" OnClick="lnkSaveNewPassword_Click"></asp:LinkButton>
+                            </div>
                         </div>
                     </div>
                 </div>
