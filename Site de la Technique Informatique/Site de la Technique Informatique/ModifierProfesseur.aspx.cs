@@ -133,6 +133,7 @@ namespace Site_de_la_Technique_Informatique
                     divSuccess.Attributes["style"] = "visibility:visible";
                     divWarning.Attributes["style"] = "visibility:hidden";
                 }
+
             }
         }
 
@@ -450,19 +451,19 @@ namespace Site_de_la_Technique_Informatique
                     //Vérifier si le cours existe, au sinon ne rien faire
                     if(cours != null)
                     {
-                        leProf.Cours.Remove(cours);
-                        lecontexte.CoursSet.Remove(cours);
-                        lecontexte.SaveChanges();
-                        lvModifierCours.DataBind();
-                        lvModifierCours.Visible = false;
-                        ddlCours.DataBind();
+                    leProf.Cours.Remove(cours);
+                    lecontexte.CoursSet.Remove(cours);
+                    lecontexte.SaveChanges();
+                    lvModifierCours.DataBind();
+                    lvModifierCours.Visible = false;
+                    ddlCours.DataBind();
 
                         if (ddlCours.Items.Count < 1)
                         {
-                            ddlCours.Enabled = false;
-                            btnModif.Enabled = false;
-                        }
+                    ddlCours.Enabled = false;
+                    btnModif.Enabled = false;
                     }
+                }
                 }
                 catch (Exception ex)
                 {
