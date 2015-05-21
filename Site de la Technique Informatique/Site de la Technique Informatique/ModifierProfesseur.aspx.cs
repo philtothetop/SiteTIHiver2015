@@ -318,10 +318,7 @@ namespace Site_de_la_Technique_Informatique
                     coursVide.Professeur.Add(currentProf);
                     newCours.Add(coursVide);
                 }
-                else
-                {
-
-                }
+               
 
                 }
             }

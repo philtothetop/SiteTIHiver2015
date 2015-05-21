@@ -2,15 +2,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <div class="row">
+                <div class="col-md-3 col-md-offset-4" style="position: absolute">
+                    <div class="alert alert-success" runat="server" id="divSuccess" visible="false">
+                        <p>Les modifications ont été effectuées.</p>
+                    </div>
+                </div>
+            </div>
+    <div class="row">
+                <div class="col-md-3 col-md-offset-7" style="position: absolute;">
+                    <div class="alert alert-warning" runat="server" id="divWarning" visible="false">
+                        <p>Veuillez porter attention à ces champs:</p>
+                        <br />
+                        <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+                    </div>
+                </div>
+            </div>
    <h1 class="page-header">Médias</h1>
+     
+    
     <div>
         <div class="row">
             <div class="col-lg-2">
                 <asp:Label ID="lblListMedia" runat="server" Text="Article(s): " />
             </div>
            <div class="col-lg-3">
-                <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="titreParution" DataValueField="IDParutionMedia" AppendDataBoundItems="true"></asp:DropDownList>
+                <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="titreParution" DataValueField="IDParutionMedia" AutoPostBack="false"></asp:DropDownList>
            </div> 
             <div class="col-lg-1">
                 <asp:Button ID="btnModif" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="btnModif_Click" />
@@ -134,7 +151,7 @@
 
        
             
-           <asp:Label runat="server" id="lblMessage" Text="" />
+          
 
             
      
