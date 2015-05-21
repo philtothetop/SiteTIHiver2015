@@ -4,7 +4,9 @@
 using Site_de_la_Technique_Informatique.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -28,60 +30,53 @@ namespace Site_de_la_Technique_Informatique
             Etudiant etudiantCo = null;
 
             using (LeModelTIContainer lecontexte = new LeModelTIContainer())
+            {
                 try
                 {
-                    String strIDUtilisateur = "";
-      
-                    dvModifier.Visible = true;//Afficher le div contenant le bouton modifier.
-                    if (Request.QueryString["id"] == null)//Vérifier si un queryString EtudiantId est null.
+                    int idUtilisateurAChercher = -1;
+
+                    //Si recherche quelqu'un
+                    if (Request.QueryString["id"] != null)
                     {
-                        if (Request.Cookies["TIUtilisateur"].Value.Equals("Etudiant"))//Vérifier si l'utilisateur est un étudiant
-                        {
-                            strIDUtilisateur = Request.Cookies["TIID"].Value;//Va chercher l'id
-                        }
+                        idUtilisateurAChercher = Convert.ToInt32(Request.QueryString["id"]);
+                    }
+                    else
+                    //Si veu voir son propre profil
+                    {
+                        idUtilisateurAChercher = Convert.ToInt32(Request.Cookies["TIID"].Value);
+                    }
+
+                    etudiantCo = (from cl in lecontexte.UtilisateurSet.OfType<Etudiant>()
+                                  where cl.IDUtilisateur == idUtilisateurAChercher
+                                  select cl).FirstOrDefault();
+
+                    //Si utilisateur a afficher est pas trouvé
+                    if (etudiantCo == null)
+                    {
+                        dvModifier.Visible = false;
+                        return null;
+                    }
+
+                    //Mettre div modification visible ou non, dabord va chercher le id du connecté
+                    int idConnecte = Convert.ToInt32(Request.Cookies["TIID"].Value);
+
+                    //Si le connecté est le profil afficher
+                    if (idConnecte == idUtilisateurAChercher)
+                    {
+                        dvModifier.Visible = true;
                     }
                     else
                     {
-                        strIDUtilisateur = Request.QueryString["id"].ToString();//Va chercher la valleur du query String.
-
-                        if (Request.Cookies["TIUtilisateur"].Value.Equals("Professeur"))
-                        {
-                            dvModifier.Visible = true;//Afficher le div contenant le bouton modifier.
-                        }
-                        else
-                        {
-                            dvModifier.Visible = false;//Chache le div contant modifier.
-                        }
-
+                        dvModifier.Visible = false;
                     }
-                    int IDUtilisateur = 0;
-                    if (int.TryParse(strIDUtilisateur, out IDUtilisateur))
-                    {
-                        etudiantCo = (from etu in lecontexte.UtilisateurSet.OfType<Etudiant>() where etu.IDUtilisateur == IDUtilisateur && etu.compteActif==1 select etu).FirstOrDefault();
-
-                        if(etudiantCo==null)
-                        {
-                            Response.Redirect("404.aspx",false);
-                        }
-                                            
-                        strIDUtilisateur = Request.QueryString["id"].ToString();//Va chercher la valleur du query String.
-                        if(int.Parse(strIDUtilisateur)==etudiantCo.IDUtilisateur)
-                        {
-                            dvModifier.Visible = true;//Afficher le div contenant le bouton modifier.
-                        }
-                    }
-                    else
-                    {
-                        Response.Redirect(Request.UrlReferrer.ToString());
-                    }
-
                 }
-
-
+                //Si catch sa veut dire qu'il ne recherche pas un ID ou n'est pas conecté
                 catch (Exception ex)
                 {
-                    LogErreur("ProfilEtudiant-erreur-SelectEtudiant", ex);
+                    Response.Redirect("Default.aspx");
                 }
+            }
+
             return etudiantCo;
         }
         //Cette classe permet d'allez sur la page modifier profil
@@ -112,6 +107,30 @@ namespace Site_de_la_Technique_Informatique
         protected void lnkFaireTemoignage_Click(object sender, EventArgs e)
         {
             Response.Redirect("FaireTemoignage.aspx");
+        }
+
+        protected void lnkPDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string FilePath = Server.MapPath("~//Upload//CV//" + ((LinkButton)sender).CommandArgument.ToString() );
+
+                if (File.Exists(FilePath))
+                {
+                    WebClient User = new WebClient();
+                    Byte[] FileBuffer = User.DownloadData(FilePath);
+                    if (FileBuffer != null)
+                    {
+                        Response.ContentType = "application/pdf";
+                        Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                        Response.BinaryWrite(FileBuffer);
+                    }
+                }
+            }
+            catch
+            {
+                //Si problem
+            }
         }
 
         //Savoir si mettre le CV visible ou non si possède un

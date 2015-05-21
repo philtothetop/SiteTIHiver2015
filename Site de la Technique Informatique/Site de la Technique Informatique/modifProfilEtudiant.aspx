@@ -91,6 +91,12 @@ Extrants: --%>
         <div class="col-lg-6 col-centered">
 
             <div class="container-fluid">
+                <div class="control-group form-group">
+                            <div class="controls">
+                                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+                            </div>
+                        </div>
+
                 <asp:ListView ID="lvModifProfilEtudiant" runat="server"
                     ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
                     SelectMethod="SelectEtudiant"
@@ -175,13 +181,14 @@ Extrants: --%>
                                 <asp:Label ID="lblCourriel" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group" dvcv>
+                        <div class="control-group form-group">
                             <div class="controls">
                                 <label>CV:</label>
                                 <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("~/ProjetDeux_2015_1/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
                                 <label>Changer de CV:</label>
                                 <asp:FileUpload ID="fupCV" runat="server" />
                                 (valides: pdf , doc, docx , odf)
+
                             </div>
                         </div>
                         <div class="row">
@@ -208,11 +215,6 @@ Extrants: --%>
                                 <label>Confirmation du nouveau mot de passe:</label>
                                 <asp:TextBox ID="txtConfirmationNouveauMotDePasse" runat="server" CssClass="form-control" Text="" TextMode="Password" />
                                 <asp:Label ID="lblConfirmationNouveauMotDePasse" runat="server" Text="" />
-                            </div>
-                        </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
                             </div>
                         </div>
                         <div class="row"></div>

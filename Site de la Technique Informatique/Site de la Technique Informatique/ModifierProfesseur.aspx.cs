@@ -104,7 +104,9 @@ namespace Site_de_la_Technique_Informatique
                             }
                         }
                     }
+
                     divWarning.Attributes["style"] = "visibility:visible";
+                    divSuccess.Attributes["style"] = "visibility:hidden";
 
                 }
                 else
@@ -127,7 +129,9 @@ namespace Site_de_la_Technique_Informatique
 
                     lecontexte.LogSet.Add(logEntry);
                     lecontexte.SaveChanges();
+
                     divSuccess.Attributes["style"] = "visibility:visible";
+                    divWarning.Attributes["style"] = "visibility:hidden";
                 }
             }
         }
@@ -207,23 +211,27 @@ namespace Site_de_la_Technique_Informatique
                         {
                             lblMessage.Text = "<b>Nouveau mot de passe: </b>Les deux nouveaux mots de passe ne sont pas identiques";
                             divWarning.Attributes["style"] = "visibility:visible;";
+                            divSuccess.Attributes["style"] = "visibility:hidden";
                         }
                         else
                         {
                             lblMessage.Text = "<b>Nouveau mot de passe: </b>Le nouveau mot de passe doit être différent du mot de passe actuel";
                             divWarning.Attributes["style"] = "visibility:visible;";
+                            divSuccess.Attributes["style"] = "visibility:hidden";
                         }
                     }
                     else
                     {
                         lblMessage.Text = "<b>Ancien mot de passe: </b>Le mot de passe que vous avez entré n'est pas valide";
                         divWarning.Attributes["style"] = "visibility:visible;";
+                        divSuccess.Attributes["style"] = "visibility:hidden";
                     }
                 }
                 else
                 {
                     lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
                     divWarning.Attributes["style"] = "visibility:visible;";
+                    divSuccess.Attributes["style"] = "visibility:hidden";
                 }
             }
 
@@ -438,15 +446,22 @@ namespace Site_de_la_Technique_Informatique
                 {
                     Cours cours = (lecontexte.Set<Cours>().SingleOrDefault(x => x.IDCours == coursASupprimer.IDCours));
                     Professeur leProf = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDProfesseur == currentProf.IDProfesseur).FirstOrDefault();
-                    leProf.Cours.Remove(cours);
-                    lecontexte.CoursSet.Remove(cours);
-                    lecontexte.SaveChanges();
-                    lvModifierCours.DataBind();
-                    lvModifierCours.Visible = false;
-                    ddlCours.DataBind();
-                    if (ddlCours.Items.Count < 1) { 
-                    ddlCours.Enabled = false;
-                    btnModif.Enabled = false;
+                    
+                    //Vérifier si le cours existe, au sinon ne rien faire
+                    if(cours != null)
+                    {
+                        leProf.Cours.Remove(cours);
+                        lecontexte.CoursSet.Remove(cours);
+                        lecontexte.SaveChanges();
+                        lvModifierCours.DataBind();
+                        lvModifierCours.Visible = false;
+                        ddlCours.DataBind();
+
+                        if (ddlCours.Items.Count < 1)
+                        {
+                            ddlCours.Enabled = false;
+                            btnModif.Enabled = false;
+                        }
                     }
                 }
                 catch (Exception ex)

@@ -12,7 +12,7 @@
                 <p>
                 Votre courriel a été validé. Veuillez attendre que l'administrateur accepte votre inscription. Il vous contactera par courriel.
                     </p>
-                <a href='<%=Request.ApplicationPath%>' class="btn btn-primary">Retour à l'accueil</a>
+                <a href="Default.aspx" class="btn btn-primary">Retour à l'accueil</a>
             </div>
         </div>
         </div>
