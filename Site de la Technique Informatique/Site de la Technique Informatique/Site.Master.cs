@@ -257,7 +257,7 @@ namespace Site_de_la_Technique_Informatique
                             }
                             else //oups, courriel non validé
                             {
-                                lblMessageConnexion.Text = "Votre courriel n'a pas été validé. Veuillez réessayer ultérieurement. "; //warning à l'usager
+                                lblMessageConnexion.Text = "Votre compte n'a pas été validé. Veuillez réessayer ultérieurement. "; //warning à l'usager
                                 Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
                             }
                         }
@@ -265,9 +265,18 @@ namespace Site_de_la_Technique_Informatique
                         //Si c'est un prof
                         if (userProf != null)
                         {
-                            Response.Cookies["TIUtilisateur"].Value = "Professeur"; //On indique le type d'usager
-                            Response.Cookies["TINom"].Value = userMembre.prenom; //on récupère prénom de membre
-                            Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
+                            if (userProf.compteActif == 1) //ça prend un compte validé
+                            {
+                                Response.Cookies["TIUtilisateur"].Value = "Professeur"; //On indique le type d'usager
+                                Response.Cookies["TINom"].Value = userMembre.prenom; //on récupère prénom de membre
+                                Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
+                            }
+                            else //oups, courriel non validé
+                            {
+                                lblMessageConnexion.Text = "Votre compte n'a pas été validé. Veuillez réessayer ultérieurement. "; //warning à l'usager
+                                Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
+                            }
+                             
                         }
 
                     }
@@ -278,6 +287,7 @@ namespace Site_de_la_Technique_Informatique
                         Response.Cookies["TIUtilisateur"].Value = null; //enlève la valeur du cookie
                         txtIdentifiant.Text = ""; //reset le textbox identifiant
                         txtPassword.Text = "";//reset le textbox password
+                        userConnect = null; //détruire le user connecté
                     }
 
 
@@ -299,9 +309,10 @@ namespace Site_de_la_Technique_Informatique
                     
                 }
 
-                catch (Exception ex) //au cas où ça marcherait pas
+                catch //au cas où ça marcherait pas
                 {
-                    lblMessageConnexion.Text = "Une erreur s'est produite à la connexion.¸.. : " + ex.Message;
+                    lblMessageConnexion.Text = "Une erreur s'est produite à la connexion... " + lblMessageConnexion.Text;
+
                 }
         }
         }
