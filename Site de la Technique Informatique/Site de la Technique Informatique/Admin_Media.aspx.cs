@@ -169,10 +169,11 @@ namespace Site_de_la_Technique_Informatique
         protected void btnModif_Click(object sender, EventArgs e)
         {
 
-            lvMedia.Visible = true;
+           
             ViewState["noMedia"] = ddlMedia.SelectedValue;
             ViewState["mode"] = "édite";
             lvMedia.DataBind();
+            lvMedia.Visible = true;
         }
 
         //ajoute un média

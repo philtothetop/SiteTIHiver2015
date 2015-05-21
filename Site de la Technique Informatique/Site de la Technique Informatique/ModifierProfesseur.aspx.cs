@@ -105,6 +105,7 @@ namespace Site_de_la_Technique_Informatique
                         }
                     }
                     divWarning.Attributes["style"] = "visibility:visible";
+                    divSuccess.Attributes["style"] = "visibility:hidden";
 
                 }
                 else
@@ -127,8 +128,10 @@ namespace Site_de_la_Technique_Informatique
 
                     lecontexte.LogSet.Add(logEntry);
                     lecontexte.SaveChanges();
+                    divWarning.Attributes["style"] = "visibility:hidden";
                     divSuccess.Attributes["style"] = "visibility:visible";
                 }
+
             }
         }
 

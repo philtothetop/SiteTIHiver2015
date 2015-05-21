@@ -12,7 +12,7 @@
            <div class="col-lg-3">
                 <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="titreParution" DataValueField="IDParutionMedia" AppendDataBoundItems="true"></asp:DropDownList>
            </div> 
-            <div class=" col-lg-1">
+            <div class="col-lg-1">
                 <asp:Button ID="btnModif" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="btnModif_Click" />
             </div>
             <div class="col-lg-1">

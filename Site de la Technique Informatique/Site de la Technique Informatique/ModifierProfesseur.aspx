@@ -22,12 +22,11 @@
     </script>
     <script type="text/javascript">
         function copieImgData() {
-            debugger;
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lvProfesseur_showDataURL_0.src;
         }
     </script>
     <script type="text/javascript">
-        debugger;
+    
         window.transfertDataImg = function (dataURL) {
             $("#ContentPlaceHolder1_lvProfesseur_showDataURL_0").attr("src", dataURL);
         };
@@ -68,12 +67,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
+     <div class="container" style="margin-top:80px;">
     <asp:HiddenField runat="server" ID="ImgExSrc" />
     <asp:HiddenField runat="server" ID="hidTab" Value="informations" />
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
     <br />
-    <div class="container" style="margin-top:80px;">
+   
         <ul class="nav nav-tabs" id="myTab">
             <li role="presentation" class="active"><a href="#informations" id="aInfos" aria-controls="informations" role="tab" data-toggle="tab" onclick="closeDivs('informations')">Informations générales</a></li>
             <li role="presentation"><a href="#cours" id="aCours" aria-controls="cours" role="tab" data-toggle="tab" onclick="closeDivs('cours') ">Mes Cours</a></li>
@@ -87,14 +86,14 @@
         <div class="tab-content">
 
             <div class="row">
-                <div class="col-md-3 col-md-offset-7" style="position: absolute">
+                <div class="col-md-2 col-md-offset-5" style="position: absolute">
                     <div class="alert alert-success" runat="server" id="divSuccess">
                         <p>Les modifications ont été effectuées.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 col-md-offset-8" style="position: absolute;">
+                <div class="col-md-2 col-md-offset-6" style="position: absolute;">
                     <div class="alert alert-warning" runat="server" id="divWarning">
                         <p>Veuillez porter attention à ces champs:</p>
                         <br />
