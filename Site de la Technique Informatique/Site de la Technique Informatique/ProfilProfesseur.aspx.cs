@@ -12,7 +12,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(fasle, true, true, true, false);
+            SavoirSiPossedeAutorizationPourLaPage(false, true, true, true, false);
 
             if (Request.QueryString["id"] != null)
             {

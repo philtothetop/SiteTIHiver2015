@@ -42,8 +42,9 @@ namespace Site_de_la_Technique_Informatique.Inscription
         #endregion
         protected void Page_Load()
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, true);
+            SavoirSiPossedeAutorizationPourLaPage(false, false, false, false, true);
         }
+
         //Cette classe permet de créer un nouveau membre Utilisateur vide pour afficher dans le listeview.
         //Écrit par Cédric Archambault 17 février 2015
         //Intrants: aucun
@@ -172,7 +173,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             input = input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
                             idsEnErreur.Add(input);
                             msgsEnErreur.Add(ValdationResult.ErrorMessage);
-
+                            lblMessage.ForeColor = Color.Red;
 
 
                         }
@@ -189,7 +190,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                             imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
 
                             String imageNom = (etudiantACreerCopie.prenom + etudiantACreerCopie.dateInscription.ToString()).GetHashCode() + "_125.jpg";
-                            String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Profils/"), imageNom);
+                            String imageProfilChemin = Path.Combine(Server.MapPath("~//Upload//Photos//Profils//"), imageNom);
                             imageProfil.Save(imageProfilChemin);
                             etudiantACreerCopie.pathPhotoProfil = imageNom;
                         }
@@ -236,6 +237,10 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         // raise a new exception nesting
                         // the current instance as InnerException
                         raise = new InvalidOperationException(message, raise);
+
+                        Label lblMessage = (Label)lviewFormulaireInscription.Items[0].FindControl("lblMessage");
+                        lblMessage.Text = message;
+                        lblMessage.ForeColor = Color.Red;
                     }
                 }
                 throw raise;
@@ -310,8 +315,8 @@ namespace Site_de_la_Technique_Informatique.Inscription
         {
             hash hash = new hash();
 
-            String hashCourriel = etudiant.dateInscription.GetHashCode().ToString();
-            String hyperLien = "http://" + HttpContext.Current.Request.Url.Authority + "/Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel;
+            String hashCourriel = etudiant.courriel.GetHashCode().ToString();
+            String hyperLien = Convert.ToString(HttpContext.Current.Request.Url.AbsoluteUri).Replace("Inscription-Etudiant.aspx", "Inscription-valide.aspx?type=etu&id=" + etudiant.courriel + "&code=" + hashCourriel);
             String titre = "Inscription TI Cégep de Granby";
             String message = "Cher/Chère " + etudiant.prenom + " " + etudiant.nom + ",<br/><br/>Merci de votre inscription sur le site de techniques informatique du Cégep de Granby, cliquez sur le lien ci-dessous pour valider votre compte<br>"+"<a href=\"" + hyperLien + "\">cliquez ici.</a>";
 
@@ -340,7 +345,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
                 string cropFileName = "";
                 string cropFilePath = "";
                 cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Profils/"), cropFileName);
+                cropFilePath = Path.Combine(Server.MapPath("~//Upload//Photos//Profils//"), cropFileName);
             }
 
             return image;

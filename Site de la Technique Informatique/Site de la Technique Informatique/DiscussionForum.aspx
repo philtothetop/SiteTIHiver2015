@@ -10,10 +10,10 @@
     tinymce.init({
         selector: "textarea",
         encoding: "xml",
-        plugins: ["image link media advlist autolink lists charmap preview hr anchor",
+        plugins: ["image link media advlist charmap emoticons autolink lists charmap preview hr anchor",
                 "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
-        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | bullist numlist outdent indent | link image media",
-        language: 'fr_FR',              
+        toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | charmap emoticons | bullist numlist outdent indent | link image media",
+        language: 'fr_FR',
     });
 </script>
 <script>

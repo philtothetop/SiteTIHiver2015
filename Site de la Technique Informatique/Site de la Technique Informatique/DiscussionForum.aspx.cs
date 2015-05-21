@@ -121,13 +121,12 @@ namespace Site_de_la_Technique_Informatique
 
                 if (membre.pathPhotoProfil != null && membre.pathPhotoProfil != "")
                 {
-                    imgPhotoProfil.ImageUrl = "~/Photos/Profils/" + membre.pathPhotoProfil;
+                    imgPhotoProfil.ImageUrl = "~/Upload/Photos/Profils/" + membre.pathPhotoProfil;
                 }
                 else
                 {
-                    imgPhotoProfil.ImageUrl = "~/Photos/Profils/photobase.bmp";
+                    imgPhotoProfil.ImageUrl = "~/Upload/Photos/Profils/photobase.bmp";
                 }
-
             }
         }
 

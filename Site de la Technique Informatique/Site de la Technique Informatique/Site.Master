@@ -10,7 +10,7 @@
 
     <%--lien du favicon a la racine--%>
 
-    <link rel="icon" href="toast.gif" type="image/gif" />
+    <link rel="icon" href="logoCegep.png" type="image/png" />
     <link href="Css/bootstrap.min.css" rel="stylesheet" />
     <link href="Css/modern-business.css" rel="stylesheet" />
     <link href="Css/customStyleSheet.css" rel="stylesheet" />
@@ -153,6 +153,7 @@
                             <ul class="dropdown-menu">
                                 <li runat="server" id="lblProfilEtudiant"><a href="ProfilEtudiant.aspx">Profil</a> </li>
                                 <li runat="server" id="lblProfilProf"><a href="ModifierProfesseur.aspx">Profil</a> </li>
+                                <li runat="server" id="lblProfilEmployeur"><a href="modifProfilEmployeur.aspx">Profil</a> </li>
                                 <li>
                                     <asp:LinkButton ID="lnkbtnDeconnexion" runat="server" Text="Déconnexion" OnClick="lnkbtnDeconnexion_Click" />
                                 </li>
@@ -213,7 +214,7 @@
                                         <div class="col-lg-3">
                                             <asp:Label ID="lblPassword" runat="server" Text="Mot de passe :" />
                                         </div>
-                                        <div class="col-lg-5">
+                                        <div class="col-lg-7">
                                             <asp:TextBox ID="txtPassword" runat="server" TextMode="password" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>

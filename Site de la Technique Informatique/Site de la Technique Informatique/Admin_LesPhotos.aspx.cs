@@ -21,7 +21,8 @@ namespace Site_de_la_Technique_Informatique
         {
             if (Page.IsPostBack == false)
             {
-               // SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
+                SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
+
                 //Set les drops downs listes (modifier/Ajouter)
                 Dictionary<string, string> listeDesElements = listeStaticSouvenirs(false); 
 
@@ -44,9 +45,6 @@ namespace Site_de_la_Technique_Informatique
                 ddlTypePhotoSupprimer.DataBind();
 
             }
-
-            Response.Cookies["TIID"].Value = "2";
-            //SavoirSiPossedeAutorizationPourLaPage(false, true, false, false);
         }
 
         //Pour recevoir la liste des type de souvenirs
@@ -100,10 +98,6 @@ namespace Site_de_la_Technique_Informatique
                             if (leProfCo != null)
                             {
 
-                                ////Si le fileupload n'est pas vide
-                                //if (fuplPhoto.HasFile)
-                                //{
-
                                 String imgData = ImgExSrc.Value;
                                 if (imgData != "" && imgData.Length>21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                                 {
@@ -116,7 +110,8 @@ namespace Site_de_la_Technique_Informatique
                                         imageAAjouter = ResizeTheImage(1000, 120, imageAAjouter);
 
                                         String imageNom = (leProfCo.nom + DateTime.Now.ToString()).GetHashCode() + "_521.jpg";
-                                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Upload/Photos/Souvenir/"), ddlTypeDImage.Text + "/" + imageNom);
+                                       imageNom = imageNom.Replace("-", "");
+                                        String imageProfilChemin = Server.MapPath("~//Upload//Photos//Souvenir//"+  ddlTypeDImage.Text.Trim() + "//" + imageNom);
                                         imageAAjouter.Save(imageProfilChemin);
 
                                         //Sauvegarder image pour utiliser avec la bd
@@ -150,8 +145,6 @@ namespace Site_de_la_Technique_Informatique
                                         divReussiAjouterImage.Visible = true;
                                         divPasReussiAjouterImage.Visible = false;
                                         divPourAjouterUnePhoto.Visible = false;
-
-                                        //lblEchecImage.Text = "";
                                     }
                                     catch (Exception ex)
                                     {
@@ -330,7 +323,7 @@ namespace Site_de_la_Technique_Informatique
                 if (lutilisateurCo != null && laPhotoATrouver != null)
                 {
                     txtbModifierPhotoDescription.Text = laPhotoATrouver.descriptionPhoto;
-                    imgModifierPhoto.ImageUrl = "~/Photos/Souvenir/" + laPhotoATrouver.typePhoto + "/"+ laPhotoATrouver.pathPhoto;
+                    imgModifierPhoto.ImageUrl = Server.MapPath("~//Upload//Photos//Souvenir//") + laPhotoATrouver.typePhoto + "//"+ laPhotoATrouver.pathPhoto;
                     ddlModifierPhoto.SelectedValue = laPhotoATrouver.typePhoto;
                     hfieldIDItemAModifier.Value = Convert.ToString(laPhotoATrouver.IDPhotos);
 
@@ -416,8 +409,8 @@ namespace Site_de_la_Technique_Informatique
                             //Si le type de photos est changé, changer l'emplacement de la photo dans le bon dossier
                             if (!laPhotoATrouver.typePhoto.Equals(ddlModifierPhoto.SelectedValue))
                             {
-                                String lePath = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
-                                String lePathAAllez = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), ddlModifierPhoto.SelectedValue + "/" + laPhotoATrouver.pathPhoto);
+                                String lePath = Path.Combine(Server.MapPath("~//Upload//Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
+                                String lePathAAllez = Path.Combine(Server.MapPath("~//Upload//Photos/Souvenir/") + ddlModifierPhoto.SelectedValue + "/" + laPhotoATrouver.pathPhoto);
 
                                 //Changer lemplacement de la photo
                                 if (File.Exists(@lePath))
@@ -502,7 +495,7 @@ namespace Site_de_la_Technique_Informatique
                         lviewSupprimerPhotos.DataBind();
 
                         //Supprimer la photo du serveur
-                        String imageProfilChemin = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
+                        String imageProfilChemin = Path.Combine(Server.MapPath("~//Upload//Photos/Souvenir/"), laPhotoATrouver.typePhoto + "/" + laPhotoATrouver.pathPhoto);
 
                         if (File.Exists(@imageProfilChemin))
                         {
@@ -543,7 +536,7 @@ namespace Site_de_la_Technique_Informatique
                 string cropFileName = "";
                 string cropFilePath = "";
                 cropFileName = "crop_" + "testImg";
-                cropFilePath = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), cropFileName);
+                cropFilePath = Path.Combine(Server.MapPath("~//Upload//Photos/Souvenir/"), cropFileName);
             }
 
             return image;

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Nouvelles" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Nouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Nouvelles" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Nouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Nouvelles" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
@@ -8,19 +8,21 @@
     <!-- Header Carousel -->
     <div class="container" >
         <!-- Page Heading/Breadcrumbs -->
+
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-11"  style="padding-left:120px;">
                 <h1 class="page-header">Nouvelles
                 </h1>
               
             </div>
         </div>
         <!-- /.row -->
+
         <!-- Content Row -->
         <div class="row">
           
             <!-- Content Column -->
-            <div class="col-md-9">
+            <div class="col-lg-11"  style="padding-left:120px;">
                 <asp:ListView ID="lviewNouvelles" runat="server"
                     ItemType="Site_de_la_Technique_Informatique.Model.Nouvelle"
                     SelectMethod="getNouvelles">

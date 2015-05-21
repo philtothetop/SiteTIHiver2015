@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_Vertic.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Vertic" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_Vertic.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Vertic" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Admin_Media.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Media" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Admin_Media.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Media" MaintainScrollPositionOnPostback="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,7 +12,7 @@
            <div class="col-lg-3">
                 <asp:DropDownList ID="ddlMedia" CssClass="form-control" runat="server" SelectMethod="GetMediaList" DataTextField="titreParution" DataValueField="IDParutionMedia" AppendDataBoundItems="true"></asp:DropDownList>
            </div> 
-            <div class=" col-lg-1">
+            <div class="col-lg-1">
                 <asp:Button ID="btnModif" runat="server" Text="Modifier" CssClass="btn btn-primary" OnClick="btnModif_Click" />
             </div>
             <div class="col-lg-1">

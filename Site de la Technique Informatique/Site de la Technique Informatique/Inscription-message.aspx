@@ -10,9 +10,8 @@
             <div class="col-lg-3 col-centered"></div>
             <div class="col-lg-6 col-centered">
                 <h1>Inscription</h1>
-                <p>Votre inscription a été sauvegardée.</p>
                 <p>
-                    <asp:Label ID="lblMessage" runat="server" Text="Un courriel vous sera envoyé contenant un lien pour valider votre courriel." />
+                    <asp:Label ID="lblMessage" runat="server" Text="Votre inscription a été sauvegardée.<br> Un courriel vous sera envoyé contenant un lien pour valider votre courriel." />
                     
                 </p>
                 <a href='<%=Request.ApplicationPath%>' class="btn btn-primary">Retour à l'accueil</a>

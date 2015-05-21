@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_OffreEmploi.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_OffreEmploi" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.master" AutoEventWireup="true" CodeBehind="Admin_OffreEmploi.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_OffreEmploi" MaintainScrollPositionOnPostback="true" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -92,7 +92,7 @@
 
                             <div style="float:left; padding-left:15px">
                                 <br />
-                                <asp:Button ID="btnAccepterOffre" runat="server" Text="Accepter" CssClass="btn btn-success" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="AccepterOffreEmploi_Click" />
+                                <asp:Button ID="btnAccepterOffre" runat="server" Text="Accepter" CssClass="btn btn-primary" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="AccepterOffreEmploi_Click" />
                                 <asp:Button ID="btnRefuserOffre" runat="server" Text="Refuser" CssClass="btn btn-danger" CommandArgument='<%# Item.IDOffreEmploi %>' OnClick="SupprimerOffreEmploi_Click"/>
 
                             </div>

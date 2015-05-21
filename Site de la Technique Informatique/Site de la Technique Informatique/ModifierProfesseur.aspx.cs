@@ -27,7 +27,7 @@ namespace Site_de_la_Technique_Informatique
         #region Page_events
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false,false);
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
 
@@ -104,7 +104,9 @@ namespace Site_de_la_Technique_Informatique
                             }
                         }
                     }
+
                     divWarning.Attributes["style"] = "visibility:visible";
+                    divSuccess.Attributes["style"] = "visibility:hidden";
 
                 }
                 else
@@ -113,13 +115,8 @@ namespace Site_de_la_Technique_Informatique
                     String imgData = ImgExSrc.Value;
                     if (imgData != "" && imgData.Length > 21 && imgData.Substring(0, 21).Equals("data:image/png;base64"))
                     {
-                        System.Drawing.Image imageProfil = LoadImage(imgData);
-                        imageProfil = (System.Drawing.Image)new Bitmap(imageProfil, new Size(125, 125)); //prevention contre injection de trop grande image.
-                        string something = profAUpdater.dateInscription.ToShortDateString().Replace("/", "");
-                        String imageNom = (profAUpdater.prenom +  something) + "_125.jpg";
-                        String imageProfilChemin = Path.Combine(Server.MapPath(Request.ApplicationPath + "/Upload/Photos/Profils/"), imageNom);
-                        imageProfil.Save(imageProfilChemin);
-                        profAUpdater.pathPhotoProfil = imageNom;
+                        System.Drawing.Image imageProfil = LoadImage(imgData, profAUpdater);
+                       
                     }
 
 
@@ -132,14 +129,17 @@ namespace Site_de_la_Technique_Informatique
 
                     lecontexte.LogSet.Add(logEntry);
                     lecontexte.SaveChanges();
+
                     divSuccess.Attributes["style"] = "visibility:visible";
+                    divWarning.Attributes["style"] = "visibility:hidden";
                 }
+
             }
         }
 
 
 
-        public System.Drawing.Image LoadImage(String data)
+        public System.Drawing.Image LoadImage(String data, Professeur profAUpdater)
         {
             try { 
             //get a temp image from bytes, instead of loading from disk
@@ -156,14 +156,22 @@ namespace Site_de_la_Technique_Informatique
                 string cropFilePath = "";
                 cropFileName = "crop_" + "testImg.jpg";
                 cropFilePath = Path.Combine(Server.MapPath(Request.ApplicationPath + "/Upload/Photos/Profils/"), cropFileName);
-                image.Save(cropFilePath);
+                image = (System.Drawing.Image)new Bitmap(image, new Size(125, 125)); //prevention contre injection de trop grande image.
+                
+                string something = profAUpdater.dateInscription.ToShortDateString().Replace("/", "");
+                something = something.Replace("-", "");
+                String imageNom = (profAUpdater.prenom + something) + "_125.jpg";
+                String imageProfilChemin = (Server.MapPath("~//Upload//Photos//Profils//" + imageNom));
+                image.Save(imageProfilChemin);
+                profAUpdater.pathPhotoProfil = imageNom;
+                    
             }
 
             return image;
             }
             catch (Exception ex)
             {
-                throw new Exception("Error in loadImage",ex);
+                throw new Exception(ex.Message + ex.StackTrace,ex);
             }
         }
         #endregion
@@ -204,23 +212,27 @@ namespace Site_de_la_Technique_Informatique
                         {
                             lblMessage.Text = "<b>Nouveau mot de passe: </b>Les deux nouveaux mots de passe ne sont pas identiques";
                             divWarning.Attributes["style"] = "visibility:visible;";
+                            divSuccess.Attributes["style"] = "visibility:hidden";
                         }
                         else
                         {
                             lblMessage.Text = "<b>Nouveau mot de passe: </b>Le nouveau mot de passe doit être différent du mot de passe actuel";
                             divWarning.Attributes["style"] = "visibility:visible;";
+                            divSuccess.Attributes["style"] = "visibility:hidden";
                         }
                     }
                     else
                     {
                         lblMessage.Text = "<b>Ancien mot de passe: </b>Le mot de passe que vous avez entré n'est pas valide";
                         divWarning.Attributes["style"] = "visibility:visible;";
+                        divSuccess.Attributes["style"] = "visibility:hidden";
                     }
                 }
                 else
                 {
                     lblMessage.Text = "<b>Nouveau mot de passe:</b> Des valeurs ont été laissé vides.";
                     divWarning.Attributes["style"] = "visibility:visible;";
+                    divSuccess.Attributes["style"] = "visibility:hidden";
                 }
             }
 
@@ -251,8 +263,6 @@ namespace Site_de_la_Technique_Informatique
                     Professeur profADesactiver = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDMembre == currentProf.IDMembre).FirstOrDefault();
                     if (inputPwd.Equals(profADesactiver.hashMotDePasse))
                     {
-
-
 
                         profADesactiver.compteActif = 0;
 
@@ -393,6 +403,14 @@ namespace Site_de_la_Technique_Informatique
                             lecontexte.Set<Cours>().Add(leCoursAUpdaterCopie);
                             
                         }
+                        Model.Log logEntry = new Model.Log
+                        {
+                            dateLog = DateTime.Now,
+                            actionLog = currentProf.prenom + " " + currentProf.nom + " a modifié un cours: " + leCoursAUpdaterCopie.noCours ,
+                            typeLog = 0
+                        };
+
+                        lecontexte.LogSet.Add(logEntry);
 
                         lecontexte.SaveChanges();
                     }
@@ -417,6 +435,7 @@ namespace Site_de_la_Technique_Informatique
                     btnModif.Enabled = true;
                     lvModifierCours.Visible = false;
 
+
                 }
             }
         }
@@ -428,16 +447,23 @@ namespace Site_de_la_Technique_Informatique
                 {
                     Cours cours = (lecontexte.Set<Cours>().SingleOrDefault(x => x.IDCours == coursASupprimer.IDCours));
                     Professeur leProf = lecontexte.UtilisateurSet.OfType<Professeur>().Where(x => x.IDProfesseur == currentProf.IDProfesseur).FirstOrDefault();
+                    
+                    //Vérifier si le cours existe, au sinon ne rien faire
+                    if(cours != null)
+                    {
                     leProf.Cours.Remove(cours);
                     lecontexte.CoursSet.Remove(cours);
                     lecontexte.SaveChanges();
                     lvModifierCours.DataBind();
                     lvModifierCours.Visible = false;
                     ddlCours.DataBind();
-                    if (ddlCours.Items.Count < 1) { 
+
+                        if (ddlCours.Items.Count < 1)
+                        {
                     ddlCours.Enabled = false;
                     btnModif.Enabled = false;
                     }
+                }
                 }
                 catch (Exception ex)
                 {
