@@ -272,7 +272,7 @@ namespace Site_de_la_Technique_Informatique
                         lecontexte.SaveChanges();
                         ViewState["mode"] = "édite";
                         ddlMedia.DataBind();
-                       
+                        lvMedia.Visible = false;
                     }
                     catch (DbEntityValidationException el)
                     {
