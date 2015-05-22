@@ -402,7 +402,7 @@
                                         <div class="control-group form-group">
                                             <div class="controls">
                                                 <label>Mot de passe:</label>
-                                                <asp:TextBox runat="server" ID="txtDeletePass" CssClass="form-control"></asp:TextBox>
+                                                <asp:TextBox runat="server" ID="txtDeletePass" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                             </div>
                                         </div>
                                     </div>
