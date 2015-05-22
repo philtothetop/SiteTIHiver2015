@@ -11,6 +11,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
 using System.Net;
+using System.IO;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -18,31 +19,33 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, true, false, false);
-        }
-
-        protected void Page_PreRender(object sender, EventArgs e)
-        {
-            //Besoin de cela pour la premiere fois que on load la page, mettre le datapager visible ou non si plusieurs offres emploi
-            if (Page.IsPostBack == false)
-            {
-                dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
-            }
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
 
         //Méthode pour downloader le PDF de l'offre d'emploi
         protected void lnkPDF_Click(object sender, EventArgs e)
         {
-            String argument = Convert.ToString(((Button)sender).CommandArgument);
-            string FilePath = Server.MapPath(argument);
-
-            WebClient User = new WebClient();
-            Byte[] FileBuffer = User.DownloadData(FilePath);
-            if (FileBuffer != null)
+            try
             {
-                Response.ContentType = "application/pdf";
-                Response.AddHeader("content-length", FileBuffer.Length.ToString());
-                Response.BinaryWrite(FileBuffer);
+                String argument = Convert.ToString(((LinkButton)sender).CommandArgument);
+                string FilePath = Server.MapPath("~//Upload//PDFOffreEmploi//" + argument);
+
+                //Check si le PDF exist bien sur avant de l'ouvrir
+                if (File.Exists(FilePath))
+                {
+                    WebClient User = new WebClient();
+                    Byte[] FileBuffer = User.DownloadData(FilePath);
+                    if (FileBuffer != null)
+                    {
+                        Response.ContentType = "application/pdf";
+                        Response.AddHeader("content-length", FileBuffer.Length.ToString());
+                        Response.BinaryWrite(FileBuffer);
+                    }
+                }
+            }
+            catch
+            { 
+                //Si problem
             }
         }
 
@@ -109,11 +112,6 @@ namespace Site_de_la_Technique_Informatique
             lviewOffresDEmploi.DataBind();
         }
 
-        protected void lviewOffresDEmploiDataBound(object sender, EventArgs e)
-        {
-            dataPagerDesLogs.Visible = (dataPagerDesLogs.PageSize < dataPagerDesLogs.TotalRowCount);
-        }
-
         //Méthode pour récupérer les offres d'emploi de la BD
         public IQueryable<Model.OffreEmploi> GetLesOffresDEmploi()
         {
@@ -130,7 +128,10 @@ namespace Site_de_la_Technique_Informatique
                     //Si on a changé la valeur du hidden field
                     if (hfieldVoirOffreValideOuNon.Value != null)
                     {
-                        VoirOffreValideOuNon = Convert.ToString(hfieldVoirOffreValideOuNon.Value);
+                        if (!hfieldVoirOffreValideOuNon.Value.Equals(""))
+                        {
+                            VoirOffreValideOuNon = Convert.ToString(hfieldVoirOffreValideOuNon.Value);
+                        }
                     }
 
                     if (VoirOffreValideOuNon.Equals("VoirNonValidé"))
@@ -151,14 +152,24 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                //A AJOUTER UN LOG DANS LA ROUTINE DERREUR? ATTENDRE ROUTINE DERREUR FINI?
+                LogErreur("ValiderLesOffresEmplois dans la méthode GetLesOffresEmploi", ex);
+            }
+
+            //Datapager visible ou non
+            if (listeDesOffresEmploi.Count > dataPagerDesLogs.PageSize)
+            {
+                dataPagerDesLogs.Visible = true;
+            }
+            else
+            {
+                dataPagerDesLogs.Visible = false;
             }
 
             return listeDesOffresEmploi.AsQueryable();
         }
 
         //Pas afficher les champs vides
-        public bool PasAfficherSiNull(Model.OffreEmploi trouverOffre, string valeurAChecker)//int idOffre, string valeurAChecker)
+        public bool PasAfficherSiNull(Model.OffreEmploi trouverOffre, string valeurAChecker)
         {
             if (trouverOffre != null)
             {
@@ -211,7 +222,10 @@ namespace Site_de_la_Technique_Informatique
             //Si on a changé la valeur du hidden field
             if (hfieldVoirOffreValideOuNon.Value != null)
             {
-                VoirOffreValideOuNon = Convert.ToString(hfieldVoirOffreValideOuNon.Value);
+                if(!hfieldVoirOffreValideOuNon.Value.Equals(""))
+                {
+                    VoirOffreValideOuNon = Convert.ToString(hfieldVoirOffreValideOuNon.Value);
+                }
             }
 
             if (VoirOffreValideOuNon.Equals("VoirNonValidé") && voirLesNonValide == true)
@@ -224,6 +238,26 @@ namespace Site_de_la_Technique_Informatique
             }
 
             return false;
+        }
+
+        //Savoir si montrer le bouton pour voir le pdf
+        protected bool VisiblePDF(string pathPDF)
+        {
+            if (pathPDF != null)
+            {
+                if (!pathPDF.Equals(""))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

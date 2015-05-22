@@ -19,7 +19,6 @@ namespace Site_de_la_Technique_Informatique
         {
             if (!Page.IsPostBack)
             {
-                //Response.Cookies["TIID"].Value = "9";
                 SavoirSiPossedeAutorizationPourLaPage(false, true, true, false, false);
 
                 //Mettre le témoignage dans le textbox si la personne connecté en a déja un

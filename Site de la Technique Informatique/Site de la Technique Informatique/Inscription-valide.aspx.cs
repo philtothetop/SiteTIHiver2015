@@ -15,7 +15,7 @@ namespace Site_de_la_Technique_Informatique.Inscription
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //SavoirSiPossedeAutorizationPourLaPage(true, false, false, false);
+            SavoirSiPossedeAutorizationPourLaPage(false, false, false, false, true);
             valider_Courriel();
 
         }
@@ -30,8 +30,6 @@ namespace Site_de_la_Technique_Informatique.Inscription
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
                 {
-
-
                     if (Request.QueryString["type"] != null && Request.QueryString["id"] != null && Request.QueryString["code"] != null)
                     {
 
@@ -41,11 +39,12 @@ namespace Site_de_la_Technique_Informatique.Inscription
 
                         if (type.Equals("etu"))//Si c'est un étudiant
                         {
-                            List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.courriel.Equals(courriel) && cl.valideCourriel == false select cl).ToList();
+                            List<Etudiant> etudiantList = (from cl in leContext.UtilisateurSet.OfType<Etudiant>() where cl.courriel.ToLower().Equals(courriel.ToLower()) && cl.valideCourriel == false select cl).ToList();
 
                             foreach (var etudiant in etudiantList)
                             {
-                                if (etudiant.dateInscription.GetHashCode().ToString().Equals(hash))
+                                string hashCourriel = etudiant.courriel.GetHashCode().ToString();
+                                if (hashCourriel.Equals(hash))
                                 {
                                     etudiant.valideCourriel = true;
                                     leContext.SaveChanges();
@@ -55,11 +54,11 @@ namespace Site_de_la_Technique_Informatique.Inscription
                         }
                         else if (type.Equals("emp"))//Si c'est un employeur
                         {
-                            List<Employeur> employeurtList = (from cl in leContext.UtilisateurSet.OfType<Employeur>() where cl.courriel.Equals(courriel) && cl.valideCourriel == false select cl).ToList();
+                            List<Employeur> employeurtList = (from cl in leContext.UtilisateurSet.OfType<Employeur>() where cl.courriel.ToLower().Equals(courriel.ToLower()) && cl.valideCourriel == false select cl).ToList();
 
                             foreach (var employeur in employeurtList)
                             {
-                                String strHash = employeur.dateInscription.GetHashCode().ToString();
+                                String strHash = employeur.courriel.GetHashCode().ToString();
 
                                 if (strHash.Equals(hash))
                                 {

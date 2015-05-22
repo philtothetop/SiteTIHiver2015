@@ -145,11 +145,11 @@
                                         <asp:Label ID="lblNoCours" runat="server" CssClass="form-control" Text='<%#Item.noCours %>' />
 
                                     </div>
-                                    <div class="col-md-4 col-md-offset-1 col-centered form-group form">
+                                    <div class="col-md-7 col-md-offset-1 col-centered form-group form">
                                         <label>Nom du cours</label>
                                         <asp:Label ID="lblNomCours" CssClass="form-control" runat="server" Text='<%#Item.nomCours %>' />
                                     </div>
-                                    <div class="col-md-7 col-centered form-group form">
+                                    <div class="col-md-10 col-centered form-group form">
                                         <label>Description</label>
                                         <asp:Label ID="lblDescriptionCours" CssClass="form-control" runat="server"  Text='<%#Item.descriptionCours %>' style="height:200px;" />
                                     </div>  

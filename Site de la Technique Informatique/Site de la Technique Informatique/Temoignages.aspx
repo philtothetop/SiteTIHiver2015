@@ -31,7 +31,7 @@
                                 <asp:Label runat="server" Text='<%# Item.prenom + " "  +Item.nom %>' style="font-size:x-large;" />
                             </div>
                             <div class="col-md-4">
-                                <asp:Image runat="server" style="float:left;" class="img-responsive customer-img media-object" Height="125" Width="125" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                                <asp:Image runat="server" style="float:left;" class="img-responsive customer-img media-object" Height="125" Width="125" ImageUrl='<%# "~/Upload/Photos/Profils/" + Item.pathPhotoProfil %>' />
                             </div>
                             <div class="col-md-8">
                                 <div style="word-break:break-all; float:right;">
@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="125" Width="125" ImageUrl='<%# "~/Photos/Profils/" +  Eval("pathPhotoProfil") %>' />
+                            <asp:Image runat="server" style="float:right;" class="img-responsive customer-img media-object" Height="125" Width="125" ImageUrl='<%# "~/Upload/Photos/Profils/" + Item.pathPhotoProfil %>' />
                         </div>
                         
                     </div>

@@ -56,7 +56,7 @@
                                     </div>
                                     <div class="col-lg-2" style="margin-left: -15px;">
                                         <asp:DropDownList ID="ddlMoisExpiration" runat="Server" Width="130" CssClass="form-control">
-                                            <asp:ListItem Text="" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="Mois" Value="0"></asp:ListItem>
                                             <asp:ListItem Text="Janvier" Value="01"></asp:ListItem>
                                             <asp:ListItem Text="Février" Value="02"></asp:ListItem>
                                             <asp:ListItem Text="Mars" Value="03"></asp:ListItem>
@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="col-lg-2" style="margin-left: -15px;">
                                         <asp:DropDownList ID="ddlMoisDebut" runat="Server" Width="130" CssClass="form-control">
-                                            <asp:ListItem Text="" Value="0"></asp:ListItem>
+                                            <asp:ListItem Text="Mois" Value="0"></asp:ListItem>
                                             <asp:ListItem Text="Janvier" Value="01"></asp:ListItem>
                                             <asp:ListItem Text="Février" Value="02"></asp:ListItem>
                                             <asp:ListItem Text="Mars" Value="03"></asp:ListItem>

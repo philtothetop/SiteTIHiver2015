@@ -26,11 +26,10 @@
                     <div class="item active">
                         <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                             <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                            <asp:Image runat="server" ImageUrl='<%# isLocal() ? "~/Upload/Photos/logo/Logo_Informatique.jpg" : "~/../Upload/Photos/logo/Logo_Informatique.jpg"  %>' height="400" width="500" />
+                            <asp:Image runat="server" ImageUrl="~/Upload/Photos/logo/Logo_Informatique.jpg" height="400" width="500" />
                         </div>
                         <div class="carousel-caption"></div>
                     </div>
-
                     <asp:ListView ID="lviewAlbumPhoto" runat="server"
                         ItemType="Site_de_la_Technique_Informatique.Model.Photos"
                         SelectMethod="lviewAlbumPhoto_GetData">
@@ -40,13 +39,12 @@
                             <div class="item">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                                     <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# isLocal() ? "~/Upload/Photos/" + Item.pathPhoto : "~/../Upload/Photos/" + Item.pathPhoto %>' Style="vertical-align: middle;" />
+                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# "~/Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto /*isLocal("Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto)*/ %>' Style="vertical-align: middle;" />
                                 </div>
 
                                 <div class="carousel-caption">
                                 </div>
                             </div>
-
                         </ItemTemplate>
 
                         <LayoutTemplate>
@@ -92,7 +90,7 @@
                 <p>Cette technique ne concerne en rien la programmation de jeux vidéo, prendre note qu'il faut s'appliquer et travailler fort pour réussir les cours.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src="Photos/Autres/Accueil.jpg" alt="" />
+                <img class="img-responsive" src='<%# isLocal("Upload/Photos/Autres/Accueil.jpg") %>' alt="" />
             </div>
         </div>
         <!-- /.row -->
@@ -124,18 +122,21 @@
                     </EmptyDataTemplate>
 
                     <ItemTemplate>
-                        <div class="well col-lg-4" style="min-height: 150px;">
-                            <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.Day + " " + Convert.ToDateTime(Eval("dateDebutEvenement")).ToString("MMM") + "" + (Item.dateFinEvenement.HasValue == true ? ( ((Eval("dateDebutEvenement.Date") == Eval("dateFinEvenement.Date")) ? (" au " + Eval("dateFinEvenement.Day") + " " + Convert.ToDateTime(Eval("dateFinEvenement")).ToString("MMM")) : "")) : "" ) %>' />
+                        <div class="well col-lg-4" style="min-height: 170px;">
+                            <b>Date :</b>
+                            <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.ToShortDateString() %>' />
                             <br />
+                            <b>Titre : </b>
                             <asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
                                 Text='<%# Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
                                    (Eval("titreEvenement").ToString().Length > 50 ? "..." :  "") %>' />
-                            <asp:Label runat="server" ID="lblHeureEvent" Text='<%# ((Item.dateDebutEvenement.TimeOfDay.ToString() != "00:00:00" ) ? ( "\n" + Eval("dateDebutEvenement.TimeOfDay.Hours") + "h" + (Eval("dateDebutEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateDebutEvenement.TimeOfDay.Minutes") ) ) : "\r" ) 
-                            + "" + ((Item.dateFinEvenement.HasValue == true) && (Item.dateFinEvenement.Value.TimeOfDay.ToString() != "00:00:00" ) ? (" à " + Eval("dateFinEvenement.TimeOfDay.Hours") + "h" + (Eval("dateFinEvenement.TimeOfDay.Minutes").ToString() == "0" ? "00" : Eval("dateFinEvenement.TimeOfDay.Minutes") ) ) : "" ) %>' />
+                            <br />
+                            <b>Description :</b>
                             <br />
                             <asp:Label runat="server" ID="Label2" Text='<%# Eval("descriptionEvenement").ToString().PadLeft(50).Substring(0, 50) +
                                    (Eval("descriptionEvenement").ToString().Length > 50 ? "..." :  "") %>' />
                             <br />
+                            <asp:LinkButton ID="lnkClickEventDetail" runat="server" OnClick="lnkClickEventDetail_Click">Plus de détails...</asp:LinkButton>
                         </div>
                     </ItemTemplate>
 

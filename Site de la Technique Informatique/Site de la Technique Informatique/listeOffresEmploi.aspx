@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="listeOffresEmploi.aspx.cs" Inherits="Site_de_la_Technique_Informatique.listeOffresEmploi" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="listeOffresEmploi.aspx.cs" Inherits="Site_de_la_Technique_Informatique.listeOffresEmploi" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -7,15 +7,17 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="col-lg-5">
+                <div style="width:100%; text-align:center;">
                     <h1>Liste des offres d'emploi</h1>
                 </div>
-                <div style="margin-top: 25px;">
-                    <asp:LinkButton ID="lnkAjouterOffre" Text="Ajouter une offre" runat="server" CssClass="btn btn-primary" PostBackUrl="~/AjoutOffreEmploi.aspx" Visible="false" />
+                <div style="margin-top: 25px; width:100%; padding-right:20%;">
+                    <asp:LinkButton ID="lnkAjouterOffre" Text="Ajouter une offre" runat="server" CssClass="btn btn-primary" PostBackUrl="~/AjoutOffreEmploi.aspx" Visible="false" style="float:right;" />
                 </div>
+                <br />
+                <br />
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="width:100%; text-align:center;">
             <asp:ListView ID="lviewOffresEmploi" runat="server" SelectMethod="getOffresEmploi" OnItemDataBound="lviewOffresEmploi_ItemDataBound"
                 DataKeyNames="VilleIDVille,nbHeureSemaine">
                 <ItemTemplate>

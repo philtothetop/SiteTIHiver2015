@@ -47,7 +47,6 @@ namespace Site_de_la_Technique_Informatique
         //Changer les dates lors du changement de mois
         protected void CalendrierEvents_SelectionChanged(object sender, EventArgs e)
         {
-
             try
             {
                 using (LeModelTIContainer leContext = new LeModelTIContainer())
@@ -58,6 +57,7 @@ namespace Site_de_la_Technique_Informatique
                         CalendrierEvents.SelectedDates.Add(UnEvent.dateDebutEvenement);
                     }
                 }
+                lviewEvents.DataBind();
             }
             catch (Exception ex)
             {
@@ -76,8 +76,6 @@ namespace Site_de_la_Technique_Informatique
 
                 try
                 {
-
-
                     using (LeModelTIContainer leContext = new LeModelTIContainer())
                     {
                         if (leContext.EvenementSet.ToList() != null)
@@ -94,6 +92,18 @@ namespace Site_de_la_Technique_Informatique
                 {
                    LogErreur("Default-lviewEvents_GetData", ex);
                 }
+
+                //Datapager visible juste si besoin
+                if (listeEvenement.Count > dataPagerEvents.PageSize)
+                {
+                    dataPagerEvents.Visible = true;
+                }
+                else
+                {
+                    dataPagerEvents.Visible = false;
+                }
+
+
                 return listeEvenement.AsQueryable().SortBy("dateDebutEvenement");
             }
             else
@@ -210,6 +220,12 @@ namespace Site_de_la_Technique_Informatique
                 }
                 return listePhoto.AsQueryable();
             }
+        }
+
+        //Code pour allez voir les détail de l'event
+        protected void lnkClickEventDetail_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

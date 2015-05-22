@@ -34,6 +34,7 @@
         <siteMapNode title="Supprimer photo" url="~/Admin_SupprimerPhoto.aspx"/>
       </siteMapNode>
       <siteMapNode title="Événements" url="~/Admin_Evenement.aspx"/>
+      <siteMapNode title="Événements Vertic" url="~/Admin_EvenementVERTIC.aspx"/>
       <siteMapNode title="FAQ" url="~/Admin_laFAQ.aspx"/>
       <siteMapNode title="Médias" url="~/Admin_Media.aspx"/>
       <siteMapNode title="Offres d'emploi" url="~/Admin_OffreEmploi.aspx"/>
@@ -41,14 +42,16 @@
       <siteMapNode title="Inscriptions employeurs" url="~/Admin_Validation-Inscription-Employeur.aspx"/>
       <siteMapNode title="Inscriptions étudiants" url="~/Admin_Validation-Inscription-Etudiant.aspx"/>
       <siteMapNode title="Vertic" url="~/Admin_Vertic.aspx"/>
+      <siteMapNode title="Logs" url="~/Log.aspx"/>
     </siteMapNode>
-    <siteMapNode title="Mon profil" url="~/ModifierProfesseur.aspx"/>
-    <siteMapNode title="Mon profil" url="~/ProfilEtudiant.aspx">
-      <siteMapNode title="Modifier mon profil" url="~/modifProfilEtudiant.aspx"/>
-    </siteMapNode>
+    <siteMapNode title="Profil Professeur" url="~/ProfilProfesseur.aspx"/>
+    <siteMapNode title="Modifier Profil" url="~/ModifierProfesseur.aspx"/>
+    <siteMapNode title="Profil Etudiant" url="~/ProfilEtudiant.aspx"/>
+    <siteMapNode title="Modifier Profil" url="~/modifProfilEtudiant.aspx"/>
     <siteMapNode title="Ajout professeur" url="~/AjoutProfesseur.aspx"/>
     <siteMapNode title="Professeurs" url="~/Admin_AjouteSupprimeProf.aspx"/>
     <siteMapNode title="Modifier profil" url="~/Admin_Profil.aspx"/>
     <siteMapNode title="Écrire un témoignage" url="~/FaireTemoignage.aspx"/>
+    <siteMapNode title="Modifier mon profil" url="~/modifProfilEmployeur.aspx"/>
   </siteMapNode>
 </siteMap>

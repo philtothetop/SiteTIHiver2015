@@ -8,7 +8,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    
 
     <div class="row">
 
@@ -16,6 +15,9 @@
             <ul style="list-style-type: none; font-size:16px">
 
                 <li><a style="color:GrayText" href="Admin_Evenement.aspx">Événements</a><br />
+                </li>
+
+                <li><a style="color:GrayText" href="Admin_EvenementVERTIC.aspx">Événements Vertic</a><br />
                 </li>
 
                 <li><a style="color:GrayText" href="Admin_laFAQ.aspx">FAQ</a><br />
@@ -43,6 +45,9 @@
                 </li>
 
                 <li><a style="color:GrayText" href="Admin_Vertic.aspx">Vertic</a><br />
+                </li>
+
+                <li><a style="color:GrayText" href="Log.aspx">Les logs</a><br />
                 </li>
 
             </ul>
