@@ -32,7 +32,7 @@ Extrants: --%>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>
                 <p>L'équipe de la Technique de l'informatique de gestion possède des professeurs dynamiques qui contribueront à votre réussite scolaire.</p>
-                <p>Pour l'obtention de votre diplôme, vous devrez réussir 20 cours de spécialisations en informatique, 14 cours de bases, réussir l'Épreuve Uniforme de Langue et l'Épreuve Synthèse de Programme.</p>
+                <p>Pour l'obtention de votre diplôme, vous devrez réussir 20 cours de spécialisation en informatique, 14 cours de base, réussir l'Épreuve Uniforme de Langue et l'Épreuve Synthèse de Programme.</p>
                 <p>Venez vivre la vie étudiante, faites connaissance avec de nouvelles personnes qui partagent les mêmes passions que vous en informatique.</p>
             </div>
         </div>
@@ -61,12 +61,12 @@ Extrants: --%>
                         <div class="thumbnail">
                             <div class="row" style="">
                                 <%-- Photo du professeur --%>
-                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' Width="120" Height="120" />
+                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Upload/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' Width="120" Height="120" />
                             </div>
                             <div class="row">
                                 <%-- Nom du professeur --%>
                                 <h3>
-                                    <asp:Label ID="lblNomProf" runat="server" Text='<%# Eval("prenom") %>'></asp:Label><br />
+                                    <asp:Label ID="lblNomProf" runat="server" Text='<%# Item.prenom +" " + Item.nom %>'></asp:Label><br />
                                     <small>Professeur</small>
                                 </h3>
                             </div>

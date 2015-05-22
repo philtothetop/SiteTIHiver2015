@@ -140,7 +140,7 @@ namespace Site_de_la_Technique_Informatique
                                         modelTI.PhotosSet.Add(laPhotoBD);
                                         modelTI.LogSet.Add(logPhoto);
                                         modelTI.SaveChanges();
-
+                                        txtbDescriptionPhotoAAjouter.Text = "";
                                         //Indiquer que cela a marché
                                         divReussiAjouterImage.Visible = true;
                                         divPasReussiAjouterImage.Visible = false;

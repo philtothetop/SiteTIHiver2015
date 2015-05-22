@@ -231,7 +231,7 @@ namespace Site_de_la_Technique_Informatique
                         }
                         
                         lecontexte.SaveChanges();
-                        lblMessage.Text = "Modification sauvegardé avec succès";
+                        lblMessage.Text = "Modification sauvegardée avec succès";
                         lblMessage.ForeColor = Color.Green;
 
                         //Reset la couleur des case avec erreurs

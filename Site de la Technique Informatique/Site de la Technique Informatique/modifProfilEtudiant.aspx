@@ -109,7 +109,7 @@ Extrants: --%>
                             <tr>
                                 <td>
                                 </td>
-                                <td> étudiant n'existe pas.
+                                <td> L'étudiant n'existe pas.
                                 </td>
                             </tr>
                         </table>
@@ -187,7 +187,7 @@ Extrants: --%>
                                 <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("~/ProjetDeux_2015_1/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
                                 <label>Changer de CV:</label>
                                 <asp:FileUpload ID="fupCV" runat="server" />
-                                (valides: pdf , doc, docx , odf)
+                                (.pdf seulement)
 
                             </div>
                         </div>

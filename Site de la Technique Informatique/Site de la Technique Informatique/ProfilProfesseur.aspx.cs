@@ -37,7 +37,7 @@ namespace Site_de_la_Technique_Informatique
                         {
                             Professeur leProf = null;
                             leProf = (from cl in modelTI.UtilisateurSet.OfType<Professeur>()
-                                    where cl.IDUtilisateur == idProf
+                                    where cl.IDUtilisateur == idProf && cl.compteActif == 1
                                     select cl).FirstOrDefault();
 
                             //Si le prof est trouvé

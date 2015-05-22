@@ -36,7 +36,7 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                    listeProf = (from prof in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Professeur>() select prof).ToList();
+                    listeProf = (from prof in lecontexte.UtilisateurSet.OfType<Membre>().OfType<Professeur>() where prof.compteActif==1 select prof).ToList();
                 }
             }
             catch (Exception ex)
