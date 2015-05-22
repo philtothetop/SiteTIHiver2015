@@ -19,6 +19,8 @@ namespace Site_de_la_Technique_Informatique
         protected void Page_Load(object sender, EventArgs e)
         {
             SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
+
+
         }
 
         //FileUpload
@@ -57,13 +59,15 @@ namespace Site_de_la_Technique_Informatique
                             log.actionLog = Server.HtmlEncode(Request.Cookies["TINom"].Value) + " a téléchargé " + fuNewArticle.FileName + " sur le serveur"; //on met l'action
                             lecontexte.LogSet.Add(log); //on ajoute au log
                             lecontexte.SaveChanges(); //on sauvegarde dans la BD
+                            divSuccess.Visible = true;
 
                         }
                 }
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "ERREUR FILEUPLOAD: " + ex.ToString();
+                lblMessage.Text += "<b>ERREUR Lors de l'ajout d'un fichier </b>";
+                divWarning.Visible = true;
             }
         }
 
@@ -80,7 +84,8 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    lblMessage.Text += "ERREUR D'OUVERTURE DU CONTEXTE/RETOUR DES PARUTIONS MÉDIAS (LISTE), " + ex.ToString();
+                    lblMessage.Text += "<b>ERREUR D'OUVERTURE DU CONTEXTE/RETOUR DES PARUTIONS MÉDIAS (LISTE)</b>";
+                    divWarning.Visible = true;
                 }
             return listeMedia.AsQueryable();
         }
@@ -99,10 +104,14 @@ namespace Site_de_la_Technique_Informatique
                     lecontexte.SaveChanges();
                     lvMedia.DataBind();
                     lvMedia.Visible = false;
+                    ddlMedia.Items.Clear();
+                    ddlMedia.DataBind();
+                    divSuccess.Visible = true;
                 }
                 catch (Exception ex)
                 {
-                    lblMessage.Text += "ERREUR DE SUPPRESSION D'UN MÉDIA, " + ex.ToString();
+                    lblMessage.Text += "<b>ERREUR lORS DE LA SUPPRESSION D'UN MÉDIA </b>";
+                    divWarning.Visible = true;
                 }
         }
 
@@ -120,7 +129,8 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    lblMessage.Text += "ERREUR DE ITEMDATABOUND, " + ex.ToString();
+                    lblMessage.Text += "<b>ERREUR DE ITEMDATABOUND </b>";
+                    divWarning.Visible = true;
                 }
         }
 
@@ -135,8 +145,13 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                    nbMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() select article).ToList());  //génère une liste des membres pour en avoir un nombre de membres et générer le bon ID Utilisateur
-                    newMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() where article.IDParutionMedia == nbMedia.Count select article).ToList());
+
+                    nbMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() select article).ToList());//génère une liste des membres pour en avoir un nombre de membres et générer le bon ID Utilisateur
+                    if (ViewState["noMedia"] != null)
+                    {
+                        int media = int.Parse(ViewState["noMedia"].ToString());
+                        newMedia = ((from article in lecontexte.ParutionMediaSet.OfType<ParutionMedia>() where article.IDParutionMedia == media select article).ToList());
+                    }
 
                 }
 
@@ -151,8 +166,6 @@ namespace Site_de_la_Technique_Informatique
                     mediaVide.titreParution = "";
                     mediaVide.descriptionParution = "";
                     mediaVide.ProfesseurIDUtilisateur = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
-
-
                     newMedia.Add(mediaVide);
                 }
 
@@ -160,7 +173,8 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "ERREUR AVEC LE MÉDIA, " + ex.ToString();
+                lblMessage.Text += "<b>ERREUR AVEC LE MÉDIA: </b>" + ex.ToString();
+                divWarning.Visible = true;
             }
             return newMedia.AsQueryable();
         }
@@ -169,7 +183,7 @@ namespace Site_de_la_Technique_Informatique
         protected void btnModif_Click(object sender, EventArgs e)
         {
 
-           
+
             ViewState["noMedia"] = ddlMedia.SelectedValue;
             ViewState["mode"] = "édite";
             lvMedia.DataBind();
@@ -189,7 +203,8 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                lblMessage.Text += "ERREUR LORS DE L'«AJOUT» D'UN MEDIA, " + ex.ToString();
+                lblMessage.Text += "<b>ERREUR LORS DE L'AJOUT D'UN MEDIA </b> ";
+                divWarning.Visible = true;
             }
         }
 
@@ -212,23 +227,41 @@ namespace Site_de_la_Technique_Informatique
 
                 //VÉRIFIE SI CE QUI EST A L'ÉCRAN EST VALIDE ET EN VERSE LE CONTENU DANS LEMEMBREAUPDATER
                 //---------------------------------------------------------------------------------------
-                TryUpdateModel(leMediaAUpdaterCopie);  //RAMÈNE LE MEMBRE QUI EST A L'ÉCRAN VERS L'OBJET, FAIT AUSSI LA VALIDATION MAIS ON L'IGNORE
-                var contextval = new ValidationContext(leMediaAUpdaterCopie, serviceProvider: null, items: null);
-                var results = new List<ValidationResult>();
-                var isValid = Validator.TryValidateObject(leMediaAUpdaterCopie, contextval, results); // VALIDE LE MEMBRE
-                if (!isValid) // NON VALIDE
+                TryUpdateModel(leMediaAUpdaterCopie);
+
+                if (!ModelState.IsValid)
                 {
-                    foreach (var validationResult in results)
+                    foreach (var modelErrors in ModelState)
                     {
-                        lblMessage.Text += validationResult.ErrorMessage;
+                        string propertyName = modelErrors.Key;
+                        if (modelErrors.Value.Errors.Count > 0)
+                        {
+                            for (int i = 0; i < modelErrors.Value.Errors.Count; i++)
+                            {
+                                lblMessage.Text += "<b>" + propertyName + ": </b>" + modelErrors.Value.Errors[i].ErrorMessage.ToString() + "<br/>";
+                            }
+                        }
+                        divWarning.Visible = true;
                     }
+                    //RAMÈNE LE MEMBRE QUI EST A L'ÉCRAN VERS L'OBJET, FAIT AUSSI LA VALIDATION MAIS ON L'IGNORE
+
                 }
                 else // VALIDE
                 {
                     lblMessage.Text = "";
                     try
                     {
+                        var contextval = new ValidationContext(leMediaAUpdaterCopie, serviceProvider: null, items: null);
+                        var results = new List<ValidationResult>();
+                        var isValid = Validator.TryValidateObject(leMediaAUpdaterCopie, contextval, results); // VALIDE LE MEMBRE
+                        if (!isValid) // NON VALIDE
+                        {
+                            foreach (var validationResult in results)
+                            {
+                                lblMessage.Text += validationResult.ErrorMessage + "<br/>";
+                            }
 
+                        }
                         if ((string)ViewState["mode"] == "ajoute")
                         {
                             lecontexte.Set<ParutionMedia>().Add(leMediaAUpdaterCopie);
@@ -237,24 +270,27 @@ namespace Site_de_la_Technique_Informatique
                         ListViewItem lvmediacourant1 = lvMedia.Items[0];
 
                         lecontexte.SaveChanges();
+                        ViewState["mode"] = "édite";
+                        ddlMedia.DataBind();
+                        lvMedia.Visible = false;
                     }
-                    // Attrappe les erreurs au Save Changes. Utile pour découvrir quelle propriété est en erreur.
                     catch (DbEntityValidationException el)
                     {
                         foreach (var eve in el.EntityValidationErrors)
                         {
-                            lblMessage.Text += "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:" +
-                                eve.Entry.Entity.GetType().Name + eve.Entry.State;
+                            
                             foreach (var ve in eve.ValidationErrors)
                             {
-                                lblMessage.Text += "- Property: \"{0}\", Error: \"{1}\"" +
-                                    ve.PropertyName + ve.ErrorMessage;
+                                lblMessage.Text += "<b>"+ve.PropertyName+":</b>"
+                                     + ve.ErrorMessage + "<br/>";
                             }
                         }
+                        divWarning.Visible = true; 
                     }
+                    // Attrappe les erreurs au Save Changes. Utile pour découvrir quelle propriété est en erreur.
 
-                    ViewState["mode"] = "édite";
-                    ddlMedia.DataBind();
+
+
                 }
             }
         }
