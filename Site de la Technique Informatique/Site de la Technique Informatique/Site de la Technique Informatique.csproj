@@ -149,6 +149,7 @@
     <Content Include="Jquery\Cropper\js\jquery.min.js" />
     <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
+    <Content Include="Upload\Photos\Autres\Accueil.JPG" />
     <Content Include="Upload\Photos\logoCegep.png" />
     <Content Include="MesDiscussionsForum.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
@@ -175,7 +176,6 @@
     <Content Include="PageNotFound.aspx" />
     <Content Include="Upload\Autres\Accueil.JPG" />
     <Content Include="Upload\Autres\quiSommesNous.JPG" />
-    <Content Include="Upload\Photos\Autres\Accueil.JPG" />
     <Content Include="Upload\Photos\Autres\QuiSommesNous.jpg" />
     <Content Include="Upload\Photos\Concepteurs\Cedric.JPG" />
     <Content Include="Upload\Photos\Concepteurs\Yannick.JPG" />
