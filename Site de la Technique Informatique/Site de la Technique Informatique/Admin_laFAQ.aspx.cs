@@ -170,7 +170,7 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-
+       
         protected void btnModifier_Click(object sender, EventArgs e)
         {
             // Sert à modifier une question de la FAQ
