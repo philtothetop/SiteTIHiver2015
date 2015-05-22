@@ -39,10 +39,11 @@
       <siteMapNode title="Médias" url="~/Admin_Media.aspx"/>
       <siteMapNode title="Offres d'emploi" url="~/Admin_OffreEmploi.aspx"/>
       <siteMapNode title="Témoignages" url="~/Admin_Temoignage.aspx"/>
+      <siteMapNode title="Nouvelles" url="~/Admin_editNouvelles.aspx"/>
       <siteMapNode title="Inscriptions employeurs" url="~/Admin_Validation-Inscription-Employeur.aspx"/>
       <siteMapNode title="Inscriptions étudiants" url="~/Admin_Validation-Inscription-Etudiant.aspx"/>
       <siteMapNode title="Vertic" url="~/Admin_Vertic.aspx"/>
-      <siteMapNode title="Logs" url="~/Log.aspx"/>
+      <siteMapNode title="Historique" url="~/Log.aspx"/>
     </siteMapNode>
     <siteMapNode title="Profil Professeur" url="~/ProfilProfesseur.aspx"/>
     <siteMapNode title="Modifier Profil" url="~/ModifierProfesseur.aspx"/>

@@ -122,21 +122,17 @@
                     </EmptyDataTemplate>
 
                     <ItemTemplate>
-                        <div class="well col-lg-4" style="min-height: 170px;">
+                        <div class="well col-lg-4" style="height: 170px; overflow:auto;">
                             <b>Date :</b>
                             <asp:Label runat="server" ID="lblDateEvent" Text='<%# Item.dateDebutEvenement.ToShortDateString() %>' />
                             <br />
                             <b>Titre : </b>
                             <asp:Label runat="server" ID="lblTitreEvent" Style="word-wrap: break-word;"
-                                Text='<%# Eval("titreEvenement").ToString().PadLeft(50).Substring(0, 50) +
-                                   (Eval("titreEvenement").ToString().Length > 50 ? "..." :  "") %>' />
+                                Text='<%# Eval("titreEvenement") %>' />
                             <br />
                             <b>Description :</b>
+                            <asp:Label runat="server" ID="Label2" Text='<%# Eval("descriptionEvenement") %>' />
                             <br />
-                            <asp:Label runat="server" ID="Label2" Text='<%# Eval("descriptionEvenement").ToString().PadLeft(50).Substring(0, 50) +
-                                   (Eval("descriptionEvenement").ToString().Length > 50 ? "..." :  "") %>' />
-                            <br />
-                            <asp:LinkButton ID="lnkClickEventDetail" runat="server" OnClick="lnkClickEventDetail_Click">Plus de détails...</asp:LinkButton>
                         </div>
                     </ItemTemplate>
 
