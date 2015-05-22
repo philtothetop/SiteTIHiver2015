@@ -27,7 +27,7 @@ Extrants: --%>
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img src="Photos/Autres/QuiSommesNous.jpg" />
+                <img src="Upload/Photos/Autres/QuiSommesNous.jpg" />
             </div>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>
@@ -61,7 +61,7 @@ Extrants: --%>
                         <div class="thumbnail">
                             <div class="row" style="">
                                 <%-- Photo du professeur --%>
-                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' Width="120" Height="120" />
+                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Upload/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' Width="120" Height="120" />
                             </div>
                             <div class="row">
                                 <%-- Nom du professeur --%>

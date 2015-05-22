@@ -90,7 +90,7 @@
                 <p>Cette technique ne concerne en rien la programmation de jeux vidéo, prendre note qu'il faut s'appliquer et travailler fort pour réussir les cours.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src='<%# isLocal("Upload/Photos/Autres/Accueil.jpg") %>' alt="" />
+                <img class="img-responsive" src="Upload/Photos/Autres/Accueil.jpg" alt="" />
             </div>
         </div>
         <!-- /.row -->
