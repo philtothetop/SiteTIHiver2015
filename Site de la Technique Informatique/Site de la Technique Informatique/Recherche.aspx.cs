@@ -41,8 +41,8 @@ namespace Site_de_la_Technique_Informatique
                          || (chkbEtudiant.Checked == false && chkbProfesseur.Checked == false))
                     {
                         listeMembre = (from cl in lecontexte.UtilisateurSet.OfType<Model.Membre>()
-                                       where (cl.nom.ToLower() + cl.prenom.ToLower()).Contains(textRecherche) ||
-                                             (cl.prenom.ToLower() + cl.nom.ToLower()).Contains(textRecherche) &&
+                                       where ((cl.nom.ToLower() + cl.prenom.ToLower()).Contains(textRecherche) ||
+                                             (cl.prenom.ToLower() + cl.nom.ToLower()).Contains(textRecherche)) &&
                                               cl.compteActif == 1
                                        select cl).ToList();
                     }
