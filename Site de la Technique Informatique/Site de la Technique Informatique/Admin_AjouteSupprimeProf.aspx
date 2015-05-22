@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Css/Inscription.css" />
     <div class="container">
         
-
+        <div class="col-md-03"></div>
             <asp:MultiView ID="mViewAjoutSupprime" runat="server" ActiveViewIndex="0">
 
                 <asp:View ID="viewAjouterProf" runat="server">
