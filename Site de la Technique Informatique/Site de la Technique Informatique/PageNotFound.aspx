@@ -18,7 +18,7 @@
             <br />
             <br />
             <a onclick="Redirect_Click">
-                <img src="Photos/image2.jpg" height="600" width="900" />
+                <asp:Image runat="server" ImageUrl="~/Upload/Photos/image2.jpg" height="600" width="900" />
                 <br />
                 <br />
             </a>

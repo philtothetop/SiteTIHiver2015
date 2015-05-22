@@ -106,13 +106,13 @@ namespace Site_de_la_Technique_Informatique
 
         public int ImageToResize(string nomImage, bool faireHauteur)
         {
-            string pathImage = Path.Combine(Server.MapPath("~/Photos/Souvenir/"), nomImage);
+            string pathImage = Server.MapPath("~//Upload//Photos//Souvenir//" + nomImage);
 
             if (File.Exists(pathImage))
             {
                 System.Drawing.Image imageDuMoment = System.Drawing.Image.FromFile(pathImage);
                 imageDuMoment = ResizeTheImage(500, 120, imageDuMoment);
-
+                 
                 //Pour height
                 if (faireHauteur == true)
                 {

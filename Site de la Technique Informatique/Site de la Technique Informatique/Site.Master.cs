@@ -255,10 +255,11 @@ namespace Site_de_la_Technique_Informatique
                                 Response.Cookies["TINom"].Value = userMembre.prenom; //on récupère le prénom de membre
                                 Response.Cookies["TIID"].Value = userConnect.IDUtilisateur.ToString(); //Stocke le ID Utilisateur 
                             }
-                            else //oups, courriel non validé
+                            else //oups, compte non validé
                             {
                                 lblMessageConnexion.Text = "Votre compte n'a pas été validé. Veuillez réessayer ultérieurement. "; //warning à l'usager
                                 Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
+                                userConnect = null; //détruire le user connecté
                             }
                         }
 
@@ -275,6 +276,7 @@ namespace Site_de_la_Technique_Informatique
                             {
                                 lblMessageConnexion.Text = "Votre compte n'a pas été validé. Veuillez réessayer ultérieurement. "; //warning à l'usager
                                 Response.Cookies["TICourriel"].Value = null; //enlève la valeur du cookie
+                                userConnect = null; //détruire le user connecté
                             }
                              
                         }
