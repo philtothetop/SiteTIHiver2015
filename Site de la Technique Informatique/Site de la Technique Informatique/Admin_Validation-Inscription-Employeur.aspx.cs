@@ -98,7 +98,7 @@ namespace Site_de_la_Technique_Informatique
                     leContext.UtilisateurSet.Remove(employeur);
                     if (envoie_courriel_confirmationRefuser(employeur) == false)
                     {
-                        lblMessage.Text = "Il est impossible d'envoyer un courriel de confirmation du refus, mais inscription a été refusée.";
+                        lblMessage.Text = "Il est impossible d'envoyer un courriel de confirmation du refus, mais l'inscription a été refusée.";
                         lblMessage.Visible = true;
                     }
                     else
@@ -207,7 +207,7 @@ namespace Site_de_la_Technique_Informatique
         {
             // METTRE ICI LE EMAIL DE LA PERSONNE QUI VA RÉPONDRE AUX MESSAGES DES FUTURS ÉTUDIANTS 
             String titre = "Inscription TI Cegep de Granby";
-            String message = "Cher " + employeur.nomEmployeur + ", l'administrateur a refuser votre inscription. ";
+            String message = "Cher " + employeur.nomEmployeur + ", l'administrateur a refusé votre inscription. ";
 
             courrielAutomatiser courriel = new courrielAutomatiser();
 
