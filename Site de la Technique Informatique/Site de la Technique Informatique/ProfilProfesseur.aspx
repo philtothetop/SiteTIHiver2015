@@ -74,7 +74,7 @@
 
                             <br />
                             <div style="text-align:center; width:100%;">
-                                       <img src='<%# "~/Upload/Photos/Profils/" + Item.pathPhotoProfil %>' width="125" height="125" />
+                                       <img src='<%# "Upload/Photos/Profils/" + Item.pathPhotoProfil %>' width="125" height="125" />
                             </div>
 
 
