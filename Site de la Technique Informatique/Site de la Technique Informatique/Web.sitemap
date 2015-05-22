@@ -34,6 +34,7 @@
         <siteMapNode title="Supprimer photo" url="~/Admin_SupprimerPhoto.aspx"/>
       </siteMapNode>
       <siteMapNode title="Événements" url="~/Admin_Evenement.aspx"/>
+      <siteMapNode title="Événements Vertic" url="~/Admin_EvenementVERTIC.aspx"/>
       <siteMapNode title="FAQ" url="~/Admin_laFAQ.aspx"/>
       <siteMapNode title="Médias" url="~/Admin_Media.aspx"/>
       <siteMapNode title="Offres d'emploi" url="~/Admin_OffreEmploi.aspx"/>

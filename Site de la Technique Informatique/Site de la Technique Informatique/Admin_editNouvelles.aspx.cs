@@ -9,6 +9,7 @@ using System.Data;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.Validation;
 using System.Web.Services;
+using System.Drawing;
 
 namespace Site_de_la_Technique_Informatique
 {
@@ -54,6 +55,7 @@ namespace Site_de_la_Technique_Informatique
             msgError.Visible = false;
             id = Convert.ToInt32(e.CommandArgument);
             lviewEditNews.DataBind();
+            lviewNouvelles.DataBind();
             ((TextBox)lviewEditNews.Items[0].FindControl("txtContenuNouvelle")).Text = Server.HtmlDecode(((TextBox)lviewEditNews.Items[0].FindControl("txtContenuNouvelle")).Text);
 
         }
@@ -74,6 +76,7 @@ namespace Site_de_la_Technique_Informatique
 
                 lecontexte.SaveChanges();
                 lviewNouvelles.DataBind();
+                lviewEditNews.DataBind();
                 msgError.Text = "Nouvelle Éditée avec Succès";
                 msgError.Visible = true;
                 this.reset_Page();
@@ -86,18 +89,45 @@ namespace Site_de_la_Technique_Informatique
             {
                 if (Request.Cookies["TIID"] != null)
                 {
-                    Model.Nouvelle lanewsAUpdate = new Model.Nouvelle();
-                    lanewsAUpdate.texteNouvelle = txtNouvelleAjout.Text;
-                    lanewsAUpdate.titreNouvelle = txtTitreAjout.Text;
-                    lanewsAUpdate.dateNouvelle = DateTime.Now;
-                    lanewsAUpdate.ProfesseurIDUtilisateur = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
-                    lecontexte.NouvelleSet.Add(lanewsAUpdate);
-                    lecontexte.SaveChanges();
-                    lviewNouvelles.DataBind();
-                    msgError.Text = "Nouvelle Ajoutée avec Succès";
-                    msgError.Visible = true;
-                    this.reset_Page();
-                   
+                    bool isValid = true;
+                    string lesErreurs = "";
+
+                    //Checker le tittre
+                    if (txtTitreAjout.Text.Trim().Count() < 3)
+                    {
+                        lesErreurs += "Le titre est trop court <br/>";
+                        isValid = false;
+                    }
+
+                    //Checker le texte
+                    if (txtNouvelleAjout.Text.Trim().Count() < 10)
+                    {
+                        lesErreurs += "Le texte de la nouvelle est trop court <br/>";
+                        isValid = false;
+                    }
+
+                    if (isValid == true)
+                    {
+                        Model.Nouvelle lanewsAUpdate = new Model.Nouvelle();
+                        lanewsAUpdate.texteNouvelle = txtNouvelleAjout.Text;
+                        lanewsAUpdate.titreNouvelle = txtTitreAjout.Text;
+                        lanewsAUpdate.dateNouvelle = DateTime.Now;
+                        lanewsAUpdate.ProfesseurIDUtilisateur = Convert.ToInt32(Server.HtmlEncode(Request.Cookies["TIID"].Value));
+                        lecontexte.NouvelleSet.Add(lanewsAUpdate);
+                        lecontexte.SaveChanges();
+                        lviewNouvelles.DataBind();
+                        lviewEditNews.DataBind();
+                        msgError.Text = "Nouvelle Ajoutée avec Succès";
+                        msgError.Visible = true;
+                        this.reset_Page();
+
+                        lblMessageErreur.Text = "";
+                    }
+                    else
+                    {
+                        lblMessageErreur.Text = lesErreurs;
+                        lblMessageErreur.ForeColor = Color.Red;
+                    }
                 }
             }
         }
@@ -135,6 +165,7 @@ namespace Site_de_la_Technique_Informatique
                 lecontexte.NouvelleSet.Remove(lanewsAUpdate);
                 lecontexte.SaveChanges();
                 lviewNouvelles.DataBind();
+                lviewEditNews.DataBind();
                 msgError.Text = "Nouvelle Supprimée avec Succès";
                 msgError.Visible = true;
                 this.reset_Page();

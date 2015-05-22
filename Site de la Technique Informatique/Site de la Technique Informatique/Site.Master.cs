@@ -198,7 +198,7 @@ namespace Site_de_la_Technique_Informatique
 
                     lblMessageConnexion.Text = ""; //vide le label de message d'erreur
 
-                    userConnect = (from user in lecontexte.UtilisateurSet where user.courriel == txtIdentifiant.Text select user).FirstOrDefault(); //Va chercher l'utilisateur qui correspond au courriel
+                    userConnect = (from user in lecontexte.UtilisateurSet where user.courriel.ToLower().Equals(txtIdentifiant.Text.ToLower()) select user).FirstOrDefault(); //Va chercher l'utilisateur qui correspond au courriel
 
                     if (userConnect == null) //si le courriel n'est pas dans la BD
                     {

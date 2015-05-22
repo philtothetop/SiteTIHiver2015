@@ -10,97 +10,70 @@
 namespace Site_de_la_Technique_Informatique {
     
     
-    public partial class temp_editNouvelles {
+    public partial class Admin_EvenementVERTIC {
         
         /// <summary>
-        /// Contrôle panelNouvelles.
+        /// Contrôle lblErreur.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelNouvelles;
+        protected global::System.Web.UI.WebControls.Label lblErreur;
         
         /// <summary>
-        /// Contrôle msgError.
+        /// Contrôle txtAjoutEvenement.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label msgError;
+        protected global::System.Web.UI.WebControls.TextBox txtAjoutEvenement;
         
         /// <summary>
-        /// Contrôle Button1.
+        /// Contrôle txtJourEventAjouter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox txtJourEventAjouter;
         
         /// <summary>
-        /// Contrôle lviewNouvelles.
+        /// Contrôle ddlMoisEventAjouter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewNouvelles;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMoisEventAjouter;
         
         /// <summary>
-        /// Contrôle btnNewNouvelle.
+        /// Contrôle ddlAnneeEventAjouter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNewNouvelle;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAnneeEventAjouter;
         
         /// <summary>
-        /// Contrôle lviewEditNews.
+        /// Contrôle ddlHeuresAjouter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lviewEditNews;
+        protected global::System.Web.UI.WebControls.DropDownList ddlHeuresAjouter;
         
         /// <summary>
-        /// Contrôle panelAjoutNews.
+        /// Contrôle ddlMinutesAjouter.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelAjoutNews;
-        
-        /// <summary>
-        /// Contrôle lblMessageErreur.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessageErreur;
-        
-        /// <summary>
-        /// Contrôle txtTitreAjout.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitreAjout;
-        
-        /// <summary>
-        /// Contrôle txtNouvelleAjout.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNouvelleAjout;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMinutesAjouter;
         
         /// <summary>
         /// Contrôle btnAjouter.
@@ -112,12 +85,12 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Button btnAjouter;
         
         /// <summary>
-        /// Contrôle btnAnnuler.
+        /// Contrôle lviewEcheancier.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnnuler;
+        protected global::System.Web.UI.WebControls.ListView lviewEcheancier;
     }
 }

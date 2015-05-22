@@ -1,4 +1,4 @@
-﻿<%@ Page MasterPageFile="~/Admin.master" Language="C#" AutoEventWireup="true" CodeBehind="Admin_editNouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.temp_editNouvelles" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page MasterPageFile="~/Admin.master" Language="C#" AutoEventWireup="true" CodeBehind="Admin_editNouvelles.aspx.cs" Inherits="Site_de_la_Technique_Informatique.temp_editNouvelles"%>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
@@ -60,7 +60,6 @@
                             <div class="panel-body">
                                 <asp:LinkButton runat="server" ID="LinkButton1" OnCommand="lnkEditNews_Command" CommandArgument="<%# Item.IDNouvelle %>"> Modifier ou supprimer</asp:LinkButton>
                                 <asp:Literal runat="server" Text="<%# Server.HtmlDecode(Item.texteNouvelle) %>"></asp:Literal>
-                                <asp:LinkButton runat="server" ID="lnkEditNews" OnCommand="lnkEditNews_Command" CommandArgument="<%# Item.IDNouvelle %>"> Modifier ou supprimer</asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -112,6 +111,7 @@
 
         <asp:Panel class="panel panel-default" runat="server" ID="panelAjoutNews" Visible="false">
             <div class="panel-body">
+                <asp:Label ID="lblMessageErreur" runat="server" Text=""></asp:Label>
                 <asp:Label runat="server" Text="Titre:"></asp:Label>
                 <asp:TextBox runat="server" ID="txtTitreAjout" Width="350px"></asp:TextBox>
                 <div style="margin-top: 10px;">

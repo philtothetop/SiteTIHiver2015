@@ -17,6 +17,9 @@
                 <li><a style="color:GrayText" href="Admin_Evenement.aspx">Événements</a><br />
                 </li>
 
+                <li><a style="color:GrayText" href="Admin_EvenementVERTIC.aspx">Événements Vertic</a><br />
+                </li>
+
                 <li><a style="color:GrayText" href="Admin_laFAQ.aspx">FAQ</a><br />
                 </li>
 

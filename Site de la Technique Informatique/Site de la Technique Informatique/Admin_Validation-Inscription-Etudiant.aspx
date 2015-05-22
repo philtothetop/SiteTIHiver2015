@@ -33,7 +33,7 @@
                             SelectMethod="GetUtilisateurEtudiantList"
                             UpdateMethod="CreerUtilisateurEtudiantList">
                             <LayoutTemplate>
-                                <div class="col-lg-11">
+                                <div class="col-lg-12">
                                     <asp:DataPager ID="dpLviewValidationInscription" runat="server" PagedControlID="lviewValidationInscription" PageSize="10">
                                         <Fields>
                                             <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
@@ -43,28 +43,23 @@
                                         </Fields>
                                     </asp:DataPager>
                                 </div>
-                                <div class="col-lg-11 top-list  bar-bottom">
-                                    <asp:CheckBox ID="chSelectionnerTous" runat="server" CssClass="vcenter chk" OnCheckedChanged="chSelectionnerTous_CheckedChanged" AutoPostBack="true" />
+                                <div class="col-lg-12 top-list  bar-bottom">
                                     <span class="col-md-1 vcenter">Photo</span>
                                     <span class="col-md-3 vcenter">Prénom Nom</span>
                                     <span class="col-md-3 vcenter">Courriel</span>
                                     <span class="col-md-2 vcenter">Date inscription</span>
 
-                                    <asp:LinkButton ID="lnkAccepterTousHaut" Text="Accepter tous" runat="server" CssClass="btn btn-primary" OnClick="lnkAccepterTousHaut_Click" />&nbsp;
-                        <asp:LinkButton ID="lnkRefuserTousHaut" Text="Supprimer tous" runat="server" CssClass="btn btn-danger" OnClick="lnkRefuserTousHaut_Click" />
                                 </div>
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
 
-                                <div class="col-lg-11 top-list bar-top">
+                                <div class="col-lg-12 top-list bar-top">
                                     &nbsp;&nbsp;&nbsp;
                         <span class="col-md-1 vcenter btn-bas"></span>
                                     <span class="col-md-3 vcenter"></span>
                                     <span class="col-md-3 vcenter"></span>
                                     <span class="col-md-2 vcenter"></span>
-                                    <asp:LinkButton ID="LinkButton1" Text="Accepter tous" runat="server" CssClass="btn btn-primary" />&nbsp;
-                        <asp:LinkButton ID="LinkButton2" Text="Supprimer tous" runat="server" CssClass="btn btn-danger" />
                                 </div>
-                                <div class="col-lg-11">
+                                <div class="col-lg-12">
                                     <asp:DataPager ID="dpLview2" runat="server" PagedControlID="lviewValidationInscription" PageSize="10">
                                         <Fields>
                                             <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="false" ShowPreviousPageButton="true"
@@ -76,17 +71,16 @@
                                 </div>
                             </LayoutTemplate>
                             <ItemTemplate>
-                                <div class='<%#Convert.ToBoolean(Container.DisplayIndex % 2) ? "OddRowColor col-lg-11 OddHeight" : "EvenRowColor col-lg-11 OddHeight" %>'>
+                                <div class='<%#Convert.ToBoolean(Container.DisplayIndex % 2) ? "OddRowColor col-lg-12 OddHeight" : "EvenRowColor col-lg-12 OddHeight" %>'>
                                     <asp:Label ID="lblId" runat="server" Text='<%#Eval("IDEtudiant") %>' Visible="false" />
-                                    <asp:CheckBox ID="chSelectionner" runat="server" CssClass="vcenter chk" />
                                     <span class="col-md-1 vcenter">
 
                                         <asp:Image ID="imgPhotoProfil" runat="server" ImageUrl='<%#  "~/Upload/Photos/Profils/"+Eval("pathPhotoProfil") %>' CssClass="img-thumbnail" /></span>
                                     <asp:Label ID="lblPrenom" runat="server" Text='<%#Eval("prenom")+" "+Eval("nom") %>' CssClass="col-md-3 vcenter" />
                                     <asp:Label ID="lvlCourriel" runat="server" Text='<%#Eval("courriel") %>' CssClass="col-md-3 vcenter" />
                                     <asp:Label ID="lblDateInscription" runat="server" Text='<%#Eval("dateInscription") %>' CssClass="col-md-2 vcenter" />
-                                    &nbsp;&nbsp;&nbsp;
-                        <asp:LinkButton ID="lnkAccepter" Text="Accepter" runat="server" CssClass="btn" OnClick="lnkAccepter_Click" CommandArgument='<%#Eval("IDEtudiant") %>' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                        <asp:LinkButton ID="lnkAccepter" Text="Accepter" runat="server" CssClass="btn" OnClick="lnkAccepter_Click" CommandArgument='<%#Eval("IDEtudiant") %>' />&nbsp;&nbsp;
                         <asp:LinkButton ID="lnkRefuser" Text="Supprimer" runat="server" CssClass="btn" OnClick="lnkRefuser_Click" CommandArgument='<%#Eval("IDEtudiant") %>' />
                                 </div>
                             </ItemTemplate>
