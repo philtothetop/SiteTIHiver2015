@@ -27,7 +27,7 @@ Extrants: --%>
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img src="Photos/Autres/QuiSommesNous.jpg" />
+                <img src="Upload/Photos/Autres/QuiSommesNous.jpg" />
             </div>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>
