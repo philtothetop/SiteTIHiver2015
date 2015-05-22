@@ -179,7 +179,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     String extension = fupCV.FileName.Substring(fupCV.FileName.LastIndexOf('.') + 1).ToLower();
 
-                    if (extension.Equals("pdf") || extension.Equals("docx") || extension.Equals("doc") || extension.Equals("odf"))
+                    if (extension.Equals("pdf"))
                     {
 
                     }
