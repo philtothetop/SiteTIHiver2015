@@ -109,13 +109,16 @@ namespace Site_de_la_Technique_Informatique
             {
                 using (LeModelTIContainer lecontexte = new LeModelTIContainer())
                 {
-                    VerTIC vertic = new VerTIC();
+                    VerTIC vertic;
+                    bool nouveau=false;
                     vertic = (from tic in lecontexte.VerTICSet select tic).FirstOrDefault();
                     if(vertic==null)
                         {
                              vertic = new VerTIC();
-
+                             nouveau = true;
+                        //lol karl
                         }
+
                     vertic.descriptionLicence = txtLogicielLicenses.Text;
                     vertic.descriptionLibre = txtLogicielLibres.Text;
                     vertic.caractéristiquesPortable = txtCaractPortatif.Text;
@@ -142,6 +145,10 @@ namespace Site_de_la_Technique_Informatique
                     loggerUnLog.Utilisateur = lutilisateurCo;
                     loggerUnLog.UtilisateurIDUtilisateur = lutilisateurCo.IDUtilisateur;
                     lecontexte.LogSet.Add(loggerUnLog);
+                    if(nouveau==true)
+                    {
+                        lecontexte.VerTICSet.Add(vertic);
+                    }
                     lecontexte.SaveChanges();
                     mvAdmin_Vertic.SetActiveView(viewFin);
 
