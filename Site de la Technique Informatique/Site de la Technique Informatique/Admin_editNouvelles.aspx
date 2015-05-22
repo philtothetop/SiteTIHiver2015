@@ -13,11 +13,17 @@
                     "pagebreak code charmap nonbreaking table contextmenu directionality paste textcolor searchreplace"],
             toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | charmap emoticons | bullist numlist outdent indent | link image media",
             language: 'fr_FR',
+            setup: function (editor) {
+                editor.on('SaveContent', function (ed) {
+                    ed.content = ed.content.replace(/&#39/g, "&apos");
+                });
+            }
         });
     </script>
     <script>
         function Encode() {
             var value = (document.getElementById('TextBox1').value);
+            value = value.replace('\'', "&apos");
             value = value.replace('<', "&lt;");
             value = value.replace('>', "&gt;");
             document.getElementById('txtContenuNouvelle').value = value;

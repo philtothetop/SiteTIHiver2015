@@ -5,9 +5,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
-
+        
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-centered">
                 <div class="col-lg-3">
                     <h1 class="page-header">
                         <asp:Label ID="lblTitreSection" runat="server" Font-Size="20"></asp:Label>

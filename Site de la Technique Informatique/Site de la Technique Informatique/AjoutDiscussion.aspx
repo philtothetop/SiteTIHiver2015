@@ -15,6 +15,11 @@
                     "pagebreak code nonbreaking table contextmenu directionality paste textcolor searchreplace"],
             toolbar1: " undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | fontselect | fontsizeselect | forecolor backcolor | charmap emoticons | bullist numlist outdent indent | link image media",
             language: 'fr_FR',
+            setup: function (editor) {
+                editor.on('SaveContent', function (ed) {
+                    ed.content = ed.content.replace(/&#39/g, "&apos");
+                });
+            }
         });
     </script>
     <script>

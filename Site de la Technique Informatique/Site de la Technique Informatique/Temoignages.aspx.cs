@@ -26,11 +26,11 @@ namespace Site_de_la_Technique_Informatique
                 {
                     //Afficher tout les témoignages validés 
                     listeDesTemoignages = (from cl in lecontexte.UtilisateurSet.OfType<Etudiant>() 
-                                           where cl.temoignage.Length > 1 && cl.valideTemoignage == true 
+                                           where cl.temoignage.Length > 1 && cl.valideTemoignage == true  && cl.compteActif == 1
                                            select cl as Membre).ToList(); 
 
                     List<Membre> listeDesProfs = (from cl in lecontexte.UtilisateurSet.OfType<Professeur>() 
-                                                        where cl.temoignage.Length > 1
+                                                        where cl.temoignage.Length > 1 && cl.compteActif == 1
                                                         select cl as Membre).ToList();
                     //Si liste témoignage prof pas vide 
                     if (listeDesProfs != null) { 
@@ -58,6 +58,7 @@ namespace Site_de_la_Technique_Informatique
             {
                 LogErreur("Temoignages-lviewTemoignges_GetData", ex);
             }
+
             return liste5Membre.AsQueryable();
         }
 
