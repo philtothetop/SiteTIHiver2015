@@ -90,7 +90,7 @@
                
             </div>
             <div class="col-md-4" style="padding:0px;">
-                <img class="img-responsive" style="padding-right:20px;" src="Upload/Photos/Autres/Accueil.jpg" alt="" />
+                <img class="img-responsive" style="padding-right:20px;" src="Upload/Photos/Autres/Accueil.jpg" width="400" alt="" />
             </div>
         </div>
         <!-- /.row -->
