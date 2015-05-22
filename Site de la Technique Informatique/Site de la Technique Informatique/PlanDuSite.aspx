@@ -39,11 +39,12 @@
                             </asp:TreeNode>
 
                             <asp:TreeNode Text="Offres d'emploi" NavigateUrl="~/OffreEmploi.aspx" />
-                         
+
+                            <asp:TreeNode Text="Membres" NavigateUrl="~/Recherche.aspx" />
+
                             <asp:TreeNode Text="Inscription" NavigateUrl="~/Inscription-Etudiant.aspx" />
 
-                            <asp:TreeNode Text="Recherche" NavigateUrl="~/Recherche.aspx" />
-                          
+                                                    
                              <asp:TreeNode Text="Ressources" SelectAction="None" >
                                  <asp:TreeNode Text="Contactez-nous" NavigateUrl="~/Contact.aspx" />
                                  <asp:TreeNode Text="Concepteurs" NavigateUrl="~/Concepteur.aspx" />

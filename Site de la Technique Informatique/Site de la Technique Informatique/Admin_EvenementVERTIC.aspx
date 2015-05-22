@@ -132,7 +132,7 @@
                             <div class="col-lg-3" style="margin-top: 30px;">
 
                                 <asp:Button ID="btnModifier" runat="server" Text="Modifier" CssClass="btn btn-primary" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="UpdateEvent" />
-                                <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-danger" Style="margin-left: 20px; margin-top: 45px;" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="btnSupprimer_Click" />
+                                <asp:Button ID="btnSupprimer" runat="server" Text="Supprimer" CssClass="btn btn-danger" Style="margin-left: 20px;" CommandArgument='<%# Eval("IDDateEvenementVerTIC").ToString()%>' OnClick="btnSupprimer_Click" />
 
                             </div>
 
