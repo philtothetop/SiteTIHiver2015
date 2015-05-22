@@ -179,7 +179,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     String extension = fupCV.FileName.Substring(fupCV.FileName.LastIndexOf('.') + 1).ToLower();
 
-                    if (extension.Equals("pdf") || extension.Equals("docx") || extension.Equals("doc") || extension.Equals("odf"))
+                    if (extension.Equals("pdf"))
                     {
 
                     }
@@ -286,7 +286,7 @@ namespace Site_de_la_Technique_Informatique
                         txtConfirmationNouveauMotDePasse.BorderColor = initialBorderColor;
 
                         //Montrer que sa marché
-                        lblMessage.Text = "Les modifications ont étées sauvegardé";
+                        lblMessage.Text = "Les modifications ont été sauvegardées";
                         lblMessage.ForeColor = Color.Green;
                     }
                     catch (DbEntityValidationException ex) // D'AUTRES ERREURS PEUVENT SURVENIR QUI N'ONT PAS ÉTÉ PRÉVUE VIA DATAANNOTATIONS.

@@ -12,7 +12,7 @@
 
                 <asp:View ID="viewAjouterProf" runat="server">
                     
-                    <asp:Button ID="btnAllezSupprimerProf" runat="server" OnClick="btnAllezSupprimerProf_Click" CssClass="btn btn-primary" Text="Supprimer un professeur" />
+                    <asp:Button ID="btnAllezSupprimerProf" runat="server" OnClick="btnAllezSupprimerProf_Click" CssClass="btn btn-danger" Text="Supprimer un professeur" />
                     
                     <div class="row" id="divAjoutProf" runat="server">
                                 <div class="col-md-12">
@@ -63,7 +63,7 @@
                                     </div>
                                 <div class="col-md-12">
                                     <div class="col-md-4">
-                                    <asp:LinkButton ID="lnkEnvoyer" Text="Ajouter" runat="server" CssClass="btn btn-default" OnClick="lnkEnvoyer_Click" />
+                                    <asp:LinkButton ID="lnkEnvoyer" Text="Ajouter" runat="server" CssClass="btn btn-primary" OnClick="lnkEnvoyer_Click" />
                                         </div>
                                 </div>
             

@@ -22,7 +22,7 @@
                 SelectMethod="lviewTemoignages_GetData">
 
                 <EmptyDataTemplate>
-                    Aucun témoignages disponibles.
+                    Aucun témoignage disponible.
                 </EmptyDataTemplate>
 
                 <ItemTemplate>

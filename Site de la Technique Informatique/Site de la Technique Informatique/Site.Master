@@ -100,7 +100,9 @@
                                 <li><a href="Vertic.aspx">Vertic</a> </li>
                                 <li><a href="InformationsStage.aspx">Stages</a> </li>
                                 <li><a href="Temoignages.aspx">Témoignages</a> </li>
-                                 <li><a href="LesParutionsMedias.aspx">Parutions média</a> </li>
+                                <li><a href="LesParutionsMedias.aspx">Parutions Média</a> </li>
+                                <li><a href="FAQ.aspx">Foire aux questions</a> </li>
+                               
 
                             </ul>
                         </li>
