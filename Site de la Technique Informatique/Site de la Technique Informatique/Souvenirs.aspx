@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Souvenirs.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Souvenirs" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Souvenirs.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Souvenirs" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
@@ -45,7 +45,7 @@
                             <div class="col-md-6 img-portfolio">
                                 <div>
                                     <div style="text-align:center;">
-                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# (isLocal() ? "~/Upload/Photos/Souvenir/" : "~/../Upload/Photos/Souvenir/" )+ Item.typePhoto + "/" + Item.pathPhoto %>' Height='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, true) %>' Width='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, false) %>' style="max-width:500px; max-height:500px;" />
+                                        <asp:Image ID="imgDuSouvenir" runat="server" ImageUrl='<%# "~/Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto %>' Height='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, true) %>' Width='<%# ImageToResize(Item.typePhoto + "/" + Item.pathPhoto, false) %>' style="max-width:500px; max-height:500px;" />
 
                                     </div>                             
                                 </div>                           

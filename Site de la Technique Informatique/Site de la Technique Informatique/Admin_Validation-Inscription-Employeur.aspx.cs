@@ -23,8 +23,7 @@ namespace Site_de_la_Technique_Informatique
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SavoirSiPossedeAutorizationPourLaPage(true, true, false, false, false);
-
+            SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
         //Cette classe cherche la liste des étudiant inscription dont leur courriel n'a pas été validé depuis plus de 24 h.
         //Écrit par Cédric Archambault 17 avril 2015
@@ -82,49 +81,7 @@ namespace Site_de_la_Technique_Informatique
             }
             
         }
-        //Cette class Efface tous les comptes étudiants sélectionner
-        //Écrit par Cédric Archambault 27 février 2015
-        //Intrants:Vide
-        //Extrants:Vide
-        protected void lnkSupprimerTous()
-        {
-            try
-            {
-                using (LeModelTIContainer leContext = new LeModelTIContainer())
-                {
-                    ListView listv = lviewValidationInscription;
-                    foreach (ListViewDataItem item in listv.Items)
-                    {
-                        CheckBox chSelectionner = (CheckBox)item.FindControl("chSelectionner");
-                        Label lblId = (Label)item.FindControl("lblId");
-                        if (chSelectionner != null && lblId != null && chSelectionner.Checked)
-                        {
-                            int id = int.Parse(lblId.Text);
-                            Employeur employeur = (from cl in leContext.UtilisateurSet.OfType<Employeur>() where cl.IDEmployeur == id select cl).FirstOrDefault();
-                            
-                            leContext.UtilisateurSet.Remove(employeur);
-                            if (envoie_courriel_confirmationRefuser(employeur) == false)
-                            {
-                                lblMessage.Text = "Il est impossible d'envoyer les courriels de confirmation du refus, mais les inscriptions ont été refusées.";
-                                lblMessage.Visible = true;
-                                break;
-                            }
-                            else
-                            {
-                                lblMessage.Visible = false;
-                            }
-                        }
-                    }
-                    leContext.SaveChanges();
-                    Response.Redirect(Request.RawUrl);
-                }
-            }
-            catch (Exception ex)
-            {
-                Exception logEx = ex;
-                throw new Exception("Erreur Supprimer tous: " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
-            }
-        }
+       
         //Cette class refuser un étudiant.
         //Écrit par Cédric Archambault 27 février 2015
         //Intrants:Objet Employeur
@@ -150,7 +107,7 @@ namespace Site_de_la_Technique_Informatique
                     }
                     
                     leContext.SaveChanges();
-                    Response.Redirect(Request.RawUrl);
+                    lviewValidationInscription.DataBind();
 
                 }
             }
@@ -161,52 +118,7 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        //Cette class Accepter tous les comptes étudiants sélectionner
-        //Écrit par Cédric Archambault 27 février 2015
-        //Intrants:Vide
-        //Extrants:Vide
-        protected void lnkAccepterTous()
-        {
-            try
-            {
-                using (LeModelTIContainer leContext = new LeModelTIContainer())
-                {
 
-                    ListView listv = lviewValidationInscription;
-                    foreach (ListViewDataItem item in listv.Items)
-                    {
-                        CheckBox chSelectionner = (CheckBox)item.FindControl("chSelectionner");
-                        Label lblId = (Label)item.FindControl("lblId");
-                        if (chSelectionner != null && lblId != null && chSelectionner.Checked)
-                        {
-                            int id = int.Parse(lblId.Text);
-                            Employeur employeur = (from cl in leContext.UtilisateurSet.OfType<Employeur>() where cl.IDEmployeur == id select cl).FirstOrDefault();
-
-                            if (envoie_courriel_confirmation(employeur) == false)
-                            {
-                                lblMessage.Text = "Impossible d'accepter toutes les inscriptions, car il est impossible d'envoyer les courriels de validation.";
-                                lblMessage.Visible = true;
-                                break;// sort de la boucle 
-                            }
-                            else
-                            {
-                                lblMessage.Visible = false;
-                                employeur.compteActif = false;//Ative le compte.
-                                leContext.SaveChanges();
-                                Response.Redirect(Request.RawUrl);
-                            }
-                        }
-                    }
-                   
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                Exception logEx = ex;
-                throw new Exception("Erreur Accepter tous: " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
-            }
-        }
         //Cette class Accepter un étudiant.
         //Écrit par Cédric Archambault 27 février 2015
         //Intrants:Objet Employeur
@@ -228,9 +140,9 @@ namespace Site_de_la_Technique_Informatique
                     }else
                     {
                         lblMessage.Visible = false;
-                        employeur.compteActif = false;//Ative le compte.
+                        employeur.compteActif = true;
                         leContext.SaveChanges();
-                        Response.Redirect(Request.RawUrl);
+                        lviewValidationInscription.DataBind();
                     }
                     
                 }
@@ -240,61 +152,6 @@ namespace Site_de_la_Technique_Informatique
                 Exception logEx = ex;
                 throw new Exception("Erreur Accepter Click: " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
             }
-        }
-        //Cette class sélectionne tous les étudiants à l'écran.
-        //Écrit par Cédric Archambault 27 février 2015
-        //Intrants:Objet Employeur
-        //Extrants:vide
-        protected void checkTous()
-        {
-            try
-            {
-                using (LeModelTIContainer leContext = new LeModelTIContainer())
-                {
-                    ListView listv = lviewValidationInscription;
-                    CheckBox chSelectionnerTous = (CheckBox)listv.FindControl("chSelectionnerTous");
-                    if (chSelectionnerTous != null)
-                    {
-                        foreach (ListViewDataItem item in listv.Items)
-                        {
-                            CheckBox chSelectionner = (CheckBox)item.FindControl("chSelectionner");
-                            if (chSelectionner != null)
-                            {
-                                if (chSelectionnerTous.Checked)
-                                {
-                                    chSelectionner.Checked = true;
-                                }
-                                else
-                                {
-                                    chSelectionner.Checked = false;
-                                }
-                            }
-                        }
-                    }
-                    leContext.SaveChanges();
-
-                }
-            }
-            catch (Exception ex)
-            {
-                Exception logEx = ex;
-                throw new Exception("Erreur Check tous: " + ex.ToString() + "Inner exception de l'erreur: " + logEx.InnerException + "");
-            }
-        }
-
-        protected void lnkRefuserTousHaut_Click(object sender, EventArgs e)
-        {
-            lnkSupprimerTous();
-        }
-
-        protected void lnkAccepterTousHaut_Click(object sender, EventArgs e)
-        {
-            lnkAccepterTous();
-        }
-
-        protected void chSelectionnerTous_CheckedChanged(object sender, EventArgs e)
-        {
-            checkTous();
         }
 
         protected void lnkEffacerInscriptionCourrielNonValider_Click(object sender, EventArgs e)

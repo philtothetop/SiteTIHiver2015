@@ -33,14 +33,14 @@
     <asp:ScriptManagerProxy ID="smProxy" runat="server" />
 
     <div class="container">
-        <div class="col-lg-3"></div>
+        
         <div class="row row-centered">
             <div class="col-lg-5 col-centered">
                 <h1>Inscription d'un employeur</h1>
             </div>
         </div>
 
-        <div class="col-lg-3"></div>
+
         <asp:ListView ID="lviewFormulaireInscriptionEmployeur" runat="server"
             ItemType="Site_de_la_Technique_Informatique.Model.Employeur"
             SelectMethod="GetUtilisateurEmployeur"
@@ -105,27 +105,8 @@
                                     </div>
 
                                     <asp:LinkButton ID="lnkAnnuler" Text="Retour" runat="server" CssClass="btn btn-danger" OnClientClick="goBack()" />
-                                    <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-primary" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
+                                    <asp:LinkButton ID="lnkEnvoyer" Text="Envoyer" runat="server" CssClass="btn btn-default" CommandName="Update" Enabled="false" ValidationGroup="g1" OnClientClick="copieImgData()" />
 
-                                    <!-- Modal Termes et conditions-->
-                                    <div class="modal fade" id="mesConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">Termes et conditions</h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    bla bla bla...
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                                    <asp:LinkButton ID="lnkAcccepter" runat="server" CssClass="btn btn-primary" Text="Accepter" OnClick="lnkAcccepter_Click" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Fin Termes et condition-->
 
 
                                 </ContentTemplate>
@@ -136,7 +117,7 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-3"></div>
+                   
             </ItemTemplate>
         </asp:ListView>
     </div>

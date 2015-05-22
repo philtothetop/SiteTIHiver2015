@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription-Employeur.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Validation_Inscription_Employeur" MasterPageFile="~/Admin.master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Validation-Inscription-Employeur.aspx.cs" Inherits="Site_de_la_Technique_Informatique.Admin_Validation_Inscription_Employeur" MasterPageFile="~/Admin.master" MaintainScrollPositionOnPostback="true" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <script src="js/jquery.js"></script>
@@ -45,13 +45,10 @@
                                     </asp:DataPager>
                                 </div>
                                 <div class="col-lg-11 top-list  bar-bottom">
-                                    <asp:CheckBox ID="chSelectionnerTous" runat="server" CssClass="vcenter chk" OnCheckedChanged="chSelectionnerTous_CheckedChanged" AutoPostBack="true" />
                                     <span class="col-md-4 vcenter">Nom</span>
                                     <span class="col-md-3 vcenter">Courriel</span>
                                     <span class="col-md-2 vcenter">Date inscription</span>
 
-                                    <asp:LinkButton ID="lnkAccepterTousHaut" Text="Accepter tous" runat="server" CssClass="btn btn-primary" OnClick="lnkAccepterTousHaut_Click" />&nbsp;
-                        <asp:LinkButton ID="lnkRefuserTousHaut" Text="Refuser tous" runat="server" CssClass="btn btn-danger" OnClick="lnkRefuserTousHaut_Click" />
                                 </div>
                                 <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
 
@@ -61,8 +58,6 @@
                                     <span class="col-md-4 vcenter"></span>
                                     <span class="col-md-3 vcenter"></span>
                                     <span class="col-md-2 vcenter"></span>
-                                    <asp:LinkButton ID="LinkButton1" Text="Accepter tous" runat="server" CssClass="btn btn-primary" />&nbsp;
-                        <asp:LinkButton ID="LinkButton2" Text="Refuser tous" runat="server" CssClass="btn btn-danger" />
                                 </div>
                                 <div class="col-lg-11">
                                     <asp:DataPager ID="dpLview2" runat="server" PagedControlID="lviewValidationInscription" PageSize="10">
@@ -78,12 +73,11 @@
                             <ItemTemplate>
                                 <div class='<%#Convert.ToBoolean(Container.DisplayIndex % 2) ? "OddRowColor col-lg-11 " : "EvenRowColor col-lg-11" %>'>
                                     <asp:Label ID="lblId" runat="server" Text='<%#Eval("IDEmployeur") %>' Visible="false" />
-                                    <asp:CheckBox ID="chSelectionner" runat="server" CssClass="vcenter chk" />
                                     <asp:Label ID="lblPrenom" runat="server" Text='<%#Eval("nomEmployeur") %>' CssClass="col-md-4 vcenter" />
                                     <asp:Label ID="lvlCourriel" runat="server" Text='<%#Eval("courriel") %>' CssClass="col-md-3 vcenter" />
                                     <asp:Label ID="lblDateInscription" runat="server" Text='<%#Eval("dateInscription") %>' CssClass="col-md-2 vcenter" />
-                                    &nbsp;&nbsp;&nbsp;
-                        <asp:LinkButton ID="lnkAccepter" Text="Accepter" runat="server" CssClass="btn" OnClick="lnkAccepter_Click" CommandArgument='<%#Eval("IDEmployeur") %>' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;
+                        <asp:LinkButton ID="lnkAccepter" Text="Accepter" runat="server" CssClass="btn" OnClick="lnkAccepter_Click" CommandArgument='<%#Eval("IDEmployeur") %>' />&nbsp;&nbsp;
                         <asp:LinkButton ID="lnkRefuser" Text="Refuser" runat="server" CssClass="btn" OnClick="lnkRefuser_Click" CommandArgument='<%#Eval("IDEmployeur") %>' />
                                 </div>
                             </ItemTemplate>

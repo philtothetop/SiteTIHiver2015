@@ -17,9 +17,16 @@ namespace Site_de_la_Technique_Informatique
 {
     public class ErrorHandling : System.Web.UI.Page
     {
-        protected bool isLocal()
+        public string isLocal(string path)
         {
-            return HttpContext.Current.Request.IsLocal;
+            if (HttpContext.Current.Request.IsLocal == true)
+            {
+                 return "~/" + path;
+            }
+            else
+            { 
+                return "~/../" + path;
+            }
         }
 
         static Random rng = new Random();
@@ -188,26 +195,12 @@ namespace Site_de_la_Technique_Informatique
                 //Rediriger si pas les droits
                 if (doitRedirigerLaPersonne == true)
                 {
-                    if (isLocal())
-                    {
-                        Response.Redirect("~/Default.aspx");
-                    }
-                    else
-                    {
-                        Response.Redirect("~/../Default.aspx");
-                    }
+                    Response.Redirect("Default.aspx");
                 }
             }
             catch
             {
-                if (isLocal())
-                {
-                    Response.Redirect("~/Default.aspx");
-                }
-                else
-                {
-                    Response.Redirect("~/../Default.aspx");
-                }
+                Response.Redirect("Default.aspx");
             }
         }
         

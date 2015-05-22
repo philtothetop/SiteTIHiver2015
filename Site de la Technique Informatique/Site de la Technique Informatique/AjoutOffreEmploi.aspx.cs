@@ -438,7 +438,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     try
                     {
-                        string SaveLocation = System.IO.Path.Combine(Server.MapPath("") + "\\Upload\\", newFile);
+                        string SaveLocation = System.IO.Path.Combine(Server.MapPath("") + "\\Upload\\PDFOffreEmploi\\", newFile);
 
                         if (Session["IDOffreEmploiModifier"] != null)
                         {

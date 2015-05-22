@@ -61,7 +61,7 @@ Extrants: --%>
                         <div class="thumbnail">
                             <div class="row" style="">
                                 <%-- Photo du professeur --%>
-                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' />
+                                <asp:Image ID="imgProf" runat="server" ImageUrl='<%# Eval ("pathPhotoProfil", "~/Photos/Profils/{0}") %>' ToolTip='<%# Eval("prenom") %>' Width="120" Height="120" />
                             </div>
                             <div class="row">
                                 <%-- Nom du professeur --%>

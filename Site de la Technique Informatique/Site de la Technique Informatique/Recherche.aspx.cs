@@ -71,6 +71,16 @@ namespace Site_de_la_Technique_Informatique
                 LogErreur("Recherche.aspx.cs dans la méthode lviewRecherche_GetData", ex);
             }
 
+            //Data pager juste quadn besoin
+            if (listeMembre.Count > dataPagerRecherche.PageSize)
+            {
+                dataPagerRecherche.Visible = true;
+            }
+            else
+            {
+                dataPagerRecherche.Visible = false;
+            }
+
             return listeMembre.AsQueryable();
         }
 

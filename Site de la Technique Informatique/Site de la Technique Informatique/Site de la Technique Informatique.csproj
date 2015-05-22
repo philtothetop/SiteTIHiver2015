@@ -102,6 +102,7 @@
   <ItemGroup>
     <Content Include="Admin_AjouteSupprimeProf.aspx" />
     <Content Include="Admin_Default.aspx" />
+    <Content Include="Admin_EvenementVERTIC.aspx" />
     <Content Include="Admin_laFAQ.aspx" />
     <Content Include="Admin_LesPhotos.aspx" />
     <Content Include="Admin_Media.aspx" />
@@ -148,6 +149,7 @@
     <Content Include="Jquery\Cropper\js\jquery.min.js" />
     <Content Include="LesParutionsMedias.aspx" />
     <Content Include="ListeOffresEmploi.aspx" />
+    <Content Include="Upload\Photos\logoCegep.png" />
     <Content Include="MesDiscussionsForum.aspx" />
     <Content Include="Model\LeModelTI.edmx.sql" />
     <Content Include="Css\bootstrap.css" />
@@ -165,37 +167,39 @@
     <Content Include="Js\scrolling-nav.js" />
     <Content Include="Log.aspx" />
     <Content Include="ModifierProfesseur.aspx" />
+    <Content Include="modifProfilEmployeur.aspx" />
     <Content Include="modifProfilEtudiant.aspx" />
     <Content Include="Nouvelles.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="OffreEmploi.aspx" />
     <Content Include="PageNotFound.aspx" />
-    <Content Include="Photos\Autres\Accueil.JPG" />
-    <Content Include="Photos\Autres\QuiSommesNous.jpg" />
-    <Content Include="Photos\Concepteurs\Cedric.JPG" />
-    <Content Include="Photos\Concepteurs\Yannick.JPG" />
-    <Content Include="Photos\entete.jpg" />
-    <Content Include="Photos\image1.jpg" />
-    <Content Include="Photos\image2.jpg" />
-    <Content Include="Photos\image3.jpg" />
-    <Content Include="Photos\image4.jpg" />
-    <Content Include="Photos\image5.jpg" />
-    <Content Include="Photos\image6.jpg" />
-    <Content Include="Photos\logo\Logo_Informatique-mini.jpg" />
-    <Content Include="Photos\logo\Logo_Informatique.jpg" />
-    <Content Include="Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
-    <Content Include="Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
-    <Content Include="Photos\logo\Logo_InformatiqueNB.jpg" />
-    <Content Include="Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
-    <Content Include="logoCegep.png" />
-    <Content Include="Photos\Concepteurs\Baron.JPG" />
-    <Content Include="Photos\Concepteurs\Bibeau.JPG" />
-    <Content Include="Photos\Concepteurs\Jacob.JPG" />
-    <Content Include="Photos\Concepteurs\Karl.JPG" />
-    <Content Include="Photos\Concepteurs\Marie.JPG" />
-    <Content Include="Photos\Profils\photobase.bmp" />
-    <Content Include="Photos\Concepteurs\Raphael.JPG" />
-    <Content Include="Photos\Concepteurs\Xavier.JPG" />
+    <Content Include="Upload\Autres\Accueil.JPG" />
+    <Content Include="Upload\Autres\quiSommesNous.JPG" />
+    <Content Include="Upload\Photos\Autres\Accueil.JPG" />
+    <Content Include="Upload\Photos\Autres\QuiSommesNous.jpg" />
+    <Content Include="Upload\Photos\Concepteurs\Cedric.JPG" />
+    <Content Include="Upload\Photos\Concepteurs\Yannick.JPG" />
+    <Content Include="Upload\Photos\entete.jpg" />
+    <Content Include="Upload\Photos\image1.jpg" />
+    <Content Include="Upload\Photos\image2.jpg" />
+    <Content Include="Upload\Photos\image3.jpg" />
+    <Content Include="Upload\Photos\image4.jpg" />
+    <Content Include="Upload\Photos\image5.jpg" />
+    <Content Include="Upload\Photos\image6.jpg" />
+    <Content Include="Upload\Photos\logo\Logo_Informatique-mini.jpg" />
+    <Content Include="Upload\Photos\logo\Logo_Informatique.jpg" />
+    <Content Include="Upload\Photos\logo\Logo_InformatiqueBlanc_FondTransparent.png" />
+    <Content Include="Upload\Photos\logo\Logo_InformatiqueCouleur_FondTransparent.png" />
+    <Content Include="Upload\Photos\logo\Logo_InformatiqueNB.jpg" />
+    <Content Include="Upload\Photos\logo\Logo_InformatiqueNB_FondTransparent.png" />
+    <Content Include="Upload\Photos\Concepteurs\Baron.JPG" />
+    <Content Include="Upload\Photos\Concepteurs\Bibeau.JPG" />
+    <Content Include="Upload\Photos\Concepteurs\Jacob.JPG" />
+    <Content Include="Upload\Photos\Concepteurs\Karl.JPG" />
+    <Content Include="Upload\Photos\Concepteurs\Marie.JPG" />
+    <Content Include="Upload\Photos\Profils\photobase.bmp" />
+    <Content Include="Upload\Photos\Concepteurs\Raphael.JPG" />
+    <Content Include="Upload\Photos\Concepteurs\Xavier.JPG" />
     <Content Include="PlanDuSite.aspx" />
     <Content Include="ProfilEtudiant.aspx" />
     <Content Include="ProfilProfesseur.aspx" />
@@ -452,9 +456,7 @@
     <Content Include="tinymce\js\tinymce\themes\modern\theme.min.js" />
     <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="tinymce\LICENSE.TXT" />
-    <Content Include="toast.gif" />
     <Content Include="Admin_Validation-Inscription-Etudiant.aspx" />
-    <Content Include="ValiderLesOffresEmploi.aspx" />
     <Content Include="Vertic.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -488,6 +490,13 @@
     </Compile>
     <Compile Include="Admin_Evenement.aspx.designer.cs">
       <DependentUpon>Admin_Evenement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_EvenementVERTIC.aspx.cs">
+      <DependentUpon>Admin_EvenementVERTIC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_EvenementVERTIC.aspx.designer.cs">
+      <DependentUpon>Admin_EvenementVERTIC.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_LesPhotos.aspx.cs">
       <DependentUpon>Admin_LesPhotos.aspx</DependentUpon>
@@ -793,6 +802,13 @@
     <Compile Include="ModifierProfesseur.aspx.designer.cs">
       <DependentUpon>ModifierProfesseur.aspx</DependentUpon>
     </Compile>
+    <Compile Include="modifProfilEmployeur.aspx.cs">
+      <DependentUpon>modifProfilEmployeur.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modifProfilEmployeur.aspx.designer.cs">
+      <DependentUpon>modifProfilEmployeur.aspx</DependentUpon>
+    </Compile>
     <Compile Include="modifProfilEtudiant.aspx.cs">
       <DependentUpon>modifProfilEtudiant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -916,13 +932,6 @@
     <Compile Include="TermesConditions.aspx.designer.cs">
       <DependentUpon>TermesConditions.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ValiderLesOffresEmploi.aspx.cs">
-      <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ValiderLesOffresEmploi.aspx.designer.cs">
-      <DependentUpon>ValiderLesOffresEmploi.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Vertic.aspx.cs">
       <DependentUpon>Vertic.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -937,14 +946,15 @@
     <Folder Include="Jquery\Cropper2\img\" />
     <Folder Include="Jquery\Cropper\img\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Photos\Cégep\" />
-    <Folder Include="Photos\Souvenir\Autre\" />
-    <Folder Include="Photos\Souvenir\Cégep\" />
-    <Folder Include="Photos\Souvenir\Professeurs\" />
-    <Folder Include="Photos\Souvenir\Projets\" />
-    <Folder Include="Photos\Souvenir\Étudiants\" />
     <Folder Include="tinymce\Upload\CV\" />
     <Folder Include="Upload\CV\" />
+    <Folder Include="Upload\PDFOffreEmploi\" />
+    <Folder Include="Upload\Photos\Cégep\" />
+    <Folder Include="Upload\Photos\Souvenir\Autre\" />
+    <Folder Include="Upload\Photos\Souvenir\Cégep\" />
+    <Folder Include="Upload\Photos\Souvenir\Professeurs\" />
+    <Folder Include="Upload\Photos\Souvenir\Projets\" />
+    <Folder Include="Upload\Photos\Souvenir\Étudiants\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

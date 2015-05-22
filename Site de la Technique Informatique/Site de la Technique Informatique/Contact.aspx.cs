@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Site_de_la_Technique_Informatique.Model;
+using System.Drawing;
+using System.Text.RegularExpressions;
 
 
 namespace Site_de_la_Technique_Informatique
@@ -21,7 +23,42 @@ namespace Site_de_la_Technique_Informatique
 
         protected void btnEnvoyer_Click(object sender, EventArgs e)
         {
-            envoyerEmail();
+            //Vérifier si possède des champs non valide
+            bool isValid = true;
+            string lesErreurs = "";
+            Regex regexMail = new Regex(@"([-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4})");
+            Match unMatch = regexMail.Match(txtCourriel.Text);
+
+            //Vérifier si c'est un mail non-valide
+            if (unMatch.Success == false)
+            {
+                isValid = false;
+                lesErreurs += "Le courriel n'est pas valide." + "<br/>";
+            }
+
+            //Vérifier le nom (Au moni 2 caractere
+            if (txtNom.Text.Count() < 2)
+            {
+                isValid = false;
+                lesErreurs += "Votre nom doit comporter au moin 2 caractères." + "<br/>";
+            }
+
+            //Vérifier le message
+            if (txtMessage.Text.Count() < 10)
+            {
+                isValid = false;
+                lesErreurs += "Le message est trop court.";
+            }
+
+            if (isValid == true)
+            {
+                envoyerEmail();
+            }
+            else
+            {
+                lblMessageHaut.Text = lesErreurs;
+                lblMessageHaut.ForeColor = Color.Red;
+            }
         }
 
         #region Envoyer un email
@@ -75,7 +112,8 @@ namespace Site_de_la_Technique_Informatique
             txtMessage.Text = "";
 
             lblMessageHaut.Attributes["style"] += "color:green;";
-            lblMessageHaut.Text += "Vous avez bien envoyé votre message. Vous devriez avoir une réponse sous peu.";
+            lblMessageHaut.Text = "Vous avez bien envoyé votre message. Vous devriez avoir une réponse sous peu.";
+            lblMessageHaut.ForeColor = Color.Green;
         }
         #endregion
     }

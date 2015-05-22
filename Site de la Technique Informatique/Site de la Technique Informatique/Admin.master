@@ -32,16 +32,24 @@
                 <li><a style="color:GrayText" href="Admin_Temoignage.aspx">Témoignages</a><br />
                 </li>
 
-                <li><a style="color:GrayText" href="Admin_editNouvelles.aspx">Gérer les nouvelles</a><br />
+                <li><a style="color:GrayText" href="Admin_editNouvelles.aspx">Nouvelles</a><br />
                 </li>
 
-                <li><a style="color:GrayText" href="Admin_Validation-Inscription-Etudiant.aspx">Valider inscriptions étudiants</a><br />
+                <li><a style="color:GrayText" href="Admin_Validation-Inscription-Etudiant.aspx">Inscriptions étudiants</a><br />
                 </li>
 
-                <li><a style="color:GrayText" href="Admin_Validation-Inscription-Employeur.aspx">Valider inscriptions employeurs</a><br />
+                <li><a style="color:GrayText" href="Admin_Validation-Inscription-Employeur.aspx">Inscriptions employeurs</a><br />
                 </li>
 
                 <li><a style="color:GrayText" href="Admin_Vertic.aspx">Vertic</a><br />
+                </li>
+
+                
+                <li><a style="color:GrayText" href="Admin_EvenementVERTIC.aspx">Événements Vertic</a><br />
+                </li>
+
+
+                <li><a style="color:GrayText" href="Log.aspx">Historique</a><br />
                 </li>
 
             </ul>

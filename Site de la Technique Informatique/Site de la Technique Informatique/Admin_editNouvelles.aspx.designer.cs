@@ -76,6 +76,15 @@ namespace Site_de_la_Technique_Informatique {
         protected global::System.Web.UI.WebControls.Panel panelAjoutNews;
         
         /// <summary>
+        /// Contrôle lblMessageErreur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessageErreur;
+        
+        /// <summary>
         /// Contrôle txtTitreAjout.
         /// </summary>
         /// <remarks>

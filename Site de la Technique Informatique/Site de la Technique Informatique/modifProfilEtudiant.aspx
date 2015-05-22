@@ -61,6 +61,7 @@ Extrants: --%>
 
     <script type="text/javascript">
         function copieImgData()
+        {
             document.getElementById("<%=ImgExSrc.ClientID%>").value = ContentPlaceHolder1_lvModifProfilEtudiant_showDataURL_0.src;
         }
     </script>
@@ -78,6 +79,7 @@ Extrants: --%>
             $('.modal-backdrop').remove();
         };
     </script>
+
     <!-- jQuery -->
 
 </asp:Content>
@@ -89,20 +91,25 @@ Extrants: --%>
         <div class="col-lg-6 col-centered">
 
             <div class="container-fluid">
+                <div class="control-group form-group">
+                            <div class="controls">
+                                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+                            </div>
+                        </div>
+
                 <asp:ListView ID="lvModifProfilEtudiant" runat="server"
                     ItemType="Site_de_la_Technique_Informatique.Model.Etudiant"
                     SelectMethod="SelectEtudiant"
-                    UpdateMethod="UpdateEtudiant"
-                    DeleteMethod="lvModifProfilEtudiant_DeleteItem">
+                    UpdateMethod="UpdateEtudiant">
                     <LayoutTemplate>
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
                     </LayoutTemplate>
                     <EmptyDataTemplate>
                         <table class="emptyTable">
                             <tr>
-                                <td>Lol
+                                <td>
                                 </td>
-                                <td>Cet étudiant n'existe pas.
+                                <td> étudiant n'existe pas.
                                 </td>
                             </tr>
                         </table>
@@ -119,7 +126,7 @@ Extrants: --%>
                                 <div class="modif-photo">
                                     <div class="img-thumbnail img-photo preview-photo">
                                         <div></div>
-                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#"Photos/Profils/"+Eval("pathPhotoProfil") %>' Width="125" Height="125" />
+                                        <asp:Image ID="showDataURL" runat="server" ImageUrl='<%#Eval ("pathPhotoProfil", "~//Upload//Photos//Profils//{0}")%>' Width="125" Height="125" />
                                     </div>
                                     <div class="div-btnChangerPhoto">
                                         <asp:LinkButton ID="lnkProfilePhoto" runat="server" Text="Changer la photo du profil" CssClass="btn btn-primary btnChangerPhoto" data-toggle="modal" data-target="#maPhotoProfile" />
@@ -174,13 +181,14 @@ Extrants: --%>
                                 <asp:Label ID="lblCourriel" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group" dvcv>
+                        <div class="control-group form-group">
                             <div class="controls">
                                 <label>CV:</label>
-                                <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
+                                <asp:LinkButton ID="lnkCV" runat="server" PostBackUrl='<%#Server.MapPath("~/ProjetDeux_2015_1/Upload/CV/" + Eval("pathCV")) %>' Text='<%#Eval("pathCV")%>' /><br />
                                 <label>Changer de CV:</label>
                                 <asp:FileUpload ID="fupCV" runat="server" />
                                 (valides: pdf , doc, docx , odf)
+
                             </div>
                         </div>
                         <div class="row">
@@ -209,14 +217,10 @@ Extrants: --%>
                                 <asp:Label ID="lblConfirmationNouveauMotDePasse" runat="server" Text="" />
                             </div>
                         </div>
-                        <div class="control-group form-group">
-                            <div class="controls">
-                                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-                            </div>
-                        </div>
                         <div class="row"></div>
                         <div class="col-lg-offset-8 col-lg-8 ">
-                            <asp:Button ID="btnDesactiver" runat="server" Text="Supprimer" CssClass="btn btn-primary" CommandName="Delete" />
+                           
+                           <asp:Button ID="btnAnnuler" runat="server" Text="Annuler" CssClass="btn btn-danger" OnClick="btnAnnuler_Click" />
                             <asp:Button ID="btnSave" runat="server" Text="Sauvegarder" CssClass="btn btn-primary" CommandName="Update" OnClientClick="copieImgData()" />
                         </div>
                     </ItemTemplate>
