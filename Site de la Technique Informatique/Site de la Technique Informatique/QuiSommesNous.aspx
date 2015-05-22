@@ -66,7 +66,7 @@ Extrants: --%>
                             <div class="row">
                                 <%-- Nom du professeur --%>
                                 <h3>
-                                    <asp:Label ID="lblNomProf" runat="server" Text='<%# Eval("prenom") %>'></asp:Label><br />
+                                    <asp:Label ID="lblNomProf" runat="server" Text='<%# Item.prenom +" " + Item.nom %>'></asp:Label><br />
                                     <small>Professeur</small>
                                 </h3>
                             </div>
