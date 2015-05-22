@@ -286,7 +286,7 @@ namespace Site_de_la_Technique_Informatique
                         txtConfirmationNouveauMotDePasse.BorderColor = initialBorderColor;
 
                         //Montrer que sa marché
-                        lblMessage.Text = "Les modifications ont étées sauvegardé";
+                        lblMessage.Text = "Les modifications ont été sauvegardées";
                         lblMessage.ForeColor = Color.Green;
                     }
                     catch (DbEntityValidationException ex) // D'AUTRES ERREURS PEUVENT SURVENIR QUI N'ONT PAS ÉTÉ PRÉVUE VIA DATAANNOTATIONS.

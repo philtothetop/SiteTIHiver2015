@@ -109,7 +109,7 @@ Extrants: --%>
                             <tr>
                                 <td>
                                 </td>
-                                <td> étudiant n'existe pas.
+                                <td> L'étudiant n'existe pas.
                                 </td>
                             </tr>
                         </table>
