@@ -18,6 +18,7 @@ namespace Site_de_la_Technique_Informatique
         public int id = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
+            msgError.ForeColor = Color.Red;
             SavoirSiPossedeAutorizationPourLaPage(false, true, false, false, false);
         }
 
@@ -77,7 +78,7 @@ namespace Site_de_la_Technique_Informatique
                 lecontexte.SaveChanges();
                 lviewNouvelles.DataBind();
                 lviewEditNews.DataBind();
-                msgError.Text = "Nouvelle Éditée avec Succès";
+                msgError.Text = "Nouvelle éditée avec succès";
                 msgError.Visible = true;
                 this.reset_Page();
             }
@@ -117,7 +118,8 @@ namespace Site_de_la_Technique_Informatique
                         lecontexte.SaveChanges();
                         lviewNouvelles.DataBind();
                         lviewEditNews.DataBind();
-                        msgError.Text = "Nouvelle Ajoutée avec Succès";
+                        msgError.Text = "Nouvelle ajoutée avec succès";
+                        msgError.ForeColor = Color.Green;
                         msgError.Visible = true;
                         this.reset_Page();
 
@@ -167,6 +169,7 @@ namespace Site_de_la_Technique_Informatique
                 lviewNouvelles.DataBind();
                 lviewEditNews.DataBind();
                 msgError.Text = "Nouvelle Supprimée avec Succès";
+                msgError.ForeColor = Color.Green;
                 msgError.Visible = true;
                 this.reset_Page();
             }

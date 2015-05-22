@@ -10,7 +10,7 @@
   
 
         <asp:Button ID="btnVoirOffreEmploiNonValide" runat="server" Text="Offres d'emploi non-validés" CssClass="btn btnOffreEmploiSelectionne" OnClick="VoirOffreNonValide_Click" />
-        <asp:Button ID="btnVoirOffreEmploiValide" runat="server" Text="Offres d'emploi validés" CssClass="btn btn-default" OnClick="VoirOffreValide_Click" />
+        <asp:Button ID="btnVoirOffreEmploiValide" runat="server" Text="Offres d'emploi validés" CssClass="btn btn-primary" OnClick="VoirOffreValide_Click" />
         
 
                 <asp:ListView ID="lviewOffresDEmploi" runat="server"
