@@ -13,7 +13,7 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Les logs</h1>
+                <h1 class="page-header">Historique</h1>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
                         <LayoutTemplate>
                             <div style="width:100%; margin-bottom:4px;">
                                         <div class="col-lg-2">
-                                            <asp:Label ID="lblTitreNoLog" runat="server" Text="No Log" style="font:bold; font-size:large;"></asp:Label>
+                                            <asp:Label ID="lblTitreNoLog" runat="server" Text="No historique" style="font:bold; font-size:large;"></asp:Label>
                                             </div>
                             <div class="col-lg-2">
                                             <asp:Label ID="lblTitreNoCompte" runat="server" Text="No Compte" style="font:bold; font-size:large;"></asp:Label>
@@ -77,11 +77,11 @@
         </asp:ListView>
 
                 <asp:Button ID="btnVoirToutLesLogs" runat="server" Text="Tous" OnClick="ChercherUnTypeDeLog" CommandArgument="9000" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btn-default"  />
-                            <asp:Button ID="btnVoirQueLogNormal" runat="server" Text="Logs normaux" OnClick="ChercherUnTypeDeLog" CommandArgument="0" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btn-default"  />
-                            <asp:Button ID="btnVoirQueLogErreur" runat="server" Text="Logs erreurs" OnClick="ChercherUnTypeDeLog" CommandArgument="1" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnErreur" />
-                            <asp:Button ID="btnVoirQueLogWarning" runat="server" Text="Logs warnings" OnClick="ChercherUnTypeDeLog" CommandArgument="2" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnWarning" />
-                            <asp:Button ID="btnVoirQueLogInscription" runat="server" Text="Logs inscriptions" OnClick="ChercherUnTypeDeLog" CommandArgument="3" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnInscription" />
-                            <asp:Button ID="btnVoirQueLogBanni" runat="server" Text="Logs bannissement" OnClick="ChercherUnTypeDeLog" CommandArgument="4" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnBanissement"/>
+                            <asp:Button ID="btnVoirQueLogNormal" runat="server" Text="Normaux" OnClick="ChercherUnTypeDeLog" CommandArgument="0" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btn-default"  />
+                            <asp:Button ID="btnVoirQueLogErreur" runat="server" Text="Erreurs" OnClick="ChercherUnTypeDeLog" CommandArgument="1" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnErreur" />
+                            <asp:Button ID="btnVoirQueLogWarning" runat="server" Text="Warnings" OnClick="ChercherUnTypeDeLog" CommandArgument="2" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnWarning" />
+                            <asp:Button ID="btnVoirQueLogInscription" runat="server" Text="Inscriptions" OnClick="ChercherUnTypeDeLog" CommandArgument="3" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnInscription" />
+                            <asp:Button ID="btnVoirQueLogBanni" runat="server" Text="Bannissements" OnClick="ChercherUnTypeDeLog" CommandArgument="4" style="width:14%; margin-left:1%; margin-right:1%;" CssClass="btn btnBanissement"/>
             </div>
 
             <div style="text-align:center; width:100%;">
