@@ -38,7 +38,7 @@ namespace Site_de_la_Technique_Informatique
                     premiereQuestion.texteReponse = "";
                     listeDesQuestions.Add(premiereQuestion);
                     listeDesQuestions.AddRange((from faq in lecontexte.FAQSet select faq).ToList());
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -66,7 +66,7 @@ namespace Site_de_la_Technique_Informatique
                 }
             }
             return questionAModifier;
-           
+
         }
 
         protected void ddlQuestionsFAQ_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,6 +112,7 @@ namespace Site_de_la_Technique_Informatique
                 {
                     int nbErreurs = 0;
                     string ajouterQuestion = txtAjouterQuestion.Text.Trim();
+                    //ajouterQuestion = ajouterQuestion.Replace("#")
                     string ajouterReponse = txtAjouterReponse.Text.Trim();
                     if (ajouterQuestion.Length > 150)
                     {
@@ -136,7 +137,8 @@ namespace Site_de_la_Technique_Informatique
                         txtAjouterReponse.BorderColor = Color.Red;
                         nbErreurs++;
                     }
-                    else if (ajouterReponse.Length == 0) {
+                    else if (ajouterReponse.Length == 0)
+                    {
                         lblMessage.Attributes["style"] = "color:red;";
                         lblMessage.Text += "- Vous devez entrer une réponse.<br />";
                         txtAjouterReponse.BorderColor = Color.Red;
@@ -157,7 +159,7 @@ namespace Site_de_la_Technique_Informatique
                         txtAjouterReponse.Text = "";
                         ddlQuestionsFAQ.DataBind();
                     }
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -196,12 +198,14 @@ namespace Site_de_la_Technique_Informatique
                         lblMessage.Text += "- Votre réponse est trop longue. Elle doit avoir 800 caractères ou moins.<br />";
                         txtReponse.BorderColor = Color.Red;
                     }
-                    else if (txtQuestion.ToString().Length == 0) {
+                    else if (txtQuestion.ToString().Length == 0)
+                    {
                         lblMessage.Attributes["style"] = "color:red;";
                         lblMessage.Text += "- Entrez une question.<br />";
                         txtQuestion.BorderColor = Color.Red;
                     }
-                    else if (txtReponse.ToString().Length == 0) {
+                    else if (txtReponse.ToString().Length == 0)
+                    {
                         lblMessage.Attributes["style"] = "color:red;";
                         lblMessage.Text += "- Entrez une réponse.<br />";
                         txtReponse.BorderColor = Color.Red;

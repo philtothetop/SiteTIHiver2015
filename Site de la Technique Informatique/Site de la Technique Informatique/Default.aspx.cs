@@ -222,11 +222,5 @@ namespace Site_de_la_Technique_Informatique
             }
         }
 
-        //Code pour allez voir les détail de l'event
-        protected void lnkClickEventDetail_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
