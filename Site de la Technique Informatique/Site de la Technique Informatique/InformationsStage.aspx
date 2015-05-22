@@ -8,7 +8,7 @@
         <div class="row"  >
             <div class="col-lg-3 scrolltarget" style="margin-top: 0px;" >
                 <div  style="width:285px; position: fixed; overflow:hidden;  padding:3px;">
-                    <asp:Image runat="server" ID="logoCegep" ImageUrl="~/Photos/logo/Logo_InformatiqueCouleur_FondTransparent.png" Width="370" Height="208" style="margin-right:51%; margin-left:-16% ;margin-bottom:-10%;" />
+                    <asp:Image runat="server" ID="logoCegep" ImageUrl="~/Upload/Photos/logo/Logo_InformatiqueCouleur_FondTransparent.png" Width="370" Height="208" style="margin-right:51%; margin-left:-16% ;margin-bottom:-10%;" />
                    
                         <ul class="nav nav-pills nav-stacked pills" role="tablist">
                             <li role="presentation" class="active"><a class="page-scroll" href="#aideGouvernementale">L'aide gouvernementale</a></li>
