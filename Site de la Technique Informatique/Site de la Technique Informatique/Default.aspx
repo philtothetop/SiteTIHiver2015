@@ -72,7 +72,7 @@
             <div class="col-lg-12">
                 <h2 class="page-header">Une technique spécialisée en programmation</h2>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <p>La programmation exige certaines qualités</p>
                 <ul>
                     <li>Débrouillardise</li>
@@ -87,10 +87,10 @@
                     <li>Patience</li>
                     <li>Aimer le café</li>
                 </ul>
-                <p>Cette technique ne concerne en rien la programmation de jeux vidéo, prendre note qu'il faut s'appliquer et travailler fort pour réussir les cours.</p>
+               
             </div>
-            <div class="col-md-6">
-                <img class="img-responsive" src="Upload/Photos/Autres/Accueil.jpg" alt="" />
+            <div class="col-md-4" style="padding:0px;">
+                <img class="img-responsive" style="padding-right:20px;" src="Upload/Photos/Autres/Accueil.jpg" alt="" />
             </div>
         </div>
         <!-- /.row -->
