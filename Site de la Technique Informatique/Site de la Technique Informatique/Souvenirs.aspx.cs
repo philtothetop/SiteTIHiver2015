@@ -112,7 +112,7 @@ namespace Site_de_la_Technique_Informatique
             {
                 System.Drawing.Image imageDuMoment = System.Drawing.Image.FromFile(pathImage);
                 imageDuMoment = ResizeTheImage(500, 120, imageDuMoment);
-
+                 
                 //Pour height
                 if (faireHauteur == true)
                 {
