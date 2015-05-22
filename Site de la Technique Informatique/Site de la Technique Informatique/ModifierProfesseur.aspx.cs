@@ -31,7 +31,7 @@ namespace Site_de_la_Technique_Informatique
             currentProf = lvProfesseur_GetData();
             string tab = hidTab.Value;
 
-            lblCoursErreurs.Visible = false;
+            
             ddlCours.Enabled = ddlCours.Items.Count > 0 ? true : false;
             btnModif.Enabled = ddlCours.Enabled;
             
@@ -385,9 +385,9 @@ namespace Site_de_la_Technique_Informatique
                 {
                     foreach (var validationResult in results)
                     {
-                        lblCoursErreurs.Text += validationResult.ErrorMessage;
+                        lblMessage.Text += validationResult.ErrorMessage;
                     }
-                    lblCoursErreurs.Visible = true;
+                    divWarning.Visible = true;
                 }
                 else // VALIDE
                 {
@@ -416,15 +416,14 @@ namespace Site_de_la_Technique_Informatique
                     {
                         foreach (var eve in el.EntityValidationErrors)
                         {
-                            lblCoursErreurs.Text += "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:" +
-                                eve.Entry.Entity.GetType().Name + eve.Entry.State;
+
                             foreach (var ve in eve.ValidationErrors)
                             {
-                                lblCoursErreurs.Text += "- Property: \"{0}\", Error: \"{1}\"" +
-                                    ve.PropertyName + ve.ErrorMessage;
-                                lblCoursErreurs.Visible = true;
+                                lblMessage.Text += "<b>" + ve.PropertyName + ":</b>"
+                                     + ve.ErrorMessage + "<br/>";
                             }
                         }
+                        divWarning.Visible = true; 
                     }
                     ViewState["mode"] = "édite";
                     ddlCours.DataBind();
@@ -464,8 +463,8 @@ namespace Site_de_la_Technique_Informatique
                 }
                 catch (Exception ex)
                 {
-                    lblCoursErreurs.Text += "ERREUR DE SUPPRESSION D'UN COURS, " + ex.ToString();
-                    lblCoursErreurs.Visible = true;
+                    lblMessage.Text += "ERREUR DE SUPPRESSION D'UN COURS" ;
+                   divWarning.Visible = true;
                 }
         }
         #endregion
@@ -489,8 +488,8 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-               lblCoursErreurs.Text += "ERREUR LORS DE L'«AJOUT» D'UN COURS, " + ex.ToString();
-               lblCoursErreurs.Visible = true;
+               lblMessage.Text += "ERREUR LORS DE L'«AJOUT» D'UN COURS" ;
+               divWarning.Visible = true;
             }
         }
 
@@ -512,8 +511,8 @@ namespace Site_de_la_Technique_Informatique
             }
             catch (Exception ex)
             {
-                lblCoursErreurs.Text += "ERREUR DE ITEMDATABOUND, " + ex.ToString();
-                lblCoursErreurs.Visible = true;
+                lblMessage.Text += "ERREUR DE ITEMDATABOUND" ;
+                divWarning.Visible = true;
             }
         }
 

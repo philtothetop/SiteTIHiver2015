@@ -39,7 +39,7 @@
                             <div class="item">
                                 <div style="width: 100%; height: 400px; text-align: center; border-left: solid black 1px; border-right: solid black 1px;">
                                     <span style="display: inline-block; height: 100%; vertical-align: middle;"></span>
-                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# "~/Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto /*isLocal("Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto)*/ %>' Style="vertical-align: middle;" />
+                                    <asp:Image ID="imgDansCarousel" runat="server" ImageUrl='<%# "Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto /*isLocal("Upload/Photos/Souvenir/" + Item.typePhoto + "/" + Item.pathPhoto)*/ %>' Style="vertical-align: middle;" />
                                 </div>
 
                                 <div class="carousel-caption">
@@ -90,7 +90,7 @@
                 <p>Cette technique ne concerne en rien la programmation de jeux vidéo, prendre note qu'il faut s'appliquer et travailler fort pour réussir les cours.</p>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive" src='<%# isLocal("Upload/Photos/Autres/Accueil.jpg") %>' alt="" />
+                <img class="img-responsive" src="Upload/Photos/Autres/Accueil.jpg" alt="" />
             </div>
         </div>
         <!-- /.row -->
@@ -170,7 +170,7 @@
                     <p>Pour une liste de tous les cours avec leur description détaillée.</p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" onclick="window.open('Upload/Cours/grilles_informatique.pdf', '_blank', 'fullscreen=yes'); return false;" href="#">Liste des cours</a>
+                    <a class="btn btn-lg btn-default btn-block btn-primary" onclick="window.open('Upload/Cours/grilles_informatique.pdf', '_blank', 'fullscreen=yes'); return false;" href="#">Liste des cours</a>
                 </div>
             </div>
         </div>
