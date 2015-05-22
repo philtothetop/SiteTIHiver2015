@@ -46,6 +46,8 @@ namespace Site_de_la_Technique_Informatique
                 listeEvenements = (from cl in lecontexte.EvenementSet where cl.dateDebutEvenement >= DateTime.Now select cl).ToList();
             }
 
+            listeEvenements.Reverse();
+            
             return listeEvenements.AsQueryable();
         }
         #endregion
