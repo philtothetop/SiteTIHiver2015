@@ -170,7 +170,7 @@
                     <p>Pour une liste de tous les cours avec leur description détaillée.</p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" onclick="window.open('Upload/Cours/grilles_informatique.pdf', '_blank', 'fullscreen=yes'); return false;" href="#">Liste des cours</a>
+                    <a class="btn btn-lg btn-default btn-block btn-primary" onclick="window.open('Upload/Cours/grilles_informatique.pdf', '_blank', 'fullscreen=yes'); return false;" href="#">Liste des cours</a>
                 </div>
             </div>
         </div>

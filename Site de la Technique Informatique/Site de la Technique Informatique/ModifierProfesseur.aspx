@@ -86,14 +86,14 @@
         <div class="tab-content">
 
             <div class="row">
-                <div class="col-md-2 col-md-offset-5" style="position: absolute">
+                <div class="col-md-2 col-md-offset-7" style="position: absolute">
                     <div class="alert alert-success" runat="server" id="divSuccess">
                         <p>Les modifications ont été effectuées.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-2 col-md-offset-6" style="position: absolute;">
+                <div class="col-md-2 col-md-offset-7" style="position: absolute;">
                     <div class="alert alert-warning" runat="server" id="divWarning">
                         <p>Veuillez porter attention à ces champs:</p>
                         <br />
@@ -187,7 +187,7 @@
                             </div>
                             <div class="row row-centered" style="margin-bottom: 20px;">
                                 <div class="col-md-1 col-md-push-2 col-centered">
-                                        <asp:LinkButton ID="lnkSauvegarderModifs" Text="Sauvegarder" runat="server" CssClass="btn btn-default" Style="float: right;" CommandName="Update" OnClientClick="copieImgData()" />
+                                        <asp:LinkButton ID="lnkSauvegarderModifs" Text="Sauvegarder" runat="server" CssClass="btn btn-success" Style="float: right;" CommandName="Update" OnClientClick="copieImgData()" />
                                 </div>
                             </div>
 
@@ -236,7 +236,7 @@
                                 <asp:LinkButton ID="lnkFaireTemoignage" runat="server" Text="Faire un témoignage" CssClass="btn btn-info" OnClick="lnkFaireTemoignage_Click" />
                             </div>
                             <div style="float:right;">
-                                <asp:LinkButton ID="lnkSaveNewPassword" runat="server" CssClass="btn btn-default" Text="Sauvegarder" OnClick="lnkSaveNewPassword_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="lnkSaveNewPassword" runat="server" CssClass="btn btn-success" Text="Sauvegarder" OnClick="lnkSaveNewPassword_Click"></asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -354,7 +354,7 @@
                             </ItemTemplate>
 
                         </asp:ListView>
-                           <asp:Label ID="lblCoursErreurs" runat="server" Visible ="false" />
+                           
                     </div>
                 </div>
 
