@@ -32,7 +32,7 @@ Extrants: --%>
             <div class="col-md-6">
                 <h2>Notre équipe</h2>
                 <p>L'équipe de la Technique de l'informatique de gestion possède des professeurs dynamiques qui contribueront à votre réussite scolaire.</p>
-                <p>Pour l'obtention de votre diplôme, vous devrez réussir 20 cours de spécialisations en informatique, 14 cours de bases, réussir l'Épreuve Uniforme de Langue et l'Épreuve Synthèse de Programme.</p>
+                <p>Pour l'obtention de votre diplôme, vous devrez réussir 20 cours de spécialisation en informatique, 14 cours de base, réussir l'Épreuve Uniforme de Langue et l'Épreuve Synthèse de Programme.</p>
                 <p>Venez vivre la vie étudiante, faites connaissance avec de nouvelles personnes qui partagent les mêmes passions que vous en informatique.</p>
             </div>
         </div>

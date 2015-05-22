@@ -44,7 +44,7 @@
 
                         <p><span class="greenText">"VerTIC"</span>, c’est à la fois la technologie et l'environnement. En fait, il s'agit d'une référence à l'utilisation des TIC (Technologie de l'information et des communications) intégrée à l'enseignement de l'ensemble des membres du département d'informatique. Cette pratique pédagogique amènera à éliminer presque à 100% l'utilisation du papier dans les cours, d'où le souci environnemental et l'appellation <span class="greenText">"VerTIC"</span>.</p>
 
-                        <p>Pour arriver à nos fins, tous les enseignants s'engagent à mettre à la disposition des étudiants, via Internet, l'ensemble de la documentation nécessaire à la réalisation des cours c'est-à-dire plans de formation, notes de cours, exercices, travaux et possiblement les examens. Chaque enseignant possède son propre site Web et les étudiants auront accès aux pages Web contenant les documents de chacun de leurs cours. Pour atteindre nos objectifs, il sera essentiel que les étudiants soient munis d'un ordinateur portatif avec l'accès réseau sans fils. Les modèles proposés garantissent que toutes les activités pédagogiques reliées aux cours du programme seront réalisables.  Cette solution permettra aux étudiants d'avoir accès à leur environnement de travail autant au Cégep qu'à la maison. De notre département et de presque partout sur le cégep, vous pourrez vous brancher au réseau Internet par le biais d'un réseau sans fil et réseaux avec fils.</p>
+                        <p>Pour arriver à nos fins, tous les enseignants s'engagent à mettre à la disposition des étudiants, via Internet, l'ensemble de la documentation nécessaire à la réalisation des cours c'est-à-dire plans de formation, notes de cours, exercices, travaux et possiblement les examens. Chaque enseignant possède son propre site Web et les étudiants auront accès aux pages Web contenant les documents de chacun de leurs cours. Pour atteindre nos objectifs, il sera essentiel que les étudiants soient munis d'un ordinateur portatif avec l'accès réseau sans fil. Les modèles proposés garantissent que toutes les activités pédagogiques reliées aux cours du programme seront réalisables.  Cette solution permettra aux étudiants d'avoir accès à leur environnement de travail autant au Cégep qu'à la maison. De notre département et de presque partout sur le cégep, vous pourrez vous brancher au réseau Internet par le biais d'un réseau sans fil et réseaux avec fil.</p>
 
                         <p>Département d’informatique du Cégep de Granby</p>
                     </div>
@@ -58,7 +58,7 @@
 
                         <h3>Caractéristiques du portable VerTIC</h3>
 
-                        <p>La sélection du portatif pour notre programme d'études s'effectue avec des critères concrets. Ce qui est le plus important pour nous demeure la performance du portatif et celui-ci saura bien tenir la route pendant le séjour de l'étudiant au département. Ces choix s'effectuent en fonction des applications qui sont utilisées dans le programme d'informatique.</p>
+                        <p>La sélection du portatif pour notre programme d'études s'effectue avec des critères concrets. Ce qui est le plus important pour nous demeure la performance du portable et celui-ci saura bien tenir la route pendant le séjour de l'étudiant au département. Ces choix s'effectuent en fonction des applications qui sont utilisées dans le programme d'informatique.</p>
 
                         <p>Le département d'informatique du Cégep de Granby propose aux étudiants de faire partie d'un programme d'achats regroupés de portables de la compagnie DELL. La famille de portables proposée répond aux besoins et aux caractéristiques exigées par le département d’informatique du Cégep de Granby, les étudiants devront acheter un portable choisi parmi cette famille de portables.</p>
 
@@ -152,7 +152,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Configuration logicielle</h3>
-                        <p>Nous vous suggérons de partitionner votre disque dur en deux parties au départ. Vous retrouverez une partition d'applications et une partition personnelle pour vos données. De plus, lors du cours «Gérer un poste de travail», vous allez créer une image de votre poste de travail sur votre disque externe, vous permettant de reconstruire votre environnement logiciel si un problème majeur survenait. Nous avons créé un DVD d'installation muni de logiciels libres (gratuits) et de certains logiciels avec licence, qui vous seront fournis gratuitement (via une entente entre le Cégep de Granby et Microsoft). Évidemment, votre portatif vous appartient et vous serez libre de le modifier comme vous l'entendez. De notre côté, nous nous engageons à vous fournir les DVD des images et des applications pour remettre votre portatif à son état initial en cas de pépins. Voici la liste des logiciels qui seront installés sur votre portatif lors du VerTICamp : </p>
+                        <p>Nous vous suggérons de partitionner votre disque dur en deux parties au départ. Vous retrouverez une partition d'applications et une partition personnelle pour vos données. De plus, lors du cours «Gérer un poste de travail», vous allez créer une image de votre poste de travail sur votre disque externe, vous permettant de reconstruire votre environnement logiciel si un problème majeur survenait. Nous avons créé un DVD d'installation muni de logiciels libres (gratuits) et de certains logiciels avec licence, qui vous seront fournis gratuitement (via une entente entre le Cégep de Granby et Microsoft). Évidemment, votre portatif vous appartient et vous serez libre de le modifier comme vous l'entendez. De notre côté, nous nous engageons à vous fournir les DVD des images et des applications pour remettre votre portatif à son état initial en cas de pépins. Voici la liste des logiciels qui seront installés sur votre portable lors du VerTICamp : </p>
                         <div class="col-lg-6">
                             <h4>LOGICIELS AVEC LICENCES</h4>
                             <asp:TextBox ID="txtLogicielLicenses" runat="server" Text="" TextMode="MultiLine" Style="max-height: 150px; min-height: 150px; max-width: 350px; min-width: 350px;" Enabled="False">
@@ -176,9 +176,9 @@
                     <div class="col-lg-12">
                         <h3>Garantie et assurance</h3>
 
-                        <p>À la base, votre portatif VerTIC est couvert par une garantie d'un an sur les pièces et la main-d'œuvre. La garantie couvre les bris associés à une mauvaise conception ou à un défaut de fabrication de l'appareil. Elle ne couvre pas les bris causés par un usage abusif. Tel que mentionné, le service s'effectue chez votre fournisseur. La période de réparation devrait se compter entre une à deux semaines. Advenant un pépin, vous aurez accès à un ordinateur portable de remplacement offert par le Cégep de Granby.</p>
+                        <p>À la base, votre portable VerTIC est couvert par une garantie d'un an sur les pièces et la main-d'œuvre. La garantie couvre les bris associés à une mauvaise conception ou à un défaut de fabrication de l'appareil. Elle ne couvre pas les bris causés par un usage abusif. Tel que mentionné, le service s'effectue chez votre fournisseur. La période de réparation devrait se compter entre une à deux semaines. Advenant un pépin, vous aurez accès à un ordinateur portable de remplacement offert par le Cégep de Granby.</p>
 
-                        <p>Au niveau des assurances, il est très important de vérifier les modalités de votre police, ou celle de vos parents le cas échéant, pour savoir si votre futur portatif VerTIC sera couvert contre le vol et les accidents. Bien souvent, un ordinateur portatif sera considéré comme un ordinateur de maison, mais il se peut que le contraire se produise également. Un simple coup de téléphone à votre courtier vous donnera l'heure juste à ce sujet. Une bonne police d'assurances pourrait vous sauver d'une lourde dépense si, par exemple, vous échappiez votre portatif sur le sol fissurant ainsi l'écran, ou encore, si votre voisin échappait son café sur votre clavier causant des courts-circuits dans votre portatif.</p>
+                        <p>Au niveau des assurances, il est très important de vérifier les modalités de votre police, ou celle de vos parents le cas échéant, pour savoir si votre futur portatif VerTIC sera couvert contre le vol et les accidents. Bien souvent, un ordinateur portatif sera considéré comme un ordinateur de maison, mais il se peut que le contraire se produise également. Un simple coup de téléphone à votre courtier vous donnera l'heure juste à ce sujet. Une bonne police d'assurances pourrait vous sauver d'une lourde dépense si, par exemple, vous échappiez votre portable sur le sol fissurant ainsi l'écran, ou encore, si votre voisin échappait son café sur votre clavier causant des courts-circuits dans votre portable.</p>
                     </div>
                 </div>
             </section>
@@ -187,7 +187,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h3>Financement</h3>
-                        <p>Il y a plusieurs façons de financer un portatif VerTIC</p>
+                        <p>Il y a plusieurs façons de financer un portable VerTIC</p>
                         <ul>
                             <li>
                                 <b>Programme de Prêt pour l'achat de matériel informatique du  ministère de l'Éducation (MEQ)</b>
@@ -297,7 +297,7 @@
 
                     <p>La journée d'accueil et le VerTICamp sont jumelés pour ne faire qu'une seule activité. Lors de l'accueil, tous les membres du département seront présents et une brève explication de votre programme d'études vous sera également faite.</p>
 
-                    <p>En un deuxième temps, la portion VerTICamp se mettra en marche. Ce camp vous permettra de comprendre votre portatif, l'environnement réseau ainsi que les principales applications pour débuter votre programme. À cette occasion, vous procéderez à l'installation et à la configuration de la partie logicielle de votre portatif à l'aide des procéduriers, un DVD vous sera fourni.</p>
+                    <p>En un deuxième temps, la portion VerTICamp se mettra en marche. Ce camp vous permettra de comprendre votre portable, l'environnement réseau ainsi que les principales applications pour débuter votre programme. À cette occasion, vous procéderez à l'installation et à la configuration de la partie logicielle de votre portable à l'aide des procéduriers, un DVD vous sera fourni.</p>
 
                     <p>Finalement, un léger goûter sera servi, vous pourrez donc prendre quelques pauses entre les installations et faire connaissance avec vos collègues.</p>
 
